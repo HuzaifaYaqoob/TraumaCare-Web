@@ -1,0 +1,20 @@
+
+# Virtual ENV added
+venv
+./venv
+/venv
+
+
+# VS Code setting added
+.vscode
+./.vscode
+/.vscode
+
+
+
+# Environment File added
+.env
+*.env
+/.env
+./.env
+
