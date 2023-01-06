@@ -1,0 +1,218 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+body{
+    font-family: 'Source Sans Pro', sans-serif;
+    height: 100vh;
+}
+
+
+
+.main-section{
+    display: flex;
+}
+
+.float-left{
+    min-height: 100vh;
+    position: relative;
+    /* width: 47%; */
+    flex: 1;
+    /* padding-bottom: 488px; */
+    background: url(../Images/Rectangle\ 445.png);
+    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
+    /* border: 1px solid red; */
+    /* background-color: rgba(10, 28, 75, 0.651); */
+}
+
+.float-left div:first-child{
+    position: relative;
+}
+
+
+.float-left div:first-child{
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-image: linear-gradient(rgba(6, 21, 59, 0.842), rgba(7, 24, 66, 0.829));
+}
+
+
+
+
+.float-left svg:first-child{
+    top: 220px;
+    position: absolute;
+    width: 10px;
+    height: 25px;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    /* margin-top: 240px; */
+}
+
+
+
+
+/*  */
+/*  */
+/*  */
+
+
+
+
+
+.float-right{
+    /* width: 53%; */
+    flex: 1;
+    border: 1px solid green;
+    background-color: rgba(245, 245, 245, 1);
+}
+
+
+.float-right h2{
+    font-size: 30px;
+    text-align: center;
+    color: rgba(10, 28, 75, 1);
+    margin-top: 158px;
+}
+
+
+.right-p{
+    text-align: center;
+    color: rgba(10, 28, 75, 0.884);
+    word-spacing: 0.5px;
+    letter-spacing: 0.2px;
+    font-size: 18px;
+    padding-top:10px;
+    font-weight: 400;
+}
+
+.float-right form{
+    max-width: 1000px;
+    width: 60%;
+    margin: 0 auto;
+    /* border: 1px solid red; */
+    margin-top: 28px;
+}
+
+/*  */
+/*  */
+/*  */
+/* form */
+/*  */
+/*  */
+/*  */
+
+    
+
+form p{
+    margin-top: 10px;
+    font-size: 12px;
+    font-weight: 200;
+    color: rgba(10, 28, 75, 1);
+    padding-left: 6px;
+}
+
+form div.after-form{
+    border: 1px solid rgba(36, 208, 208, 1);
+    margin-top: 3px;
+    display: flex;
+    border-radius: 6px;
+    background-color: #fff;
+    padding-left: 3px;
+}
+
+.div-hover, .hover{
+    margin-top: 3px;
+    display: flex;
+    border-radius: 6px;
+    background-color: #fff;
+    padding-left: 3px;
+}
+
+form div input{
+    outline: none;
+    border: none;
+    width: 93%;
+    padding: 12px 0 14px 9px;
+    color: rgba(36, 208, 208, 1);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+}
+input::-webkit-inner-spin-button{
+    display: none;
+}
+
+input::placeholder{
+    font-size: 11px;
+    color: rgba(36, 208, 208, 1);
+}
+
+
+form div svg{
+    height: 20px;
+    width: 20px;
+    justify-content: center;
+    align-items: center;
+    margin-left: 3px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+
+.div-hover , .hover{
+    border: 1px solid rgba(255, 255, 255, 1);
+}
+
+
+.div-hover:hover , .hover:hover{
+    border: 1px solid rgba(36, 208, 208, 1);
+}
+
+
+/* button */
+/*  */
+/*  */
+
+
+form button{
+    margin-top: 30px;
+    color: rgba(255, 255, 255, 1);
+    background-color: rgba(10, 28, 75, 1);
+    border-radius: 6px;
+    width: 100%;
+    padding: 10px 0 8px 0;
+    font-size: 18px;
+    font-weight: 100;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+
+.after-button{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.after-button p:first-child{
+    color: rgba(10, 28, 75, 1);
+}
+
+
+.after-button p:last-child{
+    color: rgba(36, 208, 208, 1);
+    font-weight: bold;
+    cursor: pointer;
+}

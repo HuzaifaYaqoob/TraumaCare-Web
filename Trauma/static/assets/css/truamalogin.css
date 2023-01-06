@@ -1,0 +1,199 @@
+*{
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+}
+
+.truamacare-login{
+    display: flex;
+}
+.truamacare-login-left{
+    width: 50%;
+    height: 757px;
+    background-color: #0A1C4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.truamacare-login-left-heading{
+    color: white;
+    font-size: 40px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.truamacare-login-left-span{
+    color: #24D0D0;
+}
+
+.truamacare-login-right{
+    background-color:rgba(192, 192, 192, 0.247);
+    width: 50%;
+    height: 757px;
+  
+}
+
+.traumalogin-name{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+}
+
+.name-input{
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    color: #24D0D0;
+    /* background-color: red; */
+    width:520px;
+    /* flex: 1; */
+    /* display: block; */
+    /* width: 10000px; */
+}
+
+
+.traumalogin-contact{
+    display: flex;
+    align-items: center;
+    width: 550px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+.contact-input{
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    color: #24D0D0;
+    width: 520px;
+}
+
+
+.traumalogin-emailadres{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 10px;
+    width: 550px;
+    height: 40px;
+    background-color: #FFFFFF;
+    border-radius: 7px;
+    margin-top: 10px;
+}
+
+.traumalogin-emailadres{
+    border: none;
+    outline: none;
+    padding-left: 10px;
+    color: #24D0D0;
+}
+
+
+.traumalogin-emailadres-input{
+    outline: none;
+    border: none;
+    color: #24D0D0;
+    width: 51   0px;
+}
+
+.traumalogin-emailadres:hover{
+    border: 1px solid #24D0D0;
+}
+
+.traumalogin-contact:hover{
+    border: 1px solid #24D0D0;
+}
+
+
+.traumalogin-name:hover{
+    border: 1px solid #24D0D0;
+}   
+
+.traumalogin-right-heading{
+    text-align: center;
+    padding-top: 50px;
+    color: #0A1C4B;
+    font-size: 28px;
+    font-weight: 700;
+}
+.traumalogin-right-para{
+    text-align: center;
+    padding-top: 15px;
+    padding-bottom: 30px;
+    color: #0A1C4B;
+}
+
+.trauma-right-button{
+    width: 550px;
+    height: 40px;
+    background-color:  #0A1C4B;
+    margin-top:30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 7px;
+    cursor: pointer;
+}
+.login{
+    color: white;
+    font-size:25px;
+    font-weight: 400;
+}
+
+
+.right{
+    margin-top: 120px;
+    margin-left: 120px;
+    /* position: absolute; */
+    /* top: 150px; */
+    /* left: 900px; */
+}
+
+.right-bottom-para{
+    text-align: center;
+    padding-top: 15px;
+    font-weight: 400;
+    font-size: 15px;
+    color: #0A1C4B;
+}
+
+.right-bottom-para span{
+    color: #24D0D0;
+    cursor: pointer;
+    /* margin-top: 10px; */
+    /* max-width: 1200px; */
+}
+
+.name-right{
+    padding-bottom: 5px;
+    padding-left: 6px;
+}
+
+.contact-number{
+    padding-top: 10px;
+    padding-left: 6px;
+}
+
+
+.email-adress{
+    padding-top: 10px;
+    padding-left: 6px;
+}
+.para{
+    max-width:580px;
+    /* margin-top: 25px; */
+}
+
+.heading{
+    max-width:550px;
+}
