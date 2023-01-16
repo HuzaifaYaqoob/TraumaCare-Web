@@ -1,16 +1,18 @@
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 from django.conf import settings
 from django.conf.urls.static import static
 
 
-from Trauma.views import homePage
+from Trauma.views import homePage, test_huzaifa
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homePage, name='homePage'),
+    path('huzaifa/', test_huzaifa, name='test_huzaifa'),
+    path('auth/',  include('Authentication.urls')),
 
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \

@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'Trauma.apps.TraumaConfig'
+    'Trauma.apps.TraumaConfig',
+    'Authentication.apps.AuthenticationConfig'
 ]
 
 MIDDLEWARE = [

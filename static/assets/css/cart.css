@@ -1,0 +1,132 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+
+body{
+    background-color: rgb(245, 245, 245);
+    font-family: sans-serif;
+}
+
+
+
+
+
+.main-body {
+    padding-top: 150px;
+}
+
+
+.vitamin-d3 {
+    /* border: 1px solid red; */
+    background: #FFFFFF;
+    box-shadow: 0px 4px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    margin: auto;
+    width: 430px;
+    padding: 40px 40px 25px 40px;
+}
+
+
+.vitamin-d3 h3{
+    color:rgba(10, 28, 75, 1);
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.vitamin-d3 p{
+    text-align: left;
+    font-size: 16px;
+    color: rgba(10, 28, 75, 1);
+    padding-top: 10px;
+    line-height: 23px;
+}
+
+.stars-div{
+    display: flex;
+    gap: 2px;
+}
+
+.stars-div svg{
+    height: 15px;
+    cursor: pointer;
+    width: 11px;
+}
+
+
+.flex-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px 50px 20px 0px;
+}
+
+
+
+
+.left h2{
+    color: rgba(36, 208, 208, 1);
+    font-size: 22px;
+    font-weight: 300;
+}
+
+.left h3{
+    padding-top: 10px;
+    padding-bottom: 3px;
+}
+
+.left p{
+    text-align: left;
+    background-color: rgba(36, 208, 208, 0.2);
+    border-radius: 5px;
+    padding: 5px 10px 5px 5px;
+    font-size: 15px;
+    color: rgba(10, 28, 75, 1);
+}
+
+
+.left-flex{
+    display: flex;
+    gap: 5px;
+    padding-top: 3px;
+}
+
+.left-flex div{
+    padding: 5px 10px;
+    background-color: rgba(10, 28, 75, 0.2);
+    border: 1px solid rgba(10, 28, 75, 1);
+    color: rgba(10, 28, 75, 1);
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 5px;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-flex div:first-child{
+    padding: 5px 12px;
+
+}
+
+.right img{
+    height: 120px;
+    width: 130px;
+}
+
+.btn{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: rgba(10, 28, 75, 1);
+    border-radius: 6px;
+    padding: 15px 0px;
+}
+
+a{
+    text-decoration: none;
+    color: rgba(255, 255, 255, 1);
+}

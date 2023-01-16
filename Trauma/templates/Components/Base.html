@@ -1,0 +1,20 @@
+{% extends 'Components/MainBase.html' %}
+{% load static %}
+
+{% block mainBaseCSS %}
+<link rel="stylesheet" type="text/css" href="{% static 'assets/css/header.css' %}">
+
+{% block BaseCSS %}{% endblock BaseCSS %}
+
+
+{% endblock mainBaseCSS %}
+
+{% block mainBaseBody %}
+
+{% include 'Components/Header.html' %}
+
+{% block baseBody %}{% endblock baseBody %}
+
+{% include 'Components/Footer.html' %}
+
+{% endblock mainBaseBody %}

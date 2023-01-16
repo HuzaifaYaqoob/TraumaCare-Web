@@ -1,0 +1,34 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <title>{% block title %}{% endblock title %} - TraumaCare</title>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/UtlityClasses/utility.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'assets/css/login.css' %}"> {% endcomment %}
+
+
+
+    {% block mainBaseCSS %}
+    {% endblock mainBaseCSS %}
+
+</head>
+<body>
+
+    {% block mainBaseBody %}
+
+    
+    {% endblock mainBaseBody %}
+
+
+    <script src="{% static 'assets/tailwind/tailwind.js' %}"></script>
+    
+</body>
+</html>
