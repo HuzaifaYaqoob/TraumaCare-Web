@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;900&display=swap');
 
 
 body {
@@ -130,7 +130,7 @@ body {
 }
 
 
-.list-items li:first-child:hover .drop1 {
+.list-items li:first-child:hover .dropdown1{
     display: block;
 }
 
@@ -146,7 +146,7 @@ body {
 
 
 
-.drop1 {
+.dropdown1{
     display: none;
 }
 

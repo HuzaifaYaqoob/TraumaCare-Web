@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@200;300;400;500;600;700;900&display=swap');
 
 * {
     padding: 0px;
@@ -80,7 +80,7 @@ body {
     background-color: #0a1c4b1e;
     transition: 0.5s;
 }
-
+/* 
 
 .list-items li svg {
     width: 20px;
@@ -88,7 +88,7 @@ body {
     padding-bottom: 3px;
     justify-content: center;
     align-items: center;
-}
+} */
 
 
 
@@ -133,8 +133,8 @@ body {
 }
 
 
-.list-items li:first-child:hover .drop1 {
-    display: block;
+.list-items li:first-child:hover .dropdown1{
+    display: flex;
 }
 
 
@@ -149,12 +149,12 @@ body {
 
 
 
-.drop1 {
+.dropdown1{
     display: none;
 }
 
 .dropdown1 {
-    display: flex;
+    /* display: flex; */
     background: #FFFFFF;
     box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
     border-radius: 6px;
@@ -1999,7 +1999,8 @@ p {
 
 
 .left button:hover {
-    transform: rotate(10deg) scale(1, 2);
+    transform: rotate(15deg) scale(1.2);
+    box-shadow: 0px 15px 20px rgb(172 170 170 / 82%);
 }
 
 
