@@ -18,75 +18,47 @@
                             stroke-linejoin="round" />
                     </svg>
                     <div class="dropdown1 drop1">
-                        <div class="dropdown1-div1">
+                        <div class="dropdown1-div1 px-2">
                             <h2>Find doctors By speciality</h2>
                             <ul>
-                                <div class="flex items-center">
-                                    <div >
-                                        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M16.5777 7.91808C16.5785 8.59817 16.0179 9.13289 15.3038 9.13374C14.5897 9.13417 14.0278 8.6003 14.0273 7.9202C14.0269 7.24011 15.3008 5.73328 15.3008 5.73328C15.3008 5.73328 16.5773 7.28644 16.5777 7.91808Z" fill="#7BC7BE"/>
-                                            <path fill-rule="evenodd" clip-rule="evenodd" d="M8.56323 3.09631L16.0948 3.08993C16.3347 3.08977 16.5649 3.1849 16.7346 3.35441C16.9044 3.52392 16.9998 3.75393 17 3.99382C17.0002 4.23372 16.905 4.46385 16.7355 4.6336C16.566 4.80335 16.336 4.89881 16.0961 4.89898H16.094C16.1305 4.828 16.1505 4.75064 16.1505 4.66945C16.1505 4.3175 15.7692 4.03271 15.3 4.03314C14.8303 4.03314 14.4499 4.3192 14.4499 4.67115C14.4503 4.75191 14.4703 4.82927 14.5068 4.90068L8.97171 4.90493L8.97213 5.3572L11.9008 5.35507C12.1261 5.35507 12.3422 5.44452 12.5016 5.60376C12.661 5.76301 12.7507 5.97902 12.7509 6.20434L12.7513 6.31315C12.7514 6.42479 12.7296 6.53536 12.6869 6.63854C12.6443 6.74173 12.5818 6.83551 12.5029 6.91453C12.4241 6.99354 12.3304 7.05626 12.2273 7.09908C12.1242 7.14191 12.0137 7.16401 11.9021 7.16412L8.97341 7.16625L8.97426 7.61851L11.4298 7.61681C11.5415 7.6167 11.652 7.63857 11.7552 7.68119C11.8584 7.72381 11.9522 7.78634 12.0312 7.8652C12.1102 7.94406 12.1729 8.03771 12.2158 8.14081C12.2586 8.24391 12.2807 8.35443 12.2808 8.46607V8.57489C12.2809 8.68653 12.259 8.7971 12.2164 8.90028C12.1738 9.00346 12.1113 9.09724 12.0324 9.17626C11.9535 9.25528 11.8599 9.31799 11.7568 9.36082C11.6537 9.40365 11.5432 9.42574 11.4315 9.42585L8.03106 9.42841V9.88067L9.7789 9.87939C9.89054 9.87928 10.0011 9.90116 10.1043 9.94378C10.2075 9.9864 10.3012 10.0489 10.3803 10.1278C10.4593 10.2066 10.522 10.3003 10.5648 10.4034C10.6077 10.5065 10.6298 10.617 10.6299 10.7287V10.8379C10.6299 10.9495 10.608 11.0601 10.5653 11.1633C10.5226 11.2664 10.4601 11.3602 10.3812 11.4391C10.3023 11.5181 10.2086 11.5808 10.1055 11.6236C10.0023 11.6663 9.89181 11.6884 9.78017 11.6884L6.61604 11.691L4.8733 11.6927C2.18395 11.6948 0.00212697 9.51639 1.67437e-06 6.82705C-0.000800301 5.85975 0.286507 4.91412 0.825287 4.11076C1.36407 3.30739 2.12991 2.6827 3.02514 2.31633L8.50074 0.0749952C8.73864 -0.0237788 9.00583 -0.0250291 9.24464 0.0715143C9.48344 0.168058 9.6747 0.354649 9.77711 0.590998C9.87951 0.827348 9.88486 1.09449 9.79199 1.33475C9.69912 1.57501 9.51548 1.7691 9.28073 1.87512L8.38598 2.28445C7.9707 2.47487 8.10629 3.09631 8.56323 3.09631Z" fill="#7BC7BE"/>
-                                            </svg>
-                                            
-                                            
-                                            
-                                    </div>
-                                <li class="flex items-center ">Gynecologist
-                                </li>
-                            </div>
-                                <li class="flex items-center">Diabetes
-                                </li>
-                                <li class="flex items-center">Psychiatrist
-                                </li>
-                                <li class="flex items-center">ENT
-                                </li>
-                                <li class="flex items-center">Neuro Physician
-                                </li>
-                                <li class="flex items-center">Urologist
-                                </li>
-                                <li class="flex items-center">Orthopedic Surgeon
-                                </li>
-                                <li class="flex items-center">Child Specialist
-                                </li>
+                                {% include 'Components/Header/NavItem.html' with name='Gynecologist' %}
+                                {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
+                                {% include 'Components/Header/NavItem.html' with name='Psychiatrist' %}
+                                {% include 'Components/Header/NavItem.html' with name='ENT' %}
+                                {% include 'Components/Header/NavItem.html' with name='Neuro Physician' %}
+                                {% include 'Components/Header/NavItem.html' with name='Urologist' %}
+                                {% include 'Components/Header/NavItem.html' with name='Orthopedic Surgeon' %}
+                                {% include 'Components/Header/NavItem.html' with name='Child Specialist' %}
                                 <li class="flex items-center"><strong>View All
                                         <hr>
                                     </strong></li>
                             </ul>
                         </div>
-                        <div class="dropdown1-div1 dropdown1-div1">
+                        <div class="dropdown1-div1 dropdown1-div1 !px-2">
                             <h2>Find doctors By diseases</h2>
                             <ul>
-                                <li>Diabetes
-                                </li>
-                                <li>High Blood Pressure
-                                </li>
-                                <li>Typhoid
-                                </li>
+                                {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
+                                {% include 'Components/Header/NavItem.html' with name='High Blood Pressure' %}
                                 <li class="hr"> <strong>View All
                                         <hr>
                                     </strong>
                                 </li>
                                 <h2 class="first-color">Find doctors By Services
                                 </h2>
-                                <li>Open Heart Surgery
-                                </li>
-                                <li>Braces
-                                </li>
-                                <li>Hydra Facial
-                                </li>
+                                {% include 'Components/Header/NavItem.html' with name='Open Heart Surgery' %}
+                                {% include 'Components/Header/NavItem.html' with name='Braces' %}
+                                {% include 'Components/Header/NavItem.html' with name='Hydra Facial' %}
                                 <li><strong>View All
                                         <hr>
                                     </strong></li>
                             </ul>
                         </div>
-                        <div class="dropdown1-div1 dropdown1-div1">
+                        <div class="dropdown1-div1 dropdown1-div1 px-2">
                             <h2>Find doctors Via City</h2>
                             <ul>
-                                <li>Dr. in Lahore
-                                </li>
-                                <li>Dr. in Karachi
-                                </li>
-                                <li>Dr. in Islamabad
+                                {% include 'Components/Header/NavItem.html' with name='Dr. in Lahore' %}
+                                {% include 'Components/Header/NavItem.html' with name='Dr. in Islamabad' %}
+                                <li>
                                 </li>
                                 <li class="hr"> <strong>View All
                                         <hr>
@@ -94,44 +66,37 @@
                                 </li>
                                 <h2 class="first-color">Find Sergeon
                                 </h2>
-                                <li>Hernia
-                                </li>
-                                <li>Endoscopy
-                                </li>
-                                <li>Liver Transplant
-                                </li>
+                                {% include 'Components/Header/NavItem.html' with name='Hernia' %}
+                                {% include 'Components/Header/NavItem.html' with name='Endoscopy' %}
+                                {% include 'Components/Header/NavItem.html' with name='Liver Transplant' %}
                                 <li><strong>Find Best Sergeon
                                         <hr>
                                     </strong></li>
                             </ul>
                         </div>
-                        <div class="dropdown1-div1 dropdown1-div2">
+                        <div class="dropdown1-div1 dropdown1-div2 px-2">
                             <h2>Find Special Offers</h2>
                             <ul>
-                                <li>Skin Whitening Treatment
-                                </li>
-                                <li>Lasr Hair Removal
-                                </li>
+                                {% include 'Components/Header/NavItem.html' with name='Skin Whitening ' %}
+                                {% include 'Components/Header/NavItem.html' with name='Lasr Hair Removal' %}
                                 <li class="hr"> <strong>View All
                                         <hr>
                                     </strong>
                                 </li>
-
                             </ul>
                         </div>
-
                     </div>
                 </li>
-                <li class="li-second flex items-center gap-3">Consult Online
+                <li class="li-second flex items-center gap-3 ">Consult Online
                     <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    <div class="item-dropdown2">
+                    <div class="item-dropdown2 px-1">
                         <h2>Online Services</h2>
-                        <ul class="item-dropdown2-ul">
-                            <li>All Online doctors</li>
-                            <li>Ask doctors Q/A</li>
+                        <ul class="item-dropdown2-ul px-2">
+                            {% include 'Components/Header/NavItem.html' with name='All Online doctors' %}
+                            {% include 'Components/Header/NavItem.html' with name='Ask doctors Q/A' %}
                         </ul>
                     </div>
                 </li>
@@ -140,18 +105,19 @@
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    <div class="item-dropdown3">
+                    <div class="item-dropdown3  px-2">
                         <h2>Hospitals in Pakistan</h2>
-                        <ul class="item-dropdown3-ul">
-                            <li>Lahore</li>
-                            <li>Karachi</li>
-                            <li>Islamabad </li>
-                            <li>Sargodha</li>
-                            <li>Multan</li>
-                            <li>Faislabad</li>
-                            <li>Quetta</li>
-                            <li>Sialkot</li>
-                            <li> <strong>View All
+                        <ul class="item-dropdown3-ul !px-2">
+                            {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
+                            {% include 'Components/Header/NavItem.html' with name='Karachi' %}
+                            {% include 'Components/Header/NavItem.html' with name='Islamabad' %}
+                            {% include 'Components/Header/NavItem.html' with name='Sargodha' %}
+                            {% include 'Components/Header/NavItem.html' with name='Multan' %}
+                            {% include 'Components/Header/NavItem.html' with name='Faislabad' %}
+                            {% include 'Components/Header/NavItem.html' with name='Quetta' %}
+                            {% include 'Components/Header/NavItem.html' with name='Sialkot' %}
+                            <li> 
+                                <strong>View All
                                     <hr>
                                 </strong></li>
                         </ul>
@@ -162,17 +128,17 @@
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    <div class="item-dropdown4">
+                    <div class="item-dropdown4  px-2">
                         <h2>Medical Store in Pakistan</h2>
-                        <ul class="item-dropdown4-ul">
-                            <li>Lahore</li>
-                            <li>Karachi</li>
-                            <li>Islamabad </li>
-                            <li>Sargodha</li>
-                            <li>Multan</li>
-                            <li>Faislabad</li>
-                            <li>Quetta</li>
-                            <li>Sialkot</li>
+                        <ul class="item-dropdown4-ul  px-2">
+                            {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
+                            {% include 'Components/Header/NavItem.html' with name='Karachi' %}
+                            {% include 'Components/Header/NavItem.html' with name='Islamabad' %}
+                            {% include 'Components/Header/NavItem.html' with name='Sargodha' %}
+                            {% include 'Components/Header/NavItem.html' with name='Multan' %}
+                            {% include 'Components/Header/NavItem.html' with name='Faislabad' %}
+                            {% include 'Components/Header/NavItem.html' with name='Quetta' %}
+                            {% include 'Components/Header/NavItem.html' with name='Sialkot' %}
                             <li> <strong>View All
                                     <hr>
                                 </strong></li>
@@ -187,14 +153,14 @@
                     <!--  -->
                     <!-- droupdown 5-->
                     <!--  -->
-                    <div class="item-dropdown5">
+                    <div class="item-dropdown5  px-2">
                         <h2>lABS In Pakistan</h2>
-                        <ul class="item-dropdown5-ul">
-                            <li>Chughtai Lab </li>
-                            <li>Dr. Essa’s Lsb</li>
-                            <li>Citilab </li>
-                            <li>One Health Lab </li>
-                            <li>CLINAB</li>
+                        <ul class="item-dropdown5-ul  px-2">
+                            {% include 'Components/Header/NavItem.html' with name='Chughtai Lab ' %}
+                            {% include 'Components/Header/NavItem.html' with name='Dr. Essa’s Lsb ' %}
+                            {% include 'Components/Header/NavItem.html' with name='Citilab' %}
+                            {% include 'Components/Header/NavItem.html' with name='One Health Lab ' %}
+                            {% include 'Components/Header/NavItem.html' with name='CLINAB ' %}
                             <!-- <li>Faislabad</li>
                             <li>Quetta</li>
                             <li>Sialkot</li> -->
