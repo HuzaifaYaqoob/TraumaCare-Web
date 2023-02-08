@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'Trauma.apps.TraumaConfig',
-    'Authentication.apps.AuthenticationConfig'
+    'Authentication.apps.AuthenticationConfig',
+    'Product.apps.ProductConfig',
 ]
 
 MIDDLEWARE = [

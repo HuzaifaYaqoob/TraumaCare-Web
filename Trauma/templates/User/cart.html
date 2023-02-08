@@ -1,15 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../Css files/cart.css">
-    <title>Cart</title>
-</head>
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
 
-<body>
+{% block BaseCSS %}
+    <link rel="stylesheet" href="{% static 'assets/css/cart.css' %}">
+{% endblock BaseCSS %}
+
+{% block baseBody %}
+
     <main class="main-body">
         <div class="vitamin-d3">
             <h3>Vitamin D3 Softgel Capsules</h3>
@@ -66,7 +65,4 @@
             </a>
         </div>
     </main>
-
-</body>
-
-</html>
+{% endblock baseBody %}

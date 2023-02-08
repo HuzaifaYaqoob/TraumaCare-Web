@@ -44,371 +44,6 @@ body {
 
 
 
-.logo svg {
-    height: 80px;
-    width: 200px;
-    cursor: pointer;
-}
-
-
-.list-items {
-    display: flex;
-    /* border: 1px solid red; */
-    justify-content: space-between;
-    align-items: center;
-    padding-left: 50px;
-    padding-top: 4px;
-}
-
-
-.list-items li {
-    list-style: none;
-    margin-right: 40px;
-    color: rgba(10, 28, 75, 0.877);
-    font-size: 20px;
-    font-weight: 600;
-    cursor: pointer;
-    padding: 10px 10px 11px 15px;
-    border-radius: 10px;
-}
-
-
-.list-items li:hover {
-    background-color: #0a1c4b1e;
-    transition: 0.5s;
-}
-
-
-.list-items li svg {
-    width: 20px;
-    height: 8px;
-    padding-bottom: 3px;
-    justify-content: center;
-    align-items: center;
-}
-
-
-
-
-.list-items li:last-child {
-    padding-right: 15;
-    position: relative;
-}
-
-.list-items li:last-child:hover .item-dropdown5 {
-    display: block;
-}
-
-.li-forth {
-    position: relative;
-}
-
-.li-forth:hover .item-dropdown4 {
-    display: block;
-}
-
-.li-third {
-    position: relative;
-}
-
-.li-third:hover .item-dropdown3 {
-    display: block;
-}
-
-.li-second {
-    position: relative;
-}
-
-.li-second:hover .item-dropdown2 {
-    display: block;
-}
-
-
-
-.list-items li:first-child{
-    position: relative;
-}
-
-
-.list-items li:first-child:hover .drop1{
-    display: block;
-}
-
-
-
-
-
-
-
-/*  */
-/* all droupdowns */
-/*  */
-
-
-
-.drop1{
-    display: none;
-}
-.dropdown1 {
-    display: flex;
-    background: #FFFFFF;
-    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    width: 1200px;
-    /* height: 400px; */
-    position: absolute;
-    left: 0;
-    top: 45px;
-    cursor: auto;
-}
-
-.dropdown1-div1 h2{
-    color: rgba(36, 208, 208, 1);
-    font-size: 22px;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-.dropdown1-div1{
-    padding: 17px 20px 10px 35px;
-    /* border: 1px solid red; */
-}
-
-
-.dropdown1-div1 ul li {
-    /* display: flex;
-    align-items: center; */
-    width: 100%;
-    padding: 9px 10px 10px 15px;
-    font-size: 19px;
-    justify-content: space-between;
-    /* align-items: center; */
-    color: #0A1C4B;
-}
-
-.dropdown1-div1 ul li:last-child {
-    font-size: 20px;
-}
-
-.dropdown1-div1 ul li:last-child hr {
-    width: 70px;
-    font-size: 2px;
-    font-weight: 500;
-    border: 1px solid rgb(82, 82, 82);
-}
-
-
-.hr hr{
-    width: 70px;
-    font-size: 2px;
-    font-weight: 500;
-    border: 1px solid rgb(82, 82, 82);
-}
-
-
-h2.first-color{
-    padding-top: 8px;
-}
-
-
-
-.dropdown1-div1{
-    width: 380px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.item-dropdown2 {
-    display: none;
-    position: absolute;
-    background: #FFFFFF;
-    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    width: 230px;
-    /* right: 0; */
-    left: 0;
-    top: 45px;
-    cursor: auto;
-    padding: 17px 20px 10px 20px;
-}
-
-.item-dropdown2 h2 {
-    color: rgba(36, 208, 208, 1);
-    font-size: 24px;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-.item-dropdown2-ul li {
-    width: 100%;
-    padding: 9px 10px 10px 15px;
-    font-size: 19px;
-}
-
-
-.item-dropdown3 {
-    display: none;
-    position: absolute;
-    background: #FFFFFF;
-    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    width: 280px;
-    /* right: 0; */
-    cursor: auto;
-    left: 0;
-    top: 45px;
-    padding: 17px 20px 10px 20px;
-}
-
-.item-dropdown3 h2 {
-    color: rgba(36, 208, 208, 1);
-    font-size: 24px;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-.item-dropdown3-ul li {
-    width: 100%;
-    padding: 9px 10px 10px 15px;
-    font-size: 19px;
-}
-
-.item-dropdown3-ul li:last-child {
-    font-size: 20px;
-}
-
-.item-dropdown3-ul li:last-child hr {
-    width: 70px;
-    font-size: 2px;
-    font-weight: 500;
-    border: 1px solid rgb(82, 82, 82);
-}
-
-
-
-
-.item-dropdown4 {
-    display: none;
-    position: absolute;
-    background: #FFFFFF;
-    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    width: 310px;
-    /* right: 0; */
-    left: 0;
-    top: 45px;
-    padding: 17px 20px 10px 20px;
-    cursor: auto;
-}
-
-.item-dropdown4 h2 {
-    color: rgba(36, 208, 208, 1);
-    font-size: 24px;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-
-a{
-    text-decoration: none;
-}
-.item-dropdown4-ul li {
-    width: 100%;
-    padding: 9px 10px 10px 15px;
-    font-size: 19px;
-}
-
-.item-dropdown4-ul li:last-child {
-    font-size: 20px;
-}
-
-.item-dropdown4-ul li:last-child hr {
-    width: 70px;
-    font-size: 2px;
-    font-weight: 500;
-    border: 1px solid rgb(82, 82, 82);
-}
-
-
-
-
-.item-dropdown5 {
-    display: none;
-    position: absolute;
-    background: #FFFFFF;
-    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
-    border-radius: 6px;
-    width: 240px;
-    /* right: 0; */
-    cursor: auto;
-    left: 0;
-    top: 45px;
-    padding: 17px 20px 10px 20px;
-}
-
-.item-dropdown5 h2 {
-    color: rgba(36, 208, 208, 1);
-    font-size: 24px;
-    font-weight: 500;
-    padding-left: 10px;
-    padding-bottom: 5px;
-}
-
-.item-dropdown5-ul li {
-    width: 100%;
-    padding: 9px 10px 10px 15px;
-    font-size: 19px;
-}
-
-.item-dropdown5-ul li:last-child {
-    font-size: 20px;
-}
-
-.item-dropdown5-ul li:last-child hr {
-    width: 70px;
-    font-size: 2px;
-    font-weight: 500;
-    border: 1px solid rgb(82, 82, 82);
-}
-
-
-
-
-
-
-/*  */
-/*  */
-/*  */
-/* float :right */
-/*  */
-/*  */
-/*  */
-
-
-
-
-
-
-
 .float-right {
     /* height: 100%; */
     text-align: right;
@@ -773,14 +408,6 @@ a{
 
 
 
-
-
-.main-section {
-    background-color: #0A1C4B;
-    height: 330px;
-    /* max-width: 1800px; */
-}
-
 .max-width {
     /* max-width: 1000px; */
     /* width: 50%; */
@@ -807,9 +434,7 @@ a{
 
 
 @media (max-width:1000px){
-    .main-section{
-        height: 300px;
-    }
+
     .max-width h3 {
         padding-top: 90px;
         font-size: 50px;
@@ -832,9 +457,7 @@ a{
     }
 }
 @media (max-width:750px){
-    .main-section{
-        height: 290px;
-    }
+
     .max-width h3 {
         padding-top: 80px;
         font-size: 35px;
@@ -867,11 +490,6 @@ a{
         margin-top: 10px;
     }
 }
-@media (max-width:500px){
-    .main-section{
-        height: 290px;
-    }
-}
 
 
 @media (max-width:375px){
@@ -895,10 +513,7 @@ a{
     }
 }
 @media (max-width:320px){
-    .main-section{
-        height: 270px;
-    }
-    
+
     .max-width h3 {
         font-size: 17px;
     }
