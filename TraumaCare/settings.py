@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'Trauma.apps.TraumaConfig',
     'Authentication.apps.AuthenticationConfig',
     'Product.apps.ProductConfig',
+    'Doctor.apps.DoctorConfig',
+    'Hospital.apps.HospitalConfig',
+    'Pharmacy.apps.PharmacyConfig',
+    'Lab.apps.LabConfig',
 ]
 
 MIDDLEWARE = [

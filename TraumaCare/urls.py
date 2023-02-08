@@ -19,6 +19,10 @@ urlpatterns = [
 
     path('auth/',  include('Authentication.urls')),
     path('product/',  include('Product.urls')),
+    path('doctor/',  include('Doctor.urls')),
+    path('hospital/',  include('Hospital.urls')),
+    path('lab/',  include('Lab.urls')),
+    path('pharmacy/',  include('Pharmacy.urls')),
 ] 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
                static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -8,7 +8,7 @@ def homePage(request):
 
 
 def test(request):
-    return render(request, 'details.html')
+    return render(request, 'prescription.html')
 
 def CartPage(request):
     return render(request, 'User/cart.html')
