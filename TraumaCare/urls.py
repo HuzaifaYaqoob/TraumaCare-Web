@@ -6,12 +6,11 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 
-from Trauma.views import homePage, test_huzaifa
+from Trauma.views import homePage
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', homePage, name='homePage'),
-    path('huzaifa/', test_huzaifa, name='test_huzaifa'),
     path('auth/',  include('Authentication.urls')),
 
 ] 

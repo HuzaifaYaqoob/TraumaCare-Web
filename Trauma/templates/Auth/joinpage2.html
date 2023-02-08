@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../assets/css/joinpage2.css">
+    <link rel="stylesheet" href="{% static 'assets/css/joinpage2.css' %}">
     <title>Join</title>
 </head>
 
@@ -55,7 +57,7 @@
                 <button>Join</button>
                 <div class="after-button">
                     <p>Already Have account?</p>
-                    <a href="/templates/login.html"><p>Login</p></a>
+                    <a href="/auth/login/"><p>Login</p></a>
                 </div>
             </form>
             
