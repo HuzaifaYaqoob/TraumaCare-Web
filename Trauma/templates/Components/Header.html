@@ -1,5 +1,5 @@
-<header class='bg-white'>
-    <div class="main-header mx-auto">
+<header class='bg-white oin'>
+    <div class="main-header mx-auto ">
         <div class="float-left">
             <div class="logo">
                 <svg width="194" height="23" viewBox="0 0 194 23" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -11,9 +11,9 @@
                         fill="#24D0D0" />
                 </svg>
             </div>
-            <ul class="list-items">
-                <li class="li-first flex items-center gap-2 pr-0">Doctors
-                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <div class="list-items gap-7">
+                <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0">Doctors
+                    <svg width="10  " height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
@@ -29,9 +29,7 @@
                                 {% include 'Components/Header/NavItem.html' with name='Urologist' %}
                                 {% include 'Components/Header/NavItem.html' with name='Orthopedic Surgeon' %}
                                 {% include 'Components/Header/NavItem.html' with name='Child Specialist' %}
-                                <li class="flex items-center"><strong>View All
-                                        <hr>
-                                    </strong></li>
+                                {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 !px-2">
@@ -39,18 +37,13 @@
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
                                 {% include 'Components/Header/NavItem.html' with name='High Blood Pressure' %}
-                                <li class="hr"> <strong>View All
-                                        <hr>
-                                    </strong>
-                                </li>
+                                {% include 'Components/Header/view_all.html' %}
                                 <h2 class="first-color">Find doctors By Services
                                 </h2>
                                 {% include 'Components/Header/NavItem.html' with name='Open Heart Surgery' %}
                                 {% include 'Components/Header/NavItem.html' with name='Braces' %}
                                 {% include 'Components/Header/NavItem.html' with name='Hydra Facial' %}
-                                <li><strong>View All
-                                        <hr>
-                                    </strong></li>
+                                {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 px-2">
@@ -58,20 +51,13 @@
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Dr. in Lahore' %}
                                 {% include 'Components/Header/NavItem.html' with name='Dr. in Islamabad' %}
-                                <li>
-                                </li>
-                                <li class="hr"> <strong>View All
-                                        <hr>
-                                    </strong>
-                                </li>
+                                {% include 'Components/Header/view_all.html' %}
                                 <h2 class="first-color">Find Sergeon
                                 </h2>
                                 {% include 'Components/Header/NavItem.html' with name='Hernia' %}
                                 {% include 'Components/Header/NavItem.html' with name='Endoscopy' %}
                                 {% include 'Components/Header/NavItem.html' with name='Liver Transplant' %}
-                                <li><strong>Find Best Sergeon
-                                        <hr>
-                                    </strong></li>
+                                {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div2 px-2">
@@ -79,19 +65,13 @@
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Skin Whitening ' %}
                                 {% include 'Components/Header/NavItem.html' with name='Lasr Hair Removal' %}
-                                <li class="hr"> <strong>View All
-                                        <hr>
-                                    </strong>
-                                </li>
+                                {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
                     </div>
                 </li>
-                <li class="li-second flex items-center gap-3 ">Consult Online
-                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
+                <li class="li-second flex items-center gap-3 !text-[18px] !mr-0 ">Consult Online
+                    {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown2 px-1">
                         <h2>Online Services</h2>
                         <ul class="item-dropdown2-ul px-2">
@@ -100,11 +80,8 @@
                         </ul>
                     </div>
                 </li>
-                <li class="li-third flex items-center gap-3">Hospitals
-                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
+                <li class="li-third flex items-center gap-3 !text-[18px] !mr-0 ">Hospitals
+                    {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown3  px-2">
                         <h2>Hospitals in Pakistan</h2>
                         <ul class="item-dropdown3-ul !px-2">
@@ -116,18 +93,12 @@
                             {% include 'Components/Header/NavItem.html' with name='Faislabad' %}
                             {% include 'Components/Header/NavItem.html' with name='Quetta' %}
                             {% include 'Components/Header/NavItem.html' with name='Sialkot' %}
-                            <li> 
-                                <strong>View All
-                                    <hr>
-                                </strong></li>
+                            {% include 'Components/Header/view_all.html' %}
                         </ul>
                     </div>
                 </li>
-                <li class="li-forth flex items-center gap-3">Medical Store
-                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
+                <li class="li-forth flex items-center gap-3 !text-[18px] !mr-0 ">Medical Store
+                    {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown4  px-2">
                         <h2>Medical Store in Pakistan</h2>
                         <ul class="item-dropdown4-ul  px-2">
@@ -139,17 +110,12 @@
                             {% include 'Components/Header/NavItem.html' with name='Faislabad' %}
                             {% include 'Components/Header/NavItem.html' with name='Quetta' %}
                             {% include 'Components/Header/NavItem.html' with name='Sialkot' %}
-                            <li> <strong>View All
-                                    <hr>
-                                </strong></li>
+                            {% include 'Components/Header/view_all.html' %}
                         </ul>
                     </div>
                 </li>
-                <li class="flex items-center gap-2">Labs
-                    <svg width="12" height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
-                            stroke-linejoin="round" />
-                    </svg>
+                <li class="flex items-center gap-2 !text-[18px] ">Labs
+                    {% include 'Components/Utility/chevron_arrow.html' %}
                     <!--  -->
                     <!-- droupdown 5-->
                     <!--  -->
@@ -164,20 +130,18 @@
                             <!-- <li>Faislabad</li>
                             <li>Quetta</li>
                             <li>Sialkot</li> -->
-                            <li><strong>View All
-                                    <hr>
-                                </strong></li>
+                            {% include 'Components/Header/view_all.html' %}
                         </ul>
                     </div>
                 </li>
-            </ul>
+            </div>
         </div>
         <!--  -->
         <!--  -->
         <div class="float-right">
-            <div class="logo-paragraph">
+            <div class="logo-paragraph  ">
                 <a href="/auth/login">
-                    <p>Join</p>
+                    <p class="!font-[600]  ">Join</p>
                 </a>
             </div>
             <div class="svg1">
