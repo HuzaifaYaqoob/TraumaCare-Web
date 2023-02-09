@@ -835,8 +835,7 @@ a {
     /* border: 1px solid red; */
 }
 
-.max-width h3,
-p {
+.max-width h3{
     text-align: center;
 }
 
@@ -1987,7 +1986,7 @@ p {
     font-size: 16px;
     cursor: pointer;
     margin-top: 30px;
-    transition: all 0.6s;
+    transition: all 0.4s;
     z-index: 10;
 }
 
@@ -1999,7 +1998,7 @@ p {
 
 
 .left button:hover {
-    transform: rotate(15deg) scale(1.2);
+    transform: rotate(10deg) scale(1.2);
     box-shadow: 0px 15px 20px rgb(172 170 170 / 82%);
 }
 
@@ -2515,6 +2514,7 @@ p {
 
 .btn3:hover {
     transform: rotate(10deg) scale(1.2);
+    box-shadow: 0px 15px 20px rgb(172 170 170 / 82%);
 }
 
 
