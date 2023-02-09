@@ -162,7 +162,7 @@ form div input {
 
 input::placeholder {
     font-size: 15px;
-    color: rgba(36, 208, 208, 1);
+    /* color: rgba(36, 208, 208, 1); */
 }
 
 
