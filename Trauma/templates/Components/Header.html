@@ -12,13 +12,13 @@
                 </svg>
             </div>
             <div class="list-items gap-7">
-                <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0">Doctors
-                    <svg width="10  " height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group">Doctors
+                    <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
                     <div class="dropdown1 drop1">
-                        <div class="dropdown1-div1 px-2">
+                        <div class="dropdown1-div1 !px-2">
                             <h2>Find doctors By speciality</h2>
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Gynecologist' %}
@@ -70,21 +70,21 @@
                         </div>
                     </div>
                 </li>
-                <li class="li-second flex items-center gap-3 !text-[18px] !mr-0 ">Consult Online
+                <li class="li-second flex items-center gap-3 !text-[18px] !mr-0 group ">Consult Online
                     {% include 'Components/Utility/chevron_arrow.html' %}
-                    <div class="item-dropdown2 px-1">
+                    <div class="item-dropdown2  px-1">
                         <h2>Online Services</h2>
-                        <ul class="item-dropdown2-ul px-2">
+                        <ul class="item-dropdown2-ul px-1">
                             {% include 'Components/Header/NavItem.html' with name='All Online doctors' %}
                             {% include 'Components/Header/NavItem.html' with name='Ask doctors Q/A' %}
                         </ul>
                     </div>
                 </li>
-                <li class="li-third flex items-center gap-3 !text-[18px] !mr-0 ">Hospitals
+                <li class="li-third flex items-center gap-3 !text-[18px] !mr-0 group ">Hospitals
                     {% include 'Components/Utility/chevron_arrow.html' %}
-                    <div class="item-dropdown3  px-2">
+                    <div class="item-dropdown3  px-1">
                         <h2>Hospitals in Pakistan</h2>
-                        <ul class="item-dropdown3-ul !px-2">
+                        <ul class="item-dropdown3-ul !px-1">
                             {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
                             {% include 'Components/Header/NavItem.html' with name='Karachi' %}
                             {% include 'Components/Header/NavItem.html' with name='Islamabad' %}
@@ -97,11 +97,11 @@
                         </ul>
                     </div>
                 </li>
-                <li class="li-forth flex items-center gap-3 !text-[18px] !mr-0 ">Medical Store
+                <li class="li-forth flex items-center gap-3 !text-[18px] !mr-0 group ">Medical Store
                     {% include 'Components/Utility/chevron_arrow.html' %}
-                    <div class="item-dropdown4  px-2">
+                    <div class="item-dropdown4  !px-1">
                         <h2>Medical Store in Pakistan</h2>
-                        <ul class="item-dropdown4-ul  px-2">
+                        <ul class="item-dropdown4-ul  !px-1">
                             {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
                             {% include 'Components/Header/NavItem.html' with name='Karachi' %}
                             {% include 'Components/Header/NavItem.html' with name='Islamabad' %}
@@ -114,14 +114,14 @@
                         </ul>
                     </div>
                 </li>
-                <li class="flex items-center gap-2 !text-[18px] ">Labs
+                <li class="flex items-center gap-2 !text-[18px]  group">Labs
                     {% include 'Components/Utility/chevron_arrow.html' %}
                     <!--  -->
                     <!-- droupdown 5-->
                     <!--  -->
-                    <div class="item-dropdown5  px-2">
+                    <div class="item-dropdown5  !px-1">
                         <h2>lABS In Pakistan</h2>
-                        <ul class="item-dropdown5-ul  px-2">
+                        <ul class="item-dropdown5-ul  !px-1">
                             {% include 'Components/Header/NavItem.html' with name='Chughtai Lab ' %}
                             {% include 'Components/Header/NavItem.html' with name='Dr. Essa’s Lsb ' %}
                             {% include 'Components/Header/NavItem.html' with name='Citilab' %}
