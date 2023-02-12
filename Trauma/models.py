@@ -14,6 +14,11 @@ class Speciality(models.Model):
 
     image = models.ImageField(upload_to='specialities/images/', null=True, blank=True)
 
+    rank = models.IntegerField(default=1)
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
     def __str__(self):
         return str(self.id)
 
