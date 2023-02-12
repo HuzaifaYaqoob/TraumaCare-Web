@@ -5,5 +5,19 @@ from django.db import models
 
 from uuid import uuid4
 
-class Category(models.Model):
+class Speciality(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+
+    name = models.CharField(max_length=500, default='')
+    svg_icon = models.TextField()
+    color_code = models.CharField(max_length=10, default='')
+
+    image = models.ImageField(upload_to='specialities/images/', null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    
+    class Meta:
+        verbose_name = 'Specility'
+        verbose_name_plural = 'Specilities'
