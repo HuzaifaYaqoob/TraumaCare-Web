@@ -1,6 +1,7 @@
-<header class='bg-white fixed top-0 right-0 left-0 z-[124525757] shadow-xl'>
+<header class='bg-white fixed top-0 right-0 left-0 z-[124525757] shadow-md'>
     <div class="main-header mx-auto ">
         <div class="float-left">
+            <a href="../Home/index.html">
             <div class="logo">
                 <svg width="194" height="23" viewBox="0 0 194 23" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -11,6 +12,7 @@
                         fill="#24D0D0" />
                 </svg>
             </div>
+        </a>
             <div class="list-items gap-7">
                 <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group">Doctors
                     <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -19,7 +21,7 @@
                     </svg>
                     <div class="dropdown1 drop1">
                         <div class="dropdown1-div1 !px-2">
-                            <h2>Find doctors By speciality</h2>
+                            <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Gynecologist' %}
                                 {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
@@ -33,12 +35,12 @@
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 !px-2">
-                            <h2>Find doctors By diseases</h2>
+                            <h2 class="!text-[18px] ">Find doctors By diseases</h2>
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
                                 {% include 'Components/Header/NavItem.html' with name='High Blood Pressure' %}
                                 {% include 'Components/Header/view_all.html' %}
-                                <h2 class="first-color">Find doctors By Services
+                                <h2 class="first-color !text-[18px]">Find doctors By Services
                                 </h2>
                                 {% include 'Components/Header/NavItem.html' with name='Open Heart Surgery' %}
                                 {% include 'Components/Header/NavItem.html' with name='Braces' %}
@@ -47,12 +49,12 @@
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 px-2">
-                            <h2>Find doctors Via City</h2>
+                            <h2 class="!text-[18px]">Find doctors Via City</h2>
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Dr. in Lahore' %}
                                 {% include 'Components/Header/NavItem.html' with name='Dr. in Islamabad' %}
                                 {% include 'Components/Header/view_all.html' %}
-                                <h2 class="first-color">Find Sergeon
+                                <h2 class="first-color !text-[18px]">Find Sergeon
                                 </h2>
                                 {% include 'Components/Header/NavItem.html' with name='Hernia' %}
                                 {% include 'Components/Header/NavItem.html' with name='Endoscopy' %}
@@ -61,7 +63,7 @@
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div2 px-2">
-                            <h2>Find Special Offers</h2>
+                            <h2 class="!text-[18px]">Find Special Offers</h2>
                             <ul>
                                 {% include 'Components/Header/NavItem.html' with name='Skin Whitening ' %}
                                 {% include 'Components/Header/NavItem.html' with name='Lasr Hair Removal' %}
@@ -73,7 +75,7 @@
                 <li class="li-second flex items-center gap-3 !text-[18px] !mr-0 group ">Consult Online
                     {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown2  px-1">
-                        <h2>Online Services</h2>
+                        <h2 class="!text-[18px]">Online Services</h2>
                         <ul class="item-dropdown2-ul px-1">
                             {% include 'Components/Header/NavItem.html' with name='All Online doctors' %}
                             {% include 'Components/Header/NavItem.html' with name='Ask doctors Q/A' %}
@@ -83,7 +85,7 @@
                 <li class="li-third flex items-center gap-3 !text-[18px] !mr-0 group ">Hospitals
                     {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown3  px-1">
-                        <h2>Hospitals in Pakistan</h2>
+                        <h2 class="!text-[18px]">Hospitals in Pakistan</h2>
                         <ul class="item-dropdown3-ul !px-1">
                             {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
                             {% include 'Components/Header/NavItem.html' with name='Karachi' %}
@@ -100,7 +102,7 @@
                 <li class="li-forth flex items-center gap-3 !text-[18px] !mr-0 group ">Medical Store
                     {% include 'Components/Utility/chevron_arrow.html' %}
                     <div class="item-dropdown4  !px-1">
-                        <h2>Medical Store in Pakistan</h2>
+                        <h2 class="!text-[18px]">Medical Store in Pakistan</h2>
                         <ul class="item-dropdown4-ul  !px-1">
                             {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
                             {% include 'Components/Header/NavItem.html' with name='Karachi' %}
@@ -120,7 +122,7 @@
                     <!-- droupdown 5-->
                     <!--  -->
                     <div class="item-dropdown5  !px-1">
-                        <h2>lABS In Pakistan</h2>
+                        <h2 class="!text-[18px]">lABS In Pakistan</h2>
                         <ul class="item-dropdown5-ul  !px-1">
                             {% include 'Components/Header/NavItem.html' with name='Chughtai Lab ' %}
                             {% include 'Components/Header/NavItem.html' with name='Dr. Essa’s Lsb ' %}
@@ -140,11 +142,11 @@
         <!--  -->
         <div class="float-right">
             <div class="logo-paragraph  ">
-                <a href="/auth/login">
-                    <p class="!font-[600]  ">Join</p>
+                <a href="./auth/login">
+                    <p class="!font-[600] ">Join</p>
                 </a>
             </div>
-            <div class="svg1 hidden md:block items">
+            <!-- <div class="svg1 hidden md:block items">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="29" cy="29" r="29" fill="#0A1C4B" fill-opacity="0.1" />
                     <circle cx="29" cy="29" r="22" fill="#0A1C4B" fill-opacity="0.15" />
@@ -152,9 +154,9 @@
                         d="M28.8 17H31.2C37.1647 17 42 21.8353 42 27.8C42 33.7647 37.1647 38.6 31.2 38.6H22.8C20.149 38.6 18 36.451 18 33.8V27.8C18 21.8353 22.8353 17 28.8 17ZM25.2 31.1C24.7029 31.1 24.3 30.6971 24.3 30.2C24.3 29.7029 24.7029 29.3 25.2 29.3H30C30.4971 29.3 30.9 29.7029 30.9 30.2C30.9 30.6971 30.4971 31.1 30 31.1H25.2ZM25.2 26.3C24.7029 26.3 24.3 25.8971 24.3 25.4C24.3 24.9029 24.7029 24.5 25.2 24.5H34.8C35.2971 24.5 35.7 24.9029 35.7 25.4C35.7 25.8971 35.2971 26.3 34.8 26.3H25.2Z"
                         fill="#0A1C4B" />
                 </svg>
-            </div>
-            <div class=" cursor-pointer pt-1  mt-4 mr-3 w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center">
-                <svg width="500" height="500" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            </div> -->
+            <div class=" cursor-pointer pt-1 hidden sm:hidden md:flex  mt-4 mr-3 w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center">
+                <svg width="40" height="40" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g filter="url(#filter0_d_1169_565)">
                     <rect x="8" y="6" width="26" height="26" fill="url(#pattern0)" shape-rendering="crispEdges"/>
                     </g>
@@ -178,7 +180,7 @@
                     
               
             </div>
-            <div class="svg2 ">
+            <div class="svg2  ">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
                     <path
@@ -186,7 +188,7 @@
                         fill="#0A1C4B" />
                 </svg>
             </div>
-            <div class="svg3">
+            <div class="svg3 hidden sm:hidden md:flex items-center mt-3">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
                     <path

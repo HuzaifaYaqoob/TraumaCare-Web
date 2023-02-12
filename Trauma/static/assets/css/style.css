@@ -839,7 +839,7 @@ a {
 }
 
 .max-width h3 {
-    padding-top: 90px;
+    /* padding-top: 90px; */
     font-size: 55px;
     font-weight: 600;
     color: rgba(255, 255, 255, 1);
@@ -2238,7 +2238,6 @@ a {
     align-items: center;
     background-color: #FFFFFF;
     border-radius: 6px;
-    box-shadow: 0px 0px 35px #dddddd;
     gap: 5px;
 }
 
