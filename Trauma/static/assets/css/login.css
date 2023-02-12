@@ -21,10 +21,11 @@ body {
 }
 
 .float-left {
-    height: 100%;
+    /* height: 100%; */
     position: relative;
     width: 47%;
-    background-color: rgba(10, 28, 75, 1);
+    background: url(/Trauma/static/assets/Images/Rectangle\ 445.png);
+    height: 100vh;
 }
 
 .float-left div:first-child {
@@ -45,10 +46,8 @@ body {
 
 
 .float-left svg:first-child {
-    top: 400px;
     position: absolute;
     width: 10px;
-    height: 25px;
     max-width: 1200px;
     width: 100%;
     margin: 0 auto;
