@@ -25,14 +25,9 @@
                         <div class="dropdown1-div1 !px-2">
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
-                                {% include 'Components/Header/NavItem.html' with name='Gynecologist' %}
-                                {% include 'Components/Header/NavItem.html' with name='Diabetes' %}
-                                {% include 'Components/Header/NavItem.html' with name='Psychiatrist' %}
-                                {% include 'Components/Header/NavItem.html' with name='ENT' %}
-                                {% include 'Components/Header/NavItem.html' with name='Neuro Physician' %}
-                                {% include 'Components/Header/NavItem.html' with name='Urologist' %}
-                                {% include 'Components/Header/NavItem.html' with name='Orthopedic Surgeon' %}
-                                {% include 'Components/Header/NavItem.html' with name='Child Specialist' %}
+                                {% for spec in specialities %}
+                                    {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon color=spec.color_code %}
+                                {% endfor %}
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
