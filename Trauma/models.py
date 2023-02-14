@@ -11,6 +11,7 @@ class Speciality(models.Model):
     name = models.CharField(max_length=500, default='')
     svg_icon = models.TextField()
     color_code = models.CharField(max_length=10, default='')
+    description = models.TextField(default='')
 
     image = models.ImageField(upload_to='specialities/images/', null=True, blank=True)
 

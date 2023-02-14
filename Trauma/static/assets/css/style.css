@@ -15,6 +15,10 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
 }
 
+.nav-item-svg-parent-div svg{
+    width: 23px !important;
+    height: 23px !important;
+}
 
 
 .max-width1 {
