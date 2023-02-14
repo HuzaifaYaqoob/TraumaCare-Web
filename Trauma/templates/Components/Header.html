@@ -15,7 +15,7 @@
                 </a>
             </div>
         </a>
-            <div class="list-items gap-7">
+            <div class="list-items gap-1">
                 <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group">Doctors
                     <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
@@ -113,7 +113,8 @@
                         </ul>
                     </div>
                 </li>
-                <li class="flex items-center gap-2 !text-[18px]  group">Labs
+                <li class="flex items-center gap-2 !text-[18px]  group !m-0 !mr-0">
+                    Labs
                     {% include 'Components/Utility/chevron_arrow.html' %}
                     <!--  -->
                     <!-- droupdown 5-->
@@ -131,6 +132,12 @@
                             <li>Sialkot</li> -->
                             {% include 'Components/Header/view_all.html' %}
                         </ul>
+                    </div>
+                </li>
+                <li class="relative px-2 cursor-pointer">
+                    <h3 class="li-third text-[#0A1C4B] font-semibold !text-[18px]">prescription</h3>
+                    <div class="absolute text-sm bg-[#24D0D0] text-white px-2 py-0 rounded-lg top-[0] -translate-y-1/2 right-0 translate-x-1/2">
+                        <span>New</span>
                     </div>
                 </li>
             </div>
