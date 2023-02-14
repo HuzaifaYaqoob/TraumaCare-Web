@@ -2237,7 +2237,7 @@ a {
     flex-direction: column;
     align-items: center;
     background-color: #FFFFFF;
-    border-radius: 6px;
+    border-radius: 15px;
     gap: 5px;
 }
 
