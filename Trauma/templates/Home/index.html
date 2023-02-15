@@ -323,10 +323,9 @@
     <!--  -->
 
     <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
-        {% include 'Components/Home/SpecialityCard.html' %}
-        {% include 'Components/Home/SpecialityCard.html' %}
-        {% include 'Components/Home/SpecialityCard.html' %}
-        {% include 'Components/Home/SpecialityCard.html' %}
+        {% for speciality in specialities %}
+            {% include 'Components/Home/SpecialityCard.html' with data=speciality %}
+        {% endfor %}
     </div>
 
 
