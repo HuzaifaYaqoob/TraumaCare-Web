@@ -282,21 +282,106 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap " style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
+        <!-- {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
+        {% include 'Components/Home/DoctorCard.html' %} -->
     </div>
+
+
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
     <!-- find doctor -->
+    <!--  -->
+    <!--  -->
+
+    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+        <div>
+            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find Doctors By health concern</h2>
+        </div>
+        <div class="flex items-center gap-2 cursor-pointer">
+            <div class="text-[#0A1C4B] font-semibold text-lg">
+                View All Specialist
+            </div>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
+            </div>
+        </div>
+    </div>
+
+
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+    </div>
+
+
+    <!--  -->
+    <!--  -->
+    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+        <div>
+            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Search by Diseases</h2>
+        </div>
+        <div class="flex items-center gap-2 cursor-pointer">
+            <div class="text-[#0A1C4B] font-semibold text-lg">
+                View All Specialist
+            </div>
+            <div>
+                <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+        {% include 'Components/Home/found-doctor.html' %}
+    </div>
 
 
 
 
-    <div class="doctor-found">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!-- <div class="doctor-found">
         <div class="doctor-found-div1">
             <p class="div1-p1">Find Doctors By health concern</p>
             <p class="div1-p2">View All Specialist<svg width="20" height="14" viewBox="0 0 20 14" fill="none"
@@ -490,9 +575,9 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
     <!--  -->
-    <div class="doctor-found">
+    <!-- <div class="doctor-found">
         <h2 class="doctor-found-h2">
             Search Diseases
         </h2>
@@ -769,7 +854,7 @@
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <p class="main-paragraph">Looking For More?</p>
     <div class="main-left-right">
@@ -777,7 +862,8 @@
             <h3 class="!text-4xl">Book Lab Test</h3>
             <p class="!font-medium">Book Lab Tests Online in Pakistan with free home sample <br> collection,
                 <b>TraumaCare</b> allows you to
-                view the pricing and <br> details of lab tests online.</p>
+                view the pricing and <br> details of lab tests online.
+            </p>
             <button class="hover:rotate-[10deg]">book Now <svg width="20" height="14" viewBox="0 0 20 14" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#F8F8F8" stroke-width="1.5" stroke-linecap="round"
