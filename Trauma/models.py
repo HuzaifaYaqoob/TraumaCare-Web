@@ -27,3 +27,26 @@ class Speciality(models.Model):
     class Meta:
         verbose_name = 'Specility'
         verbose_name_plural = 'Specilities'
+
+class Disease(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+
+    name = models.CharField(max_length=500, default='')
+    svg_icon = models.TextField()
+    color_code = models.CharField(max_length=10, default='')
+    description = models.TextField(default='')
+
+    image = models.ImageField(upload_to='disease/images/', null=True, blank=True)
+
+    rank = models.IntegerField(default=1)
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return str(self.id)
+
+    
+    class Meta:
+        verbose_name = 'Disease'
+        verbose_name_plural = 'Diseases'
