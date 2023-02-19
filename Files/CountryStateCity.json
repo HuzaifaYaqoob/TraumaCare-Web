@@ -1,0 +1,48 @@
+[
+    {
+        "country_name" : "Pakistan",
+        "svg_icon" : "",
+        "color_code" : "",
+        "states" : [
+            {
+                "name" : "Punjab",
+                "svg_icon" : "",
+                "color_code" : "",
+                "cities" : [
+                    {
+                        "name" : "Lahore",
+                        "svg_icon" : "",
+                        "color_code" : ""
+                    },
+                    {
+                        "name" : "Faislabad",
+                        "svg_icon" : "",
+                        "color_code" : ""
+                    },
+                    {
+                        "name" : "Rawalpindi",
+                        "svg_icon" : "",
+                        "color_code" : ""
+                    },
+                    {
+                        "name" : "Multan",
+                        "svg_icon" : "",
+                        "color_code" : ""
+                    }
+                ]
+            },
+            {
+                "name" : "Sindh",
+                "svg_icon" : "",
+                "color_code" : "",
+                "cities" : [
+                    {
+                        "name" : "Karachi",
+                        "svg_icon" : "",
+                        "color_code" : ""
+                    }
+                ]
+            }
+        ]
+    }
+]
