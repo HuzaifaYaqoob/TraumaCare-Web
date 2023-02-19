@@ -7,6 +7,9 @@ def homePage(request):
     return render(request, 'Home/index.html')
 
 
+def FeedPage(request):
+    return render(request, 'Feed/feedPage.html')
+
 def test(request):
     return render(request, 'prescription.html')
 
