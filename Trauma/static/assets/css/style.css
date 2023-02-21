@@ -605,10 +605,14 @@ a {
     }
 }
 
-@media (max-width:1380px) {
+@media (max-width:1200px) {
     .list-items {
-        display: none;
+        display: none !important;
     }
+}
+
+@media (max-width:1380px) {
+
 
     .float-left {
         padding-left: 90px;

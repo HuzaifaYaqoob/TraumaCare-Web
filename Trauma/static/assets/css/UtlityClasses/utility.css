@@ -46,7 +46,13 @@ input[type='checkbox']{
 /*  */
 /*  */
 
-
+.Chinook-img{
+    background: url('https://source.unsplash.com/random/400×400/?doctor');
+    background-position: center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
 
 
 
