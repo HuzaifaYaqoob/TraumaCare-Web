@@ -4,6 +4,26 @@
 
 
 {% block baseBody %}
+<style>
+    .Search-Doctors-Hospitals-para{
+        border: 2px solid #ffffff;
+        background-color: #ffffff;
+        height: 55px;
+        font-size: 18px;
+        outline: none;
+        color: rgba(10, 28, 75, 1);
+        width: 440px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 6px;
+    }
+    .Search-Doctors-Hospitals-para:focus{
+        border: 2px solid rgba(36, 208, 208, 1);
+    }
+    .btn-more-TC{
+        transition: all 0.3s;
+    }
+</style>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
@@ -37,9 +57,7 @@
         <input class="Specialities-para" placeholder="Specialities"></input>
 
     </div>
-    <div class="Search-Doctors-Hospitals shadow-xl">
-        <input type="search" class="Search-Doctors-Hospitals-para" placeholder="Search Doctors Hospitals "></input>
-    </div>
+        <input type="search" class="Search-Doctors-Hospitals-para shadow-xl" placeholder="Search Doctors Hospitals"></input>
     <a href="/search" class="search-button">
         <div class="search-btn-svg">
             <svg width="18" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +127,8 @@
             <!-- <div><i class="fa-solid fa-xmark cursor-pointer"></i></div> -->
         </div>
         <div
-            class="transition-all bg-[#7fe4e4] hover:rotate-12 hover:scale-125 hover:shadow-xl effect1 flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
-            <p class="capitalize text-white font-medium">more</p>
+            class="btn-more-TC bg-[#7fe4e4] hover:rotate-12 hover:scale-125 hover:shadow-xl effect1 flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
+            <p class=" capitalize text-white font-medium">more</p>
         </div>
     </div>
 </div>

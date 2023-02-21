@@ -13,7 +13,7 @@ body {
 
 
 
-.main-section {
+.main-section-join {
     display: flex;
     max-width: 1920px;
     margin: auto;
@@ -52,6 +52,7 @@ body {
     width: 100%;
     margin: 0 auto;
 }
+
 
 
 

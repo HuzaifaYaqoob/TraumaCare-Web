@@ -3,8 +3,6 @@ input[type='checkbox']{
     accent-color: #24D0D0 !important;
 }
 
-
-
 .flex{
     display: flex;
 }
@@ -40,3 +38,43 @@ input[type='checkbox']{
     background-color: white;
 }
 
+
+
+/*  */
+/*  */
+/*  */
+/*  */
+/*  */
+
+
+
+
+
+.input-tc-form-field:hover{
+    border-color: #6AA7BF;
+}
+
+
+.input-tc-form-field:focus,
+.input-tc-form-field:not(:placeholder-shown){
+    border-color: #24D0D0;
+}
+/* #24D0D0 */
+
+.input-tc-form-field:hover ~ .input-field-icon-seperator{
+    background-color: #6AA7BF;
+}
+.input-tc-form-field:focus ~ .input-field-icon-seperator,
+.input-tc-form-field:not(:placeholder-shown) ~ .input-field-icon-seperator{
+    background-color: #24D0D0;
+}
+.input-tc-form-field:focus ~ .input-tc-field-svg-icon path,
+.input-tc-form-field:not(:placeholder-shown) ~ .input-tc-field-svg-icon path{
+    fill: #24D0D0;
+}
+.input-tc-form-field:focus ~ .input-tc-field-label,
+.input-tc-form-field:not(:placeholder-shown) ~ .input-tc-field-label{
+    color: #24D0D0 ;
+    top: 0;
+    font-size: 14px;
+}
