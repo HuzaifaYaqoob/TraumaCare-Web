@@ -1,13 +1,49 @@
 <style>
-    @media (max-width:1260px) {
+    .svg2 svg{
+        height: 70px;
+    }
+    .ham-burger{
+        display: none;
+    }
+    @media (max-width:1210px) {
         .list-items {
             display: none;
+        }
+        .ham-burger{
+            display: block;
+        }
+    }
+    @media (max-width:1380px) {
+        .float-left {
+            padding-left: 50px;
+        }
+        .float-right {
+            padding-right: 50px;
+        }
+    }
+
+    @media (max-width:800px) {
+        .float-right {
+            padding-right: 50px;
+        }
+    }
+    @media (max-width:630px) {
+        .float-left {
+            padding-left: 20px;
+        }
+        .float-right {
+            padding-right: 20px;
+        }
+    }
+    @media (min-width:768px) {
+        .ham-burger{
+            margin-left: 17px;
         }
     }
 </style>
 
-<header class='bg-white fixed top-0 right-0 left-0 z-[124525757] shadow-md'>
-    <div class="main-header mx-auto ">
+<header class='header-main bg-white fixed top-0 right-0 left-0 z-[124525757] shadow-md'>
+    <div class="main-header">
         <div class="float-left">
             <!-- <a href="../Home/index.html"> -->
             <div class="logo">
@@ -275,19 +311,20 @@
                 </div>
 
             </div>
-            <div class=" flex  xl:hidden items-center ml-5 cursor-pointer  order-1 ">
-                <svg width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M0 1.73682C0 0.7776 0.7776 0 1.73682 0H24.8944C25.8536 0 26.6312 0.7776 26.6312 1.73682C26.6312 2.69604 25.8536 3.47364 24.8944 3.47364H1.73682C0.7776 3.47364 0 2.69604 0 1.73682Z"
-                        fill="#28303F" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M0 11.0005C0 10.0413 0.7776 9.26367 1.73682 9.26367H24.8944C25.8536 9.26367 26.6312 10.0413 26.6312 11.0005C26.6312 11.9597 25.8536 12.7373 24.8944 12.7373H1.73682C0.7776 12.7373 0 11.9597 0 11.0005Z"
-                        fill="#28303F" />
-                    <path fill-rule="evenodd" clip-rule="evenodd"
-                        d="M0 20.2642C0 19.3049 0.7776 18.5273 1.73682 18.5273H24.8944C25.8536 18.5273 26.6312 19.3049 26.6312 20.2642C26.6312 21.2234 25.8536 22.001 24.8944 22.001H1.73682C0.7776 22.001 0 21.2234 0 20.2642Z"
-                        fill="#28303F" />
-                </svg>
-
+            <div class="main-ham-burger flex items-center justify-center">
+                <div class="ham-burger flex items-center justify-center ml-2 cursor-pointer  order-1 ">
+                    <svg width="27" height="22" viewBox="0 0 27 22" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 1.73682C0 0.7776 0.7776 0 1.73682 0H24.8944C25.8536 0 26.6312 0.7776 26.6312 1.73682C26.6312 2.69604 25.8536 3.47364 24.8944 3.47364H1.73682C0.7776 3.47364 0 2.69604 0 1.73682Z"
+                            fill="#28303F" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 11.0005C0 10.0413 0.7776 9.26367 1.73682 9.26367H24.8944C25.8536 9.26367 26.6312 10.0413 26.6312 11.0005C26.6312 11.9597 25.8536 12.7373 24.8944 12.7373H1.73682C0.7776 12.7373 0 11.9597 0 11.0005Z"
+                            fill="#28303F" />
+                        <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M0 20.2642C0 19.3049 0.7776 18.5273 1.73682 18.5273H24.8944C25.8536 18.5273 26.6312 19.3049 26.6312 20.2642C26.6312 21.2234 25.8536 22.001 24.8944 22.001H1.73682C0.7776 22.001 0 21.2234 0 20.2642Z"
+                            fill="#28303F" />
+                    </svg>
+                </div>
             </div>
         </div>
     </div>
