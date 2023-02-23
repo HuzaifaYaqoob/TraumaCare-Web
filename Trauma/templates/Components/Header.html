@@ -75,8 +75,7 @@
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% for spec in specialities %}
-                                {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon
-                                color=spec.color_code %}
+                                {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon color=spec.color_code %}
                                 {% endfor %}
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
