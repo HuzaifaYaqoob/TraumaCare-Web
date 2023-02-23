@@ -33,6 +33,36 @@
             height: 300px;
         }
     }
+
+
+    @media (max-width:1400px) {
+        .doctor-card-maon-TC{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .doctor-card-maon-TC-cards{
+            width: 350px;
+        }
+        .speciality-cards-main-TC{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 8px;
+            padding-right: 8px;
+            flex-wrap: wrap;
+        }
+        .speciality-cards-TC{
+            width: 350px;
+        }
+    }
+    .speciality-doctor-heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 </style>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
@@ -310,7 +340,7 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap" style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
@@ -329,7 +359,7 @@
     <!--  -->
     <!--  -->
 
-    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
         <div>
             <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find Doctors By health concern</h2>
         </div>
@@ -350,7 +380,7 @@
     <!--  -->
     <!--  -->
 
-    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+    <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% for speciality in specialities %}
             {% include 'Components/Home/SpecialityCard.html' with data=speciality %}
         {% endfor %}
@@ -359,7 +389,7 @@
 
     <!--  -->
     <!--  -->
-    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
         <div>
             <h2 class="text-[#0A1C4B] text-4xl font-semibold">Search by Diseases</h2>
         </div>
@@ -375,7 +405,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+    <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% include 'Components/Home/SpecialityCard.html' %}
         {% include 'Components/Home/SpecialityCard.html' %}
         {% include 'Components/Home/SpecialityCard.html' %}

@@ -15,5 +15,9 @@ def CartPage(request):
 
 def searchFilterPage(request):
     # return render(request, 'Search/booklabtest.html')
-    return render(request, 'Search/Updated_FilterPage.html')
+    context = {
+        'is_search_page' : True,
+        'remove_footer' : True
+    }
+    return render(request, 'Search/Updated_FilterPage.html', context=context)
 

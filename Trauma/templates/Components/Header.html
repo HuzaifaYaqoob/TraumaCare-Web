@@ -1,4 +1,8 @@
 <style>
+    .main-header{
+        max-width: 1920px;
+        margin: auto;
+    }
     .svg2 svg{
         height: 70px;
     }
@@ -42,7 +46,7 @@
     }
 </style>
 
-<header class='header-main bg-white fixed top-0 right-0 left-0 z-[124525757] shadow-md'>
+<header class='header-main bg-white sticky top-0 right-0 left-0 z-[124525757] {% if not is_search_page %} shadow-md {% endif %}'>
     <div class="main-header">
         <div class="float-left">
             <!-- <a href="../Home/index.html"> -->

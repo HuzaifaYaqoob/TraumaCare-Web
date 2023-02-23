@@ -1,10 +1,6 @@
 {% extends 'Components/MainBase.html' %}
 {% load static %}
 
-<style>
-
-</style>
-
 {% block mainBaseCSS %}
 <style>
     .background-img {
@@ -61,6 +57,21 @@
     .login-input-page-main{
         height: 100%;
     }
+
+    .input-fields-main-TC{
+        width: 40%;
+    }
+
+
+    .cards-TC-main{
+        margin-top: 20px;
+        width: 500px;
+    }
+    .cards-TC-main-1{
+        padding-top: 30px;
+        padding-bottom: 30px;
+        border-radius: 10px;
+    }
     /* */
     /*  */
     /*  */
@@ -68,9 +79,7 @@
     /*  */
     /*  */
     /*  */
-    .input-fields-main-TC{
-        width: 40%;
-    }
+
 
     @media (max-width:1700px) {
         .input-fields-main-TC{
@@ -99,10 +108,10 @@
         }
         .background-img{
         width: 100%;
-        height: 50%;
+        height: 40%;
         }
         .login-input-page-main{
-        height: 50%;
+        height: 60%;
         width: 100%;
         }
         .input-fields-main-TC{
@@ -113,15 +122,27 @@
         .input-fields-main-TC{
             width: 66%;
         }
+        .bg-leniergrediant-icon-TC{
+            height: 230px;
+            width: 230px;
+        }
     }
     @media (max-width:500px){
         .input-fields-main-TC{
             width: 83%;
         }
+        .bg-leniergrediant-icon-TC{
+            height: 200px;
+            width: 200px;
+        }
     }
     @media (max-width:400px){
         .input-fields-main-TC{
             width: 92%;
+        }
+        .bg-leniergrediant-icon-TC{
+            height: 180px;
+            width: 180px;
         }
     }
 </style>
@@ -132,7 +153,7 @@
 <div class="login-page-TC m-auto flex">
     <div class="background-img">
         <div class="bg-leniergrediant flex items-center justify-center h-full w-full flex-col gap-4">
-            <a class="flex items-center" href="/">
+            <a class="flex items-center " href="/">
                 <span class="text-[#ffffff] font-medium text-4xl">Trauma</span>
                 <span class="text-[#24D0D0] font-medium text-4xl">Care</span>
             </a>
@@ -143,7 +164,7 @@
                 </p>
             </div>
             <div>
-                <svg width="270" height="256" viewBox="0 0 310 296" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <svg class="bg-leniergrediant-icon-TC" width="270" height="256" viewBox="0 0 310 296" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <rect x="18.9209" y="171.86" width="70.5582" height="124.14" fill="url(#pattern0)"/>
                     <path d="M72.8791 293.626C72.6399 293.602 72.4389 293.419 72.4008 293.171C60.9867 217.172 38.7536 192.737 31.4481 184.707L30.8306 184.026C30.6322 183.806 30.6492 183.466 30.87 183.268C31.0907 183.069 31.431 183.087 31.6294 183.307L32.2444 183.984C39.605 192.074 62.0036 216.691 73.4651 293.012C73.5098 293.306 73.3061 293.579 73.0131 293.623C72.9671 293.63 72.9224 293.631 72.8791 293.626Z" fill="#DEDEDE"/>
                     <rect y="239.704" width="64.2514" height="54.9837" fill="url(#pattern1)"/>
@@ -350,19 +371,47 @@
         <div>
             <p class="text-center text-[15px] text-[#0A1C4B] mt-[5px]" style="word-spacing: 1px; letter-spacing: 0.3px;">We collaborate for better healthcare</p>
         </div>
-        <div class="input-fields-main-TC mt-[40px]">
+        <div class="cards-TC-main grid grid-cols-3 gap-[10px]">
+            <div class="cards-TC-main-1 flex flex-col items-center gap-[30px] bg-[#ffffff] cursor-pointer border hover:shadow-md border-gray-200">
+                <div>
+                    <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.6875 13.1875L6.96875 11.4375C6.71875 11.1875 6.42208 11.0625 6.07875 11.0625C5.73542 11.0625 5.43833 11.1875 5.1875 11.4375C4.9375 11.6875 4.80708 11.9846 4.79625 12.3287C4.78542 12.6729 4.90542 12.9696 5.15625 13.2187L7.8125 15.875C8.0625 16.125 8.35417 16.25 8.6875 16.25C9.02083 16.25 9.3125 16.125 9.5625 15.875L14.875 10.5625C15.125 10.3125 15.25 10.0154 15.25 9.67125C15.25 9.32708 15.125 9.03041 14.875 8.78125C14.625 8.53125 14.3279 8.40625 13.9837 8.40625C13.6396 8.40625 13.3429 8.53125 13.0937 8.78125L8.6875 13.1875ZM10 24.7187H9.6875C9.58333 24.7187 9.48958 24.6979 9.40625 24.6562C6.67708 23.8021 4.42708 22.1096 2.65625 19.5787C0.885417 17.0479 0 14.2508 0 11.1875V5.28125C0 4.76042 0.15125 4.29167 0.45375 3.875C0.75625 3.45833 1.14667 3.15625 1.625 2.96875L9.125 0.15625C9.41667 0.0520833 9.70833 0 10 0C10.2917 0 10.5833 0.0520833 10.875 0.15625L18.375 2.96875C18.8542 3.15625 19.245 3.45833 19.5475 3.875C19.85 4.29167 20.0008 4.76042 20 5.28125V11.1875C20 14.25 19.1146 17.0471 17.3437 19.5787C15.5729 22.1104 13.3229 23.8029 10.5937 24.6562C10.4896 24.6979 10.2917 24.7187 10 24.7187Z" fill="#6AA7BF"/>
+                        </svg>                        
+                </div>
+                <p class="capitalize font-medium text-[16px] text-[#A9B8CB]" style="letter-spacing: 0.4px;">username</p>
+            </div>
+            <div class="cards-TC-main-1 flex flex-col items-center gap-[30px] bg-[#ffffff] cursor-pointer border hover:shadow-md border-gray-200">
+                <div>
+                    <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.6875 13.1875L6.96875 11.4375C6.71875 11.1875 6.42208 11.0625 6.07875 11.0625C5.73542 11.0625 5.43833 11.1875 5.1875 11.4375C4.9375 11.6875 4.80708 11.9846 4.79625 12.3287C4.78542 12.6729 4.90542 12.9696 5.15625 13.2187L7.8125 15.875C8.0625 16.125 8.35417 16.25 8.6875 16.25C9.02083 16.25 9.3125 16.125 9.5625 15.875L14.875 10.5625C15.125 10.3125 15.25 10.0154 15.25 9.67125C15.25 9.32708 15.125 9.03041 14.875 8.78125C14.625 8.53125 14.3279 8.40625 13.9837 8.40625C13.6396 8.40625 13.3429 8.53125 13.0937 8.78125L8.6875 13.1875ZM10 24.7187H9.6875C9.58333 24.7187 9.48958 24.6979 9.40625 24.6562C6.67708 23.8021 4.42708 22.1096 2.65625 19.5787C0.885417 17.0479 0 14.2508 0 11.1875V5.28125C0 4.76042 0.15125 4.29167 0.45375 3.875C0.75625 3.45833 1.14667 3.15625 1.625 2.96875L9.125 0.15625C9.41667 0.0520833 9.70833 0 10 0C10.2917 0 10.5833 0.0520833 10.875 0.15625L18.375 2.96875C18.8542 3.15625 19.245 3.45833 19.5475 3.875C19.85 4.29167 20.0008 4.76042 20 5.28125V11.1875C20 14.25 19.1146 17.0471 17.3437 19.5787C15.5729 22.1104 13.3229 23.8029 10.5937 24.6562C10.4896 24.6979 10.2917 24.7187 10 24.7187Z" fill="#6AA7BF"/>
+                        </svg>                        
+                </div>
+                <p class="capitalize font-medium text-[16px] text-[#A9B8CB]" style="letter-spacing: 0.4px;">phone number</p>
+            </div>
+            <div class="cards-TC-main-1 flex flex-col items-center gap-[30px] bg-[#ffffff] cursor-pointer border hover:shadow-md border-gray-200">
+                <div>
+                    <svg width="20" height="25" viewBox="0 0 20 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M8.6875 13.1875L6.96875 11.4375C6.71875 11.1875 6.42208 11.0625 6.07875 11.0625C5.73542 11.0625 5.43833 11.1875 5.1875 11.4375C4.9375 11.6875 4.80708 11.9846 4.79625 12.3287C4.78542 12.6729 4.90542 12.9696 5.15625 13.2187L7.8125 15.875C8.0625 16.125 8.35417 16.25 8.6875 16.25C9.02083 16.25 9.3125 16.125 9.5625 15.875L14.875 10.5625C15.125 10.3125 15.25 10.0154 15.25 9.67125C15.25 9.32708 15.125 9.03041 14.875 8.78125C14.625 8.53125 14.3279 8.40625 13.9837 8.40625C13.6396 8.40625 13.3429 8.53125 13.0937 8.78125L8.6875 13.1875ZM10 24.7187H9.6875C9.58333 24.7187 9.48958 24.6979 9.40625 24.6562C6.67708 23.8021 4.42708 22.1096 2.65625 19.5787C0.885417 17.0479 0 14.2508 0 11.1875V5.28125C0 4.76042 0.15125 4.29167 0.45375 3.875C0.75625 3.45833 1.14667 3.15625 1.625 2.96875L9.125 0.15625C9.41667 0.0520833 9.70833 0 10 0C10.2917 0 10.5833 0.0520833 10.875 0.15625L18.375 2.96875C18.8542 3.15625 19.245 3.45833 19.5475 3.875C19.85 4.29167 20.0008 4.76042 20 5.28125V11.1875C20 14.25 19.1146 17.0471 17.3437 19.5787C15.5729 22.1104 13.3229 23.8029 10.5937 24.6562C10.4896 24.6979 10.2917 24.7187 10 24.7187Z" fill="#6AA7BF"/>
+                        </svg>                        
+                </div>
+                <p class="capitalize font-medium text-[16px] text-[#A9B8CB]" style="letter-spacing: 0.4px;">email adress</p>
+            </div>
+        </div>
+        <div class="input-fields-main-TC mt-[30px]">
+            {% include 'Components/Form/username.html' %}
+            {% include 'Components/Form/phonenumber.html' %}
             {% include 'Components/Form/EmailField.html' %}
             {% include 'Components/Form/passwordField.html' %}
             <div class="flex items-center gap-[5px] ml-[10px]">
                 <input type="checkbox" name="checkbox" id="checkbox" required>
-                <label class="text-[#0A1C4B] text-[13px] font-medium" for="checkbox">I accept all <a href="#" class="text-[#24D0D0] font-semibold cursor-pointer">terms and conditions</a></label>
+                <label class="text-[#0A1C4B] text-[13px] font-medium" for="checkbox">Remember me all <a href="#" class="text-[#24D0D0] font-semibold cursor-pointer">terms and conditions</a></label>
             </div>
             <div class="login-btn mt-[25px]">
                 Log in
             </div>
             <div class="flex items-center justify-center mt-[13px] gap-[4px]">
                 <p class="text-[15px] text-[#0A1C4B] font-medium">Don't have account?</p>
-                <a href="#" class="text-[15px] font-semibold text-[#24D0D0] cursor-pointer">Join</a>
+                <a href="/auth/join" class="text-[15px] font-semibold text-[#24D0D0] cursor-pointer">Join</a>
             </div>
         </div>
     </div>

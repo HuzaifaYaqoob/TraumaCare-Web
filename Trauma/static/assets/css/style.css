@@ -607,7 +607,7 @@ a {
 
 @media (max-width:1200px) {
     .list-items {
-        display: none !important;
+        display: none;
     }
 }
 
