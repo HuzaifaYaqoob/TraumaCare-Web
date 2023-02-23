@@ -4,6 +4,66 @@
 
 
 {% block baseBody %}
+<style>
+    .Search-Doctors-Hospitals-para{
+        border: 2px solid #ffffff;
+        background-color: #ffffff;
+        height: 55px;
+        font-size: 18px;
+        outline: none;
+        color: rgba(10, 28, 75, 1);
+        width: 440px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 6px;
+    }
+    .Search-Doctors-Hospitals-para:focus{
+        border: 2px solid rgba(36, 208, 208, 1);
+    }
+    .btn-more-TC{
+        transition: all 0.3s;
+    }
+    @media (max-width:850px) {
+        .main-section{
+            height: 330px;
+        }
+    }
+    @media (max-width:750px) {
+        .main-section{
+            height: 300px;
+        }
+    }
+
+
+    @media (max-width:1400px) {
+        .doctor-card-maon-TC{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
+            padding-left: 8px;
+            padding-right: 8px;
+        }
+        .doctor-card-maon-TC-cards{
+            width: 350px;
+        }
+        .speciality-cards-main-TC{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding-left: 8px;
+            padding-right: 8px;
+            flex-wrap: wrap;
+        }
+        .speciality-cards-TC{
+            width: 350px;
+        }
+    }
+    .speciality-doctor-heading{
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+</style>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
@@ -37,9 +97,7 @@
         <input class="Specialities-para" placeholder="Specialities"></input>
 
     </div>
-    <div class="Search-Doctors-Hospitals shadow-xl">
-        <input type="search" class="Search-Doctors-Hospitals-para" placeholder="Search Doctors Hospitals "></input>
-    </div>
+        <input type="search" class="Search-Doctors-Hospitals-para shadow-xl" placeholder="Search Doctors Hospitals"></input>
     <a href="/search" class="search-button">
         <div class="search-btn-svg">
             <svg width="18" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -109,8 +167,8 @@
             <!-- <div><i class="fa-solid fa-xmark cursor-pointer"></i></div> -->
         </div>
         <div
-            class="transition-all bg-[#7fe4e4] hover:rotate-12 hover:scale-125 hover:shadow-xl effect1 flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
-            <p class="capitalize text-white font-medium">more</p>
+            class="btn-more-TC bg-[#7fe4e4] hover:rotate-12 hover:scale-125 hover:shadow-xl effect1 flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
+            <p class=" capitalize text-white font-medium">more</p>
         </div>
     </div>
 </div>
@@ -281,7 +339,7 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap" style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
@@ -300,7 +358,7 @@
     <!--  -->
     <!--  -->
 
-    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
         <div>
             <h2 class="text-[#0A1C4B] text-4xl font-semibold">Discover doctors based on your condition.</h2>
         </div>
@@ -321,7 +379,7 @@
     <!--  -->
     <!--  -->
 
-    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+    <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% for speciality in specialities %}
             {% include 'Components/Home/SpecialityCard.html' with data=speciality %}
         {% endfor %}
@@ -330,7 +388,7 @@
 
     <!--  -->
     <!--  -->
-    <div class="flex items-center justify-center justify-between !mt-20" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
         <div>
             <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find doctors for your specific disease.</h2>
         </div>
@@ -346,7 +404,7 @@
         </div>
     </div>
 
-    <div class="grid grid-cols-4 gap-3 !mt-8" style="max-width: 1370px; margin: auto;">
+    <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% include 'Components/Home/SpecialityCard.html' %}
         {% include 'Components/Home/SpecialityCard.html' %}
         {% include 'Components/Home/SpecialityCard.html' %}

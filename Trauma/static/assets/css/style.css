@@ -605,17 +605,21 @@ a {
     }
 }
 
-@media (max-width:1380px) {
+@media (max-width:1200px) {
     .list-items {
         display: none;
     }
+}
+
+@media (max-width:1380px) {
+
 
     .float-left {
-        padding-left: 90px;
+        padding-left: 50px;
     }
 
     .float-right {
-        padding-right: 80px;
+        padding-right: 40px;
     }
 }
 
@@ -1067,7 +1071,7 @@ a {
 
 
 .Search-Doctors-Hospitals {
-    border: 2px solid #ffffff;
+    /* border: 2px solid #ffffff; */
     display: flex;
     align-items: center;
     background-color: #ffffff;
@@ -1077,7 +1081,7 @@ a {
     gap: 10px;
     padding-right: 10px;
     border-radius: 6px;
-    border: 2px solid rgba(36, 208, 208, 1);
+    /* border: 2px solid rgba(36, 208, 208, 1); */
 }
 
 .Search-Doctors-Hospitals input {
