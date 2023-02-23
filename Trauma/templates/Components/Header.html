@@ -191,12 +191,13 @@
                         <span>New</span>
                     </div>
                 </li>
-                <li class="relative px-2 cursor-pointer">
-                    <h3 class="li-third text-[#24D0D0] font-semibold !text-[18px]">Feed</h3>
-                    <div
-                        class="absolute text-sm bg-[#24D0D0] text-white px-2 py-0 rounded-lg top-[0] -translate-y-1/2 right-0 translate-x-1/2">
-                        <span>New</span>
-                    </div>
+                <li class="relative">
+                    <a href="{% url 'FeedPage' %}" class=" px-2 cursor-pointer block w-full h-full">
+                        <h3 class="li-third text-[#24D0D0] font-semibold !text-[18px]">Feed</h3>
+                        <div class="absolute text-sm bg-[#24D0D0] text-white px-2 py-0 rounded-lg top-[0] -translate-y-1/2 right-0 translate-x-1/2">
+                            <span>New</span>
+                        </div>
+                    </a>
                 </li>
             </div>
         </div>
