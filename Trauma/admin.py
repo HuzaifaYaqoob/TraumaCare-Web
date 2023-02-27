@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Speciality, Disease
+from .models import Speciality, Disease, Country, State, City
 
 # Register your models here.
 
@@ -18,3 +18,16 @@ class DiseaseAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'color_code', 'rank' , 'is_deleted', 'is_active']
 
     search_fields = [ 'name', 'color_code']
+
+
+@admin.register(Country)
+class CountryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']
+
+@admin.register(State)
+class StateAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']
+
+@admin.register(City)
+class CityAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']

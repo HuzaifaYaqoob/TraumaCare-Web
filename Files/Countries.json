@@ -1,0 +1,18 @@
+[
+    {
+        "country_name" : "Pakistan",
+        "svg_icon" : "",
+        "color_code" : "",
+        "unique_code" : "166",
+        "country_code" : "PK",
+        "dial_code" : "92"
+    },
+    {
+        "country_name" : "United Arab Emirates",
+        "svg_icon" : "",
+        "color_code" : "",
+        "unique_code" : "229",
+        "country_code" : "AE",
+        "dial_code" : "971"
+    }
+]

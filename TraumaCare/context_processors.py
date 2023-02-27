@@ -18,3 +18,11 @@ def specialities_context_processor(request):
     return {
         'specialities' : specialities[:8]
     }
+
+
+def Locations_context_processors(request):
+    context = {}
+
+    context['countries'] = []
+
+    return context

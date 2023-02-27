@@ -1,8 +1,8 @@
 
 
 import json
-
-from Trauma.models import Speciality
+import csv
+from Trauma.models import Speciality, Country, State, City
 
 def add_specialities():
 
@@ -40,3 +40,48 @@ def download_all_specialities():
             })
         
         data = json.dump(data, input_file)
+
+
+def add_country_state_cities():
+    with open('Files/Countries.json', 'r') as country_file:
+        countries = json.load(country_file)
+        for country in countries:
+            country_name = country['country_name']
+            svg_icon = country['svg_icon']
+            unique_code = country['unique_code']
+            country_code = country['country_code']
+            dial_code = country['dial_code']
+
+            this_country, creatd = Country.objects.get_or_create(
+                name = country_name,
+                dial_code = dial_code
+            )
+            
+            this_country.color_code = country_code
+            this_country.svg_icon = svg_icon
+            # this_country.description
+            # this_country.flag
+            this_country.save()
+
+            with open('Files/states.csv', 'r') as state_file:
+                states = csv.reader(state_file)
+                for state in states:
+                    country_unique_id = state[2]
+                    if country_unique_id == unique_code:
+                        state_name = state[1]
+                        state_code = state[0]
+                        this_state, created = State.objects.get_or_create(
+                            name = state_name,
+                            country = this_country
+                        )
+                        with open('Files/cities.csv', 'r') as city_file:
+                            cities = csv.reader(city_file)
+                            for city in cities:
+                                state_unique_id = city[2]
+                                if state_unique_id == state_code:
+                                    city_name = city[1]
+                                    City.objects.get_or_create(
+                                        name = city_name,
+                                        country = this_country, 
+                                        state = this_state
+                                    )

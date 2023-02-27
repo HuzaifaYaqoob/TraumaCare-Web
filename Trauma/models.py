@@ -60,6 +60,8 @@ class Country(models.Model):
     color_code = models.CharField(max_length=10, default='')
     description = models.TextField(default='')
 
+    dial_code = models.CharField(default='', max_length=20)
+
     flag = models.ImageField(upload_to='country/flags/', null=True, blank=True)
 
 
