@@ -2,6 +2,7 @@
 {% load static %}
 
 {% block mainBaseCSS %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
     .background-img {
         background: url('https://source.unsplash.com/random/400×400/?doctor');
@@ -116,12 +117,14 @@
         padding: 0px;
         z-index: 1000000;
     }
-    .rotate-svg svg{
+    .rotate-svg .fa-angle-up{
         transition: all 0.3s;
+        color: #A9B8CB;
     }
 
-    .country-input-main .form-TC-join-page-input:focus ~ .rotate-svg svg{
+    .country-input-main .form-TC-join-page-input:focus ~ .rotate-svg .fa-angle-up{
         transform: rotate(180deg);
+        color: #24D0D0;
     }
 
 
@@ -551,9 +554,7 @@
                 <div class="form-TC-join-page-line"></div>
                 <label class="form-TC-join-page-lable" for="text">Select Country</label>
                 <div class="rotate-svg">
-                    <svg width="8" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 6L7.5 1.6L2 6" stroke="#A9B8CB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                        
+                    <i class="fa-solid fa-angle-up"></i>                        
                 </div>
                 <div class="country-dropdown">
                     <div class="country-dropdown-1">

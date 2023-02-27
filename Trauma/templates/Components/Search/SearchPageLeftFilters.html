@@ -1,5 +1,23 @@
 
 
+
+
+
+<style>
+    .scroolBar-coustom::-webkit-scrollbar{
+        width: 10px;
+    }
+    .scroolBar-coustom::-webkit-scrollbar-track{
+        /* background-color: gray; */
+        background-color: var(--black);
+    }
+    .scroolBar-coustom::-webkit-scrollbar-thumb{
+        border-radius: 20px;
+        background-color: #24D0D0;
+        background-clip: border-box;
+    }
+</style>
+
 <div class=" bg-[#FFFFFF] shadow-lg max-w-[300px] h-full flex flex-col">
     <div class="flex items-center justify-between sticky top-0 border-b-[0.5px] border-gray-300 bg-white z-[10] px-3 py-2">
         <div class="flex items-center gap-2">
@@ -29,7 +47,7 @@
             <h3 class="text-[#557DE5] font-semibold cursor-pointer">Reset filters</h3>
         </div>
     </div>
-    <div class="flex-1 overflow-auto">
+    <div class="scroolBar-coustom flex-1 overflow-auto">
         <div class="px-6 py-4">
             <h3 class="text-[#A7A7A7] font-semibold text-xl">City</h3>
             <div class="flex items-center gap-6 flex-col !items-start">
@@ -355,10 +373,10 @@
                 <h3 class="text-[#557DE5] font-semobold text-lg">View More</h3>
             </div>
         </div>
-        <div class="mt-14">
-            <h3 class="text-[#A7A7A7]  font-semibold text-xl">Price Range</h3>
+        <div class="mt-14 ">
+            <h3 class="text-[#A7A7A7]  font-semibold text-xl pl-[20px]">Price Range</h3>
             <div class="mt-2">
-                <div class="flex gap-2 items-end h-[100px] mt-8  ">
+                <div class="flex gap-2 items-end h-[100px] mt-8  pl-[20px] pr-[20px]">
                     <div class="h-full bg-[#24D0D0] w-[14px] flex-1">
                         
                     </div>
@@ -403,7 +421,7 @@
                     </div>
                 </div>
             </div>
-            <div class="w-full h-4 bg-red-500 mt-4 rounded-lg relative flex ">
+            <div class="w-full h-4 bg-[#97B4FF] mt-4 rounded-lg relative flex  ">
                 <div class="absolute h-full bg-[#8DE4E4] w-[50%] top-0 left-[50%] translate-x-[-50%] !relative ">
                     <div class="absolute top-[-15px] left-[-20px]  ">
                         <svg width="50" height="50" viewBox="0 0 39 39" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -454,11 +472,11 @@
         </div>
         <div class="mt-14">
             <div>
-                <h3 class="text-[#A7A7A7]  font-semibold text-xl">Popular tags</h3>
+                <h3 class="text-[#A7A7A7]  font-semibold text-xl pl-[20px]">Popular tags</h3>
             </div>
-            <div class="flex items-center gap-10">
+            <div class="flex items-center gap-10 p-[18px]">
                 <div class="flex flex-col gap-4 mt-5">
-                    <div class="flex items-center gap-3">
+                    <div class="flex items-center gap-3 ">
                         <div>
                             <input type="checkbox" class="w-4 h-4">
                         </div>
@@ -499,8 +517,8 @@
 
         </div>
         <div class="mt-12 ">
-            <h3 class="text-[#A7A7A7]   font-semibold text-xl">Specialities</h3>
-            <div class="flex items-center gap-6 flex-col !items-start	">
+            <h3 class="text-[#A7A7A7]   font-semibold text-xl pl-[20px]">Specialities</h3>
+            <div class="flex items-center gap-6 flex-col !items-start p-[20px]	">
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex items-center gap-3">
                         <div>
@@ -701,12 +719,12 @@
                 </div>
             </div>
             <div class="mt-2 cursor-pointer">
-                <h3 class="text-[#557DE5] font-semobold text-lg">View More</h3>
+                <h3 class="text-[#557DE5] font-semobold text-lg pl-[20px]">View More</h3>
             </div>
         </div>
         <div class="mt-4  pb-4">
-            <h3 class="text-[#A7A7A7]   font-semibold text-xl">Diseases</h3>
-            <div class="flex items-center gap-6 flex-col !items-start">
+            <h3 class="text-[#A7A7A7]   font-semibold text-xl pl-[20px]">Diseases</h3>
+            <div class="flex items-center gap-6 flex-col !items-start p-[20px]">
                 <div class="flex flex-col gap-4 mt-5">
                     <div class="flex items-center gap-3">
                         <div>
@@ -983,7 +1001,7 @@
                 </div>
             </div>
             <div class="mt-2 cursor-pointer">
-                <h3 class="text-[#557DE5] font-semobold text-lg">View More</h3>
+                <h3 class="text-[#557DE5] font-semobold text-lg pl-[20px]">View More</h3>
             </div>
         </div>
     </div>
