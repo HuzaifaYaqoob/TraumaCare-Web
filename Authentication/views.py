@@ -7,7 +7,8 @@ from Trauma.models import Country
 
 
 def LoginPage(request):
-    return render(request, 'Auth/login.html')
+    # return render(request, 'Auth/login.html')
+    return render(request, 'Auth/LoginUpdated.html')
 
 
 def RegisterPage(request):
