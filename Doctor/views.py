@@ -7,4 +7,4 @@ def DoctorSearchPage(request):
     return render(request, 'Doctor/doctor_search_page.html')
 
 def DoctorProfilePage(request):
-    return render(request, 'Doctor/doctorprofile.html')
+    return render(request, 'Doctor/doctor_view_profile.html')

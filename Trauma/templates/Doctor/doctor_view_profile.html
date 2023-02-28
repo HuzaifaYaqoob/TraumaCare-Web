@@ -1,0 +1,97 @@
+
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+
+{% block BaseCSS %}
+
+    <link rel="stylesheet" href="{% static 'assets/css/doctor_view_profile.css' %}">
+
+{% endblock BaseCSS %}
+
+{% block baseBody %}
+      <section class="mx-auto bg-slate-100 p-[30px] items-center justify-center flex-wrap main-doctor-view-profile-section">
+
+            <!-- First ROw  -->
+            {% include 'Components/Doctor/Cards/DoctorProfileCard.html' with classes='doctor-details-card card-shadow' %}
+            {% include 'Components/Doctor/Cards/DoctorAvailabilityCard.html' with classes='next-availability-card card-shadow' %}
+            {% include 'Components/Doctor/Cards/ChatOptionCard.html' with classes='chat-option-card card-shadow' %}
+            {% include 'Components/Doctor/Cards/DoctorGeneralDetailsCard.html' with classes='doctor-general-details card-shadow' %}
+            {% include 'Components/Doctor/Cards/BookAnAppointmentCard.html' with classes='book-an-appointment card-shadow' %}
+            {% include 'Components/Doctor/Cards/AvailableOnlineCard.html' with classes='available-online-card card-shadow' %}
+
+
+
+
+            <!-- Second Row  -->
+
+
+
+<!-- 
+
+
+
+            
+
+
+            
+
+
+
+
+
+            <div class="bg-[#CE75FF] flex items-center tranform-img-main gap-[10px]">
+                  <div class="tranform-img">
+                        <img src="/girl talking online.png">
+                  </div>
+                  <div class="flex flex-col items-center gap-[20px]">
+                        <h2 class="text-center text-[#ffffff] text-[30px]">Available Online</h2>
+                        <div class="flex items-center gap-[15px]">
+                              <div class="flex flex-col gap-[4px] items-center text-[#ffffff] text-[20px] days-main-hover">
+                                    <span>Mon</span>
+                                    <span>4</span>
+                              </div>
+                              <div class="flex flex-col gap-[4px] items-center text-[#ffffff] text-[20px] days-main-hover days-main-hover-1">
+                                    <span>Mon</span>
+                                    <span>4</span>
+                              </div>
+                              <div class="flex flex-col gap-[4px] items-center text-[#ffffff] text-[20px] days-main-hover">
+                                    <span>Mon</span>
+                                    <span>4</span>
+                              </div>
+                              <div class="flex flex-col gap-[4px] items-center text-[#ffffff] text-[20px] days-main-hover">
+                                    <span>Mon</span>
+                                    <span>4</span>
+                              </div>
+                              <div class="flex flex-col gap-[4px] items-center text-[#ffffff] text-[20px] days-main-hover">
+                                    <span>Mon</span>
+                                    <span>4</span>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="flex items-center flex-col gap-[15px] bg-[#2CAFFB]" style="padding: 35px 50px; border-radius: 18px;">
+                  <h2 class="text-[#ffffff] text-[40px]" style="font-weight: 600;">20% OFF</h2>
+                  <p class="text-[#ffffffc4] text-[22px]" style="letter-spacing: 0.2px;">Use code <span class="text-[#ffffff]">DOTCOM95</span> at Checkout </p>
+
+            </div>
+            <div class="bg-[#ffffff] flex flex-col gap-[20px]" style="border-radius: 16px; padding: 35px 20px;">
+                  <h2 class="text-[26px]" style="color: rgba(80, 80, 80, 1);">Satisfaction Out of 998 patients</h2>
+                  <div class="flex flex-col gap-8px">
+                        <div class="flex items-center pr-[30px]" style="background-color: rgba(85, 125, 229, 0.05); border-radius: 6px; cursor: pointer;">
+                              <div class="flex items-center gap-[23px]">
+                                    <div class="flex items-center justify-center" style="border-radius: 6px; background-color: rgba(1, 102, 255, 0.8); padding: 2px 10px;">
+                                          <img src="/image 134.png" style="height: 60px; width: 38px;">
+                                    </div>
+                                    <div class="text-[#0166FF] text-[20px]" style="font-weight: 600;">
+                                          Doctor  Checkup
+                                    </div>
+                              </div>
+                              <div>
+                                    
+                              </div>
+                        </div>
+                  </div>
+            </div> -->
+      </section>
+{% endblock baseBody %}
