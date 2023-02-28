@@ -186,3 +186,11 @@
     border-color: #23d0d0;
     background-color: #f5f9ff;
 }
+
+.tc-login .right-section .main-form .forgot-password-text{
+    color: #6d8cba;
+    font-size: 14px;
+    display: flex;
+    justify-content: end;
+    margin: 10px 0 0;
+}
