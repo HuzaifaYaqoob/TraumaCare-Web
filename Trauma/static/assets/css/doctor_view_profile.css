@@ -1,0 +1,306 @@
+
+
+.main-doctor-view-profile-section{
+      max-width: 1600px;
+      width: 100%;
+      display: grid;
+      grid-template-columns: repeat(9, 1fr);
+      gap: 35px;
+      grid-template-rows: 150px 150px 150px;
+      place-items: start;
+}
+.main-doctor-view-profile-section .card-shadow{
+      box-shadow: 0px 0px 52px #e8e8e8d5;
+}
+
+
+.main-doctor-view-profile-section .doctor-details-card{
+      /* grid-column: 1/4;
+      grid-row: 1 / 3; */
+      grid-area: 1 / 1 / 3 / 4;
+      /* height: 100%; */
+}
+
+
+.main-doctor-view-profile-section .next-availability-card{
+      /* grid-column: 4/7; */
+      grid-area: 1 / 4 / 2 / 7;
+      height: 100%;
+      width: 100%;
+}
+
+
+.main-doctor-view-profile-section .chat-option-card{
+      /* grid-column: 7/10; */
+      grid-area: 1 / 7 / 3 / 10;
+      height: 100%;
+}
+
+.main-doctor-view-profile-section .doctor-general-details{
+      /* grid-column: 7/10; */
+      grid-area: 3 / 1 / 4 / 4;
+      height: 100%;
+}
+
+.main-doctor-view-profile-section .book-an-appointment{
+      /* grid-column: 7/10; */
+      grid-area: 2 / 4 / 4 / 7;
+      height: 100%;
+}
+
+
+.main-doctor-view-profile-section .available-online-card{
+      /* grid-column: 7/10; */
+      grid-area: 4 / 1 / 7 / 4;
+      height: 100%;
+}
+
+
+
+.verified-D-TC-1{
+      background-color: #ffffff;
+      border-radius: 16px;
+      padding: 30px;
+      display: flex;
+      gap: 10px;
+      flex-direction: column;
+}
+
+.verified-D-TC-img{
+      background: url(/Rectangle\ 1606.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+      height: 150px;
+      width: 150px;
+      border-radius: 99999px;
+}
+.verified-D-TC-C-h2{
+      font-size: 26px;
+      letter-spacing: 0.3px;
+      word-spacing: 0.5px;
+      font-weight: 500;
+      text-transform: capitalize;
+}
+.verified-D-TC-C-num{
+      font-size: 16px;
+}
+.verified-D-TC-C-coun{
+      font-size: 16px;
+      letter-spacing: 0.3px;
+}
+.verified-main{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      border-radius: 28px;
+      padding: 4px 14px;
+      cursor: pointer;
+      margin-top: 3px;
+      color: rgba(255, 255, 255, 1);
+      font-size: 16px;
+      font-weight: 500;
+}
+.Pain-TC-pera{
+      color: rgba(154, 154, 154, 1);
+      font-size: 18px;
+      font-weight: 500;
+      line-height: 25px;
+}
+.About-h2-TC{
+      font-size: 22px;
+      color: rgba(85, 85, 85, 1);
+      font-weight: 600;
+}
+.About-p-TC{
+      line-height: 23px;
+      color: rgba(154, 154, 154, 1);
+      font-size: 18px;
+}
+.verified-D-TC-2{
+      background-color: rgba(44, 175, 251, 1);
+      border-radius: 16px;
+      padding: 30px 25px;
+      display: flex;
+      height: 220px;
+      align-items: center;
+}
+.image-position{
+      transform: translate(0 , -12%);
+}
+.verified-D-TC-2-next{
+      font-size: 20px;
+      color: rgba(255, 255, 255, 1);
+}.verified-D-TC-2-time{
+      font-size: 35px;
+      font-weight: 500;
+      color: rgba(255, 255, 255, 0.83);
+}
+.cards4-1{          
+      border-radius: 25px;
+      padding: 20px;
+      width: 190px;
+      height: 170px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      gap: 30px;
+      cursor: pointer;
+}
+.cards4-1-img{
+      position: absolute;
+      top: -20%;
+}
+.cards4-1-img img{
+      height: 110px;
+      width: 120px;
+}
+.cards4-1-c{
+      color: rgba(255, 255, 255, 1);
+      font-size: 23px;
+      text-align: center;
+      margin-top: 60px;
+}
+.Consult-btn{
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      margin-top: 5px;
+}
+
+.Book-h2{
+      color: rgba(0, 0, 0, 1);
+      font-size: 30px;
+      margin-top: 5px;
+}
+.Discover-p{
+      line-height: 23px;
+      color: rgba(154, 154, 154, 1);
+      font-size: 16px;
+      letter-spacing: 0.2px;
+      word-spacing: 0.6px;
+}
+.Consult-btn-1{
+      background-color: rgba(36, 208, 208, 0.1);
+      color: rgba(36, 208, 208, 1);
+      font-size: 22px;
+      font-weight: 500;
+      border: 1px solid #24D0D0;
+      border-radius: 8px;
+      padding: 10px 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+}
+.Consult-btn-1:hover{
+      color: white;
+      background-color: #24D0D0;
+}
+.Consult-btn-2{
+      background-color: #24D0D0;
+      color: white;
+      font-size: 22px;
+      font-weight: 500;
+      border: 1px solid #24D0D0;
+      border-radius: 8px;
+      padding: 10px 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+}
+
+.images2-main{
+      display: flex;
+      align-items: center;
+      padding-bottom: 0px;
+      padding-top: 30px;
+      background-color: rgba(36, 208, 208, 0.3);
+      border-radius: 14px;
+      padding-left: 15px;
+      padding-right: 15px;
+      gap: 2px;
+}
+
+.bg-prifile-img-TC{
+      background: url(/Rectangle\ 1606.png);
+      height: 120px;
+      width: 120px;
+      border-radius: 50%;
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      border: 4px solid #ffffff;
+      cursor: pointer;
+      transform: translate(0 , 60%);
+      position: relative;
+}
+.bg-prifile-img-TC-1{
+      border-radius: 50%;
+      height: 20px;
+      width: 20px;
+      background-color: rgba(76, 204, 58, 1);
+      position: absolute;
+      top: 12px;
+}
+.bg-prifile-img-TC-2{
+      background: url(/WhatsApp_Image_2023-02-25_at_10.17.09_AM-removebg-preview.png);
+      /* background-color: red; */
+      background-position: center;
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 30px;
+      width: 30px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: 12px;
+      right: -5px;
+      border: 2px solid white;
+}
+
+.Web-Based-TC-p{
+      color: rgba(154, 154, 154, 1);
+      font-size: 20px;
+      line-height: 26px;
+      text-align: center;
+}
+
+.aks-Q-main{
+      display: flex;
+      align-items: center;
+      gap: 40px;
+      margin-top: 20px;
+}
+
+.aks-Q-main-1{
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      align-items: center;
+      cursor: pointer;
+}
+
+.tranform-img-main{
+      padding: 20px;
+      border-radius: 20px;
+      height: 220px;
+}
+
+.tranform-img{
+      transform: translate(0, -12%);
+}
+
+.days-main-hover{
+      padding: 15px 5px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.1s;
+}
+.days-main-hover:hover{
+      background-color: rgba(36, 208, 208, 1);
+      padding: 15px 5px;
+      border-radius: 30px;
+}
+.days-main-hover-1{
+      background-color: rgba(36, 208, 208, 1);
+}
