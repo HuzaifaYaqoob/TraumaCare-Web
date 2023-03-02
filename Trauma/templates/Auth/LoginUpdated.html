@@ -4,12 +4,57 @@
 {% block title %}Login{% endblock title %}
 
 {% block mainBaseCSS %}
+
+
     <link rel="stylesheet" href="{% static 'assets/css/LoginUpdated.css' %}">
+    <style>
+        
+@media (max-width : 1020px) {
+    .tc-login{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        }
+        .left-section{
+            width: 100%;
+            align-items: center;
+            margin: 0px !important;
+            padding-left: 0px !important;
+            padding-top: 20px !important;
+            padding-left: 10px !important;
+            padding-right: 10px !important;
+        }
+        .right-section{
+            width: 100%;
+        }
+        .right-section{
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+}
+
+@media (max-width:500px) {
+        .tc-login .right-section .main-form{
+                width: 400px !important;
+        }
+        .form-cards-section .login-card{
+            padding: 15px 20px !important;
+        }
+    }
+    @media (max-width:430px) {
+        .tc-login .right-section .main-form{
+                width: 370px !important;
+        }
+        .main-form .form-button button{
+            padding: 15px !important;
+        }
+    }
+    </style>
 {% endblock mainBaseCSS %}
 {% block mainBaseBody %}
 
 <section class="tc-login">
-    <section class="left-section">
+    <section class="left-section left-section-TC">
         <div class="logo">
             <a href="/">
                 <svg width="200" height="80" viewBox="0 0 194 23" fill="none" xmlns="http://www.w3.org/2000/svg">

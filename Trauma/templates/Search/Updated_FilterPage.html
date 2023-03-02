@@ -2,7 +2,11 @@
 {% load static %}
 {% block title %}Search Result{% endblock title %}
 
+{% block BaseCSS %}
 
+    <link rel="stylesheet" href="{% static 'assets/css/Search/searchfilterpage.css' %}">
+
+{% endblock BaseCSS %}
 {% block baseBody %}
 
 <!-- start from here  -->
@@ -16,11 +20,22 @@
             </div>
             <div class="flex-1 grid grid-cols-3 gap-3">
                 {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/DoctorCard.html' %}
+                <!-- {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
-                {% include 'Components/Search/HospitalCard.html' %}
-                {% include 'Components/Search/HospitalCard.html' %}
+                {% include 'Components/Search/HospitalCard.html' %} -->
             </div>
         </div>
         <div class="scroolBar-coustom min-w-[300px] px-2 w-full h-full overflow-auto max-w-[300px]">
@@ -52,8 +67,9 @@
                 </div>
             </div>
             <div class="flex flex-col gap-4">
+                <label for="hospitals-card">
                 <div
-                    class="border border-[#C173FF] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer">
+                    class="border hospitals-bg  border-[#C173FF] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer">
                     <div class="flex items-center gap-2">
                         <div>
                             <svg width="41" height="39" viewBox="0 0 41 39" fill="none"
@@ -75,12 +91,14 @@
                         </div>
                     </div>
                     <div>
-                        <input type="checkbox" class="w-5 h-5">
+                        <input type="checkbox" class="w-5 h-5" id="hospitals-card">
                     </div>
 
                 </div>
+            </label>
+                <label for="doctors-card">
                 <div
-                    class="border border-[#FC889A] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer">
+                    class="border doctors-card border-[#FC889A] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer">
                     <div class="flex items-center gap-2">
                         <div>
                             <svg width="38" height="38" viewBox="0 0 38 38" fill="none"
@@ -101,11 +119,12 @@
                         </div>
                     </div>
                     <div>
-                        <input type="checkbox" class="w-5 h-5">
+                        <input type="checkbox" class="w-5 h-5" id="doctors-card">
                     </div>
 
                 </div>
-                <div
+            </label>
+                <!-- <div
                     class="border border-[#6CCDC0] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer">
                     <div class="flex items-center gap-2">
                         <div>
@@ -131,8 +150,8 @@
                         <input type="checkbox" class="w-5 h-5">
                     </div>
 
-                </div>
-                <div
+                </div> -->
+                <!-- <div
                     class="border border-[#FF9E75] flex items-center justify-between px-2 py-2 rounded-lg cursor-pointer ">
                     <div class="flex items-center gap-2">
                         <div>
@@ -165,7 +184,7 @@
                         <input type="checkbox" class="w-5 h-5">
                     </div>
 
-                </div>
+                </div> -->
             </div>
         </div>
     </div>
