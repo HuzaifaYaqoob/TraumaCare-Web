@@ -23,7 +23,7 @@
     justify-content: space-between;
     flex-direction: column;
     padding: 50px 0 50px 40px;
-    /* margin: 50px 0 50px 40px; */
+    margin: 50px 0 50px 40px;
 }
 .tc-login .left-section .heading-content .main-heading{
     font-size: 60px;
