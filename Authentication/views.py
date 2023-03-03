@@ -18,4 +18,4 @@ def RegisterPage(request):
             is_active = True
         )
     }
-    return render(request, 'Auth/joinpage2.html', context)
+    return render(request, 'Auth/Register.html', context)
