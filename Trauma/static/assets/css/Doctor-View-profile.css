@@ -186,7 +186,7 @@
 }
 
 .bg-prifile-img-TC{
-      background: url(/Rectangle\ 1606.png);
+      background: url(../Images/Rectangle\ 1606.png);
       height: 120px;
       width: 120px;
       border-radius: 50%;
@@ -207,7 +207,7 @@
       top: 12px;
 }
 .bg-prifile-img-TC-2{
-      background: url(/WhatsApp_Image_2023-02-25_at_10.17.09_AM-removebg-preview.png);
+      background: url(../Images/WhatsApp_Image_2023-02-25_at_10.17.09_AM-removebg-preview.png);
       /* background-color: red; */
       background-position: center;
       background-size: cover;
@@ -544,7 +544,7 @@
 
 
 .bg-video-img-TC{
-      background: url(/Rectangle\ 1860.png);
+      background: url(../Images/Rectangle\ 1860.png);
       background-position: center;
       background-size: cover;
       background-repeat: no-repeat;
@@ -568,6 +568,41 @@
       padding: 1px 5px;
       border-radius: 3px;
 }
+
+
+
+
+
+
+
+/*  */
+/*  */
+/*  */
+
+
+
+
+
+.bg-image-TC-main{
+      background: url(../Images/Rectangle\ 1606.png);
+      height: 35px;
+      width: 35px;
+      border-radius: 50%;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+
+
+
+
+
+
+
+
+/*  */
+/*  */
+/*  */
 
 
 .Articles-main{
