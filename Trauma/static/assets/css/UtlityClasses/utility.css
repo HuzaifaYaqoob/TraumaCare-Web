@@ -132,14 +132,14 @@ input[type='checkbox']{
     justify-content: space-between;
     align-items: center;
     width: 100%;
-    background-color: #f5f9ff;
+    background-color: #23d0d010;
     border-radius: 8px;
     padding: 16px 20px;
     outline: none;
     border: 0;
     font-size: 15px;
     color: #6c747e;
-    border: 1.4px solid #f5f9ff;
+    border: 1.4px solid #23d0d010;
     position: relative;
 }
 
@@ -212,14 +212,14 @@ input[type='checkbox']{
 .form-field .form-input{
     display: block ;
     width: 100%;
-    background-color: #f5f9ff;
+    background-color: #23d0d010;
     border-radius: 8px;
     padding: 16px 20px;
     outline: none;
     border: 0;
     font-size: 15px;
     color: #6c747e;
-    border: 1.4px solid #f5f9ff;
+    border: 1.4px solid #23d0d010;
 }
 
 .form-field .form-input.error{
@@ -228,6 +228,92 @@ input[type='checkbox']{
     border-color: #f25b52;
     background-color: #f25a5220;
     color: #d64139;
+}
+
+.form-field .phone-number-field-outer{
+    border-radius: 8px;
+    color: #6c747e;
+    background-color: #23d0d010;
+    display: flex;
+    padding: 16px 20px;
+    position: relative;
+}
+.form-field .phone-number-field-outer .dial-code-field-outer{
+    display: flex;
+    align-items: center;
+}
+
+.form-field .phone-number-field-outer .dial-code-field-outer .arrow{
+    transform: rotate(180deg);
+}
+
+.form-field .phone-number-field-outer .dial-code-input:focus ~ .arrow{
+    transform: rotate(0deg);
+}
+
+.form-field .phone-number-field-outer .dial-code-field-outer input.dial-code-input{
+    flex: 1;
+    background-color: transparent;
+    max-width: 50px;
+    outline: none;
+    border: 0;
+}
+.dropdown-data{
+    z-index: 10;
+}
+
+
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data{
+    position: absolute;
+    left: 0;
+    right: 0;
+    display: none;
+    top: 100%;
+    transform: translateY(10px);
+    padding: 10px;
+    background-color: white;
+    border-radius: 10px;
+    border: 1px solid #e6ecf6;
+}
+.form-field .phone-number-field-outer .dial-code-field-outer .dial-code-input:focus ~ .dropdown-data{
+    display: block;
+}
+
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data .dropdown-items{
+    width: 100%;
+    border-radius: 7px;
+    border: 1px solid transparent;
+    transition: all 300ms;
+    cursor: pointer;
+}
+
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data .dropdown-search-field{
+    margin-bottom: 10px;
+    border: 1px solid #e6ecf6;
+    padding: 7px 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 8px;
+}
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data .dropdown-search-field input{
+    flex: 1;
+    margin-left: 10px;
+    outline: none;
+}
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data .dropdown-items:not(:last-child){
+    margin-bottom: 5px;
+}
+.form-field .phone-number-field-outer .dial-code-field-outer .dropdown-data .dropdown-items:hover{
+    border-color: #23d0d0;
+    background-color: #23d0d010;
+}
+
+.form-field .phone-number-field-outer .number-field{
+    flex: 1;
+    margin-left: 15px;
+    background-color: transparent;
+    outline: none;
+    border: 0;
 }
 
 

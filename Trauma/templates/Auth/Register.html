@@ -79,7 +79,7 @@
                     <div class="register-form-step-2">
                         {% include 'Components/Form/TextField.html' with label='Username' placeholder='Enter your username'  %}
                         {% include 'Components/Form/DropdownField.html' with label='Country' placeholder='Select Country' dropdown_data=countries  %}
-                        {% include 'Components/Form/phonenumber.html' with label='Phone Number' placeholder='Enter your Phone Number'  %}
+                        {% include 'Components/Form/phonenumber.html' with label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=countries  %}
                     </div>
                     <div class="register-form-step-3">
                         {% include 'Components/Form/passwordField.html' with label='Password' placeholder='*********'  %}
