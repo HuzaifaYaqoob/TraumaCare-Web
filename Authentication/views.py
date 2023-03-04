@@ -12,10 +12,18 @@ def LoginPage(request):
 
 
 def RegisterPage(request):
-    context = {
-        'countries' : Country.objects.filter(
+
+    countries = Country.objects.filter(
             is_deleted = False,
             is_active = True
         )
+
+    form_countries = []
+    for country in countries:
+        country_html = f'<div class="px-3 py-2 flex items-center justify-between" data-search="{country.name} {country.dial_code} +{country.dial_code}" ><p>{country.name} (+{country.dial_code})</p><span><img class="w-5" src="{country.flag.url}" /></span></div>'
+        form_countries.append(country_html)
+
+    context = {
+        'countries' : form_countries
     }
     return render(request, 'Auth/Register.html', context)
