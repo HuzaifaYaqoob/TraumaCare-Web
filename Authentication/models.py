@@ -94,8 +94,11 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-    def account_type(self):
-        return self.user_account_type.account_type
+    def get_all_permissions(self, user=None):
+        return []
+
+    # def account_type(self):
+    #     return self.user_account_type.account_type
 
     class Meta:
         unique_together = ['dial_code', 'mobile_number']

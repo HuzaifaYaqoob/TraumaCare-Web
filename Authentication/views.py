@@ -22,12 +22,12 @@ def RegisterPage(request):
 
     form_countries = []
     for country in countries:
-        country_html = f'<div class="px-3 py-2 flex items-center justify-between" display-value="SELF" value="{country.id}" data-search="{country.name} {country.dial_code} +{country.dial_code}" ><p>{country.name} (+{country.dial_code})</p><span><img class="w-5" src="{country.flag.url}" /></span></div>'
+        country_html = f'<div class="px-3 py-2 flex items-center justify-between" display-value="SELF" value="{country.id}" data-search="{country.name} {country.dial_code} +{country.dial_code}" ><p>{country.name} (+{country.dial_code})</p><span><img class="w-5" src="{country.flag}" /></span></div>'
         form_countries.append(country_html)
 
     dial_codes = []
     for country in countries:
-        country_html = f'<div class="px-3 py-2 flex items-center justify-between" display-value="+{country.dial_code}" value="{country.id}" data-search="{country.name} {country.dial_code} +{country.dial_code}" ><p>{country.name} (+{country.dial_code})</p><span><img class="w-5" src="{country.flag.url}" /></span></div>'
+        country_html = f'<div class="px-3 py-2 flex items-center justify-between" display-value="+{country.dial_code}" value="{country.id}" data-search="{country.name} {country.dial_code} +{country.dial_code}" ><p>{country.name} (+{country.dial_code})</p><span><img class="w-5" src="{country.flag}" /></span></div>'
         dial_codes.append(country_html)
 
     context = {
