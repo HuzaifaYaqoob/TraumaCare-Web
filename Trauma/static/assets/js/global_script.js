@@ -1,14 +1,31 @@
-document.addEventListener('DOMContentLoaded' , ()=>{
-    let all_included = document.querySelectorAll('[data-include]')
-    all_included.forEach(incl_div =>{
-        let path = incl_div.getAttribute('data-include')
-        incl_div.innerHTML = ''
 
-        fetch(
-            'Components/Header.html'
-        ).then(response => response.text()).then(content =>{
-            incl_div.innerHTML = content
+
+
+const DropdownField = () =>{
+    let drop_fields = document.querySelectorAll('[dropdown]')
+
+    const Togel_DropdownField = (e, dropdown) =>{
+        dropdown.classList.toggle('hidden')
+    }
+    
+    if (drop_fields.length > 0){
+        drop_fields.forEach(field =>{
+            let dropdown = field.parentElement.querySelector('[dropdown-data]')
+            if (dropdown) {
+                field.addEventListener('click' ,(e) => Togel_DropdownField(e, dropdown))
+            }
+            else{
+                console.log(dropdown)
+            }
         })
+    }
+}
 
-    })
-})
+
+
+const StartScript = () =>{
+    DropdownField()
+}
+
+
+document.addEventListener('DOMContentLoaded' , StartScript)
