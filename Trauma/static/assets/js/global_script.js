@@ -71,7 +71,6 @@ const DropdownField = () =>{
     }
 }
 
-
 const BodyClicked = () =>{
     let body = document.querySelector('body')
     if (body){
