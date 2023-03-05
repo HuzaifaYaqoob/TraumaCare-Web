@@ -1,5 +1,7 @@
 from django.shortcuts import render
 
+from rest_framework.decorators import api_view
+
 # Create your views here.
 
 
@@ -33,3 +35,7 @@ def RegisterPage(request):
         'dial_codes' : dial_codes,
     }
     return render(request, 'Auth/Register.html', context)
+
+def HandleJoin(request):
+    pass
+
