@@ -10,70 +10,12 @@
 
 <style>
 
-
-
-    h1.register-page-heading{
-        font-weight: 900;
-        font-size: 30px;
-        color: #15087e;
-
-    }
-
-    h3.register-sub-heading{
-        color: #009292;
-    }
-
-    .main-section-register-form{
-        width: 100%;
-        min-height: 100vh;
-        height: 100vh;
-        max-height: 100vh;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-    }
-
-    .main-section-register-form .register-card{
-        max-width: 500px;
-        background-color: white;
-        border-radius: 15px;
-        padding: 20px 30px;
-        width: 100%;
-    }
-
-    .register-card-header{
-        width: 100%;
-        margin-top: 20px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .register-card-header .back-arrow-icon{
-        cursor: pointer;
-    }
-
-
-    .register-header{
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-    }
-
-    .already-have-account{
-        text-align: center;
-        margin-top: 20px;
-    }
-
-
 </style>
 
 {% endblock mainBaseCSS %}
 
 
 {% block mainBaseBody %}
-
-
 
 <section>
     <div class="main-section-register-form">
@@ -95,7 +37,7 @@
                     <div class="register-form-step-2">
                         {% include 'Components/Form/TextField.html' with label='Username' placeholder='Enter your username'  %}
                         {% include 'Components/Form/DropdownField.html' with label='Country' placeholder='Select Country' dropdown_data=countries  %}
-                        {% include 'Components/Form/phonenumber.html' with label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=countries  %}
+                        {% include 'Components/Form/phonenumber.html' with label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  %}
                     </div>
                     <div class="register-form-step-3">
                         {% include 'Components/Form/passwordField.html' with label='Password' placeholder='*********'  %}
@@ -130,6 +72,7 @@
         </div>
     </div>
 </section>
+
 
 
 {% endblock mainBaseBody %}

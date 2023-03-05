@@ -240,22 +240,11 @@ input[type='checkbox']{
 .form-field .phone-number-field-outer .dial-code-field-outer{
     display: flex;
     align-items: center;
+    gap: 5px;
 }
 
 .form-field .phone-number-field-outer .dial-code-field-outer .arrow{
     transform: rotate(180deg);
-}
-
-.form-field .phone-number-field-outer .dial-code-input:focus ~ .arrow{
-    transform: rotate(0deg);
-}
-
-.form-field .phone-number-field-outer .dial-code-field-outer input.dial-code-input{
-    flex: 1;
-    background-color: transparent;
-    max-width: 50px;
-    outline: none;
-    border: 0;
 }
 .form-field .phone-number-field-outer .number-field{
     margin-left: 10px;
@@ -267,10 +256,11 @@ input[type='checkbox']{
     background-color: transparent;
 }
 
-.form-field input::placeholder{
+.form-field input::placeholder,
+.dummy-placeholder,
+.dropdown-not-item-found{
     color: #9ab2d2;
     font-size: 15px;
-
 }
 
 
@@ -297,4 +287,17 @@ input[type='checkbox']{
 
 .form-button.icon-btn button .icon{
     margin-left: 5px;
+}
+
+.rounded-10px{
+    border-radius: 10px;
+}
+
+.dropdown-not-item-found{
+    display: none;
+}
+
+.dropdown-data:not(:has(.dropdown-items:not(.hidden))) .dropdown-not-item-found{
+    display: flex;
+
 }
