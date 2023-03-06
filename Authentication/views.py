@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from django.http import HttpResponseRedirect
 from rest_framework.decorators import api_view
 
 # Create your views here.
@@ -44,6 +44,11 @@ def RegisterPage(request):
     }
     return render(request, 'Auth/Register.html', context)
 
+
+
 def HandleJoin(request):
-    pass
+    if request.method == 'POST':
+        print(request.POST)
+    
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 

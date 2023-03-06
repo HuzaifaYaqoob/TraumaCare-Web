@@ -1,7 +1,7 @@
 {% extends 'Components/MainBase.html' %}
 {% load static %}
 
-{% block title %}Register{% endblock title %}
+{% block title %}Register New Account{% endblock title %}
 
 
 {% block mainBaseCSS %}
@@ -29,7 +29,8 @@
                     </svg>
                 </a>
             </div>
-            <form action="{% url 'HandleJoin' %}" main-register-form class="register-main-form" data-activestep="1">
+            <form action="{% url 'HandleJoin' %}" method="post" main-register-form class="register-main-form" data-activestep="1">
+                {% csrf_token %}
                 <div class="main-step-section">
                     <div class="register-form-step-1 ">
                         {% include 'Components/Form/EmailField.html' with name='email' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}

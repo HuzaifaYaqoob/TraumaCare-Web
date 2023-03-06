@@ -11,7 +11,6 @@ const add_error_from_field = (element, error_message) =>{
             error = document.createElement('p')
             error.className = 'error-message'
         }
-        console.log(error)
         error.innerHTML = error_message
         error_parent.appendChild(error)
 
@@ -76,13 +75,35 @@ const ValidateUniqueUser = () =>{
 
 const handleSubmit = (e) =>{
     e.preventDefault()
+    let form = e.target
+    let required_fields = form.querySelectorAll('input[data-required][value=""], input[data-required]:not([value])')
+    required_fields = [...required_fields]
+    required_fields = required_fields.filter(field => !field.value)
+    if (required_fields.length > 0){
+        required_fields.forEach(field =>{
+            if (!field.value){
+                add_error_from_field(field, 'This field is required')
+            }
+        })
+        return
+    }
+
+    let psword = form.querySelector('[name="password"]')
+    let cnf_password = form.querySelector('[name="confirm_password"]')
+
+    if (psword.value != cnf_password.value){
+        add_error_from_field(psword, 'Password does not match')
+        add_error_from_field(cnf_password, 'Password does not match')
+        return
+    }
 
     let error_fields = document.querySelectorAll('.error')
     if (error_fields.length > 0 ){
-        alert('Please fix the error above')
+        console.log('Please fix the error above')
         return
     }
     console.log('gonna submit')
+    form.submit()
 }
 
 
