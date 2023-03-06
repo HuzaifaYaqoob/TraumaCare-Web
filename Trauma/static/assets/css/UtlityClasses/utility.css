@@ -221,7 +221,13 @@ input[type='checkbox']{
     border: 1.4px solid #23d0d010;
 }
 
-.form-field .form-input.error{
+.form-field .error[error-border-element]{
+    border: 1.4px solid #23d0d010;
+}
+
+.form-field .form-input.error,
+.form-field .error[error-border-element]
+{
     border-radius: 8px;
     color: #6c747e;
     border-color: #f25b52;
@@ -263,6 +269,12 @@ input[type='checkbox']{
     font-size: 15px;
 }
 
+.form-field .error-message{
+    font-size: 12px;
+    text-align: right;
+    margin-top: 5px;
+    color: #d64139;
+}
 
 .form-button button{
     color: white;
@@ -300,4 +312,10 @@ input[type='checkbox']{
 .dropdown-data:not(:has(.dropdown-items:not(.hidden))) .dropdown-not-item-found{
     display: flex;
 
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button
+{
+    display: none !important;
 }

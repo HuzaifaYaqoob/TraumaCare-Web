@@ -1,6 +1,21 @@
 
 
 
+const remove_error_from_field = (element) =>{
+    let error_parent = element.closest('.form-field')
+    if (error_parent){
+        let error = error_parent.querySelector('.error-message')
+        let error_border = error_parent.querySelector('[error-border-element]')
+        if (error_border){
+            error_border.classList.remove('error')
+        }
+        if (error){
+            error.remove()
+        }
+    }
+}
+
+
 const DropdownField = () =>{
     let drop_fields = document.querySelectorAll('[dropdown]')
 
@@ -79,10 +94,19 @@ const BodyClicked = () =>{
 
 }
 
+const OnInputRemoveErrors = () =>{
+    let inputs = document.querySelectorAll('input')
+    inputs.forEach(inpt =>{
+        inpt.addEventListener('input' , (e) => remove_error_from_field(e.target))
+    })
+}
+
 
 const StartScript = () =>{
     BodyClicked()
     DropdownField()
+
+    OnInputRemoveErrors()
 }
 
 

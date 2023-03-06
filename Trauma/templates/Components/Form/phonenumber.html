@@ -1,8 +1,8 @@
 <div class="form-field" dropdown-main-component>
     <label for="" class="form-input-label">{{label}}</label>
-    <div class="phone-number-field-outer relative">
+    <div class="phone-number-field-outer relative" error-border-element>
         <div class="dial-code-field-outer" dropdown>
-            <input type="text" name="" id="" dropdown-field class="hidden dial-code-input " readonly>
+            <input type="text" name="{% if dial_code_name %}{{dial_code_name}}{% else %}dial_code{% endif %}" id="" dropdown-field class="hidden dial-code-input " readonly>
             <div class="cursor-pointer flex-1" dropdown-value-display>
                 <span class="dummy-placeholder">+00</span>
             </div>
@@ -36,7 +36,6 @@
                 <p class="ml-2">No Record Found</p>
             </div>
         </div>
-        <input type="text" name="" id="" class="number-field" placeholder="{{placeholder}}">
-        
+        <input autocomplete="off" type="number" name="{{name}}" {{attributes}} id="" class="number-field" placeholder="{{placeholder}}">
     </div>
 </div>

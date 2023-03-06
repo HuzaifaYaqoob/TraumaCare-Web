@@ -1,4 +1,4 @@
 <div class="form-field">
     <label for="" class="form-input-label">Email Address</label>
-    <input type="text" name="{% if name %}{{name}}{% else %}email{% endif %}" id="" class="form-input" {{attribute}} placeholder="Enter Email">
+    <input type="text" error-border-element name="{% if name %}{{name}}{% else %}email{% endif %}" autocomplete="off" id="{% if name %}{{name}}{% else %}email{% endif %}" class="form-input" {{attributes}} placeholder="Enter Email">
 </div>
