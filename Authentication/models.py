@@ -5,6 +5,8 @@ import uuid
 from django.utils.timezone import now
 # Create your models here.
 
+from Trauma.models import Country
+
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
@@ -53,6 +55,8 @@ class User(AbstractBaseUser):
 
     username = models.CharField(max_length=30, unique=True)
 
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
+
     email = models.EmailField(verbose_name="email", max_length=60, unique=True) #unique=True)
     is_email_verified = models.BooleanField(default=False)
 
@@ -96,6 +100,11 @@ class User(AbstractBaseUser):
 
     def get_all_permissions(self, user=None):
         return []
+
+    
+    def country_name(self):
+        if self.country:
+            return self.country.name
 
     # def account_type(self):
     #     return self.user_account_type.account_type

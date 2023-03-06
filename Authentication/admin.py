@@ -8,4 +8,6 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'username', 'email', 'country_name']
+
+    search_fields = ['id', 'username', 'email', 'country__name']

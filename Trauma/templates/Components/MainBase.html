@@ -21,10 +21,15 @@
 <body>
     {% include 'Components/Loader.html' %}
 
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+
     {% block mainBaseBody %}
 
     
     {% endblock mainBaseBody %}
+
 
 
     <script src="{% static 'assets/js/global_script.js' %}"></script>
