@@ -3,6 +3,21 @@ input[type='checkbox']{
     accent-color: #24D0D0 !important;
 }
 
+.tc-loader{
+    position: fixed;
+    top: 0;
+    z-index: 1000 !important;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #0A1C4B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.tc-loader svg.loader-svg{
+    transform: scale(0.4);
+}
 .flex{
     display: flex !important;
 }
