@@ -89,8 +89,13 @@ const handleSubmit = (e) =>{
     }
 
     let psword = form.querySelector('[name="password"]')
+    
+    if (check_password_strong(psword.value) < 4){
+        add_error_from_field(psword, 'Please enter strong password')
+        return
+    }
+    
     let cnf_password = form.querySelector('[name="confirm_password"]')
-
     if (psword.value != cnf_password.value){
         add_error_from_field(psword, 'Password does not match')
         add_error_from_field(cnf_password, 'Password does not match')
@@ -107,12 +112,44 @@ const handleSubmit = (e) =>{
 }
 
 
+const strongPassword = (form) =>{
+    let password_field = form.querySelector('[type="password"][strong_password]')
+    let field = undefined
+    let bars = undefined
+    if (password_field){
+        password_field.addEventListener('input' , (e)=>{
+            if (!field){
+                field = password_field.closest('.form-field')
+            }
+            if (!bars){
+                bars = field.querySelectorAll('.password-bar')
+                bars = [...bars]
+            }
+
+            bars.forEach(bar =>{
+                bar.classList.remove('bg-green-600')
+            })
+
+            let strong = check_password_strong(e.target.value)
+            let ft_bars = bars.slice(0, strong)
+            ft_bars.forEach(bar =>{
+                bar.classList.add('bg-green-600')
+            })
+            console.log(ft_bars.length)
+        })
+    }
+}
 
 document.addEventListener('DOMContentLoaded', () =>{
     ValidateUniqueUser()
-
+    
     let main_register_form = document.querySelector('[main-register-form]')
     if (main_register_form){
         main_register_form.addEventListener('submit' , handleSubmit)
+        strongPassword(main_register_form)
     }
+
+
+
+
 })

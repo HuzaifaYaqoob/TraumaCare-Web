@@ -41,7 +41,7 @@
                         {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
                     </div>
                     <div class="register-form-step-3">
-                        {% include 'Components/Form/passwordField.html' with name='password' label='Password' placeholder='*********' attributes='data-required' %}
+                        {% include 'Components/Form/passwordField.html' with strong_password='true' name='password' label='Password' placeholder='*********' attributes='data-required' %}
                         {% include 'Components/Form/passwordField.html' with name='confirm_password' label='Confirm Password' placeholder='*********' attributes='data-required' %}
                     </div>
                 </div>

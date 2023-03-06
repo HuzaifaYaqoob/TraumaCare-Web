@@ -203,6 +203,7 @@ input[type='checkbox']{
     border: 1px solid transparent;
     transition: all 300ms;
     cursor: pointer;
+    color: black;
 }
 .form-field .dropdown-data .dropdown-search-field{
     margin-bottom: 10px;

@@ -15,6 +15,30 @@ const remove_error_from_field = (element) =>{
     }
 }
 
+const check_password_strong = (password) =>{
+    var strength = 0;
+
+    if (password.length < 8){
+        strength = 0
+        return strength
+    }
+
+    if (password.match(/[a-z]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[A-Z]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[0-9]+/)) {
+        strength += 1;
+    }
+    if (password.match(/[$@#&!]+/)) {
+        strength += 1;
+    }
+
+    return strength
+}
+
 
 const DropdownField = () =>{
     let drop_fields = document.querySelectorAll('[dropdown]')
@@ -43,6 +67,7 @@ const DropdownField = () =>{
 
     const handle_click_dropdown_item = (e) =>{
         let element = e.currentTarget
+        remove_error_from_field(element)
         let parent_dropdown = element.closest('[dropdown-main-component]')
         let value_field = parent_dropdown.querySelector('[dropdown-field]')
         let value_display = parent_dropdown.querySelector('[dropdown-value-display]')
