@@ -74,6 +74,7 @@ const ValidateUniqueUser = () =>{
 }
 
 const handleSubmit = (e) =>{
+
     e.preventDefault()
     let form = e.target
     let required_fields = form.querySelectorAll('input[data-required][value=""], input[data-required]:not([value])')
@@ -85,6 +86,7 @@ const handleSubmit = (e) =>{
                 add_error_from_field(field, 'This field is required')
             }
         })
+        ShowNotification({type : 'error', message : 'Please fix the error above!'})
         return
     }
 
@@ -92,6 +94,7 @@ const handleSubmit = (e) =>{
     
     if (check_password_strong(psword.value) < 4){
         add_error_from_field(psword, 'Please enter strong password')
+        ShowNotification({type : 'error', message : 'Please enter strong password!'})
         return
     }
     
@@ -99,15 +102,16 @@ const handleSubmit = (e) =>{
     if (psword.value != cnf_password.value){
         add_error_from_field(psword, 'Password does not match')
         add_error_from_field(cnf_password, 'Password does not match')
+        ShowNotification({type : 'error', message : 'Password does not match!'})
         return
     }
 
-    let error_fields = document.querySelectorAll('.error')
+    let error_fields = form.querySelectorAll('.error')
     if (error_fields.length > 0 ){
-        console.log('Please fix the error above')
+        ShowNotification({type : 'error', message : 'Please fix the error above!'})
         return
     }
-    console.log('gonna submit')
+    ShowNotification({type : 'success', message : 'Submitting, Please wait...!'})
     form.submit()
 }
 
