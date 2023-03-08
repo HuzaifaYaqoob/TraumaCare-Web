@@ -5,3 +5,6 @@ from django.shortcuts import render
 
 def BookAppointmentPage(request):
     return render(request, 'Appointment/book_appointment.html')
+
+def CheckoutPage(request):
+    return render(request, 'checkout/checkout-appoinment.html')
