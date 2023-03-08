@@ -55,6 +55,7 @@
     }
 </style>
 
+
 <header class='header-main bg-white sticky top-0 right-0 left-0 z-[124525757] {% if not is_search_page %} shadow-md {% endif %}'>
     <div class="main-header">
         <div class="float-left">
@@ -84,8 +85,7 @@
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% for spec in specialities %}
-                                {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon
-                                color=spec.color_code %}
+                                {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon color=spec.color_code %}
                                 {% endfor %}
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
@@ -193,7 +193,7 @@
                     </ul>
                 </div>
                 </li>
-                <li class="relative px-2 cursor-pointer">
+                <li class="relative px-2 mr-0 cursor-pointer">
                     <h3 class="li-third text-[#24D0D0] font-semibold !text-[18px]">RxScan</h3>
                     <div
                         class="absolute text-sm bg-[#24D0D0] text-white px-2 py-0 rounded-lg top-[0] -translate-y-1/2 right-0 translate-x-1/2">

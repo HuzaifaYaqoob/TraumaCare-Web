@@ -12,20 +12,36 @@
     <title>{% block title %}{% endblock title %} - TraumaCare</title>
 
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/UtlityClasses/utility.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'assets/css/UtlityClasses/Notifier.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'assets/css/style.css' %}">
-    <script src="{% static 'assets/tailwind/tailwind.js' %}"></script>
 
     {% block mainBaseCSS %}
     {% endblock mainBaseCSS %}
 
 </head>
 <body>
+    {% include 'Components/Loader.html' %}
+
+    {% for msg in messages %}
+        <p>{{msg}}</p>
+    {% endfor %}
+
+    <div class="main-tc-notifiers" main-tc-notifiers>
+    </div>
 
     {% block mainBaseBody %}
 
     
     {% endblock mainBaseBody %}
 
+
+
+    <script src="{% static 'assets/js/global_script.js' %}?version=1"></script>
+    <script src="{% static 'assets/js/Notifier.js' %}?version=1"></script>
+    <script src="{% static 'assets/tailwind/tailwind.js' %}?version=1"></script>
+
+    {% block main_base_script %}
+    {% endblock main_base_script %}
 
     
 </body>
