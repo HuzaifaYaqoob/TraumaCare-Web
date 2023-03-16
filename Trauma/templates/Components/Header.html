@@ -73,7 +73,7 @@
                 </a>
             </div>
             </a>
-            <div class=" flex items-center pl-[20px] gap-1 pt-[3px] list-items">
+            <div class="hidden md:flex items-center pl-[20px] gap-1 pt-[3px] list-items">
                 <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group cursor-pointer">Doctors
                     <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -186,9 +186,9 @@
                         {% include 'Components/Header/NavItem.html' with name='Citilab' %}
                         {% include 'Components/Header/NavItem.html' with name='One Health Lab ' %}
                         {% include 'Components/Header/NavItem.html' with name='CLINAB ' %}
-                        <!-- <li>Faislabad</li>
+                        <li>Faislabad</li>
                             <li>Quetta</li>
-                            <li>Sialkot</li> -->
+                            <li>Sialkot</li>
                         {% include 'Components/Header/view_all.html' %}
                     </ul>
                 </div>
@@ -200,7 +200,7 @@
                         <span>New</span>
                     </div>
                 </li>
-                <li class="relative">
+                <li class="relative ml-[-40px]">
                     <a href="{% url 'FeedPage' %}" class=" px-2 cursor-pointer block w-full h-full">
                         <h3 class="li-third text-[#24D0D0] font-semibold !text-[18px]">Feed</h3>
                         <div
@@ -219,7 +219,7 @@
                     <p class="!font-[600] ">Join</p>
                 </a>
             </div>
-            <!-- <div class="svg1 hidden md:block items">
+            <div class="svg1 hidden md:block items">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="29" cy="29" r="29" fill="#0A1C4B" fill-opacity="0.1" />
                     <circle cx="29" cy="29" r="22" fill="#0A1C4B" fill-opacity="0.15" />
@@ -227,7 +227,7 @@
                         d="M28.8 17H31.2C37.1647 17 42 21.8353 42 27.8C42 33.7647 37.1647 38.6 31.2 38.6H22.8C20.149 38.6 18 36.451 18 33.8V27.8C18 21.8353 22.8353 17 28.8 17ZM25.2 31.1C24.7029 31.1 24.3 30.6971 24.3 30.2C24.3 29.7029 24.7029 29.3 25.2 29.3H30C30.4971 29.3 30.9 29.7029 30.9 30.2C30.9 30.6971 30.4971 31.1 30 31.1H25.2ZM25.2 26.3C24.7029 26.3 24.3 25.8971 24.3 25.4C24.3 24.9029 24.7029 24.5 25.2 24.5H34.8C35.2971 24.5 35.7 24.9029 35.7 25.4C35.7 25.8971 35.2971 26.3 34.8 26.3H25.2Z"
                         fill="#0A1C4B" />
                 </svg>
-            </div> -->
+            </div>
             <div
                 class=" cursor-pointer pt-1 hidden sm:hidden md:flex  mt-4 mr-3 w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center">
                 <svg width="40" height="40" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -326,7 +326,7 @@
                 </div>
 
             </div>
-            <div class="main-ham-burger flex items-center justify-center">
+            <div class="flex !md:hidden items-center justify-center " id="hamburger-icon">
                 <div class="ham-burger flex items-center justify-center ml-2 cursor-pointer  order-1 ">
                     <div class="text-center">
                         <svg width="24" height="21" viewBox="0 0 24 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -338,7 +338,7 @@
                     </div>
                 </div>
             </div>
-            <div class="p-4 py-10 bg-white shadow-md fixed top-0 left-0 items-center h-[100vh] hidden">
+            <div id="mobile-responsive-sidebar" class="hidden p-4 py-10 bg-white shadow-md fixed top-0 left-0 md:hidden h-[100vh]">
                 <div class="flex flex-col gap-3 items-center">
                     <div class="w-14 h-14  border-[2px] border-[#557de5] rounded-full">
 
@@ -418,3 +418,18 @@
         </div>
     </div>
 </header>
+
+<script>
+    document.addEventListener('DOMContentLoaded' , () =>{
+        let hamburger = document.getElementById('hamburger-icon')
+        if (hamburger){
+            hamburger.addEventListener('click' , () =>{
+                let siderbar = document.getElementById('mobile-responsive-sidebar')
+                if (siderbar){
+                    siderbar.classList.toggle('hidden')
+                }
+                console.log('clicked')
+            })
+        }
+    })
+</script>

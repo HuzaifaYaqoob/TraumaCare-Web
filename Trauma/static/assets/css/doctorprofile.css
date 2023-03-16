@@ -634,10 +634,6 @@ strong {
     position: relative;
 }
 
-.flex {
-    display: flex;
-    align-items: center;
-}
 
 .flex svg {
     height: 20px;

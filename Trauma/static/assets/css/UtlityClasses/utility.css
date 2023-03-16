@@ -38,9 +38,7 @@ input[type='checkbox']{
     justify-content: center;
     margin: 0 auto 20px;
 }
-.flex{
-    display: flex !important;
-}
+
 .align-items{
     align-items: center;
 }
@@ -94,10 +92,6 @@ input[type='checkbox']{
     cursor: pointer;
 }
 
-.hidden{
-    display: none !important;
-}
-/*  */
 /*  */
 /*  */
 /*  */
