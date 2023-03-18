@@ -1,6 +1,6 @@
 
 
-from Trauma.models import Speciality
+from Trauma.models import Speciality, Disease
 
 import random
 
@@ -17,6 +17,22 @@ def specialities_context_processor(request):
 
     return {
         'specialities' : specialities[:8]
+    }
+
+def diseases_context_processor(request):
+    diseases = Disease.objects.filter(
+        is_deleted = False, 
+        is_active = True,
+        # svg_icon__isnull = False,
+    )
+    # .exclude(svg_icon = '')
+    # .order_by('rank')[:8]
+
+    diseases = list(diseases)
+    random.shuffle(diseases)
+
+    return {
+        'diseases' : diseases[:10]
     }
 
 

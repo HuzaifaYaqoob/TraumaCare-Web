@@ -76,6 +76,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'TraumaCare.context_processors.specialities_context_processor', # Custom Context Processor
+                'TraumaCare.context_processors.diseases_context_processor', # Custom Context Processor
             ],
         },
     },
