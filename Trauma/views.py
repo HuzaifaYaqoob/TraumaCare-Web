@@ -10,6 +10,12 @@ def homePage(request):
 def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
 
+def SpecialitiesPage(request):
+    return render(request, 'Speciality/specialities.html')
+
+def SingleSpecialityPage(request):
+    return render(request, 'Speciality/speciality.html')
+
 def test(request):
     return render(request, 'prescription.html')
 

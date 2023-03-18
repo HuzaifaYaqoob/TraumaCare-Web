@@ -1,0 +1,258 @@
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}Home{% endblock title %}
+{% block BaseCSS %}
+<style>
+
+
+
+</style>
+{% endblock BaseCSS %}
+{% block baseBody %}
+<div class="w-full h-[full]  py-10">
+      <div class="max-w-[900px] mx-auto w-[90%] flex items-start bg-white shadow-md  rounded-xl">
+            <div class="flex-1 p-6 bg-white ">
+                  <h3 class="text-[#507EC2] text-2xl font-semibold">My Cart(4)</h3>
+                  <div class="flex flex-col gap-2 mt-2">
+                        <div class="p-3  bg-white shadow-md flex items-start justify-between rounded-xl">
+                              <div>
+                                    <p class="text-[#24D0D0] text-xl font-[600]">Doctor Appointment Fee</p>
+                                    <p class="text-[#767676]">Doctor Ahad Raza</p>
+                                    <div class="flex items-center gap-2 mt-1">
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div>
+                                    <svg class="ml-auto cursor-pointer" width="4" height="14" viewBox="0 0 4 14"
+                                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <circle cx="1.75" cy="1.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="6.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="11.75" r="1.75" fill="#767676" />
+                                    </svg>
+                                    <div class="relative">
+                                          <P class="text-[#828282] text-md">3000PKR</P>
+                                          <div class="absolute w-full h-[0.02rem] bg-[#828282] top-[50%]">
+
+                                          </div>
+                                    </div>
+                                    <p class="text-[#24D0D0] text-lg">2400PKR</p>
+                              </div>
+                        </div>
+                        <div class="p-3  bg-white shadow-md flex items-start justify-between rounded-xl">
+                              <div>
+                                    <p class="text-[#24D0D0] text-xl font-[600]">Doctor Appointment Fee</p>
+                                    <p class="text-[#767676]">Doctor Ahad Raza</p>
+                                    <div class="flex items-center gap-2 mt-1">
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div>
+                                    <svg class="ml-auto cursor-pointer" width="4" height="14" viewBox="0 0 4 14"
+                                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <circle cx="1.75" cy="1.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="6.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="11.75" r="1.75" fill="#767676" />
+                                    </svg>
+                                    <div class="relative">
+                                          <P class="text-[#828282] text-md">3000PKR</P>
+                                          <div class="absolute w-full h-[0.02rem] bg-[#828282] top-[50%]">
+
+                                          </div>
+                                    </div>
+                                    <p class="text-[#24D0D0] text-lg">2400PKR</p>
+                              </div>
+                        </div>
+                        <div class="p-3  bg-white shadow-md flex items-start justify-between rounded-xl">
+                              <div>
+                                    <p class="text-[#24D0D0] text-xl font-[600]">Doctor Appointment Fee</p>
+                                    <p class="text-[#767676]">Doctor Ahad Raza</p>
+                                    <div class="flex items-center gap-2 mt-1">
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div>
+                                    <svg class="ml-auto cursor-pointer" width="4" height="14" viewBox="0 0 4 14"
+                                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <circle cx="1.75" cy="1.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="6.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="11.75" r="1.75" fill="#767676" />
+                                    </svg>
+                                    <div class="relative">
+                                          <P class="text-[#828282] text-md">3000PKR</P>
+                                          <div class="absolute w-full h-[0.02rem] bg-[#828282] top-[50%]">
+
+                                          </div>
+                                    </div>
+                                    <p class="text-[#24D0D0] text-lg">2400PKR</p>
+                              </div>
+                        </div>
+                        <div class="p-3  bg-white shadow-md flex items-start justify-between rounded-xl">
+                              <div>
+                                    <p class="text-[#24D0D0] text-xl font-[600]">Doctor Appointment Fee</p>
+                                    <p class="text-[#767676]">Doctor Ahad Raza</p>
+                                    <div class="flex items-center gap-2 mt-1">
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                          <div class="bg-[#557de51a] py-2 px-2 flex gap-2 items-center rounded-md">
+                                                <svg width="17" height="19" viewBox="0 0 17 19" fill="none"
+                                                      xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M12.6667 10.1667H7.66667M12.6667 6.83333H7.66667M12.6667 13.5H7.66667M11.8333 1V3.5M5.16667 1V3.5M4.33333 17.6667H12.6667C14.5076 17.6667 16 16.1743 16 14.3333V5.58333C16 3.74238 14.5076 2.25 12.6667 2.25H4.33333C2.49238 2.25 1 3.74238 1 5.58333V14.3333C1 16.1743 2.49238 17.6667 4.33333 17.6667Z"
+                                                            stroke="#557DE5" stroke-width="1.5"
+                                                            stroke-linecap="round" />
+                                                </svg>
+                                                <p class="text-[#557DE5]">Thu 25/07/2023</p>
+                                          </div>
+                                    </div>
+                              </div>
+                              <div>
+                                    <svg class="ml-auto cursor-pointer" width="4" height="14" viewBox="0 0 4 14"
+                                          fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <circle cx="1.75" cy="1.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="6.75" r="1.75" fill="#767676" />
+                                          <circle cx="1.75" cy="11.75" r="1.75" fill="#767676" />
+                                    </svg>
+                                    <div class="relative">
+                                          <P class="text-[#828282] text-md">3000PKR</P>
+                                          <div class="absolute w-full h-[0.02rem] bg-[#828282] top-[50%]">
+
+                                          </div>
+                                    </div>
+                                    <p class="text-[#24D0D0] text-lg">2400PKR</p>
+                              </div>
+                        </div>
+                  </div>
+            </div>
+            <div class="flex-1 bg-[#24d0d00d] rounded-md  p-6">
+                        <p class="text-[#24D0D0] text-xl font-semibold">Promo Code</p>
+                        <p class="text-[#767676]">Use Our promocode to get 20% discount</p>
+                  <div class="border border-[#24d0d0] px-4 py-3 cursor-pointer mt-2 rounded-md flex items-center justify-between">
+                        <p class="text-[#24D0D0] font-[600]">AV5the456</p>
+                        <p class="text-[#767676] font-[600]">APPLY</p>
+
+                  </div>
+                  <h3 class="mt-3 text-[#24D0D0] text-xl font-[600]">Order summary</h3>
+                  <div class="bg-[#24d0d01a] rounded-md p-3 flex flex-col gap-3 mt-2 ">
+                        <div class="flex justify-between">
+                              <p class="text-[#6A6A6A] font-[600]">Doctor Fee</p>
+                              <p class="text-[#68686880]">Rs <span class="text-[#686868]">3000</span> </p>
+                        </div>
+                        <div class="flex justify-between">
+                              <p class="text-[#6A6A6A] font-[600]">Ultrasound Fee</p>
+                              <p class="text-[#68686880]">Rs <span class="text-[#686868]">2000</span> </p>
+                        </div>
+                        <div class="flex justify-between">
+                              <p class="text-[#6A6A6A] font-[600]">X-RAY fee</p>
+                              <p class="text-[#68686880]">Rs <span class="text-[#686868]">3000</span> </p>
+                        </div>
+                        <div class="flex justify-between">
+                              <p class="text-[#6A6A6A] font-[600]">Blood Test</p>
+                              <p class="text-[#68686880]">Rs <span class="text-[#686868]">2000</span> </p>
+                        </div>
+                  </div>
+                  <h3 class="text-[#24D0D0] text-2xl pl-1 font-[600] mt-3">Discount</h3>
+                  <div class="flex flex-col  gap-4 py-2 mt-1" >
+                        <div class="flex  justify-between">
+                              <div>
+                                    <p class="text-[#767676] font-[600]">Doctor  Discount</p>
+                              </div>
+                              <div>
+                                    <div>
+                                          <p class=" text-[#24D0D0]">20%</p>
+                                    </div>
+                                    <div>
+                                          <p class="text-[#919191]">-600Rs</p>
+                                    </div>
+                              </div>
+                              
+
+                        </div>
+                        <div class="flex  justify-between">
+                              <div>
+                                    <p class="text-[#767676] font-[600]">Doctor  Discount</p>
+                              </div>
+                              <div>
+                                    <div>
+                                          <p class="text-[#24D0D0]">20%</p>
+                                    </div>
+                                    <div>
+                                          <p class="text-[#919191]">-600Rs</p>
+                                    </div>
+                              </div>
+                              
+
+                        </div>
+                  </div>
+                  <hr class="mt-2">
+                  <div class="flex items-center justify-between py-4 mt-2 ">
+                        <p class="text-[#24D0D0] font-bold text-xl">Total</p>
+                        <P class="font-[600]  text-[#5d687980]">Rs <span class="text-[#6a6a6a]"> 7000</span></P>
+                  </div>
+                  <div class="bg-[#24D0D0] cursor-pointer rounded-xl mt-4 flex items-center gap-2 justify-center px-1 py-3" >
+                        <p class="text-white ">Confirm Order</p>
+                        <svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2341 6.39198C16.5886 6.03742 16.5886 5.46258 16.2341 5.10802L11.392 0.265917C11.0374 -0.0886393 10.4626 -0.0886393 10.108 0.265917C9.75347 0.62047 9.75347 1.19532 10.108 1.54987L13.4003 4.8421H1.06579C0.564373 4.8421 0.157894 5.24858 0.157894 5.75C0.157894 6.25142 0.564373 6.65789 1.06579 6.65789H13.4003L10.108 9.95013C9.75347 10.3047 9.75347 10.8795 10.108 11.2341C10.4626 11.5886 11.0374 11.5886 11.392 11.2341L16.2341 6.39198Z" fill="#F8F8F8"/>
+                              </svg>
+                              
+                  </div>
+            </div>
+      </div>      
+</div>
+{% endblock baseBody %}
