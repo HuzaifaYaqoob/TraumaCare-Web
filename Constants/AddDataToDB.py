@@ -2,7 +2,7 @@
 
 import json
 import csv
-from Trauma.models import Speciality, Country, State, City
+from Trauma.models import Speciality, Country, State, City, Disease
 
 def add_specialities():
 
@@ -16,6 +16,19 @@ def add_specialities():
             spec.image = row['image']
             spec.rank = row['rank']
             spec.save()
+
+def add_diseases():
+
+    with open('Files/Diseases.json' , 'r') as input_file:
+        input_file = json.load(input_file)
+        for row in input_file:
+            disease, created = Disease.objects.get_or_create(name = row['name'])
+            disease.svg_icon = row['svg_icon']
+            disease.color_code = row['color_code']
+            disease.description = row['description']
+            disease.image = row['image']
+            disease.rank = row['rank']
+            disease.save()
 
 
 def download_all_specialities():
