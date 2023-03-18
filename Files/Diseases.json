@@ -1,0 +1,890 @@
+[
+    {
+        "name" : "Acne",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Acute respiratory distress syndrome (ARDS)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Addison's disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "ADHD (attention-deficit/hyperactivity disorder)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "AIDS (acquired immune deficiency syndrome)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Alcoholism",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Allergies (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Alopecia (hair loss)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Alzheimer's disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Amyloidosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Anemia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Angina",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Anorexia nervosa",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Anxiety disorders (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Appendicitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Arthritis (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Asbestosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Asthma",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Atherosclerosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Autism spectrum disorder",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Back pain",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bacterial vaginosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bell's palsy",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bipolar disorder",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bird flu",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Black lung disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bladder cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Blepharitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Blood clots (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bone cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Borderline personality disorder",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Botulism",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Brain cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Breast cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bronchitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Brucellosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Bulimia nervosa",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Burns",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Caffeine addiction",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cancer (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Candidiasis (yeast infection)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Canker sores",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Carpal tunnel syndrome",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cataracts",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Celiac disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cellulitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cerebral palsy",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cervical cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Chagas disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Chickenpox",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Chlamydia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cholera",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Chronic fatigue syndrome",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Chronic obstructive pulmonary disease (COPD)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cirrhosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Claustrophobia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Clostridium difficile infection",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cold sores",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Colon cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Colorectal cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Common cold",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Conjunctivitis (pink eye)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Constipation",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "COPD (chronic obstructive pulmonary disease)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Coronavirus (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cough",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "COVID-19",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Creutzfeldt-Jakob disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Crohn's disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Croup",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cushing's syndrome",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Cystic fibrosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dandruff",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Deep vein thrombosis (DVT)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dehydration",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dementia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dengue fever",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Depression",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dermatitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Diabetes (various types)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Diarrhea",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Diphtheria",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Diverticulitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Down syndrome",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Drug addiction",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dupuytren's contracture",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dysentery",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Dyslexia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Ear infection",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Ebola virus disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Eczema",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Edema",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Emphysema",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Encephalitis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Endocarditis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Endometrial cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Endometriosis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Enterovirus D68",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Epilepsy",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Erectile dysfunction",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Esophageal cancer",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Ewing's sarcoma",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Eye strain",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Fibromyalgia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Fifth disease",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Filariasis",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Flat feet",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Flu (influenza)",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Food poisoning",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Friedreich's ataxia",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Frostbite",
+        "svg_icon" : "",
+        "color_code" : "",
+        "description" : "",
+        "image" : "",
+        "rank" : 1
+    }
+]
