@@ -65,10 +65,6 @@ body {
     border-bottom: 3px solid rgba(36, 208, 208, 1);
 }
 
-.list-items li:hover {
-    border-bottom: 3px solid rgba(36, 208, 208, 1);
-} */
-
 
 .list-items li svg {
     width: 20px;
