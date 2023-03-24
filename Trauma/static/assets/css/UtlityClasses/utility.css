@@ -18,6 +18,10 @@ input[type='checkbox']{
     accent-color: #24D0D0 !important;
 }
 
+.flex-0{
+    flex: 0 !important;
+}
+
 .tc-loader{
     position: fixed;
     top: 0;
