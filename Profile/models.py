@@ -20,7 +20,9 @@ class Profile(models.Model):
 
     user = models.ForeignKey(User, related_name='user_profiles', on_delete=models.CASCADE)
 
-    name = models.CharField(max_length=500, default='')
+    first_name = models.CharField(max_length=500, default='')
+    last_name = models.CharField(max_length=500, default='')
+    full_name = models.CharField(max_length=800, default='')
     email = models.EmailField()
 
     profile_type = models.CharField(default='Patient', choices=PROFILE_CHOICES, max_length=15)
@@ -31,6 +33,10 @@ class Profile(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
+
+    class Meta:
+        verbose_name = 'Profile'
+        verbose_name_plural = 'Profiles'
 
     def __str__(self):
         return f'{self.id}'
