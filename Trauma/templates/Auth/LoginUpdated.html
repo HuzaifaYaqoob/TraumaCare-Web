@@ -152,9 +152,9 @@
     </section>
     <section class="right-section">
         <div>
-            <form action="" class="main-form">
+            <form action="" class="main-form" main-login-form>
                 <div>
-                    <div class="form-cards-section">
+                    <!-- <div class="form-cards-section">
                         <div class="login-card">
                             <span class="relative w-full block">
                                 <img class="username-selection-image" src="{% static 'assets/images/username.png' %}" alt="" srcset="">
@@ -173,14 +173,12 @@
                             </span>
                             <p>Phone</p>
                         </div>
+                    </div> -->
+                    <div class="form-field">
+                        {% include 'Components/Form/TextField.html' with id="email_username_input"  label='Username or Email Address' name='' placeholder="Username / Email" attributes='data-required check-user-exist ' %}
                     </div>
                     <div class="form-field">
-                        <label for="" class="form-input-label">Email Address</label>
-                        <input type="text" name="" id="" class="form-input " placeholder="Enter Email">
-                    </div>
-                    <div class="form-field">
-                        <label for="" class="form-input-label">Password</label>
-                        <input type="text" name="" id="" class="form-input" placeholder="********">
+                        {% include 'Components/Form/passwordField.html' with name='password' label='Password' placeholder='*********' attributes='data-required' %}
                     </div>
                     <div class="form-field remember-me">
                         <input type="checkbox" name="" id="remember-me-checkbox-login" class="flex-0" >
@@ -202,3 +200,9 @@
 </section>
 
 {% endblock mainBaseBody %}
+
+
+{% block main_base_script %}
+
+<script src="{% static 'assets/js/Auth/Login.js' %}?version=1"></script>
+{% endblock main_base_script %}

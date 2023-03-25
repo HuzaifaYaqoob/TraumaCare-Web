@@ -15,6 +15,27 @@ const remove_error_from_field = (element) =>{
     }
 }
 
+
+const add_error_from_field = (element, error_message) =>{
+    let error_parent = element.closest('.form-field')
+    if (error_parent){
+        let error = error_parent.querySelector('.error-message')
+        if (!error){
+            error = document.createElement('p')
+            error.className = 'error-message'
+        }
+        error.innerHTML = error_message
+        error_parent.appendChild(error)
+
+        let error_border = error_parent.querySelector('[error-border-element]')
+        if (error_border){
+            error_border.classList.add('error')
+        }
+        
+    }
+}
+
+
 const check_password_strong = (password) =>{
     var strength = 0;
 

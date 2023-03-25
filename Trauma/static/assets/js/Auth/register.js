@@ -3,26 +3,6 @@
 
 
 
-const add_error_from_field = (element, error_message) =>{
-    let error_parent = element.closest('.form-field')
-    if (error_parent){
-        let error = error_parent.querySelector('.error-message')
-        if (!error){
-            error = document.createElement('p')
-            error.className = 'error-message'
-        }
-        error.innerHTML = error_message
-        error_parent.appendChild(error)
-
-        let error_border = error_parent.querySelector('[error-border-element]')
-        if (error_border){
-            error_border.classList.add('error')
-        }
-        
-    }
-}
-
-
 let validation_tm = undefined
 
 const UserValidationApi = (e) =>{
@@ -59,7 +39,7 @@ const UserValidationApi = (e) =>{
                 remove_error_from_field(element)
             }
         })
-    }, 2000);
+    }, 500);
 
     validation_tm = tm
 
@@ -152,8 +132,4 @@ document.addEventListener('DOMContentLoaded', () =>{
         main_register_form.addEventListener('submit' , handleSubmit)
         strongPassword(main_register_form)
     }
-
-
-
-
 })
