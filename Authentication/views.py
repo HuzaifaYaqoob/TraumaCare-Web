@@ -51,6 +51,40 @@ def RegisterPage(request):
 
 
 
+def HandleLogin(request):
+    if request.method == 'POST':
+        email = request.POST.get('email', None)
+        username = request.POST.get('username', None)
+        password = request.POST.get('password', None)
+
+        value = username or email
+
+        if not all([value, password]):
+            messages.info(request, 'All fields are required')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        query = {}
+        if email:
+            query['email'] = email
+        elif username:
+            query['username'] = username
+
+        try:
+            user = User.objects.get(
+                **query
+            )
+        except:
+            messages.error(request, 'User doesn"t exists')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+
+        messages.success(request, 'Login Successfully')
+        return HttpResponseRedirect('/auth/login/')
+    
+    messages.error(request, 'Only POST method allowed')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def HandleJoin(request):
     if request.method == 'POST':
         email = request.POST.get('email', None)
