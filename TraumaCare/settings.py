@@ -22,6 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'django-insecure-=ax2^d9l0qwkmiyngcw^=aw6a5acm1j^^)fdv3+o1$zs!e01-w'
 
+DASHBOARD_REDIRECT_URL = 'https://dashboard.traumacare.com'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -76,6 +77,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'TraumaCare.context_processors.global_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.specialities_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.diseases_context_processor', # Custom Context Processor
             ],
