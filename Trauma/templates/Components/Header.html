@@ -214,13 +214,19 @@
         </div>
         <!--  -->
         <!--  -->
-        <div class="float-right">
-            <div class="logo-paragraph  ">
-                <a href="/auth/join/">
-                    <p class="!font-[600] ">Join</p>
+        <div class="float-right items-center">
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'HandleLogout' %}" class="mr-2 font-medium px-3 py-2 transition-all rounded-lg hover:bg-[#0A1C4B20]">
+                    Logout
                 </a>
-            </div>
-            <div class="svg1 hidden md:block items">
+            {% else %}
+                <div class="logo-paragraph  ">
+                    <a href="/auth/join/">
+                        <p class="!font-[600] !top-0 ">Join</p>
+                    </a>
+                </div>
+            {% endif %}
+            <!-- <div class="svg1 hidden md:block items">
                 <svg width="58" height="58" viewBox="0 0 58 58" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="29" cy="29" r="29" fill="#0A1C4B" fill-opacity="0.1" />
                     <circle cx="29" cy="29" r="22" fill="#0A1C4B" fill-opacity="0.15" />
@@ -228,9 +234,9 @@
                         d="M28.8 17H31.2C37.1647 17 42 21.8353 42 27.8C42 33.7647 37.1647 38.6 31.2 38.6H22.8C20.149 38.6 18 36.451 18 33.8V27.8C18 21.8353 22.8353 17 28.8 17ZM25.2 31.1C24.7029 31.1 24.3 30.6971 24.3 30.2C24.3 29.7029 24.7029 29.3 25.2 29.3H30C30.4971 29.3 30.9 29.7029 30.9 30.2C30.9 30.6971 30.4971 31.1 30 31.1H25.2ZM25.2 26.3C24.7029 26.3 24.3 25.8971 24.3 25.4C24.3 24.9029 24.7029 24.5 25.2 24.5H34.8C35.2971 24.5 35.7 24.9029 35.7 25.4C35.7 25.8971 35.2971 26.3 34.8 26.3H25.2Z"
                         fill="#0A1C4B" />
                 </svg>
-            </div>
+            </div> -->
             <div
-                class=" cursor-pointer pt-1 hidden sm:hidden md:flex  mt-4 mr-3 w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center">
+                class=" cursor-pointer pt-1 hidden sm:hidden md:flex mr-3 w-10 h-10 bg-slate-300 rounded-full flex items-center justify-center">
                 <svg width="40" height="40" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg"
                     xmlns:xlink="http://www.w3.org/1999/xlink">
                     <g filter="url(#filter0_d_1169_565)">
@@ -261,7 +267,7 @@
 
 
             </div>
-            <div class="svg2  ">
+            <div class="svg2">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
                     <path
@@ -269,7 +275,7 @@
                         fill="#0A1C4B" />
                 </svg>
             </div>
-            <div class="svg3 hidden sm:hidden md:flex items-center mt-[10px]">
+            <div class="svg3 hidden sm:hidden md:flex items-center">
                 <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
                     <path
@@ -279,31 +285,6 @@
                         d="M34 31.9999C34 35.1558 29.5228 37.7142 24 37.7142C18.4772 37.7142 14 35.1558 14 31.9999C14 28.844 18.4772 26.2856 24 26.2856C29.5228 26.2856 34 28.844 34 31.9999Z"
                         fill="#0A1C4B" />
                 </svg>
-
-
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!-- drowpdown -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-
-
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
-                <!--  -->
                 <div class="icon-drowpdown">
                     <div class="icon-drowpdown1">
                         <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">

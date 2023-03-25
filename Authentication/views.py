@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.contrib import auth
 from rest_framework.decorators import api_view
 
 from django.contrib import messages
@@ -51,6 +52,12 @@ def RegisterPage(request):
 
 
 
+def HandleLogout(request):
+    auth.logout(request)
+    messages.info(request, 'Logout Successfully')
+    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def HandleLogin(request):
     if request.method == 'POST':
         email = request.POST.get('email', None)
@@ -76,10 +83,15 @@ def HandleLogin(request):
         except:
             messages.error(request, 'User doesn"t exists')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-        
-
-        messages.success(request, 'Login Successfully')
-        return HttpResponseRedirect('/auth/login/')
+            
+        user = auth.authenticate(username = user.username, password = password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, 'Login Successfully')
+            return HttpResponseRedirect('/auth/login/')
+        else:
+            messages.error(request, 'Invalid Credentials')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     
     messages.error(request, 'Only POST method allowed')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
