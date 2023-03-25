@@ -45,6 +45,8 @@ def RegisterPage(request):
         'countries' : form_countries,
         'dial_codes' : dial_codes,
     }
+
+
     return render(request, 'Auth/Register.html', context)
 
 

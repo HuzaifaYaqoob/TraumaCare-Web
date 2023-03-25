@@ -42,7 +42,6 @@ const ShowNotification = (data) =>{
     notifier.appendChild(cross)
 
     let total_notifications = main_tc_notifiers.querySelectorAll('.tc-notifier')
-    console.log(total_notifications)
     if (total_notifications.length >= 7){
         total_notifications[0]?.remove()
     }
@@ -51,6 +50,22 @@ const ShowNotification = (data) =>{
     main_tc_notifiers.appendChild(notifier)
 }
 
-document.addEventListener('DOMContentLoaded' , () =>{
 
+const AddCloseListenerToNotifications = () =>{
+    let notifications = document.querySelectorAll('.main-tc-notifiers .tc-notifier')
+    notifications.forEach(notication =>{
+        let cross_icon = notication.querySelector('[tc-notifier-cross-icon]')
+        if (cross_icon){
+            cross_icon.addEventListener('click', () =>{
+                notication.classList.add('sliding-reverse-roll')
+                setTimeout(() => {
+                    notication.remove()
+                }, 300);
+            })
+        }
+    })
+}
+
+document.addEventListener('DOMContentLoaded' , () =>{
+    AddCloseListenerToNotifications()
 })
