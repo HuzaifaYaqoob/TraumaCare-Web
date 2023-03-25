@@ -10,17 +10,19 @@
             fill="#0A1C4B" />
     </svg>
     <div class="icon-drowpdown min-w-[250px] p-2">
-        <div class="icon-drowpdown1 rounded-lg">
-            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"
-                    fill="#0A1C4B" />
-                <path
-                    d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"
-                    fill="#0A1C4B" />
-            </svg>
-            <p>{{request.user.username}}'s Profile</p>
-        </div>
+        {% for profile in request.user.profiles %}
+            <a href="https://dashboard.traumacare.com/" target="_blank" class="icon-drowpdown1 rounded-lg">
+                <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"
+                        fill="#0A1C4B" />
+                    <path
+                        d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"
+                        fill="#0A1C4B" />
+                </svg>
+                <p>{{profile.full_name}}'s Profile</p>
+            </a>
+        {% endfor %}
         <a href="{% url 'HandleLogout' %}" class="icon-drowpdown2 rounded-lg">
             {% include 'Components/SVG/LogoutIcon.html' %}
             <p>Logout</p>

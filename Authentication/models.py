@@ -7,6 +7,7 @@ from django.utils.timezone import now
 
 from Trauma.models import Country
 
+
 class MyAccountManager(BaseUserManager):
     def create_user(self, email, username, password=None):
         if not email:
@@ -105,6 +106,11 @@ class User(AbstractBaseUser):
     def country_name(self):
         if self.country:
             return self.country.name
+    
+    @property
+    def profiles(self):
+        user_profiles = self.user_profiles.all().filter(profile_type = 'Patient')
+        return user_profiles
 
     # def account_type(self):
     #     return self.user_account_type.account_type
