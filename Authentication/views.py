@@ -88,7 +88,7 @@ def HandleLogin(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Login Successfully')
-            return HttpResponseRedirect('/auth/login/')
+            return HttpResponseRedirect('/')
         else:
             messages.error(request, 'Invalid Credentials')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
