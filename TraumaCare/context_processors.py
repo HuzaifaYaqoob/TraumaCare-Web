@@ -38,7 +38,7 @@ def diseases_context_processor(request):
     random.shuffle(diseases)
 
     return {
-        'diseases' : diseases[:10]
+        'diseases' : diseases
     }
 
 

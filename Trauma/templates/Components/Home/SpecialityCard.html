@@ -1,29 +1,28 @@
-{% load static %}
 <a href="/speciality/view/">
-<div class="flex gap-3 pt-4 pl-3 cursor-pointer pb-4 pr-4 bg-[#FCFCFC] border border-solid border-[#D3D3D3] rounded-lg speciality-cards-TC">
-    <div class="flex flex-col gap-1">
-        <div class="p-1 bg-[{{data.color_code}}30] rounded">
-            {{data.svg_icon|safe}}             
+    <div class="flex gap-3 pt-4 pl-3 cursor-pointer pb-4 pr-4 bg-[#FCFCFC] border border-solid border-[#D3D3D3] rounded-lg speciality-cards-TC">
+        <div class="flex flex-col gap-1">
+            <div class="p-1 bg-[{{data.color_code}}30] rounded">
+                {{data.svg_icon|safe}}             
+            </div>
+            <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
+                900
+            </div>
+            <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
+                10
+            </div>
         </div>
-        <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
-            900
+        <div class="flex flex-col flex-1 gap-1">
+            <div>
+                <h2 class="text-[#343434] font-semibold text-xl leading-none">{{data.name}}</h2>
+            </div>
+            <div>
+                <p class="text-[#8A8A8A] leading-snug text-sm mt-[5px] ">{{data.description|slice:':100'}}{% if data.description|length > 100 %}...{% endif %}</p>
+            </div>
         </div>
-        <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
-            10
-        </div>
-    </div>
-    <div class="flex flex-col gap-1">
-        <div>
-            <h2 class="text-[#343434] font-semibold text-xl leading-none">{{data.name}}</h2>
-        </div>
-        <div>
-            <p class="text-[#8A8A8A] leading-snug text-sm mt-[5px] ">{{data.description|slice:':100'}}{% if data.description|length > 100 %}...{% endif %}</p>
-        </div>
-    </div>
-    <div class="cursor-pointer">
+        <div class="cursor-pointer">
             <svg width="15" height="15" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path fill="{{data.color_code}}" d="M0.501094 2.93773L7.15731 9.59394L0.501094 16.2502C0.342268 16.409 0.216281 16.5975 0.130325 16.805C0.0443687 17.0126 0.000126839 17.235 0.000126839 17.4596C0.000126839 17.6842 0.0443687 17.9066 0.130325 18.1141C0.216281 18.3217 0.342268 18.5102 0.501094 18.669C0.65992 18.8279 0.848474 18.9538 1.05599 19.0398C1.26351 19.1258 1.48592 19.17 1.71053 19.17C1.93515 19.17 2.15756 19.1258 2.36508 19.0398C2.57259 18.9538 2.76115 18.8279 2.91998 18.669L10.7942 10.7948C10.9532 10.6361 11.0794 10.4476 11.1655 10.24C11.2516 10.0325 11.2959 9.81004 11.2959 9.58536C11.2959 9.36069 11.2516 9.13821 11.1655 8.93068C11.0794 8.72315 10.9532 8.53463 10.7942 8.37592L2.91998 0.501693C2.76127 0.342658 2.57275 0.216486 2.36522 0.130399C2.15769 0.0443114 1.93521 0 1.71053 0C1.48586 0 1.26338 0.0443114 1.05585 0.130399C0.848319 0.216486 0.659803 0.342658 0.501094 0.501693C-0.150803 1.17074 -0.167958 2.26868 0.501094 2.93773Z" />
+                <path fill="{% if data.color_code %}{{data.color_code}}{% else %}#d3d3d3{% endif %}" d="M0.501094 2.93773L7.15731 9.59394L0.501094 16.2502C0.342268 16.409 0.216281 16.5975 0.130325 16.805C0.0443687 17.0126 0.000126839 17.235 0.000126839 17.4596C0.000126839 17.6842 0.0443687 17.9066 0.130325 18.1141C0.216281 18.3217 0.342268 18.5102 0.501094 18.669C0.65992 18.8279 0.848474 18.9538 1.05599 19.0398C1.26351 19.1258 1.48592 19.17 1.71053 19.17C1.93515 19.17 2.15756 19.1258 2.36508 19.0398C2.57259 18.9538 2.76115 18.8279 2.91998 18.669L10.7942 10.7948C10.9532 10.6361 11.0794 10.4476 11.1655 10.24C11.2516 10.0325 11.2959 9.81004 11.2959 9.58536C11.2959 9.36069 11.2516 9.13821 11.1655 8.93068C11.0794 8.72315 10.9532 8.53463 10.7942 8.37592L2.91998 0.501693C2.76127 0.342658 2.57275 0.216486 2.36522 0.130399C2.15769 0.0443114 1.93521 0 1.71053 0C1.48586 0 1.26338 0.0443114 1.05585 0.130399C0.848319 0.216486 0.659803 0.342658 0.501094 0.501693C-0.150803 1.17074 -0.167958 2.26868 0.501094 2.93773Z" />
             </svg>
+        </div>
     </div>
-</div>
 </a>
