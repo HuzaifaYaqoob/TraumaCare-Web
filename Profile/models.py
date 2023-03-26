@@ -26,6 +26,7 @@ class Profile(models.Model):
     email = models.EmailField()
 
     profile_type = models.CharField(default='Patient', choices=PROFILE_CHOICES, max_length=15)
+    profile_image = models.ImageField(upload_to='Patients/Images/%Y-%m', default='')
 
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
