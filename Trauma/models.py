@@ -141,7 +141,7 @@ class VerificationCode(models.Model):
     def save(self, *args, **kwargs):
         if not self.code:
             import random
-            random_id = ' '.join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
+            random_id = ''.join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
             self.code = random_id
 
         super(VerificationCode, self).save(*args, **kwargs)
