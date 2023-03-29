@@ -4,6 +4,7 @@
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
+from Constants.Emails.OtpEmail import sendOtpEmail
 
 from Authentication.models import User
 from Profile.models import Profile
@@ -31,3 +32,19 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
     )
     user_profile.save()
     
+
+@receiver(post_save, sender=User)
+def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
+    if created:
+        from Trauma.models import VerificationCode
+        otp = VerificationCode.objects.create(
+            user = instance
+        )
+        sendOtpEmail(
+            {
+                'user' : instance,
+                'verification_code' : otp
+            }
+        )
+
+    return

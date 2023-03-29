@@ -7,7 +7,17 @@ from django.template.loader import get_template
 from django.conf import settings
 
 def sendOtpEmail(data):
-    context = {}
+    """
+    In context
+        user and verification_code keys are required and there instances in values
+    """
+    user = data.get('user', None)
+    verification_code = data.get('verification_code', None)
+    if not user or not verification_code:
+        return
+    
+    context = data
+    
 
     html_file = get_template('Email/otp_email.html')
     html_content = html_file.render(context)
@@ -17,7 +27,7 @@ def sendOtpEmail(data):
         'Verification Code', 
         text_content,
         settings.EMAIL_HOST_USER,
-        [settings.EMAIL_HOST_USER],
+        [user.email],
     )
     msg.attach_alternative(html_content, "text/html")
     msg.send()

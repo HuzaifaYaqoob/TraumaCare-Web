@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 
 
@@ -123,3 +124,28 @@ class RandomFiles(models.Model):
 
     def __str__(self):
         return f'{self.id}'
+
+class VerificationCode(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+
+    user = models.ForeignKey('Authentication.User', on_delete=models.CASCADE, related_name='user_verification_codes')
+    code = models.CharField(default='', max_length=50)
+
+    is_expired = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
+    is_used = models.BooleanField(default=False)
+
+    class Meta:
+        unique_together = ('user', 'code',)
+
+    def save(self, *args, **kwargs):
+        if not self.code:
+            import random
+            random_id = ' '.join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
+            self.code = random_id
+
+        super(VerificationCode, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'{self.id}'
+

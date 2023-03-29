@@ -40,13 +40,13 @@
         </div>
         <h3 style="text-align: center; color: #0A1C4B; font-size: 26px;">Verification code</h3>
         <div>
-          <p style="color: #0A1C4B;">Hi Huzaifa,</p>
+          <p style="color: #0A1C4B;">Hi {{user.username}},</p>
           <p style="color: #0A1C4B;">
             We received a request to get OTP through your email address
-            <span style="color: aqua ; cursor: pointer;"> Huzaifaofficial@gmail.com</span> your verification code is here:
+            <span style="color: aqua ; cursor: pointer;">{{user.email}}</span> your verification code is here:
           </p>
           <div style="display: flex; align-items: center ; justify-content: center; background-color: #1c172a1a; padding:18px 5px;  border-radius: 15px;" >
-                <h3 style="margin:0; font-size : 24px; color: #0A1C4B; margin-left: auto; letter-spacing: 7px;text-align: center; margin-right: auto;">442332</h3>
+                <h3 style="margin:0; font-size : 24px; color: #0A1C4B; margin-left: auto; letter-spacing: 7px;text-align: center; margin-right: auto;">{{verification_code.code}}</h3>
           </div>
           <p style="color: #0A1C4B;">If you did not request for this code, Please secure your account by changing your password.  <span style="font-weight: bold;">Do not forward </span><span  style="font-weight: bold;">or give this code to anyone.  </span> 
             </p>
