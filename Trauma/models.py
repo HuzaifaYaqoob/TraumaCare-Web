@@ -116,3 +116,10 @@ class City(models.Model):
     class Meta:
         verbose_name = 'City'
         verbose_name_plural = 'Cities'
+
+
+class RandomFiles(models.Model):
+    image = models.ImageField(upload_to='random_files/images/', null=True, blank=True)
+
+    def __str__(self):
+        return f'{self.id}'

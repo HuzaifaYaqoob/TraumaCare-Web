@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Speciality, Disease, Country, State, City
+from .models import Speciality, Disease, Country, State, City, RandomFiles
 
 # Register your models here.
 
@@ -31,3 +31,7 @@ class StateAdmin(admin.ModelAdmin):
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']
+
+@admin.register(RandomFiles)
+class RandomFilesAdmin(admin.ModelAdmin):
+    list_display = ['id']
