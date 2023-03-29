@@ -6,6 +6,10 @@ from django.shortcuts import render
 def homePage(request):
     return render(request, 'Home/index.html')
 
+def email_view(request):
+    path = request.GET.get('path')
+    return render(request, path)
+
 
 def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
