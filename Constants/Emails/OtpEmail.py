@@ -12,6 +12,8 @@ def sendOtpEmail(data):
         user and verification_code keys are required and there instances in values
     """
     
+    user = data.get('user', None)
+    
     #     Sending Dummy Email
     send_mail(
         'Verification Code',
@@ -22,7 +24,7 @@ def sendOtpEmail(data):
     )
     
     
-    user = data.get('user', None)
+    
     verification_code = data.get('verification_code', None)
     if not user or not verification_code:
         return
