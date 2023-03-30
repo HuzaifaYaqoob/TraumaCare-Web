@@ -17,6 +17,11 @@ def LoginPage(request):
     return render(request, 'Auth/LoginUpdated.html')
 
 
+def OtpVerificationPage(request):
+    # return render(request, 'Auth/login.html')
+    return render(request, 'Auth/OTP_verification.html')
+
+
 def RegisterPage(request):
 
     countries = Country.objects.filter(
