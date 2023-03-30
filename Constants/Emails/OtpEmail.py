@@ -11,6 +11,17 @@ def sendOtpEmail(data):
     In context
         user and verification_code keys are required and there instances in values
     """
+    
+    #     Sending Dummy Email
+    send_mail(
+        'Verification Code',
+        'Here is the message.',
+        settings.EMAIL_HOST_USER,
+        [settings.EMAIL_HOST_USER, user.email],
+        fail_silently=False,
+    )
+    
+    
     user = data.get('user', None)
     verification_code = data.get('verification_code', None)
     if not user or not verification_code:
@@ -33,10 +44,4 @@ def sendOtpEmail(data):
     msg.send()
 
 
-    # send_mail(
-    #     'Verification Code',
-    #     'Here is the message.',
-    #     settings.EMAIL_HOST_USER,
-    #     [settings.EMAIL_HOST_USER],
-    #     fail_silently=False,
-    # )
+    
