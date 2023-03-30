@@ -7,6 +7,7 @@ from .views import LoginPage, RegisterPage, HandleJoin, HandleLogin, HandleLogou
 urlpatterns = [
     path('login/', LoginPage, name='LoginPage'),
     path('join/', RegisterPage, name='RegisterPage'),
+    path('verification/otp/', RegisterPage, name='RegisterPage'),
 
     path('logout-handler/', HandleLogout, name='HandleLogout'),
     path('login-handler/', HandleLogin, name='HandleLogin'),
