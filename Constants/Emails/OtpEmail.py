@@ -15,13 +15,13 @@ def sendOtpEmail(data):
     user = data.get('user', None)
     
     #     Sending Dummy Email
-    send_mail(
-        'Verification Code',
-        'Here is the message.',
-        settings.EMAIL_HOST_USER,
-        [settings.EMAIL_HOST_USER, user.email],
-        fail_silently=False,
-    )
+    #     send_mail(
+    #         'Verification Code',
+    #         'Here is the message.',
+    #         settings.EMAIL_HOST_USER,
+    #         [settings.EMAIL_HOST_USER, user.email],
+    #         fail_silently=False,
+    #     )
     
     
     
