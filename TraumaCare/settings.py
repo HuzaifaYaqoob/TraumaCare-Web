@@ -11,18 +11,25 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 from pathlib import Path
+import environ
 import os
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
+
+SETTING_BASE = Path(__file__).resolve().parent
+BASE_DIR = SETTING_BASE.parent
+
+env = environ.Env()
+print(SETTING_BASE)
+environ.Env.read_env(os.path.join(SETTING_BASE , '.env'))
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=ax2^d9l0qwkmiyngcw^=aw6a5acm1j^^)fdv3+o1$zs!e01-w'
+SECRET_KEY = env('SECRET_KEY')
 
-DASHBOARD_REDIRECT_URL = 'https://dashboard.traumacare.com'
+DASHBOARD_REDIRECT_URL = env('DASHBOARD_REDIRECT_URL')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
