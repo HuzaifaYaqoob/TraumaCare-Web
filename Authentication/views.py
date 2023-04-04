@@ -9,7 +9,7 @@ from django.contrib import messages
 
 from Authentication.models import User
 
-from Trauma.models import Country
+from Trauma.models import Country, VerificationCode
 
 
 def LoginPage(request):
@@ -18,8 +18,38 @@ def LoginPage(request):
 
 
 def OtpVerificationPage(request):
+    error_msg1 = 'You are not allowed to access Verification Page'
+    
+    email = request.GET.get('email', None)
+
+    if not all([email]):
+        messages.error(request, error_msg1)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+    context = {}
+    
+    try:
+        user = User.objects.get(email = email)
+        if user.is_email_verified:
+            raise Exception(error_msg1)
+
+        codes = VerificationCode.objects.filter(
+            user = user, 
+            is_expired = False,
+            is_deleted = False,
+            is_used = False,
+        )
+        if len(codes) == 0:
+            raise Exception(error_msg1)
+    except:
+        messages.error(request, error_msg1)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        context['user'] = user
+
+
     # return render(request, 'Auth/login.html')
-    return render(request, 'Auth/OTP_verification.html')
+    return render(request, 'Auth/OTP_verification.html', context)
 
 
 def RegisterPage(request):
@@ -136,8 +166,42 @@ def HandleJoin(request):
 
         messages.success(request, 'User Created Successfully')
 
-        return HttpResponseRedirect('/auth/login/')
+        # return HttpResponseRedirect('/auth/login/')
+        return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
     
     messages.error(request, 'Only POST method allowed')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
+
+def handleOtp(request):
+    email = request.GET.get('email', None)
+    code = request.POST.get('code', None)
+
+    if not all([email, code]):
+        messages.info(request, 'Invalid Email or Code!')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    
+    try:
+        user = User.objects.get(email = email)
+    except:
+        messages.error(request, 'Invalid User')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        try:
+            code = VerificationCode.objects.get(
+                user = user, 
+                is_expired = False,
+                is_deleted = False,
+                is_used = False,
+                code = code
+            )
+        except:
+            messages.error(request, 'Invalid Code')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        user.is_email_verified = True
+        user.is_active = True
+        user.save()
+        code.delete()
+        messages.success(request, 'Account Verified!')
+        return HttpResponseRedirect('/auth/login/')

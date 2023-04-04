@@ -5,8 +5,14 @@ from django.conf import settings
 import random
 
 def global_context_processor(request):
+    str_query = '?'
+    for key in request.GET:
+        val = request.GET.get(key)
+        str_query += f'{key}={val}&'
+    
     return {
-        'dashboard_url' : settings.DASHBOARD_REDIRECT_URL
+        'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
+        'str_query' : str_query,
     }
 
 

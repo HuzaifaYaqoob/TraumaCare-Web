@@ -1,8 +1,7 @@
-
 {% extends 'Components/MainBase.html' %}
 {% load static %}
 
-{% block title %}Login{% endblock title %}
+{% block title %}OTP Verification{% endblock title %}
 
 
 {% block mainBaseCSS %}
@@ -11,24 +10,32 @@
 
 {% block mainBaseBody %}
 
+<<<<<<< HEAD
 <div class="flex items-center justify-center mt-20 p-4" >
             <div class="p-4 border flex items-center justify-center rounded-xl relative">
                         <div class="absolute top-5 left-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
+=======
+<div class="flex items-center justify-center mt-20">
+      <div class="p-4 border flex items-center justify-center rounded-xl relative">
+            <div
+                  class="absolute top-5 left-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
+                  svg
+            </div>
+            <div
+                  class="absolute top-5 right-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
+                  svg
+            </div>
+            <div class="mt-16">
+                  <div>
+                        <div>
+>>>>>>> master
                               svg
                         </div>
-                        <div class="absolute top-5 right-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
-                              svg
-                        </div>
-                        <div  class="mt-16">
-                              <div class="flex items-center justify-center">
-                              <div>
-                              <div>
-                                    svg
-                              </div>
-                              <div class="flex flex-col">
+                        <div class="flex flex-col">
                               <p class="text-center text-black text-2xl font-[600]">Check Your email</p>
-                              <p class="text-center text-[#838383]">we've sent the code to the Foody app</p>
+                              <p class="text-center text-[#838383]">we've sent the code to the {{user.username}}</p>
                         </div>
+<<<<<<< HEAD
                               <div class="px-4 py-4 rounded-xl border  mt-4">
                                           <input type="text" placeholder="ku*****@gmail.com" class="outline-none w-[300px] placeholder:text-slate-900" >
                               </div>
@@ -39,9 +46,28 @@
                         </div>
                         <div class="!border[#24D0D0] cursor-pointer  bg-[#0A1C4B] border rounded-xl p-5 mt-4 flex items-center justify-center  ">
                                     <p class="text-white text-lg font-[500]">Resend code__38 sec .</p>
+=======
+                        <div class="px-4 py-2 rounded-xl border flex w-full items-center gap-10 mt-4">
+                              <p class="outline-none text-gray-600">{{request.GET.email}}</p>
+>>>>>>> master
                         </div>
                   </div>
+                  <form class="flex justify-between gap-2 mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
+                        {% csrf_token %}
+                        <div class="!border[#24D0D0] border rounded-xl px-3 py-3">
+                              <input type="number" placeholder="0 0 0 0 0 0" required name="code"
+                                    class="outline-none text-center text-2xl tracking-widest font-bold text-gray-800 flex-1">
+                        </div>
+                        <button class="w-[50px] bg-[#24D0D0] text-white cursor-pointer flex items-center justify-center rounded-xl">
+                              t
+                        </button>
+                  </form>
+                  <div
+                        class="!border[#24D0D0] cursor-pointer bg-[#0A1C4B] border rounded-xl px-5 py-3 mt-4 flex items-center justify-center  ">
+                        <p class="text-white font-[500]">Resend code in 38 sec</p>
+                  </div>
             </div>
+      </div>
 </div>
 
 {% endblock mainBaseBody %}
