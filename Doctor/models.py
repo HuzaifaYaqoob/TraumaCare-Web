@@ -31,6 +31,30 @@ class Doctor(models.Model):
         return f'{str(self.id)} -- '
 
 
+class DoctorMedia(models.Model):
+    DOCTOR_MEDIA_TYPES = (
+        ('Profile Image', 'Profile Image'),
+        ('CNIC Front', 'CNIC Front'),
+        ('CNIC Back', 'CNIC Back'),
+        ('License', 'License'),
+    )
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_medias')
+
+    file_type = models.CharField(choices=DOCTOR_MEDIA_TYPES, default='Profile Image',max_length=30)
+    file = models.FileField(upload_to='Doctor/Files/%Y-%m')
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=now)
+
+
+    def __str__(self):
+        return f'{str(self.id)} -- '
+
+
 class DoctorSpeciality(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
