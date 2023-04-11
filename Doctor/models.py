@@ -119,6 +119,10 @@ class DoctorDiseasesSpeciality(models.Model):
 
 
 class DoctorOnlineAvailability(models.Model):
+    
+    """
+        This Table also be used for Doctor Availability with Hospital
+    """
     DAYS_CHOICES = (
         ('Monday', 'Monday'),
         ('Tuesday', 'Tuesday'),
@@ -145,7 +149,32 @@ class DoctorOnlineAvailability(models.Model):
     def __str__(self):
         return f'{str(self.id)} -- '
 
+class Doctor24By7(models.Model):
+    """
+        This Model should be OneToOne, Single instance against single Doctor
+    """
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_24_availability')
+
+    fee = models.PositiveIntegerField(default=0)
+    discount = models.PositiveIntegerField(default=0)
+    service_fee = models.PositiveIntegerField(default=0, verbose_name='TraumaCare Service FEE in Percentage')
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=now)
+    updated_at = models.DateTimeField(auto_now_add=now)
+
+    def __str__(self):
+        return f'{str(self.id)} -- '
+
+
 class DoctorTimeSlots(models.Model):
+    """
+        Time Slots Table for Doctor, This Table is for Doctor Online Availability except 24/7,
+        This Table also be used for Doctor Availability with Hospital
+    """
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_timeslots')
