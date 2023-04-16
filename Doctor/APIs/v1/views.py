@@ -100,7 +100,7 @@ def createDoctorProfile(request):
     dial_code, m_number = mobile_number.split('-')
     dial_code = dial_code.replace('+', '')
 
-    doctor = Doctor(
+    doctor = Doctor.objects.create(
         user = request.user,
         profile = doctor_profile,
         email = email,
@@ -111,9 +111,6 @@ def createDoctorProfile(request):
         working_since = working_since,
         online_availability = availability_type,
     )
-
-
-    doctor.save()
 
     specialities = [DoctorSpeciality(doctor = doctor, speciality = Speciality.objects.get(id = speciality)) for speciality in specialities]
     DoctorSpeciality.objects.bulk_create(specialities)
@@ -158,6 +155,7 @@ def createDoctorProfile(request):
 
     medias = [DoctorMedia(doctor = doctor, file = med[0], file_type = med[1]) for med in medias]
     DoctorMedia.objects.bulk_create(medias)
+    
 
     return Response({
         'status' : True,

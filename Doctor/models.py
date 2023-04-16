@@ -2,6 +2,7 @@ from django.db import models
 
 from django.utils.timezone import now
 
+
 # Create your models here.
 
 from Authentication.models import User
@@ -54,6 +55,13 @@ class Doctor(models.Model):
     def __str__(self):
         return f'{str(self.id)} -- '
     
+    @property
+    def phone_number(self):
+        if self.dial_code and self.mobile_number:
+            return f'+{self.dial_code}-{self.mobile_number}'
+    
+        return ''
+    
 
     @property
     def get_availability_text(self):
@@ -61,7 +69,19 @@ class Doctor(models.Model):
         return availability
 
 
+class DoctorMediaManager(models.Manager):
+
+    def bulk_create(self, objs, **kwargs):
+        blk_create = super(models.Manager,self).bulk_create(objs,**kwargs)
+        for instance in objs:
+            models.signals.post_save.send(instance.__class__, instance=instance, created=True)
+        return blk_create
+    
+
 class DoctorMedia(models.Model):
+    objects = DoctorMediaManager()
+
+
     DOCTOR_MEDIA_TYPES = (
         ('Profile Image', 'Profile Image'),
         ('CNIC Front', 'CNIC Front'),
