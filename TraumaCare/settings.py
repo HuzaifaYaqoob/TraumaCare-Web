@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'rest_framework',
+    'rest_framework.authtoken',
     'corsheaders',
 
     'Trauma.apps.TraumaConfig',
@@ -71,6 +72,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # Custom Milddlewares 
+    'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
