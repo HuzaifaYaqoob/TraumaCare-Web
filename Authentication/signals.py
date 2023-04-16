@@ -30,6 +30,7 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
         full_name = instance.username,
         email = instance.email,
     )
+    user_profile.is_selected = True
     user_profile.save()
     
 
