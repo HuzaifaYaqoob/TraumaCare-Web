@@ -56,6 +56,10 @@ class Profile(models.Model):
     def profile_label(self):
         return PROFILE_TYPE_LABELS.get(self.profile_type, 'General Profile')
 
+    @property
+    def huzaifa(self):
+        return PROFILE_TYPE_LABELS.get(self.profile_type, 'General Profile')
+
     def save(self, *args, **kwargs):
         if not self.first_name:
             self.first_name = self.user.first_name or self.user.username
