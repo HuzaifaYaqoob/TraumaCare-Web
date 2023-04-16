@@ -7,7 +7,7 @@ from rest_framework import status
 
 
 from Profile.models import Profile
-from Profile.serializers import GetUserProfiles
+from Profile import serializers as profile_serializers
 
 
 @api_view(['GET'])
@@ -21,7 +21,7 @@ def get_my_sidebar_profiles(request):
         is_blocked = False
     ).order_by('-is_selected')
 
-    data = GetUserProfiles(user_profiles, many=True).data
+    data = profile_serializers.GetUserProfiles(user_profiles, many=True).data
     return Response({
         'status' : True,
         'status_code' : 200,
@@ -32,6 +32,31 @@ def get_my_sidebar_profiles(request):
             'data' : data,
         }
     }, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_my_active_profile(request):
+    
+    user_profiles = Profile.objects.filter(user = request.user, is_selected = True)
+    if len(user_profiles) > 0 :
+        profile = user_profiles[0]
+    else:
+        profile = Profile.objects.get(user = request.user, profile_type = 'Patient')
+        profile.is_selected = True
+        profile.save()
+
+    data = profile_serializers.GetMyActiveProfile(profile).data
+    return Response({
+        'status' : True,
+        'status_code' : 200,
+        'response' : {
+            'message' : 'Your Active profile',
+            'error_message' : None,
+            'data' : data,
+        }
+    }, status=status.HTTP_200_OK)
+
 
 
 

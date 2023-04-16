@@ -11,18 +11,6 @@ class GetUserProfiles(serializers.ModelSerializer):
 
     profile_image = serializers.SerializerMethodField()
     profile_type = serializers.SerializerMethodField()
-    name = serializers.SerializerMethodField()
-
-    def get_name(self, profile):
-        
-        if profile.full_name:
-            return profile.full_name
-        
-        elif profile.first_name and profile.last_name:
-            return f'{profile.first_name} {profile.last_name}'
-        
-        return ''
-
 
     def get_profile_image(self, profile):
         return f'{profile.profile_image}'
@@ -32,5 +20,19 @@ class GetUserProfiles(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['id', 'profile_type', 'profile_image', 'name', 'is_selected']
+        fields = ['id', 'profile_type', 'profile_image', 'full_name', 'is_selected']
         # 'email'
+
+class GetMyActiveProfile(serializers.ModelSerializer):
+    profile_type = serializers.SerializerMethodField()
+    profile_image = serializers.SerializerMethodField()
+
+    def get_profile_image(self, profile):
+        return f'{profile.profile_image}'
+    
+    def get_profile_type(self, profile):
+        return f'{profile.profile_label}'
+
+    class Meta:
+        model = Profile
+        fields = ['id', 'profile_type', 'profile_image', 'full_name']
