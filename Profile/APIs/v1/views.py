@@ -12,7 +12,7 @@ from Profile.serializers import GetUserProfiles
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_my_profiles(request):
+def get_my_sidebar_profiles(request):
     
     user_profiles = Profile.objects.filter(
         user = request.user,

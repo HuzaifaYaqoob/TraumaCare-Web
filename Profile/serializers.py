@@ -25,4 +25,5 @@ class GetUserProfiles(serializers.ModelSerializer):
 
     class Meta:
         model = Profile
-        fields = ['id', 'profile_type', 'profile_image', 'email', 'name', 'is_selected']
+        fields = ['id', 'profile_type', 'profile_image', 'name', 'is_selected']
+        # 'email'
