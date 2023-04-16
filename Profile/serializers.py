@@ -10,18 +10,25 @@ from Doctor.models import Doctor
 class GetUserProfiles(serializers.ModelSerializer):
 
     profile_image = serializers.SerializerMethodField()
+    profile_type = serializers.SerializerMethodField()
     name = serializers.SerializerMethodField()
 
     def get_name(self, profile):
-        if profile.first_name and profile.last_name:
-            return f'{profile.first_name} {profile.last_name}'
-        elif profile.full_name:
+        
+        if profile.full_name:
             return profile.full_name
+        
+        elif profile.first_name and profile.last_name:
+            return f'{profile.first_name} {profile.last_name}'
         
         return ''
 
+
     def get_profile_image(self, profile):
         return f'{profile.profile_image}'
+
+    def get_profile_type(self, profile):
+        return f'{profile.profile_label}'
 
     class Meta:
         model = Profile
