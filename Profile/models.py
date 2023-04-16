@@ -32,6 +32,8 @@ class Profile(models.Model):
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
 
+    is_selected = models.BooleanField(default=False)
+
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
 
