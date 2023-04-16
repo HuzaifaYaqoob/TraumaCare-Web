@@ -19,7 +19,7 @@ def get_my_profiles(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False
-    )
+    ).order_by('-is_selected')
 
     data = GetUserProfiles(user_profiles, many=True).data
     return Response({
