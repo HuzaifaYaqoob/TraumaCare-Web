@@ -174,8 +174,12 @@ def switch_my_active_profile(request):
 @permission_classes([IsAuthenticated])
 def get_already_registered_businesses(request):
 
-    profile_types = list(set(list(request.user.user_profiles.values_list('profile_type', flat=True))))
-    profile_types = [profile_type.lower() for profile_type in profile_types]
+    profile_types = list(request.user.user_profiles.values_list('profile_type', flat=True))
+    data = {}
+
+    for tp in ['Patient', 'Doctor', 'Hospital', 'Pharmacy', 'Lab']:
+        data[tp.lower()] = profile_types.count(tp)
+        
 
     return Response({
         'status' : True,
@@ -183,6 +187,6 @@ def get_already_registered_businesses(request):
         'response' : {
             'message' : 'Your registered Businesses',
             'error_message' : None,
-            'businesses' : profile_types
+            'businesses' : data
         }
     })
