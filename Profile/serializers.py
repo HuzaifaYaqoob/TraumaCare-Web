@@ -19,7 +19,7 @@ class GetUserProfiles(serializers.ModelSerializer):
         fields = ['id', 'profile_type', 'profile_image', 'full_name', 'is_selected', 'profile_label']
         # 'email'
 
-class GetMyActiveProfile(serializers.ModelSerializer):
+class GetMyActiveProfileData(serializers.ModelSerializer):
     profile_image = serializers.SerializerMethodField()
 
     def get_profile_image(self, profile):
@@ -27,4 +27,4 @@ class GetMyActiveProfile(serializers.ModelSerializer):
     
     class Meta:
         model = Profile
-        fields = ['id', 'profile_type', 'profile_image', 'full_name', 'profile_label']
+        fields = ['profile_image', 'full_name', 'profile_label']

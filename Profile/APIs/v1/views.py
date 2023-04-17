@@ -36,7 +36,7 @@ def get_my_sidebar_profiles(request):
 
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
-def get_my_active_profile(request):
+def sidebar_bottom_active_profile(request):
     
     user_profiles = Profile.objects.filter(user = request.user, is_selected = True)
     if len(user_profiles) > 0 :
@@ -46,14 +46,17 @@ def get_my_active_profile(request):
         profile.is_selected = True
         profile.save()
 
-    data = profile_serializers.GetMyActiveProfile(profile).data
     return Response({
         'status' : True,
         'status_code' : 200,
         'response' : {
-            'message' : 'Your Active profile',
+            'message' : 'Your Sidebar Bottom Active profile',
             'error_message' : None,
-            'data' : data,
+            'data' : {
+                'full_name' : f'{profile.full_name}',
+                'profile_image' : f'{profile.profile_image}',
+                'profile_label' : f'{profile.profile_label}',
+            },
         }
     }, status=status.HTTP_200_OK)
 
