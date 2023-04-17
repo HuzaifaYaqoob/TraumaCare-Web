@@ -53,10 +53,57 @@ def sidebar_bottom_active_profile(request):
             'message' : 'Your Sidebar Bottom Active profile',
             'error_message' : None,
             'data' : {
+                'id' : f'{profile.id}',
                 'full_name' : f'{profile.full_name}',
                 'profile_image' : f'{profile.profile_image}',
                 'profile_label' : f'{profile.profile_label}',
             },
+        }
+    }, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_dashboard_active_profile_data(request):
+    profile_id = request.GET.get('profile_id', None)
+    if not all([profile_id]):
+        return Response({
+            'status' : False,
+            'status_code' : 400,
+            'response' : {
+                'message' : 'Invalid Data',
+                'error_message' : 'Missing field',
+                'fields' : [
+                    'profile_id'
+                ]
+            }
+        }, status=status.HTTP_400_BAD_REQUEST)
+    
+    try:
+        user_profile = Profile.objects.get(
+            id = profile_id, 
+            is_selected = True
+        )
+    except Exception as error:
+        return Response({
+            'status' : False,
+            'status_code' : 404,
+            'response' : {
+                'message' : 'Profile not found',
+                'error_message' : str(error),
+                
+            }
+        }, status=status.HTTP_404_NOT_FOUND)
+    
+    data = profile_serializers.GetMyDashboardActiveProfile(user_profile).data
+
+    return Response({
+        'status' : True,
+        'status_code' : 200,
+        'response' : {
+            'message' : 'Your Dashboard Active profile',
+            'error_message' : None,
+            'data' : data,
         }
     }, status=status.HTTP_200_OK)
 
