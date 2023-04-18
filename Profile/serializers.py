@@ -12,7 +12,7 @@ class GetUserProfiles(serializers.ModelSerializer):
     profile_image = serializers.SerializerMethodField()
 
     def get_profile_image(self, profile):
-        return f'{profile.profile_image}'
+        return f"{profile['profile_image']}"
 
     class Meta:
         model = Profile

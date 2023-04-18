@@ -5,7 +5,8 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework import status
 
-
+from django.db.models import Count, Value
+from django.db.models.functions import Concat
 from Profile.models import Profile
 from Profile import serializers as profile_serializers
 
@@ -14,7 +15,7 @@ from Profile import serializers as profile_serializers
 @permission_classes([IsAuthenticated])
 def get_my_sidebar_profiles(request):
     
-    user_profiles = Profile.objects.filter(
+    user_profiles = Profile.objects.annotate(profile_label = Concat('profile_type__get_profile_type__display' , Value(' Profile'))).values('id', 'profile_type', 'profile_image', 'full_name', 'is_selected', 'profile_label').filter(
         user = request.user,
         is_active = True,
         is_deleted = False,

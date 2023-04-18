@@ -18,7 +18,7 @@ PROFILE_TYPE_LABELS = {
 
 class Profile(models.Model):
     PROFILE_CHOICES = (
-        ('Patient', 'Patient'),
+        ('Patient', 'General'),
         ('Doctor', 'Doctor'),
         ('Hospital', 'Hospital'),
         ('Pharmacy', 'Pharmacy'),
