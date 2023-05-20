@@ -1,4 +1,6 @@
-<div class="flex gap-4 flex-[4]">
+{% load static %}
+
+<div style="display: flex; flex-direction: column; border-radius: 12px;">
     <div class="flex-1 bg-white shadow-lg p-4">
         <div class="flex justify-between items-center">
         <div>
@@ -13,7 +15,7 @@
         </div>
         <div class="flex items-center gap-2">
         <div>
-            P
+            <img src="{% static 'assets/Images/location image.png' %}">
         </div>
         <div>
             <h3 class="text-[#557DE5] cursor-pointer">960 19 St S, Lethbridge,AB T1J 1W5, Canada</h3>
@@ -33,7 +35,7 @@
         </div>
         <div class="flex items-center gap-2">
             <span>
-                T
+                <img src="{% static 'assets/Images/24 hourse.png' %}">
             </span>
             <h3 class="text-[#909090] cursor-pointer">Open 24 Hours</h3>
         </div>
@@ -69,15 +71,15 @@
             <h3 class="text-[#557DE5] text-lg">Available treatments</h3>
         </div>
         <div class="flex items-center gap-8">
-            <div class="border border-[#C192E9] rounded-full p-3 relative">
+            <div class="border-[2px] border-[#C192E9] rounded-full p-3 relative" style="border-radius: 50%;">
                 <p class="text-[#6C6C6C] font-semibold text-lg">5.0</p>
-                <div class="absolute bottom-[-14px] left-[-10px] bg-[#557DE5] px-3 py-[0.1rem] rounded-xl">
+                <div class="absolute bottom-[-13px] left-[-10px] bg-[#557DE5] px-3 py-[0.1rem] rounded-xl">
                     <p class="text-white text-sm">Doctor</p>
                 </div>
             </div>
-            <div class="border border-[#F8C630] rounded-full p-3 relative ">
+            <div class="border-[2px] border-[#F8C630] rounded-full p-3 relative" style="border-radius: 50%;">
                 <p class="text-[#6C6C6C] font-semibold text-xm">5.0</p>
-                <div class="absolute bottom-[-18px] left-[-10px] bg-[#557DE5] px-5 py-[0.1rem] rounded-xl">
+                <div class="absolute bottom-[-13px] left-[-10px] bg-[#557DE5] px-5 py-[0.1rem] rounded-xl">
                     <p class="text-white  text-sm">staff</p>
                 </div>
             </div>
