@@ -93,6 +93,70 @@
 }
 }
 
+.doctor-discover-TC{
+    font-size: 36px;
+}
+
+
+@media (max-width:1100px) {
+    .doctor-discover-TC{
+        font-size: 30px !important;
+    }
+}
+@media (max-width:800px) {
+    .doctor-discover-TC{
+        font-size: 27px !important;
+    }
+}
+
+.view-all-TC{
+    font-size: large;
+}
+
+@media (max-width:1000px) {
+    .view-all-TC{
+        font-size: 15px !important;
+    } 
+    .view-all-TC-svg svg{
+        height: 13px;
+        width: 13px;
+    }
+}
+@media (max-width:800px){
+    .doctor-discover-TC{
+        font-size: 24px !important;
+    }
+}
+@media (max-width:680px){
+    .doctor-discover-TC{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width:500px){
+    .doctor-discover-TC{
+        font-size: 21px !important;
+    }
+    .view-all-TC{
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .Nearby-Doctors-TC{
+        font-size: 34px;
+    }
+}
+@media (max-width:800px) {
+    .Nearby-Doctors-TC{
+        font-size: 30px;
+    }
+}
+@media (max-width:600px) {
+    .Nearby-Doctors-TC{
+        font-size: 26px;
+    }
+}
 
 
 
@@ -145,11 +209,11 @@
 <!--  -->
 <!-- new design -->
 <!--  -->
-<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4" style="max-width: 1650px;">
+<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px" style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-semibold sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
     </div>
-    <div class="flex gap-3 flex-wrap justify-center">
+    <div class="flex gap-3 flex-wrap justify-center pl-[5px] pr-[5px]">
         {% for disease in diseases|slice:':7' %}
             <div
                 class=" hover:bg-gray-200 transition-all flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
@@ -205,7 +269,7 @@
 <!--  -->
 
 <section class="Step-by-Step">
-    <h3 class="step-by-step-featured-section-heading">A methodical approach to arriving at your solution</h3>
+    <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
     <div class="step-by-step-fetured-section">
         <div class="Choose-Doctor cards4-CMOG-TC">
             <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
@@ -365,7 +429,7 @@
     <!--  -->
     <!--  -->
     <div class="!mt-5">
-        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
+        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
     <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
@@ -386,16 +450,16 @@
     <!--  -->
     <!--  -->
 
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Discover doctors based on your condition.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Discover doctors based on your condition.</h2>
         </div>
         <a href="/speciality/">
         <div class="flex items-center gap-2 cursor-pointer">
-            <div class="text-[#0A1C4B] font-semibold text-lg">
+            <div class="text-[#0A1C4B] font-semibold view-all-TC">
                 View All Specialist
             </div>
-            <div>
+            <div class="view-all-TC-svg">
                 <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>                    
@@ -418,16 +482,16 @@
 
     <!--  -->
     <!--  -->
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find doctors for your specific disease.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Find doctors for your specific disease.</h2>
         </div>
         <a href="/speciality/">
             <div class="flex items-center gap-2 cursor-pointer">
-                <div class="text-[#0A1C4B] font-semibold text-lg">
+                <div class="text-[#0A1C4B] font-semibold view-all-TC">
                     View All Diseases
                 </div>
-                <div>
+                <div class="view-all-TC-svg">
                     <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                    
