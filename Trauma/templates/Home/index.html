@@ -23,6 +23,9 @@
     .btn-more-TC{
         transition: all 0.3s;
     }
+
+  
+
     @media (max-width:850px) {
         .main-section{
             height: 330px;
@@ -164,6 +167,7 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
 <section class="main-section flex !items-center h-96">
     <div class="max-width">
         <h3 class="!p-0 capitalize">Collaborating for the future of healthcare.</h3>
@@ -442,6 +446,76 @@
     </div>
 
 
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+
+    <div class="flex items-center justify-center justify-between !mt-16 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
+        <div>
+            <h2 class="text-[#0A1C4B] font-semibold">Top Sales medicines</h2>
+        </div>
+        <a href="/speciality/">
+        <div class="flex items-center gap-2 cursor-pointer">
+            <div class="text-[#0A1C4B] font-semibold view-all-TC">
+                View All Specialist
+            </div>
+            <div class="view-all-TC-svg">
+                <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>                    
+            </div>
+        </div>
+    </a>
+    </div>
+
+
+
+    <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-[25px] ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide border border"> 
+                   {% include 'Components/Pharmacy/MedicineCard.html' %}
+        </div>
+          <div class="swiper-slide">
+        {% include 'Components/Pharmacy/MedicineCard.html' %}
+
+          </div>
+          <div class="swiper-slide">
+        {% include 'Components/Pharmacy/MedicineCard.html' %}
+
+          </div>
+          <div class="swiper-slide">
+        {% include 'Components/Pharmacy/MedicineCard.html' %}
+
+          </div>
+          <div class="swiper-slide">
+        {% include 'Components/Pharmacy/MedicineCard.html' %}
+
+          </div>
+          <!-- <div class="swiper-slide">Slide 6</div>
+          <div class="swiper-slide">Slide 7</div>
+          <div class="swiper-slide">Slide 8</div>
+          <div class="swiper-slide">Slide 9</div> -->
+        </div>
+        <div class="swiper-pagination absolute bottom-[500px]"></div>
+      </div>
+    
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
     <!--  -->
     <!--  -->
@@ -508,8 +582,8 @@
     </div>
 
 
-    <p class="main-paragraph">Looking For More?</p>
-    <div class="main-left-right">
+    <!-- <p class="main-paragraph">Looking For More?</p> -->
+    <!-- <div class="main-left-right">
         <div class="left">
             <h3 class="!text-4xl">Book Lab Test</h3>
             <p class="!font-medium">Book Lab Tests Online in Pakistan with free home sample <br> collection,
@@ -1166,7 +1240,7 @@
                 </g>
             </svg>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <!--  -->
@@ -1677,3 +1751,45 @@
 </div>
 
 {% endblock baseBody %}
+
+{% block main_base_script %}
+
+<!-- Here your Js starts  -->
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 4,
+      spaceBetween:20,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints : {
+        320 :{
+            slidesPerView: 1,
+             spaceBetween: 20
+        } ,
+        480: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 50
+      }
+
+      }
+    });
+  </script>
+
+
+<!-- Here your Js end  -->
+
+{% endblock main_base_script %}
