@@ -3,6 +3,13 @@
 {% block title %}Home{% endblock title %}
 
 
+
+{% block BaseCSS %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+{% endblock BaseCSS %}
+
+
 {% block baseBody %}
 <style>
     .Search-Doctors-Hospitals-para{
@@ -167,7 +174,7 @@
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    
 <section class="main-section flex !items-center h-96">
     <div class="max-width">
         <h3 class="!p-0 capitalize">Collaborating for the future of healthcare.</h3>
@@ -474,7 +481,7 @@
     <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-[25px] ">
         <div class="swiper-wrapper">
           <div class="swiper-slide border border"> 
-                   {% include 'Components/Pharmacy/MedicineCard.html' %}
+        {% include 'Components/Pharmacy/MedicineCard.html' %}
         </div>
           <div class="swiper-slide">
         {% include 'Components/Pharmacy/MedicineCard.html' %}
@@ -498,7 +505,7 @@
           <div class="swiper-slide">Slide 9</div> -->
         </div>
         <div class="swiper-pagination absolute bottom-[500px]"></div>
-      </div>
+    </div>
     
 
     
@@ -1761,7 +1768,7 @@
   <script>
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 4,
-      spaceBetween:20,
+      spaceBetween:  0,
       loop:true,
       pagination: {
         el: ".swiper-pagination",
