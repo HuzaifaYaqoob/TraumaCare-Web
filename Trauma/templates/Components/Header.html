@@ -80,8 +80,8 @@
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    <div class="dropdown1 drop1">
-                        <div class="dropdown1-div1 !px-2">
+                    <div class="dropdown1 drop1 !w-[1100px]">
+                        <div class="dropdown1-div1 !px-2 ">
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% for spec in specialities %}
@@ -90,7 +90,7 @@
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
-                        <div class="dropdown1-div1 dropdown1-div1 !px-2">
+                        <div class="dropdown1-div1 dropdown1-div1 !px-2 ">
                             <h2 class="!text-[18px] ">Find doctors By diseases</h2>
                             <ul>
                                 {% for disease in diseases|slice:':4' %}
@@ -156,6 +156,20 @@
                         </ul>
                     </div>
                 </li>
+                <li class="li-third cursor-pointer flex items-center gap-3 !text-[18px] !mr-0 group !p-0">
+                    <a href="/medicine/" class="pt-[10px] pr-[10px] pb-[11px] pl-[15px]">
+                        Pharmacy
+                    </a>
+                </li>
+                <li class="li-third cursor-pointer !text-red-600 flex items-center gap-3 !text-[18px] !mr-0 group !p-0">
+                    <a href="/medicine/" class="pt-[10px] pr-[10px] pb-[11px] pl-[15px]">
+                        Emergency
+                    </a>
+                    <span class="absolute top-0 right-0 transform flex items-center justify-center translate-x-1/2 -translate-y-1/2">
+                        {% include 'Components/SVG/EmergencyIcon.html' %}
+                        {% include 'Components/SVG/EmergencyIcon.html' with className='animate-ping absolute' %}
+                    </span>
+                </li>
                 <!-- <li class="li-forth flex items-center gap-3 !text-[18px] !mr-0 group ">Medical Store
                     {% include 'Components/Utility/chevron_arrow.html' %} -->
                 <div class="item-dropdown4  !px-1">
@@ -201,7 +215,7 @@
                         <span>New</span>
                     </div>
                 </li> -->
-                <li class="relative">
+                <!-- <li class="relative">
                     <a href="{% url 'FeedPage' %}" class=" px-2 cursor-pointer block w-full h-full">
                         <h3 class="li-third text-[#24D0D0] font-semibold !text-[18px]">Feed</h3>
                         <div
@@ -209,7 +223,7 @@
                             <span>New</span>
                         </div>
                     </a>
-                </li>
+                </li> -->
             </div>
         </div>
         <!--  -->

@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     'Appointment.apps.AppointmentConfig',
     'Api.apps.ApiConfig',
     'Profile.apps.ProfileConfig',
+    'Medicine.apps.MedicineConfig',
 ]
 
 MIDDLEWARE = [

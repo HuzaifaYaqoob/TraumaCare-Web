@@ -3,6 +3,13 @@
 {% block title %}Home{% endblock title %}
 
 
+
+{% block BaseCSS %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+{% endblock BaseCSS %}
+
+
 {% block baseBody %}
 <style>
     .Search-Doctors-Hospitals-para{
@@ -23,6 +30,9 @@
     .btn-more-TC{
         transition: all 0.3s;
     }
+
+  
+
     @media (max-width:850px) {
         .main-section{
             height: 330px;
@@ -64,10 +74,107 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+
+    /*  */
+    /*  */
+    /*  */
+
+
+    @media (max-width:720px) {
+    .cards4-CMOG-TC , .Make-schedule , .OnlineConsulting , .Get-prescription{
+        height: 210px !important;
+        width: 225px !important;
+        border-radius: 9px !important;
+    }
+    .cards4-CMOG-TC-icon svg {
+    height: 20px !important;
+    width: 20px !important;
+}
+.cards4-CMOG-TC-icon{
+    width: 40px !important;
+    height: 35px !important;
+}
+.cards4-CMOG-TC-heading{
+    font-size: 20px !important;
+}
+.cards4-CMOG-TC-pera{
+    font-size: 11px !important;
+}
+}
+
+.doctor-discover-TC{
+    font-size: 36px;
+}
+
+
+@media (max-width:1100px) {
+    .doctor-discover-TC{
+        font-size: 30px !important;
+    }
+}
+@media (max-width:800px) {
+    .doctor-discover-TC{
+        font-size: 27px !important;
+    }
+}
+
+.view-all-TC{
+    font-size: large;
+}
+
+@media (max-width:1000px) {
+    .view-all-TC{
+        font-size: 15px !important;
+    } 
+    .view-all-TC-svg svg{
+        height: 13px;
+        width: 13px;
+    }
+}
+@media (max-width:800px){
+    .doctor-discover-TC{
+        font-size: 24px !important;
+    }
+}
+@media (max-width:680px){
+    .doctor-discover-TC{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width:500px){
+    .doctor-discover-TC{
+        font-size: 21px !important;
+    }
+    .view-all-TC{
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .Nearby-Doctors-TC{
+        font-size: 34px;
+    }
+}
+@media (max-width:800px) {
+    .Nearby-Doctors-TC{
+        font-size: 30px;
+    }
+}
+@media (max-width:600px) {
+    .Nearby-Doctors-TC{
+        font-size: 26px;
+    }
+}
+
+
+
 </style>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    
 <section class="main-section flex !items-center h-96">
     <div class="max-width">
         <h3 class="!p-0 capitalize">Collaborating for the future of healthcare.</h3>
@@ -113,11 +220,11 @@
 <!--  -->
 <!-- new design -->
 <!--  -->
-<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4" style="max-width: 1650px;">
+<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px" style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-semibold sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
     </div>
-    <div class="flex gap-3 flex-wrap justify-center">
+    <div class="flex gap-3 flex-wrap justify-center pl-[5px] pr-[5px]">
         {% for disease in diseases|slice:':7' %}
             <div
                 class=" hover:bg-gray-200 transition-all flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
@@ -171,12 +278,12 @@
 <!--  -->
 <!--  -->
 <!--  -->
-
 <section class="Step-by-Step">
-    <h3 class="step-by-step-featured-section-heading">A methodical approach to arriving at your solution</h3>
+    {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
+    <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
     <div class="step-by-step-fetured-section">
-        <div class="Choose-Doctor">
-            <div class="Choose-Doctor-icon">
+        <div class="Choose-Doctor cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_11_129)">
                         <path
@@ -196,12 +303,12 @@
                     </defs>
                 </svg>
             </div>
-            <h3 class="Choose-Doctor-heading1">Choose Doctor</h3>
-            <p class="Choose-Doctor-para1">Let's find the right Doctor <br>
+            <h3 class="Choose-Doctor-heading1 cards4-CMOG-TC-heading">Choose Doctor</h3>
+            <p class="Choose-Doctor-para1 cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                 for your disease! </p>
         </div>
-        <div class="Make-schedule">
-            <div class="Choose-Doctor-icon">
+        <div class="Make-schedule cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M25.754 7.79998H22.7996V4.66438C22.7996 2.42278 21.0308 0.599976 18.7832 0.599976H11.2166C8.96781 0.599976 7.19961 2.42278 7.19961 4.66438V7.79998H4.24461C2.23101 7.79998 0.599609 9.35458 0.599609 11.3622V25.1664C0.599609 27.1734 2.23101 28.8 4.24461 28.8H25.754C27.767 28.8 29.3996 27.1734 29.3996 25.1658V11.3622C29.3996 9.35458 27.767 7.79998 25.754 7.79998ZM9.59961 4.66438C9.59961 3.82498 10.3748 2.99998 11.2166 2.99998H18.7832C19.6226 2.99998 20.3996 3.82498 20.3996 4.66438V7.79998H9.59961V4.66438ZM21.5996 21H17.3996V25.2H12.5996V21H8.39961V16.2H12.5996V12H17.3996V16.2H21.5996V21Z"
@@ -209,12 +316,12 @@
                 </svg>
 
             </div>
-            <h3 class="Choose-Doctor-heading">Make a schedule</h3>
-            <p class="Choose-Doctor-para">Make a schedule advance <br>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Make a schedule</h3>
+            <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Make a schedule advance <br>
                 with the available doctor.</p>
         </div>
-        <div class="OnlineConsulting">
-            <div class="Choose-Doctor-icon">
+        <div class="OnlineConsulting cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M22.5 8.75C22.5 7.37125 21.3787 6.25 20 6.25H5C3.62125 6.25 2.5 7.37125 2.5 8.75V21.25C2.5 22.6287 3.62125 23.75 5 23.75H20C21.3787 23.75 22.5 22.6287 22.5 21.25V17.0837L27.5 21.25V8.75L22.5 12.9163V8.75Z"
@@ -222,19 +329,19 @@
                 </svg>
 
             </div>
-            <h3 class="Choose-Doctor-heading">Online Consulting</h3>
-            <p class="Choose-Doctor-para px-3">Consult with a doctor online for personalized medical advice and treatment.</p>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Online Consulting</h3>
+            <p class="Choose-Doctor-para px-3 cards4-CMOG-TC-pera">Consult with a doctor online for personalized medical advice and treatment.</p>
         </div>
-        <div class="Get-prescription">
-            <div class="Choose-Doctor-icon">
+        <div class="Get-prescription cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M17.9417 3.4076L16.6667 4.72588L15.3916 3.4076C11.8706 -0.232709 6.16182 -0.232711 2.64078 3.4076C-0.880259 7.04791 -0.88026 12.95 2.64078 16.5903L14.1165 28.4548C15.5249 29.9109 17.8084 29.9109 19.2168 28.4548L30.6926 16.5903C34.2136 12.95 34.2136 7.04791 30.6926 3.4076C27.1715 -0.232709 21.4628 -0.23271 17.9417 3.4076Z"
                         fill="white" />
                 </svg>
             </div>
-            <h3 class="Choose-Doctor-heading">Get prescription</h3>
-            <p class="Choose-Doctor-para">Let's find the right Doctor <br>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Get prescription</h3>
+            <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                 for your disease!</p>
         </div>
     </div>
@@ -333,9 +440,9 @@
     <!--  -->
     <!--  -->
     <div class="!mt-5">
-        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
+        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-6 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
@@ -346,6 +453,26 @@
     </div>
 
 
+    <!--  -->
+    <!--  -->
+    <!--  -->
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
 
     <!--  -->
     <!--  -->
@@ -354,16 +481,16 @@
     <!--  -->
     <!--  -->
 
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Discover doctors based on your condition.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Discover doctors based on your condition.</h2>
         </div>
         <a href="/speciality/">
         <div class="flex items-center gap-2 cursor-pointer">
-            <div class="text-[#0A1C4B] font-semibold text-lg">
+            <div class="text-[#0A1C4B] font-semibold view-all-TC">
                 View All Specialist
             </div>
-            <div>
+            <div class="view-all-TC-svg">
                 <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>                    
@@ -386,16 +513,16 @@
 
     <!--  -->
     <!--  -->
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find doctors for your specific disease.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Find doctors for your specific disease.</h2>
         </div>
         <a href="/speciality/">
             <div class="flex items-center gap-2 cursor-pointer">
-                <div class="text-[#0A1C4B] font-semibold text-lg">
+                <div class="text-[#0A1C4B] font-semibold view-all-TC">
                     View All Diseases
                 </div>
-                <div>
+                <div class="view-all-TC-svg">
                     <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                    
@@ -412,8 +539,8 @@
     </div>
 
 
-    <p class="main-paragraph">Looking For More?</p>
-    <div class="main-left-right">
+    <!-- <p class="main-paragraph">Looking For More?</p> -->
+    <!-- <div class="main-left-right">
         <div class="left">
             <h3 class="!text-4xl">Book Lab Test</h3>
             <p class="!font-medium">Book Lab Tests Online in Pakistan with free home sample <br> collection,
@@ -1070,7 +1197,7 @@
                 </g>
             </svg>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <!--  -->
@@ -1086,12 +1213,11 @@
                 stroke-linecap="round" />
         </svg>
     </div>
-    <div class="div-3div-div1  cursor-pointer border hover:shadow-md border-gray-300">
-        <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
-            There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
-            and got exactly <br> what i needed and wasable to speak <br>
+    <div class="div-3div-div1 rounded-3xl cursor-pointer !w-[80%] tc-shadow">
+        <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
+            There isnt simple way to do this in the Pakistan that is good value for money. I used this app
+            and got exactly what i needed and wasable to speak
             to a speacilist same day”</p>
-
         <div class="div3-image">
 
         </div>
@@ -1117,7 +1243,7 @@
         </svg>
 
     </div>
-    <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
+    <!-- <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
         <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
             There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
             and got exactly <br> what i needed and wasable to speak <br>
@@ -1172,7 +1298,7 @@
                 d="M73.2295 1.14427C73.9537 -0.381422 76.0462 -0.381424 76.7705 1.14427L78.0221 3.78106C78.3097 4.38691 78.8656 4.80684 79.5087 4.904L82.3074 5.32682C83.9268 5.57148 84.5734 7.64059 83.4016 8.82817L81.3764 10.8806C80.9111 11.3522 80.6988 12.0317 80.8086 12.6976L81.2867 15.5957C81.5633 17.2726 79.8704 18.5514 78.422 17.7596L75.9187 16.3913C75.3436 16.0769 74.6564 16.0769 74.0813 16.3913L71.578 17.7596C70.1296 18.5514 68.4367 17.2726 68.7133 15.5957L69.1914 12.6976C69.3012 12.0317 69.0889 11.3522 68.6236 10.8806L66.5984 8.82818C65.4266 7.64059 66.0732 5.57148 67.6926 5.32682L70.4913 4.904C71.1344 4.80684 71.6903 4.38691 71.9779 3.78106L73.2295 1.14427Z"
                 fill="#24D0D0" />
         </svg>
-    </div>
+    </div> -->
     <div class="position-div position-div2">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.59961 2L8.19961 8.45366L1.59961 14.6" stroke="#0A1C4B" stroke-width="3"
@@ -1581,3 +1707,45 @@
 </div>
 
 {% endblock baseBody %}
+
+{% block main_base_script %}
+
+<!-- Here your Js starts  -->
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 6,
+      spaceBetween:  0,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints : {
+        320 :{
+            slidesPerView: 1,
+             spaceBetween: 20
+        } ,
+        480: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 50
+      }
+
+      }
+    });
+  </script>
+
+
+<!-- Here your Js end  -->
+
+{% endblock main_base_script %}

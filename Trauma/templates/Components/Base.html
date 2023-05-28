@@ -15,11 +15,22 @@
     {% include 'Components/Header.html' %}
     <main class="{% if is_search_page %} overflow-hidden flex-1 max-h-full {% endif %}">
         {% block baseBody %}{% endblock baseBody %}
+        <div class="cursor-pointer animate-bounce z-[100] w-12 h-12 rounded-full fixed bottom-10 flex shadow-lg items-center justify-center border left-[50%] transform translate-x-1/2 bg-white" >
+            {% include 'Components/SVG/LongArrow.html' with direction='BOTTOM' color='#7c3aed' %}
+        </div>
+        <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#0A1C4B]" >
+            <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#0A1C4B]" >
+            </div>
+            <div class="w-16 h-16 absolute top-1/2 left-1/2 !origin-center transform -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center bg-[#0A1C4B]" >
+                {% include 'Components/SVG/EmergencyIcon.html' %}
+            </div>
+        </div>
     </main>
 </div>
 
 {% if not remove_footer %}
     {% include 'Components/Footer.html' %}
 {% endif %}
+
 
 {% endblock mainBaseBody %}
