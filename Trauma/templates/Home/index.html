@@ -278,8 +278,8 @@
 <!--  -->
 <!--  -->
 <!--  -->
-
 <section class="Step-by-Step">
+    {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
     <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
     <div class="step-by-step-fetured-section">
         <div class="Choose-Doctor cards4-CMOG-TC">
@@ -442,7 +442,7 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-6 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
         {% include 'Components/Home/DoctorCard.html' %}
@@ -457,56 +457,6 @@
     <!--  -->
     <!--  -->
 
-
-    <div class="flex items-center justify-center justify-between !mt-16 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
-        <div>
-            <h2 class="text-[#0A1C4B] font-semibold">Top Sales medicines</h2>
-        </div>
-        <a href="/speciality/">
-        <div class="flex items-center gap-2 cursor-pointer">
-            <div class="text-[#0A1C4B] font-semibold view-all-TC">
-                View All Specialist
-            </div>
-            <div class="view-all-TC-svg">
-                <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg>                    
-            </div>
-        </div>
-    </a>
-    </div>
-
-
-
-    <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-[25px] ">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide border border"> 
-        {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-          <div class="swiper-slide">
-        {% include 'Components/Pharmacy/MedicineCard.html' %}
-
-          </div>
-          <div class="swiper-slide">
-        {% include 'Components/Pharmacy/MedicineCard.html' %}
-
-          </div>
-          <div class="swiper-slide">
-        {% include 'Components/Pharmacy/MedicineCard.html' %}
-
-          </div>
-          <div class="swiper-slide">
-        {% include 'Components/Pharmacy/MedicineCard.html' %}
-
-          </div>
-          <!-- <div class="swiper-slide">Slide 6</div>
-          <div class="swiper-slide">Slide 7</div>
-          <div class="swiper-slide">Slide 8</div>
-          <div class="swiper-slide">Slide 9</div> -->
-        </div>
-        <div class="swiper-pagination absolute bottom-[500px]"></div>
-    </div>
-    
 
     
 
@@ -1263,12 +1213,11 @@
                 stroke-linecap="round" />
         </svg>
     </div>
-    <div class="div-3div-div1  cursor-pointer border hover:shadow-md border-gray-300">
-        <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
-            There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
-            and got exactly <br> what i needed and wasable to speak <br>
+    <div class="div-3div-div1 rounded-3xl cursor-pointer !w-[80%] tc-shadow">
+        <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
+            There isnt simple way to do this in the Pakistan that is good value for money. I used this app
+            and got exactly what i needed and wasable to speak
             to a speacilist same day”</p>
-
         <div class="div3-image">
 
         </div>
@@ -1294,7 +1243,7 @@
         </svg>
 
     </div>
-    <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
+    <!-- <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
         <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
             There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
             and got exactly <br> what i needed and wasable to speak <br>
@@ -1349,7 +1298,7 @@
                 d="M73.2295 1.14427C73.9537 -0.381422 76.0462 -0.381424 76.7705 1.14427L78.0221 3.78106C78.3097 4.38691 78.8656 4.80684 79.5087 4.904L82.3074 5.32682C83.9268 5.57148 84.5734 7.64059 83.4016 8.82817L81.3764 10.8806C80.9111 11.3522 80.6988 12.0317 80.8086 12.6976L81.2867 15.5957C81.5633 17.2726 79.8704 18.5514 78.422 17.7596L75.9187 16.3913C75.3436 16.0769 74.6564 16.0769 74.0813 16.3913L71.578 17.7596C70.1296 18.5514 68.4367 17.2726 68.7133 15.5957L69.1914 12.6976C69.3012 12.0317 69.0889 11.3522 68.6236 10.8806L66.5984 8.82818C65.4266 7.64059 66.0732 5.57148 67.6926 5.32682L70.4913 4.904C71.1344 4.80684 71.6903 4.38691 71.9779 3.78106L73.2295 1.14427Z"
                 fill="#24D0D0" />
         </svg>
-    </div>
+    </div> -->
     <div class="position-div position-div2">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.59961 2L8.19961 8.45366L1.59961 14.6" stroke="#0A1C4B" stroke-width="3"
@@ -1767,7 +1716,7 @@
   <!-- Initialize Swiper -->
   <script>
     var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 4,
+      slidesPerView: 6,
       spaceBetween:  0,
       loop:true,
       pagination: {
@@ -1788,7 +1737,7 @@
         spaceBetween: 40
       },
       1024: {
-        slidesPerView: 4,
+        slidesPerView: 6,
         spaceBetween: 50
       }
 
