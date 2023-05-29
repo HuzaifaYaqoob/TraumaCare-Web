@@ -8,9 +8,17 @@ from Authentication.models import User
 # Create your models here.
 
 
+PROFILE_TYPE_LABELS = {
+    'Patient' : 'General Profile',
+    'Doctor' : 'Doctor Profile',
+    'Hospital' : 'Hospital Profile',
+    'Pharmacy' : 'Pharmacy Profile',
+    'Lab' : 'Lab Profile',
+}
+
 class Profile(models.Model):
     PROFILE_CHOICES = (
-        ('Patient', 'Patient'),
+        ('Patient', 'General'),
         ('Doctor', 'Doctor'),
         ('Hospital', 'Hospital'),
         ('Pharmacy', 'Pharmacy'),
@@ -43,6 +51,14 @@ class Profile(models.Model):
 
     def __str__(self):
         return f'{self.id}'
+
+    @property
+    def profile_label(self):
+        return PROFILE_TYPE_LABELS.get(self.profile_type, 'General Profile')
+
+    @property
+    def huzaifa(self):
+        return PROFILE_TYPE_LABELS.get(self.profile_type, 'General Profile')
 
     def save(self, *args, **kwargs):
         if not self.first_name:
