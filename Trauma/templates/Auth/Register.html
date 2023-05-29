@@ -37,7 +37,7 @@
                     </div>
                     <div class="register-form-step-2">
                         {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
-                        {% include 'Components/Form/DropdownField.html' with name='country' label='Country' placeholder='Select Country' dropdown_data=countries attributes='data-required' %}
+                        <!-- {% include 'Components/Form/DropdownField.html' with name='country' label='Country' placeholder='Select Country' dropdown_data=countries attributes='data-required' %} -->
                         {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
                     </div>
                     <div class="register-form-step-3">
