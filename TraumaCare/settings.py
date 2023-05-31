@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     'Api.apps.ApiConfig',
     'Profile.apps.ProfileConfig',
     'Medicine.apps.MedicineConfig',
+    'Cart.apps.CartConfig',
 ]
 
 MIDDLEWARE = [

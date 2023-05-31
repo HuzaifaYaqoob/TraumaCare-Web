@@ -6,6 +6,18 @@
 {% block BaseCSS %}
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<style>
+      .Hover-MainSection{
+            display: none;
+      }
+      .Link-Hover-MainSection:hover .Hover-MainSection{
+            display: block;
+      }
+      .Link-Hover-MainSection-1:hover .Hover-MainSection{
+            display: block;
+      }
+</style>
+
 {% endblock BaseCSS %}
 
 {% block baseBody %}
@@ -103,9 +115,18 @@
                                                             </defs>
                                                       </svg>                                                                                             
                                                 </a>
-                                                <p class="text-[17px] text-[#565656]">
-                                                      Medicine available on <a class="text-[#557DE5]" style="text-decoration: underline;" href="#">2 more</a> Locations, <a class="text-[#557DE5]" style="text-decoration: underline;" href="">Change Location</a>
-                                                </p>
+                                                <div class="text-[17px] text-[#565656] relative">
+
+                                                      Medicine available on <a class="text-[#557DE5] Link-Hover-MainSection" style="text-decoration: underline;" href="#">
+                                                            <div class="Hover-MainSection absolute top-[-250px]">
+                                                                  {% include 'Components/Pharmacy/SMVP-HoverSection.html' %}
+                                                            </div>
+                                                            2 more</a> Locations, <a class="text-[#557DE5] Link-Hover-MainSection-1" style="text-decoration: underline;" href="">
+                                                                  <div class="Hover-MainSection absolute top-[-250px]">
+                                                                        {% include 'Components/Pharmacy/SMVP-HoverSection.html' %}
+                                                                  </div>
+                                                                  Change Location</a>
+                                                </div>
                                           </div>
                                           <div class="flex flex-col items-end">
                                                 <p class="text-[#625A5A] leading-5"><del>Rs. 246 </del></p>
