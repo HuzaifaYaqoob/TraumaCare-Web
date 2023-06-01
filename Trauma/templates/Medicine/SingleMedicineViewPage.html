@@ -24,47 +24,7 @@
 
 
 <section class="m-auto px-[90px] pb-[30px]" style="max-width: 1920px;">
-      <div class="flex items-center justify-between !sticky !top-[80px] bg-white z-[10] py-[22px]">
-            <div class="flex items-center gap-[18px]">
-                  <div class="flex items-center gap-[8px]">
-                        <a href="#" class="flex items-center justify-center rounded-md border border-[#0000001A] px-[12px] py-[6px] cursor-pointer bg-[#F9FAFC]">
-                              {% include 'Components/SVG/LongArrow.html' %}
-                        </a>
-                  </div>
-                  <!--  -->
-                  <div class="flex items-center ml-[15px] gap-[7px]">
-                        <span>
-                              {% include 'Components/SVG/ColoredHomeIcon.html' %}
-                        </span>
-                        <a href="/" class="text-[20px] text-[#ABA3A3] cursor-pointer">
-                              Home page
-                        </a>
-                  </div>
-                  <div class="flex items-center cursor-pointer">
-                       {% include 'Components/SVG/Chevron.html' %}
-                  </div>
-                  <div class="">
-                        <p class="text-[#756E6E] text-[20px] cursor-pointer">All Medicines</p>
-                  </div>
-            </div>
-            <div class="flex items-center gap-[10px] ">
-                  <div class="flex items-center bg-[#24D0D0] rounded-md cursor-pointer gap-[15px] px-[7px] py-[5px]">
-                        <div>
-                              {% include 'Components/SVG/RxScanIcon.html' %}                        
-                        </div>
-                        <p class="text-[#ffffff] text-[18px]">Instant Order</p>
-                        <div class="mr-[5px]">
-                              {% include 'Components/SVG/Chevron.html' with fill='#fff' %}
-                        </div>
-                  </div>
-                  <div class="flex items-center px-[11px] cursor-pointer py-[11px] justify-center bg-[#0A2C4B] rounded-[50%]">
-                        {% include 'Components/SVG/CartIcon.html' %}
-                  </div>
-                  <div class="flex items-center px-[11px] cursor-pointer py-[11px] justify-center bg-[#0A2C4B] rounded-[50%]">
-                        {% include 'Components/SVG/LocationIcon.html' %}
-                  </div>
-            </div>
-      </div>
+      {% include 'Components/Pharmacy/SecondNavSticky.html' %}
       <div class="flex justify-between">
             <div class="w-[1150px]">
                   <div class="flex gap-[30px]">
