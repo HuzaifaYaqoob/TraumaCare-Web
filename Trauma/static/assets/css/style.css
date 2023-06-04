@@ -2438,7 +2438,7 @@ a {
     align-items: center;
     padding-top: 40px;
     padding-bottom: 40px;
-    justify-content: center;
+    justify-content: space-between;
     gap: 50px;
 }
 
