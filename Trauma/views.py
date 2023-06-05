@@ -34,3 +34,5 @@ def searchFilterPage(request):
     }
     return render(request, 'Search/Updated_FilterPage.html', context=context)
 
+def emergencyPage(request):
+    return render(request, 'Emergency/index.html')
