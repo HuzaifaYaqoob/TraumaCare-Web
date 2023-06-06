@@ -1,889 +1,945 @@
 [
     {
-        "name" : "Acne",
+        "name" : "Agitation",
+        "description" : "Agitation refers to a state of restlessness, irritability, or excessive activity. It is often characterized by an inability to calm down, a constant feeling of unease, and difficulty in focusing or relaxing. Agitation can be caused by various factors, including medical conditions, medication side effects, stress, anxiety, or underlying mental health issues. It is important to identify the underlying cause of agitation and seek appropriate medical or psychological intervention to manage the symptoms and improve overall well-being.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Acute respiratory distress syndrome (ARDS)",
+        "name" : "Anxiety",
+        "description" : "Anxiety is a common mental health disorder characterized by excessive and persistent worry, fear, and apprehension. It can manifest as physical symptoms such as restlessness, irritability, muscle tension, and difficulty concentrating. Anxiety can significantly impact daily functioning and quality of life. It may be caused by a combination of genetic, environmental, and psychological factors. Treatment options for anxiety include therapy, medication, lifestyle changes, and stress management techniques.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Addison's disease",
+        "name" : "Appetite Gain",
+        "description" : "Appetite gain refers to an increase in the desire to eat or consume food. It can be caused by various factors, such as hormonal changes, certain medications, psychological factors, or underlying medical conditions. Increased appetite can lead to weight gain if not balanced with a healthy diet and exercise. It is important to consult a healthcare professional to determine the underlying cause and develop an appropriate management plan.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "ADHD (attention-deficit/hyperactivity disorder)",
+        "name" : "Appetite Loss",
+        "description" : "Appetite loss, also known as anorexia, refers to a decrease in the desire to eat or loss of appetite. It can be caused by physical or psychological factors. Physical causes may include illness, infections, digestive disorders, or medication side effects. Psychological causes may involve stress, depression, anxiety, or eating disorders. Appetite loss can lead to weight loss and nutritional deficiencies if not addressed. It is important to consult a healthcare professional to identify the underlying cause and receive appropriate treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "AIDS (acquired immune deficiency syndrome)",
+        "name" : "Bad Breath",
+        "description" : "Bad breath, or halitosis, is a condition characterized by an unpleasant odor originating from the mouth. It can be caused by various factors, including poor oral hygiene, gum disease, dry mouth, certain foods, smoking, or underlying medical conditions. Persistent bad breath may require dental evaluation and treatment to address any oral health issues. Additionally, maintaining good oral hygiene practices, such as regular brushing, flossing, and tongue cleaning, can help prevent and manage bad breath.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Alcoholism",
+        "name" : "Black Stools",
+        "description" : "Black stools, also known as melena, refer to dark or tarry stools that result from the presence of digested blood in the gastrointestinal tract. It can indicate bleeding in the upper digestive tract, such as the esophagus, stomach, or small intestine. Black stools may be caused by various factors, including ulcers, gastritis, bleeding disorders, certain medications, or ingestion of substances like iron or bismuth. It is important to seek medical attention to determine the underlying cause and receive appropriate treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Allergies (various types)",
+        "name" : "Bleeding Between Periods",
+        "description" : "Bleeding between periods, also known as intermenstrual bleeding, refers to vaginal bleeding that occurs outside of the regular menstrual cycle. It can manifest as spotting or heavier bleeding. Bleeding between periods can be caused by various factors, including hormonal imbalances, contraceptive use, uterine fibroids, polyps, pelvic inflammatory disease, or certain medical conditions. It is important to consult a healthcare professional to evaluate the underlying cause and determine the appropriate management approach.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Alopecia (hair loss)",
+        "name" : "Blocked Nose",
+        "description" : "A blocked nose, also known as nasal congestion or stuffiness, is a condition where the nasal passages are partially or completely obstructed, leading to difficulty in breathing through the nose. It can be caused by a variety of factors, including allergies, sinus infections, the common cold, nasal polyps, or structural abnormalities. Nasal decongestants, saline nasal sprays, steam inhalation, or allergy medications may provide temporary relief. However, persistent or chronic nasal congestion should be evaluated by a healthcare professional to identify the underlying cause and develop an appropriate treatment plan.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Alzheimer's disease",
+        "name" : "Blood In Stools",
+        "description" : "Blood in stools, also known as rectal bleeding, refers to the presence of blood when passing stools. It can appear as bright red blood or darker, tarry stools. Rectal bleeding can be caused by various factors, including hemorrhoids, anal fissures, inflammatory bowel disease, gastrointestinal ulcers, or colorectal cancer. It is crucial to seek medical attention to determine the cause of rectal bleeding and receive appropriate evaluation and treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Amyloidosis",
+        "name" : "Blood In Urine",
+        "description" : "Blood in urine, also known as hematuria, refers to the presence of blood in the urine. It can be visible to the naked eye or detected through laboratory tests. Hematuria can be caused by various factors, including urinary tract infections, kidney stones, bladder or kidney infections, trauma, urinary tract tumors, or certain medications. It is important to consult a healthcare professional to determine the underlying cause of hematuria and receive appropriate evaluation and treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Anemia",
+        "name" : "Bluish Skin",
+        "description" : "Bluish skin, also known as cyanosis, refers to a bluish discoloration of the skin or mucous membranes. It occurs due to a lack of oxygenated blood in the tissues. Cyanosis can be caused by various factors, including respiratory or cardiovascular problems, such as lung diseases, heart failure, or congenital heart defects. It can also be a result of cold temperatures or exposure to certain chemicals. Prompt medical evaluation is necessary to identify the underlying cause of cyanosis and initiate appropriate management.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Angina",
+        "name" : "Blur Vision",
+        "description" : "Blurry vision refers to a loss of sharpness or clarity in one's vision, making objects appear hazy or out of focus. It can be caused by various factors, including refractive errors (such as nearsightedness, farsightedness, or astigmatism), presbyopia, cataracts, glaucoma, retinal disorders, or certain systemic conditions. It is important to have a comprehensive eye examination by an eye care professional to determine the cause of blurry vision and receive appropriate treatment or corrective measures.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Anorexia nervosa",
+        "name" : "Bruising",
+        "description" : "Bruising, also known as contusion, is the discoloration of the skin resulting from bleeding underneath the surface. It typically appears as a purple, blue, or black mark. Bruising can occur due to various factors, such as injury, trauma, certain medications, or underlying bleeding disorders. The appearance of unexplained or excessive bruising may warrant medical evaluation to determine the underlying cause and ensure appropriate management.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Anxiety disorders (various types)",
+        "name" : "Bulging Veins",
+        "description" : "Bulging veins, also known as varicose veins, are swollen and enlarged veins that often appear twisted or raised on the surface of the skin. They can occur due to weakened vein valves or increased pressure on the veins. Bulging veins commonly affect the legs and can cause symptoms such as pain, discomfort, or aching. While varicose veins are usually not a serious medical condition, they can be aesthetically bothersome or indicate an underlying circulatory issue. Treatment options include lifestyle changes, compression stockings, or medical procedures to remove or close off the affected veins.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Appendicitis",
+        "name" : "Bumps",
+        "description" : "Bumps refer to small raised areas or swellings on the skin's surface. They can have various causes, including skin infections, allergic reactions, insect bites, acne, cysts, or skin growths. The appearance, location, and accompanying symptoms can provide clues to the underlying cause. Treatment options depend on the specific cause of the bumps and may include medications, topical creams, or minor surgical procedures.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Arthritis (various types)",
+        "name" : "Chest Pain",
+        "description" : "Chest pain is a common symptom that can indicate a variety of underlying conditions. It can range from mild discomfort to severe pain and may be described as sharp, squeezing, or pressure-like. Chest pain can be caused by various factors, including heart-related problems (such as angina, heart attack, or pericarditis), respiratory issues (such as pneumonia or pleurisy), gastrointestinal disorders (such as acid reflux or gastritis), musculoskeletal problems, or anxiety. It is important to seek immediate medical attention for chest pain to determine the cause and receive appropriate evaluation and treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Asbestosis",
+        "name" : "Chest Tightness",
+        "description" : "Chest tightness refers to a sensation of pressure, constriction, or discomfort in the chest area. It can be caused by various factors, including heart-related conditions (such as angina, heart attack, or heart failure), respiratory disorders (such as asthma or chronic obstructive pulmonary disease), anxiety or panic attacks, musculoskeletal issues, or gastrointestinal problems (such as acid reflux). Chest tightness can be a concerning symptom and should be evaluated by a healthcare professional to identify the underlying cause and determine the appropriate management.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Asthma",
+        "name" : "Confusion",
+        "description" : "Confusion refers to a state of disorientation, mental haze, or impaired thinking. It can manifest as difficulty concentrating, memory problems, poor judgment, or a lack of awareness of one's surroundings. Confusion can be caused by various factors, including medical conditions (such as infections, metabolic disorders, or neurological conditions), medication side effects, substance abuse, dehydration, or psychological factors. Prompt medical evaluation is essential to identify the underlying cause and provide appropriate treatment or management strategies.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Atherosclerosis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Autism spectrum disorder",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Back pain",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bacterial vaginosis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bell's palsy",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bipolar disorder",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bird flu",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Black lung disease",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bladder cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Blepharitis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Blood clots (various types)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bone cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Borderline personality disorder",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Botulism",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Brain cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Breast cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bronchitis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Brucellosis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Bulimia nervosa",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Burns",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Caffeine addiction",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cancer (various types)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Candidiasis (yeast infection)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Canker sores",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Carpal tunnel syndrome",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cataracts",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Celiac disease",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cellulitis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cerebral palsy",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cervical cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Chagas disease",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Chickenpox",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Chlamydia",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cholera",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Chronic fatigue syndrome",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Chronic obstructive pulmonary disease (COPD)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cirrhosis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Claustrophobia",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Clostridium difficile infection",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cold sores",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Colon cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Colorectal cancer",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Common cold",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Conjunctivitis (pink eye)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
         "name" : "Constipation",
+        "description" : "Constipation is a common digestive issue characterized by infrequent bowel movements or difficulty in passing stools. It can be caused by various factors, including a low-fiber diet, inadequate fluid intake, lack of physical activity, certain medications, hormonal changes, or underlying medical conditions. Symptoms of constipation may include straining during bowel movements, hard or lumpy stools, bloating, or abdominal discomfort. Lifestyle changes, dietary modifications, increased water intake, and over-the-counter remedies can often alleviate constipation. However, persistent or severe constipation should be evaluated by a healthcare professional.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "COPD (chronic obstructive pulmonary disease)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Coronavirus (various types)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
         "name" : "Cough",
+        "description" : "A cough is a reflex action that helps clear the airways by expelling irritants, mucus, or foreign substances. It can be caused by various factors, including respiratory infections (such as the common cold or flu), allergies, asthma, gastroesophageal reflux disease (GERD), smoking, or exposure to irritants. Coughs can be dry or productive (with mucus), acute (short-term) or chronic (long-lasting). Treatment options for cough depend on the underlying cause and may involve medications, lifestyle changes, or addressing the specific triggers.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "COVID-19",
+        "name" : "Craving",
+        "description" : "Craving refers to a strong desire or intense urge to consume a specific food, substance, or activity. It can be associated with various factors, including hormonal changes, psychological factors, addiction, or underlying medical conditions. Cravings are commonly experienced for foods high in sugar, salt, or fat. While occasional cravings are normal, persistent or uncontrollable cravings may warrant further evaluation to identify potential underlying causes and develop appropriate strategies to manage them.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Creutzfeldt-Jakob disease",
+        "name" : "Decreased Urination",
+        "description" : "Decreased urination, also known as oliguria, refers to a reduction in the amount of urine produced or a decrease in urinary frequency. It can be caused by various factors, including dehydration, certain medications, urinary tract obstruction, kidney problems, or underlying medical conditions. Decreased urination can be a sign of an underlying issue and may require medical evaluation to determine the cause and implement appropriate management.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Crohn's disease",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Croup",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cushing's syndrome",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Cystic fibrosis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Dandruff",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Deep vein thrombosis (DVT)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Dehydration",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Dementia",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Dengue fever",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
         "name" : "Depression",
+        "description" : "Depression is a mental health disorder characterized by persistent feelings of sadness, hopelessness, and a loss of interest or pleasure in activities. It can affect daily functioning, mood, and overall well-being. Symptoms of depression may include persistent low mood, changes in appetite or sleep patterns, fatigue, lack of concentration, feelings of guilt or worthlessness, or thoughts of self-harm. Depression can be caused by a combination of genetic, biological, environmental, and psychological factors. Treatment options include therapy, medication, lifestyle changes, and support from healthcare professionals.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Dermatitis",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
-        "image" : "",
-        "rank" : 1
-    },
-    {
-        "name" : "Diabetes (various types)",
-        "svg_icon" : "",
-        "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
         "name" : "Diarrhea",
+        "description" : "Diarrhea is a common digestive disorder characterized by loose, watery stools and an increased frequency of bowel movements. It can be caused by various factors, including viral or bacterial infections, food poisoning, dietary changes, certain medications, underlying medical conditions, or gastrointestinal disorders. Diarrhea can lead to dehydration and electrolyte imbalances if not managed properly. Treatment options for diarrhea include adequate fluid intake, electrolyte replacement, dietary adjustments, and medication, depending on the underlying cause and severity of symptoms.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Diphtheria",
+        "name" : "Difficulty In Swallowing",
+        "description" : "Difficulty in swallowing, also known as dysphagia, refers to a sensation of pain, discomfort, or obstruction while swallowing food or liquids. It can be caused by various factors, including structural abnormalities in the throat or esophagus, gastroesophageal reflux disease (GERD), muscle disorders, nerve damage, or underlying medical conditions. Difficulty in swallowing may require medical evaluation to determine the cause and develop an appropriate treatment plan to alleviate symptoms and prevent complications.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Diverticulitis",
+        "name" : "Difficulty Speaking",
+        "description" : "Difficulty speaking, also known as dysarthria, refers to a difficulty in producing speech sounds or controlling the muscles involved in speech. It can be caused by various factors, including neurological conditions, stroke, head injuries, muscle weakness or paralysis, or side effects of certain medications. Difficulty speaking may require evaluation by a healthcare professional, such as a speech-language pathologist or neurologist, to identify the underlying cause and develop appropriate management strategies or therapies.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Down syndrome",
+        "name" : "Discolored Feet",
+        "description" : "Discolored feet refer to a change in the normal skin color of the feet. It can manifest as redness, bluish discoloration, pale or whitish skin, or yellowing. Discoloration of the feet can be caused by various factors, including poor circulation, peripheral artery disease, nerve damage, infections, skin disorders, or certain systemic conditions. Evaluation by a healthcare professional is necessary to determine the underlying cause and initiate appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Drug addiction",
+        "name" : "Discolored Hands",
+        "description" : "Discolored hands refer to a change in the normal skin color of the hands. It can manifest as redness, bluish discoloration, pale or whitish skin, or yellowing. Discoloration of the hands can be caused by various factors, including poor circulation, peripheral artery disease, Raynaud's disease, hand injuries, infections, skin disorders, or certain systemic conditions. Evaluation by a healthcare professional is necessary to determine the underlying cause and initiate appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Dupuytren's contracture",
+        "name" : "Discolored Stools",
+        "description" : "Discolored stools refer to any changes in the normal color of the stool. Stool color can vary depending on diet and other factors, but certain changes may indicate an underlying issue. Discolored stools can appear pale, clay-colored, black, tarry, or contain streaks of blood. Various factors can contribute to changes in stool color, including gastrointestinal bleeding, liver or gallbladder disorders, medication side effects, or dietary changes. If there are persistent or unexplained changes in stool color, medical evaluation is necessary to identify the underlying cause and determine the appropriate management.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Dysentery",
+        "name" : "Dizziness",
+        "description" : "Dizziness refers to a sensation of lightheadedness, unsteadiness, or a spinning or whirling sensation. It can be caused by various factors, including inner ear problems (such as vertigo or labyrinthitis), low blood pressure, dehydration, medication side effects, anemia, anxiety or panic disorders, or underlying medical conditions. Dizziness can significantly impact balance and daily activities. Evaluation by a healthcare professional is necessary to identify the underlying cause of dizziness and develop appropriate management strategies or treatments.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Dyslexia",
+        "name" : "Double Vision",
+        "description" : "Double vision, also known as diplopia, is a condition in which a person sees two images of a single object. It can occur in one or both eyes and may be constant or intermittent. Double vision can be caused by various factors, including problems with the eye muscles, nerve damage, eye conditions (such as cataracts or astigmatism), head injuries, or underlying medical conditions (such as diabetes or multiple sclerosis). Prompt evaluation by an eye care professional or healthcare provider is necessary to determine the cause of double vision and recommend appropriate treatment or management options.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Ear infection",
+        "name" : "Dry Eyes",
+        "description" : "Dry eyes refer to a condition in which the eyes do not produce enough tears or have poor tear quality, leading to discomfort, redness, and a gritty or burning sensation. Dry eyes can be caused by various factors, including environmental conditions (such as dry air or wind), aging, hormonal changes, certain medications, underlying medical conditions (such as Sjögren's syndrome or rheumatoid arthritis), or prolonged screen time. Treatment options for dry eyes include artificial tears, prescription eye drops, lifestyle modifications, or addressing the underlying cause.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Ebola virus disease",
+        "name" : "Dryness Of Mouth",
+        "description" : "Dryness of the mouth, also known as xerostomia, refers to a condition in which the salivary glands do not produce enough saliva, leading to a dry, sticky sensation in the mouth. It can be caused by various factors, including dehydration, medication side effects, certain medical conditions (such as Sjögren's syndrome or diabetes), nerve damage, or radiation therapy. Dryness of the mouth can affect oral health, digestion, and speech. Treatment options for dry mouth may involve lifestyle changes, saliva-stimulating medications, or addressing the underlying cause.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Eczema",
+        "name" : "Easy Bleeding",
+        "description" : "Easy bleeding refers to a tendency to bleed or bruise easily, often due to abnormalities in blood clotting mechanisms. It can be caused by various factors, including platelet disorders, clotting factor deficiencies, liver disease, certain medications (such as blood thinners), or underlying medical conditions (such as von Willebrand disease or hemophilia). Easy bleeding may manifest as frequent nosebleeds, excessive bruising, prolonged bleeding after minor injuries, or heavy menstrual bleeding. Evaluation by a healthcare professional is necessary to determine the cause of easy bleeding and initiate appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Edema",
+        "name" : "Eating Disorders",
+        "description" : "Eating disorders are serious mental health conditions characterized by abnormal eating habits and distorted body image. Common types of eating disorders include anorexia nervosa, bulimia nervosa, and binge-eating disorder. Eating disorders can have severe physical and psychological consequences and require comprehensive treatment that may involve therapy, nutritional counseling, medical supervision, and support from a multidisciplinary team of healthcare professionals.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Emphysema",
+        "name" : "Erectile Dysfunction",
+        "description" : "Erectile dysfunction (ED) refers to the inability to achieve or maintain an erection sufficient for sexual activity. It can have physical or psychological causes, or a combination of both. Physical causes of erectile dysfunction may include underlying medical conditions (such as cardiovascular disease, diabetes, or hormonal imbalances), certain medications, nerve damage, or lifestyle factors (such as smoking or excessive alcohol consumption). Psychological factors, such as stress, anxiety, or relationship issues, can also contribute to ED. Evaluation by a healthcare professional is necessary to identify the underlying cause and recommend appropriate treatments, which may include lifestyle changes, medication, or therapy.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Encephalitis",
+        "name" : "Excessive Worries",
+        "description" : "Excessive worries, also known as generalized anxiety disorder (GAD), refer to persistent and excessive worrying about various aspects of life, often beyond what is considered normal or proportionate. GAD can cause significant distress and impairment in daily functioning. Symptoms may include excessive worrying, restlessness, irritability, difficulty concentrating, muscle tension, and sleep disturbances. GAD is a chronic condition that can be effectively managed with a combination of therapy, medication, and stress-management techniques.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Endocarditis",
+        "name" : "Fainting",
+        "description" : "Fainting, also known as syncope, refers to a sudden loss of consciousness due to a temporary interruption of blood flow to the brain. It can be caused by various factors, including low blood pressure, heart rhythm abnormalities, dehydration, neurological conditions, certain medications, or vasovagal reactions triggered by pain, fear, or emotional distress. Fainting episodes should be evaluated by a healthcare professional to determine the underlying cause and recommend appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Endometrial cancer",
+        "name" : "Fast Heart Rate",
+        "description" : "Fast heart rate, also known as tachycardia, refers to a heart rate that is higher than the normal resting rate. It can be caused by various factors, including physical exertion, emotional stress, caffeine or stimulant use, certain medications, fever, dehydration, anemia, hormonal imbalances, or underlying medical conditions (such as heart disease or thyroid disorders). Fast heart rate can cause symptoms such as palpitations, dizziness, shortness of breath, or chest discomfort. Evaluation by a healthcare professional is necessary to determine the cause of fast heart rate and implement appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Endometriosis",
+        "name" : "Fatigue",
+        "description" : "Fatigue refers to a feeling of extreme tiredness, lack of energy, or persistent exhaustion that is not relieved by rest or sleep. It can be caused by various factors, including sleep disorders, inadequate sleep, physical or mental exertion, underlying medical conditions (such as anemia or thyroid disorders), medication side effects, or lifestyle factors (such as poor nutrition or excessive stress). Fatigue can significantly impact daily functioning and quality of life. Evaluation by a healthcare professional is necessary to identify the underlying cause and develop a comprehensive management plan that may involve lifestyle changes, medication, or addressing the specific triggers.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Enterovirus D68",
+        "name" : "Feeling Guilty",
+        "description" : "Feeling guilty refers to a persistent sense of remorse, self-blame, or shame about past actions, thoughts, or behaviors. It can be associated with various factors, including personal values, moral standards, cultural or religious beliefs, past experiences, or mental health conditions (such as depression or anxiety). Excessive or unwarranted feelings of guilt can have a negative impact on mental well-being and relationships. It is important to seek support from a mental health professional to address and manage feelings of guilt in a healthy and constructive way.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Epilepsy",
+        "name" : "Fever",
+        "description" : "Fever refers to an elevated body temperature above the normal range. It is often a sign of an underlying infection or inflammation. Fever can be caused by various factors, including viral or bacterial infections, autoimmune disorders, certain medications, or other medical conditions. It is a natural response of the immune system to fight off infections. Treatment for fever focuses on managing symptoms and addressing the underlying cause. This may include rest, hydration, over-the-counter medications (such as acetaminophen or ibuprofen), or prescription medications, depending on the severity and cause of the fever.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Erectile dysfunction",
+        "name" : "Flatulence / Gas",
+        "description" : "Flatulence, commonly known as gas, refers to the presence of excess air or gases in the digestive system, leading to the release of gas through the rectum. It is a normal bodily function and can be caused by various factors, including swallowing air, certain dietary choices (such as consumption of gas-producing foods or carbonated beverages), bacterial fermentation in the intestines, or underlying digestive disorders (such as irritable bowel syndrome or lactose intolerance). Flatulence can be managed through dietary modifications, lifestyle changes, and over-the-counter medications that reduce gas production or aid digestion.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Esophageal cancer",
+        "name" : "Flatulence",
+        "description" : "Flatulence, commonly known as passing gas or farting, refers to the release of air or gases from the digestive system through the rectum. It is a normal bodily function and can be caused by various factors, including swallowing air, certain dietary choices (such as consumption of gas-producing foods or carbonated beverages), bacterial fermentation in the intestines, or underlying digestive disorders (such as irritable bowel syndrome or lactose intolerance). Flatulence is typically harmless and can be managed through dietary modifications, lifestyle changes, and over-the-counter medications that reduce gas production or aid digestion.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Ewing's sarcoma",
+        "name" : "Flushing",
+        "description" : "Flushing refers to a temporary reddening or warmth of the skin, often accompanied by a sensation of heat or discomfort. It can be caused by various factors, including emotional triggers, certain medications, hormonal changes, alcohol consumption, spicy foods, or underlying medical conditions (such as menopause or certain tumors). Flushing can be a normal response or indicate an underlying issue. Evaluation by a healthcare professional is necessary to determine the cause of flushing and recommend appropriate management or treatment, especially if it is recurrent, persistent, or associated with other concerning symptoms.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Eye strain",
+        "name" : "Frequent Infections",
+        "description" : "Frequent infections refer to a pattern of experiencing infections more frequently or having a higher susceptibility to infections than expected. It can be caused by various factors, including a weakened immune system, underlying medical conditions (such as HIV/AIDS or autoimmune disorders), certain medications (such as immunosuppressants), lifestyle factors (such as poor nutrition or lack of sleep), or exposure to pathogens in certain environments. Frequent infections can significantly impact quality of life and may require evaluation by a healthcare professional to identify the underlying cause and develop a comprehensive management plan that may involve medication, lifestyle modifications, or immunodeficiency screenings.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Fibromyalgia",
+        "name" : "Hair Loss",
+        "description" : "Hair loss, also known as alopecia, refers to a partial or complete loss of hair from the scalp or other areas of the body. It can be caused by various factors, including hereditary factors, hormonal imbalances, certain medical conditions (such as alopecia areata or thyroid disorders), medication side effects, autoimmune disorders, or physical or emotional stress. Hair loss can be temporary or permanent, and treatment options depend on the underlying cause. Evaluation by a healthcare professional or dermatologist is necessary to determine the cause of hair loss and recommend appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Fifth disease",
+        "name" : "Hallucinations",
+        "description" : "Hallucinations refer to sensory experiences that are not based on external stimuli. They can manifest as seeing, hearing, smelling, tasting, or feeling things that are not actually present. Hallucinations can occur in various contexts, including psychiatric disorders (such as schizophrenia or substance-induced psychosis), certain medical conditions (such as delirium or epilepsy), medication side effects, or substance abuse. Evaluation by a healthcare professional is necessary to determine the underlying cause of hallucinations and recommend appropriate management or treatment, which may involve medication, therapy, or addressing the specific triggers.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Filariasis",
+        "name" : "Headaches",
+        "description" : "Headaches are a common condition characterized by pain or discomfort in the head or neck region. They can have various causes, including tension, migraines, sinus problems, hormonal changes, eyestrain, dehydration, or underlying medical conditions. Headaches can be episodic or chronic and may be accompanied by other symptoms such as sensitivity to light or sound, nausea, or fatigue. Treatment options for headaches depend on the underlying cause and may involve lifestyle modifications, over-the-counter pain relievers, prescription medications, or other targeted interventions.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Flat feet",
+        "name" : "Heartburn",
+        "description" : "Heartburn, also known as acid reflux or gastroesophageal reflux disease (GERD), refers to a burning sensation or discomfort in the chest, often accompanied by regurgitation of stomach acid into the esophagus. It can be caused by the weakening of the lower esophageal sphincter, which allows stomach acid to flow back into the esophagus. Heartburn can be triggered by certain foods, obesity, pregnancy, smoking, certain medications, or underlying conditions. Management of heartburn may involve lifestyle modifications (such as dietary changes, weight loss, or elevation of the head during sleep), over-the-counter antacids, or prescription medications to reduce stomach acid production.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Flu (influenza)",
+        "name" : "Heavy Periods",
+        "description" : "Heavy periods, also known as menorrhagia, refer to excessive or prolonged menstrual bleeding that can significantly impact a person's quality of life. Heavy periods may be caused by various factors, including hormonal imbalances, uterine fibroids, polyps, endometriosis, blood clotting disorders, certain medications, or underlying medical conditions. Evaluation by a healthcare professional, such as a gynecologist, is necessary to determine the underlying cause of heavy periods and recommend appropriate management or treatment options, which may include medication, hormonal therapies, or surgical interventions.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Food poisoning",
+        "name" : "Hemoptysis",
+        "description" : "Hemoptysis refers to the coughing up of blood or blood-tinged sputum from the respiratory tract. It can be caused by various factors, including respiratory infections, bronchitis, pneumonia, tuberculosis, lung cancer, bronchiectasis, or trauma to the respiratory tract. Hemoptysis can be a potentially serious symptom that requires evaluation by a healthcare professional to determine the underlying cause and initiate appropriate management or treatment, which may involve medication, respiratory therapies, or further diagnostic tests (such as imaging or bronchoscopy).",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Friedreich's ataxia",
+        "name" : "Hoarseness",
+        "description" : "Hoarseness refers to a change in the voice characterized by a rough or strained vocal quality. It can be caused by various factors, including inflammation or irritation of the vocal cords, vocal cord nodules or polyps, respiratory infections, acid reflux, certain medications, overuse or misuse of the voice, or underlying medical conditions. Hoarseness that persists for more than a few weeks or is associated with other concerning symptoms should be evaluated by a healthcare professional, such as an otolaryngologist, to determine the underlying cause and recommend appropriate management or treatment.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
         "image" : "",
         "rank" : 1
     },
     {
-        "name" : "Frostbite",
+        "name" : "Hunched Posture",
+        "description" : "Hunched posture refers to a stooped or rounded curvature of the upper back or shoulders. It can be caused by various factors, including poor posture, muscle imbalances, spinal conditions (such as kyphosis or osteoporosis), degenerative disc disease, or underlying medical conditions. Hunched posture can lead to discomfort, restricted mobility, or muscle imbalances. Evaluation by a healthcare professional, such as a physical therapist or orthopedic specialist, is necessary to determine the underlying cause of hunched posture and develop an appropriate management or treatment plan, which may include posture correction exercises, physical therapy, or other interventions.",
         "svg_icon" : "",
         "color_code" : "",
-        "description" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Increased Discharge",
+        "description" : "Increased discharge refers to an abnormal or excessive amount of fluid or mucus that is released from the body, often from the vagina in females. It can be caused by various factors, including hormonal changes, infections (such as yeast infections or bacterial vaginosis), sexually transmitted infections, certain medications, or underlying medical conditions. Increased discharge may be accompanied by other symptoms such as itching, odor, or pain. Evaluation by a healthcare professional is necessary to determine the underlying cause and recommend appropriate management or treatment, which may involve medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Increased Thirst",
+        "description" : "Increased thirst, also known as polydipsia, refers to a persistent feeling of excessive thirst and a need to drink more fluids than usual. It can be caused by various factors, including dehydration, certain medications (such as diuretics or anticholinergic drugs), high blood sugar levels (as seen in diabetes), hormonal imbalances, or underlying medical conditions. Increased thirst can be a normal response to certain situations or indicate an underlying issue. Evaluation by a healthcare professional is necessary to determine the cause of increased thirst and recommend appropriate management or treatment.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Increased Urination",
+        "description" : "Increased urination, also known as polyuria, refers to an abnormally high volume of urine being passed or a frequent need to urinate. It can be caused by various factors, including increased fluid intake, certain medications (such as diuretics), high blood sugar levels (as seen in diabetes), urinary tract infections, hormonal imbalances, or underlying medical conditions. Increased urination can be a normal response to certain situations or indicate an underlying issue. Evaluation by a healthcare professional is necessary to determine the cause of increased urination and recommend appropriate management or treatment.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Irregular Periods",
+        "description" : "Irregular periods refer to menstrual cycles that deviate from the normal pattern of regular monthly bleeding. They can manifest as variations in cycle length, skipped periods, prolonged periods, or unpredictable bleeding. Irregular periods can be caused by various factors, including hormonal imbalances, stress, weight changes, certain medications, polycystic ovary syndrome (PCOS), thyroid disorders, or underlying medical conditions. Evaluation by a healthcare professional, such as a gynecologist, is necessary to determine the underlying cause of irregular periods and recommend appropriate management or treatment options, which may include hormonal therapies, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Irritability",
+        "description" : "Irritability refers to a heightened state of sensitivity or easily provoked annoyance or anger. It can be caused by various factors, including stress, sleep disturbances, hormonal imbalances, certain medications, underlying mental health conditions (such as anxiety or depression), or external triggers. Irritability can significantly impact daily functioning and relationships. It is important to seek support from a mental health professional to identify the underlying causes and develop healthy coping strategies and management techniques.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Itchiness",
+        "description" : "Itchiness, also known as pruritus, refers to a sensation that prompts the desire to scratch or rub the skin. It can be caused by various factors, including dry skin, allergic reactions, insect bites, skin infections, certain medications, underlying skin conditions (such as eczema or psoriasis), or systemic diseases. Itchiness can be acute or chronic and may be accompanied by visible changes in the skin, such as redness or rash. Treatment for itchiness depends on the underlying cause and may involve moisturizers, topical creams or ointments, oral medications, or lifestyle modifications.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Itchy Eyes",
+        "description" : "Itchy eyes refer to a sensation of itching, irritation, or discomfort in the eyes. It can be caused by various factors, including allergies, dry eye syndrome, eye infections, eye strain, environmental irritants (such as dust or pollen), or underlying medical conditions. Itchy eyes may be accompanied by redness, watering, or a gritty feeling. Treatment for itchy eyes depends on the underlying cause and may involve artificial tears, antihistamine eye drops, cold compresses, or other targeted interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Joint Pain",
+        "description" : "Joint pain refers to discomfort, soreness, or aching sensations in one or more joints of the body. It can be caused by various factors, including injury, inflammation, overuse, degenerative conditions (such as osteoarthritis), autoimmune disorders (such as rheumatoid arthritis), infections, or other medical conditions. Joint pain can affect mobility and quality of life. Treatment options for joint pain depend on the underlying cause and may include medication, physical therapy, joint injections, assistive devices, or surgery.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Joint Swelling",
+        "description" : "Joint swelling refers to the abnormal enlargement or puffiness of one or more joints. It can be caused by various factors, including inflammation, injury, infection, autoimmune disorders (such as rheumatoid arthritis), gout, or other medical conditions. Joint swelling may be accompanied by pain, warmth, redness, or restricted range of motion. Evaluation by a healthcare professional, such as a rheumatologist, is necessary to determine the underlying cause of joint swelling and recommend appropriate management or treatment options, which may include medication, lifestyle modifications, joint aspiration, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Lethargy",
+        "description" : "Lethargy refers to a state of extreme tiredness or lack of energy and motivation. It can be caused by various factors, including inadequate sleep, physical exhaustion, emotional or mental stress, poor nutrition, certain medications, hormonal imbalances, or underlying medical conditions. Lethargy can significantly impact daily functioning and quality of life. Evaluation by a healthcare professional may be necessary to identify the underlying causes of lethargy and recommend appropriate management or treatment, which may involve lifestyle modifications, addressing underlying medical conditions, or seeking support from a mental health professional.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Lightheadedness",
+        "description" : "Lightheadedness refers to a feeling of dizziness, faintness, or a sensation that one might faint. It can be caused by various factors, including low blood pressure, dehydration, anemia, medication side effects, hyperventilation, anxiety or panic attacks, underlying medical conditions, or postural changes. Lightheadedness may be accompanied by other symptoms such as nausea, blurred vision, or rapid breathing. Evaluation by a healthcare professional is necessary to determine the underlying cause of lightheadedness and recommend appropriate management or treatment, which may involve addressing any underlying conditions, lifestyle modifications, or medication adjustments.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Loss Of Hearing",
+        "description" : "Loss of hearing, also known as hearing loss, refers to a partial or complete inability to hear sounds. It can be caused by various factors, including age-related changes (presbycusis), exposure to loud noises, earwax buildup, ear infections, trauma or injury to the ear, certain medications, underlying medical conditions, or genetic factors. Hearing loss can be temporary or permanent, and the severity can vary. Evaluation by an audiologist or ear, nose, and throat specialist is necessary to assess the type and extent of hearing loss and recommend appropriate management or treatment options, which may include hearing aids, cochlear implants, assistive listening devices, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Loss Of Vision",
+        "description" : "Loss of vision refers to a partial or complete inability to see or experience visual impairment. It can be caused by various factors, including age-related changes (such as macular degeneration or cataracts), eye injuries, glaucoma, diabetic retinopathy, retinal detachment, certain medications, underlying medical conditions, or genetic factors. Loss of vision can be temporary or permanent, and the severity can vary. Evaluation by an ophthalmologist is necessary to determine the underlying cause of vision loss and recommend appropriate management or treatment options, which may include corrective lenses, medication, surgery, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Lower Abdominal Pain",
+        "description" : "Lower abdominal pain refers to pain or discomfort in the region below the belly button and above the pelvic area. It can be caused by various factors, including menstrual cramps, urinary tract infections, gastrointestinal issues (such as constipation or irritable bowel syndrome), bladder conditions, ovarian cysts, endometriosis, musculoskeletal problems, or underlying medical conditions. Evaluation by a healthcare professional is necessary to determine the underlying cause of lower abdominal pain and recommend appropriate management or treatment options, which may include medication, lifestyle modifications, physical therapy, or surgical interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Memory Loss",
+        "description" : "Memory loss refers to a partial or complete inability to remember past events, experiences, or information. It can be caused by various factors, including aging, stress, sleep disturbances, certain medications, nutritional deficiencies, head injuries, neurological disorders (such as Alzheimer's disease or dementia), or other underlying medical conditions. Memory loss can significantly impact daily functioning and quality of life. Evaluation by a healthcare professional is necessary to assess the extent and underlying causes of memory loss and recommend appropriate management or treatment options, which may involve lifestyle modifications, cognitive exercises, medication, or specialized memory care.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Mood Swings",
+        "description" : "Mood swings refer to rapid and intense fluctuations in a person's emotional state, characterized by alternating periods of happiness, sadness, irritability, or anger. They can be caused by various factors, including hormonal changes, stress, sleep disturbances, underlying mental health conditions (such as bipolar disorder or premenstrual syndrome), medication side effects, or external triggers. Mood swings can significantly impact daily functioning and relationships. It is important to seek support from a mental health professional to identify the underlying causes, develop healthy coping strategies, and explore appropriate management or treatment options, which may include therapy, medication, or lifestyle modifications.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Muscle Weakness",
+        "description" : "Muscle weakness refers to a decrease in muscle strength or the inability to exert force with muscles. It can be caused by various factors, including lack of physical activity, aging, nutritional deficiencies, nerve damage, autoimmune disorders, hormonal imbalances, certain medications, or underlying medical conditions. Muscle weakness can affect mobility and overall physical performance. Evaluation by a healthcare professional is necessary to determine the underlying cause of muscle weakness and recommend appropriate management or treatment options, which may involve physical therapy, strength training exercises, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Nausea",
+        "description" : "Nausea refers to a sensation of unease or discomfort in the stomach accompanied by an urge to vomit. It can be caused by various factors, including digestive issues, viral or bacterial infections, motion sickness, certain medications, pregnancy, hormonal changes, migraines, psychological factors, or underlying medical conditions. Nausea can be acute or chronic and may be accompanied by other symptoms such as dizziness, sweating, or loss of appetite. Treatment for nausea depends on the underlying cause and may involve medication, dietary changes, lifestyle modifications, or other targeted interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Night Sweats",
+        "description" : "Night sweats refer to episodes of excessive sweating during sleep that can result in damp or soaked bedclothes. They can be caused by various factors, including hormonal imbalances (such as menopause or thyroid disorders), certain medications, infections, metabolic conditions, neurological disorders, or underlying medical conditions. Night sweats can disrupt sleep and impact overall well-being. Evaluation by a healthcare professional is necessary to determine the underlying cause of night sweats and recommend appropriate management or treatment options, which may involve addressing any underlying conditions, medication adjustments, hormone therapies, or lifestyle modifications.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Nodules/Lumps",
+        "description" : "Nodules or lumps refer to abnormal growths or localized swellings in the body, often felt as palpable masses under the skin or in deeper tissues. They can be caused by various factors, including benign cysts, lipomas (benign fatty tumors), inflamed lymph nodes, infections, fibroids, or underlying medical conditions. Nodules or lumps can vary in size, shape, and texture and may or may not be accompanied by pain or other symptoms. Evaluation by a healthcare professional is necessary to determine the underlying cause of nodules or lumps and recommend appropriate management or treatment options, which may involve imaging studies, biopsy, surgical removal, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Numbness",
+        "description" : "Numbness refers to a loss or reduction in sensation or feeling in a particular part of the body. It can be caused by various factors, including nerve damage or compression, poor circulation, vitamin deficiencies, autoimmune disorders, certain medications, underlying medical conditions, or neurological disorders. Numbness can be temporary or chronic and may be accompanied by other symptoms such as tingling, weakness, or pain. Evaluation by a healthcare professional is necessary to determine the underlying cause of numbness and recommend appropriate management or treatment options, which may involve medication, physical therapy, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Pain In Jaw",
+        "description" : "Pain in the jaw refers to discomfort or pain experienced in the jaw joint (temporomandibular joint) or surrounding structures. It can be caused by various factors, including temporomandibular joint disorders (TMJ disorders), teeth grinding or clenching (bruxism), dental issues (such as tooth decay or gum disease), jaw injuries, arthritis, muscle tension or spasms, or underlying medical conditions. Pain in the jaw can be temporary or chronic and may be accompanied by other symptoms such as jaw clicking, difficulty chewing, or headaches. Evaluation by a dentist or healthcare professional is necessary to determine the underlying cause of jaw pain and recommend appropriate management or treatment options, which may involve dental treatments, medication, physical therapy, or lifestyle modifications.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Painful Urination",
+        "description" : "Painful urination, also known as dysuria, refers to discomfort, burning, or pain experienced during urination. It can be caused by various factors, including urinary tract infections, sexually transmitted infections, bladder or kidney stones, urethritis, interstitial cystitis, vaginal infections, or underlying medical conditions. Painful urination can be a sign of an underlying issue in the urinary system or reproductive organs. Evaluation by a healthcare professional is necessary to determine the underlying cause of painful urination and recommend appropriate management or treatment options, which may involve medication, antibiotics, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Pale Skin",
+        "description" : "Pale skin refers to a loss of color or a lighter-than-usual complexion of the skin. It can be caused by various factors, including decreased blood flow, anemia, low blood pressure, poor circulation, shock, nutritional deficiencies, underlying medical conditions, or certain medications. Pale skin can be a symptom of an underlying issue and may be accompanied by other symptoms such as fatigue, dizziness, or shortness of breath. Evaluation by a healthcare professional is necessary to determine the underlying cause of pale skin and recommend appropriate management or treatment options, which may involve addressing any underlying conditions, dietary changes, supplements, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Palpitations",
+        "description" : "Palpitations refer to an awareness of the heartbeat, characterized by a rapid, irregular, pounding, or fluttering sensation in the chest. It can be caused by various factors, including anxiety or stress, intense physical activity, caffeine or stimulant use, hormonal changes, heart conditions (such as arrhythmias or heart valve disorders), electrolyte imbalances, or underlying medical conditions. Palpitations can be a normal response to certain situations or a sign of an underlying issue. Evaluation by a healthcare professional is necessary to determine the underlying cause of palpitations and recommend appropriate management or treatment options, which may involve lifestyle modifications, medication, or further cardiac evaluation.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Paranoia",
+        "description" : "Paranoia refers to an excessive or irrational distrust or suspicion of others, often accompanied by a sense of threat or danger. It can be caused by various factors, including mental health conditions (such as schizophrenia or paranoid personality disorder), substance abuse, traumatic experiences, or underlying medical conditions. Paranoia can significantly impact daily functioning, relationships, and overall well-being. Evaluation by a mental health professional is necessary to assess the underlying causes of paranoia and recommend appropriate management or treatment options, which may involve therapy, medication, support groups, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Patches",
+        "description" : "Patches refer to distinct areas of skin that differ in color, texture, or appearance from the surrounding skin. They can be caused by various factors, including skin conditions (such as vitiligo, psoriasis, or eczema), fungal or bacterial infections, allergic reactions, hormonal changes, autoimmune disorders, or underlying medical conditions. Patches can vary in size, shape, and distribution and may or may not be accompanied by other symptoms such as itching or pain. Evaluation by a dermatologist or healthcare professional is necessary to determine the underlying cause of patches and recommend appropriate management or treatment options, which may involve medication, topical treatments, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Pelvic Pain",
+        "description" : "Pelvic pain refers to discomfort or pain experienced in the lower abdomen and pelvic area. It can be caused by various factors, including menstrual cramps, ovarian cysts, endometriosis, pelvic inflammatory disease, urinary tract infections, bladder conditions, fibroids, gastrointestinal issues, musculoskeletal problems, or underlying medical conditions. Pelvic pain can be acute or chronic and may be accompanied by other symptoms such as abnormal bleeding, urinary or bowel changes, or pain during sexual intercourse. Evaluation by a healthcare professional is necessary to determine the underlying cause of pelvic pain and recommend appropriate management or treatment options, which may involve medication, hormonal therapies, physical therapy, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Poor Appetite",
+        "description" : "Poor appetite refers to a reduced or diminished desire to eat or a lack of interest in food. It can be caused by various factors, including stress, anxiety, depression, medication side effects, digestive issues, hormonal imbalances, nutritional deficiencies, underlying medical conditions, or changes in taste or smell. Poor appetite can result in inadequate calorie and nutrient intake, leading to weight loss, fatigue, and nutrient deficiencies. Evaluation by a healthcare professional is necessary to determine the underlying cause of poor appetite and recommend appropriate management or treatment options, which may involve addressing any underlying conditions, dietary modifications, nutritional counseling, or medication adjustments.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Poor Concentration",
+        "description" : "Poor concentration refers to difficulty focusing, maintaining attention, or staying mentally engaged in tasks or activities. It can be caused by various factors, including stress, anxiety, depression, sleep disturbances, hormonal imbalances, medication side effects, underlying mental health conditions, or other medical conditions. Poor concentration can significantly impact work, school, and daily functioning. Evaluation by a healthcare professional is necessary to identify the underlying causes of poor concentration and recommend appropriate management or treatment options, which may involve therapy, medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Racing Thoughts",
+        "description" : "Racing thoughts refer to a rapid and uncontrollable stream of thoughts that may be intrusive, repetitive, or overwhelming. It can be caused by various factors, including anxiety, stress, bipolar disorder, attention-deficit/hyperactivity disorder (ADHD), sleep disturbances, medication side effects, or other underlying mental health conditions. Racing thoughts can interfere with concentration, sleep, and overall mental well-being. Evaluation by a mental health professional is necessary to determine the underlying causes of racing thoughts and recommend appropriate management or treatment options, which may involve therapy, medication, stress management techniques, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Rapid Speech",
+        "description" : "Rapid speech refers to an abnormally fast or accelerated rate of speaking, often characterized by a quick tempo, pressured speech, or difficulty in slowing down speech. It can be caused by various factors, including mania or hypomania (symptoms of bipolar disorder), anxiety, stimulant use, certain medications, underlying medical conditions, or other mental health conditions. Rapid speech can affect communication and may be accompanied by other symptoms such as racing thoughts or impulsivity. Evaluation by a healthcare professional is necessary to determine the underlying cause of rapid speech and recommend appropriate management or treatment options, which may involve therapy, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Rashes",
+        "description" : "Rashes refer to changes in the skin's appearance, often characterized by redness, itching, bumps, blisters, or scales. They can be caused by various factors, including allergic reactions, irritants, infections (bacterial, viral, or fungal), autoimmune disorders, underlying medical conditions, or certain medications. Rashes can vary in size, shape, distribution, and duration. Evaluation by a dermatologist or healthcare professional is necessary to determine the underlying cause of rashes and recommend appropriate management or treatment options, which may involve topical treatments, medication, allergy testing, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Red Eyes",
+        "description" : "Red eyes refer to the appearance of blood vessels in the white part of the eyes, giving them a pink or red color. It can be caused by various factors, including eye allergies, dryness, eye infections (such as conjunctivitis or blepharitis), eye injuries, inflammation, underlying medical conditions, or environmental irritants. Red eyes can be accompanied by other symptoms such as itching, burning, discharge, or vision changes. Evaluation by an eye specialist or healthcare professional is necessary to determine the underlying cause of red eyes and recommend appropriate management or treatment options, which may involve eye drops, medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Redness",
+        "description" : "Redness refers to the abnormal red appearance of the skin or mucous membranes. It can be caused by various factors, including inflammation, irritation, allergic reactions, sunburn, underlying skin conditions (such as rosacea or eczema), infections, underlying medical conditions, or certain medications. Redness can vary in intensity, extent, and duration. Evaluation by a dermatologist or healthcare professional is necessary to determine the underlying cause of redness and recommend appropriate management or treatment options, which may involve topical treatments, medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Ringing In The Ears",
+        "description" : "Ringing in the ears, also known as tinnitus, refers to perceiving sound in the ears or head without an external source. It can be caused by various factors, including exposure to loud noises, age-related hearing loss, earwax blockage, ear infections, head injuries, certain medications, underlying medical conditions (such as Meniere's disease or acoustic neuroma), or circulatory disorders. Ringing in the ears can be intermittent or constant and may be accompanied by other symptoms such as hearing loss, dizziness, or ear pressure. Evaluation by an audiologist or healthcare professional is necessary to determine the underlying cause of ringing in the ears and recommend appropriate management or treatment options, which may involve hearing aids, sound therapy, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Risky Behavior",
+        "description" : "Risky behavior refers to engaging in actions or activities that have a high potential for negative consequences or harm. It can be caused by various factors, including impulsivity, sensation-seeking tendencies, peer influence, substance abuse, underlying mental health conditions, or environmental factors. Risky behavior can include actions such as substance misuse, reckless driving, unsafe sexual practices, self-harm, or dangerous stunts. Evaluation by a mental health professional is necessary to assess the underlying causes of risky behavior and recommend appropriate management or treatment options, which may involve therapy, support groups, educational interventions, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Runny Nose",
+        "description" : "Runny nose refers to the excessive production of nasal discharge, commonly known as 'sniffles' or 'rhinorrhea.' It can be caused by various factors, including allergies, colds, sinus infections, nasal irritants (such as dust or smoke), hormonal changes, underlying medical conditions, or certain medications. Runny nose can be accompanied by other symptoms such as sneezing, congestion, or post-nasal drip. Evaluation by a healthcare professional is necessary to determine the underlying cause of a runny nose and recommend appropriate management or treatment options, which may involve medication, nasal sprays, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Seizures",
+        "description" : "Seizures refer to sudden, uncontrolled electrical disturbances in the brain that can cause changes in behavior, movements, consciousness, or sensations. They can be caused by various factors, including epilepsy, head injuries, brain tumors, infections, genetic factors, underlying medical conditions, or certain medications. Seizures can vary in type, duration, and severity, and they may or may not be accompanied by warning signs or aura. Evaluation by a neurologist or healthcare professional is necessary to determine the underlying cause of seizures and recommend appropriate management or treatment options, which may involve medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Sensitivity",
+        "description" : "Sensitivity refers to an increased or exaggerated response to external stimuli, such as light, sound, touch, or temperature. It can be caused by various factors, including sensory processing disorder, migraine headaches, anxiety, certain medical conditions, medication side effects, or neurological disorders. Sensitivity can significantly impact daily functioning and quality of life. Evaluation by a healthcare professional, such as a neurologist or psychologist, is necessary to determine the underlying cause of sensitivity and recommend appropriate management or treatment options, which may involve sensory integration therapy, medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Shortness Of Breath",
+        "description" : "Shortness of breath refers to a subjective feeling of difficulty or discomfort in breathing, often characterized by a sensation of not getting enough air. It can be caused by various factors, including respiratory infections, asthma, allergies, chronic obstructive pulmonary disease (COPD), heart conditions, anxiety, obesity, underlying medical conditions, or certain medications. Shortness of breath can range from mild to severe and may be accompanied by other symptoms such as wheezing, coughing, or chest tightness. Evaluation by a healthcare professional is necessary to determine the underlying cause of shortness of breath and recommend appropriate management or treatment options, which may involve medication, inhalers, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Sleep Disorders",
+        "description" : "Sleep disorders refer to a group of conditions that affect the quality, timing, or duration of sleep. They can be caused by various factors, including insomnia, sleep apnea, narcolepsy, restless leg syndrome, circadian rhythm disorders, underlying medical conditions, or certain medications. Sleep disorders can lead to daytime fatigue, impaired concentration, mood disturbances, and overall reduced quality of life. Evaluation by a sleep specialist or healthcare professional is necessary to determine the underlying cause of sleep disorders and recommend appropriate management or treatment options, which may involve sleep hygiene practices, medication, behavioral therapies, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Slow Heart Rate",
+        "description" : "Slow heart rate, also known as bradycardia, refers to a heart rate that is slower than the normal range for an individual's age and health condition. It can be caused by various factors, including athletic conditioning, certain medications, underlying heart conditions, electrolyte imbalances, aging, or neurological disorders. Slow heart rate can result in symptoms such as fatigue, dizziness, fainting, or shortness of breath. Evaluation by a cardiologist or healthcare professional is necessary to determine the underlying cause of slow heart rate and recommend appropriate management or treatment options, which may involve medication adjustments, pacemaker placement, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Sneezing",
+        "description" : "Sneezing refers to the involuntary expulsion of air from the nose and mouth, often triggered by irritants or allergens. It can be caused by various factors, including respiratory infections, allergies, irritants (such as dust or pollen), nasal congestion, or underlying medical conditions. Sneezing can be accompanied by other symptoms such as a runny nose, nasal itching, or watery eyes. Evaluation by a healthcare professional is necessary to determine the underlying cause of sneezing and recommend appropriate management or treatment options, which may involve medication, nasal sprays, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Sore Throat",
+        "description" : "Sore throat refers to discomfort, pain, or scratchiness in the throat. It can be caused by various factors, including viral or bacterial infections (such as the common cold, flu, or strep throat), allergies, dry air, irritants, acid reflux, smoking, or underlying medical conditions. Sore throat can be accompanied by other symptoms such as difficulty swallowing, hoarseness, or swollen glands. Evaluation by a healthcare professional is necessary to determine the underlying cause of a sore throat and recommend appropriate management or treatment options, which may involve medication, throat lozenges, saltwater gargles, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Stomach Pain",
+        "description" : "Stomach pain refers to discomfort or pain in the abdominal area, often characterized by aching, cramping, bloating, or sharp sensations. It can be caused by various factors, including indigestion, gas, constipation, diarrhea, stomach infections, gastritis, peptic ulcers, gallstones, appendicitis, urinary tract infections, menstrual cramps, underlying medical conditions, or certain medications. Stomach pain can be mild to severe and may be accompanied by other symptoms such as nausea, vomiting, changes in bowel movements, or fever. Evaluation by a healthcare professional is necessary to determine the underlying cause of stomach pain and recommend appropriate management or treatment options, which may involve medication, dietary changes, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Stress",
+        "description" : "Stress refers to the body's response to physical, emotional, or psychological demands or pressures. It can be caused by various factors, including work-related issues, relationship problems, financial concerns, major life changes, trauma, underlying mental health conditions, or other external stressors. Stress can manifest in various ways, such as irritability, anxiety, difficulty concentrating, changes in appetite, sleep disturbances, or physical symptoms like headaches or muscle tension. Evaluation by a healthcare professional is necessary to assess the impact of stress on overall well-being and recommend appropriate stress management techniques, therapy, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Structural Abnormalities",
+        "description" : "Structural abnormalities refer to irregularities or malformations in the body's anatomical structures or organs. They can be congenital (present at birth) or acquired (developed later in life) and can affect various body systems or organs. Structural abnormalities can be caused by genetic factors, developmental disorders, birth defects, injuries, infections, or other underlying medical conditions. The impact and treatment options depend on the specific structural abnormality and its location. Evaluation by a healthcare professional or specialist is necessary to determine the nature of the structural abnormality and recommend appropriate management or treatment options, which may involve surgery, corrective procedures, supportive care, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Suicidal Thoughts",
+        "description" : "Suicidal thoughts refer to recurring or persistent thoughts about ending one's own life. They can be caused by various factors, including underlying mental health conditions (such as depression, bipolar disorder, or post-traumatic stress disorder), significant life stressors, feelings of hopelessness, social isolation, substance abuse, or previous suicide attempts. Suicidal thoughts are a serious concern and require immediate attention. It is essential to seek help from a mental health professional, helpline, or emergency services to receive appropriate support and interventions, which may include therapy, medication, safety planning, hospitalization, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Swelling",
+        "description" : "Swelling refers to an abnormal enlargement or puffiness in body tissues, often caused by an accumulation of fluid. It can occur in various body parts, such as the limbs, face, abdomen, or joints. Swelling can be caused by various factors, including injuries, infections, allergic reactions, underlying medical conditions (such as kidney disease or heart failure), circulatory disorders, hormonal changes, or certain medications. Swelling can be accompanied by pain, redness, warmth, or restricted movement. Evaluation by a healthcare professional is necessary to determine the underlying cause of swelling and recommend appropriate management or treatment options, which may involve medication, compression, elevation, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Swollen Feet",
+        "description" : "Swollen feet refer to an abnormal enlargement or puffiness in the feet, often caused by an accumulation of fluid. It can be caused by various factors, including standing or sitting for long periods, pregnancy, obesity, aging, injuries, underlying medical conditions (such as kidney or heart problems), circulatory disorders, or certain medications. Swollen feet can be accompanied by other symptoms such as pain, discomfort, warmth, or restricted movement. Evaluation by a healthcare professional is necessary to determine the underlying cause of swollen feet and recommend appropriate management or treatment options, which may involve lifestyle modifications, medication, compression stockings, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Swollen Legs",
+        "description" : "Swollen legs refer to an abnormal enlargement or puffiness in the legs, often caused by an accumulation of fluid. It can be caused by various factors, including prolonged standing or sitting, pregnancy, obesity, aging, injuries, underlying medical conditions (such as kidney or heart problems), circulatory disorders, or certain medications. Swollen legs can be accompanied by other symptoms such as pain, discomfort, warmth, or restricted movement. Evaluation by a healthcare professional is necessary to determine the underlying cause of swollen legs and recommend appropriate management or treatment options, which may involve lifestyle modifications, medication, compression stockings, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Tingling",
+        "description" : "Tingling refers to a sensation of pins and needles or a prickling feeling on the skin. It can be caused by various factors, including nerve damage or irritation, poor blood circulation, pressure on nerves, vitamin deficiencies, underlying medical conditions (such as diabetes or multiple sclerosis), side effects of certain medications, or anxiety. Tingling sensations can occur in different body parts and may be accompanied by other symptoms such as numbness, burning, or muscle weakness. Evaluation by a healthcare professional is necessary to determine the underlying cause of tingling and recommend appropriate management or treatment options, which may involve medication, physical therapy, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Urinary Incontinence",
+        "description" : "Urinary incontinence refers to the involuntary leakage of urine, resulting in a loss of bladder control. It can be caused by various factors, including weak pelvic floor muscles, nerve damage, urinary tract infections, hormonal changes, certain medications, underlying medical conditions, or anatomical abnormalities. Urinary incontinence can manifest in different forms, such as stress incontinence (leakage with physical exertion), urge incontinence (sudden strong urge to urinate), or overflow incontinence (incomplete bladder emptying). Evaluation by a healthcare professional, such as a urologist or urogynecologist, is necessary to determine the underlying cause of urinary incontinence and recommend appropriate management or treatment options, which may involve pelvic floor exercises, lifestyle modifications, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Vomiting",
+        "description" : "Vomiting refers to the forceful expulsion of stomach contents through the mouth. It can be caused by various factors, including gastrointestinal infections, food poisoning, overeating, motion sickness, pregnancy (morning sickness), certain medications, underlying medical conditions, or emotional factors. Vomiting can be accompanied by other symptoms such as nausea, abdominal discomfort, dizziness, or dehydration. Evaluation by a healthcare professional is necessary to determine the underlying cause of vomiting and recommend appropriate management or treatment options, which may involve medication, dietary modifications, fluid replacement, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Watering Eyes",
+        "description" : "Watering eyes refer to excessive tear production that results in tears overflowing onto the face. It can be caused by various factors, including eye irritation, allergies, dry eyes, infections, foreign bodies, eyelid abnormalities, underlying medical conditions, or certain medications. Watering eyes can be accompanied by other symptoms such as redness, itching, blurred vision, or sensitivity to light. Evaluation by an ophthalmologist or healthcare professional is necessary to determine the underlying cause of watering eyes and recommend appropriate management or treatment options, which may involve eye drops, warm compresses, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Weakness",
+        "description" : "Weakness refers to a decreased or lack of physical or muscular strength, often accompanied by a sense of fatigue or exhaustion. It can be caused by various factors, including viral or bacterial infections, chronic illnesses, anemia, nutritional deficiencies, hormonal imbalances, medication side effects, underlying medical conditions, or physical deconditioning. Weakness can affect different body parts or the entire body and may interfere with daily activities. Evaluation by a healthcare professional is necessary to determine the underlying cause of weakness and recommend appropriate management or treatment options, which may involve medication, physical therapy, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Weight Gain",
+        "description" : "Weight gain refers to an increase in body weight, often resulting from an imbalance between caloric intake and energy expenditure. It can be caused by various factors, including overeating, sedentary lifestyle, hormonal changes, certain medications, underlying medical conditions (such as hypothyroidism or polycystic ovary syndrome), or psychological factors. Weight gain can have a significant impact on overall health and well-being and may increase the risk of other health conditions. Evaluation by a healthcare professional is necessary to determine the underlying cause of weight gain and recommend appropriate management or treatment options, which may involve dietary changes, exercise, behavioral therapy, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Weight Loss",
+        "description" : "Weight loss refers to a decrease in body weight, often resulting from an imbalance between caloric intake and energy expenditure. It can be caused by various factors, including reduced appetite, inadequate food intake, increased metabolism, underlying medical conditions (such as hyperthyroidism or gastrointestinal disorders), psychological factors, or certain medications. Unintentional or significant weight loss can indicate an underlying health issue and may require medical evaluation. Evaluation by a healthcare professional is necessary to determine the underlying cause of weight loss and recommend appropriate management or treatment options, which may involve dietary changes, nutritional support, medication, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Wheezing",
+        "description" : "Wheezing refers to a high-pitched whistling sound produced during breathing, often caused by the narrowing or obstruction of the airways. It can be caused by various factors, including asthma, chronic obstructive pulmonary disease (COPD), respiratory infections, allergies, bronchitis, pneumonia, smoking, exposure to irritants, or underlying medical conditions. Wheezing is commonly associated with difficulty breathing, coughing, chest tightness, or shortness of breath. Evaluation by a healthcare professional, such as a pulmonologist or allergist, is necessary to determine the underlying cause of wheezing and recommend appropriate management or treatment options, which may involve inhalers, medication, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Yellowish Sclera",
+        "description" : "Yellowish sclera refers to a yellow discoloration of the whites of the eyes. It can be caused by various factors, including jaundice, liver problems, bile duct obstruction, hepatitis, certain medications, or underlying medical conditions. Yellowish sclera can be accompanied by other symptoms such as yellowing of the skin, dark urine, pale stools, fatigue, or abdominal pain. Evaluation by a healthcare professional is necessary to determine the underlying cause of yellowish sclera and recommend appropriate management or treatment options, which may involve further diagnostic tests, liver function evaluation, medication adjustments, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Yellowish Skin",
+        "description" : "Yellowish skin refers to a yellow discoloration of the skin. It can be caused by various factors, including jaundice, liver problems, bile duct obstruction, hepatitis, certain medications, or underlying medical conditions. Yellowish skin can be accompanied by other symptoms such as yellowing of the eyes, dark urine, pale stools, fatigue, or abdominal pain. Evaluation by a healthcare professional is necessary to determine the underlying cause of yellowish skin and recommend appropriate management or treatment options, which may involve further diagnostic tests, liver function evaluation, medication adjustments, lifestyle modifications, or other interventions.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Common Cold",
+        "description" : "The common cold is a viral infection that primarily affects the nose and throat. It is caused by different types of viruses, most commonly rhinoviruses. The common cold is characterized by symptoms such as a runny or stuffy nose, sneezing, sore throat, cough, mild headache, and low-grade fever. It is a highly contagious condition that can spread through respiratory droplets or by touching contaminated surfaces. The common cold is usually self-limiting and resolves within a week to ten days without specific treatment. Rest, hydration, over-the-counter medications for symptom relief, and practicing good hygiene, such as regular handwashing, can help manage the symptoms and prevent the spread of the virus.",
+        "svg_icon" : "",
+        "color_code" : "",
+        "image" : "",
+        "rank" : 1
+    },
+    {
+        "name" : "Mental Health",
+        "description" : "Mental health refers to a person's emotional, psychological, and social well-being. It affects how individuals think, feel, and act and influences their ability to cope with stress, make choices, and form and maintain relationships. Mental health is an integral part of overall health and can be influenced by various factors, including genetic predisposition, life experiences, family history of mental health conditions, biological factors, or trauma. Mental health conditions can range from common mental health disorders like depression and anxiety to more severe conditions such as schizophrenia or bipolar disorder. Mental health conditions are common and can be effectively managed with appropriate treatment, which may involve therapy, medication, lifestyle modifications, or a combination of these approaches. Seeking help from mental health professionals is important for diagnosis, treatment planning, and ongoing support.",
+        "svg_icon" : "",
+        "color_code" : "",
         "image" : "",
         "rank" : 1
     }
