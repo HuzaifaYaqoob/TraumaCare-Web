@@ -49,3 +49,63 @@ def vaidate_unique_user(request):
         }
     }, status=status.HTTP_200_OK)
 
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def Login(request):
+    pass
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def Signup(request):
+    email = request.POST.get('email', None)
+    username = request.POST.get('username', None)
+    dial_code = request.POST.get('dial_code', None)
+    mobile_number = request.POST.get('mobile_number', None)
+    password = request.POST.get('password', None)
+    confirm_password = request.POST.get('confirm_password', None)
+    
+    if not all([email, username, dial_code, mobile_number, password, confirm_password]):
+        return Response({
+            'status' : False,
+            'status_code' : 400,
+            'request' : {
+
+            },
+            'response': {
+                'message' : 'Invalid Data',
+                'error_message' : 'Following fields are required.',
+                'fields' : [
+                    'email',
+                    'username',
+                    'dial_code',
+                    'mobile_number',
+                    'password',
+                    'confirm_password',
+                ],
+            }
+        }, status=status.HTTP_200_OK)
+
+
+    user = User.objects.create_user(
+        username = username,
+        password = password,
+        email = email
+    )
+    user.dial_code = dial_code
+    user.mobile_number = mobile_number
+    user.save()
+
+    return Response({
+        'status' : True,
+        'status_code' : 200,
+        'request' : {
+
+        },
+        'response': {
+            'message' : 'Verification OTP has been sent to your Phone Number, Please Verify!',
+            'error_message' : None,
+        }
+    }, status=status.HTTP_200_OK)
+
