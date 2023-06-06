@@ -114,6 +114,18 @@ class User(AbstractBaseUser):
     def profiles(self):
         user_profiles = self.user_profiles.all().filter(profile_type = 'Patient')
         return user_profiles
+    
+
+    def save(self, *args, **kwargs):
+        if not self.country:
+            try:
+                country = Country.objects.get(name__iexact = 'pakistan', dial_code='92')
+            except:
+                pass
+            else:
+                self.country = country
+                
+        super(User, self).save(*args, **kwargs)
 
     # def account_type(self):
     #     return self.user_account_type.account_type
