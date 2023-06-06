@@ -1721,7 +1721,7 @@
   <script>
     var swiper = new Swiper(".mySwiper", {
       slidesPerView: 6,
-      spaceBetween:  0,
+      spaceBetween:  20 ,
       loop:true,
       pagination: {
         el: ".swiper-pagination",
@@ -1730,21 +1730,16 @@
       breakpoints : {
         320 :{
             slidesPerView: 1,
-             spaceBetween: 20
         } ,
         480: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      768: {
-        slidesPerView: 3,
-        spaceBetween: 40
-      },
-      1024: {
-        slidesPerView: 6,
-        spaceBetween: 50
-      }
-
+            slidesPerView: 2,
+        },
+        768: {
+            slidesPerView: 3,
+        },
+        1024: {
+            slidesPerView: 6,
+        }
       }
     });
   </script>

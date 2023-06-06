@@ -370,3 +370,16 @@ input[type='number']::-webkit-outer-spin-button
     }
 
 }
+
+.line-clamp-1{
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 1 !important;
+}
+.line-clamp-2{
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 2 !important;
+}
