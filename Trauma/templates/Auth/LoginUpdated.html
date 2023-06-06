@@ -152,7 +152,7 @@
     </section>
     <section class="right-section">
         <div>
-            <form action="{% url 'HandleLogin' %}" method="post" class="main-form" main-login-form>
+            <form action="{% url 'HandleLogin' %}{{str_query}}" method="post" class="main-form" main-login-form>
                 {% csrf_token %}
                 <div>
                     <!-- <div class="form-cards-section">

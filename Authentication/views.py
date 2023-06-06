@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from rest_framework.decorators import api_view
 
@@ -10,9 +10,12 @@ from django.contrib import messages
 from Authentication.models import User
 
 from Trauma.models import Country, VerificationCode
-
+from Authentication.Constants.Redirection import NextRedirect, getQueryParams
 
 def LoginPage(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(f'/auth/auto-login-redirection/{getQueryParams(request)}')
+
     # return render(request, 'Auth/login.html')
     return render(request, 'Auth/LoginUpdated.html')
 
@@ -123,7 +126,7 @@ def HandleLogin(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Login Successfully')
-            return HttpResponseRedirect('/')
+            return HttpResponseRedirect(f'/auth/auto-login-redirection/{getQueryParams(request)}')
         else:
             messages.error(request, 'Invalid Credentials')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
@@ -195,3 +198,12 @@ def handleOtp(request):
         code.delete()
         messages.success(request, 'Account Verified!')
         return HttpResponseRedirect('/auth/login/')
+    
+
+def AutoLoginRedirection(request):
+    next_url = NextRedirect(request)
+    if next_url:
+        return HttpResponseRedirect(next_url)
+    
+    return HttpResponseRedirect('/')
+    
