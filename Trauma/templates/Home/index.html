@@ -283,7 +283,7 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="grid grid-cols-4 gap-6 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
+    <div class="grid grid-cols-4 gap-6 max-w-[1500px] mx-auto !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
         {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
         {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/402×402/?doctor&face&human' %}
         {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/403×403/?doctor&face&human' %}
@@ -1731,13 +1731,25 @@
         320 :{
             slidesPerView: 1,
         } ,
-        480: {
+        650: {
             slidesPerView: 2,
+        },
+        800: {
+            slidesPerView: 3,
         },
         768: {
             slidesPerView: 3,
         },
         1024: {
+            slidesPerView: 4,
+        },
+        1250: {
+            slidesPerView: 5,
+        },
+        1500: {
+            slidesPerView: 5,
+        },
+        1600: {
             slidesPerView: 6,
         }
       }
