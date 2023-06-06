@@ -353,3 +353,20 @@ input[type='number']::-webkit-outer-spin-button
 {
     display: none !important;
 }
+
+
+
+@media (max-width:1284px){
+    .book-appointment-button .Book-appoinment {
+        display: none !important;
+    }
+
+}
+
+
+@media (max-width:1210px) and (min-width:700px){
+    .book-appointment-button .Book-appoinment {
+        display: block !important;
+    }
+
+}

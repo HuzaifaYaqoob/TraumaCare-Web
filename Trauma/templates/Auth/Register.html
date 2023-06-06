@@ -18,8 +18,8 @@
 {% block mainBaseBody %}
 
 <section>
-    <div class="main-section-register-form">
-        <div class="register-card tc-shadow">
+    <div class="main-section-register-form my-10 lg:my-0">
+        <div class="register-card tc-shadow relative">
             <div class="register-header">
                 <h1 class="register-page-heading">Register!</h1>
                 <a href="/">
@@ -29,6 +29,9 @@
                     </svg>
                 </a>
             </div>
+            <div class="mb-3 lg:mb-0 lg:absolute transition-all border rounded-xl p-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:w-[260px] bg-white lg:right-[-20px] lg:translate-x-full overflow-auto">
+                <p>To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
+            </div>
             <form action="{% url 'HandleJoin' %}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
                 <div class="main-step-section">
@@ -37,7 +40,7 @@
                     </div>
                     <div class="register-form-step-2">
                         {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
-                        {% include 'Components/Form/DropdownField.html' with name='country' label='Country' placeholder='Select Country' dropdown_data=countries attributes='data-required' %}
+                        <!-- {% include 'Components/Form/DropdownField.html' with name='country' label='Country' placeholder='Select Country' dropdown_data=countries attributes='data-required' %} -->
                         {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
                     </div>
                     <div class="register-form-step-3">

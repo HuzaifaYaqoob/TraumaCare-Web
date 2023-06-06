@@ -3,6 +3,13 @@
 {% block title %}Home{% endblock title %}
 
 
+
+{% block BaseCSS %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+{% endblock BaseCSS %}
+
+
 {% block baseBody %}
 <style>
     .Search-Doctors-Hospitals-para{
@@ -23,6 +30,9 @@
     .btn-more-TC{
         transition: all 0.3s;
     }
+
+  
+
     @media (max-width:850px) {
         .main-section{
             height: 330px;
@@ -64,14 +74,111 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+
+
+    /*  */
+    /*  */
+    /*  */
+
+
+    @media (max-width:720px) {
+    .cards4-CMOG-TC , .Make-schedule , .OnlineConsulting , .Get-prescription{
+        height: 210px !important;
+        width: 225px !important;
+        border-radius: 9px !important;
+    }
+    .cards4-CMOG-TC-icon svg {
+    height: 20px !important;
+    width: 20px !important;
+}
+.cards4-CMOG-TC-icon{
+    width: 40px !important;
+    height: 35px !important;
+}
+.cards4-CMOG-TC-heading{
+    font-size: 20px !important;
+}
+.cards4-CMOG-TC-pera{
+    font-size: 11px !important;
+}
+}
+
+.doctor-discover-TC{
+    font-size: 36px;
+}
+
+
+@media (max-width:1100px) {
+    .doctor-discover-TC{
+        font-size: 30px !important;
+    }
+}
+@media (max-width:800px) {
+    .doctor-discover-TC{
+        font-size: 27px !important;
+    }
+}
+
+.view-all-TC{
+    font-size: large;
+}
+
+@media (max-width:1000px) {
+    .view-all-TC{
+        font-size: 15px !important;
+    } 
+    .view-all-TC-svg svg{
+        height: 13px;
+        width: 13px;
+    }
+}
+@media (max-width:800px){
+    .doctor-discover-TC{
+        font-size: 24px !important;
+    }
+}
+@media (max-width:680px){
+    .doctor-discover-TC{
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+@media (max-width:500px){
+    .doctor-discover-TC{
+        font-size: 21px !important;
+    }
+    .view-all-TC{
+        font-size: 14px !important;
+    }
+}
+
+@media (max-width:1100px) {
+    .Nearby-Doctors-TC{
+        font-size: 34px;
+    }
+}
+@media (max-width:800px) {
+    .Nearby-Doctors-TC{
+        font-size: 30px;
+    }
+}
+@media (max-width:600px) {
+    .Nearby-Doctors-TC{
+        font-size: 26px;
+    }
+}
+
+
+
 </style>
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" /> -->
+    
 <section class="main-section flex !items-center h-96">
     <div class="max-width">
         <h3 class="!p-0 capitalize">Collaborating for the future of healthcare.</h3>
-        <p class="text-center max-w-[600px] px-2 mx-auto !font-[300] text-gray-100">Utilize advanced search and geolocation technologies to seamlessly discover and connect with the highest-rated doctors, clinics, and hospitals in your nearest city. </p>
+        <p class="text-center max-w-[600px] px-2 mx-auto !font-[300] text-gray-50">Utilize advanced search and geolocation technologies to seamlessly discover and connect with the highest-rated doctors, clinics, and hospitals in your nearest city. </p>
     </div>
 </section>
 
@@ -113,11 +220,11 @@
 <!--  -->
 <!-- new design -->
 <!--  -->
-<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4" style="max-width: 1650px;">
+<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px" style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-semibold sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
     </div>
-    <div class="flex gap-3 flex-wrap justify-center">
+    <div class="flex gap-3 flex-wrap justify-center pl-[5px] pr-[5px]">
         {% for disease in diseases|slice:':7' %}
             <div
                 class=" hover:bg-gray-200 transition-all flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
@@ -171,12 +278,39 @@
 <!--  -->
 <!--  -->
 <!--  -->
-
 <section class="Step-by-Step">
-    <h3 class="step-by-step-featured-section-heading">A methodical approach to arriving at your solution</h3>
+    {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
+    <div class="!mt-5">
+        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
+    </div>
+    <div class="grid grid-cols-4 gap-6 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
+        {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+        {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/402×402/?doctor&face&human' %}
+        {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/403×403/?doctor&face&human' %}
+        {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/404×404/?doctor&face&human' %}
+        <!-- {% include 'Components/Home/DoctorCard.html' %}
+        {% include 'Components/Home/DoctorCard.html' %}
+        {% include 'Components/Home/DoctorCard.html' %} -->
+    </div>
+    <!--  -->
+    <!--  -->
+    <!--  -->
+    <!-- danish  -->
+    <!--  -->
+    <!--  -->
+    <!--  -->
+  
+
+
+    <!--  -->
+    <!--  -->
+    <!-- new design -->
+    <!--  -->
+    <!--  -->
+    <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
     <div class="step-by-step-fetured-section">
-        <div class="Choose-Doctor">
-            <div class="Choose-Doctor-icon">
+        <div class="Choose-Doctor cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g clip-path="url(#clip0_11_129)">
                         <path
@@ -196,12 +330,12 @@
                     </defs>
                 </svg>
             </div>
-            <h3 class="Choose-Doctor-heading1">Choose Doctor</h3>
-            <p class="Choose-Doctor-para1">Let's find the right Doctor <br>
+            <h3 class="Choose-Doctor-heading1 cards4-CMOG-TC-heading">Choose Doctor</h3>
+            <p class="Choose-Doctor-para1 cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                 for your disease! </p>
         </div>
-        <div class="Make-schedule">
-            <div class="Choose-Doctor-icon">
+        <div class="Make-schedule cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M25.754 7.79998H22.7996V4.66438C22.7996 2.42278 21.0308 0.599976 18.7832 0.599976H11.2166C8.96781 0.599976 7.19961 2.42278 7.19961 4.66438V7.79998H4.24461C2.23101 7.79998 0.599609 9.35458 0.599609 11.3622V25.1664C0.599609 27.1734 2.23101 28.8 4.24461 28.8H25.754C27.767 28.8 29.3996 27.1734 29.3996 25.1658V11.3622C29.3996 9.35458 27.767 7.79998 25.754 7.79998ZM9.59961 4.66438C9.59961 3.82498 10.3748 2.99998 11.2166 2.99998H18.7832C19.6226 2.99998 20.3996 3.82498 20.3996 4.66438V7.79998H9.59961V4.66438ZM21.5996 21H17.3996V25.2H12.5996V21H8.39961V16.2H12.5996V12H17.3996V16.2H21.5996V21Z"
@@ -209,12 +343,12 @@
                 </svg>
 
             </div>
-            <h3 class="Choose-Doctor-heading">Make a schedule</h3>
-            <p class="Choose-Doctor-para">Make a schedule advance <br>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Make a schedule</h3>
+            <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Make a schedule advance <br>
                 with the available doctor.</p>
         </div>
-        <div class="OnlineConsulting">
-            <div class="Choose-Doctor-icon">
+        <div class="OnlineConsulting cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M22.5 8.75C22.5 7.37125 21.3787 6.25 20 6.25H5C3.62125 6.25 2.5 7.37125 2.5 8.75V21.25C2.5 22.6287 3.62125 23.75 5 23.75H20C21.3787 23.75 22.5 22.6287 22.5 21.25V17.0837L27.5 21.25V8.75L22.5 12.9163V8.75Z"
@@ -222,128 +356,41 @@
                 </svg>
 
             </div>
-            <h3 class="Choose-Doctor-heading">Online Consulting</h3>
-            <p class="Choose-Doctor-para px-3">Consult with a doctor online for personalized medical advice and treatment.</p>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Online Consulting</h3>
+            <p class="Choose-Doctor-para px-3 cards4-CMOG-TC-pera">Consult with a doctor online for personalized medical advice and treatment.</p>
         </div>
-        <div class="Get-prescription">
-            <div class="Choose-Doctor-icon">
+        <div class="Get-prescription cards4-CMOG-TC">
+            <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                 <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M17.9417 3.4076L16.6667 4.72588L15.3916 3.4076C11.8706 -0.232709 6.16182 -0.232711 2.64078 3.4076C-0.880259 7.04791 -0.88026 12.95 2.64078 16.5903L14.1165 28.4548C15.5249 29.9109 17.8084 29.9109 19.2168 28.4548L30.6926 16.5903C34.2136 12.95 34.2136 7.04791 30.6926 3.4076C27.1715 -0.232709 21.4628 -0.23271 17.9417 3.4076Z"
                         fill="white" />
                 </svg>
             </div>
-            <h3 class="Choose-Doctor-heading">Get prescription</h3>
-            <p class="Choose-Doctor-para">Let's find the right Doctor <br>
+            <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Get prescription</h3>
+            <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                 for your disease!</p>
         </div>
     </div>
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <!-- danish  -->
-    <!--  -->
-    <!--  -->
-    <!--  -->
-    <main class="main">
-        <div class="main-maindiv">
-            <div class="main-div1">
-                <div class="icon-svg"><svg width="44" height="42" viewBox="0 0 44 42" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
-                            fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="peragraph">
-                    <p class="p1">PMC Verified Doctors</p>
-                    <p class="p2 !font-medium">Authentic & updated information</p>
-                </div>
-            </div>
-            <div class="main-div2">
-                <div class="icon-svg"><svg width="48" height="33" viewBox="0 0 48 33" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
-                            fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="peragraph">
-                    <p class="p1">Money Back Guarantee</p>
-                    <p class="p2 !font-medium">We return money within 48 hours</p>
-                </div>
-            </div>
-            <div class="main-div3">
-                <div class="icon-svg"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M18 0C8.05781 0 0 8.05781 0 18V34.875C0 35.4984 0.501562 36 1.125 36H9.75C11.4047 36 12.75 34.6547 12.75 33V23.25C12.75 21.5953 11.4047 20.25 9.75 20.25H3.375V18C3.375 9.92344 9.92344 3.375 18 3.375C26.0766 3.375 32.625 9.92344 32.625 18V20.25H26.25C24.5953 20.25 23.25 21.5953 23.25 23.25V33C23.25 34.6547 24.5953 36 26.25 36H34.875C35.4984 36 36 35.4984 36 34.875V18C36 8.05781 27.9422 0 18 0Z"
-                            fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="peragraph">
-                    <p class="p1">24/7 Customer Support</p>
-                    <p class="p2 !font-medium">Well trained & Supportive staff</p>
-                </div>
-            </div>
-            <div class="main-div4">
-                <div class="icon-svg"><svg width="38" height="40" viewBox="0 0 38 40" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
-                        <path
-                            d="M16 0L30.596 4.56C31.0031 4.68709 31.3589 4.94096 31.6115 5.28458C31.8641 5.62819 32.0002 6.04354 32 6.47V10H36C36.5304 10 37.0391 10.2107 37.4142 10.5858C37.7893 10.9609 38 11.4696 38 12V28C38 28.5304 37.7893 29.0391 37.4142 29.4142C37.0391 29.7893 36.5304 30 36 30L29.56 30.002C28.786 31.022 27.846 31.922 26.76 32.662L16 40L5.24 32.664C3.62504 31.5629 2.3035 30.084 1.39028 28.3558C0.477056 26.6277 -0.000202446 24.7026 6.44197e-08 22.748V6.47C0.000241212 6.04388 0.136573 5.62898 0.389124 5.28577C0.641676 4.94256 0.997243 4.68898 1.404 4.562L16 0ZM16 4.188L4 7.94V22.748C3.99971 23.9725 4.2805 25.1806 4.82073 26.2795C5.36096 27.3783 6.14621 28.3385 7.116 29.086L7.494 29.358L16 35.16L23.564 30H14C13.4696 30 12.9609 29.7893 12.5858 29.4142C12.2107 29.0391 12 28.5304 12 28V12C12 11.4696 12.2107 10.9609 12.5858 10.5858C12.9609 10.2107 13.4696 10 14 10H28V7.94L16 4.188ZM16 20V26H34V20H16ZM16 16H34V14H16V16Z"
-                            fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M18 0C8.05781 0 0 8.05781 0 18V34.875C0 35.4984 0.501562 36 1.125 36H9.75C11.4047 36 12.75 34.6547 12.75 33V23.25C12.75 21.5953 11.4047 20.25 9.75 20.25H3.375V18C3.375 9.92344 9.92344 3.375 18 3.375C26.0766 3.375 32.625 9.92344 32.625 18V20.25H26.25C24.5953 20.25 23.25 21.5953 23.25 23.25V33C23.25 34.6547 24.5953 36 26.25 36H34.875C35.4984 36 36 35.4984 36 34.875V18C36 8.05781 27.9422 0 18 0Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                    <path
-                        d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
-                        fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="peragraph">
-                    <p class="p1">Secure Online Payment</p>
-                    <p class="p2 !font-medium">Secure checkout using SSL Certificate</p>
-                </div>
-            </div>
-        </div>
-    </main>
-
 
     <!--  -->
     <!--  -->
-    <!-- new design -->
     <!--  -->
-    <!--  -->
-    <div class="!mt-5">
-        <h2 class="text-center text-4xl font-semibold text-[#0A1C4B]">Nearby Doctors</h2>
-    </div>
-    <div class="grid grid-cols-4 gap-3 !mt-14 mx-auto flex-wrap doctor-card-maon-TC" style="max-width: 1370px;">
-        {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
-        <!-- {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %}
-        {% include 'Components/Home/DoctorCard.html' %} -->
-    </div>
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    
 
 
 
@@ -354,16 +401,16 @@
     <!--  -->
     <!--  -->
 
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Discover doctors based on your condition.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Discover doctors based on your condition.</h2>
         </div>
         <a href="/speciality/">
         <div class="flex items-center gap-2 cursor-pointer">
-            <div class="text-[#0A1C4B] font-semibold text-lg">
+            <div class="text-[#0A1C4B] font-semibold view-all-TC">
                 View All Specialist
             </div>
-            <div>
+            <div class="view-all-TC-svg">
                 <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                     </svg>                    
@@ -386,16 +433,16 @@
 
     <!--  -->
     <!--  -->
-    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading" style="max-width: 1370px; margin: auto;">
+    <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
-            <h2 class="text-[#0A1C4B] text-4xl font-semibold">Find doctors for your specific disease.</h2>
+            <h2 class="text-[#0A1C4B] font-semibold">Find doctors for your specific disease.</h2>
         </div>
         <a href="/speciality/">
             <div class="flex items-center gap-2 cursor-pointer">
-                <div class="text-[#0A1C4B] font-semibold text-lg">
+                <div class="text-[#0A1C4B] font-semibold view-all-TC">
                     View All Diseases
                 </div>
-                <div>
+                <div class="view-all-TC-svg">
                     <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>                    
@@ -412,8 +459,8 @@
     </div>
 
 
-    <p class="main-paragraph">Looking For More?</p>
-    <div class="main-left-right">
+    <!-- <p class="main-paragraph">Looking For More?</p> -->
+    <!-- <div class="main-left-right">
         <div class="left">
             <h3 class="!text-4xl">Book Lab Test</h3>
             <p class="!font-medium">Book Lab Tests Online in Pakistan with free home sample <br> collection,
@@ -1070,11 +1117,15 @@
                 </g>
             </svg>
         </div>
-    </div>
+    </div> -->
 </section>
 
 <!--  -->
 <!--  -->
+
+
+
+
 
 <p class="user-recomendation">Over 200,000 user recommendations</p>
 <!--  -->
@@ -1086,12 +1137,11 @@
                 stroke-linecap="round" />
         </svg>
     </div>
-    <div class="div-3div-div1  cursor-pointer border hover:shadow-md border-gray-300">
-        <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
-            There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
-            and got exactly <br> what i needed and wasable to speak <br>
+    <div class="div-3div-div1 rounded-3xl cursor-pointer !w-[80%] tc-shadow">
+        <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
+            There isnt simple way to do this in the Pakistan that is good value for money. I used this app
+            and got exactly what i needed and wasable to speak
             to a speacilist same day”</p>
-
         <div class="div3-image">
 
         </div>
@@ -1117,7 +1167,7 @@
         </svg>
 
     </div>
-    <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
+    <!-- <div class="div-3div-div2 , div-3div-div1 hover:shadow-md border cursor-pointer border-gray-300">
         <p>“Amazing lifesaver app. I am from the <br> Pakistan and all I needed was to speak to a <br> hematologist.
             There isnt simple way to do <br> this in the Pakistan that is good value for <br> money. I used this app
             and got exactly <br> what i needed and wasable to speak <br>
@@ -1172,7 +1222,7 @@
                 d="M73.2295 1.14427C73.9537 -0.381422 76.0462 -0.381424 76.7705 1.14427L78.0221 3.78106C78.3097 4.38691 78.8656 4.80684 79.5087 4.904L82.3074 5.32682C83.9268 5.57148 84.5734 7.64059 83.4016 8.82817L81.3764 10.8806C80.9111 11.3522 80.6988 12.0317 80.8086 12.6976L81.2867 15.5957C81.5633 17.2726 79.8704 18.5514 78.422 17.7596L75.9187 16.3913C75.3436 16.0769 74.6564 16.0769 74.0813 16.3913L71.578 17.7596C70.1296 18.5514 68.4367 17.2726 68.7133 15.5957L69.1914 12.6976C69.3012 12.0317 69.0889 11.3522 68.6236 10.8806L66.5984 8.82818C65.4266 7.64059 66.0732 5.57148 67.6926 5.32682L70.4913 4.904C71.1344 4.80684 71.6903 4.38691 71.9779 3.78106L73.2295 1.14427Z"
                 fill="#24D0D0" />
         </svg>
-    </div>
+    </div> -->
     <div class="position-div position-div2">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.59961 2L8.19961 8.45366L1.59961 14.6" stroke="#0A1C4B" stroke-width="3"
@@ -1182,7 +1232,7 @@
 </div>
 <div class="join-section">
     <p>Join to reach millions of patients & Doctors</p>
-    <div class="join-section-main-div">
+    <div class="join-section-main-div !max-w-[1350px] !mx-auto ">
         <div class="join-section-div1">
             <!-- <p><svg width="550" height="25" viewBox="0 0 527 25" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -1579,5 +1629,126 @@
         </div>
     </div>
 </div>
-
+<main class="main">
+    <div class="main-maindiv">
+        <div class="main-div1">
+            <div class="icon-svg"><svg width="44" height="42" viewBox="0 0 44 42" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
+                        fill="#0A1C4B" />
+                </svg>
+            </div>
+            <div class="peragraph">
+                <p class="p1">PMC Verified Doctors</p>
+                <p class="p2 !font-medium">Authentic & updated information</p>
+            </div>
+        </div>
+        <div class="main-div2">
+            <div class="icon-svg"><svg width="48" height="33" viewBox="0 0 48 33" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
+                        fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
+                    fill="#0A1C4B" />
+                </svg>
+            </div>
+            <div class="peragraph">
+                <p class="p1">Money Back Guarantee</p>
+                <p class="p2 !font-medium">We return money within 48 hours</p>
+            </div>
+        </div>
+        <div class="main-div3">
+            <div class="icon-svg"><svg width="36" height="36" viewBox="0 0 36 36" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M18 0C8.05781 0 0 8.05781 0 18V34.875C0 35.4984 0.501562 36 1.125 36H9.75C11.4047 36 12.75 34.6547 12.75 33V23.25C12.75 21.5953 11.4047 20.25 9.75 20.25H3.375V18C3.375 9.92344 9.92344 3.375 18 3.375C26.0766 3.375 32.625 9.92344 32.625 18V20.25H26.25C24.5953 20.25 23.25 21.5953 23.25 23.25V33C23.25 34.6547 24.5953 36 26.25 36H34.875C35.4984 36 36 35.4984 36 34.875V18C36 8.05781 27.9422 0 18 0Z"
+                        fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
+                    fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
+                    fill="#0A1C4B" />
+                </svg>
+            </div>
+            <div class="peragraph">
+                <p class="p1">24/7 Customer Support</p>
+                <p class="p2 !font-medium">Well trained & Supportive staff</p>
+            </div>
+        </div>
+        <div class="main-div4">
+            <div class="icon-svg"><svg width="38" height="40" viewBox="0 0 38 40" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M16 0L30.596 4.56C31.0031 4.68709 31.3589 4.94096 31.6115 5.28458C31.8641 5.62819 32.0002 6.04354 32 6.47V10H36C36.5304 10 37.0391 10.2107 37.4142 10.5858C37.7893 10.9609 38 11.4696 38 12V28C38 28.5304 37.7893 29.0391 37.4142 29.4142C37.0391 29.7893 36.5304 30 36 30L29.56 30.002C28.786 31.022 27.846 31.922 26.76 32.662L16 40L5.24 32.664C3.62504 31.5629 2.3035 30.084 1.39028 28.3558C0.477056 26.6277 -0.000202446 24.7026 6.44197e-08 22.748V6.47C0.000241212 6.04388 0.136573 5.62898 0.389124 5.28577C0.641676 4.94256 0.997243 4.68898 1.404 4.562L16 0ZM16 4.188L4 7.94V22.748C3.99971 23.9725 4.2805 25.1806 4.82073 26.2795C5.36096 27.3783 6.14621 28.3385 7.116 29.086L7.494 29.358L16 35.16L23.564 30H14C13.4696 30 12.9609 29.7893 12.5858 29.4142C12.2107 29.0391 12 28.5304 12 28V12C12 11.4696 12.2107 10.9609 12.5858 10.5858C12.9609 10.2107 13.4696 10 14 10H28V7.94L16 4.188ZM16 20V26H34V20H16ZM16 16H34V14H16V16Z"
+                        fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M18 0C8.05781 0 0 8.05781 0 18V34.875C0 35.4984 0.501562 36 1.125 36H9.75C11.4047 36 12.75 34.6547 12.75 33V23.25C12.75 21.5953 11.4047 20.25 9.75 20.25H3.375V18C3.375 9.92344 9.92344 3.375 18 3.375C26.0766 3.375 32.625 9.92344 32.625 18V20.25H26.25C24.5953 20.25 23.25 21.5953 23.25 23.25V33C23.25 34.6547 24.5953 36 26.25 36H34.875C35.4984 36 36 35.4984 36 34.875V18C36 8.05781 27.9422 0 18 0Z"
+                    fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M5.33333 0.333313C2.39167 0.333313 0 2.72498 0 5.66665V27C0 29.9416 2.39167 32.3333 5.33333 32.3333H42.6667C45.6083 32.3333 48 29.9416 48 27V5.66665C48 2.72498 45.6083 0.333313 42.6667 0.333313H5.33333ZM9.33333 13.6666H22.6667C23.4 13.6666 24 14.2666 24 15C24 15.7333 23.4 16.3333 22.6667 16.3333H9.33333C8.6 16.3333 8 15.7333 8 15C8 14.2666 8.6 13.6666 9.33333 13.6666ZM8 23C8 22.2666 8.6 21.6666 9.33333 21.6666H38.6667C39.4 21.6666 40 22.2666 40 23C40 23.7333 39.4 24.3333 38.6667 24.3333H9.33333C8.6 24.3333 8 23.7333 8 23ZM31.3333 8.33331H38C39.1083 8.33331 40 9.22498 40 10.3333V14.3333C40 15.4416 39.1083 16.3333 38 16.3333H31.3333C30.225 16.3333 29.3333 15.4416 29.3333 14.3333V10.3333C29.3333 9.22498 30.225 8.33331 31.3333 8.33331Z"
+                    fill="#0A1C4B" />
+                </svg>
+                <path
+                    d="M44 21L39.12 15.42L39.8 8.04L32.58 6.4L28.8 0L22 2.92L15.2 0L11.42 6.38L4.2 8L4.88 15.4L0 21L4.88 26.58L4.2 33.98L11.42 35.62L15.2 42L22 39.06L28.8 41.98L32.58 35.6L39.8 33.96L39.12 26.58L44 21ZM18.18 30.44L10.58 22.82L13.54 19.86L18.18 24.52L29.88 12.78L32.84 15.74L18.18 30.44Z"
+                    fill="#0A1C4B" />
+                </svg>
+            </div>
+            <div class="peragraph">
+                <p class="p1">Secure Online Payment</p>
+                <p class="p2 !font-medium">Secure checkout using SSL Certificate</p>
+            </div>
+        </div>
+    </div>
+</main>
 {% endblock baseBody %}
+
+{% block main_base_script %}
+
+<!-- Here your Js starts  -->
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <!-- Initialize Swiper -->
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      slidesPerView: 6,
+      spaceBetween:  0,
+      loop:true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      breakpoints : {
+        320 :{
+            slidesPerView: 1,
+             spaceBetween: 20
+        } ,
+        480: {
+        slidesPerView: 2,
+        spaceBetween: 30
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 40
+      },
+      1024: {
+        slidesPerView: 6,
+        spaceBetween: 50
+      }
+
+      }
+    });
+  </script>
+
+
+<!-- Here your Js end  -->
+
+{% endblock main_base_script %}

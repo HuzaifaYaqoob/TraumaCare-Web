@@ -1,10 +1,10 @@
 <div class="form-field" dropdown-main-component>
     <label for="" class="form-input-label">{{label}}</label>
     <div class="phone-number-field-outer relative" error-border-element>
-        <div class="dial-code-field-outer" dropdown>
-            <input type="text" name="{% if dial_code_name %}{{dial_code_name}}{% else %}dial_code{% endif %}" id="" dropdown-field class="hidden dial-code-input " readonly>
-            <div class="cursor-pointer flex-1" dropdown-value-display>
-                <span class="dummy-placeholder">+00</span>
+        <div class="dial-code-field-outer cursor-not-allowed" dropdown>
+            <input type="text" value="92" name="{% if dial_code_name %}{{dial_code_name}}{% else %}dial_code{% endif %}" id="" dropdown-field class="hidden dial-code-input " readonly>
+            <div class="cursor-not-allowed flex-1" dropdown-value-display>
+                <span class="dummy-placeholder">+92</span>
             </div>
             <span class="arrow">
                 <svg class="dropwdown-arrow" width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -12,7 +12,7 @@
                 </svg>
             </span>
         </div>
-        <div class="dropdown-data hidden tc-shadow" dropdown-data>
+        <!-- <div class="dropdown-data hidden tc-shadow" dropdown-data>
             <div class="dropdown-search-field">
                 <span>
                     <svg width="17" height="17" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -35,7 +35,7 @@
                 </span>
                 <p class="ml-2">No Record Found</p>
             </div>
-        </div>
+        </div> -->
         <input autocomplete="off" type="number" name="{{name}}" {{attributes}} id="" class="number-field" placeholder="{{placeholder}}">
     </div>
 </div>

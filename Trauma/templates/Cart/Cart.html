@@ -1,0 +1,160 @@
+
+{% extends 'Components/Base.html' %}
+{% load static %}
+
+{% block title %}Cart{% endblock title %}
+
+
+{% block BaseCSS %}
+<style>
+      @media (max-width:1200px) {
+            .MedicineCartPageMain{
+                  flex-direction: column !important;
+            }
+            .MedicineCartPageMain-1{
+                  align-items: center !important;
+            }
+      }
+</style>
+{% endblock BaseCSS %}
+
+
+{% block baseBody %}
+    
+<section class="m-auto px-[90px]" style="max-width: 1920px;">
+      <div class="MedicineCartPageMain border-[1.5px] m-auto flex gap-8 rounded-[18px] truncate border-[#0000001A] mt-[30px] mb-[30px]" style="max-width: 1350px;">
+            <main class="MedicineCartPageMain-1 w-[800px] px-[40px] py-[30px]">
+                  <h2 class="text-[#565656] text-[26px] font-[700]">My Cart(7)</h2>
+                  <p class="text-[20px] font-[600] text-[#565656] mt-[6px]">Appointment & Services</p>
+                  {% include 'Components/Pharmacy/AppointmentServiceCard.html' %}
+                  {% include 'Components/Pharmacy/AppointmentServiceCard.html' %}
+                  {% include 'Components/Pharmacy/AppointmentServiceCard.html' %}
+                  {% include 'Components/Pharmacy/AppointmentServiceCard.html' %}
+                  <div class="flex justify-end mt-[10px]">
+                        <a href="" class="text-[#557DE5] text-[18px] font-[600]">+ Add Services</a>
+                  </div>
+                  <h2 class="mt-[15px] text-[22px] font-[600] text-[#565656]">
+                        Medicines
+                  </h2>
+                  {% include 'Components/Pharmacy/AppointmentMedicineCard.html' %}
+                  {% include 'Components/Pharmacy/AppointmentMedicineCard.html' %}
+                  <div class="flex justify-end mt-[10px]">
+                        <a href="" class="text-[#557DE5] text-[18px] font-[600]">+ Add Medicines</a>
+                  </div>
+            </main>
+            <main class="flex-1 bg-[#24D0D00F] p-8 ">
+                        <p class="text-2xl font-[600] text-[#565656]">Order Summary</p>
+                        <div class="flex flex-col gap-6 mt-4">
+                        <div class="flex flex-col ">
+                              <p class="text-[#24D0D0] font-[600] text-lg">Promo Code</p>
+                              <p class="text-[#767676]">Use Our promocode to get <span class="font-[600]"> 20% </span>discount</p>
+                              <div class="bg-white rounded-xl  flex items-center justify-between mt-2 border border-[#ffffff] p-3 cursor-pointer">
+                                          <p class="text-[#24D0D0] font-[500]">AV5the456</p>
+                                          <p class="text-[#5C5555] font-[600]">Apply</p>
+                              </div>
+                        </div>
+                        <div>
+                              <p class="text-[#24D0D0] font-[600] text-xl">Appointment & Services</p>
+                              <div class="flex flex-col gap-2">
+                              <div class="flex items-center justify-between">
+                                    <p class="text-[#625A5A] font-semibold">Doctor Fee</p>
+                                    <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                              </div>
+                              <div class="flex items-center justify-between">
+                                    <p class="text-[#625A5A] font-semibold">X-Ray Fee</p>
+                                    <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                              </div>
+                              <div class="flex items-center justify-between">
+                                    <p class="text-[#625A5A] font-semibold">Ultrasound Fee</p>
+                                    <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                              </div>
+                              <div class="flex items-center justify-between">
+                                    <p class="text-[#625A5A] font-semibold">Blood Test</p>
+                                    <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                              </div>
+                        </div>
+                        </div>
+                        <div>
+                              <p class="text-[#557DE5] font-semibold text-xl">Medicine order</p>
+                              <div class="flex flex-col gap-2">
+                                    <div class="flex items-center justify-between">
+                                          <p class="text-[#625A5A] font-semibold">Panadol 500mg tablet</p>
+                                          <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                          <p class="text-[#625A5A] font-semibold">Peracetamol 500mg tablet</p>
+                                          <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                                    </div>
+                                    <div class="flex items-center justify-between">
+                                          <p class="text-[#625A5A] font-semibold">Delivery Charges</p>
+                                          <p class="text-[#68686880]">Rs <span class="text-[#686868] font-semibold">3000/-</span> </p>
+                                    </div>
+                              </div>
+                        </div>
+                        <div>
+                              <p class="text-xl font-semibold text-[#24D0D0]">Discount</p>
+                              <div class="p-4 rounded-xl bg-[#24D0D033] mt-4 flex flex-col gap-3">
+                                    <div class="flex  justify-between">
+                                          <p class="text-[#434343] font-semibold">Doctor  Discount</p>
+                                          <div class="flex flex-col items-center">
+                                                <p class="text-[#24D0D0] font-semibold leading-4">20%</p>
+                                                <p class="text-[#434343] font-semibold leading-5">-600Rs</p>
+                                          </div>
+                                    </div>
+                                    <div class="flex  justify-between">
+                                          <p class="text-[#434343] font-semibold">X-RAY Service Discount</p>
+                                          <div class="flex flex-col items-center">
+                                                <p class="text-[#24D0D0] font-semibold leading-4">20%</p>
+                                                <p class="text-[#434343] font-semibold leading-5">-600Rs</p>
+                                          </div>
+                                    </div>
+                                    <div class="flex  justify-between">
+                                          <p class="text-[#434343] font-semibold">Ultrasound service Discount</p>
+                                          <div class="flex flex-col items-center">
+                                                <p class="text-[#24D0D0] font-semibold leading-4">20%</p>
+                                                <p class="text-[#434343] font-semibold leading-5">-600Rs</p>
+                                          </div>
+                                    </div>
+                                    <div class="flex  justify-between">
+                                          <p class="text-[#557DE5] font-semibold">Medicines Discount</p>
+                                          <div class="flex flex-col items-center">
+                                                <p class="text-[#557DE5] font-semibold leading-4">20%</p>
+                                                <p class="text-[#434343] font-semibold leading-5">-600Rs</p>
+                                          </div>
+                                    </div>
+                              </div>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                              <div class="flex justify-between">
+                                    <p class="text-[#625A5A]">Tax</p>
+                                    <p class="text-[#625A5A]">Rs 0/-</p>
+                              </div>
+                              <div  class="flex justify-between">
+                                    <p class="font-semibold text-lg text-[#4B4B4B]">Total</p>
+                                    <p class="font-semibold text-lg text-[#4B4B4B]">Rs 00000/-</p>
+                              </div>
+                              <div class="border border-[#36AA6C] hover:bg-[#EDFAF3] cursor-pointer flex items-center justify-between p-3 rounded-xl" >
+                                    <p class="text-[#36AA6C] font-semibold">Your total saving on this order</p>
+                                    <p class="text-[#36AA6C] font-semibold">Rs 2200/-</p>
+                              </div>
+                        </div>
+                        <div class="flex items-center gap-2 justify-center bg-[#24D0D0] cursor-pointer p-3 rounded-xl">
+                              <P class="text-white font-semibold text-[20px]">Confirm Order</P>
+                              <svg width="17" height="17" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M16.2341 6.39198C16.5886 6.03742 16.5886 5.46258 16.2341 5.10802L11.392 0.265916C11.0374 -0.0886388 10.4626 -0.0886388 10.108 0.265916C9.75347 0.62047 9.75347 1.19532 10.108 1.54987L13.4003 4.84211H1.06579C0.564373 4.84211 0.157894 5.24858 0.157894 5.75C0.157894 6.25142 0.564373 6.65789 1.06579 6.65789H13.4003L10.108 9.95013C9.75347 10.3047 9.75347 10.8795 10.108 11.2341C10.4626 11.5886 11.0374 11.5886 11.392 11.2341L16.2341 6.39198Z" fill="#F8F8F8"/>
+                              </svg>
+                        </div>
+                        </div>
+            </main>
+      </div>
+</section>
+{% endblock baseBody %}
+
+
+{% block main_base_script %}
+
+<!-- Here your Js starts  -->
+
+<!-- Here your Js end  -->
+
+{% endblock main_base_script %}
