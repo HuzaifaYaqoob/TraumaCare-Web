@@ -1,22 +1,22 @@
 <a href="/speciality/view/">
-    <div class="flex gap-3 pt-4 pl-3 cursor-pointer pb-4 pr-4 bg-[#FCFCFC] border border-solid border-[#D3D3D3] rounded-lg speciality-cards-TC">
-        <div class="flex flex-col gap-1">
-            <div class="p-1 bg-[{{data.color_code}}30] rounded">
+    <div class="flex gap-3 pt-4 pl-3 cursor-pointer pb-4 pr-4 bg-[#fff] border border-solid border-[#e8e8e8/80] rounded-lg speciality-cards-TC hover:shadow-xl transition-all">
+        <div class="flex flex-col gap-1 w-[35px]">
+            <div class="p-1 bg-[{{data.color_code}}25] rounded h-[35px] flex items-center justify-center">
                 {{data.svg_icon|safe}}             
             </div>
-            <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
+            <p class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold line-clamp-1">
                 900
-            </div>
-            <div class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold ">
+            </p>
+            <p class="bg-[#557de51a] px-1 rounded text-[#363636] text-center font-semibold line-clamp-1">
                 10
-            </div>
+            </p>
         </div>
         <div class="flex flex-col flex-1 gap-1">
             <div>
-                <h2 class="text-[#343434] font-semibold text-xl leading-none">{{data.name}}</h2>
+                <h2 class="text-[#343434] font-semibold text-xl leading-none line-clamp-1">{{data.name}}</h2>
             </div>
             <div>
-                <p class="text-[#8A8A8A] leading-snug text-sm mt-[5px] ">{{data.description|slice:':100'}}{% if data.description|length > 100 %}...{% endif %}</p>
+                <p class="text-[#8A8A8A] leading-snug text-sm mt-[5px] line-clamp-3">{{data.description}}</p>
             </div>
         </div>
         <div class="cursor-pointer">

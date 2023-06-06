@@ -383,3 +383,15 @@ input[type='number']::-webkit-outer-spin-button
     -webkit-box-orient: vertical !important;
     -webkit-line-clamp: 2 !important;
 }
+.line-clamp-3{
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 3 !important;
+}
+.line-clamp-4{
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 4 !important;
+}
