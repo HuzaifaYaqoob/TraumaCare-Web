@@ -5,6 +5,8 @@ import uuid
 
 from Authentication.models import User
 
+
+from django.conf import settings
 # Create your models here.
 
 
@@ -59,6 +61,11 @@ class Profile(models.Model):
     @property
     def huzaifa(self):
         return PROFILE_TYPE_LABELS.get(self.profile_type, 'General Profile')
+    
+    @property
+    def image_full_path(self):
+        return f'{settings.THIS_APPLICATION_URL}{self.profile_image.url}'
+    
 
     def save(self, *args, **kwargs):
         if not self.first_name:

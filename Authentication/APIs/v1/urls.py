@@ -1,6 +1,6 @@
 
 
-from django.urls import path
+from django.urls import path, include
 
 from Authentication.APIs.v1 import views as v1_apis
 
@@ -9,4 +9,7 @@ urlpatterns = [
 
     path('login/', v1_apis.Login ),
     path('signup/', v1_apis.Signup ),
+
+    path('accounts/', include('Authentication.APIs.accounts.urls') ),
+    
 ] 
