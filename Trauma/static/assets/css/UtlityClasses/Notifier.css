@@ -3,6 +3,7 @@
     position: fixed;
     bottom: 10vh;
     max-height: max-content;
+    z-index: 100;
 }
 
 .tc-notifier{
