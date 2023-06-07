@@ -63,7 +63,9 @@ def getUserGeneralProfileData(request):
                 'error_message' : None,
                 'user_profile' : {
                     'full_name' : f'{general_profile.full_name}',
-                    'profile_image' : f'{general_profile.image_full_path}'
+                    'profile_image' : f'{general_profile.image_full_path}',
+                    'dial_code' : f'{request.user.dial_code}',
+                    'mobile_number' : f'{request.user.mobile_number}',
                 }
             }
         }, status=status.HTTP_200_OK)
