@@ -24,7 +24,7 @@ def NextRedirect(request):
         return f'{next_url}{query}'
     else:
         # next_url = None
-        next_url = 'next/not/found'
+        next_url = '/'
     
     return next_url
 
