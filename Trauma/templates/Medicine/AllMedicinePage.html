@@ -11,14 +11,14 @@
 
 {% block baseBody %}
     
-<section class="m-auto px-[90px]" style="max-width: 1920px;">
+<section class="m-auto px-[50px] lg:px-[60px] xl:px-[90px] max-w-[1920px]">
       {% include 'Components/Pharmacy/SecondNavSticky.html' %}
-      <div class="relative bg-[#24D0D01A] rounded-lg pt-[90px] pb-[30px] px-[60px] flex justify-between">
+      <div class="relative bg-[#24D0D01A] rounded-lg pt-[90px] pb-[30px] px-[60px] flex justify-center 2xl:justify-between flex-wrap ">
             <div class="">
-                  <h1 class="text-[46px] leading-tight text-[#557DE5]">
-                        Medicine Solutions with <span class="text-[#24D0D0] font-bold">10% discount</span> <br> at Your Fingertips
+                  <h1 class="text-[46px] leading-tight text-[#557DE5] text-center 2xl:text-start 2xl:max-w-[770px]">
+                        Medicine Solutions with <span class="text-[#24D0D0]  font-bold">10% discount</span> at Your Fingertips
                   </h1>
-                  <p class="text-[20px] text-[#636363]">Online Pharmacy, Easy Prescription Refills, and Doorstep Delivery</p>
+                  <p class="text-[20px] text-[#636363] text-center 2xl:text-start mt-[10px]">Online Pharmacy, Easy Prescription Refills, and Doorstep Delivery</p>
             </div> 
             <!--  -->
             <div class="shadow-lg absolute truncate top-[70%] flex left-[50%] border-[1.5px]  border-[#24D0D0] rounded-lg" style="width: 700px; margin: auto; transform: translate(-50% , -50%); height: 60px;">
@@ -243,10 +243,10 @@
                   </svg>                        
             </div>
       </div>
-      <div class="flex items-center justify-between mt-[30px] pb-[10px]">
+      <div class="flex items-center justify-between mt-[30px] pb-[10px] flex-col sm:flex-row sm:gap-[0px] gap-[10px]">
             <div class="">
                   <h3 class="text-[30px] text-[#0A1C4B] font-semibold leading-10">Top Selling medicines</h3>
-                  <p class="text-[#0A1C4B] text-[18px] font-semibold">Get <span class="text-[#24D0D0]">10% discount</span> on All items</p>
+                  <p class="text-[#0A1C4B] text-[18px] font-semibold sm:text-start text-center">Get <span class="text-[#24D0D0]">10% discount</span> on All items</p>
             </div>
             <div class="flex items gap-[7px] ">
                   <span class="swiper-slide-prev cursor-pointer rounded-[50%] bg-[#24D0D0] px-[12px] py-[12px] flex items-center justify-center">
@@ -261,7 +261,7 @@
                   </span>
             </div>
       </div>
-      <div class="swiper mySwiper mb-10 py-10 flex items-center flex-wrap gap-[25px] justify-center mt-[15px] ">
+      <div class="swiper mySwiper mb-10 pb-10 sm:pt-[20px] flex items-center flex-wrap gap-[25px] justify-center mt-[5px] ">
             <div class="swiper-wrapper">
                   <div class="swiper-slide"> 
                         {% include 'Components/Pharmacy/MedicineCard.html' %}
@@ -308,11 +308,6 @@
             </div>
       </div> -->
       <!--  -->
-
-
-      <div class="">
-            <h2 class="text-[30px] font-semibold text-[#0A1C4B] mb-[20px]">Offer & Deals For You</h2>
-      </div>
       
 
 
@@ -352,7 +347,7 @@
                   Get <span class="text-[#24D0D0]">10% discount</span> on All items
             </h2>
       </div> -->
-      <div class="flex items-center justify-between mt-[10px] pb-[10px]">
+      <div class="flex items-center flex-col sm:flex-row sm:justify-between justify-center gap-[10px] sm:gap-[0px] sm:justify-between mt-[10px] pb-[10px]">
             <div class="">
                   <h3 class="text-[30px] text-[#0A1C4B] font-semibold leading-10">Featured Products</h3>
             </div>
@@ -432,19 +427,28 @@
             slidesPerView: 1,
             spaceBetween: 20
         } ,
-        480: {
+        600: {
         slidesPerView: 2,
         spaceBetween: 30
       },
-      768: {
+      825: {
         slidesPerView: 3,
         spaceBetween: 40
       },
-      1024: {
+      1150: {
+        slidesPerView: 4,
+        spaceBetween: 50
+      }
+      ,
+      1440: {
+        slidesPerView: 5,
+        spaceBetween: 50
+      }
+      ,
+      1720: {
         slidesPerView: 6,
         spaceBetween: 50
       }
-
       }
     });
   </script>

@@ -1,10 +1,19 @@
+<style>
+    @media (max-width:640px) {
+        .images3-after-hospitalfee{
+            flex-direction: column;
+            gap: 8px;
+        }
+    }
+</style>
+
 {% load static %}
 
-<div style="display: flex; flex-direction: column; border-radius: 12px;">
-    <div class="flex-1 bg-white shadow-lg p-4">
+<div style="display: flex; flex-direction: column; border-radius: 13px;">
+    <div class="flex-1 bg-white shadow-lg p-[14px] sm:p-4">
         <div class="flex justify-between items-center">
         <div>
-            <h3 class="text-[#515151] font-semibold text-xl cursor-pointer">Chinook Regional Hospital</h3>
+            <h3 class="text-[#515151] font-semibold text-[18px] sm:text-xl cursor-pointer">Chinook Regional Hospital</h3>
         </div>
         <div>
             <svg width="19" height="16" viewBox="0 0 19 16" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -18,7 +27,7 @@
             <img src="{% static 'assets/Images/location image.png' %}">
         </div>
         <div>
-            <h3 class="text-[#557DE5] cursor-pointer">960 19 St S, Lethbridge,AB T1J 1W5, Canada</h3>
+            <h3 class="text-[#557DE5] text-[14px] sm:text-[15px] cursor-pointer">960 19 St S, Lethbridge,AB T1J 1W5, Canada</h3>
         </div> 
         </div>
         <div class="flex items-center gap-4">
@@ -30,14 +39,14 @@
                     
             </div>
             <div>
-                <h3 class="text-[#909090]">Verified Hospital</h3>
+                <h3 class="text-[#909090] text-[14px] sm:text-[16px]">Verified Hospital</h3>
             </div>
         </div>
         <div class="flex items-center gap-2">
             <span>
                 <img src="{% static 'assets/Images/24 hourse.png' %}">
             </span>
-            <h3 class="text-[#909090] cursor-pointer">Open 24 Hours</h3>
+            <h3 class="text-[#909090] cursor-pointer text-[14px] sm:text-[16px]">Open 24 Hours</h3>
         </div>
     </div>
     <div class="flex items-center gap-2">
@@ -48,39 +57,39 @@
                 
         </div>
         <div>
-            <h3 class="text-[#909090]">Hospital fee <span class="text-[#557DE5] cursor-pointer">3000</span> </h3>
+            <h3 class="text-[#909090] text-[14px] sm:text-[16px]">Hospital fee <span class="text-[#557DE5] cursor-pointer">3000</span> </h3>
         </div>
     </div>
     <div>
-    <div class="flex items-center gap-4 mt-2">
-    <div class="w-[239px] h-[137px] rounded-lg Chinook-img">
+    <div class="flex items-center gap-4 mt-2 images3-after-hospitalfee">
+        <div class=" w-[247px] sm:w-[239px] h-[137px] rounded-lg Chinook-img">
         
 
-    </div>
-    <div>
-    <div class="w-[120px] h-[65px]  mb-2 rounded-lg Chinook-img">
+        </div>
+        <div class="flex sm:flex-col gap-x-[8px]">
+             <div class="w-[120px] h-[65px] mb-2 rounded-lg Chinook-img">
         
-    </div>
-    <div class="w-[120px] h-[65px]  rounded-lg Chinook-img">
+            </div>
+            <div class="w-[120px] h-[65px] rounded-lg Chinook-img">
 
-    </div>
-   </div>
+            </div>
+        </div>
     </div>
     <div class="flex items-center gap-6 mt-4 cursor-pointer">
-        <div class="border border-[#557DE5] px-8 py-2 rounded-lg">
-            <h3 class="text-[#557DE5] text-lg">Available treatments</h3>
+        <div class="border border-[#557DE5] px-[20px] py-[6px] sm:px-8 sm:py-2 rounded-lg">
+            <h3 class="text-[#557DE5] text-[15px] sm:text-lg">Available treatments</h3>
         </div>
-        <div class="flex items-center gap-8">
+        <div class="flex items-center gap-[20px] sm:gap-8 doctor-staf-gap">
             <div class="border-[2px] border-[#C192E9] rounded-full p-3 relative" style="border-radius: 50%;">
-                <p class="text-[#6C6C6C] font-semibold text-lg">5.0</p>
+                <p class="text-[#6C6C6C] font-semibold text-[14px] sm:text-xm">5.0</p>
                 <div class="absolute bottom-[-13px] left-[-10px] bg-[#557DE5] px-3 py-[0.1rem] rounded-xl">
-                    <p class="text-white text-sm">Doctor</p>
+                    <p class="text-white text-[12px] sm:text-sm">Doctor</p>
                 </div>
             </div>
             <div class="border-[2px] border-[#F8C630] rounded-full p-3 relative" style="border-radius: 50%;">
-                <p class="text-[#6C6C6C] font-semibold text-xm">5.0</p>
+                <p class="text-[#6C6C6C] font-semibold text-[14px] sm:text-xm">5.0</p>
                 <div class="absolute bottom-[-13px] left-[-10px] bg-[#557DE5] px-5 py-[0.1rem] rounded-xl">
-                    <p class="text-white  text-sm">staff</p>
+                    <p class="text-white text-[12px] sm:text-sm">staff</p>
                 </div>
             </div>
         </div>
@@ -88,10 +97,10 @@
     <hr class="mt-10 py-2">
     <div class="flex items-center justify-between cursor-pointer px-1">
     <div>
-        <h3 class="text-[#557DE5] font-meduim text-md">View more Locations</h3>
+        <h3 class="text-[#557DE5] font-meduim text-[15px] sm:text-md">View more Locations</h3>
     </div>
     <div>
-        <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <svg width="6" height="11" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 1L5 6L1 11" stroke="#557DE5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             
