@@ -49,3 +49,12 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
         )
 
     return
+
+
+@receiver(post_save, sender=User)
+def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
+    if created:
+        from rest_framework.authtoken.models import Token 
+        Token.objects.get_or_create(user = instance)
+
+    return
