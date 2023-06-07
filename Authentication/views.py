@@ -3,7 +3,10 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from rest_framework.decorators import api_view
 
+
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
+from django.conf import settings
 
 # Create your views here.
 
@@ -206,4 +209,17 @@ def AutoLoginRedirection(request):
         return HttpResponseRedirect(next_url)
     
     return HttpResponseRedirect('/')
+    
+
+
+@login_required(login_url='/auth/login/')
+def CreateNewBusinessProfileRedirection(request):
+    user = request.user
+    auth_token = user.auth_token
+
+    url = f'{settings.ACCOUNT_TRAUMACARE_URL}/auth/auto_authentication/?user_id={user.id}&auth_token={auth_token}&redirection_source=tc-rex-doc-uri&business_profile=Doctor'
+    # redirection_source=tc-rex-doc-uri
+
+    return HttpResponseRedirect(url)
+    
     

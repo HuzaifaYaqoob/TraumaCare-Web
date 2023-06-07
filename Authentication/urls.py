@@ -2,7 +2,7 @@
 from django.urls import path
 
 
-from .views import LoginPage, RegisterPage, HandleJoin, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection
+from .views import LoginPage, RegisterPage, HandleJoin, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection, CreateNewBusinessProfileRedirection
 
 urlpatterns = [
     path('login/', LoginPage, name='LoginPage'),
@@ -11,6 +11,7 @@ urlpatterns = [
 
 
     path('auto-login-redirection/', AutoLoginRedirection, name='AutoLoginRedirection'),
+    path('create-new-business-profile-redirection/', CreateNewBusinessProfileRedirection, name='CreateNewBusinessProfileRedirection'),
 
     path('logout-handler/', HandleLogout, name='HandleLogout'),
     path('login-handler/', HandleLogin, name='HandleLogin'),
