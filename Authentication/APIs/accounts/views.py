@@ -62,6 +62,7 @@ def getUserGeneralProfileData(request):
                 'message' : 'Authenticated user data',
                 'error_message' : None,
                 'user_profile' : {
+                    'email' : f'{general_profile.email}',
                     'full_name' : f'{general_profile.full_name}',
                     'profile_image' : f'{general_profile.image_full_path}',
                     'dial_code' : f'{request.user.dial_code}',
