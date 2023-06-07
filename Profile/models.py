@@ -7,6 +7,7 @@ from Authentication.models import User
 
 
 from django.conf import settings
+from Constants.Data.Profile import DUMMY_PROFILE_IMAGE
 # Create your models here.
 
 
@@ -64,7 +65,10 @@ class Profile(models.Model):
     
     @property
     def image_full_path(self):
-        return f'{settings.THIS_APPLICATION_URL}{self.profile_image.url}'
+        if self.profile_image:
+            return f'{settings.THIS_APPLICATION_URL}{self.profile_image.url}'
+        
+        return DUMMY_PROFILE_IMAGE
     
 
     def save(self, *args, **kwargs):
