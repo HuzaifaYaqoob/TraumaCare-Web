@@ -6,7 +6,7 @@
         style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');">
         </div>
         <div class="flex-1">
-            <a href="/doctor/profile/view/" class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer">Dr. {{doctor.name}}</a>
+            <a href="/doctor/profile/view/{{doctor.id}}" class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer">Dr. {{doctor.name}}</a>
             <p class="text-[#0A1C4B] text-base font-medium leading-tight text-[14px] mt-[2px] mb-[0px]">Quaid-e-Azam International <br> Hospital, Islamabad </p>
             <a class="text-[#557DE5] hover:border-b border-[#557DE5] text-[14px]" href="#">View more</a>
         </div>
