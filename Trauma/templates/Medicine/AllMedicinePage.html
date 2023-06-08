@@ -10,9 +10,8 @@
 {% endblock BaseCSS %}
 
 {% block baseBody %}
-    
-<section class="m-auto px-[50px] lg:px-[60px] xl:px-[90px] max-w-[1920px]">
-      {% include 'Components/Pharmacy/SecondNavSticky.html' %}
+{% include 'Components/Pharmacy/SecondNavSticky.html' %}
+<section class="m-auto px-[0px] sm:px-[20px] xl:px-[60px] xl:px-[90px] max-w-[1920px]">
       <div class="relative bg-[#24D0D01A] rounded-lg pt-[90px] pb-[30px] px-[60px] flex justify-center 2xl:justify-between flex-wrap ">
             <div class="">
                   <h1 class="text-[46px] leading-tight text-[#557DE5] text-center 2xl:text-start 2xl:max-w-[770px]">
@@ -21,7 +20,7 @@
                   <p class="text-[20px] text-[#636363] text-center 2xl:text-start mt-[10px]">Online Pharmacy, Easy Prescription Refills, and Doorstep Delivery</p>
             </div> 
             <!--  -->
-            <div class="shadow-lg absolute truncate top-[70%] flex left-[50%] border-[1.5px]  border-[#24D0D0] rounded-lg" style="width: 700px; margin: auto; transform: translate(-50% , -50%); height: 60px;">
+            <div class="shadow-lg absolute truncate top-[70%] flex left-[50%] border-[1.5px]  border-[#24D0D0] rounded-lg md:w-[700px] md:h-[60px] m-auto sm:w-[550px] sm:h-[50px] w-[400px] h-[45px]" style="transform: translate(-50% , -50%);">
                   <input type="search" placeholder="Search for medicines here" class="pl-[18px] pr-[10px] text-[#464545] text-[20px] border-0 outline-0 bg-[#ffffff] flex-1">
                   <div class="bg-[#24D0D0] cursor-pointer h-full w-24 flex items-center justify-center">
                         <svg width="25" height="25" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">

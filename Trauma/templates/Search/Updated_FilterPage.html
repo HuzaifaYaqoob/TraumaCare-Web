@@ -5,6 +5,35 @@
 {% block BaseCSS %}
 
     <link rel="stylesheet" href="{% static 'assets/css/Search/searchfilterpage.css' %}">
+    <style>
+        @media (max-width:435px) {
+            .Doctor-card-TC{
+                width: 370px !important;
+            }
+            .Doctor-card-TC-Responsive{
+                gap: 5px !important;
+            }
+            .Doctor-card-TC-Responsive-1{
+                height: 32px !important;
+                width: 32px !important;
+                border-radius: 6px !important;
+            }
+            .Doctor-card-TC-Responsive-1 svg{
+                height: 16px !important;
+                width: 16px !important;
+            }
+            .Doctor-card-TC-Responsive-2{
+                height: 32px !important;
+                width: 32px !important;
+                font-size: 13px !important;
+            }
+        }
+        @media (max-width:400px) {
+            .Doctor-card-TC{
+                width: 355px !important;
+            }
+        }
+    </style>
 
 {% endblock BaseCSS %}
 {% block baseBody %}
