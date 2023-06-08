@@ -519,7 +519,7 @@
 
     <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% for speciality in specialities|slice:':8' %}
-            {% include 'Components/Home/SpecialityCard.html' with data=speciality %}
+            {% include 'Components/Home/SpecialityCard.html' with data=speciality is_this_speciality_card='true' %}
         {% endfor %}
     </div>
 

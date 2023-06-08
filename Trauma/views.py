@@ -1,6 +1,7 @@
 
 
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib import messages
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
@@ -23,8 +24,21 @@ def FeedPage(request):
 def SpecialitiesPage(request):
     return render(request, 'Speciality/specialities.html')
 
-def SingleSpecialityPage(request, speciality_id):
-    return render(request, 'Speciality/speciality.html')
+def SingleSpecialityPage(request, speciality_slug):
+    try:
+        speciality = Speciality.objects.get(
+            slug = speciality_slug,
+            is_deleted = False,
+            is_active = True,
+        )
+    except:
+        messages.error(request, 'Invalid Speciality URL!')
+        messages.info(request, 'Explore more here!')
+        return redirect('SpecialitiesPage')
+    else:
+        context = {}
+        context['speciality'] = speciality
+        return render(request, 'Speciality/speciality.html', context)
 
 
 # Diseases Handler 
@@ -32,8 +46,21 @@ def SingleSpecialityPage(request, speciality_id):
 def DiseasesViewAllPage(request):
     return render(request, 'Disease/Diseases.html')
 
-def SingleDiseasePage(request, disease_id):
-    return render(request, 'Speciality/speciality.html')
+def SingleDiseasePage(request, disease_slug):
+    try:
+        disease = Disease.objects.get(
+            slug = disease_slug,
+            is_deleted = False,
+            is_active = True,
+        )
+    except:
+        messages.error(request, 'Invalid disease URL!')
+        messages.info(request, 'Explore more here!')
+        return redirect('DiseasesViewAllPage')
+    else:
+        context = {}
+        context['disease'] = disease
+    return render(request, 'Disease/SingleDiseaseView.html')
 
 def test(request):
     return render(request, 'prescription.html')

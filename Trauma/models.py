@@ -26,6 +26,14 @@ class Speciality(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            name = self.name
+            name = name.replace(' ', '-').replace('/', '-')
+            self.slug = name
+        
+        super(Speciality, self).save(*args, **kwargs)
 
     
     class Meta:
@@ -52,6 +60,14 @@ class Disease(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            name = self.name
+            name = name.replace(' ', '-').replace('/', '-')
+            self.slug = name
+        
+        super(Disease, self).save(*args, **kwargs)
 
     
     class Meta:
