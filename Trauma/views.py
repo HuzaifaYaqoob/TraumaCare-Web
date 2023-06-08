@@ -2,9 +2,14 @@
 
 from django.shortcuts import render
 
+from Doctor.models import Doctor
 
 def homePage(request):
-    return render(request, 'Home/index.html')
+    context = {}
+
+    doctors = Doctor.objects.all()
+    context['doctors'] = doctors
+    return render(request, 'Home/index.html', context)
 
 def email_view(request):
     path = request.GET.get('path')

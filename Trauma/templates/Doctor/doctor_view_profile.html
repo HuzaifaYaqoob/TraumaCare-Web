@@ -1,7 +1,7 @@
 
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}Home{% endblock title %}
+{% block title %}Dr. {{doctor.name}} - {{doctor.heading}} - Profile View{% endblock title %}
 
 {% block BaseCSS %}
 
@@ -21,11 +21,11 @@
                   </div>
                   <div class="verified-D-TC-C flex flex-col gap-[5px] items-start">
                         <h2 class="text-[#555555] verified-D-TC-C-h2">
-                              Dr. Ali Shehvaiz Younas
+                              Dr. {{doctor.name}}
                         </h2>
                         <div class="flex items-center gap-[8px]">
                               <div class="text-[#9A9A9A] verified-D-TC-C-num">
-                                    0345 6789100
+                                    {{doctor.phone_number}}
                               </div>
                               <div class="flex items-center gap-[5px]">
                                     <span>
@@ -765,7 +765,7 @@
                               </svg>
                   </div>
             </div>
-            <h2 class="mt-[50px] text-[#000000]" style="font-size: 30px; font-weight: 500;">Dr. Ali Shehvaiz Younas</h2>
+            <h2 class="mt-[50px] text-[#000000]" style="font-size: 30px; font-weight: 500;">Dr. {{doctor.name}}</h2>
             <p class="Web-Based-TC-p">
                   Secure and Convenient Web-Based Chat for Hospital <br>
                   Communication and Collaboration

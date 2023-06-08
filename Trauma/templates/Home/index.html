@@ -345,18 +345,11 @@
     </div>
         <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
             <div class="swiper-wrapper py-12">
-              <div class="swiper-slide border border flex-1"> 
-                {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
-            </div>
-              <div class="swiper-slide  flex-1">
-                {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/402×402/?doctor&face&human' %}
-              </div>
-              <div class="swiper-slide  flex-1">
-                {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/403×403/?doctor&face&human' %}
-              </div>
-              <div class="swiper-slide  flex-1">
-                {% include 'Components/Home/DoctorCard.html'  with image='https://source.unsplash.com/random/404×404/?doctor&face&human' %}
-              </div>
+                {% for doctor in doctors %}
+                    <div class="swiper-slide border border flex-1"> 
+                        {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                    </div>
+                {% endfor %}
             </div>
             <div class="swiper-pagination absolute bottom-[500px]"></div>
         </div>
