@@ -7,22 +7,62 @@
 {% block BaseCSS %}
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+      <style>
+            @media (max-width:770px) {
+                  .Boy-Delevery-TC{
+                        padding-top: 0px !important;
+                        padding-bottom: 0px !important;
+                  }
+                  .Boy-Delevery-TC svg{
+                        height: 380px !important;
+                        width: 380px !important;
+                  }
+                  .SearchBar-allmedicine-input{
+                        font-size: 16px !important;
+                  }
+                  .SearchBar-allmedicine-svg svg{
+                        height: 22px !important;
+                        width: 22px !important;
+                  }
+            }
+            .SearchBar-allmedicine{
+                        transform: translate(-50% , -50%) !important;
+                  }
+            @media (max-width:460px) {
+                  .Boy-Delevery-TC svg{
+                        height: 324px !important;
+                        width: 324px !important;
+                  }
+
+                  .SearchBar-allmedicine{
+                        width: 370px !important;
+                        height: 42px !important;
+                  }
+
+            }
+            @media (max-width:380px){
+                  .SearchBar-allmedicine{
+                        width: 332px !important;
+                        height: 42px !important;
+                  }
+            }
+      </style>
 {% endblock BaseCSS %}
 
 {% block baseBody %}
 {% include 'Components/Pharmacy/SecondNavSticky.html' %}
 <section class="m-auto px-[0px] sm:px-[20px] xl:px-[60px] xl:px-[90px] max-w-[1920px]">
-      <div class="relative bg-[#24D0D01A] rounded-lg pt-[90px] pb-[30px] px-[60px] flex justify-center 2xl:justify-between flex-wrap ">
+      <div class="relative bg-[#24D0D01A] rounded-lg pt-[70px] sm:pt-[90px] pb-[24px] sm:pb-[30px] px-[60px] flex justify-center 2xl:justify-between flex-wrap ">
             <div class="">
-                  <h1 class="text-[46px] leading-tight text-[#557DE5] text-center 2xl:text-start 2xl:max-w-[770px]">
+                  <h1 class="text-[22px] sm:text-[34px] md:text-[46px] leading-tight text-[#557DE5] text-center 2xl:text-start 2xl:max-w-[770px]">
                         Medicine Solutions with <span class="text-[#24D0D0]  font-bold">10% discount</span> at Your Fingertips
                   </h1>
-                  <p class="text-[20px] text-[#636363] text-center 2xl:text-start mt-[10px]">Online Pharmacy, Easy Prescription Refills, and Doorstep Delivery</p>
+                  <p class="text-[14px] sm:text-[17px] md:text-[20px] text-[#636363] text-center 2xl:text-start mt-[10px]">Online Pharmacy, Easy Prescription Refills, and Doorstep Delivery</p>
             </div> 
             <!--  -->
-            <div class="shadow-lg absolute truncate top-[70%] flex left-[50%] border-[1.5px]  border-[#24D0D0] rounded-lg md:w-[700px] md:h-[60px] m-auto sm:w-[550px] sm:h-[50px] w-[400px] h-[45px]" style="transform: translate(-50% , -50%);">
-                  <input type="search" placeholder="Search for medicines here" class="pl-[18px] pr-[10px] text-[#464545] text-[20px] border-0 outline-0 bg-[#ffffff] flex-1">
-                  <div class="bg-[#24D0D0] cursor-pointer h-full w-24 flex items-center justify-center">
+            <div class="SearchBar-allmedicine shadow-lg absolute truncate top-[70%] flex left-[50%] border-[1.5px]  border-[#24D0D0] rounded-lg md:w-[700px] md:h-[60px] m-auto sm:w-[550px] sm:h-[50px] w-[400px] h-[45px]">
+                  <input type="search" placeholder="Search for medicines here" class="SearchBar-allmedicine-input pl-[18px] pr-[10px] text-[#464545] text-[20px] border-0 outline-0 bg-[#ffffff] flex-1">
+                  <div class="bg-[#24D0D0] SearchBar-allmedicine-svg cursor-pointer h-full w-[70px] sm:w-[96px] flex items-center justify-center">
                         <svg width="25" height="25" viewBox="0 0 31 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path fill-rule="evenodd" clip-rule="evenodd" d="M23.4538 20.6974C25.4327 18.119 26.3653 14.8755 26.0619 11.6268C25.7586 8.37803 24.242 5.36812 21.8208 3.20938C19.3995 1.05064 16.2555 -0.0947824 13.0283 0.00614531C9.80113 0.107073 6.7332 1.44677 4.44866 3.75268C2.16214 6.06019 0.832246 9.16204 0.729997 12.4261C0.627747 15.6902 1.76084 18.8709 3.89836 21.3199C6.03588 23.769 9.01697 25.3022 12.2341 25.607C15.4513 25.9118 18.6624 24.9653 21.213 22.9605L21.2813 23.0326L28.0131 29.8378C28.1605 29.9868 28.3355 30.105 28.5282 30.1857C28.7208 30.2663 28.9273 30.3078 29.1358 30.3078C29.3443 30.3078 29.5508 30.2663 29.7434 30.1857C29.9361 30.105 30.1111 29.9868 30.2586 29.8378C30.406 29.6888 30.523 29.5119 30.6028 29.3172C30.6826 29.1225 30.7236 28.9138 30.7236 28.7031C30.7236 28.4923 30.6826 28.2837 30.6028 28.089C30.523 27.8943 30.406 27.7174 30.2586 27.5684L23.5252 20.7648C23.502 20.7417 23.4782 20.7192 23.4538 20.6974ZM20.1593 6.02214C21.0553 6.91305 21.7679 7.97443 22.256 9.14506C22.7441 10.3157 22.998 11.5724 23.0031 12.8427C23.0082 14.113 22.7644 15.3718 22.2858 16.5464C21.8072 17.721 21.1031 18.7882 20.2144 19.6865C19.3256 20.5848 18.2696 21.2963 17.1074 21.78C15.9452 22.2638 14.6997 22.5102 13.4428 22.505C12.1859 22.4998 10.9424 22.2432 9.78415 21.7499C8.62587 21.2566 7.57569 20.5364 6.69418 19.6309C4.93255 17.8212 3.94982 15.3814 3.96005 12.8427C3.97028 10.3041 4.97263 7.87242 6.74878 6.07733C8.52493 4.28224 10.931 3.26919 13.4428 3.25885C15.9546 3.24852 18.3688 4.24172 20.1593 6.02214Z" fill="white"/>
                         </svg>                              
@@ -36,7 +76,7 @@
 
             </div>
             <!--  -->
-            <div class="pt-[70px] pb-[10px] ">
+            <div class="pt-[70px] pb-[10px] Boy-Delevery-TC">
                   <svg width="494" height="348" viewBox="0 0 494 348" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M189.469 104.683H74.7893C73.6613 101.772 76.1066 98.6061 78.9666 97.4053C81.8267 96.2045 85.0507 96.5102 88.1364 96.7722C91.2221 97.0342 94.5043 97.187 97.2407 95.7315C102.524 92.9078 103.237 85.8267 105.639 80.3394C107.451 76.2001 110.471 72.7052 114.305 70.3133C118.138 67.9214 122.605 66.7442 127.119 66.9363C131.633 67.1283 135.984 68.6806 139.6 71.3894C143.217 74.0982 145.93 77.837 147.383 82.1151C148.839 86.4817 149.173 91.6342 152.543 94.8C156.094 98.1258 161.684 97.9148 166.37 96.6266C171.057 95.3385 175.642 93.1771 180.503 93.3081C185.365 93.439 189.797 99.8288 189.469 104.683Z" fill="white"/>
                         <path d="M353.652 52.1655H248.854C251.205 46.7291 255.885 41.9113 261.481 39.9755C264.297 39.0278 267.277 38.6681 270.238 38.9184C273.198 39.1688 276.076 40.024 278.693 41.431C281.887 43.1704 284.769 45.7976 288.364 46.3143C294.034 47.1585 298.91 42.7119 303.706 39.5752C311.966 34.2198 321.961 32.2254 331.644 34.0006C341.171 35.7836 347.997 44.2402 353.652 52.1655Z" fill="white"/>
