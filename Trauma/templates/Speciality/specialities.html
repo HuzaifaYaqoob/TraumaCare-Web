@@ -1,18 +1,17 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}Specialities{% endblock title %}
+{% block title %}Comprehensive Doctor Specialties Directory: Find the Right Expert for Your Healthcare Needs{% endblock title %}
 
 
 {% block baseBody %}
       <div class="py-10">
             <div class="max-w-[800px] w-[90%] mx-auto flex flex-col gap-2">
-            <h3 class="text-center text-[#557DE5] text-4xl font-[600]">Discover doctors based on your condition.</h3>
-            <p class="text-center text-[#797979] text-xl ">Are you looking for a doctors who are listed as “Internal medicine” or “General Practitioners.”  These doctors have expertise in diagnosing & treating a 
-                  wide range of conditions.</p>
+            <h3 class="text-center text-[#557DE5] text-4xl font-[600]">Discover a Diverse Range of Doctor Specialties to Meet Your Unique Healthcare Requirements.</h3>
+            <p class="text-center text-[#797979] text-xl font-[300]">From Cardiology to Dermatology, Neurology to Pediatrics - Uncover a Wide Array of Doctor Specialties for Comprehensive Healthcare.</p>
             </div>
                   <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC max-w-[1300px] mx-auto mt-4 w-[90%]">
-            {% for speciality in all_specialities %}
-                  {% include 'Components/Home/SpecialityCard.html' with data=speciality %}
+            {% for speciality in specialities %}
+                  {% include 'Components/Home/SpecialityCard.html' with data=speciality is_this_speciality_card='true' %}
             {% endfor %}
       </div>
       </div>

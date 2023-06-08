@@ -3,7 +3,7 @@
 from django.shortcuts import render
 
 from Doctor.models import Doctor
-from Trauma.models import Speciality
+from Trauma.models import Speciality, Disease
 
 def homePage(request):
     context = {}
@@ -21,10 +21,18 @@ def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
 
 def SpecialitiesPage(request):
-    specialities = Speciality.objects.all()
-    return render(request, 'Speciality/specialities.html' , context={'all_specialities' : specialities})
+    return render(request, 'Speciality/specialities.html')
 
-def SingleSpecialityPage(request):
+def SingleSpecialityPage(request, speciality_id):
+    return render(request, 'Speciality/speciality.html')
+
+
+# Diseases Handler 
+
+def DiseasesViewAllPage(request):
+    return render(request, 'Disease/Diseases.html')
+
+def SingleDiseasePage(request, disease_id):
     return render(request, 'Speciality/speciality.html')
 
 def test(request):
