@@ -42,6 +42,8 @@ class Doctor(models.Model):
 
     online_availability = models.CharField(choices=AVAILABILITY_CHOICES, default='24_HOURS_OPEN', max_length=100)
 
+    is_approved = models.BooleanField(default=False)
+
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
@@ -67,6 +69,29 @@ class Doctor(models.Model):
     def get_availability_text(self):
         availability = AVAILABILITY_TEXT.get(self.online_availability or '24_HOURS_OPEN')
         return availability
+    
+    def get_specialities(self,):
+        return Speciality.objects.filter(
+            speciality_doctorspecialities__doctor = self,
+            speciality_doctorspecialities__is_deleted = False,
+            speciality_doctorspecialities__is_active = True,
+        )
+    
+    @property
+    def profile_image(self):
+        try:
+            profile_pic = DoctorMedia.objects.get(
+                doctor = self,
+                file_type = 'Profile Image',
+                is_deleted = False,
+                is_active = True
+            )
+        except:
+            return None
+        else:
+            if profile_pic.file:
+                return profile_pic.file.url
+            return None
 
 
 class DoctorMediaManager(models.Manager):

@@ -3,16 +3,16 @@
 <div class=" flex flex-col gap-5 rounded-[13px] cursor-pointer bg-[#fff] tc-shadow doctor-card-maon-TC-cards">
     <div class="flex gap-4 items-center mt-6 ml-4">
         <div class="h-20 w-20 rounded-[50%] border-2 border-[#23d0d0] cursor-pointer bg-center bg-cover bg-no-repeat" 
-        style="background-image: url('{{image}}');">
+        style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');">
         </div>
-        <div>
-            <a href="/doctor/profile/view/" class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer">Dr. Yaseen Arfat</a>
+        <div class="flex-1">
+            <a href="/doctor/profile/view/" class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer">Dr. {{doctor.name}}</a>
             <p class="text-[#0A1C4B] text-base font-medium leading-tight text-[14px] mt-[2px] mb-[0px]">Quaid-e-Azam International <br> Hospital, Islamabad </p>
             <a class="text-[#557DE5] hover:border-b border-[#557DE5] text-[14px]" href="#">View more</a>
         </div>
     </div>
     <div class="flex flex-wrap items-center gap-1 px-4">
-        {% for speciality in specialities|slice:':4' %}
+        {% for speciality in doctor.get_specialities|slice:':4' %}
             <div class="nav-item-svg-parent-div cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-1 px-2 border border-[#C9C9C9] rounded-lg border-solid hover:border-[{{speciality.color_code}}]">
                 {{speciality.svg_icon|safe}}
                 <span class="whitespace-nowrap text-gray-600 text-[13px] font-regular tracking-normal transition ">
@@ -20,8 +20,13 @@
                 </span>
             </div>
         {% endfor %}
+        {% if doctor.get_specialities|length > 4 %}
+            <div class="cursor-pointer py-1 px-4 text-sm font-regular text-[#23d0d0] hover:text-white hover:bg-[#23d0d0] border border-[#23d0d0] transition-all tracking-normal rounded-lg border-solid">
+                +{{doctor.get_specialities|length|add:"-4" }} more
+            </div>
+        {% endif %}
         <div class="cursor-pointer py-1 px-4 text-sm font-regular text-[#FFFFFF] border border-[#23d0d0]  tracking-normal rounded-lg bg-[#23d0d0] border-solid">
-            Consult
+            Consult Online
         </div>
     </div>
     <div class=" py-3 px-5 border-t-zinc-300 border-t flex items-center justify-between">
