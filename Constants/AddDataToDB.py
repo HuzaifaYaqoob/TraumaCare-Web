@@ -55,6 +55,30 @@ def download_all_specialities():
         data = json.dump(data, input_file)
 
 
+def download_all_diseases():
+    with open('Files/Diseases.json' , 'w') as input_file:
+        diseases = Disease.objects.all()
+        data = []
+
+        for disease in diseases:
+            svg_icon = str(disease.svg_icon)
+            svg_icon = svg_icon.replace('"', "'")
+            for i in [11, 12, 13, 14, 15, 16 ,17, 18, 19]:
+                svg_icon = svg_icon.replace(f"width='{i}'", '')
+                svg_icon = svg_icon.replace(f"height='{i}'", '')
+
+            data.append({
+                'name' : str(disease.name),
+                'svg_icon' : svg_icon,
+                'color_code' : str(disease.color_code),
+                'description' : str(disease.description),
+                'image' : str(disease.image),
+                'rank' : disease.rank,
+            })
+        
+        data = json.dump(data, input_file)
+
+
 def add_country_state_cities():
     with open('Files/Countries.json', 'r') as country_file:
         countries = json.load(country_file)
