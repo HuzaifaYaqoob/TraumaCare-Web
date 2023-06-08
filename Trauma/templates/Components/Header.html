@@ -114,22 +114,22 @@
                                 {% for spec in specialities|slice:':9' %}
                                 {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon color=spec.color_code %}
                                 {% endfor %}
-                                {% include 'Components/Header/view_all.html' %}
+                                {% include 'Components/Header/view_all.html' with link='/speciality/' %}
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 !px-2 ">
                             <h2 class="!text-[18px] ">Find doctors By diseases</h2>
                             <ul>
                                 {% for disease in diseases|slice:':4' %}
-                                    {% include 'Components/Header/NavItem.html' with name=disease.name %}
+                                    {% include 'Components/Header/NavItem.html' with name=disease.name icon=disease.svg_icon color=disease.color_code %}
                                 {% endfor %}
-                                {% include 'Components/Header/view_all.html' %}
+                                {% include 'Components/Header/view_all.html' with link='/diseases/'  %}
                                 <h2 class="first-color !text-[18px]">Find doctors By Services
                                 </h2>
                                 {% include 'Components/Header/NavItem.html' with name='Open Heart Surgery' %}
                                 {% include 'Components/Header/NavItem.html' with name='Braces' %}
                                 {% include 'Components/Header/NavItem.html' with name='Hydra Facial' %}
-                                {% include 'Components/Header/view_all.html' %}
+                                {% include 'Components/Header/view_all.html' with link='/speciality' %}
                             </ul>
                         </div>
                         <div class="dropdown1-div1 dropdown1-div1 px-2">
