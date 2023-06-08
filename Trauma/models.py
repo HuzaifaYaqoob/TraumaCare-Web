@@ -16,6 +16,9 @@ class Speciality(models.Model):
 
     image = models.ImageField(upload_to='specialities/images/', null=True, blank=True)
 
+    slug = models.CharField(max_length=800, default='')
+    tag_line = models.CharField(max_length=800, default='')
+
     rank = models.IntegerField(default=1)
 
     is_deleted = models.BooleanField(default=False)
@@ -38,6 +41,9 @@ class Disease(models.Model):
     description = models.TextField(default='')
 
     image = models.ImageField(upload_to='disease/images/', null=True, blank=True)
+
+    slug = models.CharField(max_length=800, default='')
+    tag_line = models.CharField(max_length=800, default='')
 
     rank = models.IntegerField(default=1)
 
