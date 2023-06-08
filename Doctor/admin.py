@@ -7,7 +7,21 @@ from .models import Doctor, Doctor24By7, DoctorDiseasesSpeciality, DoctorMedia, 
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['email', 'name', 'heading', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
+    search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
+
+    
+    def diseases(self, doctor_instance):
+        return DoctorDiseasesSpeciality.objects.filter(
+            doctor = doctor_instance
+        ).count()
+    
+    def speciality(self, doctor_instance):
+        return DoctorSpeciality.objects.filter(
+            doctor = doctor_instance,
+            is_deleted = False,
+            is_active = True,
+        ).count()
 
 
 
