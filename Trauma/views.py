@@ -60,7 +60,7 @@ def SingleDiseasePage(request, disease_slug):
     else:
         context = {}
         context['disease'] = disease
-    return render(request, 'Disease/SingleDiseaseView.html')
+    return render(request, 'Disease/SingleDiseaseView.html', context)
 
 def test(request):
     return render(request, 'prescription.html')
