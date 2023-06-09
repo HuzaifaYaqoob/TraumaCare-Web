@@ -112,7 +112,7 @@
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% for spec in specialities|slice:':9' %}
-                                {% include 'Components/Header/NavItem.html' with name=spec.name icon=spec.svg_icon color=spec.color_code %}
+                                {% include 'Components/Header/NavItem.html' with data=spec name=spec.name icon=spec.svg_icon color=spec.color_code base_link='/speciality/view/' %}
                                 {% endfor %}
                                 {% include 'Components/Header/view_all.html' with link='/speciality/' %}
                             </ul>
@@ -121,7 +121,7 @@
                             <h2 class="!text-[18px] ">Find doctors By diseases</h2>
                             <ul>
                                 {% for disease in diseases|slice:':4' %}
-                                    {% include 'Components/Header/NavItem.html' with name=disease.name icon=disease.svg_icon color=disease.color_code %}
+                                    {% include 'Components/Header/NavItem.html' with data=disease name=disease.name icon=disease.svg_icon color=disease.color_code base_link='/diseases/view/' %}
                                 {% endfor %}
                                 {% include 'Components/Header/view_all.html' with link='/diseases/'  %}
                                 <h2 class="first-color !text-[18px]">Find doctors By Services

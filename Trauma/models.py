@@ -3,7 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-
 from uuid import uuid4
 
 class Speciality(models.Model):
@@ -34,6 +33,16 @@ class Speciality(models.Model):
             self.slug = name
         
         super(Speciality, self).save(*args, **kwargs)
+
+    @property
+    def available_doctors_count(self):
+        from Doctor.models import DoctorSpeciality
+        return DoctorSpeciality.objects.filter(
+            speciality = self,
+            is_deleted = False,
+            is_active = True
+        ).count()
+        # .distinct('doctor')
 
     
     class Meta:
@@ -69,6 +78,15 @@ class Disease(models.Model):
         
         super(Disease, self).save(*args, **kwargs)
 
+    @property
+    def available_doctors_count(self):
+        from Doctor.models import DoctorDiseasesSpeciality
+        return DoctorDiseasesSpeciality.objects.filter(
+            disease = self,
+            is_deleted = False,
+            is_active = True
+        ).count()
+        # .distinct('doctor')
     
     class Meta:
         verbose_name = 'Disease'

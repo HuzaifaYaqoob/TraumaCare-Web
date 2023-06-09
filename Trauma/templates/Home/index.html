@@ -5,8 +5,7 @@
 
 
 {% block BaseCSS %}
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
 {% endblock BaseCSS %}
 
 
@@ -1809,44 +1808,48 @@
 
 <!-- Here your Js starts  -->
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
   <!-- Initialize Swiper -->
+  
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 6,
-      spaceBetween:  20 ,
-      loop:true,
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints : {
-        320 :{
-            slidesPerView: 1,
-        } ,
-        650: {
-            slidesPerView: 2,
+    document.addEventListener('DOMContentLoaded' , ()=>{
+        var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 6,
+        spaceBetween:  20 ,
+        loop:true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
         },
-        800: {
-            slidesPerView: 3,
-        },
-        768: {
-            slidesPerView: 3,
-        },
-        1024: {
-            slidesPerView: 4,
-        },
-        1250: {
-            slidesPerView: 5,
-        },
-        1500: {
-            slidesPerView: 5,
-        },
-        1600: {
-            slidesPerView: 6,
+        breakpoints : {
+            320 :{
+                slidesPerView: 1,
+            } ,
+            650: {
+                slidesPerView: 2,
+            },
+            800: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 4,
+            },
+            1250: {
+                slidesPerView: 5,
+            },
+            1500: {
+                slidesPerView: 5,
+            },
+            1600: {
+                slidesPerView: 6,
+            }
         }
-      }
-    });
+        });
+    })
+
   </script>
 
 

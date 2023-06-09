@@ -12,8 +12,7 @@
             <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">Home</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                  
+            </svg>
       </div>
       <div class="flex items-center gap-1 cursor-pointer">
             <a href="{% url 'SpecialitiesPage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">View All Specialties</a>
@@ -31,21 +30,19 @@
                   {{speciality.svg_icon|safe}}
             </div>
             <div class="flex-1">
-                  <p class="text-[{{speciality.color_code}}] font-semibold text-4xl">{{speciality.name}}</p>
-                  <p class="text-[#24D0D0] text-xl font-[600]">140 Best Gynecologist in Pakistan</p>
-                  <p class="text-[#8A8A8A] font-[500]">A gynecologist is a medical doctor who specializes in the health of the female reproductive 
-                        system, including the uterus, ovaries, fallopian tubes, cervix, and vagina. Gynecologists 
-                        are also trained to address issues related to women's sexual health and fertility.</p>
+                  <h1 class="text-[{{speciality.color_code}}] font-semibold text-4xl">{{speciality.name}}</h1>
+                  <p class="text-[#24D0D0] text-xl font-[600]">{{speciality.available_doctors_count}} vest specialist in Pakistan</p>
+                  <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
             </div>
       </div>
       <div class="flex-1 bg-[#24d0d01a] p-6 rounded-xl">
             <p class="text-[#24D0D0] text-xl font-bold">All gynecological  treatment <br>
                   under Single roof.</p>
-                  <p class="text-[#24D0D0]">140 Best gynegologist in pakistan</p>
+                  <p class="text-[#24D0D0]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
                   <div class="flex items-center gap-4 mt-2">
-                  <div class="border border-[#24d0d0] px-3 py-2 rounded-md">
+                  <a href="{% url 'BookAppointmentPage' %}?speciality={{speciality.slug}}" class="border border-[#24d0d0] px-3 py-2 rounded-md">
                         <p class="text-[#24D0D0]">Book Appointment</p>
-                  </div>
+                  </a>
                   <div class="bg-[#24D0D0] px-4 py-2 rounded-lg">
                         <p class="text-white">Contact US</p>
                   </div>
