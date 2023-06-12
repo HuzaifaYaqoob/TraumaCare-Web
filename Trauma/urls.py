@@ -3,7 +3,7 @@ from django.urls import path
 
 
 
-from .views import homePage, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage
+from .views import homePage, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
 
 urlpatterns = [
     path('', homePage, name='homePage'),
@@ -12,8 +12,14 @@ urlpatterns = [
     path('search/', searchFilterPage, name='searchFilterPage'),
     path('cart/', CartPage, name='CartPage'),
     path('feed/', FeedPage, name='FeedPage'),
+
     path('speciality/', SpecialitiesPage, name='SpecialitiesPage'),
-    path('speciality/view/', SingleSpecialityPage, name='SingleSpecialityPage'),
+    path('speciality/view/<str:speciality_slug>/', SingleSpecialityPage, name='SingleSpecialityPage'),
+
+    path('diseases/', DiseasesViewAllPage, name='DiseasesViewAllPage'),
+    path('diseases/view/<str:disease_slug>/', SingleDiseasePage, name='SingleDiseasePage'),
+
+
     path('emergency/', emergencyPage, name='emergencyPage'),
 
 ] 

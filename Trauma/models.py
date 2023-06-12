@@ -3,7 +3,6 @@ from django.db import models
 
 # Create your models here.
 
-
 from uuid import uuid4
 
 class Speciality(models.Model):
@@ -16,6 +15,9 @@ class Speciality(models.Model):
 
     image = models.ImageField(upload_to='specialities/images/', null=True, blank=True)
 
+    slug = models.CharField(max_length=800, default='')
+    tag_line = models.CharField(max_length=800, default='')
+
     rank = models.IntegerField(default=1)
 
     is_deleted = models.BooleanField(default=False)
@@ -23,6 +25,24 @@ class Speciality(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            name = self.name
+            name = name.replace(' ', '-').replace('/', '-')
+            self.slug = name
+        
+        super(Speciality, self).save(*args, **kwargs)
+
+    @property
+    def available_doctors_count(self):
+        from Doctor.models import DoctorSpeciality
+        return DoctorSpeciality.objects.filter(
+            speciality = self,
+            is_deleted = False,
+            is_active = True
+        ).count()
+        # .distinct('doctor')
 
     
     class Meta:
@@ -39,6 +59,9 @@ class Disease(models.Model):
 
     image = models.ImageField(upload_to='disease/images/', null=True, blank=True)
 
+    slug = models.CharField(max_length=800, default='')
+    tag_line = models.CharField(max_length=800, default='')
+
     rank = models.IntegerField(default=1)
 
     is_deleted = models.BooleanField(default=False)
@@ -47,6 +70,23 @@ class Disease(models.Model):
     def __str__(self):
         return str(self.id)
 
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            name = self.name
+            name = name.replace(' ', '-').replace('/', '-')
+            self.slug = name
+        
+        super(Disease, self).save(*args, **kwargs)
+
+    @property
+    def available_doctors_count(self):
+        from Doctor.models import DoctorDiseasesSpeciality
+        return DoctorDiseasesSpeciality.objects.filter(
+            disease = self,
+            is_deleted = False,
+            is_active = True
+        ).count()
+        # .distinct('doctor')
     
     class Meta:
         verbose_name = 'Disease'

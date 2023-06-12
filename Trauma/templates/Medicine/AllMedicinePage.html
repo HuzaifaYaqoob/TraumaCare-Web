@@ -5,6 +5,7 @@
 {% block title %}Medicines{% endblock title %}
 
 {% block BaseCSS %}
+      <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" /> 
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
       <style>
@@ -47,6 +48,7 @@
                   }
             }
       </style>
+      
 {% endblock BaseCSS %}
 
 {% block baseBody %}
@@ -446,50 +448,53 @@
 
 <!-- Here your Js starts  -->
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
   <!-- Initialize Swiper -->
   <script>
-    var swiper = new Swiper(".mySwiper", {
-      slidesPerView: 5,
-      spaceBetween: 0,
-      loop:true,
-      navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-      },
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      breakpoints : {
-        320 :{
-            slidesPerView: 1,
-            spaceBetween: 20
-        } ,
-        600: {
-        slidesPerView: 2,
-        spaceBetween: 30
-      },
-      825: {
-        slidesPerView: 3,
-        spaceBetween: 40
-      },
-      1150: {
-        slidesPerView: 4,
-        spaceBetween: 50
-      }
-      ,
-      1440: {
-        slidesPerView: 5,
-        spaceBetween: 50
-      }
-      ,
-      1720: {
-        slidesPerView: 6,
-        spaceBetween: 50
-      }
-      }
-    });
+      document.addEventListener('DOMContentLoaded' , ()=>{
+            var swiper = new Swiper(".mySwiper", {
+                  slidesPerView: 5,
+                  spaceBetween: 0,
+                  loop:true,
+                  navigation: {
+                        nextEl: '.swiper-button-next',
+                        prevEl: '.swiper-button-prev',
+                  },
+                  pagination: {
+                  el: ".swiper-pagination",
+                  clickable: true,
+                  },
+                  breakpoints : {
+                  320 :{
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                  } ,
+                  600: {
+                  slidesPerView: 2,
+                  spaceBetween: 30
+                  },
+                  825: {
+                  slidesPerView: 3,
+                  spaceBetween: 40
+                  },
+                  1150: {
+                  slidesPerView: 4,
+                  spaceBetween: 50
+                  }
+                  ,
+                  1440: {
+                  slidesPerView: 5,
+                  spaceBetween: 50
+                  }
+                  ,
+                  1720: {
+                  slidesPerView: 6,
+                  spaceBetween: 50
+                  }
+                  }
+            });
+      })
+
   </script>
 
 

@@ -1,6 +1,6 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}{{speciality.name}} - {{speciality.tag_lin}}{% endblock title %}
+{% block title %}Disease Title{% endblock title %}
 
 
 {% block baseBody %}
@@ -9,38 +9,39 @@
 <div class="max-w-[1600px] mx-auto py-12 w-[90%]">
       <div class="flex gap-3 items-center">
       <div class="flex gap-1 items-center cursor-pointer">
-            <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">Home</a>
+            <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[500]">Home</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
       </div>
       <div class="flex items-center gap-1 cursor-pointer">
-            <a href="{% url 'SpecialitiesPage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">View All Specialties</a>
+            <a href="{% url 'DiseasesViewAllPage' %}" class="text-slate-500 hover:text-slate-800 font-[500]">View All Diseases</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
+                  </svg>
+
       </div>
       <div>
-            <p class="text-slate-800 font-[500] cursor-pointer">{{speciality.name}}</p>
+            <p class="text-slate-800 font-[500] cursor-pointer">{{disease.name}}</p>
       </div>
       </div>
-      <div class="flex items-center gap-4 mt-10">
+      <div class="flex items-center gap-4 mt-10 ">
       <div class="flex-[2] flex gap-4 items-start p-6 border rounded-xl">
-            <div class="w-[100px] h-[100px] single-speciality-detail-page-svg-parent rounded-lg flex items-center justify-center bg-[{{speciality.color_code}}]">
-                  {{speciality.svg_icon|safe}}
+            <div class="w-[100px] h-[100px] single-speciality-detail-page-svg-parent rounded-lg flex items-center justify-center bg-[{{disease.color_code}}]">
+                  {{disease.svg_icon|safe}}
             </div>
             <div class="flex-1">
-                  <h1 class="text-[{{speciality.color_code}}] font-semibold text-4xl">{{speciality.name}}</h1>
-                  <p class="text-[#24D0D0] text-xl font-[600]">{{speciality.available_doctors_count}} vest specialist in Pakistan</p>
-                  <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
+                  <p class="text-[{{disease.color_code}}] font-semibold text-4xl">{{disease.name}}</p>
+                  <p class="text-[#24D0D0] text-xl font-[600]">{{disease.available_doctors_count}} Best Gynecologist in Pakistan</p>
+                  <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{disease.description}}</p>
             </div>
       </div>
       <div class="flex-1 bg-[#24d0d01a] p-6 rounded-xl">
             <p class="text-[#24D0D0] text-xl font-bold">All gynecological  treatment <br>
                   under Single roof.</p>
-                  <p class="text-[#24D0D0]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
+                  <p class="text-[#24D0D0]">140 Best gynegologist in pakistan</p>
                   <div class="flex items-center gap-4 mt-2">
-                  <a href="{% url 'BookAppointmentPage' %}?speciality={{speciality.slug}}" class="border border-[#24d0d0] px-3 py-2 rounded-md">
+                  <a href="{% url 'BookAppointmentPage' %}?disease={{disease.slug}}" class="border border-[#24d0d0] px-3 py-2 rounded-md">
                         <p class="text-[#24D0D0]">Book Appointment</p>
                   </a>
                   <div class="bg-[#24D0D0] px-4 py-2 rounded-lg">
