@@ -5,6 +5,7 @@ from django.contrib import messages
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
+from django.db.models import Case, When
 
 def homePage(request):
     context = {}
@@ -25,6 +26,7 @@ def SpecialitiesPage(request):
     return render(request, 'Speciality/specialities.html')
 
 def SingleSpecialityPage(request, speciality_slug):
+    
     try:
         speciality = Speciality.objects.get(
             slug = speciality_slug,
@@ -36,8 +38,19 @@ def SingleSpecialityPage(request, speciality_slug):
         messages.info(request, 'Explore more here!')
         return redirect('SpecialitiesPage')
     else:
+        doctor_uri = request.GET.get('doctor_uri', None)
+    
+        doctors_order_by = []
+        if doctor_uri:
+            doctors_order_by.append((Case(When(id=doctor_uri, then=0), default=1)))
+
         context = {}
         context['speciality'] = speciality
+        context['doctors'] = Doctor.objects.filter(
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        ).order_by(*doctors_order_by)
         return render(request, 'Speciality/speciality.html', context)
 
 

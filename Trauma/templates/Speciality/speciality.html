@@ -24,7 +24,7 @@
             <p class="text-slate-800 font-[500] cursor-pointer">{{speciality.name}}</p>
       </div>
       </div>
-      <div class="flex items-center gap-4 mt-10">
+      <div class="flex items-start gap-4 mt-10">
       <div class="flex-[2] flex gap-4 items-start p-6 border rounded-xl">
             <div class="w-[100px] h-[100px] single-speciality-detail-page-svg-parent rounded-lg flex items-center justify-center bg-[{{speciality.color_code}}]">
                   {{speciality.svg_icon|safe}}
@@ -49,6 +49,10 @@
                   </div>
       </div>
       </div>
+      {% for doctor in doctors %}
+      <br>
+            {{doctor.name}}
+      {% endfor %}
       <div class="mt-4">
             <h3 class="text-[#5F5D5D] text-xl font-[600]">Gynecologist in Pakistan</h3>
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative">

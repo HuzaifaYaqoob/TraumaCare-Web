@@ -30,12 +30,12 @@
   </div>
   <div class="flex flex-wrap items-center gap-1 px-4">
     {% for speciality in doctor.get_specialities|slice:':4' %}
-        <div class="nav-item-svg-parent-div cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-1 px-2 border border-[#C9C9C9] rounded-lg border-solid hover:border-[{{speciality.color_code}}]">
+        <a href="{% url 'SingleSpecialityPage' speciality_slug=speciality.slug %}?source=DoctorProfileCard&doctor_uri={{doctor.id}}" class="nav-item-svg-parent-div cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-1 px-2 border border-[#C9C9C9] rounded-lg border-solid hover:border-[{{speciality.color_code}}]">
             {{speciality.svg_icon|safe}}
             <span class="whitespace-nowrap text-gray-600 text-[13px] font-regular tracking-normal transition ">
                 {{speciality.name}}
             </span>
-        </div>
+          </a>
     {% endfor %}
     {% if doctor.get_specialities|length > 4 %}
         <div class="cursor-pointer py-1 px-4 text-sm font-regular text-[#23d0d0] hover:text-white hover:bg-[#23d0d0] border border-[#23d0d0] transition-all tracking-normal rounded-lg border-solid">
