@@ -48,13 +48,7 @@
                               <div class="mt-[12px]">
                                     <div class="flex items-center justify-between">
                                           <h2 class="text-[35px] font-[700] text-[#595959]">Panadol 500mg Tablet 10’s</h2>
-                                          <div class="flex text-[#51B74F] items-center">
-                                                <h3 class="text-[47px] font-[900]">10</h3>
-                                                <div class="flex flex-col items-center">
-                                                      <span class="text-[20px] font-[700] leading-4">%</span>
-                                                      <span class="text-[16px] font-[600] leading-4">OFF</span>
-                                                </div>
-                                          </div>
+                                          {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
                                     </div>
                                     <p class="text-[#625A5A] text-[18px] font-[600]">Available at: <a href="#" class="text-[#557DE5]">Al-Khidmat Dawakhana</a> </p>
                                     <p class="text-[#625A5A] text-[17px] mt-[4px]">F7V5+73W, Mansoorha Main Bazaar Rd, Gulshan Park Cresent Town <span class="font-[600]">(2Km)</span></p>
@@ -250,41 +244,41 @@
                         prevEl: '.swiper-button-prev',
                   },
                   pagination: {
-                        el: ".swiper-pagination",
-                        clickable: true,
+                  el: ".swiper-pagination",
+                  clickable: true,
                   },
                   breakpoints : {
-                        320 :{
-                              slidesPerView: 1,
-                              spaceBetween: 20
-                        } ,
-                        600: {
-                              slidesPerView: 2,
-                              spaceBetween: 30
-                        },
-                        825: {
-                              slidesPerView: 3,
-                              spaceBetween: 40
-                        },
-                        1150: {
-                              slidesPerView: 4,
-                              spaceBetween: 50
-                        }
-                        ,
-                        1440: {
-                              slidesPerView: 5,
-                              spaceBetween: 50
-                        }
-                        ,
-                        1720: {
-                              slidesPerView: 6,
-                              spaceBetween: 50
-                        }
+                  320 :{
+                        slidesPerView: 1,
+                        spaceBetween: 20
+                  } ,
+                  600: {
+                  slidesPerView: 2,
+                  spaceBetween: 30
+                  },
+                  825: {
+                  slidesPerView: 3,
+                  spaceBetween: 40
+                  },
+                  1150: {
+                  slidesPerView: 4,
+                  spaceBetween: 50
+                  }
+                  ,
+                  1440: {
+                  slidesPerView: 5,
+                  spaceBetween: 50
+                  }
+                  ,
+                  1720: {
+                  slidesPerView: 6,
+                  spaceBetween: 50
+                  }
                   }
             });
       })
 
-    </script>
+  </script>
 
 
 

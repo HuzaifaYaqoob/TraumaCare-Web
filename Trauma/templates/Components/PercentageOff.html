@@ -1,0 +1,13 @@
+<div class="flex flex-col ">
+      <p class="text-[#02565B] text-end italic -mb-3 tracking-widest">Flat</p>
+      <div class="flex">
+            <p class="font-bold text-5xl text-end italic -mr-[2px]">{{percentage}}</p>
+            <div>
+                  <span class="block text-gray-900 italic mb-0 text-[25px] text-end font-[900]">%</span>
+                  <span class="block text-end -mt-3 italic">OFF</span>
+            </div>
+      </div>
+      {% if show_price %}
+            <p class="text-gray-600 italic -mt-[10px] text-end">pkr <span class="text-[#0166ff] font-bold">{{discounted_price}}</span></p>
+      {% endif %}
+</div>
