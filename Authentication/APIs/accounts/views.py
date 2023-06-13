@@ -48,21 +48,18 @@ def getUserProfilesData(request):
             }, status=status.HTTP_400_BAD_REQUEST)
         
         
-        # existing_profiles = []
+        existing_profiles = []
         profiles = Profile.objects.filter(
             user = user,
             is_deleted = False,
             is_active = True,
             is_blocked = False
-        ).values_list('profile_type', flat=True)
-        # for profile in profiles:
-        #     existing_profiles.append({
-        #         'profile_type' : profile.profile_type,
-        #         'profile_name' : profile.full_name,
-        #         'is_deleted' : profile.is_deleted,
-        #         'is_active' : profile.is_active,
-        #         'is_blocked' : profile.is_blocked,
-        #     })
+        )
+        for profile in profiles:
+            existing_profiles.append({
+                'profile_type' : profile.profile_type,
+                'profile_name' : profile.full_name,
+            })
 
 
         return Response({
@@ -81,7 +78,7 @@ def getUserProfilesData(request):
                     'profile_image' : f'{user.profile_image}',
                     'dial_code' : f'{user.dial_code}',
                     'mobile_number' : f'{user.mobile_number}',
-                    'existing_profiles' : list(profiles),
+                    'existing_profiles' : existing_profiles,
                 }
             }
         }, status=status.HTTP_200_OK)
