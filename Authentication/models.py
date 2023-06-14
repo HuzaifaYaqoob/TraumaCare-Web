@@ -126,6 +126,25 @@ class User(AbstractBaseUser):
                 self.country = country
                 
         super(User, self).save(*args, **kwargs)
+    
+    @property
+    def profile_image(self):
+        from Profile.models import Profile
+        try:
+            general_profile = Profile.objects.get(
+                user = self,
+                profile_type = 'Patient'
+            )
+        except:
+            return None
+        else:
+            return general_profile.image_full_path
+    
+
+    @property
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
 
     # def account_type(self):
     #     return self.user_account_type.account_type

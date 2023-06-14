@@ -253,10 +253,23 @@
 
 
 </style>
-<section class="main-section flex !items-center h-96">
-    <div class="max-width">
-        <h1 class="md:text-[45px] !p-0 capitalize lg:text-[55px] text-white text-center font-[600] ColaboratingHeading-TC">Collaborating for the future of healthcare.</h1>
-        <p class="text-center max-w-[600px] px-2 mx-auto !font-[300] text-gray-50">Utilize advanced search and geolocation technologies to seamlessly discover and connect with the highest-rated doctors, clinics, and hospitals in your nearest city. </p>
+<section class="main-section flex !items-center h-[450px]">
+    <div class="flex items-center max-w-[1100px] mx-auto">
+        <div class="max-width flex-1">
+            <!-- <h1 class="md:text-[45px] !p-0 capitalize lg:text-[55px] text-white text-center font-[600] ColaboratingHeading-TC">Collaborating for the future of healthcare.</h1> -->
+            <h1 class="md:text-[45px] !p-0 capitalize lg:text-[45px] text-white text-left font-[700] ColaboratingHeading-TC" style="line-height: 53px;">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
+            <p class="text-left !font-[300] !text-white">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
+            <div class="text-white mt-3 flex gap-3 items-center ">
+                <a href="/emergency" class="bg-[#2FC670] px-4 py-3 rounded-lg" >
+                    How may I Help you?
+                </a>
+                <!-- <span >OR <a href="" class="text-blue-500">Get Madication</a></span> -->
+                <span ><a href="/emergency" class="underline text-blue-300">Try me!</a> It's absolutly FREE</span>
+            </div>
+        </div>
+        <div>
+            {% include 'Components/SVG/AIBot.html' %}
+        </div>
     </div>
 </section>
 
@@ -492,8 +505,9 @@
                     </h4>
                 </div>
             </div>
-            <button class="btn3">
-                Join Now<svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <button class="btn3 !rounded-lg ">
+                Register Doctor
+                <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#F8F8F8" stroke-width="1.5" stroke-linecap="round"
                         stroke-linejoin="round" />
                 </svg>
