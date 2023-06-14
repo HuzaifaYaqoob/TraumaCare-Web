@@ -15,6 +15,25 @@
       .Link-Hover-MainSection-1:hover .Hover-MainSection{
             display: block;
       }
+      @media (max-width:1890px) {
+            .SMP-3Divs-TC{
+                  padding-left:  60px !important;
+                  padding-right: 60px !important;
+            }
+      }
+      @media (max-width:1830px) {
+            .SMP-3Divs-TC{
+                  padding-left:  35px !important;
+                  padding-right: 35px !important;
+            }
+      }
+      @media (max-width:1777px) {
+            .SMP-3Divs{
+                  flex-wrap: wrap !important;
+                  justify-content: center !important;
+                  gap: 45px !important;
+            }
+      }
 </style>
 
 {% endblock BaseCSS %}
@@ -22,10 +41,10 @@
 {% block baseBody %}
 
 {% include 'Components/Pharmacy/SecondNavSticky.html' %}
-<section class="m-auto px-[90px] pb-[30px]" style="max-width: 1920px;">
+<section class="m-auto px-[90px] pb-[30px] SMP-3Divs-TC" style="max-width: 1920px;">
       <div class="flex justify-between">
-            <div class="w-[1150px]">
-                  <div class="flex gap-[30px]">
+            <div class="w-[1920px]">
+                  <div class="flex justify-between SMP-3Divs">
                         <div class="mt-[25px]">
                               <div class="pt-[45px] relative w-[410px] h-[410px] pb-[75px] rounded-3xl flex justify-center bg-[#8989B61A]">
                                     <img src="{% static 'assets/images/image 252.png' %}"class="w-[100px]" alt="" style="max-height: 100%; height: auto; width: auto; max-width: 100%;">
@@ -42,7 +61,7 @@
                                     <img src="{% static 'assets/images/warning 1.png' %}" alt="" style="height: 30px; width: 30px;">
                                     <div class="">
                                           <p class="text-[#ED930A] text-[17px]">Prescription required for this product on the Checkout page. </p>
-                                          <span class="text-[#9A9A9A] text-[17px]"><a class="font-[600] text-[#557DE5] text-[16px]" style="text-decoration: underline;" href="#">Upload Now</a> or <a class="text-[#301816] text-[16px] font-[600]" style="text-decoration: underline;" href="#">Remind me Later</a></span>  
+                                          <span class="text-[#9A9A9A] text-[15px] font-[600]"><a class="font-[600] text-[#557DE5] text-[16px]" style="text-decoration: underline;" href="#">Upload Now</a> or <a class="text-[#301816] text-[16px] font-[600]" style="text-decoration: underline;" href="#">Remind me Later</a></span>  
                                     </div>
                               </div>
                               <div class="mt-[12px]">
@@ -128,71 +147,77 @@
                                     </div>
                               </div>
                         </div>
-                  </div>
-                  <div class="mt-[40px] border-[2px] mr-[30px] border-[#0000001A] rounded-[18px] px-[30px] py-[30px]">
-                        <h2 class="text-[24px] font-[700] text-[#595959]">Answer the following Questions</h2>
-                        <p class="text-[#595959] text-[17px]">These questions help ensure that the pharmacist accurately dispenses the correct medication and provides appropriate 
-                              instructions and counseling to you.</p>
-                        <p class="text-[#595959] text-[18px] font-[600] mt-[25px]">Is this a prescription medication or an over-the-counter product?</p>
-                        <div class="bg-[#24D0D01A] rounded-[10px] px-[15px] py-[20px] text-[18px] font-[500] text-[#5555C9] mt-[8px]">
-                              This medicine is over the Counter
-                        </div>
-                        <p class="text-[#595959] text-[18px] font-[600] mt-[5px]">Would you like any additional counseling or information about this medication?</p>
-                        <div class="bg-[#24D0D01A] rounded-[10px] px-[15px] py-[20px] text-[18px] font-[500] text-[#5555C9] mt-[8px]">
-                              No need of any additional information about the medication
-                        </div>
-                  </div>
-                  <div class="bg-[#24D0D01A] mt-[25px] pl-[35px] py-[20px] flex mr-[30px] gap-[50px]">
-                        <li class="text-[18px] font-[700] text-[#24D0D0] list-none cursor-pointer">Product Description</li>
-                        <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">How to use</li>
-                        <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Side Effects</li>
-                        <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Pharmacy Details</li>
-                        <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Reviews</li>
-                  </div>
-                  <h2 class="text-[18px] mt-[18px] font-[600] text-[#323232]">Description</h2>
-                  <p class="mt-[5px] text-[#625A5A] text-[16px] mr-[30px]">
-                        Panadol 500mg Tablet 10 'S is an analgesic and antipyretic medication used for mild to moderate pain relief and reducing fever. It can effectively treat conditions like headaches, toothaches, backaches, menstrual cramps, colds, and mild joint pain. It can be taken alone or in combination with other medicines as directed by a physician. Panadol 500mg Tablet 10 'S is available in tablet, syrup, and suspension forms, allowing precise dosing for different age groups. The dosage depends on the patient's pain symptoms and age. It can be taken with or without food, preferably with water to ease swallowing and dilute the syrup's taste. Always follow a doctor's prescription and avoid self-medication.
-
-                        While Panadol 500mg Tablet 10 'S generally has minimal side effects, it may rarely cause serious allergic reactions, such as rashes, breathing difficulties, and swelling, requiring immediate medical attention. Inform your doctor about any liver or kidney dysfunction before taking this medication. Caution is advised for alcoholics and malnourished individuals.
-
-                        It is important to note that taking Panadol 500mg Tablet 10 'S with food is recommended to prevent stomach upset. Do not repeat the medication within a 4-hour interval. Taking more than the recommended dose can lead to serious complications, so avoid overdosing or increasing the prescribed dosage without consulting a doctor. Even in cases of severe pain, do not double the dose without medical consultation.
-                  </p>
-                  <h2 class="text-[18px] mt-[15px] font-[600] text-[#323232]">Reviews</h2>
-                  <div class="flex flex-col gap-[10px]">
-                        {% include 'Components/Pharmacy/MedicineReview.html' %}
-                        {% include 'Components/Pharmacy/MedicineReview.html' %}
-                        {% include 'Components/Pharmacy/MedicineReview.html' %}
-                  </div>
-            </div>
-            <div class="mt-[25px] w-[580px]">
-                  <div class="flex items-center justify-between">
-                        <p class="text-[#4B4B4B] text-[24px] font-[600]">Available on 20 more Pharmacies</p>
-                        <div class="flex items-center gap-[4px] cursor-pointer">
-                              <p class="text-[18px] text-[#557DE5]">View full Comparison</p>
-                              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <g clip-path="url(#clip0_3768_3642)">
-                                    <path d="M5.99964 11.999C4.60729 11.999 3.21457 12.002 1.82222 11.9979C0.899117 11.9953 0.178562 11.3843 0.0206472 10.4788C0.00226763 10.3734 0.00114235 10.2642 0.00114235 10.1566C1.70685e-05 7.38576 -0.000733119 4.61494 0.00114235 1.84413C0.00151744 0.904891 0.599417 0.186586 1.5124 0.0226701C1.6133 0.00466564 1.71757 0.00166489 1.82035 0.00166489C3.59717 0.000539605 5.37399 0.000164511 7.15118 0.00128979C7.49739 0.00128979 7.74308 0.197839 7.79372 0.508417C7.84923 0.846751 7.59192 1.17496 7.24758 1.19184C7.0229 1.20272 6.79747 1.19634 6.57279 1.19634C5.01615 1.19671 3.45951 1.19634 1.90324 1.19671C1.42837 1.19671 1.19657 1.42927 1.19657 1.90564C1.19657 4.63445 1.19657 7.36288 1.19657 10.0917C1.19657 10.5748 1.42762 10.804 1.9145 10.804C4.63843 10.804 7.36236 10.804 10.0863 10.804C10.5724 10.804 10.8035 10.5748 10.8035 10.0909C10.8038 8.34675 10.8031 6.60256 10.8038 4.85875C10.8042 4.46416 11.0563 4.19409 11.413 4.20046C11.7213 4.20572 11.976 4.4484 11.9963 4.75635C11.9985 4.78899 11.9989 4.82199 11.9989 4.85463C11.9989 6.62695 12.0011 8.39926 11.9981 10.1712C11.9966 11.0407 11.446 11.7526 10.6227 11.9484C10.4606 11.987 10.2885 11.9972 10.1212 11.9975C8.74683 12.0009 7.37324 11.999 5.99964 11.999Z" fill="#557DE5"/>
-                                    <path d="M10.7407 2.04056C10.7137 2.0897 10.6961 2.14784 10.6578 2.1861C9.27823 3.57057 7.89713 4.95354 6.51566 6.33614C6.46277 6.38903 6.40951 6.44304 6.3495 6.48693C6.10906 6.66172 5.77148 6.63059 5.56667 6.41828C5.3615 6.2056 5.34162 5.86802 5.52316 5.63321C5.56292 5.58145 5.61094 5.53606 5.65745 5.48955C7.04042 4.10846 8.42301 2.72698 9.80711 1.34702C9.84649 1.30801 9.89826 1.28137 9.94402 1.24874C9.93502 1.23074 9.92564 1.21273 9.91664 1.19473C9.80373 1.19473 9.69046 1.19848 9.57755 1.19398C9.2831 1.18197 9.04267 0.96592 9.00854 0.687225C8.97103 0.379648 9.14057 0.108831 9.43014 0.025935C9.50066 0.00567994 9.57793 0.00155392 9.6522 0.00155392C10.2193 -0.000321553 10.7865 -0.000696647 11.3536 0.000803728C11.7546 0.00192901 11.9965 0.238988 11.998 0.635462C12.0003 1.23074 12.0022 1.82601 11.9954 2.42128C11.992 2.71536 11.7689 2.95617 11.4898 2.9903C11.1826 3.02819 10.9114 2.85827 10.8285 2.5687C10.8082 2.49818 10.8075 2.42091 10.8041 2.34664C10.8 2.25999 10.8034 2.1726 10.8034 2.08595C10.782 2.07095 10.7613 2.05594 10.7407 2.04056Z" fill="#557DE5"/>
-                                    </g>
-                                    <defs>
-                                    <clipPath id="clip0_3768_3642">
-                                    <rect width="12" height="12" fill="white"/>
-                                    </clipPath>
-                                    </defs>
-                              </svg>                                    
+                        <div class="w-[580px]">
+                              <div class="flex items-center justify-between">
+                                    <p class="text-[#4B4B4B] text-[24px] font-[600]">Available on 20 more Pharmacies</p>
+                                    <div class="flex items-center gap-[4px] cursor-pointer">
+                                          <p class="text-[18px] text-[#557DE5]">View full Comparison</p>
+                                          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <g clip-path="url(#clip0_3768_3642)">
+                                                <path d="M5.99964 11.999C4.60729 11.999 3.21457 12.002 1.82222 11.9979C0.899117 11.9953 0.178562 11.3843 0.0206472 10.4788C0.00226763 10.3734 0.00114235 10.2642 0.00114235 10.1566C1.70685e-05 7.38576 -0.000733119 4.61494 0.00114235 1.84413C0.00151744 0.904891 0.599417 0.186586 1.5124 0.0226701C1.6133 0.00466564 1.71757 0.00166489 1.82035 0.00166489C3.59717 0.000539605 5.37399 0.000164511 7.15118 0.00128979C7.49739 0.00128979 7.74308 0.197839 7.79372 0.508417C7.84923 0.846751 7.59192 1.17496 7.24758 1.19184C7.0229 1.20272 6.79747 1.19634 6.57279 1.19634C5.01615 1.19671 3.45951 1.19634 1.90324 1.19671C1.42837 1.19671 1.19657 1.42927 1.19657 1.90564C1.19657 4.63445 1.19657 7.36288 1.19657 10.0917C1.19657 10.5748 1.42762 10.804 1.9145 10.804C4.63843 10.804 7.36236 10.804 10.0863 10.804C10.5724 10.804 10.8035 10.5748 10.8035 10.0909C10.8038 8.34675 10.8031 6.60256 10.8038 4.85875C10.8042 4.46416 11.0563 4.19409 11.413 4.20046C11.7213 4.20572 11.976 4.4484 11.9963 4.75635C11.9985 4.78899 11.9989 4.82199 11.9989 4.85463C11.9989 6.62695 12.0011 8.39926 11.9981 10.1712C11.9966 11.0407 11.446 11.7526 10.6227 11.9484C10.4606 11.987 10.2885 11.9972 10.1212 11.9975C8.74683 12.0009 7.37324 11.999 5.99964 11.999Z" fill="#557DE5"/>
+                                                <path d="M10.7407 2.04056C10.7137 2.0897 10.6961 2.14784 10.6578 2.1861C9.27823 3.57057 7.89713 4.95354 6.51566 6.33614C6.46277 6.38903 6.40951 6.44304 6.3495 6.48693C6.10906 6.66172 5.77148 6.63059 5.56667 6.41828C5.3615 6.2056 5.34162 5.86802 5.52316 5.63321C5.56292 5.58145 5.61094 5.53606 5.65745 5.48955C7.04042 4.10846 8.42301 2.72698 9.80711 1.34702C9.84649 1.30801 9.89826 1.28137 9.94402 1.24874C9.93502 1.23074 9.92564 1.21273 9.91664 1.19473C9.80373 1.19473 9.69046 1.19848 9.57755 1.19398C9.2831 1.18197 9.04267 0.96592 9.00854 0.687225C8.97103 0.379648 9.14057 0.108831 9.43014 0.025935C9.50066 0.00567994 9.57793 0.00155392 9.6522 0.00155392C10.2193 -0.000321553 10.7865 -0.000696647 11.3536 0.000803728C11.7546 0.00192901 11.9965 0.238988 11.998 0.635462C12.0003 1.23074 12.0022 1.82601 11.9954 2.42128C11.992 2.71536 11.7689 2.95617 11.4898 2.9903C11.1826 3.02819 10.9114 2.85827 10.8285 2.5687C10.8082 2.49818 10.8075 2.42091 10.8041 2.34664C10.8 2.25999 10.8034 2.1726 10.8034 2.08595C10.782 2.07095 10.7613 2.05594 10.7407 2.04056Z" fill="#557DE5"/>
+                                                </g>
+                                                <defs>
+                                                <clipPath id="clip0_3768_3642">
+                                                <rect width="12" height="12" fill="white"/>
+                                                </clipPath>
+                                                </defs>
+                                          </svg>                                    
+                                    </div>
+                              </div>
+                              <div class="mt-[15px] overflow-auto h-[600px]">
+                                    {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
+                                    {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
+                                    {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
+                                    <!-- {% include 'Components/Pharmacy/MedicineComparisonCard.html' %} -->
+                              </div>
                         </div>
                   </div>
-                  <div class="mt-[15px]">
-                        {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
-                        {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
-                        {% include 'Components/Pharmacy/MedicineComparisonCard.html' %}
-                        <!-- {% include 'Components/Pharmacy/MedicineComparisonCard.html' %} -->
+                  <div class="flex justify-center gap-[35px] mt-[20px] flex-wrap">
+                        <div class="border-[2px] mr-[30px] border-[#0000001A] rounded-[18px] px-[30px] py-[30px] w-[1100px]">
+                              <h2 class="text-[24px] font-[700] text-[#595959]">Answer the following Questions</h2>
+                              <p class="text-[#595959] text-[17px]">These questions help ensure that the pharmacist accurately dispenses the correct medication and provides appropriate 
+                                    instructions and counseling to you.</p>
+                              <p class="text-[#595959] text-[18px] font-[600] mt-[25px]">Is this a prescription medication or an over-the-counter product?</p>
+                              <div class="bg-[#24D0D01A] rounded-[10px] px-[15px] py-[20px] text-[18px] font-[500] text-[#5555C9] mt-[8px]">
+                                    This medicine is over the Counter
+                              </div>
+                              <p class="text-[#595959] text-[18px] font-[600] mt-[5px]">Would you like any additional counseling or information about this medication?</p>
+                              <div class="bg-[#24D0D01A] rounded-[10px] px-[15px] py-[20px] text-[18px] font-[500] text-[#5555C9] mt-[8px]">
+                                    No need of any additional information about the medication
+                              </div>
+                        </div>
+                        <div class="w-[550px] mt-[30px]">
+                              <div class="rounded-[18px] bg-[#24D0D01A] items-center px-[15px] py-[50px] flex flex-col gap-[3px]">
+                              <h2 class="text-[#557DE5] text-[26px] font-[600]">Bringing Healing to Your Doorstep </h2>
+                              <p class="text-[22px] font-[500] text-[#24D0D0]">Fast, Reliable, and Convenient Medicine Delivery!</p>
+                              <div class="mt-[30px]">
+                                    {% include 'Components/SVG/Deliverd-Medicine-SVG.html' %}
+                              </div>
+                              </div>
+                        </div>
                   </div>
-                  <div class="mt-[50px] rounded-[18px] bg-[#24D0D01A] items-center px-[15px] py-[50px] flex flex-col gap-[3px]">
-                        <h2 class="text-[#557DE5] text-[26px] font-[600]">Bringing Healing to Your Doorstep </h2>
-                        <p class="text-[22px] font-[500] text-[#24D0D0]">Fast, Reliable, and Convenient Medicine Delivery!</p>
-                        <div class="mt-[30px]">
-                              {% include 'Components/SVG/Deliverd-Medicine-SVG.html' %}
+                  <div class="w-[1150px] ">
+                        <div class="bg-[#24D0D01A] mt-[55px] pl-[35px] py-[20px] flex gap-[50px]">
+                              <li class="text-[18px] font-[700] text-[#24D0D0] list-none cursor-pointer">Product Description</li>
+                              <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">How to use</li>
+                              <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Side Effects</li>
+                              <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Pharmacy Details</li>
+                              <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Reviews</li>
+                        </div>
+                        <h2 class="text-[18px] mt-[18px] font-[600] text-[#323232]">Description</h2>
+                        <p class="mt-[5px] text-[#625A5A] text-[16px] mr-[30px]">
+                              Panadol 500mg Tablet 10 'S is an analgesic and antipyretic medication used for mild to moderate pain relief and reducing fever. It can effectively treat conditions like headaches, toothaches, backaches, menstrual cramps, colds, and mild joint pain. It can be taken alone or in combination with other medicines as directed by a physician. Panadol 500mg Tablet 10 'S is available in tablet, syrup, and suspension forms, allowing precise dosing for different age groups. The dosage depends on the patient's pain symptoms and age. It can be taken with or without food, preferably with water to ease swallowing and dilute the syrup's taste. Always follow a doctor's prescription and avoid self-medication.
+      
+                              While Panadol 500mg Tablet 10 'S generally has minimal side effects, it may rarely cause serious allergic reactions, such as rashes, breathing difficulties, and swelling, requiring immediate medical attention. Inform your doctor about any liver or kidney dysfunction before taking this medication. Caution is advised for alcoholics and malnourished individuals.
+      
+                              It is important to note that taking Panadol 500mg Tablet 10 'S with food is recommended to prevent stomach upset. Do not repeat the medication within a 4-hour interval. Taking more than the recommended dose can lead to serious complications, so avoid overdosing or increasing the prescribed dosage without consulting a doctor. Even in cases of severe pain, do not double the dose without medical consultation.
+                        </p>
+                        <h2 class="text-[18px] mt-[15px] font-[600] text-[#323232]">Reviews</h2>
+                        <div class="flex flex-col gap-[10px]">
+                              {% include 'Components/Pharmacy/MedicineReview.html' %}
+                              {% include 'Components/Pharmacy/MedicineReview.html' %}
+                              {% include 'Components/Pharmacy/MedicineReview.html' %}
                         </div>
                   </div>
             </div>
