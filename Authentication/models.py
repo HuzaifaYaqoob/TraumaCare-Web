@@ -112,7 +112,8 @@ class User(AbstractBaseUser):
     
     @property
     def profiles(self):
-        user_profiles = self.user_profiles.all().filter(profile_type = 'Patient')
+        user_profiles = self.user_profiles.all()
+        # .filter(profile_type = 'Patient')
         return user_profiles
     
 
@@ -139,6 +140,21 @@ class User(AbstractBaseUser):
             return None
         else:
             return general_profile.image_full_path
+    
+    @property
+    def has_doctor_profile(self):
+        from Doctor.models import Doctor
+        try:
+            Doctor.objects.get(
+                user = self,
+                is_active = True,
+                is_deleted = False,
+                is_blocked = False,
+            )
+        except Exception as err:
+            return False
+        else:
+            return True
     
 
     @property

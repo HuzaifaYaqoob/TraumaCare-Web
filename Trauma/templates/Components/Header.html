@@ -268,10 +268,10 @@
                 </span>
             </a>
             {% if request.user.is_authenticated %}
-                <a href="{% url 'HandleLogout' %}" class="mr-2 flex items-center font-[500] px-3 py-2 transition-all rounded-lg hover:bg-[#0A1C4B20]">
+                <!-- <a href="{% url 'HandleLogout' %}" class="mr-2 flex items-center font-[500] px-3 py-2 transition-all rounded-lg hover:bg-[#0A1C4B20]">
                     {% include 'Components/SVG/LogoutIcon.html' %}
                     <span class="ml-1">Logout</span>
-                </a>
+                </a> -->
             {% else %}
                 <div class="logo-paragraph ">
                     <a href="/auth/join/">
