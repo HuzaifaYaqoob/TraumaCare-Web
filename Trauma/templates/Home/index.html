@@ -30,17 +30,6 @@
 
   
 
-    @media (max-width:850px) {
-        .main-section{
-            height: 330px;
-            width: 100%;
-        }
-    }
-    @media (max-width:750px) {
-        .main-section{
-            height: 300px;
-        }
-    }
 
 
     @media (max-width:1400px) {
@@ -252,25 +241,130 @@
         display: none !important;
     }
  }
+ @media (max-width:1000px) {
+    .robote-main-TC-svg svg{
+        width: 190px;
+        height: 290px;
+    }
+ }
+ .robote-main-TC-1-h1{
+    line-height: 55px;
+ }
+
+ @media (max-width:850px) {
+    .robote-main-TC{
+        flex-direction: column;
+        justify-content: center;
+        gap: 20px;
+    }
+    .main-section{
+        height: 500px !important;
+    }
+    .robote-main-TC-svg svg{
+        width: 190px;
+        height: 240px;
+    }
+    .robote-main-TC-1-h1{
+        font-size: 28px;
+        margin-top: 16px;
+        line-height: 40px;
+    }
+    .robote-main-TC-1-1{
+        justify-content: center;
+        margin-top: 14px;
+    }
+ }
+ @media (max-width:700px){
+    .frontPage-search-responsive-main{
+        height: 48px;
+    }
+
+    /*  */
+
+    .robote-main-TC-1-h1{
+        font-size: 22px;
+        margin-top: 14px;
+        line-height: 32px;
+    }
+    .robote-main-TC-1-p{
+        font-size: 14px;
+    }
+    .robote-main-TC-svg svg{
+        width: 180px;
+        height: 220px;
+    }
+    .robote-main-TC-1-1-A{
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+    .robote-main-TC-1-1-span{
+        font-size: 14px;
+    }
+ }
+ @media (max-width:500px){
+    .robote-main-TC-1-h1{
+        font-size: 18px;
+        line-height: 28px;
+    }
+    .robote-main-TC-1-p{
+        font-size: 12px;
+    }
+    .robote-main-TC-1-1-A{
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        font-size: 14px;
+        border-radius: 6px;
+    }
+    .robote-main-TC-1-1-span{
+        font-size: 12px;
+    }
+    .robote-main-TC-1-1-A{
+        padding-left: 12px;
+        padding-right: 12px;
+        padding-top: 7px;
+        padding-bottom: 7px;
+        font-size: 13px;
+        border-radius: 5px;
+    }
+    .robote-main-TC-svg svg{
+        width: 175px;
+        height: 205px;
+    }
+    .main-section{
+        height: 472px !important;
+    }
+ }
+
+ @media (max-width:400px){
+    .frontPage-search-responsive-main{
+        height: 44px;
+    }
+ }
 
 
 
 </style>
 <section class="main-section flex !items-center h-[450px]">
-    <div class="flex items-center max-w-[1100px] mx-auto">
-        <div class="max-width flex-1">
+    <div class="flex items-center gap-[8px] max-w-[1100px] mx-auto px-[14px] robote-main-TC">
+        <div class=" flex-1 robote-main-TC-1">
             <!-- <h1 class="md:text-[45px] !p-0 capitalize lg:text-[55px] text-white text-center font-[600] ColaboratingHeading-TC">Collaborating for the future of healthcare.</h1> -->
-            <h1 class="md:text-[45px] !p-0 capitalize lg:text-[45px] text-white text-left font-[700] ColaboratingHeading-TC" style="line-height: 53px;">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
-            <p class="text-left !font-[300] !text-white">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
-            <div class="text-white mt-3 flex gap-3 items-center ">
-                <a href="/emergency" class="bg-[#2FC670] px-4 py-3 rounded-lg" >
+            <h1 class="robote-main-TC-1-h1 xl:text-[40px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-white text-left font-[700] ColaboratingHeading-TC">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
+            <p class="robote-main-TC-1-p text-left font-[300] lg:text-[18px] xl:text-[20px] mt-[14px] md:text-[16px] !text-white">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
+            <div class="text-white robote-main-TC-1-1 mt-3 flex gap-3 items-center ">
+                <a href="/emergency" class="bg-[#2FC670] px-4 py-3 rounded-lg robote-main-TC-1-1-A" >
                     How may I Help you?
                 </a>
                 <!-- <span >OR <a href="" class="text-blue-500">Get Madication</a></span> -->
-                <span ><a href="/emergency" class="underline text-blue-300">Try me!</a> It's absolutly FREE</span>
+                <span class="robote-main-TC-1-1-span" ><a href="/emergency" class="underline text-blue-300 ">Try me!</a> It's absolutly FREE</span>
             </div>
         </div>
-        <div>
+        <div class="robote-main-TC-svg">
             {% include 'Components/SVG/AIBot.html' %}
         </div>
     </div>
@@ -298,8 +392,8 @@
         </div>
         <input class="Specialities-para" placeholder="Specialities"></input>
     </div>
-    <div class="flex items-center w-[440px] h-[55px] bg-[#ffffff] relative rounded-[6px] shadow-xl ">
-        <input type="search" class=" frontPage-search-responsive w-full pr-[30px] pl-[10px] h-full outline-none Search-Fiels-TC-WithMic rounded-[6px] border-[2px] border-[#ffffff] " placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
+    <div class="frontPage-search-responsive-main flex items-center w-[440px] h-[55px] bg-[#ffffff] relative rounded-[6px] shadow-xl ">
+        <input type="search" class=" frontPage-search-responsive w-full pr-[34px] pl-[10px] h-full outline-none Search-Fiels-TC-WithMic rounded-[6px] border-[2px] border-[#ffffff] lg:text-[17px] text-[#0A1C4B]" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
         <span class="cursor-pointer absolute h-full flex items-center justify-center cursor-pointer pl-[14px] pr-[10px] right-[0px]">
             <svg width="20" height="24" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 6V16C5 19.3125 7.6875 22 11 22C14.3125 22 17 19.3125 17 16H12C11.45 16 11 15.55 11 15C11 14.45 11.45 14 12 14H17V12H12C11.45 12 11 11.55 11 11C11 10.45 11.45 10 12 10H17V8H12C11.45 8 11 7.55 11 7C11 6.45 11.45 6 12 6H17C17 2.6875 14.3125 0 11 0C7.6875 0 5 2.6875 5 6ZM19 15V16C19 20.4188 15.4187 24 11 24C6.58125 24 3 20.4188 3 16V13.5C3 12.6687 2.33125 12 1.5 12C0.66875 12 0 12.6687 0 13.5V16C0 21.5688 4.1375 26.1687 9.5 26.9V29H6.5C5.66875 29 5 29.6688 5 30.5C5 31.3312 5.66875 32 6.5 32H15.5C16.3312 32 17 31.3312 17 30.5C17 29.6688 16.3312 29 15.5 29H12.5V26.9C17.8625 26.1687 22 21.5688 22 16V13.5C22 12.6687 21.3312 12 20.5 12C19.6688 12 19 12.6687 19 13.5V15Z" fill="#0A1C4B"/>
@@ -340,7 +434,6 @@
 
 
 
-{% include 'Popups/popus.html' %}
 <section class="Step-by-Step">
 
     <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
@@ -412,7 +505,7 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
+    <div class="swiper mySwiper px-[10px] flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
         <div class="swiper-wrapper py-12" >
             {% for doctor in doctors %}
                 <div class="swiper-slide border border flex-1 max-w-[330px]" style="border: none;"> 
@@ -493,7 +586,67 @@
                 stroke-linecap="round" />
         </svg>
     </div>
-    <div class="div-3div-div1 rounded-3xl cursor-pointer !w-[80%] tc-shadow">
+    <div class="div-3div-div1 rounded-3xl cursor-pointer w-[30%] tc-shadow !pb-[26px]">
+        <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
+            There isnt simple way to do this in the Pakistan that is good value for money. I used this app
+            and got exactly what i needed and wasable to speak
+            to a speacilist same day”</p>
+        <div class="div3-image">
+
+        </div>
+
+        <p class="ayesha">Ayesha</p>
+        <svg class="svg-icon" width="106" height="18" viewBox="0 0 106 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M7.22953 1.14427C7.95375 -0.381422 10.0462 -0.381424 10.7705 1.14427L12.0221 3.78106C12.3097 4.38691 12.8656 4.80684 13.5087 4.904L16.3074 5.32682C17.9268 5.57148 18.5734 7.64059 17.4016 8.82817L15.3764 10.8806C14.9111 11.3522 14.6988 12.0317 14.8086 12.6976L15.2867 15.5957C15.5633 17.2726 13.8704 18.5514 12.422 17.7596L9.91874 16.3913C9.34357 16.0769 8.65643 16.0769 8.08125 16.3913L5.57799 17.7596C4.12955 18.5514 2.43668 17.2726 2.71331 15.5957L3.19139 12.6976C3.30124 12.0317 3.0889 11.3522 2.62357 10.8806L0.598388 8.82818C-0.57342 7.64059 0.0731953 5.57148 1.69259 5.32682L4.49134 4.904C5.1344 4.80684 5.69031 4.38691 5.9779 3.78106L7.22953 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M51.2295 1.14427C51.9537 -0.381422 54.0462 -0.381424 54.7705 1.14427L56.0221 3.78106C56.3097 4.38691 56.8656 4.80684 57.5087 4.904L60.3074 5.32682C61.9268 5.57148 62.5734 7.64059 61.4016 8.82817L59.3764 10.8806C58.9111 11.3522 58.6988 12.0317 58.8086 12.6976L59.2867 15.5957C59.5633 17.2726 57.8704 18.5514 56.422 17.7596L53.9187 16.3913C53.3436 16.0769 52.6564 16.0769 52.0813 16.3913L49.578 17.7596C48.1296 18.5514 46.4367 17.2726 46.7133 15.5957L47.1914 12.6976C47.3012 12.0317 47.0889 11.3522 46.6236 10.8806L44.5984 8.82818C43.4266 7.64059 44.0732 5.57148 45.6926 5.32682L48.4913 4.904C49.1344 4.80684 49.6903 4.38691 49.9779 3.78106L51.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M95.2295 1.14427C95.9537 -0.381422 98.0462 -0.381424 98.7705 1.14427L100.022 3.78106C100.31 4.38691 100.866 4.80684 101.509 4.904L104.307 5.32682C105.927 5.57148 106.573 7.64059 105.402 8.82817L103.376 10.8806C102.911 11.3522 102.699 12.0317 102.809 12.6976L103.287 15.5957C103.563 17.2726 101.87 18.5514 100.422 17.7596L97.9187 16.3913C97.3436 16.0769 96.6564 16.0769 96.0813 16.3913L93.578 17.7596C92.1296 18.5514 90.4367 17.2726 90.7133 15.5957L91.1914 12.6976C91.3012 12.0317 91.0889 11.3522 90.6236 10.8806L88.5984 8.82818C87.4266 7.64059 88.0732 5.57148 89.6926 5.32682L92.4913 4.904C93.1344 4.80684 93.6903 4.38691 93.9779 3.78106L95.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M29.2295 1.14427C29.9537 -0.381422 32.0462 -0.381424 32.7705 1.14427L34.0221 3.78106C34.3097 4.38691 34.8656 4.80684 35.5087 4.904L38.3074 5.32682C39.9268 5.57148 40.5734 7.64059 39.4016 8.82817L37.3764 10.8806C36.9111 11.3522 36.6988 12.0317 36.8086 12.6976L37.2867 15.5957C37.5633 17.2726 35.8704 18.5514 34.422 17.7596L31.9187 16.3913C31.3436 16.0769 30.6564 16.0769 30.0813 16.3913L27.578 17.7596C26.1296 18.5514 24.4367 17.2726 24.7133 15.5957L25.1914 12.6976C25.3012 12.0317 25.0889 11.3522 24.6236 10.8806L22.5984 8.82818C21.4266 7.64059 22.0732 5.57148 23.6926 5.32682L26.4913 4.904C27.1344 4.80684 27.6903 4.38691 27.9779 3.78106L29.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M73.2295 1.14427C73.9537 -0.381422 76.0462 -0.381424 76.7705 1.14427L78.0221 3.78106C78.3097 4.38691 78.8656 4.80684 79.5087 4.904L82.3074 5.32682C83.9268 5.57148 84.5734 7.64059 83.4016 8.82817L81.3764 10.8806C80.9111 11.3522 80.6988 12.0317 80.8086 12.6976L81.2867 15.5957C81.5633 17.2726 79.8704 18.5514 78.422 17.7596L75.9187 16.3913C75.3436 16.0769 74.6564 16.0769 74.0813 16.3913L71.578 17.7596C70.1296 18.5514 68.4367 17.2726 68.7133 15.5957L69.1914 12.6976C69.3012 12.0317 69.0889 11.3522 68.6236 10.8806L66.5984 8.82818C65.4266 7.64059 66.0732 5.57148 67.6926 5.32682L70.4913 4.904C71.1344 4.80684 71.6903 4.38691 71.9779 3.78106L73.2295 1.14427Z"
+                fill="#24D0D0" />
+        </svg>
+
+    </div>
+    <div class="div-3div-div1 rounded-3xl cursor-pointer w-[30%] tc-shadow !pb-[26px]">
+        <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
+            There isnt simple way to do this in the Pakistan that is good value for money. I used this app
+            and got exactly what i needed and wasable to speak
+            to a speacilist same day”</p>
+        <div class="div3-image">
+
+        </div>
+
+        <p class="ayesha">Ayesha</p>
+        <svg class="svg-icon" width="106" height="18" viewBox="0 0 106 18" fill="none"
+            xmlns="http://www.w3.org/2000/svg">
+            <path
+                d="M7.22953 1.14427C7.95375 -0.381422 10.0462 -0.381424 10.7705 1.14427L12.0221 3.78106C12.3097 4.38691 12.8656 4.80684 13.5087 4.904L16.3074 5.32682C17.9268 5.57148 18.5734 7.64059 17.4016 8.82817L15.3764 10.8806C14.9111 11.3522 14.6988 12.0317 14.8086 12.6976L15.2867 15.5957C15.5633 17.2726 13.8704 18.5514 12.422 17.7596L9.91874 16.3913C9.34357 16.0769 8.65643 16.0769 8.08125 16.3913L5.57799 17.7596C4.12955 18.5514 2.43668 17.2726 2.71331 15.5957L3.19139 12.6976C3.30124 12.0317 3.0889 11.3522 2.62357 10.8806L0.598388 8.82818C-0.57342 7.64059 0.0731953 5.57148 1.69259 5.32682L4.49134 4.904C5.1344 4.80684 5.69031 4.38691 5.9779 3.78106L7.22953 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M51.2295 1.14427C51.9537 -0.381422 54.0462 -0.381424 54.7705 1.14427L56.0221 3.78106C56.3097 4.38691 56.8656 4.80684 57.5087 4.904L60.3074 5.32682C61.9268 5.57148 62.5734 7.64059 61.4016 8.82817L59.3764 10.8806C58.9111 11.3522 58.6988 12.0317 58.8086 12.6976L59.2867 15.5957C59.5633 17.2726 57.8704 18.5514 56.422 17.7596L53.9187 16.3913C53.3436 16.0769 52.6564 16.0769 52.0813 16.3913L49.578 17.7596C48.1296 18.5514 46.4367 17.2726 46.7133 15.5957L47.1914 12.6976C47.3012 12.0317 47.0889 11.3522 46.6236 10.8806L44.5984 8.82818C43.4266 7.64059 44.0732 5.57148 45.6926 5.32682L48.4913 4.904C49.1344 4.80684 49.6903 4.38691 49.9779 3.78106L51.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M95.2295 1.14427C95.9537 -0.381422 98.0462 -0.381424 98.7705 1.14427L100.022 3.78106C100.31 4.38691 100.866 4.80684 101.509 4.904L104.307 5.32682C105.927 5.57148 106.573 7.64059 105.402 8.82817L103.376 10.8806C102.911 11.3522 102.699 12.0317 102.809 12.6976L103.287 15.5957C103.563 17.2726 101.87 18.5514 100.422 17.7596L97.9187 16.3913C97.3436 16.0769 96.6564 16.0769 96.0813 16.3913L93.578 17.7596C92.1296 18.5514 90.4367 17.2726 90.7133 15.5957L91.1914 12.6976C91.3012 12.0317 91.0889 11.3522 90.6236 10.8806L88.5984 8.82818C87.4266 7.64059 88.0732 5.57148 89.6926 5.32682L92.4913 4.904C93.1344 4.80684 93.6903 4.38691 93.9779 3.78106L95.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M29.2295 1.14427C29.9537 -0.381422 32.0462 -0.381424 32.7705 1.14427L34.0221 3.78106C34.3097 4.38691 34.8656 4.80684 35.5087 4.904L38.3074 5.32682C39.9268 5.57148 40.5734 7.64059 39.4016 8.82817L37.3764 10.8806C36.9111 11.3522 36.6988 12.0317 36.8086 12.6976L37.2867 15.5957C37.5633 17.2726 35.8704 18.5514 34.422 17.7596L31.9187 16.3913C31.3436 16.0769 30.6564 16.0769 30.0813 16.3913L27.578 17.7596C26.1296 18.5514 24.4367 17.2726 24.7133 15.5957L25.1914 12.6976C25.3012 12.0317 25.0889 11.3522 24.6236 10.8806L22.5984 8.82818C21.4266 7.64059 22.0732 5.57148 23.6926 5.32682L26.4913 4.904C27.1344 4.80684 27.6903 4.38691 27.9779 3.78106L29.2295 1.14427Z"
+                fill="#24D0D0" />
+            <path
+                d="M73.2295 1.14427C73.9537 -0.381422 76.0462 -0.381424 76.7705 1.14427L78.0221 3.78106C78.3097 4.38691 78.8656 4.80684 79.5087 4.904L82.3074 5.32682C83.9268 5.57148 84.5734 7.64059 83.4016 8.82817L81.3764 10.8806C80.9111 11.3522 80.6988 12.0317 80.8086 12.6976L81.2867 15.5957C81.5633 17.2726 79.8704 18.5514 78.422 17.7596L75.9187 16.3913C75.3436 16.0769 74.6564 16.0769 74.0813 16.3913L71.578 17.7596C70.1296 18.5514 68.4367 17.2726 68.7133 15.5957L69.1914 12.6976C69.3012 12.0317 69.0889 11.3522 68.6236 10.8806L66.5984 8.82818C65.4266 7.64059 66.0732 5.57148 67.6926 5.32682L70.4913 4.904C71.1344 4.80684 71.6903 4.38691 71.9779 3.78106L73.2295 1.14427Z"
+                fill="#24D0D0" />
+        </svg>
+
+    </div>
+    <div class="div-3div-div1 rounded-3xl cursor-pointer w-[30%] tc-shadow !pb-[26px]">
         <p>“Amazing lifesaver app. I am from the Pakistan and all I needed was to speak to a hematologist.
             There isnt simple way to do this in the Pakistan that is good value for money. I used this app
             and got exactly what i needed and wasable to speak
@@ -582,7 +735,7 @@
                     </h4>
                 </div>
             </div>
-            <button class="btn3 !rounded-lg ">
+            <button class="btn3 !rounded-[8PX] !gap-[6px] !px-[16px] !py-[11px]">
                 Register Doctor
                 <svg width="20" height="14" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#F8F8F8" stroke-width="1.5" stroke-linecap="round"
