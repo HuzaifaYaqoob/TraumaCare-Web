@@ -159,7 +159,10 @@ class User(AbstractBaseUser):
 
     @property
     def full_name(self):
-        return f'{self.first_name} {self.last_name}'
+        if self.first_name:
+            return f'{self.first_name} {self.last_name if self.last_name else ""}'
+        else :
+            self.username
 
 
     # def account_type(self):
