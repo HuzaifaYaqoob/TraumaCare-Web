@@ -71,6 +71,9 @@
         padding-left: 10px;
         padding-right: 10px;
     }
+    .Search-Fiels-TC-WithMic:focus{
+        border: 2px solid #24D0D0;
+    }
 
 
     /*  */
@@ -295,7 +298,14 @@
         </div>
         <input class="Specialities-para" placeholder="Specialities"></input>
     </div>
-        <input type="search" class="Search-Doctors-Hospitals-para shadow-xl frontPage-search-responsive" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
+    <div class="flex items-center w-[440px] h-[55px] bg-[#ffffff] relative rounded-[6px] shadow-xl ">
+        <input type="search" class=" frontPage-search-responsive w-full pr-[30px] pl-[10px] h-full outline-none Search-Fiels-TC-WithMic rounded-[6px] border-[2px] border-[#ffffff] " placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
+        <span class="cursor-pointer absolute h-full flex items-center justify-center cursor-pointer pl-[14px] pr-[10px] right-[0px]">
+            <svg width="20" height="24" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M5 6V16C5 19.3125 7.6875 22 11 22C14.3125 22 17 19.3125 17 16H12C11.45 16 11 15.55 11 15C11 14.45 11.45 14 12 14H17V12H12C11.45 12 11 11.55 11 11C11 10.45 11.45 10 12 10H17V8H12C11.45 8 11 7.55 11 7C11 6.45 11.45 6 12 6H17C17 2.6875 14.3125 0 11 0C7.6875 0 5 2.6875 5 6ZM19 15V16C19 20.4188 15.4187 24 11 24C6.58125 24 3 20.4188 3 16V13.5C3 12.6687 2.33125 12 1.5 12C0.66875 12 0 12.6687 0 13.5V16C0 21.5688 4.1375 26.1687 9.5 26.9V29H6.5C5.66875 29 5 29.6688 5 30.5C5 31.3312 5.66875 32 6.5 32H15.5C16.3312 32 17 31.3312 17 30.5C17 29.6688 16.3312 29 15.5 29H12.5V26.9C17.8625 26.1687 22 21.5688 22 16V13.5C22 12.6687 21.3312 12 20.5 12C19.6688 12 19 12.6687 19 13.5V15Z" fill="#0A1C4B"/>
+            </svg>                
+        </span>
+    </div>
     <a href="/search" class="search-button frontPage-search-responsive-btn">
         <div class="search-btn-svg frontPage-search-responsive-btn-svg">
             <svg width="18" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -329,22 +339,90 @@
 </div>
 
 
+
+{% include 'Popups/popus.html' %}
 <section class="Step-by-Step">
-    {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
+
+    <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
+     <div class="step-by-step-fetured-section">
+         <div class="Choose-Doctor cards4-CMOG-TC">
+             <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
+                 <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <g clip-path="url(#clip0_11_129)">
+                         <path
+                             d="M9.32867 11.5685L9.52867 11.5514C9.60109 11.5434 9.67034 11.5174 9.7301 11.4757L9.72867 11.4771C9.9201 12.1371 10.1544 12.8314 10.4472 13.5585C10.823 14.51 11.193 15.2914 11.6072 16.0457L11.5501 15.9314C11.5158 16.4514 11.4744 16.9857 11.4201 17.5028C11.3963 17.8079 11.3344 18.1088 11.2358 18.3985L11.243 18.3728C11.2258 18.38 11.2015 21.3443 11.2015 21.3443C11.2021 22.264 11.5121 23.1569 12.0816 23.8791C12.6512 24.6013 13.4472 25.1108 14.3415 25.3257L14.3701 25.3314C14.4098 25.2283 14.4798 25.1395 14.5708 25.0768C14.6618 25.0141 14.7696 24.9804 14.8801 24.98H15.7001C15.8096 24.9814 15.9162 25.0152 16.0067 25.0769C16.0972 25.1386 16.1674 25.2257 16.2087 25.3271L16.2101 25.3314C17.112 25.1229 17.9171 24.6161 18.495 23.893C19.073 23.1698 19.3899 22.2728 19.3944 21.3471V21.3457C19.3944 21.3457 19.3444 18.3943 19.3187 18.3743C19.2335 18.0981 19.1752 17.8144 19.1444 17.5271L19.143 17.5057C19.093 16.9857 19.0601 16.4643 19.013 15.9343C19.3658 15.2971 19.7358 14.5171 20.0615 13.7128L20.1158 13.5614C20.4087 12.8343 20.6358 12.1414 20.8344 11.48C20.8931 11.5216 20.9614 11.5477 21.033 11.5557H21.0344L21.2358 11.5728C21.4787 11.5985 21.693 11.3985 21.713 11.0885L21.9301 8.32997V8.32712C21.93 8.21611 21.8895 8.10894 21.8161 8.02561C21.7428 7.94228 21.6416 7.88848 21.5315 7.87426H21.5044C21.6946 6.43782 21.5768 4.97733 21.1587 3.58997L21.1772 3.66283C20.7743 2.76814 20.1615 1.98386 19.3908 1.37655C18.6201 0.769231 17.7142 0.356802 16.7501 0.174259L16.713 0.168545C16.2455 0.0748278 15.7709 0.0212991 15.2944 0.00854492H15.2644C14.7659 0.0174722 14.2693 0.0739182 13.7815 0.177116L13.833 0.168545C12.8694 0.347403 11.9626 0.754485 11.1887 1.35572C10.4147 1.95695 9.796 2.73483 9.38439 3.62426L9.36867 3.66283C8.95738 5.04484 8.84776 6.49907 9.04724 7.92712L9.04153 7.87426C8.93114 7.88621 8.82903 7.93841 8.75471 8.0209C8.68039 8.10339 8.63908 8.21037 8.63867 8.3214V8.3314L8.85581 11.09C8.87581 11.4071 9.09296 11.5985 9.32724 11.5728L9.32867 11.5685Z"
+                             fill="white" />
+                         <path
+                             d="M30.5945 29.8258C30.4945 25.4829 30.0602 24.5 29.8259 23.8343C29.7331 23.5672 29.6573 21.7615 26.6745 20.59C24.8459 19.87 22.4859 19.8558 20.4888 19.0115V21.36C20.4867 22.5641 20.066 23.7299 19.2987 24.6577C18.5314 25.5856 17.4653 26.2177 16.2831 26.4458L16.2502 26.4515C16.2288 26.5782 16.1636 26.6934 16.0659 26.7769C15.9683 26.8604 15.8444 26.9071 15.7159 26.9086H15.6902V28.68C15.6902 29.5113 16.0204 30.3085 16.6082 30.8963C17.196 31.4841 17.9932 31.8143 18.8245 31.8143C19.6558 31.8143 20.453 31.4841 21.0408 30.8963C21.6286 30.3085 21.9588 29.5113 21.9588 28.68V27.4429C21.5273 27.3796 21.134 27.1604 20.8533 26.8268C20.5725 26.4931 20.4238 26.0682 20.4352 25.6323C20.4466 25.1963 20.6174 24.7797 20.9152 24.4612C21.213 24.1427 21.6172 23.9444 22.0514 23.9038C22.4856 23.8632 22.9196 23.9831 23.2713 24.2408C23.623 24.4986 23.8681 24.8763 23.9601 25.3025C24.0522 25.7288 23.9848 26.174 23.7708 26.5539C23.5568 26.9338 23.211 27.2221 22.7988 27.3643L22.7859 27.3686V28.7472C22.7859 29.7982 22.3684 30.8062 21.6252 31.5493C20.882 32.2925 19.8741 32.71 18.8231 32.71C17.772 32.71 16.7641 32.2925 16.0209 31.5493C15.2777 30.8062 14.8602 29.7982 14.8602 28.7472V28.6758V28.6786V26.8915C14.7379 26.8831 14.6219 26.8337 14.5312 26.7513C14.4404 26.6688 14.3802 26.5582 14.3602 26.4372V26.4343C13.1767 26.2086 12.1085 25.5784 11.3386 24.6516C10.5687 23.7248 10.1451 22.5592 10.1402 21.3543V18.9872C8.13449 19.8486 5.7602 19.8658 3.92163 20.5872C0.930199 21.7572 0.861628 23.5586 0.770199 23.83C0.541628 24.4986 0.101628 25.4772 0.00162774 29.8229C-0.0155151 30.3943 0.00162782 31.27 1.72448 32.0358C5.47591 33.5072 10.3088 33.9643 15.0731 34.2929H15.5302C20.3045 33.9672 25.1302 33.5115 28.8788 32.0358C30.5945 31.2743 30.6102 30.4043 30.5945 29.8272V29.8258ZM9.62163 28.0543H7.84163V29.8415H6.5702V28.06H4.7902V26.7886H6.5702V25.0086H7.84163V26.7886H9.62163V28.0543Z"
+                             fill="white" />
+                         <path
+                             d="M23.1787 25.6643V25.6629C23.1785 25.4079 23.0771 25.1635 22.8967 24.9834C22.7164 24.8032 22.4719 24.7021 22.2169 24.7021C21.962 24.7022 21.7176 24.8036 21.5373 24.9839C21.3571 25.1642 21.2559 25.4087 21.2559 25.6636C21.2559 25.9185 21.3571 26.163 21.5373 26.3433C21.7176 26.5236 21.962 26.6249 22.2169 26.625C22.4719 26.6251 22.7164 26.5239 22.8967 26.3438C23.0771 26.1636 23.1785 25.9192 23.1787 25.6643Z"
+                             fill="white" />
+                     </g>
+                     <defs>
+                         <clipPath id="clip0_11_129">
+                             <rect width="30" height="34.2857" fill="white" />
+                         </clipPath>
+                     </defs>
+                 </svg>
+             </div>
+             <h3 class="Choose-Doctor-heading1 cards4-CMOG-TC-heading">Choose Doctor</h3>
+             <p class="Choose-Doctor-para1 cards4-CMOG-TC-pera">Let's find the right Doctor <br>
+                 for your disease! </p>
+         </div>
+         <div class="Make-schedule cards4-CMOG-TC">
+             <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
+                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path
+                         d="M25.754 7.79998H22.7996V4.66438C22.7996 2.42278 21.0308 0.599976 18.7832 0.599976H11.2166C8.96781 0.599976 7.19961 2.42278 7.19961 4.66438V7.79998H4.24461C2.23101 7.79998 0.599609 9.35458 0.599609 11.3622V25.1664C0.599609 27.1734 2.23101 28.8 4.24461 28.8H25.754C27.767 28.8 29.3996 27.1734 29.3996 25.1658V11.3622C29.3996 9.35458 27.767 7.79998 25.754 7.79998ZM9.59961 4.66438C9.59961 3.82498 10.3748 2.99998 11.2166 2.99998H18.7832C19.6226 2.99998 20.3996 3.82498 20.3996 4.66438V7.79998H9.59961V4.66438ZM21.5996 21H17.3996V25.2H12.5996V21H8.39961V16.2H12.5996V12H17.3996V16.2H21.5996V21Z"
+                         fill="white" />
+                 </svg>
+             </div>
+             <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Make a schedule</h3>
+             <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Make a schedule advance <br>
+                 with the available doctor.</p>
+         </div>
+         <div class="OnlineConsulting cards4-CMOG-TC">
+             <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
+                 <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path
+                         d="M22.5 8.75C22.5 7.37125 21.3787 6.25 20 6.25H5C3.62125 6.25 2.5 7.37125 2.5 8.75V21.25C2.5 22.6287 3.62125 23.75 5 23.75H20C21.3787 23.75 22.5 22.6287 22.5 21.25V17.0837L27.5 21.25V8.75L22.5 12.9163V8.75Z"
+                         fill="white" />
+                 </svg>
+             </div>
+             <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Online Consulting</h3>
+             <p class="Choose-Doctor-para px-3 cards4-CMOG-TC-pera">Consult with a doctor online for personalized medical advice and treatment.</p>
+         </div>
+         <div class="Get-prescription cards4-CMOG-TC">
+             <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
+                 <svg width="34" height="30" viewBox="0 0 34 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <path
+                         d="M17.9417 3.4076L16.6667 4.72588L15.3916 3.4076C11.8706 -0.232709 6.16182 -0.232711 2.64078 3.4076C-0.880259 7.04791 -0.88026 12.95 2.64078 16.5903L14.1165 28.4548C15.5249 29.9109 17.8084 29.9109 19.2168 28.4548L30.6926 16.5903C34.2136 12.95 34.2136 7.04791 30.6926 3.4076C27.1715 -0.232709 21.4628 -0.23271 17.9417 3.4076Z"
+                         fill="white" />
+                 </svg>
+             </div>
+             <h3 class="Choose-Doctor-heading cards4-CMOG-TC-heading">Get prescription</h3>
+             <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Let's find the right Doctor <br>
+                 for your disease!</p>
+         </div>
+     </div>
+     
+</section>
+{% include 'Components/Pharmacy/HomeMedicineSection.html' %}
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-        <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
-            <div class="swiper-wrapper py-12">
-                {% for doctor in doctors %}
-                    <div class="swiper-slide border border flex-1"> 
-                        {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
-                    </div>
-                {% endfor %}
-            </div>
-            <div class="swiper-pagination absolute bottom-[500px]"></div>
+    <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
+        <div class="swiper-wrapper py-12" >
+            {% for doctor in doctors %}
+                <div class="swiper-slide border border flex-1 max-w-[330px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
         </div>
-
+        <div class="swiper-pagination absolute bottom-[500px]"></div>
+    </div>
+            
     <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
         <div>
             <h2 class="text-[#0A1C4B] text-center font-semibold">Discover doctors based on your condition.</h2>
@@ -370,11 +448,11 @@
 
     <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
         {% for speciality in specialities|slice:':8' %}
-            {% include 'Components/Home/SpecialityCard.html' with data=speciality is_this_speciality_card='true' %}
+        {% include 'Components/Home/SpecialityCard.html' with data=speciality is_this_speciality_card='true' %}
         {% endfor %}
     </div>
-
-
+    
+    
     <!--  -->
     <!--  -->
     <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
@@ -394,19 +472,18 @@
             </div>
         </a>
     </div>
-    <div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
-        {% for disease in diseases|slice:':8' %}
-            {% include 'Components/Home/SpecialityCard.html' with data=disease %}
-        {% endfor %}
-    </div>
+<div class="grid grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC" style="max-width: 1370px; margin: auto;">
+    {% for disease in diseases|slice:':8' %}
+        {% include 'Components/Home/SpecialityCard.html' with data=disease %}
+    {% endfor %}
+</div>
 
 
-    <div class="max-w-[1370px] w-full mx-auto">
-        {% include 'Components/GetRegisterd/index.html' %}
-    </div>
+<div class="max-w-[1370px] w-full mx-auto">
+    {% include 'Components/GetRegisterd/index.html' %}
+</div>
 
 
-</section>
 <p class="user-recomendation">Over 200,000 user recommendations</p>
 
 <div class="div-3div">

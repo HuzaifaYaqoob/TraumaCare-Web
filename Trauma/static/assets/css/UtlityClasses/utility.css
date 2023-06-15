@@ -395,6 +395,12 @@ input[type='number']::-webkit-outer-spin-button
     -webkit-box-orient: vertical !important;
     -webkit-line-clamp: 4 !important;
 }
+.line-clamp-5{
+    overflow: hidden !important;
+    display: -webkit-box !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-line-clamp: 5 !important;
+}
 
 .single-speciality-detail-page-svg-parent svg{
     width: 80px;

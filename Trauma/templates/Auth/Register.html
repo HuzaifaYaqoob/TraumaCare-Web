@@ -29,8 +29,8 @@
                     </svg>
                 </a>
             </div>
-            <div class="mb-3 lg:mb-0 lg:absolute transition-all border rounded-xl p-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:w-[260px] bg-white lg:right-[-20px] lg:translate-x-full overflow-auto">
-                <p>To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
+            <div class="mb-3 lg:mb-0 lg:absolute transition-all border border-[#23d0d010] rounded-xl p-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:w-[260px] bg-[#23d0d010] lg:right-[-20px] lg:translate-x-full overflow-auto">
+                <p class="leading-5 text-[15px] text-[#a9b8cd]">To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
             </div>
             <form action="{% url 'HandleJoin' %}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
