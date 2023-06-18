@@ -1,13 +1,45 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
+
 {% block title %}{{speciality.name}} - {{speciality.tag_lin}}{% endblock title %}
 
 
 {% block baseBody %}
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+<style>
+      @media (max-width:1400px) {
+            .spacility-first-TC{
+                  flex-wrap: wrap;
+                  justify-content: center;
+            }
+            .spacility-first-TC-main{
+                  justify-content: center;
+            }
+            .Gynecologist-main , .Related-main , .Packages-main , .service-main{
+                  text-align: center;
+            }
+            .Gynecologist-main-under{
+                  justify-content: center;
+            }.Related-H-cards-main{
+                  justify-content: center;
+            }
+            .service-cards{
+                  justify-content: center !important;
+            }
+      }
+      @media (max-width:1500px) {
+            .position-left-TC{
+                  left: -50px;
+            }
+            .position-right-TC{
+                  right: -50px;
+            }
+      }
+</style>
 
 
 <div class="max-w-[1600px] mx-auto py-12 w-[90%]">
-      <div class="flex gap-3 items-center">
+      <div class="flex gap-3 items-center spacility-first-TC-main">
             <div class="flex gap-1 items-center cursor-pointer">
                   <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">Home</a>
                   <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none"
@@ -31,8 +63,8 @@
                   <p class="text-slate-800 font-[500] cursor-pointer">{{speciality.name}}</p>
             </div>
       </div>
-      <div class="flex items-start gap-4 mt-10">
-            <div class="flex-[2] flex gap-4 items-start p-6 border rounded-xl">
+      <div class="flex items-start gap-4 mt-10 spacility-first-TC">
+            <div class="w-[1050px] flex gap-4 items-start p-6 border rounded-xl spacility-first-TC-1">
                   <div
                         class="w-[100px] h-[100px] single-speciality-detail-page-svg-parent rounded-lg flex items-center justify-center bg-[{{speciality.color_code}}]">
                         {{speciality.svg_icon|safe}}
@@ -44,7 +76,7 @@
                         <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
                   </div>
             </div>
-            <div class="flex-1 bg-[#24d0d01a] px-6 py-[18px] rounded-xl">
+            <div class="w-[530px] bg-[#24d0d01a] px-6 py-[18px] rounded-xl">
                   <p class="text-[#24D0D0] text-xl font-[600]">All gynecological treatment under Single roof under Single roof.</p>
                   <p class="text-[#24D0D0]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
                   <div class="flex items-center gap-4 mt-2">
@@ -62,12 +94,12 @@
       <br>
             {{doctor.name}}
       {% endfor %} -->
-      <div class="mt-4">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600]">Gynecologist in Pakistan</h3>
+      <div class="mt-10">
+            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Gynecologist-main">Gynecologist in Pakistan</h3>
             <div
-                  class="mt-4 flex items-center gap-[4px] relative flex-wrap">
+                  class="mt-4 flex items-center gap-[4px] relative flex-wrap Gynecologist-main-under">
                   <div
-                        class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[50%] left-[-70px]">
+                        class="position-left-TC absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M19.5359 16.7207C19.6784 16.5785 19.7914 16.4097 19.8685 16.2238C19.9456 16.0379 19.9853 15.8386 19.9853 15.6374C19.9853 15.4362 19.9456 15.2369 19.8685 15.051C19.7914 14.8651 19.6784 14.6963 19.5359 14.5541L13.5895 8.59236L19.5513 2.61522C19.6936 2.47297 19.8064 2.30408 19.8834 2.11822C19.9604 1.93235 20 1.73314 20 1.53196C20 1.33078 19.9604 1.13157 19.8834 0.945705C19.8064 0.759839 19.6936 0.590957 19.5513 0.448701C19.409 0.306445 19.2402 0.193602 19.0543 0.116613C18.8684 0.0396249 18.6692 -1.49891e-09 18.468 0C18.2669 1.49891e-09 18.0676 0.0396249 17.8818 0.116613C17.6959 0.193602 17.527 0.306445 17.3848 0.448701L10.3321 7.50142C9.73281 8.10067 9.73281 9.06869 10.3321 9.66794L17.3848 16.7207C17.5254 16.863 17.6929 16.976 17.8775 17.0531C18.0622 17.1303 18.2603 17.17 18.4604 17.17C18.6605 17.17 18.8586 17.1303 19.0432 17.0531C19.2278 16.976 19.3953 16.863 19.5359 16.7207Z"
                                     fill="#24D0D0" fill-opacity="0.5" />
@@ -80,7 +112,7 @@
                   {% endfor %}
 
                   <div
-                        class="absolute cursor-pointer flex items-center justify-center w-10 h-10 bg-[#24d0d026] rounded-full top-[40%] right-[-70px]">
+                        class="position-right-TC absolute cursor-pointer flex items-center justify-center w-10 h-10 bg-[#24d0d026] rounded-full top-[40%] right-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M0.464067 1.27934C0.321624 1.42149 0.208615 1.59034 0.131509 1.77622C0.0544035 1.9621 0.0147144 2.16137 0.0147144 2.36261C0.0147144 2.56384 0.0544035 2.76311 0.131509 2.94899C0.208615 3.13487 0.321624 3.30371 0.464067 3.44586L6.41048 9.40764L0.448701 15.3848C0.306445 15.527 0.193602 15.6959 0.116613 15.8818C0.0396249 16.0676 1.49891e-09 16.2669 0 16.468C-1.49891e-09 16.6692 0.0396249 16.8684 0.116613 17.0543C0.193602 17.2402 0.306445 17.409 0.448701 17.5513C0.590957 17.6936 0.759839 17.8064 0.945705 17.8834C1.13157 17.9604 1.33078 18 1.53196 18C1.73314 18 1.93235 17.9604 2.11822 17.8834C2.30408 17.8064 2.47297 17.6936 2.61522 17.5513L9.66794 10.4986C10.2672 9.89933 10.2672 8.93131 9.66794 8.33206L2.61522 1.27934C2.47459 1.137 2.30711 1.02398 2.12248 0.94685C1.93785 0.869717 1.73974 0.83 1.53964 0.83C1.33955 0.83 1.14144 0.869717 0.956811 0.94685C0.772179 1.02398 0.604695 1.137 0.464067 1.27934Z"
                                     fill="#24D0D0" fill-opacity="0.5" />
@@ -90,18 +122,18 @@
                   </div>
             </div>
       </div>
-      <div class="mt-5">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600]">Related Hospitals</h3>
-            <div class="mt-4 flex items-center gap-[10px] flex-wrap">
+      <div class="mt-10">
+            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Related-main">Related Hospitals</h3>
+            <div class="mt-4 flex items-center gap-[10px] flex-wrap Related-H-cards-main">
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
                 <!-- {% include 'Components/Search/HospitalCard.html' %} -->
             </div>
       </div>
-      <div class="mt-5">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600]">Services</h3>
-            <div class="mt-4 relative flex items-center gap-4 flex-wrap">
+      <div class="mt-10">
+            <h3 class="text-[#5F5D5D] text-[26px] font-[600] service-main">Services</h3>
+            <div class="mt-4 relative flex items-center gap-4 swiper mySwiper service-cards">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -112,10 +144,19 @@
                         </svg>
 
                   </div>
-                  {% include 'Components/Specilities/serviceCards.html' %}
-                  {% include 'Components/Specilities/serviceCards.html' %}
-                  {% include 'Components/Specilities/serviceCards.html' %}
-                  {% include 'Components/Specilities/serviceCards.html' %}
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/serviceCards.html' %}</div>
+                        </div>
+                        <!-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
                   <div
                         class="absolute cursor-pointer flex items-center justify-center w-10 h-10 bg-[#24d0d026] rounded-full top-[40%] right-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -129,9 +170,9 @@
                   </div>
             </div>
       </div>
-      <div class="mt-5">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600]">Packages</h3>
-            <div class="mt-4 relative flex items-center gap-4 ">
+      <div class="mt-10">
+            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Packages-main">Packages</h3>
+            <div class="mt-4 relative flex items-center gap-4 swiper mySwiper ">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -142,10 +183,19 @@
                         </svg>
 
                   </div>
-                  {% include 'Components/Specilities/packageCards.html' %}
-                  {% include 'Components/Specilities/packageCards.html' %}
-                  {% include 'Components/Specilities/packageCards.html' %}
-                  {% include 'Components/Specilities/packageCards.html' %}
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                          <div class="swiper-slide">{% include 'Components/Specilities/packageCards.html' %}</div>
+                        </div>
+                        <!-- <div class="swiper-button-next"></div>
+                        <div class="swiper-button-prev"></div> -->
                   <div
                         class="absolute cursor-pointer flex items-center justify-center w-10 h-10 bg-[#24d0d026] rounded-full top-[40%] right-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -162,4 +212,18 @@
 
 </div>
 
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+<script>
+      var swiper = new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          type: "progressbar",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
 {% endblock baseBody %}
