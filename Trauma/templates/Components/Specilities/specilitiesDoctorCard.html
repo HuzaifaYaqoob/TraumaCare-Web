@@ -1,0 +1,83 @@
+<div class="border rounded-xl w-[400px] pb-4">
+      <div class="bg-[#557de50d] rounded-xl rounded-b-none flex items-center gap-[9px] sm:gap-[11px] py-[12px] px-[10px] sm:py-[14px] sm;px-[12px]">
+            <a href="{% url 'DoctorProfilePage' doctor_id=doctor.id %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
+                  class="block w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full border-[2px] border-[#557de5] bg-center bg-cover bg-no-repeat"
+                  style="background-image: url('{{doctor.profile_image}}');">
+
+            </a>
+            <div class="flex-1">
+                  <div class="flex justify-between items-center">
+                        <a href="{% url 'DoctorProfilePage' doctor_id=doctor.id %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
+                              class="line-clamp-1 text-[#515151] font-[600] text-[18px] sm:text-[20px]">Dr.
+                              {{doctor.name}} </a>
+                        <div class="flex cursor-pointer items-center gap-[6px] bg-[#557DE5] px-[10px] h-[22px] sm:h-[23px] rounded-[50px]">
+                              <svg width="13" height="14" viewBox="0 0 14 18" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M9.66374 5L1.99707 7.33333L3.99707 14H9.66374L12.3304 7.33333L9.66374 5Z"
+                                          fill="white" />
+                                    <mask id="path-2-outside-1_2298_3396" maskUnits="userSpaceOnUse"
+                                          x="0" y="0" width="14" height="18" fill="black">
+                                          <rect fill="white" width="14" height="18" />
+                                          <path
+                                                d="M5.66667 12.6667L3 10L3.94 9.06L5.66667 10.78L10.06 6.38667L11 7.33333M7 2L1 4.66667V8.66667C1 12.3667 3.56 15.8267 7 16.6667C10.44 15.8267 13 12.3667 13 8.66667V4.66667L7 2Z" />
+                                    </mask>
+                                    <path d="M5.66667 12.6667L3 10L3.94 9.06L5.66667 10.78L10.06 6.38667L11 7.33333M7 2L1 4.66667V8.66667C1 12.3667 3.56 15.8267 7 16.6667C10.44 15.8267 13 12.3667 13 8.66667V4.66667L7 2Z"
+                                          fill="#557DE5" />
+                                    <path d="M3 10L2.29289 9.29289L1.58579 10L2.29289 10.7071L3 10ZM3.94 9.06L4.64574 8.35153L3.93863 7.64715L3.23289 8.35289L3.94 9.06ZM5.66667 10.78L4.96093 11.4885L5.66803 12.1928L6.37377 11.4871L5.66667 10.78ZM10.06 6.38667L10.7696 5.68206L10.0625 4.96995L9.35289 5.67956L10.06 6.38667ZM7 2L7.40614 1.08619L7 0.905682L6.59386 1.08619L7 2ZM1 4.66667L0.593861 3.75286L0 4.01679V4.66667H1ZM7 16.6667L6.76278 17.6381L7 17.696L7.23722 17.6381L7 16.6667ZM13 4.66667H14V4.01679L13.4061 3.75286L13 4.66667ZM6.37377 11.9596L3.70711 9.29289L2.29289 10.7071L4.95956 13.3738L6.37377 11.9596ZM3.70711 10.7071L4.64711 9.76711L3.23289 8.35289L2.29289 9.29289L3.70711 10.7071ZM3.23426 9.76847L4.96093 11.4885L6.3724 10.0715L4.64574 8.35153L3.23426 9.76847ZM6.37377 11.4871L10.7671 7.09377L9.35289 5.67956L4.95956 10.0729L6.37377 11.4871ZM9.3504 7.09127L10.2904 8.03794L11.7096 6.62873L10.7696 5.68206L9.3504 7.09127ZM6.59386 1.08619L0.593861 3.75286L1.40614 5.58048L7.40614 2.91381L6.59386 1.08619ZM0 4.66667V8.66667H2V4.66667H0ZM0 8.66667C0 12.7861 2.83594 16.6792 6.76278 17.6381L7.23722 15.6952C4.28406 14.9741 2 11.9472 2 8.66667H0ZM7.23722 17.6381C11.1641 16.6792 14 12.7861 14 8.66667H12C12 11.9472 9.71594 14.9741 6.76278 15.6952L7.23722 17.6381ZM14 8.66667V4.66667H12V8.66667H14ZM13.4061 3.75286L7.40614 1.08619L6.59386 2.91381L12.5939 5.58048L13.4061 3.75286Z"
+                                          fill="#FDFDFD" mask="url(#path-2-outside-1_2298_3396)" />
+                              </svg>
+                              <p class="text-white text-[12px] sm:text-[13px] font-[400] leading-none">Verified </p>
+                        </div>
+                  </div>
+                  <div class="mt-[5px] sm:mt-[8px]">
+                        <p class="text-[#557DE5] line-clamp-1">{{doctor.heading}}</p>
+                        <p class="text-[#9A9A9A] text-sm line-clamp-1">Golra Mor, Peshawar Road, Islamabad</p>
+                  </div>
+            </div>
+      </div>
+      <div class="flex items-center justify-center justify-between px-4 mt-[10px]">
+            <div>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Experience
+                  </p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">7 Year</p>
+            </div>
+            <div>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Fee
+                  </p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">3000 PKR</p>
+            </div>
+            <div>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Ratings
+                  </p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]"> 97%</p>
+            </div>
+      </div>
+      <div class="mt-4 flex items-center justify-between px-4">
+            <p class="text-[14px] sm:text-[15px] text-[#8A8A8A]">Available Today</p>
+            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.id}}&source=SpecialityViewPage"
+                  class="text-[#557DE5] text-[14px] sm:text-[15px] font-bold cursor-pointer">Book Appointment</p>
+
+      </div>
+      <div class="flex items gap-[5px] flex-wrap mt-4 px-4">
+            <div
+                  class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
+                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">10:00 AM - 11:00 AM</p>
+            </div>
+            <div
+                  class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
+                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">10:00 AM - 11:00 AM</p>
+            </div>
+            <div
+                  class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
+                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">07 PM - 09 PM</p>
+            </div>
+            <div
+                  class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
+                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">07 AM Tue</p>
+            </div>
+            <div
+                  class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg hover:bg-[#557DE5] cursor-pointer group transition-all border">
+                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">Hover me</p>
+            </div>
+      </div>
+</div>

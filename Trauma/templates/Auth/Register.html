@@ -29,9 +29,18 @@
                     </svg>
                 </a>
             </div>
-            <div class="mb-3 lg:mb-0 lg:absolute transition-all border rounded-xl p-4 lg:top-1/2 lg:transform lg:-translate-y-1/2 lg:w-[260px] bg-white lg:right-[-20px] lg:translate-x-full overflow-auto">
-                <p>To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
+            <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl p-4 xl:top-1/4 lg:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
+                <p class="leading-5 text-[15px] text-[#a9b8cd]">To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
             </div>
+            <!--  -->
+            <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl pt-3 pb-3 pl-3 pr-[8px] lg:top-[42%] xl:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
+                <li class="text-[#a9b8cd] text-[14px] ">Have at least one lowercase character.</li>
+                <li class="text-[#a9b8cd] text-[14px] ">Have at least one uppercase character.</li>
+                <li class="text-[#a9b8cd] text-[14px] ">Have at least one number.</li>
+                <li class="text-[#a9b8cd] text-[14px] ">Have at least one special charact.</li>
+                <li class="text-[#a9b8cd] text-[14px] ">Be at least 8 characters.</li>
+            </div>
+            <!--  -->
             <form action="{% url 'HandleJoin' %}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
                 <div class="main-step-section">
@@ -46,6 +55,10 @@
                     <div class="register-form-step-3">
                         {% include 'Components/Form/passwordField.html' with strong_password='true' name='password' label='Password' placeholder='*********' attributes='data-required' %}
                         {% include 'Components/Form/passwordField.html' with name='confirm_password' label='Confirm Password' placeholder='*********' attributes='data-required' %}
+                        <div class="mb-3 flex items-center gap-[5px]">
+                            <input type="checkbox" name="checkbox" id="checkbox">
+                            <label class="text-[#a9b8cd] text-[14px] font-[600]" for="checkbox">Show Password</label>
+                        </div>
                     </div>
                 </div>
 

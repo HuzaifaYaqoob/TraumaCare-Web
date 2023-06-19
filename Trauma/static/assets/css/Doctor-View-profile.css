@@ -3,7 +3,7 @@
       grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
       grid-template-rows: repeat(45,70px);
       gap: 15px;
-      max-width: 1770px;
+      max-width: 1300px !important;
       margin: auto;
 }
 
