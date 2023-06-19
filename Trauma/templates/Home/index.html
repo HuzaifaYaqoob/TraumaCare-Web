@@ -339,9 +339,15 @@
     .main-section{
         height: 472px !important;
     }
+    .doctor-card-maon-TC-cards{
+            width: 320px;
+    }
  }
 
  @media (max-width:400px){
+    .doctor-card-maon-TC-cards{
+            width: 310px;
+        }
     .frontPage-search-responsive-main{
         height: 44px;
     }
@@ -371,6 +377,17 @@
     .speciality-cards-TC-5 svg{
         height: 13px;
         width: 13px;
+    }
+    .robote-main-TC-svg svg{
+        width: 160px;
+        height: 185px;
+    }
+ }
+ @media (max-width:350px) {
+    .speciality-cards-TC{
+        width: 315px;
+        padding-top: 11px;
+        padding-bottom: 11px;
     }
  }
 
@@ -532,10 +549,10 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="swiper mySwiper px-[10px] flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
+    <div class="swiper mySwiper px-[6px] sm:px-[10px] flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
         <div class="swiper-wrapper py-12 justify-center xl:justify-start" >
             {% for doctor in doctors %}
-                <div class="swiper-slide border border flex-1 max-w-[330px]" style="border: none;"> 
+                <div class="swiper-slide border border flex-1 max-w-[330px] !m-[0px]" style="border: none;"> 
                     {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
                 </div>
             {% endfor %}
@@ -606,7 +623,7 @@
 
 <p class="user-recomendation">Over 200,000 user recommendations</p>
 
-<div class="div-3div">
+<div class="div-3div px-[10px]">
     <div class="position-div position-div1 top-[45%]">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.40039 2L2.80039 8.45366L9.40039 14.6" stroke="#0A1C4B" stroke-width="3"

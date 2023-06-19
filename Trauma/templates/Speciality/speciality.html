@@ -35,11 +35,43 @@
                   right: -50px;
             }
       }
+      @media (max-width:500px){
+            .spacility-first-TC-1{
+                  flex-direction: column;
+                  align-items: center;
+                  border-radius: 8px;
+            }
+            .spacility-first-TC-1-h1, .spacility-first-TC-1-p1 , .spacility-first-TC-1-p2 , .spacility-first-TC-2-p1 , .spacility-first-TC-2-p2{
+                  text-align: center;
+            }
+            .spacility-first-TC-1-h1{
+                  line-height: 32px;
+            }
+            .spacility-first-TC-1-p2{
+                  font-size: 14px;
+            }
+            .spacility-first-TC-2-2{
+                  justify-content: center;
+                  gap: 6px;
+            }
+            .spacility-first-TC-2{
+                  padding-top: 12px;
+                  padding-bottom: 12px;
+                  border-radius: 8px;
+            }
+            .spacility-first-TC-2-2-1{
+                  padding: 6px 12px;
+                  font-size: 14px;
+            }
+      }
+      @media (max-width:450px){
+
+      }
 </style>
 
 
-<div class="max-w-[1600px] mx-auto py-12 w-[90%]">
-      <div class="flex gap-3 items-center spacility-first-TC-main">
+<div class="max-w-[1600px] mx-auto py-12 w-[97%] md:w-[90%]">
+      <div class="flex gap-3 items-center flex-wrap spacility-first-TC-main">
             <div class="flex gap-1 items-center cursor-pointer">
                   <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[400]">Home</a>
                   <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none"
@@ -63,28 +95,28 @@
                   <p class="text-slate-800 font-[500] cursor-pointer">{{speciality.name}}</p>
             </div>
       </div>
-      <div class="flex items-start gap-4 mt-10 spacility-first-TC">
-            <div class="w-[1050px] flex gap-4 items-start p-6 border rounded-xl spacility-first-TC-1">
+      <div class="flex items-start gap-4 mt-[24px] lg:mt-10 spacility-first-TC">
+            <div class="w-[1050px] flex gap-4 items-start px-[19px] py-[15px] sm:p-6 border rounded-xl spacility-first-TC-1">
                   <div
                         class="w-[100px] h-[100px] single-speciality-detail-page-svg-parent rounded-lg flex items-center justify-center bg-[{{speciality.color_code}}]">
                         {{speciality.svg_icon|safe}}
                   </div>
                   <div class="flex-1">
-                        <h1 class="text-[{{speciality.color_code}}] font-semibold text-4xl">{{speciality.name}}</h1>
-                        <p class="text-[#24D0D0] text-xl font-[600]">{{speciality.available_doctors_count}} vest
+                        <h1 class="spacility-first-TC-1-h1 text-[{{speciality.color_code}}] font-semibold text-[28px] sm:text-4xl">{{speciality.name}}</h1>
+                        <p class="spacility-first-TC-1-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">{{speciality.available_doctors_count}} vest
                               specialist in Pakistan</p>
-                        <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
+                        <p class="spacility-first-TC-1-p2 text-[15px] sm:text-[16px] text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
                   </div>
             </div>
-            <div class="w-[530px] bg-[#24d0d01a] px-6 py-[18px] rounded-xl">
-                  <p class="text-[#24D0D0] text-xl font-[600]">All gynecological treatment under Single roof under Single roof.</p>
-                  <p class="text-[#24D0D0]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
-                  <div class="flex items-center gap-4 mt-2">
+            <div class="w-[530px] bg-[#24d0d01a] px-6 py-[18px] rounded-xl spacility-first-TC-2">
+                  <p class="spacility-first-TC-2-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">All gynecological treatment under Single roof under Single roof.</p>
+                  <p class="spacility-first-TC-2-p2 text-[#24D0D0] text-[15px] sm:text-[16px]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
+                  <div class="flex items-center gap-4 mt-2 spacility-first-TC-2-2">
                         <a href="{% url 'BookAppointmentPage' %}?speciality={{speciality.slug}}"
-                              class="border border-[#24d0d0] px-3 py-2 text-[#24D0D0] rounded-md hover:bg-[#24D0D0] hover:text-[#ffffff]">
+                              class="spacility-first-TC-2-2-1 border border-[#24d0d0] px-3 py-2 text-[#24D0D0] rounded-md hover:bg-[#24D0D0] hover:text-[#ffffff]">
                               <p class="">Book Appointment</p>
                         </a>
-                        <div class="bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
+                        <div class="spacility-first-TC-2-2-1 bg-[#24D0D0] px-4 py-2 rounded-md cursor-pointer border border-[#24D0D0]">
                               <p class="text-white">Contact US</p>
                         </div>
                   </div>
@@ -95,7 +127,7 @@
             {{doctor.name}}
       {% endfor %} -->
       <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Gynecologist-main">Gynecologist in Pakistan</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Gynecologist-main">Gynecologist in Pakistan</h3>
             <div
                   class="mt-4 flex items-center gap-[4px] relative flex-wrap Gynecologist-main-under">
                   <div
@@ -123,7 +155,7 @@
             </div>
       </div>
       <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Related-main">Related Hospitals</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Related-main">Related Hospitals</h3>
             <div class="mt-4 flex items-center gap-[10px] flex-wrap Related-H-cards-main">
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
@@ -132,7 +164,7 @@
             </div>
       </div>
       <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600] service-main">Services</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] service-main">Services</h3>
             <div class="mt-4 relative flex items-center gap-4 swiper mySwiper service-cards">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
@@ -171,7 +203,7 @@
             </div>
       </div>
       <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[26px] font-[600] Packages-main">Packages</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Packages-main">Packages</h3>
             <div class="mt-4 relative flex items-center gap-4 swiper mySwiper ">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
