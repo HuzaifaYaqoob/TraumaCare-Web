@@ -36,6 +36,42 @@
                   font-size: 13px;
             }
       }
+      @media (max-width:1024px){
+            .education-cards{
+                  display: flex;
+                  flex-direction: column;
+                  align-items: center;
+            }
+      }
+      .education-cards-main{
+            flex-wrap: wrap;
+            justify-content: center;
+      }
+      @media (max-width:500px){
+            .ask-questions-main{
+                  padding-top: 9px !important;
+                  padding-bottom: 9px !important;
+            }
+            .ask-questions-main-image{
+                  height: 28px !important;
+                  width: 28px !important;
+            }
+            .ask-questions-main-text{
+                  font-size: 13px;
+            }
+            .ask-questions-main-svg svg{
+                  height: 10px;
+                  width: 10px;
+            }
+            .ask-questions-main-text-1{
+                  text-align: center;
+                  font-size: 13px !important;
+                  line-height: 16px !important;
+            }
+            .position-text-main-TC{
+                  padding-top: 68px !important;
+            }
+      }
     </style>
 
 {% endblock BaseCSS %}
@@ -123,25 +159,25 @@
             <div class="shadow-md rounded-[20px] p-4 border ">
                   <div>
                         <p class="text-[#6C6C6C] font-[600] text-center lg:text-start text-2xl">Education</p>
-                        <div class="flex items-center gap-4 mt-2 flex-wrap">
-                        <div class="flex-1">
-                              <p class="text-[#807F7F] font-[500]">Chiropractor DPT, MPhil (Biomechanics)</p>
+                        <div class="flex items-center gap-4 mt-2 education-cards-main">
+                        <div class="flex-1 education-cards">
+                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
                               <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold">2012-2018</p>
+                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
                                     <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
                               </div>
                         </div>
-                        <div class="flex-1">
-                              <p class="text-[#807F7F] font-[500]">Chiropractor DPT, MPhil (Biomechanics)</p>
+                        <div class="flex-1 education-cards">
+                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
                               <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold">2012-2018</p>
+                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
                                     <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
                               </div>
                         </div>
-                        <div class="flex-1">
-                              <p class="text-[#807F7F] font-[500]">Chiropractor DPT, MPhil (Biomechanics)</p>
+                        <div class="flex-1 education-cards">
+                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
                               <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold">2012-2018</p>
+                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
                                     <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
                               </div>
                         </div>
@@ -196,7 +232,7 @@
                   </div>
                   <div class="mt-8">
                         <p class="text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
-                        <div class="flex gap-4 items-center flex-col md:flex-row">
+                        <div class="flex gap-4 items-center flex-col md:flex-row mt-[12px]">
                         <div class="flex-1 flex flex-col gap-2 ">
                               <p class="text-[#807F7F] lg:text-start text-center">Consultant  Paediatric Neurologist, National Medical</p>
                               <div class="flex items-center gap-[6px] mt-2 flex-wrap lg:justify-start justify-center">
@@ -336,13 +372,13 @@
                   </div>
             </div>
             <div class="border shadow-md rounded-xl p-6" >
-                  <p class="text-[#555555] font-[600] text-xl">Frequently Asked Questions</p>
+                  <p class="text-[#555555] font-[600] text-xl lg:text-start text-center">Frequently Asked Questions</p>
                   <div class="flex  flex-col  gap-[14px] flex-1 mt-10">
-                  <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-[12px] relative pb-[26px] tc-shadow">
+                  <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-[12px] relative pb-[26px] tc-shadow position-text-main-TC">
                               <div class="ask-questions-main rounded-[50px] top-[0%] absolute left-[0] right-[0] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
                                     <div class="flex items-center gap-3">
-                                          <img class="h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                                          <p class="text-[#939393]">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
+                                          <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
+                                          <p class="ask-questions-main-text text-[#939393] line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
                                     </div>
                                     <div class="ask-questions-main-svg">
                                           <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -350,12 +386,12 @@
                                                 </svg>
                                     </div>
                               </div>
-                              <p class="text-[#9A9A9A] text-[15px] px-4 leading-5">He is an exceptional physician who truly cares about his patients. He took time to listen to my concerns and provided me with a thoughtful treatment planto my concerns and provided me with a thoughtful treatment plan.</p>
+                              <p class="text-[#9A9A9A] text-[15px] px-4 leading-5 line-clamp-3 ask-questions-main-text-1">He is an exceptional physician who truly cares about his patients. He took time to listen to my concerns and provided me with a thoughtful treatment planto my concerns and provided me with a thoughtful treatment plan.</p>
                   </div>
                   <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                              <img class="h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="text-[#939393]">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
+                              <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
+                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
                         </div>
                         <div class="ask-questions-main-svg">
                               <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -365,8 +401,8 @@
                   </div>
                   <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                              <img class="h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="text-[#939393]">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
+                              <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
+                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
                         </div>
                         <div class="ask-questions-main-svg">
                               <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -376,8 +412,8 @@
                   </div>
                   <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
                         <div class="flex items-center gap-3">
-                              <img class="h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="text-[#939393]">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
+                              <img class=" ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
+                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
                         </div>
                         <div class="ask-questions-main-svg">
                               <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
