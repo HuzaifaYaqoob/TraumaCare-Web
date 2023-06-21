@@ -623,17 +623,35 @@
 
 <p class="user-recomendation">Over 200,000 user recommendations</p>
 
-<div class="div-3div px-[10px]">
-    <div class="position-div position-div1 top-[45%]">
+<div class="div-3div px-[10px] swiper mySwiper0fThreeCards flex !z-0 items-center justify-center">
+    <div class="position-div position-div1 top-[45%] !z-10 left-[-20px]">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9.40039 2L2.80039 8.45366L9.40039 14.6" stroke="#0A1C4B" stroke-width="3"
                 stroke-linecap="round" />
         </svg>
     </div>
-    {% include 'Components/reviewCard.html' %}
-    {% include 'Components/reviewCard.html' %}
-    {% include 'Components/reviewCard.html' %}
-    <div class="position-div position-div2">
+        <div class="swiper-wrapper py-12 !z-0">
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+            {% include 'Components/reviewCard.html' %}
+            </div>
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+            {% include 'Components/reviewCard.html' %}
+            </div>
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+            {% include 'Components/reviewCard.html' %}
+            </div>
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+                {% include 'Components/reviewCard.html' %}
+            </div>
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+                {% include 'Components/reviewCard.html' %}
+            </div>
+            <div class="swiper-slide !w-[350px] !z-0" style="border: none;">
+                {% include 'Components/reviewCard.html' %}
+            </div>
+        </div>
+        <div class="swiper-pagination absolute bottom-[500px]"></div>
+    <div class="position-div position-div2 !z-10 right-[-20px]">
         <svg width="11" height="17" viewBox="0 0 11 17" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.59961 2L8.19961 8.45366L1.59961 14.6" stroke="#0A1C4B" stroke-width="3"
                 stroke-linecap="round" />
@@ -1157,6 +1175,53 @@
             },
             1600: {
                 slidesPerView: 6,
+            }
+        }
+        });
+    })
+
+  </script>
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded' , ()=>{
+        var swiper = new Swiper(".mySwiper0fThreeCards", {
+        slidesPerView: 6,
+        spaceBetween:  20 ,
+        loop:true,
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        breakpoints : {
+            320 :{
+                slidesPerView: 1,
+            } ,
+            650: {
+                slidesPerView: 2,
+            },
+            800: {
+                slidesPerView: 3,
+            },
+            768: {
+                slidesPerView: 3,
+            },
+            1024: {
+                slidesPerView: 3,
+            },
+            1250: {
+                slidesPerView: 3,
+            },
+            1500: {
+                slidesPerView: 3,
+            },
+            1600: {
+                slidesPerView: 3,
             }
         }
         });
