@@ -6,15 +6,39 @@
 {% block BaseCSS %}
 <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
 <style>
-      .Hover-MainSection{
-            display: none;
+
+
+/*  */
+/*  */
+/*  */
+
+.change-location-popup-main-BG{
+        background-color: rgba(0, 0, 0, 0.685);
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+    .change-location-popup{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+
+    .change-location-popup-main-BG-after{
+        opacity: 1;
+        z-index: 1000000;
       }
-      .Link-Hover-MainSection:hover .Hover-MainSection{
-            display: block;
-      }
-      .Link-Hover-MainSection-1:hover .Hover-MainSection{
-            display: block;
-      }
+
+
+      /*  */
+      /*  */
+      
       @media (max-width:1890px) {
             .SMP-3Divs-TC{
                   padding-left:  60px !important;
@@ -31,7 +55,13 @@
             .SMP-3Divs{
                   flex-wrap: wrap !important;
                   justify-content: center !important;
-                  gap: 45px !important;
+                  gap: 55px !important;
+            }
+      }
+      @media (max-width:1230px){
+            .SMP-3Divs{
+                  flex-direction: column;
+                  justify-content: center;
             }
       }
 </style>
@@ -44,8 +74,8 @@
 <section class="m-auto px-[90px] pb-[30px] SMP-3Divs-TC" style="max-width: 1920px;">
       <div class="flex justify-between">
             <div class="w-[1920px]">
-                  <div class="flex justify-between SMP-3Divs">
-                        <div class="mt-[25px]">
+                  <div class="flex justify-between SMP-3Divs flex-wrap">
+                        <div class="mt-[25px] w-[400px]">
                               <div class="pt-[45px] relative w-[410px] h-[410px] pb-[75px] rounded-3xl flex justify-center bg-[#8989B61A]">
                                     <img src="{% static 'assets/images/image 252.png' %}"class="w-[100px]" alt="" style="max-height: 100%; height: auto; width: auto; max-width: 100%;">
                                     <div class="absolute bottom-[10%] left-[50%] flex items-center gap-[6px]" style="transform: translate(-50% , -50%);">
@@ -88,15 +118,9 @@
                                                 </a>
                                                 <div class="text-[17px] text-[#565656] relative">
 
-                                                      Medicine available on <a class="text-[#557DE5] Link-Hover-MainSection" style="text-decoration: underline;" href="#">
-                                                            <div class="Hover-MainSection absolute top-[-250px]">
-                                                                  {% include 'Components/Pharmacy/SMVP-HoverSection.html' %}
-                                                            </div>
-                                                            2 more</a> Locations, <a class="text-[#557DE5] Link-Hover-MainSection-1" style="text-decoration: underline;" href="">
-                                                                  <div class="Hover-MainSection absolute top-[-250px]">
-                                                                        {% include 'Components/Pharmacy/SMVP-HoverSection.html' %}
-                                                                  </div>
-                                                                  Change Location</a>
+                                                      Medicine available on <span class="cursor-pointer text-[#557DE5] morebtn-before-location" style="text-decoration: underline;">
+                                                            2 more</span> Locations, <span class="cursor-pointer text-[#557DE5] change-location-btn" style="text-decoration: underline;">
+                                                                  Change Location</span>
                                                 </div>
                                           </div>
                                           <div class="flex flex-col items-end">
@@ -143,7 +167,7 @@
                                                             </svg>                        
                                                       </div>
                                                 </div>
-                                          <p class="text-[#000000] text-[19px]">Delivery service not available on this Location</p>
+                                          <p class="text-[#000000] text-[15px]">Delivery service not available on this Location</p>
                                     </div>
                               </div>
                         </div>
@@ -174,7 +198,7 @@
                         </div>
                   </div>
                   <div class="flex justify-center gap-[35px] mt-[20px] flex-wrap">
-                        <div class="border-[2px] mr-[30px] border-[#0000001A] rounded-[18px] px-[30px] py-[30px] w-[1100px]">
+                        <div class="border-[2px] mr-[30px] border-[#0000001A] rounded-[18px] px-[30px] py-[30px] w-full max-w-[1100px]">
                               <h2 class="text-[24px] font-[700] text-[#595959]">Answer the following Questions</h2>
                               <p class="text-[#595959] text-[17px]">These questions help ensure that the pharmacist accurately dispenses the correct medication and provides appropriate 
                                     instructions and counseling to you.</p>
@@ -256,6 +280,23 @@
       </div>
 </section>
 
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+
+<div class="change-location-popup-main-BG">
+      {% include 'Components/Pharmacy/SMVP-HoverSection.html' %}
+</div>
+
+
+<!--  -->
+<!--  -->
+<!--  -->
+
+
 <script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
   <!-- Initialize Swiper -->
   <script>
@@ -303,9 +344,73 @@
             });
       })
 
+      // 
+      // 
+      // 
+
+
+    document.addEventListener('DOMContentLoaded', () => {
+      function totalshowPM() {
+        let section = document.querySelector(".change-location-popup-main-BG");
+        if (section) {
+          section.classList.add("change-location-popup-main-BG-after");
+        }
+      }
+      var total = document.querySelector(".change-location-btn");
+      if (total) {
+        total.addEventListener("click", totalshowPM);
+      }
+    })
+    // 
+    document.addEventListener('DOMContentLoaded', () => {
+      function totalshowPM1() {
+        let section = document.querySelector(".change-location-popup-main-BG");
+        if (section) {
+          section.classList.remove("change-location-popup-main-BG-after");
+        }
+      }
+      var total = document.querySelector(".cancle-location-popup");
+      if (total) {
+        total.addEventListener("click", totalshowPM1);
+      }
+    })
+
+//     
+// 
+// 
+
+document.addEventListener('DOMContentLoaded', () => {
+      function totalshowPM() {
+        let section = document.querySelector(".change-location-popup-main-BG");
+        if (section) {
+          section.classList.add("change-location-popup-main-BG-after");
+        }
+      }
+      var total = document.querySelector(".morebtn-before-location");
+      if (total) {
+        total.addEventListener("click", totalshowPM);
+      }
+    })
+    // 
+    document.addEventListener('DOMContentLoaded', () => {
+      function totalshowPM1() {
+        let section = document.querySelector(".change-location-popup-main-BG");
+        if (section) {
+          section.classList.remove("change-location-popup-main-BG-after");
+        }
+      }
+      var total = document.querySelector(".cancle-location-popup");
+      if (total) {
+        total.addEventListener("click", totalshowPM1);
+      }
+    })
+
   </script>
 
 
 
-    
+
+
+
+
 {% endblock baseBody %}
