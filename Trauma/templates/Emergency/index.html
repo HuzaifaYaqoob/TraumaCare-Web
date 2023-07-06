@@ -6,6 +6,112 @@
 
 {% block BaseCSS %}
     <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" /> 
+
+
+    <style>
+      .Popup1InEmergency-main{
+        background-color: rgba(0, 0, 0, 0.685);
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+    .Popup1InEmergency{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+
+    .Popup1InEmergency-main-after{
+        opacity: 1;
+        z-index: 1;
+      }         
+
+      /*  */
+
+      .Popup2InEmergency-main{
+        background-color: transparent;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+    .Popup2InEmergency{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+
+    .Popup2InEmergency-main-after{
+        opacity: 1;
+        z-index: 1;
+      }  
+
+      /*  */
+
+      .Popup3InEmergency-main{
+        background-color: transparent;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+    .Popup3InEmergency{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+
+    .Popup3InEmergency-main-after{
+        opacity: 1;
+        z-index: 1;
+      }  
+      /*  */
+
+      .Popup4InEmergency-main{
+        background-color: transparent;
+        height: 100vh;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        opacity: 0;
+    }
+    .Popup4InEmergency{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+    }
+
+
+    .Popup4InEmergency-main-after{
+        opacity: 1;
+        z-index: 1;
+      } 
+      
+      
+
+    </style>
+
+
+
 {% endblock BaseCSS %}
 
      
@@ -404,7 +510,7 @@
                                     <p class="text-white">With the power of artificial intelligence, the voice recorder 
                                           seamlessly transcribes spoken words into text, making 
                                           it effortless to review and search through conversations.</p>
-                                          <div iv class="bg-[#24D0D0] cursor-pointer p-2 rounded-xl flex items-center w-[220px] gap-2">
+                                          <div iv class="record-your-voice bg-[#24D0D0] cursor-pointer p-2 rounded-xl flex items-center w-[220px] gap-2">
                                                 <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <circle cx="20" cy="20" r="20" fill="white"/>
                                                       <path d="M15.4091 13.0692V19.8511C15.4091 22.0976 17.2415 23.9202 19.5 23.9202C21.7585 23.9202 23.5909 22.0976 23.5909 19.8511H20.1818C19.8068 19.8511 19.5 19.5459 19.5 19.1729C19.5 18.7999 19.8068 18.4947 20.1818 18.4947H23.5909V17.1383H20.1818C19.8068 17.1383 19.5 16.8331 19.5 16.4601C19.5 16.0871 19.8068 15.7819 20.1818 15.7819H23.5909V14.4255H20.1818C19.8068 14.4255 19.5 14.1203 19.5 13.7473C19.5 13.3743 19.8068 13.0692 20.1818 13.0692H23.5909C23.5909 10.8226 21.7585 9 19.5 9C17.2415 9 15.4091 10.8226 15.4091 13.0692ZM24.9545 19.1729V19.8511C24.9545 22.8478 22.5128 25.2766 19.5 25.2766C16.4872 25.2766 14.0455 22.8478 14.0455 19.8511V18.1556C14.0455 17.5918 13.5895 17.1383 13.0227 17.1383C12.456 17.1383 12 17.5918 12 18.1556V19.8511C12 23.6277 14.821 26.7474 18.4773 27.2434V28.6676H16.4318C15.8651 28.6676 15.4091 29.1211 15.4091 29.6848C15.4091 30.2486 15.8651 30.7021 16.4318 30.7021H22.5682C23.1349 30.7021 23.5909 30.2486 23.5909 29.6848C23.5909 29.1211 23.1349 28.6676 22.5682 28.6676H20.5227V27.2434C24.179 26.7474 27 23.6277 27 19.8511V18.1556C27 17.5918 26.544 17.1383 25.9773 17.1383C25.4105 17.1383 24.9545 17.5918 24.9545 18.1556V19.1729Z" fill="#0A1C4B"/>
@@ -412,6 +518,19 @@
                                                       
                                                 <p class="text-white">Record Your Voice</p>
                                           </div>
+
+
+                                          <!--  -->
+                                          <!--  -->
+                                          <!--  -->
+
+
+
+
+                                          <!--  -->
+                                          <!--  -->
+                                          <!--  -->
+
                         </p>
                   </div>
             </div>
@@ -1228,15 +1347,204 @@
 </div>
 
 
+
+
 <!--  -->
-<!--  -->
-<!-- popups here -->
-{% include 'popups/popus.html' %}
-<!--  -->
-<!--  -->
+<!-- all popups here -->
 <!--  -->
 
+
+<div class="Popup1InEmergency-main">
+      <div class="Popup1InEmergency bg-[#FFFFFF] rounded-[14px] max-w-[300px] h-[310px] px-[14px] py-[25px] flex flex-col justify-center items-center">
+            <h2 class="text-[#626262] text-[19px] font-[600]">Start Recording</h2>
+            <p class="text-center text-[#716969] text-[13px] mt-[10px] leading-4">Hey, can I quickly record your voice to confirm the details for your appointment booking?</p>
+            <div class="mt-[28px] p-[12px] w-20 h-20 border-gray-300 border-[4px] rounded-[50%] bg-[#0A1C4B] flex items-center justify-center">
+                  <img class="h-[38px] w-[38px]" src="{% static 'assets/images/voice-search 1.png' %}" alt="">                      
+            </div>
+            <div class="start-recording-btn text-[#ffffff] cursor-pointer mt-[21px] text-[13px] rounded-[5px] bg-[#24D0D0] py-[4px] px-[10px]">
+                  Start Recording
+            </div>
+      </div>
+</div>
+<!--  -->
+<div class="Popup2InEmergency-main">
+      <div class="Popup2InEmergency bg-[#FFFFFF] rounded-[14px] max-w-[300px] h-[310px] px-[14px] py-[25px] flex flex-col justify-center items-center">
+            <h2 class="text-[#626262] text-[19px] font-[600]">Start Recording</h2>
+            <p class="text-center text-[#716969] text-[13px] mt-[10px] leading-4">Hey, can I quickly record your voice to confirm the details for your appointment booking?</p>
+            <div class="mt-[26px] p-[12px] w-20 h-20 border-gray-300 border-[4px] rounded-[50%] bg-[#0A1C4B] flex items-center justify-center">
+                  <img class="h-[38px] w-[38px]" src="{% static 'assets/images/voice-search 1.png' %}" alt="">
+            </div>
+            <div class="flex items-center justify-center gap-[9px] mt-[18px]">
+                  <div class="cross-recording-btn flex items-center h-[35px] w-[35px] cursor-pointer justify-center p-[10px] border-[#24D0D0] rounded-[50%] border-[1px]">
+                        <svg width="13" height="13" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M13 13L1 1M13 1L1 13" stroke="#24D0D0" stroke-width="2" stroke-linecap="round"/>
+                        </svg>                              
+                  </div>
+                  <div class="flex items-center h-[38px] w-[38px] bg-[#24D0D0] cursor-pointer justify-center p-[10px] border-[#24D0D0] rounded-[50%] border-[1px]">
+                        <svg width="14" height="14" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <rect width="3" height="16" fill="white"/>
+                              <rect x="10" width="3" height="16" fill="white"/>
+                        </svg>                                                          
+                  </div>
+                  <div class="done-voice flex items-center h-[35px] w-[35px] cursor-pointer justify-center p-[10px] border-[#24D0D0] rounded-[50%] border-[1px]">
+                        <svg width="20" height="15" viewBox="0 0 20 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <path d="M1 7.66667L6.83333 13.5L18.5 1" stroke="#24D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>                                                            
+                  </div>
+            </div>
+            <p class="text-center mt-[8px] text-[#716969] text-[13px] font-[600]">Recording</p>
+      </div>
+</div>
+<!--  -->
+<div class="Popup3InEmergency-main">
+      <div class="Popup3InEmergency bg-[#FFFFFF] rounded-[14px] max-w-[300px] h-[310px] px-[14px] py-[25px] flex justify-center flex-col items-center">
+            <h2 class="text-[#626262] text-[19px] font-[600]">Start Recording</h2>
+            <p class="text-center text-[#716969] text-[13px] mt-[10px] leading-4">Hey, can I quickly record your voice to confirm the details for your appointment booking?</p>
+            <div class="mt-[28px] p-[12px] w-20 h-20 border-gray-300 border-[4px] rounded-[50%] bg-[#0A1C4B] flex items-center justify-center">
+                  <img class="h-[38px] w-[38px]" src="{% static 'assets/images/voice-search 1.png' %}" alt="">
+            </div>
+            <div class="Processing-btn text-[#ffffff] cursor-pointer mt-[21px] text-[13px] rounded-[5px] bg-[#24D0D0] py-[4px] px-[10px]">
+                  Start Processing
+            </div>
+      </div>
+</div>
+
+<!--  -->
+
+<div class="Popup4InEmergency-main">
+      <div class="Popup4InEmergency bg-[#FFFFFF] rounded-[14px] max-w-[300px] w-full h-[310px] px-[30px] py-[35px] flex justify-center flex-col items-center">
+            <svg width="200" height="173" viewBox="0 0 223 173" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M59.4908 31.6596C62.279 36.4866 58.7046 43.7611 51.5087 47.9172C44.3128 52.0681 36.2259 51.523 33.4377 46.7013C30.6495 41.8743 34.2239 34.5998 41.4198 30.4437C48.6157 26.2928 56.7026 26.8379 59.4908 31.6596Z" fill="#043340"/>
+                  <path d="M38.8417 38.9078C37.7463 37.6185 35 32.7601 26.541 17.6869L32.3323 13.3159C38.936 19.9406 47.4527 28.6563 48.8468 29.9404C49.0878 30.1605 38.8417 38.9025 38.8417 38.9025V38.9078Z" fill="#043340"/>
+                  <path d="M30.4814 23.3365C36.0357 21.5565 39.0952 15.6109 37.3152 10.0567C35.5351 4.50246 29.5895 1.44292 24.0353 3.22297C18.4811 5.00303 15.4215 10.9486 17.2016 16.5028C18.9816 22.057 24.9272 25.1166 30.4814 23.3365Z" fill="#C7D8EA"/>
+                  <g style="mix-blend-mode:multiply" opacity="0.46">
+                  <path d="M27.2483 2.71851C26.4045 2.71851 25.5869 2.81807 24.8008 3.00151C29.4548 4.10736 32.9191 8.28971 32.9191 13.2792C32.9191 18.2686 29.4548 22.4509 24.8008 23.5568C25.5869 23.7455 26.4045 23.8398 27.2483 23.8398C33.0816 23.8398 37.809 19.1124 37.809 13.2792C37.809 7.44591 33.0816 2.71851 27.2483 2.71851Z" fill="#A3B6BF"/>
+                  </g>
+                  <path d="M24.8008 23.5621C35.7335 25.7004 41.9179 11.9165 33.6214 5.21852C31.2315 3.2479 27.9297 2.39884 24.8008 3.01204C31.1634 1.16721 38.113 5.97845 38.1654 13.2897C38.113 20.5223 31.221 25.4279 24.8008 23.5673V23.5621Z" fill="#043340"/>
+                  <g style="mix-blend-mode:screen" opacity="0.46">
+                  <path d="M27.2484 12.4511C27.2484 14.862 25.2987 16.8116 22.8879 16.8116C20.477 16.8116 18.5273 14.862 18.5273 12.4511C18.5273 10.0402 20.4822 8.09058 22.8879 8.09058C25.2935 8.09058 27.2484 10.0402 27.2484 12.4511Z" fill="#C7D8EA"/>
+                  </g>
+                  <path d="M164.627 33.0062C161.839 37.8332 165.413 45.1077 172.609 49.2639C179.805 53.4148 187.892 52.8697 190.68 48.048C193.468 43.221 189.894 35.9465 182.698 31.7904C175.502 27.6395 167.415 28.1845 164.627 33.0062Z" fill="#043340"/>
+                  <path d="M185.277 40.2547C186.373 38.9654 189.119 34.107 197.578 19.0339L191.786 14.6628C184.774 21.6963 175.964 30.5903 175.524 30.8471C175.476 30.8733 185.277 40.2495 185.277 40.2495V40.2547Z" fill="#043340"/>
+                  <path d="M186.305 14.6261C186.305 20.4593 191.032 25.1867 196.865 25.1867C202.699 25.1867 207.426 20.4593 207.426 14.6261C207.426 8.79284 202.699 4.06543 196.865 4.06543C191.032 4.06543 186.305 8.79284 186.305 14.6261Z" fill="#C7D8EA"/>
+                  <g style="mix-blend-mode:multiply" opacity="0.46">
+                  <path d="M196.869 4.06543C197.713 4.06543 198.531 4.165 199.317 4.34843C194.663 5.45429 191.198 9.63664 191.198 14.6261C191.198 19.6155 194.663 23.7978 199.317 24.9037C198.531 25.0924 197.713 25.1867 196.869 25.1867C191.036 25.1867 186.309 20.4593 186.309 14.6261C186.309 8.79284 191.036 4.06543 196.869 4.06543Z" fill="#A3B6BF"/>
+                  </g>
+                  <path d="M199.312 24.9037C188.379 27.0421 182.195 13.2582 190.491 6.56019C192.881 4.58957 196.183 3.74051 199.312 4.34847C192.949 2.50363 186 7.3149 185.947 14.6261C186 21.8587 192.892 26.7643 199.312 24.9037Z" fill="#043340"/>
+                  <g style="mix-blend-mode:screen" opacity="0.46">
+                  <path d="M196.869 13.798C196.869 16.2037 198.824 18.1586 201.23 18.1586C203.635 18.1586 205.59 16.2089 205.59 13.798C205.59 11.3872 203.641 9.4375 201.23 9.4375C198.819 9.4375 196.869 11.3872 196.869 13.798Z" fill="#C7D8EA"/>
+                  </g>
+                  <path d="M111.23 151.568C172.661 151.568 222.46 129.204 222.46 101.616C222.46 74.0286 172.661 51.6643 111.23 51.6643C49.7994 51.6643 0 74.0286 0 101.616C0 129.204 49.7994 151.568 111.23 151.568Z" fill="#043340"/>
+                  <path d="M209.477 125.059C207.507 126.726 205.327 128.33 202.963 129.876C208.728 113.299 211.223 94.8975 210.62 79.1587C212.439 80.7782 214.063 82.4448 215.489 84.1586C215.436 97.1301 213.471 111.459 209.483 125.054L209.477 125.059Z" fill="#A2BFDC"/>
+                  <path d="M7.00732 84.1273C8.43812 82.4082 10.0733 80.7363 11.8972 79.1116C10.9643 94.9971 14.1456 113.718 20.4977 130.521C18.0344 128.964 15.7651 127.339 13.7053 125.657C9.25571 111.805 6.93919 97.2298 7.00732 84.122V84.1273Z" fill="#A2BFDC"/>
+                  <path d="M80.9992 172.375C101.602 169.519 122.503 169.079 143.273 171.097C191.045 175.74 208.047 104.185 201.233 68.1684C197.758 49.8038 177.292 36.6437 160.013 32.5557C128.692 25.1502 95.2391 24.6837 63.7563 31.2874C46.8645 34.8827 30.1562 46.3448 23.5787 62.8121C9.84201 97.2193 34.328 178.843 80.994 172.37L80.9992 172.375Z" fill="#A2BFDC"/>
+                  <g style="mix-blend-mode:multiply" opacity="0.46">
+                  <path d="M23.5858 62.8173C26.8352 54.678 32.5637 47.7599 39.5656 42.4141C37.2177 45.5429 35.2523 48.9549 33.7953 52.6131C20.0586 87.0203 44.5446 168.649 91.2106 162.171C111.813 159.315 132.714 158.875 153.49 160.892C164.821 161.993 174.422 158.806 182.388 152.821C172.913 165.038 159.978 172.716 143.285 171.097C122.515 169.079 101.609 169.519 81.0116 172.375C34.3456 178.848 9.85959 97.2246 23.5963 62.8173H23.5858Z" fill="#A3B6BF"/>
+                  </g>
+                  <path d="M153.677 59.7827C125.449 57.5867 97.095 57.5867 68.8669 59.7827C23.6055 63.2994 8.01871 138.115 89.8886 149.331C115.858 152.889 147.042 151.029 169.804 136.925C205.442 114.845 192.738 62.8173 153.677 59.7827Z" fill="#C7D8EA"/>
+                  <path d="M112.566 149.661C105.15 149.661 97.5771 149.137 90.0563 148.109C47.0538 142.219 32.3527 118.985 32.9345 99.2108C33.5267 78.9858 49.0192 62.5709 68.9664 61.0196C82.9809 59.9295 97.2155 59.3792 111.272 59.3792C125.328 59.3792 139.563 59.9295 153.577 61.0196C170.647 62.3456 184.3 74.0068 188.367 90.7204C192.633 108.273 185.092 125.998 169.148 135.877C150.763 147.271 128.227 149.661 112.561 149.661H112.566Z" fill="#043340"/>
+                  <g style="mix-blend-mode:screen" opacity="0.34">
+                  <path d="M119.128 41.6435C119.61 45.9254 132.576 47.9851 147.843 49.961C163.126 51.7953 176.203 52.9851 177.722 48.9548C179.263 45.0292 167.088 36.7642 149.756 34.6363C132.435 32.4456 118.599 37.4612 119.128 41.6488V41.6435Z" fill="#A2BFDC"/>
+                  </g>
+                  <path d="M116.473 80.6314C116.473 83.0842 114.481 85.0757 112.028 85.0757C109.576 85.0757 107.584 83.0842 107.584 80.6314C107.584 78.1786 109.576 76.187 112.028 76.187C114.481 76.187 116.473 78.1786 116.473 80.6314Z" fill="#00FF00"/>
+                  <path d="M105.691 82.9531C105.691 85.2644 103.82 87.1354 101.508 87.1354C99.1972 87.1354 97.3262 85.2644 97.3262 82.9531C97.3262 80.6418 99.1972 78.7708 101.508 78.7708C103.82 78.7708 105.691 80.6418 105.691 82.9531Z" fill="#00FF00"/>
+                  <path d="M97.1172 89.2109C97.1172 91.3755 95.3614 93.126 93.2021 93.126C91.0428 93.126 89.2871 91.3702 89.2871 89.2109C89.2871 87.0516 91.0428 85.2959 93.2021 85.2959C95.3614 85.2959 97.1172 87.0516 97.1172 89.2109Z" fill="#00FF00"/>
+                  <path d="M91.7864 98.3773C91.7864 100.395 90.1512 102.03 88.1335 102.03C86.1157 102.03 84.4805 100.395 84.4805 98.3773C84.4805 96.3595 86.1157 94.7244 88.1335 94.7244C90.1512 94.7244 91.7864 96.3595 91.7864 98.3773Z" fill="#00FF00"/>
+                  <path d="M90.7382 109.268C90.7382 111.139 89.2235 112.654 87.3525 112.654C85.4814 112.654 83.9668 111.139 83.9668 109.268C83.9668 107.397 85.4814 105.883 87.3525 105.883C89.2235 105.883 90.7382 107.397 90.7382 109.268Z" fill="#00FF00"/>
+                  <path d="M94.218 119.163C94.218 120.887 92.8186 122.287 91.0943 122.287C89.37 122.287 87.9707 120.887 87.9707 119.163C87.9707 117.439 89.37 116.04 91.0943 116.04C92.8186 116.04 94.218 117.439 94.218 119.163Z" fill="#00FF00"/>
+                  <path d="M101.299 126.511C101.299 128.089 100.02 129.367 98.4423 129.367C96.8647 129.367 95.5859 128.089 95.5859 126.511C95.5859 124.934 96.8647 123.655 98.4423 123.655C100.02 123.655 101.299 124.934 101.299 126.511Z" fill="#00FF00"/>
+                  <path d="M110.932 130.259C110.932 131.689 109.774 132.848 108.343 132.848C106.912 132.848 105.754 131.689 105.754 130.259C105.754 128.828 106.912 127.664 108.343 127.664C109.774 127.664 110.932 128.823 110.932 130.259Z" fill="#00FF00"/>
+                  <path d="M121.56 129.472C121.56 130.756 120.517 131.799 119.233 131.799C117.949 131.799 116.906 130.756 116.906 129.472C116.906 128.188 117.949 127.145 119.233 127.145C120.517 127.145 121.56 128.188 121.56 129.472Z" fill="#00FF00"/>
+                  <path d="M130.455 124.41C130.455 125.547 129.533 126.469 128.396 126.469C127.258 126.469 126.336 125.547 126.336 124.41C126.336 123.272 127.258 122.35 128.396 122.35C129.533 122.35 130.455 123.272 130.455 124.41Z" fill="#00FF00"/>
+                  <path d="M136.451 116.097C136.451 117.088 135.649 117.895 134.653 117.895C133.657 117.895 132.855 117.088 132.855 116.097C132.855 115.107 133.657 114.3 134.653 114.3C135.649 114.3 136.451 115.101 136.451 116.097Z" fill="#00FF00"/>
+                  <path d="M138.504 105.579C138.504 106.422 137.818 107.109 136.974 107.109C136.13 107.109 135.443 106.422 135.443 105.579C135.443 104.735 136.13 104.048 136.974 104.048C137.818 104.048 138.504 104.735 138.504 105.579Z" fill="#00FF00"/>
+            </svg>
+            <p class="text-[18px] font-[600] mt-[12px] text-[#51B74F]">Processing...</p>                 
+      </div>
+</div>
+
+
+
+
+
+
+
+
+
+<!--  -->
+<!--  -->
+<!--  -->
 
 <!-- Here your Js end  -->
+<!--  -->
+<!--  -->
+<!--  -->
+
+
+
+
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+      function emergency1() {
+        let section = document.querySelector(".Popup1InEmergency-main");
+        if (section) {
+          section.classList.add("Popup1InEmergency-main-after");
+        }
+      }
+      var total = document.querySelector(".record-your-voice");
+      if (total) {
+        total.addEventListener("click", emergency1);
+      }
+    })
+
+//     
+
+     document.addEventListener('DOMContentLoaded', () => {
+      function emergency2() {
+        let section = document.querySelector(".Popup2InEmergency-main");
+        if (section) {
+          section.classList.add("Popup2InEmergency-main-after");
+        }
+      }
+      var total = document.querySelector(".start-recording-btn");
+      if (total) {
+        total.addEventListener("click", emergency2);
+      }
+    })
+
+//     
+
+    document.addEventListener('DOMContentLoaded', () => {
+      function emergency3() {
+        let section = document.querySelector(".Popup3InEmergency-main");
+        if (section) {
+          section.classList.add("Popup3InEmergency-main-after");
+        }
+      }
+      var total = document.querySelector(".done-voice");
+      if (total) {
+        total.addEventListener("click", emergency3);
+      }
+    })
+//     
+
+document.addEventListener('DOMContentLoaded', () => {
+      function emergency4() {
+        let section = document.querySelector(".Popup4InEmergency-main");
+        if (section) {
+          section.classList.add("Popup4InEmergency-main-after");
+        }
+      }
+      var total = document.querySelector(".Processing-btn");
+      if (total) {
+        total.addEventListener("click", emergency4);
+      }
+    })
+
+//     
+</script>
 
 {% endblock baseBody %}

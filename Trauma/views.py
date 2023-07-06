@@ -90,4 +90,4 @@ def searchFilterPage(request):
     return render(request, 'Search/Updated_FilterPage.html', context=context)
 
 def emergencyPage(request):
-    return render(request, 'Emergency/index.html')
+    return render(request, 'Emergency/index.html', {'hide_emergency_icon' : True})

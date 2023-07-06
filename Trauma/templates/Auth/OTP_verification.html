@@ -10,41 +10,36 @@
 
 {% block mainBaseBody %}
 
-<div class="flex items-center justify-center mt-20">
+<div class="flex items-center mt-10 sm:mt-20 max-w-[400px] mx-auto">
       <div class="p-4 border flex items-center justify-center rounded-xl relative">
             <div
-                  class="absolute top-5 left-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
-                  svg
+                  class="absolute top-3 left-50 w-16 h-16 rounded-[8px] flex items-center justify-center cursor-pointer">
+                  {% include 'Components/SVG/OTPVPSVG.html' %}
             </div>
-            <div
-                  class="absolute top-5 right-5 w-12 h-12 rounded-xl border flex items-center justify-center cursor-pointer">
-                  svg
-            </div>
-            <div class="mt-16">
+            <div class="mt-20">
                   <div>
-                        <div>
-                              svg
-                        </div>
                         <div class="flex flex-col">
-                              <p class="text-center text-black text-2xl font-[600]">Check Your email</p>
-                              <p class="text-center text-[#838383]">we've sent the code to the {{user.username}}</p>
+                              <p class="text-center text-black text-[18px] sm:text-2xl font-[600]">Check Your email</p>
+                              <p class="text-center text-[13px] sm:text-[15px] text-[#838383]">we've sent the code to the {{user.username}}</p>
                         </div>
-                        <div class="px-4 py-2 rounded-xl border flex w-full items-center gap-10 mt-4">
+                        <div class="px-4 py-[10px] rounded-[10px] border flex w-full items-center gap-10 mt-4">
                               <p class="outline-none text-gray-600">{{request.GET.email}}</p>
                         </div>
                   </div>
                   <form class="flex justify-between gap-2 mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
                         {% csrf_token %}
-                        <div class="!border[#24D0D0] border rounded-xl px-3 py-3">
+                        <div class="!border[#24D0D0] border rounded-[10px] px-3 py-[7px]">
                               <input type="number" placeholder="0 0 0 0 0 0" required name="code"
                                     class="outline-none text-center text-2xl tracking-widest font-bold text-gray-800 flex-1">
                         </div>
-                        <button class="w-[50px] bg-[#24D0D0] text-white cursor-pointer flex items-center justify-center rounded-xl">
-                              t
+                        <button class="w-[50px] text-[22px] bg-[#24D0D0] text-white cursor-pointer flex items-center justify-center rounded-[10px]">
+                              <svg width="30" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M27.4494 15.1095L5.4494 4.10952C5.27697 4.02328 5.08329 3.98873 4.89167 4.01002C4.70006 4.03131 4.51869 4.10754 4.3694 4.22952C4.22682 4.34901 4.1204 4.5059 4.06211 4.68256C4.00381 4.85922 3.99594 5.04864 4.0394 5.22952L6.6894 14.9995H17.9994V16.9995H6.6894L3.9994 26.7395C3.95862 26.8906 3.95386 27.0491 3.9855 27.2023C4.01714 27.3555 4.08429 27.4992 4.18156 27.6218C4.27882 27.7443 4.40349 27.8423 4.54553 27.908C4.68757 27.9736 4.84303 28.0049 4.9994 27.9995C5.15594 27.9986 5.31007 27.9609 5.4494 27.8895L27.4494 16.8895C27.6132 16.8056 27.7507 16.6781 27.8467 16.5211C27.9426 16.364 27.9934 16.1836 27.9934 15.9995C27.9934 15.8155 27.9426 15.635 27.8467 15.478C27.7507 15.3209 27.6132 15.1934 27.4494 15.1095Z" fill="black"/>
+                              </svg>                                    
                         </button>
                   </form>
                   <div
-                        class="!border[#24D0D0] cursor-pointer bg-[#0A1C4B] border rounded-xl px-5 py-3 mt-4 flex items-center justify-center  ">
+                        class="!border[#24D0D0] cursor-pointer bg-[#0A1C4B] border rounded-[10px] px-5 py-3 mt-4 flex items-center justify-center  ">
                         <p class="text-white font-[500]">Resend code in 38 sec</p>
                   </div>
             </div>
