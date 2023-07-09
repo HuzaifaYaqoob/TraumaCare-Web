@@ -2,6 +2,7 @@
 
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django.conf import settings
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
@@ -13,6 +14,10 @@ def homePage(request):
     doctors = Doctor.objects.all()
     context['doctors'] = doctors
     return render(request, 'Home/index.html', context)
+
+def chatXpo_redirection(request):
+    accounts_url = settings.ACCOUNT_TRAUMACARE_URL
+    return redirect(accounts_url)
 
 def email_view(request):
     path = request.GET.get('path')

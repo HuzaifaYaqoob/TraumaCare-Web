@@ -3,10 +3,11 @@ from django.urls import path
 
 
 
-from .views import homePage, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
+from .views import homePage, chatXpo_redirection, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
 
 urlpatterns = [
     path('', homePage, name='homePage'),
+    path('chatxpo/', chatXpo_redirection, name='chatXpo_redirection'),
     path('test', test, name='test'),
     path('email/view/', email_view, name='email_view'),
     path('search/', searchFilterPage, name='searchFilterPage'),

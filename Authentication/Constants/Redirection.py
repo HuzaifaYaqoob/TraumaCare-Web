@@ -19,7 +19,7 @@ def NextRedirect(request):
             else:
                 next_url = 'usernotauth'
         else:
-            next_url = '/redirect_auto_login'
+            next_url = next_url
             
         return f'{next_url}{query}'
     else:
