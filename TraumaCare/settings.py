@@ -63,6 +63,8 @@ INSTALLED_APPS = [
     'Profile.apps.ProfileConfig',
     'Medicine.apps.MedicineConfig',
     'Cart.apps.CartConfig',
+    'Chat.apps.ChatConfig',
+    'ChatXpo.apps.ChatxpoConfig',
 ]
 
 MIDDLEWARE = [
