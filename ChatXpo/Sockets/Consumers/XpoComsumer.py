@@ -67,6 +67,23 @@ class XpoConsumer(WebsocketConsumer):
                 user_query = chatMessage,
                 message_type = 'Message'
             )
+            if not chat.title:
+                chat.title = chatMessage
+                chat.save()
+                message_data = {
+                    'type' : 'CHATXPO_CHAT_TITLE_UPDATED',
+                    'status' : 200,
+                    'response' : {
+                        'display_message' : 'Chat Title Updated',
+                        'message' : 'Chat Title Updated',
+                        'error_message' : '',
+                        'data' : {
+                            'chatId' : f'{chat.uuid}',
+                            'title' : chat.title
+                        },
+                    }
+                }
+                self.send(json.dumps(message_data))
             data = ChatMessageSerializer(newMessage).data
             message_data = {
                 'type' : 'CHATXPO_NEW_CHAT_MESSAGE',
