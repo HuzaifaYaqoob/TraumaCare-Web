@@ -49,14 +49,26 @@ def get_user_chat_list(request):
 @permission_classes([IsAuthenticated])
 def get_chat_messages(request):
     chat_id = request.GET.get('chatId', None)
-    chat = ChatMessage.objects.filter(
+    try:
+        chat = XpoChat.objects.get(uuid = chat_id)
+    except Exception as err:
+        return Response({
+            'status' : 404,
+            'status_code' : '404',
+            'response' : {
+                'message' : 'Chat Not Found',
+                'error_message' : str(err),
+            }
+        }, status=status.HTTP_404_NOT_FOUND)
+
+    chat_messages = ChatMessage.objects.filter(
         chat__user = request.user,
-        chat__uuid = chat_id,
+        chat = chat,
         is_active = True,
         is_deleted = False,
         is_blocked = False,
     ).order_by('created_at')
-    data = v1Serializers.ChatMessageSerializer(chat, many=True).data
+    data = v1Serializers.ChatMessageSerializer(chat_messages, many=True).data
     return Response({
         'status' : 200,
         'status_code' : '200',

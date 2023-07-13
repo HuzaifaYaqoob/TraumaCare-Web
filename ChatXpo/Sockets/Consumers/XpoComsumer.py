@@ -6,6 +6,7 @@ from asgiref.sync import async_to_sync
 from ChatXpo.models import ChatMessage, XpoChat
 from Authentication.models import User
 from ChatXpo.Apis.v1.serializers import ChatMessageSerializer
+from ChatXpo.Sockets.Constant.index import SendAiGeneratedMessageToUser
 
 class XpoConsumer(WebsocketConsumer):
 
@@ -40,7 +41,7 @@ class XpoConsumer(WebsocketConsumer):
         self.send(json.dumps(connected_data))
     
 
-    def NewChatMessage(self, content):
+    def UserNewQuestion(self, content):
         chatId = content.get('chatId', None)
         if chatId is None:
             return
@@ -63,9 +64,7 @@ class XpoConsumer(WebsocketConsumer):
             chatMessage = content.get('message', None)
             newMessage = ChatMessage.objects.create(
                 chat = chat,
-                content = chatMessage,
-                display_content = chatMessage,
-                extracted_info = chatMessage,
+                user_query = chatMessage,
                 message_type = 'Message'
             )
             data = ChatMessageSerializer(newMessage).data
@@ -84,6 +83,8 @@ class XpoConsumer(WebsocketConsumer):
                 }
             }
             self.send(json.dumps(message_data))
+            SendAiGeneratedMessageToUser(chatMessage = newMessage)
+            
 
     def send_message(self, event):
         content = event['content']
@@ -100,7 +101,7 @@ class XpoConsumer(WebsocketConsumer):
         
         content = data.get('content', {})
         if messageType == 'CHAT_NEW_MESSAGE':
-            self.NewChatMessage(content)
+            self.UserNewQuestion(content)
 
     
     def disconnect(self, code):

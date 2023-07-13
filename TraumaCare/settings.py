@@ -66,6 +66,7 @@ INSTALLED_APPS = [
     'Cart.apps.CartConfig',
     'Chat.apps.ChatConfig',
     'ChatXpo.apps.ChatxpoConfig',
+    'Secure.apps.SecureConfig',
 ]
 
 MIDDLEWARE = [
