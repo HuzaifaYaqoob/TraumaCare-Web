@@ -77,6 +77,21 @@ class Doctor(models.Model):
             speciality_doctorspecialities__is_active = True,
         )
     
+    def get_diseases(self,):
+        return Disease.objects.filter(
+            disease_doctor_disease_specialities__doctor = self,
+            disease_doctor_disease_specialities__is_deleted = False,
+            disease_doctor_disease_specialities__is_active = True,
+        )
+
+    @property
+    def specialities(self):
+        return self.get_specialities()
+
+    @property
+    def diseases(self):
+        return self.get_diseases()
+    
     @property
     def profile_image(self):
         try:

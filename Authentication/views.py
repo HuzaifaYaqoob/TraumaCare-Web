@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from rest_framework.decorators import api_view
+from rest_framework.authtoken.models import Token
 
 
 from django.contrib import messages
@@ -129,7 +130,12 @@ def HandleLogin(request):
         if user is not None:
             auth.login(request, user)
             messages.success(request, 'Login Successfully')
-            return HttpResponseRedirect(f'/auth/auto-login-redirection/{getQueryParams(request)}')
+            response = HttpResponseRedirect(f'/auth/auto-login-redirection/{getQueryParams(request)}')
+            
+            user_token, created = Token.objects.get_or_create(user = user)
+            response.set_cookie('auth_token', user_token.key)
+            response.set_cookie('user_id', f'{user.id}')
+            return response
         else:
             messages.error(request, 'Invalid Credentials')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

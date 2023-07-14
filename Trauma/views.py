@@ -1,11 +1,14 @@
 
 
 from django.shortcuts import render, redirect
+from django.http import HttpResponse
 from django.contrib import messages
+from django.conf import settings
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
 from django.db.models import Case, When
+from rest_framework.authtoken.models import Token
 
 def homePage(request):
     context = {}
@@ -13,6 +16,18 @@ def homePage(request):
     doctors = Doctor.objects.all()
     context['doctors'] = doctors
     return render(request, 'Home/index.html', context)
+
+def chatXpo_redirection(request):
+    if not request.user.is_authenticated:
+        return redirect('/auth/login?next=/chatxpo', )
+
+    user_id = request.user.id
+    token, created = Token.objects.get_or_create(user = request.user)
+    auth_token = token
+
+    accounts_url = f'{settings.ACCOUNT_TRAUMACARE_URL}/auto_login?user_id={user_id}&auth_token={auth_token}'
+    reponse = redirect(accounts_url)
+    return reponse
 
 def email_view(request):
     path = request.GET.get('path')
