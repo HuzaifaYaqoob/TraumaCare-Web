@@ -50,44 +50,46 @@ def SendAiGeneratedMessageToUser(chatMessage=None, onError=sendError):
     if chatMessage is None:
         onError('chatMessage is None', )
     
-    chat = chatMessage.chat
-    user = chat.user
-    
+    try:
+        chat = chatMessage.chat
+        user = chat.user
+        
 
-    query_answer = askChatXpo(chatMessage.user_query, previousQueries=getPreviousQueries(chat))
-    content = query_answer['content']
-    user_output = query_answer['user_output']
-    extracted_info = query_answer['extracted_info']
-    user_output_urdu_translation = query_answer['user_output_urdu_translation']
-    
-    AI_Message = chatMessage
-    AI_Message.content = content
-    AI_Message.display_content = user_output
-    AI_Message.extracted_info = extracted_info
-    AI_Message.user_output_urdu = user_output_urdu_translation
-    AI_Message.save()
+        query_answer = askChatXpo(chatMessage.user_query, previousQueries=getPreviousQueries(chat))
+        content = query_answer['content']
+        user_output = query_answer['user_output']
+        extracted_info = query_answer['extracted_info']
+        user_output_urdu_translation = query_answer['user_output_urdu_translation']
+        
+        AI_Message = chatMessage
+        AI_Message.content = content
+        AI_Message.display_content = user_output
+        AI_Message.extracted_info = extracted_info
+        AI_Message.user_output_urdu = user_output_urdu_translation
+        AI_Message.save()
 
-    data = ChatMessageSerializer(AI_Message).data
-    message_data = {
-        'type' : 'CHATXPO_AI_GENERATED_CHAT_MESSAGE',
-        'status' : 200,
-        'response' : {
-            'display_message' : 'Updated Message',
-            'message' : 'Updated Message',
-            'error_message' : '',
-            'data' : {
-                'chatId' : f'{chat.uuid}',
-                'send_user_id' : f'{chat.user.id}',
-                'message' : data
-            },
+        data = ChatMessageSerializer(AI_Message).data
+        message_data = {
+            'type' : 'CHATXPO_AI_GENERATED_CHAT_MESSAGE',
+            'status' : 200,
+            'response' : {
+                'display_message' : 'Updated Message',
+                'message' : 'Updated Message',
+                'error_message' : '',
+                'data' : {
+                    'chatId' : f'{chat.uuid}',
+                    'send_user_id' : f'{chat.user.id}',
+                    'message' : data
+                },
+            }
         }
-    }
-    channel_layer = get_channel_layer()
-    async_to_sync(channel_layer.group_send)(
-        f'chat-xpo-user-{user.id}',
-        {
-            'type' : 'send_message',
-            'content' : message_data
-        }
-    )
-    
+        channel_layer = get_channel_layer()
+        async_to_sync(channel_layer.group_send)(
+            f'chat-xpo-user-{user.id}',
+            {
+                'type' : 'send_message',
+                'content' : message_data
+            }
+        )
+    except Exception as err:
+        onError(str(err))
