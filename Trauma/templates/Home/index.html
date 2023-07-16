@@ -425,6 +425,19 @@
     }
  }
 
+ @media (max-width:768px) {
+    .complete-background-popups-before-stars svg{
+        height: 24px;
+        width: 24px;
+    }
+ }
+ @media (max-width:640px) {
+    .complete-background-popups-before-stars svg{
+        height: 20px;
+        width: 20px;
+    }
+ }
+
 
 
 </style>
@@ -658,7 +671,7 @@
 <!--  -->
 <!--  -->
 
-<div class="max-w-[1370px] relative flex flex-col items-center w-full mx-auto mt-[50px] h-[260px] rounded-[14px]" style="background-image: linear-gradient(#557DE5, #24D0D0);">
+<div class="max-w-[1370px] relative flex flex-col items-center w-full mx-auto mt-[50px] h-[250px] md:h-[260px] md:rounded-[14px]" style="background-image: linear-gradient(#557DE5, #24D0D0);">
     <div class="absolute top-[130px] left-[43px]">
         <svg width="130" height="130" viewBox="0 0 171 74" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.6">
@@ -667,7 +680,7 @@
             </g>
         </svg>            
     </div>
-   <div class="absolute right-[0px] top-[40px]">
+   <div class="absolute right-[0px] top-[20px] md:top-[40px]">
         <svg width="130" height="130" viewBox="0 0 75 172" fill="none" xmlns="http://www.w3.org/2000/svg">
             <g opacity="0.85">
             <path opacity="0.4" d="M70.1984 8.22813C69.432 8.22864 68.6827 8.00186 68.0452 7.57649C67.4077 7.15112 66.9106 6.54625 66.6168 5.83838C66.3231 5.13051 66.2458 4.35143 66.3949 3.59966C66.5439 2.84788 66.9125 2.15718 67.4541 1.6149C67.9956 1.07261 68.6859 0.703099 69.4374 0.553088C70.189 0.403076 70.9682 0.479302 71.6764 0.772126C72.3847 1.06495 72.9902 1.56122 73.4164 2.19818C73.8426 2.83514 74.0704 3.58419 74.0709 4.35059C74.0716 5.3783 73.664 6.36419 72.9377 7.09137C72.2115 7.81855 71.2262 8.22746 70.1984 8.22813ZM74.0925 37.2881C74.092 36.5217 73.8643 35.7726 73.4381 35.1357C73.0119 34.4987 72.4063 34.0024 71.6981 33.7096C70.9898 33.4168 70.2107 33.3406 69.4591 33.4906C68.7075 33.6406 68.0173 34.0101 67.4757 34.5524C66.9341 35.0947 66.5655 35.7854 66.4165 36.5372C66.2675 37.2889 66.3447 38.068 66.6385 38.7759C66.9322 39.4837 67.4293 40.0886 68.0668 40.514C68.7043 40.9394 69.4537 41.1661 70.2201 41.1656C71.2478 41.165 72.2332 40.7561 72.9594 40.0289C73.6856 39.3017 74.0932 38.3158 74.0925 37.2881ZM66.3642 70.2307C66.3647 70.9971 66.5924 71.7461 67.0187 72.3831C67.4449 73.02 68.0504 73.5163 68.7586 73.8091C69.4669 74.102 70.2461 74.1782 70.9977 74.0282C71.7492 73.8782 72.4395 73.5087 72.981 72.9664C73.5226 72.4241 73.8912 71.7334 74.0402 70.9816C74.1893 70.2298 74.112 69.4507 73.8182 68.7429C73.5245 68.035 73.0274 67.4301 72.3899 67.0048C71.7524 66.5794 71.003 66.3526 70.2366 66.3531C69.2089 66.3538 68.2236 66.7627 67.4974 67.4899C66.7711 68.2171 66.3635 69.203 66.3642 70.2307ZM41.1334 4.37223C41.1329 3.60583 40.9051 2.85679 40.4789 2.21983C40.0527 1.58286 39.4472 1.08659 38.739 0.793769C38.0307 0.500944 37.2515 0.424718 36.4999 0.57473C35.7484 0.724742 35.0581 1.09425 34.5166 1.63654C33.975 2.17882 33.6064 2.86952 33.4574 3.6213C33.3083 4.37307 33.3856 5.15216 33.6793 5.86003C33.9731 6.5679 34.4702 7.17276 35.1077 7.59813C35.7452 8.02351 36.4945 8.25028 37.261 8.24978C38.2887 8.2491 39.274 7.84019 40.0002 7.11301C40.7265 6.38583 41.1341 5.39994 41.1334 4.37223ZM41.155 37.3097C41.1545 36.5433 40.9268 35.7943 40.5006 35.1573C40.0744 34.5204 39.4689 34.0241 38.7606 33.7313C38.0523 33.4384 37.2732 33.3622 36.5216 33.5122C35.77 33.6622 35.0798 34.0318 34.5382 34.574C33.9966 35.1163 33.628 35.807 33.479 36.5588C33.33 37.3106 33.4072 38.0897 33.701 38.7975C33.9947 39.5054 34.4918 40.1103 35.1293 40.5356C35.7668 40.961 36.5162 41.1878 37.2826 41.1873C38.3103 41.1866 39.2957 40.7777 40.0219 40.0505C40.7481 39.3233 41.1557 38.3374 41.155 37.3097ZM41.1767 70.2472C41.1762 69.4808 40.9484 68.7318 40.5222 68.0948C40.096 67.4579 39.4905 66.9616 38.7822 66.6688C38.074 66.3759 37.2948 66.2997 36.5432 66.4497C35.7916 66.5997 35.1014 66.9692 34.5598 67.5115C34.0183 68.0538 33.6497 68.7445 33.5007 69.4963C33.3516 70.2481 33.4289 71.0271 33.7226 71.735C34.0164 72.4429 34.5135 73.0478 35.151 73.4731C35.7885 73.8985 36.5378 74.1253 37.3042 74.1248C38.332 74.1241 39.3173 73.7152 40.0435 72.988C40.7698 72.2608 41.1774 71.2749 41.1767 70.2472ZM8.19591 4.39387C8.19541 3.62747 7.96765 2.87843 7.54145 2.24147C7.11524 1.60451 6.50971 1.10824 5.80146 0.815411C5.0932 0.522587 4.31402 0.446361 3.56244 0.596372C2.81086 0.746384 2.12065 1.1159 1.57907 1.65818C1.0375 2.20047 0.668901 2.89117 0.519874 3.64294C0.370847 4.39472 0.448103 5.1738 0.741857 5.88167C1.03561 6.58954 1.53268 7.19441 2.17019 7.61978C2.80772 8.04515 3.55706 8.27192 4.32346 8.27142C5.35117 8.27074 6.33653 7.86184 7.06276 7.13466C7.78898 6.40748 8.19659 5.42159 8.19591 4.39387ZM8.21756 37.3314C8.21705 36.565 7.9893 35.8159 7.56309 35.179C7.13688 34.542 6.53135 34.0457 5.8231 33.7529C5.11485 33.4601 4.33566 33.3839 3.58408 33.5339C2.8325 33.6839 2.14229 34.0534 1.60071 34.5957C1.05914 35.138 0.690543 35.8287 0.541516 36.5804C0.392489 37.3322 0.469745 38.1113 0.7635 38.8192C1.05725 39.527 1.55432 40.1319 2.19183 40.5573C2.82936 40.9827 3.5787 41.2094 4.3451 41.2089C5.37281 41.2082 6.35817 40.7993 7.0844 40.0722C7.81062 39.345 8.21823 38.3591 8.21756 37.3314ZM8.2392 70.2689C8.23869 69.5025 8.01094 68.7534 7.58473 68.1165C7.15852 67.4795 6.553 66.9832 5.84474 66.6904C5.13649 66.3976 4.3573 66.3214 3.60572 66.4714C2.85414 66.6214 2.16393 66.9909 1.62236 67.5332C1.08078 68.0755 0.712186 68.7662 0.563159 69.5179C0.414132 70.2697 0.491388 71.0488 0.785142 71.7567C1.0789 72.4645 1.57596 73.0694 2.21348 73.4948C2.851 73.9201 3.60034 74.1469 4.36675 74.1464C5.39446 74.1457 6.37981 73.7368 7.10604 73.0097C7.83226 72.2825 8.23987 71.2966 8.2392 70.2689Z" fill="white"/>
@@ -676,8 +689,8 @@
         </svg>            
     </div>
     <!--  -->
-    <h2 class="text-[#ffffff] mt-[100px] text-[24px] font-[600]">Rate our App, tell us how’s your experience?</h2>
-    <div class="submit-review-btn text-[#ffffff] text-[15px] border-[2px] mt-[20px] border-[#ffffff] cursor-pointer font-[600] flex items-center justify-center px-[26px] py-[7px] rounded-[30px]">
+    <h2 class="text-[#ffffff] mt-[90px] md:mt-[100px] text-center text-[16px] sm:text-[19px] md:text-[21px] lg:text-[24px] font-[600]">Rate our App, tell us how’s your experience?</h2>
+    <div class="submit-review-btn text-[#ffffff] text-[13px] md:text-[15px] border-[2px] mt-[20px] border-[#ffffff] cursor-pointer font-[600] flex items-center justify-center px-[26px] py-[7px] rounded-[30px]">
         Rate & Send Feedback
     </div>
 </div>
@@ -685,23 +698,23 @@
 <!--  -->
 <div class="complete-background-popups-before">
 <!--  -->
-<div class=" bg-[#ffffff] rounded-[30px] px-[27px] py-[24px] w-[460px] complete-popup-before">
+<div class=" bg-[#ffffff] rounded-[30px] px-[16px] md:px-[22px] py-[12px] md:py-[20px] w-[320px] sm:w-[420px] md:w-[450px] complete-popup-before">
     <span class="absolute cursor-pointer right-[20px] top-[20px] cancle-popup">
         <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M1 11L11 1M1 1L11 11" stroke="#6A727D" stroke-width="2" stroke-linecap="round"/>
         </svg>
     </span>
-    <h2 class="text-[#626262] text-[17px] font-[600]">Add Review</h2>
-    <div class="flex gap-[20px] mt-[10px]">
-        <div class="rounded-[6px] h-[70px] w-[80px]" style="background: url(https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=2000); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+    <h2 class="text-[#626262] text-[14px] sm:text-[15px] md:text-[17px] font-[600]">Add Review</h2>
+    <div class="flex gap-[12px] md:gap-[20px] mt-[10px]">
+        <div class="rounded-[6px] h-[50px] md:h-[70px] w-[60px] md:w-[80px]" style="background: url(https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=2000); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
         <div>
-            <h3 class="text-[18px] font-[600] leading-5 text-[#4A4848] cursor-pointer">Areej Fatima</h3>
-            <p class="text-[14px] text-[#9B9B9B]">Lahore, Pakistan</p>
+            <h3 class="text-[16px] md:text-[18px] font-[600] leading-5 text-[#4A4848] cursor-pointer">Areej Fatima</h3>
+            <p class="text-[12px] md:text-[14px] text-[#9B9B9B]">Lahore, Pakistan</p>
         </div>
     </div>
-    <hr class="mt-[16px]">
-    <p class="text-[#727272] mt-[10px] text-center text-[16px]">your overall rating of this Product</p>
-    <div class="flex items-center justify-center gap-[24px] mt-[12px]">
+    <hr class="mt-[9px] sm:mt-[12px] md:mt-[16px]">
+    <p class="text-[#727272] mt-[10px] text-center text-[14px] md:text-[16px]">your overall rating of this Product</p>
+    <div class="complete-background-popups-before-stars flex items-center justify-center gap-[12px] sm:gap-[16px] md:gap-[24px] mt-[3px] sm:mt-[12px]">
         <svg class="cursor-pointer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#FEB546"/>
         </svg>            
@@ -718,17 +731,15 @@
             <path opacity="0.4" d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#A7A7A7"/>
         </svg>         
     </div>
-    <hr class="mt-[26px]">
-    <h2 class="text-[#626262] mt-[14px] text-[17px] font-[600]">How’s your Experience?</h2>
-    <div class="w-full bg-[#F8F8F8] py-[13px] px-[16px] mt-[10px] text-[16px] text-[#9B9B9B] rounded-[20px]">
-        I cannot emphasize enough how incredible this medical app has been for me. As someone who values their health and wants to stay on top of their well-being, this app has become an indispensable part of my daily routine.
+    <hr class="mt-[9px] sm:mt-[13px] md:mt-[16px]">
+    <h2 class="text-[#626262] mt-[10px] md:mt-[17px] text-[14px] md:text-[17px] font-[600]">How’s your Experience?</h2>
+    <textarea class="w-full border-0 bg-[#F8F8F8] text-[#9B9B9B] h-[130px] sm:h-[180px] px-[12px] text-[14px] py-[7px] mt-[8px] rounded-[10px]" name="" id="" cols="30" rows="10" style="outline: none; border: none;"></textarea>
+    <p class="text-[#909090] text-[12px] md:text-[14px] mt-[4px]">2000 character Left</p>
+    <hr class="mt-[9px] sm:mt-[12px] md:mt-[22px]">
+    <div class="flex justify-between mt-[9px] sm:mt-[10px] md:mt-[13px]">
+        <h2 class="text-[#626262] text-[14px] md:text-[17px] font-[600]">Would you recommend this product?</h2>
     </div>
-    <p class="text-[#909090] text-[14px] mt-[10px]">2000 character Left</p>
-    <hr class="mt-[22px]">
-    <div class="flex justify-between mt-[13px]">
-        <h2 class="text-[#626262] text-[17px] font-[600]">Would you recommend this product?</h2>
-    </div>
-    <div class=" mt-[25px] rounded-[12px] cursor-pointer bg-[#24D0D0] text-[#ffffff] text-[18px] flex items-center justify-center w-full px-[20px] py-[12px]">
+    <div class="mt-[7px] sm:mt-[10px] md:mt-[14px] rounded-[12px] cursor-pointer bg-[#24D0D0] text-[#ffffff] text-[16px] md:text-[18px] flex items-center justify-center w-full px-[20px] py-[9px] md:py-[12px]">
         Submit Review
     </div>
 </div>
