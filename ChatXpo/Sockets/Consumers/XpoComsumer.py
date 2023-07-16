@@ -40,6 +40,24 @@ class XpoConsumer(WebsocketConsumer):
         }
         self.send(json.dumps(connected_data))
     
+    def onError(self, errorMessage):
+        message_data = {
+            'type' : 'CHATXPO_AI_GENERATED_ERROR',
+            'status' : 500,
+            'response' : {
+                'display_message' : 'ERROR',
+                'message' : 'ERROR',
+                'error_message' : errorMessage,
+                'data' : None
+            }
+        }
+        async_to_sync(self.channel_layer.group_send)(
+            self.room_group_name,
+            {
+                'type' : 'send_message',
+                'content' : message_data
+            }
+        )
 
     def UserNewQuestion(self, content):
         chatId = content.get('chatId', None)
@@ -100,7 +118,7 @@ class XpoConsumer(WebsocketConsumer):
                 }
             }
             self.send(json.dumps(message_data))
-            SendAiGeneratedMessageToUser(chatMessage = newMessage)
+            SendAiGeneratedMessageToUser(chatMessage = newMessage, onError=self.onError)
             
 
     def send_message(self, event):

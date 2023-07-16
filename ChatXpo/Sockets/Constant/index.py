@@ -9,6 +9,26 @@ from asgiref.sync import async_to_sync
 from .Query import askChatXpo
 
 
+def sendError(error, user=None):
+    message_data = {
+        'type' : 'CHATXPO_AI_GENERATED_ERROR',
+        'status' : 200,
+        'response' : {
+            'display_message' : 'ERROR',
+            'message' : 'ERROR',
+            'error_message' : error,
+            'data' : None
+        }
+    }
+    channel_layer = get_channel_layer()
+    async_to_sync(channel_layer.group_send)(
+        f'chat-xpo-user-{user.id}',
+        {
+            'type' : 'send_message',
+            'content' : message_data
+        }
+    )
+
 def getPreviousQueries(chat):
     queries = []
     previousChats = ChatMessage.objects.filter(
@@ -26,9 +46,9 @@ def getPreviousQueries(chat):
     
     return queries
 
-def SendAiGeneratedMessageToUser(chatMessage=None):
+def SendAiGeneratedMessageToUser(chatMessage=None, onError=sendError):
     if chatMessage is None:
-        return None
+        onError('chatMessage is None', )
     
     chat = chatMessage.chat
     user = chat.user
