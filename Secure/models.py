@@ -1,4 +1,5 @@
 from django.db import models
+from uuid import uuid4
 from django.utils.timezone import now
 from Authentication.models import User
 # Create your models here.
