@@ -12,7 +12,7 @@ class XpoKey(models.Model):
         return f'{self.id}'
 
 class ApplicationReview(models.Model):
-    uuid = models.CharField(default=uuid.uuid4, editable=False, max_length=999)
+    uuid = models.CharField(default=uuid4, editable=False, max_length=999)
 
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True, related_name='user_application_reviews')
     name = models.CharField(max_length=225, default='')
