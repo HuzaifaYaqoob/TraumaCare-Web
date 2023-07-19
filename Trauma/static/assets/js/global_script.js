@@ -39,23 +39,26 @@ const add_error_from_field = (element, error_message) =>{
 const check_password_strong = (password) =>{
     var strength = 0;
 
-    if (password.length < 8){
+    if (+password.length < 8){
         strength = 0
         return strength
     }
+    else{
+        return 8
+    }
 
-    if (password.match(/[a-z]+/)) {
-        strength += 1;
-    }
-    if (password.match(/[A-Z]+/)) {
-        strength += 1;
-    }
-    if (password.match(/[0-9]+/)) {
-        strength += 1;
-    }
-    if (password.match(/[$@#&!]+/)) {
-        strength += 1;
-    }
+    // if (password.match(/[a-z]+/)) {
+    //     strength += 1;
+    // }
+    // if (password.match(/[A-Z]+/)) {
+    //     strength += 1;
+    // }
+    // if (password.match(/[0-9]+/)) {
+    //     strength += 1;
+    // }
+    // if (password.match(/[$@#&!]+/)) {
+    //     strength += 1;
+    // }
 
     return strength
 }

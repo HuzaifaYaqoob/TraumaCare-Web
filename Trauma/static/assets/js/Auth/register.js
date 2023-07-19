@@ -73,8 +73,9 @@ const handleSubmit = (e) =>{
     let psword = form.querySelector('[name="password"]')
     
     if (check_password_strong(psword.value) < 4){
-        add_error_from_field(psword, 'Please enter strong password')
-        ShowNotification({type : 'error', message : 'Please enter strong password!'})
+        // add_error_from_field(psword, 'Please enter strong password')
+        add_error_from_field(psword, 'Be at least 8 characters.')
+        ShowNotification({type : 'error', message : 'Be at least 8 characters.!'})
         return
     }
     
