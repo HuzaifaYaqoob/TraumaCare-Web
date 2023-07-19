@@ -409,3 +409,10 @@ input[type='number']::-webkit-outer-spin-button
 .single-speciality-detail-page-svg-parent svg path{
     fill: white;
 }
+
+.rating_star_svg path{
+    fill : #FEB546
+}
+.rating_star_svg:hover ~ .rating_star_svg path{
+    fill : #A7A7A7
+}

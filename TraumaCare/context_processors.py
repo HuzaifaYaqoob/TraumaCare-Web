@@ -13,6 +13,7 @@ def global_context_processor(request):
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
+        'reviews_count' : [1,2,3,4,5]
     }
 
 

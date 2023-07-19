@@ -13,6 +13,7 @@ urlpatterns = [
 
 
 
+    path('application/',  include('Secure.urls')),
     path('api/',  include('Api.urls')),
     path('auth/',  include('Authentication.urls')),
     path('product/',  include('Product.urls')),

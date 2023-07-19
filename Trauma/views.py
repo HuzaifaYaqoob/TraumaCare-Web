@@ -9,12 +9,14 @@ from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
 from django.db.models import Case, When
 from rest_framework.authtoken.models import Token
+from Secure.models import ApplicationReview
 
 def homePage(request):
     context = {}
 
     doctors = Doctor.objects.all()
     context['doctors'] = doctors
+    context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     return render(request, 'Home/index.html', context)
 
 def chatXpo_redirection(request):

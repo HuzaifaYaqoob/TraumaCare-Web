@@ -147,13 +147,38 @@ const OnInputRemoveErrors = () =>{
     })
 }
 
+const handleStarSelect = (e, index, path) =>{
+    let thisPath = e.currentTarget
+    let pathParentRatingDiv = thisPath.closest('[RatingStars]')
+    if (pathParentRatingDiv){
+        let input = pathParentRatingDiv.querySelector('[ratingInput]')
+        if (input){
+            input.value = index + 1
+        }
+    }
+    path.forEach((path, p_index) =>{
+        if (p_index <= index){
+            path.style.fill = '#FEB546'
+        }
+        else{
+            path.style.fill = '#A7A7A7'
+        }
+        path.style.opacity = 1
+    })
+}
 
 const StartScript = () =>{
     BodyClicked()
     DropdownField()
 
     OnInputRemoveErrors()
-}
 
+    const stars = document.querySelectorAll('[RatingStars] svg')
+    stars.forEach((star_svg, index) =>{
+        let starParent = star_svg.closest('[RatingStars]')
+        let paths = starParent.querySelectorAll('svg path')
+        star_svg.addEventListener('click', (e) => handleStarSelect(e, index, paths))
+    })
+}
 
 document.addEventListener('DOMContentLoaded' , StartScript)
