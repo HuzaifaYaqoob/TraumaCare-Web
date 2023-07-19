@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect, HttpResponse
 from django.contrib import auth
 from rest_framework.decorators import api_view
@@ -8,6 +8,7 @@ from rest_framework.authtoken.models import Token
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
+from Constants.Emails.OtpEmail import sendOtpEmail
 
 # Create your views here.
 
@@ -28,6 +29,7 @@ def OtpVerificationPage(request):
     error_msg1 = 'You are not allowed to access Verification Page'
     
     email = request.GET.get('email', None)
+    
 
     if not all([email]):
         messages.error(request, error_msg1)
@@ -52,6 +54,20 @@ def OtpVerificationPage(request):
         messages.error(request, error_msg1)
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
+        resend = request.GET.get('resend', None)
+        if resend is not None:
+            codes.delete()
+            otp = VerificationCode.objects.create(
+                user = user
+            )
+            sendOtpEmail(
+                {
+                    'user' : user,
+                    'verification_code' : otp
+                }
+            )
+            messages.success(request, 'OTP resent to your Email')
+            return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
         context['user'] = user
 
 

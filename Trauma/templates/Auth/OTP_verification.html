@@ -54,6 +54,10 @@
       document.addEventListener('DOMContentLoaded' , ()=>{
             let button = document.querySelector('[resendCodebtn]')
             if (button){
+                  button.addEventListener('click', (e)=>{
+                        e.preventDefault()
+                        window.location.href = window.location.href + `${window.location.href.includes('resend') ? '' : '&resend=true' }`
+                  })
                   let pTag = button.querySelector('p')
                   let iters = 50
                   if (pTag){
@@ -71,6 +75,7 @@
                               }
                         }, 1000);
                   }
+
             }
       })
 </script>
