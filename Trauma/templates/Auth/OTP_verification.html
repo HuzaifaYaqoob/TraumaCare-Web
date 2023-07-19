@@ -38,17 +38,41 @@
                               </svg>                                    
                         </button>
                   </form>
-                  <div
-                        class="!border[#24D0D0] cursor-pointer bg-[#0A1C4B] border rounded-[10px] px-5 py-3 mt-4 flex items-center justify-center  ">
-                        <p class="text-white font-[500]">Resend code in 38 sec</p>
-                  </div>
+                  <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all mx-auto w-full bg-slate-200 cursor-not-allowed  border rounded-[10px] px-5 py-3 mt-4 flex items-center justify-center  ">
+                        <p class="text-slate-900 font-[500] transition-all">Resend code in 50 sec</p>
+                  </button>
             </div>
       </div>
 </div>
+<!-- bg-[#0A1C4B] -->
 
 {% endblock mainBaseBody %}
 
 
 {% block main_base_script %}
+<script>
+      document.addEventListener('DOMContentLoaded' , ()=>{
+            let button = document.querySelector('[resendCodebtn]')
+            if (button){
+                  let pTag = button.querySelector('p')
+                  let iters = 50
+                  if (pTag){
+                        setInterval(() => {
+                              if (iters > 0){
+                                    pTag.innerText = `Resend code in ${iters} sec`
+                                    iters -= 1
+                              }
+                              else{
+                                    button.removeAttribute('disabled')
+                                    pTag.innerText = 'Resend'
+                                    pTag.style.color = 'white'
+                                    button.style.cursor = 'pointer'
+                                    button.style.backgroundColor = '#0A1C4B'
+                              }
+                        }, 1000);
+                  }
+            }
+      })
+</script>
 
 {% endblock main_base_script %}
