@@ -287,6 +287,9 @@ input[type='checkbox']{
     align-items: center;
     gap: 5px;
 }
+.form-field .phone-number-field-outer:focus-within{
+    border-color: #23d0d0;
+}
 
 .form-field .phone-number-field-outer .dial-code-field-outer .arrow{
     transform: rotate(180deg);

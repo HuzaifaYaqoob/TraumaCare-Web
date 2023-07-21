@@ -1,6 +1,6 @@
 <div class="form-field" dropdown-main-component>
     <label for="" class="form-input-label">{{label}}</label>
-    <div class="phone-number-field-outer relative {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %}" error-border-element>
+    <div class="phone-number-field-outer relative {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %} border border-transparent transition-all" error-border-element>
         <div class="dial-code-field-outer cursor-not-allowed" dropdown>
             <input type="text" value="92" name="{% if dial_code_name %}{{dial_code_name}}{% else %}dial_code{% endif %}" id="" dropdown-field class="hidden dial-code-input " readonly>
             <div class="cursor-not-allowed flex-1" dropdown-value-display>

@@ -715,8 +715,8 @@
             </div>
         {% else %}
             <div>
-                {% include 'Components/Form/TextField.html' with placeholder='Your Name' name='username' %}
-                {% include 'Components/Form/EmailField.html' with placeholder='Your Name' name='user_email' %}
+                {% include 'Components/Form/TextField.html' with size='md' placeholder='Your Name' name='username' %}
+                {% include 'Components/Form/EmailField.html' with size='md' placeholder='Your Name' name='user_email' %}
             </div>
         {% endif %}
         <hr class="mt-[9px] sm:mt-[12px] md:mt-[16px]">
@@ -744,7 +744,7 @@
         </div>
         <hr class="mt-[9px] sm:mt-[13px] md:mt-[16px]">
         <h2 class="text-[#626262] mt-[10px] md:mt-[17px] text-[14px] md:text-[17px] font-[600]">How’s your Experience?</h2>
-        <textarea name="content" placeholder="Your Experience..." class="w-full border-0 bg-[#F8F8F8] text-[#9B9B9B] h-[130px] sm:h-[180px] px-[12px] text-[14px] py-[7px] mt-[8px] rounded-[10px]" name="" id="" cols="30" rows="10" style="outline: none; border: none;"></textarea>
+        <textarea name="content" placeholder="Your Experience..." class="w-full border-0 bg-[#23d0d010] focus:border focus:border-[#23d0d0] text-[#9B9B9B] h-[130px] sm:h-[180px] px-[12px] text-[14px] py-[7px] mt-[8px] rounded-[10px]" name="" id="" cols="30" rows="10" style="outline: none; border: none;"></textarea>
         <hr class="mt-[9px] sm:mt-[12px] md:mt-[22px]">
         <div class="flex justify-between mt-[9px] sm:mt-[10px] md:mt-[13px]">
             <h2 class="text-[#626262] text-[14px] md:text-[17px] font-[600]">Would you recommend this product?</h2>
