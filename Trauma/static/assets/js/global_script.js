@@ -175,6 +175,10 @@ const handlePasswordShowOrHide = () =>{
     showOrHidePasswordCheckBoxs.forEach(checkbox =>{
         let thisCheckBox = checkbox
         let parentForm = thisCheckBox.closest('form')
+        if (!parentForm){
+            console.log('parentForm not found')
+            return 
+        }
         let passwordFields = parentForm.querySelectorAll('[passwordField]')
         checkbox.addEventListener('click', (event)=>{
             passwordFields.forEach(password_field =>{
