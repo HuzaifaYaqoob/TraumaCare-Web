@@ -8,10 +8,6 @@
 
 <link rel="stylesheet" href="{% static 'assets/css/Auth/register.css' %}">
 
-<style>
-
-</style>
-
 {% endblock mainBaseCSS %}
 
 
@@ -19,7 +15,7 @@
 
 <section>
     <div class="main-section-register-form my-10 lg:my-0">
-        <div class="register-card tc-shadow relative">
+        <div class="register-card border relative !max-w-[650px] !w-[95%]">
             <div class="register-header">
                 <h1 class="register-page-heading">Register!</h1>
                 <a href="/">
@@ -44,21 +40,24 @@
             <form action="{% url 'HandleJoin' %}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
                 <div class="main-step-section">
-                    <div class="register-form-step-1 ">
+                    <div class="block md:items-center md:flex md:gap-[8px]">
+                        <div class="register-form-step-1 flex-1">
+                            {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
+                        </div>
+                        <div class="register-form-step-2 flex-1">
+                            {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
+                        </div>
+                    </div>
+                    <div>
                         {% include 'Components/Form/EmailField.html' with name='email' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
                     </div>
-                    <div class="register-form-step-2">
-                        {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
-                        <!-- {% include 'Components/Form/DropdownField.html' with name='country' label='Country' placeholder='Select Country' dropdown_data=countries attributes='data-required' %} -->
-                        {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
-                    </div>
-                    <div class="register-form-step-3">
+                    <div class="register-form-step-3 block md:items-center md:flex md:gap-[8px] w-full">
                         {% include 'Components/Form/passwordField.html' with name='password' label='Password' placeholder='*********' attributes='data-required' %}
                         {% include 'Components/Form/passwordField.html' with name='confirm_password' label='Confirm Password' placeholder='*********' attributes='data-required' %}
-                        <div class="mb-3 flex items-center gap-[5px]">
-                            <input type="checkbox" name="checkbox" id="checkbox">
-                            <label class="text-slate-600 font-[500]" for="checkbox">Show Password</label>
-                        </div>
+                    </div>
+                    <div class="mb-3 flex items-center gap-[5px]">
+                        <input type="checkbox" id="showOrHidePassword" showOrHidePasswordCheckBox>
+                        <label class="text-slate-600 font-[500]" for="showOrHidePassword">Show Password</label>
                     </div>
                 </div>
 
@@ -97,4 +96,14 @@
 {% block main_base_script %}
 
 <script src="{% static 'assets/js/Auth/register.js' %}?version=1"></script>
+<script>
+    let passwordField = document.querySelector('.password');
+    function ShowPassword() {
+        if (passwordField.type === "password") {
+            passwordField.setAttribute('type','text');
+        }else{
+            passwordField.setAttribute('type','password');
+        }
+    }
+</script>
 {% endblock main_base_script %}

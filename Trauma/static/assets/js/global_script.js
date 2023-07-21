@@ -170,6 +170,25 @@ const handleStarSelect = (e, index, path) =>{
     })
 }
 
+const handlePasswordShowOrHide = () =>{
+    let showOrHidePasswordCheckBoxs = document.querySelectorAll('[showOrHidePasswordCheckBox]')
+    showOrHidePasswordCheckBoxs.forEach(checkbox =>{
+        let thisCheckBox = checkbox
+        let parentForm = thisCheckBox.closest('form')
+        let passwordFields = parentForm.querySelectorAll('[passwordField]')
+        checkbox.addEventListener('click', (event)=>{
+            passwordFields.forEach(password_field =>{
+                if (password_field.type == 'text'){
+                    password_field.type = 'password'
+                }
+                else{
+                    password_field.type = 'text'
+                }
+            })
+        })
+    })
+}
+
 const StartScript = () =>{
     BodyClicked()
     DropdownField()
@@ -182,6 +201,8 @@ const StartScript = () =>{
         let paths = starParent.querySelectorAll('svg path')
         star_svg.addEventListener('click', (e) => handleStarSelect(e, index, paths))
     })
+
+    handlePasswordShowOrHide()
 }
 
 document.addEventListener('DOMContentLoaded' , StartScript)

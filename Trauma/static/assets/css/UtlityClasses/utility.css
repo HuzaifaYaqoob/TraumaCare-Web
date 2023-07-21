@@ -251,9 +251,14 @@ input[type='checkbox']{
     outline: none;
     border: 0;
     font-size: 15px;
-    color: #6c747e;
+    color: #3a3e42;
     border: 1.4px solid #23d0d010;
+    letter-spacing: 2px;
 }
+.form-field .form-input::placeholder{
+    letter-spacing: 0px;
+}
+
 
 .form-field .error[error-border-element]{
     border: 1.4px solid #23d0d010;
@@ -287,7 +292,11 @@ input[type='checkbox']{
     transform: rotate(180deg);
 }
 .form-field .phone-number-field-outer .number-field{
+    letter-spacing: 2px;
     margin-left: 10px;
+}
+.form-field .phone-number-field-outer .number-field::placeholder{
+    letter-spacing: 0px;
 }
 
 .form-field input{
