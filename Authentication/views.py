@@ -25,6 +25,41 @@ def LoginPage(request):
     return render(request, 'Auth/LoginUpdated.html')
 
 
+def ResetPasswordPage(request):
+    if request.user.is_authenticated:
+        return HttpResponseRedirect(f'/')
+
+    email = request.GET.get('email', None)
+    purpose = request.GET.get('purpose', None)
+
+    error_msg1 = 'You are not allowed to access reset password page'
+    if not all([email, purpose]):
+        messages.error(request, error_msg1)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    
+    try:
+        user = User.objects.get(
+            email = email,
+            is_active = True,
+            is_blocked = False,
+            is_deleted = False,
+        )
+    except:
+        messages.error(request, error_msg1)
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        codes = VerificationCode.objects.filter(
+            user = user,
+            otp_type = 'FORGOT_PASSWORD'
+        )
+        if len(codes) == 0:
+            messages.error(request, error_msg1)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+
+        return render(request, 'Auth/ResetPasswordPage.html')
+
+
 def OtpVerificationPage(request):
     error_msg1 = 'You are not allowed to access Verification Page'
     
@@ -37,16 +72,22 @@ def OtpVerificationPage(request):
 
     context = {}
     
+    purpose = request.GET.get('purpose', 'EMAIL_VERIFICATION')
     try:
         user = User.objects.get(email = email)
-        if user.is_email_verified:
+        if user.is_email_verified and purpose == 'EMAIL_VERIFICATION':
             raise Exception(error_msg1)
+    
+        queries = {}
+        if purpose == 'FORGOT_PASSWORD':
+            queries['otp_type'] = 'FORGOT_PASSWORD'
 
         codes = VerificationCode.objects.filter(
             user = user, 
             is_expired = False,
             is_deleted = False,
             is_used = False,
+            **queries
         )
         if len(codes) == 0:
             raise Exception(error_msg1)
@@ -68,6 +109,7 @@ def OtpVerificationPage(request):
             )
             messages.success(request, 'OTP resent to your Email')
             return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
+        
         context['user'] = user
 
 
@@ -108,6 +150,8 @@ def RegisterPage(request):
 
     return render(request, 'Auth/Register.html', context)
 
+def ForgotPasswordPage(request):
+    return render(request, 'Auth/ForgotPasswordPage.html')
 
 
 def HandleLogout(request):
@@ -191,6 +235,82 @@ def HandleJoin(request):
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
 
+def ForgotPasswordHandler(request):
+    if request.method != 'POST':
+        messages.error(request, 'Only POST method allowed')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+    email = request.POST.get('email', None)
+    if not all([email]):
+        messages.info(request, 'All fields are required')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    
+    try:
+        user = User.objects.get(
+            email = email,
+            is_active = True,
+            is_blocked = False,
+            is_deleted = False,
+        )
+    except:
+        messages.error(request, 'User does not exist with this email.')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        codes = VerificationCode.objects.filter(
+            user = user, 
+            is_expired = False,
+            is_deleted = False,
+            is_used = False,
+        )
+        codes.delete()
+        otp = VerificationCode.objects.create(
+            user = user,
+            otp_type = 'FORGOT_PASSWORD'
+        )
+        sendOtpEmail(
+            {
+                'user' : user,
+                'verification_code' : otp
+            }
+        )
+        messages.success(request, 'OTP sent to your Email')
+        return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}&purpose=FORGOT_PASSWORD&next=/auth/reset-password/')
+
+def ChangePasswordHandler(request):
+    if request.method != 'POST':
+        messages.error(request, 'Only POST method allowed')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+    email = request.GET.get('email', None)
+    purpose = request.GET.get('purpose', None)
+    password = request.POST.get('password', None)
+
+    if not all([email, purpose, password]):
+        messages.info(request, 'All fields are required')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    
+    try:
+        user = User.objects.get(
+            email = email,
+            is_active = True,
+            is_blocked = False,
+            is_deleted = False,
+        )
+    except:
+        messages.error(request, 'User does not exist with this email.')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        user.set_password(password)
+        user.save()
+        codes = VerificationCode.objects.filter(
+            user = user, 
+        )
+        codes.delete()
+        messages.success(request, 'Password Changed Successfully')
+        next_url = request.GET.get('next', None)
+        return HttpResponseRedirect(next_url if next_url else f'/auth/login/')
+
+
 def handleOtp(request):
     email = request.GET.get('email', None)
     code = request.POST.get('code', None)
@@ -205,6 +325,7 @@ def handleOtp(request):
         messages.error(request, 'Invalid User')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
+        purpose = request.GET.get('purpose', None)
         try:
             code = VerificationCode.objects.get(
                 user = user, 
@@ -213,16 +334,29 @@ def handleOtp(request):
                 is_used = False,
                 code = code
             )
-        except:
-            messages.error(request, 'Invalid Code')
+        except Exception as err:
+            messages.error(request, err if err else 'Invalid Code')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
         user.is_email_verified = True
         user.is_active = True
         user.save()
-        code.delete()
-        messages.success(request, 'Account Verified!')
-        return HttpResponseRedirect('/auth/login/')
+        if purpose == 'FORGOT_PASSWORD':
+            code.is_expired = True
+            code.is_used = True
+            code.save()
+        else:
+            code.delete()
+        messages.success(request, 'Email Verified!')
+        getQueries = '?'
+        next_url = request.GET.get('next', None)
+        for param, val in request.GET.items():
+            if param == 'next' and purpose == 'FORGOT_PASSWORD':
+                pass
+            else:
+                getQueries += f'{param}={val}&'
+            
+        return HttpResponseRedirect(f'{next_url}{getQueries}next=/auth/login/' if next_url else f'/auth/login/{getQueries}')
     
 
 def AutoLoginRedirection(request):

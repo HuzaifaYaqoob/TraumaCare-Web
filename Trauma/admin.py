@@ -46,4 +46,4 @@ class RandomFilesAdmin(admin.ModelAdmin):
 
 @admin.register(VerificationCode)
 class VerificationCodeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'code', 'user']
+    list_display = ['id', 'code', 'user', 'otp_type']

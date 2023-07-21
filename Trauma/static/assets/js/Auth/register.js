@@ -71,20 +71,20 @@ const handleSubmit = (e) =>{
     }
 
     let psword = form.querySelector('[name="password"]')
-    
-    if (check_password_strong(psword.value) < 4){
-        // add_error_from_field(psword, 'Please enter strong password')
-        add_error_from_field(psword, 'Be at least 8 characters.')
-        ShowNotification({type : 'error', message : 'Be at least 8 characters.!'})
-        return
-    }
-    
-    let cnf_password = form.querySelector('[name="confirm_password"]')
-    if (psword.value != cnf_password.value){
-        add_error_from_field(psword, 'Password does not match')
-        add_error_from_field(cnf_password, 'Password does not match')
-        ShowNotification({type : 'error', message : 'Password does not match!'})
-        return
+    if (psword){
+        if (check_password_strong(psword.value) < 4){
+            // add_error_from_field(psword, 'Please enter strong password')
+            add_error_from_field(psword, 'Be at least 8 characters.')
+            ShowNotification({type : 'error', message : 'Be at least 8 characters.!'})
+            return
+        }
+        let cnf_password = form.querySelector('[name="confirm_password"]')
+        if (psword.value != cnf_password.value){
+            add_error_from_field(psword, 'Password does not match')
+            add_error_from_field(cnf_password, 'Password does not match')
+            ShowNotification({type : 'error', message : 'Password does not match!'})
+            return
+        }
     }
 
     let error_fields = form.querySelectorAll('.error')

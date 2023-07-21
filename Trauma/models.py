@@ -171,6 +171,8 @@ class VerificationCode(models.Model):
     user = models.ForeignKey('Authentication.User', on_delete=models.CASCADE, related_name='user_verification_codes')
     code = models.CharField(default='', max_length=50)
 
+    otp_type = models.CharField(max_length=999, default='')
+
     is_expired = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     is_used = models.BooleanField(default=False)
