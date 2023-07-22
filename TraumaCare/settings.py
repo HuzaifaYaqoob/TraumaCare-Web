@@ -28,6 +28,7 @@ environ.Env.read_env(os.path.join(SETTING_BASE , '.env'))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = env('SECRET_KEY')
+IS_LOCAL_SERVER = env('IS_LOCAL_SERVER') or '1'
 
 DASHBOARD_REDIRECT_URL = env('DASHBOARD_REDIRECT_URL')
 # SECURITY WARNING: don't run with debug turned on in production!
@@ -125,23 +126,27 @@ CHANNEL_LAYERS = {
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'NAME': BASE_DIR / 'db.sqlite3',
-#     }
-# }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'traumacaredb',
-        'USER': 'huzaifa',
-        'PASSWORD': 'mypassword',
-        'HOST': 'traumacare-main.cfdpz1rhie5j.eu-north-1.rds.amazonaws.com',
-        'PORT': 5432,
+if IS_LOCAL_SERVER == '0':
+    DATABASES = {
+        'default': {
+            'ENGINE': env('DATABASE_ENGINE'),
+            'NAME': env('DATABASE_NAME'),
+            'USER': env('DATABASE_USER'),
+            'PASSWORD': env('DATABASE_PASSWORD'),
+            'HOST': env('DATABASE_HOST'),
+            'PORT': env('DATABASE_PORT'),
+        }
     }
-}
+elif IS_LOCAL_SERVER == '1':
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+
+
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
