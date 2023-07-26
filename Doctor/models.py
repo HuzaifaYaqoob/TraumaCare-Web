@@ -28,8 +28,8 @@ class Doctor(models.Model):
 
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
-    user = models.ForeignKey(User, related_name='doctors', on_delete=models.CASCADE)
-    profile = models.ForeignKey(Profile, related_name='profile_doctors', on_delete=models.CASCADE)
+    user = models.ForeignKey(User, related_name='doctors', on_delete=models.PROTECT)
+    profile = models.ForeignKey(Profile, related_name='profile_doctors', on_delete=models.PROTECT)
 
     email = models.CharField(max_length=700, default='')
     name = models.CharField(max_length=600, default='')
@@ -51,11 +51,11 @@ class Doctor(models.Model):
     is_recommended = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=now)
-    updated_at = models.DateTimeField(auto_now_add=now)
+    updated_at = models.DateTimeField(auto_now=now)
 
 
     def __str__(self):
-        return f'{str(self.id)} -- '
+        return f'{str(self.id)} -- {self.name}'
     
     @property
     def phone_number(self):

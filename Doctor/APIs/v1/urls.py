@@ -2,7 +2,7 @@
 
 
 
-from django.urls import path, include
+from django.urls import path
 
 from Doctor.APIs.v1 import views as api_v1
 
