@@ -10,7 +10,7 @@ from Profile.models import Profile
 class Hospital(models.Model):
     FACILITY_TYPE_CHOICES = (
         ('Hospital', 'Hospital'),
-        ('Private_Clinic', 'Private_Clinic')
+        ('Private_Clinic', 'Private Clinic')
     )
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
 

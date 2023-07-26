@@ -16,7 +16,7 @@ def createHospitalProfile(request):
     user_type = request.data.get('user_type', None)
     healthcare_facility_type = request.data.get('healthcare_facility_type', None)
     healthcare_facility_name = request.data.get('healthcare_facility_name', None)
-    locations = request.data.get('locations', None)
+    locations = request.data.getlist('locations', None)
 
     profile_image = request.data.get('profile_image', None)
     id_card_front = request.data.get('id_card_front', None)
@@ -62,13 +62,14 @@ def createHospitalProfile(request):
     hospitalInstance = Hospital.objects.create(
         user = request.user,
         profile = hospital_profile,
-        facility_type = user_type,
-        name = healthcare_facility_type,
+        facility_type = healthcare_facility_type,
+        name = healthcare_facility_name,
     )
 
     if locations:
-        locations = json.loads(locations)
         for hospital_location in locations:
+            print(hospital_location)
+            print(type(hospital_location))
             address_name = hospital_location.get('address_name', None)
             address = hospital_location.get('address', None)
             contactDetails = hospital_location.get('contactDetails', None)
