@@ -112,6 +112,12 @@ class HospitalMedia(models.Model):
     is_deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
 
+    # CNIC Details 
+    # cnic_name = models.CharField(max_length=200, default='')
+    # cnic_number = models.CharField(max_length=100, default='')
+    # cnic_issue_date = models.DateField(null=True)
+    # cnic_exp_date = models.DateField(null=True)
+    # cnic_dob = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=now)
 
     def __str__(self):
