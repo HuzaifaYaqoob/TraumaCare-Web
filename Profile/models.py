@@ -17,6 +17,7 @@ PROFILE_TYPE_LABELS = {
     'Hospital' : 'Hospital Profile',
     'Pharmacy' : 'Pharmacy Profile',
     'Lab' : 'Lab Profile',
+    'Private_Clinic' : 'Private Clinic Profile',
 }
 
 class Profile(models.Model):
@@ -26,6 +27,7 @@ class Profile(models.Model):
         ('Hospital', 'Hospital'),
         ('Pharmacy', 'Pharmacy'),
         ('Lab', 'Lab'),
+        ('Private_Clinic', 'Private_Clinic'),
     )
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
 

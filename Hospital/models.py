@@ -10,7 +10,7 @@ from Profile.models import Profile
 class Hospital(models.Model):
     FACILITY_TYPE_CHOICES = (
         ('Hospital', 'Hospital'),
-        ('Phamacy', 'Phamacy')
+        ('Private_Clinic', 'Private_Clinic')
     )
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
 
@@ -32,6 +32,8 @@ class Hospital(models.Model):
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now=now)
 
+    class Meta:
+        verbose_name = 'HealthCare Facility, Hospital or Private Clinic'
 
     def __str__(self):
         return f'{str(self.id)} -- {self.name}'
