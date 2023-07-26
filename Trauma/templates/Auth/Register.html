@@ -51,7 +51,7 @@
                     <div>
                         {% include 'Components/Form/EmailField.html' with name='email' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
                     </div>
-                    <div class="register-form-step-3 block md:items-center md:flex md:gap-[8px] w-full">
+                    <div class="register-form-step-3 block md:items-start md:flex md:gap-[8px] w-full">
                         {% include 'Components/Form/passwordField.html' with name='password' label='Password' placeholder='*********' attributes='data-required' %}
                         {% include 'Components/Form/passwordField.html' with name='confirm_password' label='Confirm Password' placeholder='*********' attributes='data-required' %}
                     </div>
