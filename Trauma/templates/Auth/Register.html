@@ -40,7 +40,7 @@
             <form action="{% url 'HandleJoin' %}{{str_query}}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
                 <div class="main-step-section">
-                    <div class="block md:items-center md:flex md:gap-[8px]">
+                    <div class="block md:items-start md:flex md:gap-[8px]">
                         <div class="register-form-step-1 flex-1">
                             {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
                         </div>
