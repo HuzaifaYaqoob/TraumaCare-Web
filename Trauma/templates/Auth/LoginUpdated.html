@@ -210,7 +210,8 @@
                     <div class="forgot-password-text">
                         <a href="{% url 'ForgotPasswordPage' %}">Forgot your password?</a>
                     </div>
-                    <div class="dont-have-account">
+                    {% include 'Components/Auth/SocialAuth.html' %}
+                    <div class="dont-have-account mt-[10px]">
                         <p>Don't have an account? <a href="/auth/join/">Create now</a></p>
                     </div>
                 </div>
