@@ -11,4 +11,5 @@ class UserAdmin(admin.ModelAdmin):
     ordering = ['-joined_at']
     list_display = ['id', 'username', 'email', 'country_name', 'joined_at']
 
-    search_fields = ['id', 'username', 'email', 'country__name', 'joined_at']
+    search_fields = ['id', 'username', 'email', 'country__name']
+    list_filter = ['joined_at']
