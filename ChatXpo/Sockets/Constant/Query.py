@@ -6,8 +6,10 @@ from .Instructions import INSTRUCTIONS
 import re
 
 
-key = XpoKey.objects.all()[0]
-openai.api_key = key.key
+key = XpoKey.objects.all()
+
+if key:
+    openai.api_key = key[0].key
 connection = openai.ChatCompletion()
 
 import json
