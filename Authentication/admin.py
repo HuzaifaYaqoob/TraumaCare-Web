@@ -8,6 +8,8 @@ from .models import User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['id', 'username', 'email', 'country_name']
+    ordering = ['-joined_at']
+    list_display = ['id', 'username', 'email', 'country_name', 'joined_at']
 
     search_fields = ['id', 'username', 'email', 'country__name']
+    list_filter = ['joined_at']
