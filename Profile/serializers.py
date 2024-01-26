@@ -18,7 +18,7 @@ class GetUserProfiles(serializers.ModelSerializer):
         
 
     def get_profile_label(self, profile):
-        return profile.profile_type
+        return profile["profile_type"]
 
     class Meta:
         model = Profile
