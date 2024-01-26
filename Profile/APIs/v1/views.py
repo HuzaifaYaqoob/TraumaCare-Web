@@ -14,13 +14,23 @@ from Profile import serializers as profile_serializers
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def get_my_sidebar_profiles(request):
-    
-    user_profiles = Profile.objects.annotate(profile_label = Concat('profile_type__get_profile_type__display' , Value(' Profile'))).values('id', 'profile_type', 'profile_image', 'full_name', 'is_selected', 'profile_label').filter(
-        user = request.user,
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False
-    ).order_by('-is_selected')
+    # .annotate(
+    #         profile_label = Concat('profile_type__get_profile_type__display' , Value(' Profile'))
+    #     )
+            # 'profile_label'
+
+    user_profiles = Profile.objects.filter(
+            user = request.user,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False
+        ).values(
+            'id', 
+            'profile_type', 
+            'profile_image', 
+            'full_name', 
+            'is_selected', 
+        ).order_by('-is_selected')
 
     data = profile_serializers.GetUserProfiles(user_profiles, many=True).data
     return Response({

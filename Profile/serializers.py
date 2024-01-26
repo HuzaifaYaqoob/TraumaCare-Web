@@ -9,10 +9,16 @@ from Doctor.models import Doctor
 
 class GetUserProfiles(serializers.ModelSerializer):
 
+    profile_label = serializers.SerializerMethodField()
     profile_image = serializers.SerializerMethodField()
 
     def get_profile_image(self, profile):
         return f"{profile['profile_image']}"
+
+        
+
+    def get_profile_label(self, profile):
+        return profile.profile_type
 
     class Meta:
         model = Profile
