@@ -8,6 +8,13 @@ from channels.layers import get_channel_layer
 from asgiref.sync import async_to_sync
 from .Query import askChatXpo
 
+from Secure.models import XpoKey
+key = XpoKey.objects.all()
+
+if key:
+    key = key[0].key
+else:
+    key = 'No key'
 
 def sendError(error, user=None):
     message_data = {
@@ -17,6 +24,7 @@ def sendError(error, user=None):
             'display_message' : 'ERROR',
             'message' : 'ERROR',
             'error_message' : error,
+            'key' : str(key),
             'data' : None
         }
     }
@@ -92,4 +100,4 @@ def SendAiGeneratedMessageToUser(chatMessage=None, onError=sendError):
             }
         )
     except Exception as err:
-        onError(str(err))
+        onError(f'{str(err)} ---- {key}')
