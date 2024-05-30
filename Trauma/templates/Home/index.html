@@ -502,8 +502,8 @@
         <p class="search-button-para frontPage-search-responsive-btn-p">search</p>
     </a>
 </div>
-
-<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px" style="max-width: 1650px;">
+{% include 'ChatXpo/HomepageChat.html' %}
+<div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px mt-10"  style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-medium sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
     </div>
@@ -511,7 +511,7 @@
         {% for disease in diseases|slice:':7' %}
             <div
                 class=" hover:bg-gray-200 transition-all flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
-                <div>
+                <div>   
                     <p class="capitalize !font-[300]">{{disease.name}}</p>
                 </div>
             </div>
@@ -522,11 +522,7 @@
         </div>
     </div>
 </div>
-
-
-
 <section class="Step-by-Step">
-
     <h3 class="step-by-step-featured-section-heading pl-[5px] pr-[5px]">A methodical approach to arriving at your solution</h3>
      <div class="step-by-step-fetured-section">
          <div class="Choose-Doctor cards4-CMOG-TC">
