@@ -26,7 +26,6 @@ httpx==0.26.0
 hyperlink==21.0.0
 idna==3.6
 incremental==22.10.0
-multidict==6.0.4
 openai==0.28.0
 Pillow==9.4.0
 pyasn1==0.5.1
