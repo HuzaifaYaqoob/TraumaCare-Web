@@ -9,17 +9,16 @@
       class="h-20 w-20 rounded-[50%] border-2 border-[#23d0d0] cursor-pointer bg-center bg-cover bg-no-repeat"
       style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');"
     ></div>
-    <div>
+    <div class="flex-1">
       <a
         href="/doctor/profile/view/{{doctor.id}}"
         class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer"
         >Dr. {{doctor.name|slice:":11"}}{% if doctor.name|length > 11%}...{% endif %}</a
       >
       <p
-        class="text-[#0A1C4B] text-base font-medium leading-tight text-[14px] mt-[2px] mb-[0px]"
+        class="text-[#0A1C4B] font-medium line-clamp-2 leading-tight text-[13px] mt-[2px] mb-[0px]"
       >
-        Quaid-e-Azam International <br />
-        Hospital, Islamabad
+        {{doctor.heading}}
       </p>
       <a
         class="text-[#557DE5] hover:border-b border-[#557DE5] text-[14px]"
