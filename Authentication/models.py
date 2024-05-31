@@ -50,6 +50,12 @@ class User(AbstractBaseUser):
         ('Twitter', 'Twitter'),
         ('Apple', 'Apple'),
     ]
+
+    GENDER_CHOICES = (
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    )
     # Required Fields
 
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
@@ -74,6 +80,8 @@ class User(AbstractBaseUser):
     is_superuser = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
+
+    gender = models.CharField(max_length=999, null=True, blank=True, choices=GENDER_CHOICES)
 
     # maiden_name = models.CharField(max_length=128, null=True, blank=True)
     social_account = models.BooleanField(default=False)
