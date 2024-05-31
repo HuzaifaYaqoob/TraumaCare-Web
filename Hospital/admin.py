@@ -28,6 +28,7 @@ class HospitalAdmin(admin.ModelAdmin):
 class HospitalLocationAdmin(admin.ModelAdmin):
     list_display = [
         'id',
+        'hospital',
         'name',
     ]
 
