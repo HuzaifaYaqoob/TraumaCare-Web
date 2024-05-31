@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
-from Doctor.models import Doctor
+from Doctor.models import Doctor, DoctorTimeSlots
 
 from Hospital.models import Hospital
 
@@ -25,9 +25,9 @@ def DoctorProfilePage(request, doctor_id):
     else:
         context = {}
         context['doctor'] = doctor
-        context['practicing_locations'] = Hospital.objects.filter(
-            hospital_timeslots__doctor = doctor,
-            hospital_timeslots__is_deleted = False,
-            hospital_timeslots__is_active = True,
-        ).distinct()
+        context['practicing_locations'] = DoctorTimeSlots.objects.filter(
+            doctor = doctor,
+            is_deleted = False,
+            is_active = True,
+        ).distinct('location')
         return render(request, 'Doctor/doctor_view_profile.html', context)

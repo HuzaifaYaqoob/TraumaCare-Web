@@ -490,7 +490,7 @@
                                     <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.profile_image.file}}');"></div>
                                     <div>
                                           <p class="line-clamp-1 font-[600] text-[20px] text-[#000] mt-[10px]">{{clinic.name}}</p>
-                                          <p class="line-clamp-1 text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
+                                          <p class="line-clamp-1 text-[#9A9A9A] text-[14px]">{{clinic.location.street_address}}</p>
                                     </div>
                               </div>
                               {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
