@@ -1,7 +1,7 @@
 <div class="max-width3">
 
     <footer class="main-foot">
-        <div class="mainfoot-maindiv">
+        <div class="mainfoot-maindiv justify-start max-w-[1440px] mx-auto">
             <div class="foot-div1">
                 <svg class="first" width="194" height="23" viewBox="0 0 194 23" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
@@ -96,42 +96,24 @@
                     Top Hospitals
                 </h4>
                 <ul class="Major-Cities-ul">
-                    <li>Life Care International Hospital </li>
-                    <li>Zobia Hospital (G-9)</li>
-                    <li>Max Health Hopital</li>
-                    <li>Shifa International Hospital</li>
-                    <li>Ali Medical Center (islamabad)</li>
-                    <li>Quaid-e-Azam International Hospital.</li>
-                    <li>Islamabad Specialist Clinic (F-8 Markaz)</li>
-                    <li>Kulsum International Hospital.</li>
+                    {% for hospital in hospitals %}
+                        <li>{{hospital.name}} </li>
+                    {% endfor %}
                     <li>View List</li>
                 </ul>
-
             </div>
-
-
-
-
-
-
             <div class="foot-div4 , foot-div2">
                 <h4>
                     Top Specialities
                 </h4>
                 <ul class="Major-Cities-ul">
-                    <li>Dermatologist</li>
-                    <li>Neurologist</li>
-                    <li>Gynecologist</li>
-                    <li>Urologist</li>
-                    <li>Gastreenterologist</li>
-                    <li>Orthopedic surgeon</li>
-                    <li>Ent Specialist</li>
-                    <li>Eye Sergeon</li>
-                    <li>View All Specialist</li>
+                    {% for speciality in specialities|slice:":8" %}
+                        <li><a href="/speciality/view/{{speciality.slug}}">{{speciality.name}}</a></li>
+                    {% endfor %}
+                    <li><a href="/speciality/">View All Specialist</a></li>
                 </ul>
-
             </div>
-            <div class="foot-div5 , foot-div2">
+            <!-- <div class="foot-div5 , foot-div2">
                 <h4>
                     lab tests
                 </h4>
@@ -146,8 +128,7 @@
                     <li>Hemoglobin A1C</li>
                     <li>View List</li>
                 </ul>
-
-            </div>
+            </div> -->
         </div>
         <!-- <div class="flex max-w-[1560px] px-[60px] mx-auto mt-[20px] justify-center md:justify-start Our-payment-P">
             <p class="text-[#ffffff] font-[600] text-[16px] md-text-[18px]">Our Payment Partners</p>

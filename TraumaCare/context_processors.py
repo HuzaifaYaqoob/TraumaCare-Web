@@ -4,6 +4,8 @@ from Trauma.models import Speciality, Disease
 from django.conf import settings
 import random
 
+from Hospital.models import Hospital
+
 def global_context_processor(request):
     str_query = '?'
     for key in request.GET:
@@ -43,6 +45,16 @@ def diseases_context_processor(request):
     # .order_by('rank')[:8]
     return {
         'diseases' : diseases
+    }
+
+def hospitals_context_processor(request):
+    hospitals = Hospital.objects.filter(
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False,
+    ).values('name', 'id')
+    return {
+        'hospitals' : hospitals
     }
 
 
