@@ -34,6 +34,16 @@ class Hospital(models.Model):
 
     class Meta:
         verbose_name = 'HealthCare Facility, Hospital or Private Clinic'
+    
+    @property
+    def profile_image(self):
+        return HospitalMedia.objects.filter(
+            hospital=self,
+            file_type='Profile Image',
+            is_deleted=False,
+            is_active=True
+        ).last()
+
 
     def __str__(self):
         return f'{str(self.id)} -- {self.name}'

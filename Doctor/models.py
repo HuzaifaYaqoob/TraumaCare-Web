@@ -9,7 +9,7 @@ from Authentication.models import User
 from Profile.models import Profile
 from uuid import uuid4
 from Trauma.models import Speciality, Disease
-from Hospital.models import Hospital
+from Hospital.models import Hospital, HospitalLocation
 
 
 
@@ -42,6 +42,8 @@ class Doctor(models.Model):
     working_since = models.DateField()
 
     online_availability = models.CharField(choices=AVAILABILITY_CHOICES, default='24_HOURS_OPEN', max_length=100)
+
+    desc = models.TextField(default='')
 
     is_approved = models.BooleanField(default=False)
 
@@ -209,7 +211,7 @@ class DoctorOnlineAvailability(models.Model):
         verbose_name = 'Doctor Available Days'
 
     def __str__(self):
-        return f'{str(self.id)} -- '
+        return f'{self.day} -- Dr. {self.doctor.name}'
 
 class Doctor24By7(models.Model):
     """
@@ -251,7 +253,8 @@ class DoctorTimeSlots(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_timeslots')
-    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=True, blank=True, related_name='hospital_timeslots')
+    hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
+    location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
     day = models.ForeignKey(DoctorOnlineAvailability, on_delete=models.CASCADE, related_name='day_timeslots')
 
     start_time = models.TimeField()

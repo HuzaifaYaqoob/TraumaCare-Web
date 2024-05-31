@@ -126,7 +126,7 @@
                   </div> -->
                   <div class="mt-[14px] flex flex-col gap-1">
                         <p class="text-[#555555] text-center md:text-start font-[600] text-xl">About</p>
-                        <p class="text-[#9A9A9A] text-center md:text-start">{{doctor.description}}<span class="ul font-bold text-[#636363] cursor-pointer">Read More</span></p>
+                        <p class="text-[#9A9A9A] line-clamp-3 text-center md:text-start">{{doctor.desc|safe}}<span class="ul font-bold text-[#636363] cursor-pointer">Read More</span></p>
                   </div>
             </div>
             <div class="rounded-[20px] p-4 flex flex-col gap-2 border items-center lg:items-start">
@@ -482,7 +482,31 @@
             </div>
       </div>
       <div class="flex-1 flex flex-col gap-3">
-            <!-- <div class="bg-white shadow-lg rounded-xl px-4 py-8 flex flex-col items-center gap-3 border">
+            <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
+            {% for clinic in practicing_locations %}
+                  <div class="border p-4 rounded-lg">
+                        <div class="flex-1 flex items-center justify-between mt-4">
+                              <div class="flex gap-3">
+                                    <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.profile_image.file}}');"></div>
+                                    <div>
+                                          <p class="line-clamp-1 font-[600] text-[20px] text-[#000] mt-[10px]">{{clinic.name}}</p>
+                                          <p class="line-clamp-1 text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
+                                    </div>
+                              </div>
+                              {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
+                        </div>
+                        <div class="flex items-center gap-[8px] mt-[16px] flex-wrap lg:justify-start justify-center">
+                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
+                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
+                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
+                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
+                        </div>
+                        <a href="/" class="bookapointment-buttoninVP border border-[#24D0D0] text-[#24D0D0] p-2 py-3 mt-[16px] rounded-[12px] block hover:bg-[#24D0D0] hover:text-[#ffffff]">
+                              <p class=" text-center ">Book Appointment</p>
+                        </a>
+                  </div>
+            {% endfor %}
+            <div class="sticky top-[100px] bg-white shadow-lg rounded-xl px-4 py-8 flex flex-col items-center gap-3 border">
                   {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
                   <p class="text-2xl font-[600] text-[#555555] text-center mt-[18px]">Book an Appointment</p>     
                   <p class="text-[#9A9A9A] text-center">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
@@ -494,102 +518,6 @@
                               <p class="text-white whitespace-nowrap ">Book Appointment</p>
                         </div>                   
                   </div>
-            </div> -->
-            <div class="border p-4 rounded-lg">
-                  <p class="text-2xl font-[600] text-[#555555] Private Clinics-heading">Private Clinics</p>
-                  <div>
-                        <div class="flex-1 flex items-center justify-between mt-4">
-                              <div class="flex gap-3">
-                                    <div class="w-[70px] h-[70px] rounded-full" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                                    <div>
-                                          <p class="line-clamp-1 font-[600] text-[20px] text-[#000] mt-[10px]">Rehman Clinic</p>
-                                          <p class="line-clamp-1 text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
-                                    </div>
-                              </div>
-                              {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
-                        </div>
-                        <div class="flex items-center gap-[8px] mt-[16px] flex-wrap lg:justify-start justify-center">
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        </div>
-                        <a href="/" class="bookapointment-buttoninVP border border-[#24D0D0] text-[#24D0D0] p-2 py-3 mt-[16px] rounded-[12px] block hover:bg-[#24D0D0] hover:text-[#ffffff]">
-                              <p class=" text-center ">Book Appointment</p>
-                        </a>
-                  </div>
-                  <div>
-                        <div class="flex-1 flex items-center justify-between mt-4">
-                              <div class="flex gap-3">
-                                    <div class="w-[70px] h-[70px] rounded-full" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                                    <div>
-                                          <p class="line-clamp-1 font-[600] text-[20px] text-[#000] mt-[10px]">Rehman Clinic</p>
-                                          <p class="line-clamp-1 text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
-                                    </div>
-                              </div>
-                              {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
-                        </div>
-                        <div class="flex items-center gap-[8px] mt-[16px] flex-wrap lg:justify-start justify-center">
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        </div>
-                        <a href="/" class="bookapointment-buttoninVP border border-[#24D0D0] text-[#24D0D0] p-2 py-3 mt-[16px] rounded-[12px] block hover:bg-[#24D0D0] hover:text-[#ffffff]">
-                              <p class=" text-center ">Book Appointment</p>
-                        </a>
-                  </div>
-            </div>
-            <div class="border p-4 rounded-lg mt-4">
-                  <p class="text-2xl font-[600] text-[#555555] Hospitals-heading">Hospitals</p>
-                  <div>
-                  <div class="flex-1 flex items-center justify-between mt-4">
-                        <div class="flex flex-col">
-                              <div class="w-[70px] h-[70px] rounded-full" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                              <p class="text-xl font-[500] text-[#9A9A9A] mt-[10px]">Rehman Clinic</p>
-                              <p class="text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
-                        </div>
-                  {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
-                  </div>
-                  <div class="flex items-center gap-[8px] mt-[16px] flex-wrap lg:justify-start justify-center">
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                  </div>
-                  <a href="/" class="bookapointment-buttoninVP border border-[#24D0D0] text-[#24D0D0] p-2 py-3 mt-[16px] rounded-[12px] block hover:bg-[#24D0D0] hover:text-[#ffffff]">
-                        <p class=" text-center ">Book Appointment</p>
-                  </a>
-                  </div>
-                  <div class="mt-8">
-                        <div class="flex-1 flex items-center justify-between mt-4">
-                              <div class="flex flex-col">
-                                    <div class="w-[70px] h-[70px] rounded-full" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                                    <p class="text-xl font-[500] text-[#9A9A9A] mt-[10px]">Rehman Clinic</p>
-                                    <p class="text-[#9A9A9A] text-[14px]">Golra Mor, Peshawar Road, Islamabad</p>
-                              </div>
-                        {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
-                        </div>
-                        <div class="flex items-center gap-[8px] mt-[16px] flex-wrap lg:justify-start justify-center">
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                              {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' %}
-                        </div>
-                        <a href="/" class="bookapointment-buttoninVP border border-[#24D0D0] text-[#24D0D0] p-2 py-3 mt-[16px] rounded-[12px] block hover:bg-[#24D0D0] hover:text-[#ffffff]">
-                              <p class=" text-center ">Book Appointment</p>
-                        </a>
-                        </div>
             </div>
       </div>
       </div>
