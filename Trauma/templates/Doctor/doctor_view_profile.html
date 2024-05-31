@@ -454,7 +454,7 @@
                                           <p class="line-clamp-2 text-[#9A9A9A] text-[14px]">{{clinic.location.street_address}}</p>
                                     </div>
                               </div>
-                              {% if clinic.highest_discount_day %}
+                              {% if clinic.highest_discount_day && clinic.highest_discount_day.discount > 0 %}
                                     {% include 'Components/PercentageOff.html' with percentage=clinic.highest_discount_day.discount day=clinic.highest_discount_day.day_abbr %}
                               {% endif %}
                         </div>
