@@ -4,6 +4,15 @@ from django.contrib import admin
 
 from .models import *
 
+
+class HospitalLocationInline(admin.TabularInline):
+    model = HospitalLocation
+    extra = 0
+
+class HospitalMediaInline(admin.TabularInline):
+    model = HospitalMedia
+    extra = 0
+
 @admin.register(Hospital)
 class HospitalAdmin(admin.ModelAdmin):
     list_filter = [
@@ -20,6 +29,11 @@ class HospitalAdmin(admin.ModelAdmin):
         'facility_type',
         'name',
         'is_approved',
+    ]
+
+    inlines = [
+        HospitalLocationInline,
+        HospitalMediaInline
     ]
 
 
