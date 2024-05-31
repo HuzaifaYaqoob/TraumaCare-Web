@@ -9,6 +9,7 @@ from Authentication.models import User
 from Profile.models import Profile
 from uuid import uuid4
 from Trauma.models import Speciality, Disease
+from Hospital.models import Hospital
 
 
 
@@ -159,7 +160,7 @@ class DoctorSpeciality(models.Model):
 
 
     def __str__(self):
-        return f'{str(self.id)} -- '
+        return f'{self.speciality.name}'
 
 class DoctorDiseasesSpeciality(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
@@ -181,7 +182,7 @@ class DoctorDiseasesSpeciality(models.Model):
 class DoctorOnlineAvailability(models.Model):
     
     """
-        This Table also be used for Doctor Availability with Hospital
+        This Table will be used for Doctor Availability with Hospital & Online
     """
     DAYS_CHOICES = (
         ('Monday', 'Monday'),
@@ -204,13 +205,15 @@ class DoctorOnlineAvailability(models.Model):
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
 
-
+    class Meta:
+        verbose_name = 'Doctor Available Days'
 
     def __str__(self):
         return f'{str(self.id)} -- '
 
 class Doctor24By7(models.Model):
     """
+        This Table will be used if Doctor is available in case of Emergency. and How much He/She will charge.
         This Model should be OneToOne, Single instance against single Doctor
     """
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
@@ -226,18 +229,29 @@ class Doctor24By7(models.Model):
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
 
+    class Meta:
+        verbose_name = 'Doctor Availability in Emergency'
+
     def __str__(self):
         return f'{str(self.id)} -- '
 
 
 class DoctorTimeSlots(models.Model):
+    AVAILABILITY_TYPE = (
+        ('Online', 'Online'),
+        ('Hospital', 'Hospital'),
+    )
     """
         Time Slots Table for Doctor, This Table is for Doctor Online Availability except 24/7,
         This Table also be used for Doctor Availability with Hospital
+        ~ If Availability type is Online, It's mean this Object/Record is for Online Availability. Then Hospital Field will be Null
+        ~ If Availability type is Hospital, It's mean this Object/Record is for Hospital Availability. Then Hospital Field will be not Null
+
     """
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_timeslots')
+    hospital = models.ForeignKey(Hospital, on_delete=models.CASCADE, null=True, blank=True, related_name='hospital_timeslots')
     day = models.ForeignKey(DoctorOnlineAvailability, on_delete=models.CASCADE, related_name='day_timeslots')
 
     start_time = models.TimeField()
@@ -246,11 +260,16 @@ class DoctorTimeSlots(models.Model):
     discount = models.PositiveIntegerField(default=0)
     service_fee = models.PositiveIntegerField(default=0, verbose_name='TraumaCare Service FEE in Percentage')
 
+    availability_type = models.CharField(choices=AVAILABILITY_TYPE, default='Online', max_length=20)
+
 
     is_deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
+
+    class Meta:
+        verbose_name = 'Doctor Availability + Fee (Hospital | Online)'
 
 
     def __str__(self):

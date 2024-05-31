@@ -5,10 +5,44 @@ from .models import Doctor, Doctor24By7, DoctorDiseasesSpeciality, DoctorMedia, 
 # Register your models here.
 
 
+class DoctorDiseasesSpecialityInline(admin.TabularInline):
+    model = DoctorDiseasesSpeciality
+    extra = 0
+
+class DoctorSpecialityInline(admin.TabularInline):
+    model = DoctorSpeciality
+    extra = 0
+
+class DoctorMediaInline(admin.TabularInline):
+    model = DoctorMedia
+    extra = 0   
+
+class DoctorOnlineAvailabilityInline(admin.TabularInline):
+    model = DoctorOnlineAvailability
+    extra = 0
+
+class DoctorTimeSlotsInline(admin.TabularInline):
+    model = DoctorTimeSlots
+    extra = 0
+
+
+class Doctor24By7Inline(admin.TabularInline):
+    model = Doctor24By7
+    extra = 0
+
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ['email', 'user', 'name', 'heading', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
+
+    inlines = [
+        DoctorDiseasesSpecialityInline,
+        DoctorSpecialityInline,
+        DoctorMediaInline,
+        DoctorOnlineAvailabilityInline,
+        DoctorTimeSlotsInline,
+        Doctor24By7Inline
+    ]
 
     
     def diseases(self, doctor_instance):
