@@ -10,4 +10,7 @@
       {% if show_price %}
             <p class="text-gray-600 italic -mt-[10px] text-end">pkr <span class="text-[#0166ff] font-bold">{{discounted_price}}</span></p>
       {% endif %}
+      {% if day %}
+            <p class="text-gray-600 italic -mt-[10px] text-end">on <span class="font-bold text-[#0166ff] text-2xl text-end italic -mr-[2px]">{{day}}.</span></p>
+      {% endif%}
 </div>

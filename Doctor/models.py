@@ -238,6 +238,24 @@ class Doctor24By7(models.Model):
         return f'{str(self.id)} -- '
 
 
+class DoctorWithHospital(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_hospital_timeslots')
+    hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
+    location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
+
+    @property
+    def available_days(self):
+        return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True)
+    
+    @property
+    def highest_discount_day(self):
+        return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True).order_by('discount').last()
+
+    def __str__(self):
+        return f'Dr. {self.doctor.name} Available in {self.hospital.name} at {self.location.name}'
+
 class DoctorTimeSlots(models.Model):
     AVAILABILITY_TYPE = (
         ('Online', 'Online'),
@@ -246,15 +264,14 @@ class DoctorTimeSlots(models.Model):
     """
         Time Slots Table for Doctor, This Table is for Doctor Online Availability except 24/7,
         This Table also be used for Doctor Availability with Hospital
-        ~ If Availability type is Online, It's mean this Object/Record is for Online Availability. Then Hospital Field will be Null
-        ~ If Availability type is Hospital, It's mean this Object/Record is for Hospital Availability. Then Hospital Field will be not Null
-
+        ~ If Availability type is Online, It's mean this Object/Record is for Online Availability. Then doc_hospital Field will be Null
+        ~ If Availability type is Hospital, It's mean this Object/Record is for Hospital Availability. Then doc_hospital Field will be not Null
     """
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, default=None, related_name='doctor_timeslots')
 
-    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_timeslots')
-    hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
-    location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
+    doc_hospital = models.ForeignKey(DoctorWithHospital, on_delete=models.CASCADE, null=True, blank=True, related_name='doc_hospital_timeslots')
     day = models.ForeignKey(DoctorOnlineAvailability, on_delete=models.CASCADE, related_name='day_timeslots')
 
     start_time = models.TimeField()
@@ -273,6 +290,29 @@ class DoctorTimeSlots(models.Model):
 
     class Meta:
         verbose_name = 'Doctor Availability + Fee (Hospital | Online)'
+    
+
+    @property
+    def start_time_formated(self):
+        if self.start_time:
+            return self.start_time.strftime('%I:%M %p')
+    
+    @property
+    def end_time_formated(self):
+        if self.end_time:
+            return self.end_time.strftime('%I:%M %p')
+    
+    @property
+    def day_abbr(self):
+        if self.day:
+            return self.day.day.replace('day', '')
+        
+
+    @property
+    def final_price(self):
+        if self.discount:
+            return self.fee - (self.discount / 100) * self.fee
+        return self.fee
 
 
     def __str__(self):

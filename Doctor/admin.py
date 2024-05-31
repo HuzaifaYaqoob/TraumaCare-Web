@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Doctor, Doctor24By7, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
+from .models import Doctor, Doctor24By7, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
 
 # Register your models here.
 
@@ -15,6 +15,10 @@ class DoctorSpecialityInline(admin.TabularInline):
 
 class DoctorMediaInline(admin.TabularInline):
     model = DoctorMedia
+    extra = 0   
+
+class DoctorWithHospitalInline(admin.TabularInline):
+    model = DoctorWithHospital
     extra = 0   
 
 class DoctorOnlineAvailabilityInline(admin.TabularInline):
@@ -39,6 +43,7 @@ class DoctorAdmin(admin.ModelAdmin):
         DoctorDiseasesSpecialityInline,
         DoctorSpecialityInline,
         DoctorMediaInline,
+        DoctorWithHospitalInline,
         DoctorOnlineAvailabilityInline,
         DoctorTimeSlotsInline,
         Doctor24By7Inline
