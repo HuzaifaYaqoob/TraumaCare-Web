@@ -66,7 +66,7 @@ class Doctor24By7Admin(admin.ModelAdmin):
 
 @admin.register(DoctorDiseasesSpeciality)
 class DoctorDiseasesSpecialityAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'doctor', 'disease']
 
 
 @admin.register(DoctorMedia)
@@ -81,7 +81,7 @@ class DoctorOnlineAvailabilityAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorSpeciality)
 class DoctorSpecialityAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['id', 'doctor', 'speciality']
 
 
 @admin.register(DoctorTimeSlots)

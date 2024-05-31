@@ -24,7 +24,7 @@ class Speciality(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.id)
+        return self.name
     
     def save(self, *args, **kwargs):
         if not self.slug:
@@ -68,7 +68,7 @@ class Disease(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.id)
+        return self.name
 
     def save(self, *args, **kwargs):
         if not self.slug:
