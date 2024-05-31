@@ -26,8 +26,8 @@ class HospitalAdmin(admin.ModelAdmin):
     ]
     list_display = [
         'id',
-        'facility_type',
         'name',
+        'facility_type',
         'is_approved',
     ]
 
