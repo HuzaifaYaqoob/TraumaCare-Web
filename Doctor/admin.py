@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Doctor, Doctor24By7, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
+from .models import Doctor, Doctor24By7, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
 
 # Register your models here.
 
@@ -34,6 +34,14 @@ class Doctor24By7Inline(admin.TabularInline):
     model = Doctor24By7
     extra = 0
 
+class DoctorEducationInline(admin.TabularInline):
+    model = DoctorEducation
+    extra = 0
+
+class DoctorExperienceInline(admin.TabularInline):
+    model = DoctorExperience
+    extra = 0
+
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
     list_display = ['email', 'user', 'name', 'heading', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
@@ -46,7 +54,9 @@ class DoctorAdmin(admin.ModelAdmin):
         DoctorWithHospitalInline,
         DoctorOnlineAvailabilityInline,
         DoctorTimeSlotsInline,
-        Doctor24By7Inline
+        Doctor24By7Inline,
+        DoctorEducationInline,
+        DoctorExperienceInline
     ]
 
     

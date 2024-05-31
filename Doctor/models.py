@@ -317,3 +317,52 @@ class DoctorTimeSlots(models.Model):
 
     def __str__(self):
         return f'{str(self.id)} -- '
+
+class DoctorEducation(models.Model):
+    DEGREE_TYPE_CHOICES = (
+        ('Master', 'Master'),
+        ('MBBS', 'MBBS'),
+        ('MD', 'MD'),
+        ('Diploma', 'Diploma'),
+        ('Other', 'Other'),
+    )
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_education')
+
+    degree_type = models.CharField(max_length=999, default='', choices=DEGREE_TYPE_CHOICES)
+    speciality = models.CharField(max_length=999, default='')
+    institute = models.CharField(max_length=999, default='')
+
+    docs = models.FileField(upload_to='doctor_education/docs/', null=True, blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
+    updated_at = models.DateTimeField(auto_now_add=now)
+
+
+    def __str__(self):
+        return f'{str(self.id)} -- Dr. {self.doctor.name}'
+
+
+class DoctorExperience(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_experiences')
+
+    speciality = models.CharField(max_length=999, default='')
+    practice_institute = models.CharField(max_length=999, default='')
+
+    docs = models.FileField(upload_to='doctor_experience/docs/', null=True, blank=True)
+    start_date = models.DateField()
+    end_date = models.DateField()
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
+    updated_at = models.DateTimeField(auto_now_add=now)
+
+
+    def __str__(self):
+        return f'{str(self.id)} -- Dr. {self.doctor.name}'
