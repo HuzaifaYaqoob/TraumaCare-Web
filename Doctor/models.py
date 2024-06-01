@@ -11,6 +11,8 @@ from uuid import uuid4
 from Trauma.models import Speciality, Disease
 from Hospital.models import Hospital, HospitalLocation
 
+from datetime import timedelta
+
 
 
 
@@ -257,6 +259,33 @@ class DoctorWithHospital(models.Model):
     @property
     def highest_discount_day(self):
         return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True).order_by('discount').last()
+    
+    @property
+    def next_availability(self):
+        data = {}
+        day_count = 0
+        found = False
+        today = now()
+        today_day = today.strftime('%A')
+
+        while not found:
+            now_day = today + timedelta(days=day_count)
+            today_available = DoctorTimeSlots.objects.filter(doc_hospital = self, day__day = now_day.strftime('%A'), is_deleted=False, is_active=True).order_by('start_time')
+            if today_available:
+                if day_count == 0:
+                    data['label'] = 'Available Today'
+                elif day_count == 1:
+                    data['label'] = 'Available Tomorrow'
+                else:
+                    data['slot_date'] = f'{now_day.strftime("%d/%m/%Y")}'
+                    data['label'] = f'Next Available in {day_count} Days'
+                data['slots'] = today_available
+                data['day_count'] = day_count
+                found = True 
+            else:
+                day_count = day_count + 1
+
+        return data
 
     def __str__(self):
         return f'Dr. {self.doctor.name} Available in {self.hospital.name} at {self.location.name}'
@@ -371,3 +400,22 @@ class DoctorExperience(models.Model):
 
     def __str__(self):
         return f'{str(self.id)} -- Dr. {self.doctor.name}'
+
+
+class DoctorReview(models.Model):
+    id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_reviews')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_reviews')
+    review = models.TextField(default='')
+    rating = models.PositiveIntegerField(default=0)
+    recommended_rating = models.PositiveIntegerField(default=0)
+    checkup_rating = models.PositiveIntegerField(default=0)
+    clinical_environment_rating = models.PositiveIntegerField(default=0)
+    staff_behaviour_rating = models.PositiveIntegerField(default=0)
+
+    secret_review = models.TextField(default='')
+
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
