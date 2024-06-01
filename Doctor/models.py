@@ -407,7 +407,9 @@ class DoctorReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_reviews')
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_reviews')
     review = models.TextField(default='')
-    rating = models.PositiveIntegerField(default=0)
+
+
+    rating = models.PositiveIntegerField(default=0, ) # This rating won't related to Customer Input. We'll SUM Recommende, Checkup, Clinical Environment, Staff Behaviour and divide by 4 and save it as Rating.
     recommended_rating = models.PositiveIntegerField(default=0)
     checkup_rating = models.PositiveIntegerField(default=0)
     clinical_environment_rating = models.PositiveIntegerField(default=0)
