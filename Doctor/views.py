@@ -28,6 +28,9 @@ def DoctorProfilePage(request, doctor_id):
         context['practicing_locations'] = DoctorWithHospital.objects.filter(doctor = doctor,)
         context['online_availability'] = DoctorTimeSlots.objects.filter(doctor = doctor, availability_type = 'Online', is_deleted = False, is_active=True)
         context['doctor_reviews'] = DoctorReview.objects.filter(doctor = doctor, is_deleted = False, is_active=True)
-        context['rating_percentage'] = (sum(context['doctor_reviews'].values_list('rating', flat=True)) / len(context['doctor_reviews'])) / 5 * 100
+        if len(context['doctor_reviews']) > 0:
+            context['rating_percentage'] = (sum(context['doctor_reviews'].values_list('rating', flat=True)) / len(context['doctor_reviews'])) / 5 * 100
+        else:
+            context['rating_percentage'] = 100
 
         return render(request, 'Doctor/doctor_view_profile.html', context)
