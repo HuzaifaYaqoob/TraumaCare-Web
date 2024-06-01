@@ -110,6 +110,11 @@ class Doctor(models.Model):
             if profile_pic.file:
                 return profile_pic.file.url
             return None
+    
+    @property
+    def years_of_experience(self):
+        if self.working_since:
+            return now().year - self.working_since.year
 
 
 class DoctorMediaManager(models.Manager):
