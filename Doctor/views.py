@@ -46,4 +46,11 @@ def DoctorProfilePage(request, doctor_id):
         else:
             context['rating_percentage'] = 100
 
+        doctor_specialities = doctor.doctor_specialities.all().values_list('speciality__id', flat=True)
+        print(doctor_specialities)
+        context['suggested'] = Doctor.objects.filter(
+            doctor_specialities__speciality__id__in = doctor_specialities,
+        ).distinct()
+
+
         return render(request, 'Doctor/doctor_view_profile.html', context)

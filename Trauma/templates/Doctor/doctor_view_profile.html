@@ -310,72 +310,44 @@
                   </div>
             </div>
             <div class="border shadow-md p-4 rounded-xl">
-                  <p class="text-[#555555] font-[600] text-center md:text-start text-2xl">Other Dermatologist  </p>
+                  <p class="text-[#555555] font-[600] text-center md:text-start text-2xl">Other Suggested</p>
                   <div class="flex items-center gap-2 mt-3 flex-col md:flex-row">
-                  <div class="border rounded-xl p-4  ">
-                        <div class="flex items-center gap-4 flex-wrap Dermatologist-main-TC">
-                              <div class="w-[100px] h-[100px] rounded-lg" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                              <div>
-                                    <p class="Dermatologist-main-TCp1 text-black font-bold text-2xl">Dr Frida Jahan</p>
-                                    <p class="Dermatologist-main-TCp1 text-[#847B7B] font-xl">8 years of exeperience</p>
-                                    <p class="Dermatologist-main-TCp1 text-[#424242] font-bold">Rs. 1500</p>
+                        {% for suggested_doctor in suggested %}
+                              <div class="border rounded-xl p-4  ">
+                                    <a href="{% url 'DoctorProfilePage' suggested_doctor.id %}" class="flex items-center gap-4 flex-wrap Dermatologist-main-TC">
+                                          <div class="w-[100px] h-[100px] rounded-lg bg-center bg-cover bg-no-repeat" style="background-image: url({{doctor.profile_image}});"></div>
+                                          <div>
+                                                <p class="Dermatologist-main-TCp1 text-black font-bold text-2xl">Dr {{suggested_doctor.name}}</p>
+                                                <p class="text-[#9A9A9A]">{% if suggested_doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-[600] text-black">{{suggested_doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
+                                                {% if suggested_doctor.fee_range %}
+                                                      Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.0}}</span> - Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.1}}</span>
+                                                {% endif %}
+                                          </div>
+                                    </a>
+                                    <div class="flex items-center gap-3 flex-wrap justify-center mt-3">
+                                          <a href="{% url 'DoctorProfilePage' suggested_doctor.id %}" class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
+                                                <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M0 4.51389C0 2.9184 1.2934 1.625 2.88889 1.625H10.1111C11.7066 1.625 13 2.9184 13 4.51389V12.0972C13 13.6927 11.7066 14.9861 10.1111 14.9861H2.88889C1.2934 14.9861 0 13.6927 0 12.0972V4.51389Z" fill="white"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38835 0C9.6875 0 9.93001 0.242512 9.93001 0.541667V2.70833C9.93001 3.00749 9.6875 3.25 9.38835 3.25C9.08919 3.25 8.84668 3.00749 8.84668 2.70833V0.541667C8.84668 0.242512 9.08919 0 9.38835 0Z" fill="white"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.61003 0C3.90918 0 4.15169 0.242512 4.15169 0.541667V2.70833C4.15169 3.00749 3.90918 3.25 3.61003 3.25C3.31087 3.25 3.06836 3.00749 3.06836 2.70833V0.541667C3.06836 0.242512 3.31087 0 3.61003 0Z" fill="white"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 8.48503C10.6533 8.78418 10.4108 9.02669 10.1117 9.02669H5.77832C5.47917 9.02669 5.23665 8.78418 5.23665 8.48503C5.23665 8.18587 5.47917 7.94336 5.77832 7.94336H10.1117C10.4108 7.94336 10.6533 8.18587 10.6533 8.48503Z" fill="#24D0D0"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 5.59831C10.6533 5.89746 10.4108 6.13997 10.1117 6.13997H5.77832C5.47917 6.13997 5.23665 5.89746 5.23665 5.59831C5.23665 5.29915 5.47917 5.05664 5.77832 5.05664H10.1117C10.4108 5.05664 10.6533 5.29915 10.6533 5.59831Z" fill="#24D0D0"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 11.3766C10.6533 11.6758 10.4108 11.9183 10.1117 11.9183H5.77832C5.47917 11.9183 5.23665 11.6758 5.23665 11.3766C5.23665 11.0775 5.47917 10.835 5.77832 10.835H10.1117C10.4108 10.835 10.6533 11.0775 10.6533 11.3766Z" fill="#24D0D0"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 6.31944C3.64941 6.31944 3.97276 5.99609 3.97276 5.59722C3.97276 5.19835 3.64941 4.875 3.25054 4.875C2.85167 4.875 2.52832 5.19835 2.52832 5.59722C2.52832 5.99609 2.85167 6.31944 3.25054 6.31944Z" fill="#24D0D0"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 9.20812C3.64941 9.20812 3.97276 8.88477 3.97276 8.48589C3.97276 8.08702 3.64941 7.76367 3.25054 7.76367C2.85167 7.76367 2.52832 8.08702 2.52832 8.48589C2.52832 8.88477 2.85167 9.20812 3.25054 9.20812Z" fill="#24D0D0"/>
+                                                      <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 12.0978C3.64941 12.0978 3.97276 11.7744 3.97276 11.3755C3.97276 10.9767 3.64941 10.6533 3.25054 10.6533C2.85167 10.6533 2.52832 10.9767 2.52832 11.3755C2.52832 11.7744 2.85167 12.0978 3.25054 12.0978Z" fill="#24D0D0"/>
+                                                      </svg>
+                                                <p class="text-white whitespace-nowrap">Book Appointment</p>
+                                          </a>
+                                          <div class="flex items-center gap-2 px-4 py-2 rounded-lg  cursor-pointer border border-[#24D0D0]">
+                                                <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M10 1.25C10 0.560625 9.43937 0 8.75 0H1.25C0.560625 0 0 0.560625 0 1.25V7.5C0 8.18937 0.560625 8.75 1.25 8.75H8.75C9.43937 8.75 10 8.18937 10 7.5V5.41687L12.5 7.5V1.25L10 3.33313V1.25Z" fill="#24D0D0"/>
+                                                      </svg>
+                                                <p class="text-[#24D0D0] whitespace-nowrap" >Video Consultation</p>
+                                          </div>
+                                    </div>
                               </div>
-                        </div>
-                        <div class="flex items-center gap-3 flex-wrap justify-center mt-3">
-                              <div class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
-                                    <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M0 4.51389C0 2.9184 1.2934 1.625 2.88889 1.625H10.1111C11.7066 1.625 13 2.9184 13 4.51389V12.0972C13 13.6927 11.7066 14.9861 10.1111 14.9861H2.88889C1.2934 14.9861 0 13.6927 0 12.0972V4.51389Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38835 0C9.6875 0 9.93001 0.242512 9.93001 0.541667V2.70833C9.93001 3.00749 9.6875 3.25 9.38835 3.25C9.08919 3.25 8.84668 3.00749 8.84668 2.70833V0.541667C8.84668 0.242512 9.08919 0 9.38835 0Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.61003 0C3.90918 0 4.15169 0.242512 4.15169 0.541667V2.70833C4.15169 3.00749 3.90918 3.25 3.61003 3.25C3.31087 3.25 3.06836 3.00749 3.06836 2.70833V0.541667C3.06836 0.242512 3.31087 0 3.61003 0Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 8.48503C10.6533 8.78418 10.4108 9.02669 10.1117 9.02669H5.77832C5.47917 9.02669 5.23665 8.78418 5.23665 8.48503C5.23665 8.18587 5.47917 7.94336 5.77832 7.94336H10.1117C10.4108 7.94336 10.6533 8.18587 10.6533 8.48503Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 5.59831C10.6533 5.89746 10.4108 6.13997 10.1117 6.13997H5.77832C5.47917 6.13997 5.23665 5.89746 5.23665 5.59831C5.23665 5.29915 5.47917 5.05664 5.77832 5.05664H10.1117C10.4108 5.05664 10.6533 5.29915 10.6533 5.59831Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 11.3766C10.6533 11.6758 10.4108 11.9183 10.1117 11.9183H5.77832C5.47917 11.9183 5.23665 11.6758 5.23665 11.3766C5.23665 11.0775 5.47917 10.835 5.77832 10.835H10.1117C10.4108 10.835 10.6533 11.0775 10.6533 11.3766Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 6.31944C3.64941 6.31944 3.97276 5.99609 3.97276 5.59722C3.97276 5.19835 3.64941 4.875 3.25054 4.875C2.85167 4.875 2.52832 5.19835 2.52832 5.59722C2.52832 5.99609 2.85167 6.31944 3.25054 6.31944Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 9.20812C3.64941 9.20812 3.97276 8.88477 3.97276 8.48589C3.97276 8.08702 3.64941 7.76367 3.25054 7.76367C2.85167 7.76367 2.52832 8.08702 2.52832 8.48589C2.52832 8.88477 2.85167 9.20812 3.25054 9.20812Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 12.0978C3.64941 12.0978 3.97276 11.7744 3.97276 11.3755C3.97276 10.9767 3.64941 10.6533 3.25054 10.6533C2.85167 10.6533 2.52832 10.9767 2.52832 11.3755C2.52832 11.7744 2.85167 12.0978 3.25054 12.0978Z" fill="#24D0D0"/>
-                                          </svg>
-                                    <p class="text-white whitespace-nowrap">Video Consultation</p>
-                              </div>
-                              <div class="flex items-center gap-2 px-4 py-2 rounded-lg  cursor-pointer border border-[#24D0D0]">
-                                    <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M10 1.25C10 0.560625 9.43937 0 8.75 0H1.25C0.560625 0 0 0.560625 0 1.25V7.5C0 8.18937 0.560625 8.75 1.25 8.75H8.75C9.43937 8.75 10 8.18937 10 7.5V5.41687L12.5 7.5V1.25L10 3.33313V1.25Z" fill="#24D0D0"/>
-                                          </svg>
-                                    <p class="text-[#24D0D0] whitespace-nowrap" >Video Consultation</p>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="border rounded-xl p-4  ">
-                        <div class="flex items-center gap-4 flex-wrap Dermatologist-main-TC">
-                              <div class="w-[100px] h-[100px] rounded-lg" style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
-                              <div>
-                                    <p class="Dermatologist-main-TCp1 text-black font-bold text-2xl">Dr Frida Jahan</p>
-                                    <p class="Dermatologist-main-TCp1 text-[#847B7B] font-xl">8 years of exeperience</p>
-                                    <p class="Dermatologist-main-TCp1 text-[#424242] font-bold">Rs. 1500</p>
-                              </div>
-                        </div>
-                        <div class="flex items-center flex-wrap justify-center gap-3 mt-3">
-                              <div class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
-                                    <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M0 4.51389C0 2.9184 1.2934 1.625 2.88889 1.625H10.1111C11.7066 1.625 13 2.9184 13 4.51389V12.0972C13 13.6927 11.7066 14.9861 10.1111 14.9861H2.88889C1.2934 14.9861 0 13.6927 0 12.0972V4.51389Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38835 0C9.6875 0 9.93001 0.242512 9.93001 0.541667V2.70833C9.93001 3.00749 9.6875 3.25 9.38835 3.25C9.08919 3.25 8.84668 3.00749 8.84668 2.70833V0.541667C8.84668 0.242512 9.08919 0 9.38835 0Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.61003 0C3.90918 0 4.15169 0.242512 4.15169 0.541667V2.70833C4.15169 3.00749 3.90918 3.25 3.61003 3.25C3.31087 3.25 3.06836 3.00749 3.06836 2.70833V0.541667C3.06836 0.242512 3.31087 0 3.61003 0Z" fill="white"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 8.48503C10.6533 8.78418 10.4108 9.02669 10.1117 9.02669H5.77832C5.47917 9.02669 5.23665 8.78418 5.23665 8.48503C5.23665 8.18587 5.47917 7.94336 5.77832 7.94336H10.1117C10.4108 7.94336 10.6533 8.18587 10.6533 8.48503Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 5.59831C10.6533 5.89746 10.4108 6.13997 10.1117 6.13997H5.77832C5.47917 6.13997 5.23665 5.89746 5.23665 5.59831C5.23665 5.29915 5.47917 5.05664 5.77832 5.05664H10.1117C10.4108 5.05664 10.6533 5.29915 10.6533 5.59831Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M10.6533 11.3766C10.6533 11.6758 10.4108 11.9183 10.1117 11.9183H5.77832C5.47917 11.9183 5.23665 11.6758 5.23665 11.3766C5.23665 11.0775 5.47917 10.835 5.77832 10.835H10.1117C10.4108 10.835 10.6533 11.0775 10.6533 11.3766Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 6.31944C3.64941 6.31944 3.97276 5.99609 3.97276 5.59722C3.97276 5.19835 3.64941 4.875 3.25054 4.875C2.85167 4.875 2.52832 5.19835 2.52832 5.59722C2.52832 5.99609 2.85167 6.31944 3.25054 6.31944Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 9.20812C3.64941 9.20812 3.97276 8.88477 3.97276 8.48589C3.97276 8.08702 3.64941 7.76367 3.25054 7.76367C2.85167 7.76367 2.52832 8.08702 2.52832 8.48589C2.52832 8.88477 2.85167 9.20812 3.25054 9.20812Z" fill="#24D0D0"/>
-                                          <path fill-rule="evenodd" clip-rule="evenodd" d="M3.25054 12.0978C3.64941 12.0978 3.97276 11.7744 3.97276 11.3755C3.97276 10.9767 3.64941 10.6533 3.25054 10.6533C2.85167 10.6533 2.52832 10.9767 2.52832 11.3755C2.52832 11.7744 2.85167 12.0978 3.25054 12.0978Z" fill="#24D0D0"/>
-                                          </svg>
-                                    <p class="text-white whitespace-nowrap">Video Consultation</p>
-                              </div>
-                              <div class="flex items-center gap-2 px-4 py-2 rounded-lg  cursor-pointer border border-[#24D0D0]">
-                                    <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                          <path d="M10 1.25C10 0.560625 9.43937 0 8.75 0H1.25C0.560625 0 0 0.560625 0 1.25V7.5C0 8.18937 0.560625 8.75 1.25 8.75H8.75C9.43937 8.75 10 8.18937 10 7.5V5.41687L12.5 7.5V1.25L10 3.33313V1.25Z" fill="#24D0D0"/>
-                                          </svg>
-                                    <p class="text-[#24D0D0] whitespace-nowrap">Video Consultation</p>
-                              </div>
-                        </div>
-                  </div>
+                        {% endfor %}
                   </div>
             </div>
       </div>
