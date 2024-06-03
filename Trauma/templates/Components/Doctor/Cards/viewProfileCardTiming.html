@@ -15,5 +15,13 @@
                   </div>
                   <p class="text-gray-600 text-end flex-1">Rs. <span class="text-[#0166ff] font-bold text-4xl italic">{{price}}</span></p>
             </div>
+            <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
+                  {% for interval in slot.slots_interval %}
+                        <div class="mb-1">
+                              <input type="radio"  name="selected_time" class="hidden slot-time-interval-radio" id="slot-time-interval-{{interval.0}}" {% if forloop.counter == 1 %}checked{% endif %}>
+                              <label for="slot-time-interval-{{interval.0}}" class="cursor-pointer border px-2 py-1 rounded-lg text-center">{{interval.1}}</label>
+                        </div>
+                  {% endfor %}
+            </div>
       </label>
 </div>

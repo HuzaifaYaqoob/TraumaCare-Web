@@ -11,7 +11,7 @@ from uuid import uuid4
 from Trauma.models import Speciality, Disease
 from Hospital.models import Hospital, HospitalLocation
 
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 
 
@@ -370,6 +370,20 @@ class DoctorTimeSlots(models.Model):
         if self.discount:
             return self.fee - (self.discount / 100) * self.fee
         return self.fee
+    
+
+    @property
+    def slots_interval(self):
+        start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
+        end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
+        interval = timedelta(minutes=20)
+        times = []
+        current_time = start_time
+        while current_time < end_time:
+            times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
+            current_time += interval
+
+        return times
 
 
     def __str__(self):

@@ -84,6 +84,10 @@
             border-color: green ;
             border-width: 1.5px;
       }
+      .slot-time-interval-radio:checked + label{
+            border-color: green ;
+            border-width: 1.5px;
+      }
       html {
             --progress: {{rating_percentage}};
       }
@@ -443,7 +447,8 @@
       <div class="flex-1 flex flex-col gap-3">
             <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
             {% for clinic in practicing_locations %}
-                  <div class="border p-4 rounded-[20px]">
+                  <form action="" method="post" class="border p-4 rounded-[20px]">
+                        <input type="text" value="{{doctor.id}}" name="doctor">
                         <div class="flex-1 flex items-center justify-between mt-4">
                               <div class="flex gap-3 items-start">
                                     <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></div>
@@ -466,11 +471,11 @@
                                     </div>
                               {% endwith %}
                         </div>
-                        <a href="/" class="bookapointment-buttoninVP hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                        <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
                               <p class=" text-center">Book an appointment instantly</p>
                               <p class="text-xs text-center">it only takes a second</p>
-                        </a>
-                  </div>
+                        </button>
+                  </form>
             {% endfor %}
             <div class="sticky top-[100px] bg-white shadow-lg rounded-xl px-4 py-8 flex flex-col items-center gap-3 border">
                   {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
