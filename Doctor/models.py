@@ -385,7 +385,7 @@ class DoctorTimeSlots(models.Model):
             current_time += interval
 
         return times
-
+    
 
     def __str__(self):
         return f'{str(self.id)} -- '

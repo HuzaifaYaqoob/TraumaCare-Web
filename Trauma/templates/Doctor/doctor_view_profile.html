@@ -200,6 +200,12 @@
                         {% endif %}
                   </div>
                   <div class="flex items-center gap-4">
+                        {% if doctor_reviews|length == 0 %}
+                              <div class="border px-10 py-16 flex-1 rounded-[20px]">
+                                    <p class="text-2xl font-semibold mb-2 text-center text-slate-700">No Reviews yet</p>
+                                    <span class="block text-center text-sm">Be the first to provide a review. <a href="" class="text-blue-600">Book Appointment</a></span>
+                              </div>
+                        {% endif %}
                         {% for review in doctor_reviews|slice:":2" %}
                               <div class="border p-6 rounded-[20px]">
                                     <div class="flex items-center gap-[1px] mt-[12px]">
@@ -469,7 +475,7 @@
                                     <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span> {{next_available.label}}</span></p>
                                     <div class="">
                                           {% for slot in next_available.slots %}
-                                                {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' with clinic=clinic slot_date=next_available.slot_date slot=slot price=slot.final_price %}
+                                                {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' with clinic=clinic clinic_id=clinic.id day_date=next_available.day_date slot_date=next_available.slot_date slot=slot price=slot.final_price %}
                                           {% endfor %}
                                     </div>
                                     <script>
@@ -485,7 +491,10 @@
                                                 })
                                           })
 
-                                          intervals.forEach((interval) => {
+                                          intervals.forEach((interval, index) => {
+                                                if (index == 0) {
+                                                      interval.checked = true
+                                                }
                                                 interval.addEventListener('change', (e) => {
                                                       let input = e.target
                                                       let slot = input.closest('.singleSlotCard')

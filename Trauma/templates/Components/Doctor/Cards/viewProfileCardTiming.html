@@ -1,3 +1,4 @@
+{% load appointment_tags %}
 <div class="singleSlotCard" >
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}" {% if forloop.counter == 1 %}checked{% endif %}>
       <label for="dr-appointment-slot-card-{{slot.id}}" class="border block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
@@ -21,10 +22,15 @@
                   </div>
             </div>
             <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
+                  {% get_doctor_slots doctor day_date clinic_id as doctor_bookings %}
                   {% for interval in slot.slots_interval %}
                         <div class="mb-1">
-                              <input type="radio" name="selected_time" value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{interval.0}}" {% if forloop.parentloop.counter == 1 and forloop.counter == 1 %}checked{% endif %}>
-                              <label for="slot-time-interval-{{interval.0}}" class="cursor-pointer border px-2 py-1 rounded-lg text-center">{{interval.1}}</label>
+                              {% if interval.0 in doctor_bookings %}
+                                    <p class="cursor-not-allowed border bg-slate-200 select-none px-2 py-1 rounded-lg text-center">{{interval.1}}</p>
+                              {% else %}
+                                    <input type="radio" name="selected_time" value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{interval.0}}" >
+                                    <label for="slot-time-interval-{{interval.0}}" class="block cursor-pointer border px-2 py-1 rounded-lg text-center">{{interval.1}}</label>
+                              {% endif %}
                         </div>
                   {% endfor %}
             </div>
