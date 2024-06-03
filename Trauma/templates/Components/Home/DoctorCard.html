@@ -2,18 +2,18 @@
 
 
 <div
-  class="flex flex-col gap-5 rounded-[13px] cursor-pointer bg-[#fff] tc-shadow doctor-card-maon-TC-cards"
+  class="flex flex-col gap-5 rounded-[13px] cursor-pointer bg-[#fff] border doctor-card-maon-TC-cards"
 >
-  <div class="flex gap-4 items-center mt-6 ml-4">
+  <div class="flex items-center gap-2 mt-6 ml-4">
     <div
-      class="h-20 w-20 rounded-[50%] border-2 border-[#23d0d0] cursor-pointer bg-center bg-cover bg-no-repeat"
+      class="h-16 w-16 rounded-[50%] border-2 border-[#23d0d0] cursor-pointer bg-center bg-cover bg-no-repeat"
       style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');"
     ></div>
     <div class="flex-1">
       <a
         href="/doctor/profile/view/{{doctor.id}}"
-        class="text-[#23d0d0] capitalize text-2xl font-semibold tracking-wide cursor-pointer"
-        >Dr. {{doctor.name|slice:":11"}}{% if doctor.name|length > 11%}...{% endif %}</a
+        class="text-[#23d0d0] capitalize text-xl font-semibold tracking-wide cursor-pointer"
+        >Dr. {{doctor.name}}</a
       >
       <p
         class="text-[#0A1C4B] font-medium line-clamp-2 leading-tight text-[13px] mt-[2px] mb-[0px]"
@@ -52,7 +52,7 @@
   >
     <div class="flex items-center gap-1">
       <p class="text-[#8ca5c9] text-sm font-regular capitalize">satisfaction</p>
-      <p class="text-[#23d0d0] text-base font-semibold">100%</p>
+      <p class="text-[#23d0d0] text-base font-semibold">{{doctor.get_doctor_rating_percentage}}%</p>
     </div>
     <a href="/appointment/book-appointment">
       <div>

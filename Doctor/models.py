@@ -117,6 +117,21 @@ class Doctor(models.Model):
     def years_of_experience(self):
         if self.working_since:
             return now().year - self.working_since.year
+        
+    
+
+    def get_doctor_rating_percentage(self, reviews=None):
+        print('called')
+        if reviews:
+            doctor_reviews = reviews
+        else:
+            doctor_reviews = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        if doctor_reviews.exists():
+            return int((sum(doctor_reviews.values_list('rating', flat=True)) / len(doctor_reviews)) / 5 * 100)
+        else:
+            return 100
+
+
 
 
 class DoctorMediaManager(models.Manager):
