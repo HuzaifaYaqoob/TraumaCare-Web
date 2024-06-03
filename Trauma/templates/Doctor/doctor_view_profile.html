@@ -263,112 +263,50 @@
                   <div class="mt-8">
                         <p class="text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
                         <div class="flex gap-4 items-center flex-col md:flex-row mt-[12px]">
-                        <div class="flex-1 flex flex-col gap-2 ">
-                              <p class="text-[#807F7F] lg:text-start text-center">Consultant  Paediatric Neurologist, National Medical</p>
-                              <div class="flex items-center gap-[6px] mt-2 flex-wrap lg:justify-start justify-center">
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
+                              {% if experiences|length == 0 %}
+                                    <p class="text-center w-full">No Education</p>
+                              {% endif %}
+                              {% for experience in experiences %}
+                                    <div class="flex-1 flex flex-col gap-2 ">
+                                          <p class="text-[#807F7F] lg:text-start text-center">{{experience.speciality}}, {{experience.practice_institute}}</p>
+                                          <div class="flex items-center gap-[6px] mt-2 flex-wrap lg:justify-start justify-center">
+                                                <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
+                                                      <p>{{experience.start_date.year}}-{{experience.end_date.year}}</p>
+                                                      <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
+                                                </div>
+                                          </div>
                                     </div>
-                              <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                    <p>2012-2018</p>
-                                    <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                              </div>
-                              <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                    <p>2012-2018</p>
-                                    <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                              </div>
-                              <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                    <p>2012-2018</p>
-                                    <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                              </div>
-                              <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                    <p>2012-2018</p>
-                                    <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                              </div>
-                              </div>
-                        </div>
-                        <div class="flex-1 flex flex-col gap-2">
-                              <p class="text-[#807F7F] lg:text-start text-center">Consultant  Paediatric Neurologist, National Medical</p>
-                              <div class="flex items-center gap-[6px] mt-2 flex-wrap lg:justify-start justify-center">
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                                    </div>
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                                    </div>
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                                    </div>
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                                    </div>
-                                    <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                          <p>2012-2018</p>
-                                          <img class="h-[22px] w-[22px]" src="{% static 'assets/images/female doctor at desk12.png' %}" alt="">
-                                    </div>
-                                    </div>
-                       
+                              {% endfor %}
                         </div>
                   </div>
             </div>
-            
-            
-      </div>
             <div class="border shadow-md rounded-xl p-6" >
                   <p class="text-[#555555] font-[600] text-xl lg:text-start text-center">Frequently Asked Questions</p>
                   <div class="flex  flex-col  gap-[14px] flex-1 mt-10">
-                  <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-[12px] relative pb-[26px] tc-shadow position-text-main-TC">
-                              <div class="ask-questions-main rounded-[50px] top-[0%] absolute left-[0] right-[0] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
-                                    <div class="flex items-center gap-3">
-                                          <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                                          <p class="ask-questions-main-text text-[#939393] line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
-                                    </div>
-                                    <div class="ask-questions-main-svg">
-                                          <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <path d="M7 0L13.0622 7H0.937822L7 0Z" fill="#557DE5"/>
+                        {% for query in queries %}
+                              <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-[12px] relative pb-[26px] tc-shadow position-text-main-TC">
+                                    <div class="ask-questions-main rounded-[50px] top-[0%] absolute left-[0] right-[0] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
+                                          <div class="flex items-center gap-3">
+                                                <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
+                                                <p class="ask-questions-main-text text-[#939393] line-clamp-1">{{query.question}}</p>                                    
+                                          </div>
+                                          <div class="ask-questions-main-svg">
+                                                <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                      <path d="M7 0L13.0622 7H0.937822L7 0Z" fill="#557DE5"/>
                                                 </svg>
+                                          </div>
                                     </div>
+                                    <p class="text-[#9A9A9A] text-[15px] px-4 leading-5 line-clamp-3 ask-questions-main-text-1">{{query.answer}}</p>
                               </div>
-                              <p class="text-[#9A9A9A] text-[15px] px-4 leading-5 line-clamp-3 ask-questions-main-text-1">He is an exceptional physician who truly cares about his patients. He took time to listen to my concerns and provided me with a thoughtful treatment planto my concerns and provided me with a thoughtful treatment plan.</p>
+                        {% endfor %}
                   </div>
-                  <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                              <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
-                        </div>
-                        <div class="ask-questions-main-svg">
-                              <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 0L13.0622 7H0.937822L7 0Z" fill="#557DE5"/>
-                                    </svg>
-                        </div>
-                  </div>
-                  <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                              <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
-                        </div>
-                        <div class="ask-questions-main-svg">
-                              <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 0L13.0622 7H0.937822L7 0Z" fill="#557DE5"/>
-                                    </svg>
-                        </div>
-                  </div>
-                  <div class="ask-questions-main rounded-[50px] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
-                        <div class="flex items-center gap-3">
-                              <img class=" ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/images/Ellipse 527.png' %}" alt="">
-                              <p class="ask-questions-main-text text-[#939393] ask-questions-main-text line-clamp-1">How to book an appointment with Dr. Ali Shehvaiz Younas?</p>                                    
-                        </div>
-                        <div class="ask-questions-main-svg">
-                              <svg class="cursor-pointer" width="14" height="7" viewBox="0 0 14 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M7 0L13.0622 7H0.937822L7 0Z" fill="#557DE5"/>
-                                    </svg>
-                        </div>
-                  </div>
+                  <div class="mt-7">
+                        <p class="text-slate-700 text-center text-xl font-bold mb-4">Ask Question</p>
+                        <form action="{% url 'DoctorAskQuestionHandler' doctor.id %}" method="post">
+                              {% csrf_token %}
+                              <input type="text" name="question" class="w-full px-4 py-2 rounded-lg border outline-none" placeholder="Ask Question">
+                              <button class="bg-[#24D0D0] px-5 py-1.5 mt-3 rounded-lg text-white">Ask</button>
+                        </form>
                   </div>
             </div>
             <div class="border shadow-md p-4 rounded-xl">
