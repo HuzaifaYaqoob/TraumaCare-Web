@@ -369,7 +369,7 @@ class DoctorTimeSlots(models.Model):
     @property
     def final_price(self):
         if self.discount:
-            return self.fee - (self.discount / 100) * self.fee
+            return int(self.fee - (self.discount / 100) * self.fee)
         return self.fee
     
 
