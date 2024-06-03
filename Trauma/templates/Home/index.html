@@ -599,7 +599,21 @@
                     {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
                 </div>
             {% endfor %}
-            
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
         </div>
     </div>
             

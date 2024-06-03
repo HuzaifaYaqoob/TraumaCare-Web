@@ -130,6 +130,14 @@ class Doctor(models.Model):
             return int((sum(doctor_reviews.values_list('rating', flat=True)) / len(doctor_reviews)) / 5 * 100)
         else:
             return 100
+        
+    @property
+    def fee_range(self):
+        fees = DoctorTimeSlots.objects.filter(doctor = self).distinct('fee')
+        if len(fees):
+            fees = [int((fee.fee * (100 - (fee.discount))) / 100) if fee.discount else fee.fee for fee in fees]
+            return [min(fees), max(fees)]
+        return None
 
 
 
