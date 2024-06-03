@@ -52,6 +52,8 @@ class Speciality(models.Model):
 class Disease(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
+    speciality = models.ForeignKey(Speciality, on_delete=models.SET_NULL, null=True, blank=True, related_name='speciality_diseases')
+
     name = models.CharField(max_length=500, default='')
     svg_icon = models.TextField()
     color_code = models.CharField(max_length=10, default='')
