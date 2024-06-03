@@ -313,7 +313,7 @@
                   <p class="text-[#555555] font-[600] text-center md:text-start text-2xl">Other Suggested</p>
                   <div class="flex items-center gap-2 mt-3 flex-col md:flex-row">
                         {% for suggested_doctor in suggested %}
-                              <div class="border rounded-xl p-4  ">
+                              <div class="border rounded-xl p-4 flex-1 ">
                                     <a href="{% url 'DoctorProfilePage' suggested_doctor.id %}" class="flex items-center gap-4 flex-wrap Dermatologist-main-TC">
                                           <div class="w-[100px] h-[100px] rounded-lg bg-center bg-cover bg-no-repeat" style="background-image: url({{suggested_doctor.profile_image}});"></div>
                                           <div>
