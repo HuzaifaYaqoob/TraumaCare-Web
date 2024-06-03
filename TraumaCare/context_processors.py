@@ -5,6 +5,7 @@ from django.conf import settings
 import random
 
 from Hospital.models import Hospital
+from Appointment.models import AppointmentGroup, Appointment
 
 def global_context_processor(request):
     str_query = '?'
@@ -62,5 +63,16 @@ def Locations_context_processors(request):
     context = {}
 
     context['countries'] = []
+
+    return context
+
+def appointments_context_processors(request):
+    context = {}
+
+    if request.user.is_authenticated:
+        context['user_appointments'] = Appointment.objects.filter(
+            appointment_group__user = request.user,
+            status__in = ["Pending", "Booked", "Confirmed"]
+        ).count()
 
     return context

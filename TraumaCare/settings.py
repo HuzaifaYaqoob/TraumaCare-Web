@@ -107,6 +107,7 @@ TEMPLATES = [
                 'TraumaCare.context_processors.specialities_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.diseases_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.hospitals_context_processor', # Custom Context Processor
+                'TraumaCare.context_processors.appointments_context_processors', # Custom Context Processor
             ],
         },
     },

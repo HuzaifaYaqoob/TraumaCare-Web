@@ -33,6 +33,7 @@ class Appointment(models.Model):
         ('Pending', 'Pending'),
         ('Booked', 'Booked'),
         ('Confirmed', 'Confirmed'),
+        ('Finished', 'Finished'),
         ('Cancelled', 'Cancelled'),
     )
 
