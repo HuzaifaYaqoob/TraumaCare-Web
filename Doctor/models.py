@@ -304,6 +304,7 @@ class DoctorWithHospital(models.Model):
                     data['label'] = f'Next Available in {day_count} Days'
                 data['slots'] = today_available
                 data['day_count'] = day_count
+                data['day_date'] = now_day.strftime('%Y-%m-%d')
                 found = True 
             else:
                 day_count = day_count + 1

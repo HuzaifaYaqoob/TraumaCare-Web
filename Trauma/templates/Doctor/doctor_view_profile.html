@@ -447,9 +447,10 @@
       <div class="flex-1 flex flex-col gap-3">
             <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
             {% for clinic in practicing_locations %}
-                  <form action="" method="post" class="border p-4 rounded-[20px]">
-                        <input type="text" value="{{doctor.id}}" name="doctor">
-                        <div class="flex-1 flex items-center justify-between mt-4">
+                  <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 rounded-[20px]">
+                        {% csrf_token %}
+                        <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
+                        <div class="flex-1 flex items-center justify-between">
                               <div class="flex gap-3 items-start">
                                     <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></div>
                                     <div class="flex-1">
@@ -463,6 +464,8 @@
                         </div>
                         <div class="mt-[16px]">
                               {% with next_available=clinic.next_availability %}
+                                    <input type="text" class="hidden" name="selected_date" value="{{next_available.day_date}}">
+                                    <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
                                     <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span> {{next_available.label}}</span></p>
                                     <div class="">
                                           {% for slot in next_available.slots %}

@@ -3,11 +3,13 @@ from django.urls import path
 
 
 
-from .views import BookAppointmentPage, CheckoutPage
+from . import views as apptView
 
 
 urlpatterns = [
-    path('book-appointment', BookAppointmentPage, name='BookAppointmentPage'),
-    path('checkout/', CheckoutPage, name='CheckoutPage'),
+    path('book-appointment', apptView.BookAppointmentPage, name='BookAppointmentPage'),
+    path('checkout/', apptView.CheckoutPage, name='CheckoutPage'),
+
+    path('book-instant-appointment', apptView.BookAppointment_DoctorPage, name='BookAppointment_DoctorPage'),
 
 ] 
