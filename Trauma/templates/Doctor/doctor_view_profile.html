@@ -474,8 +474,10 @@
                                           intervals.forEach((interval) => {
                                                 interval.addEventListener('change', (e) => {
                                                       let input = e.target
-                                                      let slot = input.closest('.dr-appointment-slot-card-input')
-                                                      slot.checked = true
+                                                      let slot = input.closest('.singleSlotCard')
+                                                      let slot_input = slot.querySelector('input.dr-appointment-slot-card-input')
+                                                      console.log(slot_input)
+                                                      slot_input.checked = true
                                                 })
                                           })
                                     </script>

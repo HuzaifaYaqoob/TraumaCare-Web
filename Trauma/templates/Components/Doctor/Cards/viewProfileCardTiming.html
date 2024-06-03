@@ -1,4 +1,4 @@
-<div>
+<div class="singleSlotCard" >
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot-card-{{clinic.id}}" id="dr-appointment-slot-card-{{slot.id}}" {% if forloop.counter == 1 %}checked{% endif %}>
       <label for="dr-appointment-slot-card-{{slot.id}}" class="border block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
             <p class="font-semibold"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"></span> {{slot.day.day}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
