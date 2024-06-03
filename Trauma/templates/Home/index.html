@@ -592,15 +592,29 @@
     <div class="!mt-5">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
     </div>
-    <div class="swiper mySwiper px-[6px] sm:px-[10px] flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
-        <div class="swiper-wrapper py-12 gap-4 justify-center xl:justify-start" >
+    <div class="px-[6px] sm:px-[10px] flex items-center gap-[25px] justify-center flex-wrap mt-0 mx-auto max-w-[1500px] ">
+        <div class="py-12 grid grid-cols-4 gap-4 justify-center" >
             {% for doctor in doctors %}
-                <div class="swiper-slide border border flex-1 max-w-[330px] !m-[0px]" style="border: none;"> 
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                </div>
+            {% endfor %}
+            {% for doctor in doctors %}
+                <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
                     {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
                 </div>
             {% endfor %}
         </div>
-        <div class="swiper-pagination absolute bottom-[500px]"></div>
     </div>
             
     <div class="flex items-center justify-center justify-between !mt-20 speciality-doctor-heading doctor-discover-TC" style="max-width: 1370px; margin: auto;">
