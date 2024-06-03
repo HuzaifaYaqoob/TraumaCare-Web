@@ -52,7 +52,7 @@
   >
     <div class="flex items-center gap-1">
       <p class="text-[#8ca5c9] text-sm font-regular capitalize">satisfaction</p>
-      <p class="text-[#23d0d0] text-base font-semibold">{{doctor.get_doctor_rating_percentage}}%</p>
+      <p class="text-[#23d0d0] text-base font-semibold {% if doctor.get_doctor_rating_percentage > 80 %}text-green-600{% elif doctor.get_doctor_rating_percentage > 50 %}text-yellow-600{% else %}text-red-600{% endif %}">{{doctor.get_doctor_rating_percentage}}%</p>
     </div>
     <a href="/doctor/profile/view/{{doctor.id}}">
       <div>

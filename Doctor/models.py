@@ -401,6 +401,7 @@ class DoctorEducation(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_education')
 
+    degree_name = models.CharField(max_length=999, default='')
     degree_type = models.CharField(max_length=999, default='', choices=DEGREE_TYPE_CHOICES)
     speciality = models.CharField(max_length=999, default='')
     institute = models.CharField(max_length=999, default='')

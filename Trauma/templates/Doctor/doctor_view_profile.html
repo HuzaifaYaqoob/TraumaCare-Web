@@ -140,6 +140,7 @@
                                                 </div>
                                           {% endif %}
                                     </div>
+                                    <p class="text-[#555555] text-[16px] font-[600]  md:text-start text-center">{{doctor.heading}}</p>
                                     <div class="flex items-center justify-center md:justify-start gap-4 my-1">
                                           <p class="text-[#9A9A9A]">{% if doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-[600] text-black">{{doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                           |
@@ -148,7 +149,6 @@
                                                 <p class="text-[#9A9A9A]">Pakistan</p>                                                
                                           </div>
                                     </div>
-                                    <p class="text-[#555555] text-[16px] font-[600]  md:text-start text-center">{{doctor.heading}}</p>
                               </div>
                               <div class="bg-[#24D0D0] cursor-pointer h-[28px] px-[10px] rounded-[50px] flex items-center gap-2 max-w-max">
                                     <svg width="14" height="17" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -246,27 +246,18 @@
                   <div>
                         <p class="text-[#6C6C6C] font-[600] text-center lg:text-start text-2xl">Education</p>
                         <div class="flex items-center gap-4 mt-2 education-cards-main">
-                        <div class="flex-1 education-cards">
-                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
-                              <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
-                                    <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
-                              </div>
-                        </div>
-                        <div class="flex-1 education-cards">
-                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
-                              <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
-                                    <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
-                              </div>
-                        </div>
-                        <div class="flex-1 education-cards">
-                              <p class="text-[#807F7F] font-[500] text-center">Chiropractor DPT, MPhil (Biomechanics)</p>
-                              <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                    <p class="text-[#555555] font-bold whitespace-nowrap">2012-2018</p>
-                                    <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
-                              </div>
-                        </div>
+                              {% if educations|length == 0 %}
+                                    <p>No Education</p>
+                              {% endif %}
+                              {% for education in educations %}
+                                    <div class="flex-1 education-cards">
+                                          <p class="text-[#807F7F] font-[500]">{{education.institute}} ({{education.degree_type}})</p>
+                                          <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
+                                                <p class="text-[#555555] font-bold whitespace-nowrap">{{education.start_date.year}}-{{education.end_date.year}}</p>
+                                                <img class="h-[28px] w-[26px]" src="{% static 'assets/images/image 1438777.png' %}" alt="">
+                                          </div>
+                                    </div>
+                              {% endfor %}
                         </div>
                   </div>
                   <div class="mt-8">
@@ -450,8 +441,13 @@
                   </div>
             </div>
       </div>
-      <div class="flex-1 flex flex-col gap-3">
+      <div class="flex-1 flex flex-col gap-3 mb-4">
             <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
+            {% if practicing_locations|length == 0 %}
+                  <div class="mb-4 rounded-[10px] py-5">
+                        <p class="px-10 text-center text-slate-700">The doctor is not affiliated with any hospital and does not have a private clinic.</p>
+                  </div>
+            {% endif %}
             {% for clinic in practicing_locations %}
                   <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 rounded-[20px]">
                         {% csrf_token %}
