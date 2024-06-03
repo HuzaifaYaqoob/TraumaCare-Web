@@ -469,6 +469,16 @@
                                                 {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' with clinic=clinic slot_date=next_available.slot_date slot=slot price=slot.final_price %}
                                           {% endfor %}
                                     </div>
+                                    <script>
+                                          let intervals = document.querySelectorAll('.slot-time-interval-radio')
+                                          intervals.forEach((interval) => {
+                                                interval.addEventListener('change', (e) => {
+                                                      let input = e.target
+                                                      let slot = input.closest('.dr-appointment-slot-card-input')
+                                                      slot.checked = true
+                                                })
+                                          })
+                                    </script>
                               {% endwith %}
                         </div>
                         <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
