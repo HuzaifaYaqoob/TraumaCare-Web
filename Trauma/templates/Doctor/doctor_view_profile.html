@@ -471,6 +471,17 @@
                                     </div>
                                     <script>
                                           let intervals = document.querySelectorAll('.slot-time-interval-radio')
+                                          let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
+                                          slots.forEach((slot) => {
+                                                slot.addEventListener('change', (e) => {
+                                                      let input = e.target
+                                                      let slot = input.closest('.singleSlotCard')
+                                                      let slot_input = slot.querySelector('input.[name="selected_time"]')
+                                                      console.log(slot_input)
+                                                      slot_input.checked = true
+                                                })
+                                          })
+
                                           intervals.forEach((interval) => {
                                                 interval.addEventListener('change', (e) => {
                                                       let input = e.target
