@@ -15,9 +15,9 @@ class SpecialityAdmin(admin.ModelAdmin):
 
 @admin.register(Disease)
 class DiseaseAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'color_code', 'rank', 'is_description' , 'is_deleted', 'is_active']
+    list_display = ['id', 'name', 'speciality', 'color_code', 'rank', 'is_description' , 'is_deleted', 'is_active']
 
-    search_fields = [ 'name', 'color_code']
+    search_fields = [ 'name', 'color_code', 'speciality']
 
     def is_description(self, disease_intance):
         if disease_intance.description:
