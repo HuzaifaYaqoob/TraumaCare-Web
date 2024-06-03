@@ -13,7 +13,12 @@
                               <p class="text-[#9F9F9F]">{{slot.end_time_formated}}</p>
                         </div>
                   </div>
-                  <p class="text-gray-600 text-end flex-1">Rs. <span class="text-[#0166ff] font-bold text-4xl italic">{{price}}</span></p>
+                  <div class="flex-1">
+                        <p class="text-gray-600 text-end flex-1">Rs. <span class="text-[#0166ff] font-bold text-4xl italic">{{price}}</span></p>
+                        {% if slot.discount %}
+                              <span class="text-xs text-right block">on Discount*</span>
+                        {% endif %}
+                  </div>
             </div>
             <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
                   {% for interval in slot.slots_interval %}
