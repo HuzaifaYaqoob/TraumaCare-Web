@@ -18,6 +18,7 @@ class DiseaseAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'speciality', 'color_code', 'rank', 'is_description' , 'is_deleted', 'is_active']
 
     search_fields = [ 'name', 'color_code', 'speciality']
+    list_filter = ['speciality']
 
     def is_description(self, disease_intance):
         if disease_intance.description:
