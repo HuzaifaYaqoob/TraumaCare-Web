@@ -399,13 +399,13 @@
                               {% csrf_token %}
                               <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
                               <div class="flex-1 flex items-center justify-between">
-                                    <div class="flex gap-3 items-start">
+                                    <a href="{% url 'ViewHospitalProfile' clinic.hospital.id %}" class="flex gap-3 items-start">
                                           <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></div>
                                           <div class="flex-1">
                                                 <p class="line-clamp-1 font-[600] text-[20px] text-[#000]">{{clinic.hospital.name}}</p>
                                                 <p class="line-clamp-2 text-[#9A9A9A] text-[14px]">{{clinic.location.street_address}}</p>
                                           </div>
-                                    </div>
+                                    </a>
                                     {% if clinic.highest_discount_day and clinic.highest_discount_day.discount > 0 %}
                                           {% include 'Components/PercentageOff.html' with percentage=clinic.highest_discount_day.discount day=clinic.highest_discount_day.day_abbr %}
                                     {% endif %}
