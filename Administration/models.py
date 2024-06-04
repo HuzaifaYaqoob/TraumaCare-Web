@@ -17,6 +17,7 @@ class UserRequestLog(models.Model):
     wdgi_multithread = models.BooleanField(default=False)
     wdgi_multiprocess = models.BooleanField(default=False)
     remote_addr = models.CharField(max_length=999, blank=True, null=True)
+    real_ip = models.CharField(max_length=999, blank=True, null=True)
     remote_host = models.CharField(max_length=999, blank=True, null=True)
     remote_port = models.CharField(max_length=100, blank=True, null=True)
     server_name = models.CharField(max_length=999, blank=True, null=True)

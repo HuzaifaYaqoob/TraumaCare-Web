@@ -18,6 +18,7 @@ class TrackUserLogMiddleware:
                 query_params = request.META.get('QUERY_STRING', ''),
                 script_name = request.META.get('SCRIPT_NAME', ''),
                 path = request.META.get('PATH_INFO', ''),
+                real_ip = request.META.get('HTTP_X_REAL_IP', ''),
                 wdgi_multithread = request.META.get('wsgi.multithread', False),
                 wdgi_multiprocess = request.META.get('wsgi.multiprocess', False),
                 remote_addr = request.META.get('REMOTE_ADDR', ''),
@@ -35,11 +36,21 @@ class TrackUserLogMiddleware:
                 http_accept = request.META.get('HTTP_ACCEPT', ''),
                 response_status = response.status_code,
                 response_time = 1,
-                data = json.dumps(request.META),
             )
+
+            newData = {}
+            for key, val in request.META.items():
+                if type(val) in [str, int, float, bool]:
+                    newData[key] = val
+
+
+            try:
+                log.data = json.dumps(newData)
+            except:
+                pass
 
             if request.user.is_authenticated:
                 log.user = request.user
-                log.save()
+            log.save()
 
         return response
