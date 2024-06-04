@@ -385,7 +385,7 @@ class DoctorTimeSlots(models.Model):
     
 
     @property
-    def slots_interval(self, slot_date):
+    def slots_interval(self):
         print('/////////////////')
         time_now = datetime.now() + timedelta(hours=5)
         time_now = time_now.time()
