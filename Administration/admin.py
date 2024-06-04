@@ -9,6 +9,7 @@ class UserRequestLogAdmin(admin.ModelAdmin):
 
     list_display = [
         'id',
+        'real_ip',
         'method',
         'path',
         'remote_addr',
