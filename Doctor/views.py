@@ -55,8 +55,15 @@ def DoctorProfilePage(request, doctor_id):
         online_availability_data = {}
         
         online_avas = DoctorTimeSlots.objects.filter(doctor = doctor, availability_type = 'Online', is_deleted = False, is_active=True)
-        if len(online_avas) > 0 :
-            for online_ava in online_avas:
+        NewOnlineAva = []
+        for onava in online_avas:
+            available_intervals = onava.slots_interval
+            if len(available_intervals) > 0:
+                onava.model_slots_intervals = available_intervals
+                NewOnlineAva.append(onava)
+
+        if len(NewOnlineAva) > 0 :
+            for online_ava in NewOnlineAva:
                 date_data = online_ava.slot_next_date
                 if len(date_data) > 0 and 'day_date' in date_data:
                     online_availability_data[date_data['day_date']] = online_availability_data.get(date_data['day_date']) or {'slots' : [], 'highest_discount' : {'discount' : online_ava.discount, 'day' : online_ava.day_abbr}}

@@ -196,7 +196,7 @@
                                                       </div>
                                                       <div class="grid gap-4 {% if online_ava.slots|length > 1 %}grid-cols-2{% else %}grid-cols-1{% endif %}">
                                                             {% for slot in online_ava.slots %}
-                                                                  {% with slot_intervals=slot.slots_interval%}
+                                                                  {% with slot_intervals=slot.model_slots_intervals%}
                                                                         {% if slot_intervals|length > 0 %}
                                                                               {% include 'Components/Doctor/Cards/viewProfileCardTiming_Online.html' with day_date=date slot_date=online_ava.slot_date slot=slot price=slot.final_price %}
                                                                         {% endif %}
@@ -462,10 +462,10 @@
                         <div class="flex items-center gap-3 flex-wrap justify-center mt-[16px]">
                               <div class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
                                     <p  class=" whitespace-nowrap">Consult Online</p>
-                              </div>                   
+                              </div>
                               <a href="#" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
                                     <p class="text-white whitespace-nowrap ">Book Appointment</p>
-                              </a>                   
+                              </a>
                         </div>
                   </div>
             </div>
