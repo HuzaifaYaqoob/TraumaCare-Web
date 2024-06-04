@@ -12,10 +12,8 @@ class UserRequestLogAdmin(admin.ModelAdmin):
         'real_ip',
         'method',
         'path',
+        'user',
         'remote_addr',
         'remote_host',
-        'remote_port',
-        'server_name',
-        'http_host',
         'timestamp',
     ]
