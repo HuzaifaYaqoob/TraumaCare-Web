@@ -294,7 +294,6 @@ class DoctorWithHospital(models.Model):
         today_day = today.strftime('%A')
 
         while not found:
-            print(day_count)
             now_day = today + timedelta(days=day_count)
             today_available = DoctorTimeSlots.objects.filter(doc_hospital = self, day__day = now_day.strftime('%A'), is_deleted=False, is_active=True).order_by('start_time')
             if today_available:
