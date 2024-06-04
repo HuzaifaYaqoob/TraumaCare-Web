@@ -356,7 +356,31 @@
             </div>
             <div class="flex-1 flex flex-col gap-3 mb-4">
                   <div class="flex flex-col gap-3 mb-4">
-                        <p class="text-2xl font-[600] text-green-600 Private Clinics-heading">Available for Video Consultation</p>
+                        <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Available for Video Consultation</p>
+                        <div>
+                              {% for date, online_ava in online_availability.items %}
+                                    <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 mb-4 rounded-[20px]">
+                                          {% csrf_token %}
+                                          <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
+                                          <div class="">
+                                                <input type="text" class="hidden" name="selected_date" value="{{online_ava.day_date}}">
+                                                <div class="flex items-center justify-between mb-3">
+                                                      <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span>{{online_ava.label}}</span></p>
+                                                      <a href="#" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                </div>
+                                                <div class="">
+                                                      {% for slot in online_ava.slots %}
+                                                            {% include 'Components/Doctor/Cards/viewProfileCardTiming_Online.html' with day_date=date slot_date=online_ava.slot_date slot=slot price=slot.final_price %}
+                                                      {% endfor %}
+                                                </div>
+                                          </div>
+                                          <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                                                <p class=" text-center">Book an appointment instantly</p>
+                                                <p class="text-xs text-center">it only takes a second</p>
+                                          </button>
+                                    </form>
+                              {% endfor %}
+                        </div>
                   </div>
                   <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
                   {% if practicing_locations|length == 0 %}
@@ -393,32 +417,6 @@
                                                       {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' with clinic=clinic clinic_id=clinic.id day_date=next_available.day_date slot_date=next_available.slot_date slot=slot price=slot.final_price %}
                                                 {% endfor %}
                                           </div>
-                                          <script>
-                                                let intervals = document.querySelectorAll('.slot-time-interval-radio')
-                                                let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
-                                                slots.forEach((slot) => {
-                                                      slot.addEventListener('change', (e) => {
-                                                            let input = e.target
-                                                            let slot = input.closest('.singleSlotCard')
-                                                            let slot_input = slot.querySelector('input[name="selected_time"]')
-                                                            console.log(slot_input)
-                                                            slot_input.checked = true
-                                                      })
-                                                })
-
-                                                intervals.forEach((interval, index) => {
-                                                      if (index == 0) {
-                                                            interval.checked = true
-                                                      }
-                                                      interval.addEventListener('change', (e) => {
-                                                            let input = e.target
-                                                            let slot = input.closest('.singleSlotCard')
-                                                            let slot_input = slot.querySelector('input.dr-appointment-slot-card-input')
-                                                            console.log(slot_input)
-                                                            slot_input.checked = true
-                                                      })
-                                                })
-                                          </script>
                                     {% endwith %}
                               </div>
                               <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
@@ -427,6 +425,30 @@
                               </button>
                         </form>
                   {% endfor %}
+                  <script>
+                        let intervals = document.querySelectorAll('.slot-time-interval-radio')
+                        let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
+                        slots.forEach((slot) => {
+                              slot.addEventListener('change', (e) => {
+                                    let input = e.target
+                                    let slot_card = input.closest('.singleSlotCard')
+                                    let slot_input = slot_card.querySelector('input[name="selected_time"]')
+                                    slot_input.checked = true
+                              })
+                        })
+
+                        intervals.forEach((interval, index) => {
+                              if (index == 0) {
+                                    interval.checked = true
+                              }
+                              interval.addEventListener('change', (e) => {
+                                    let input = e.target
+                                    let slot_card = input.closest('.singleSlotCard')
+                                    let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
+                                    slot_input.checked = true
+                              })
+                        })
+                  </script>
                   <div class="sticky top-[100px] bg-white shadow-lg rounded-xl px-4 py-8 flex flex-col items-center gap-3 border">
                         {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
                         <p class="text-2xl font-[600] text-[#555555] text-center mt-[18px]">Book an Appointment</p>     

@@ -300,7 +300,7 @@ class DoctorWithHospital(models.Model):
                 elif day_count == 1:
                     data['label'] = 'Available Tomorrow'
                 else:
-                    data['slot_date'] = f'{now_day.strftime("%d/%m/%Y")}'
+                    data['slot_date'] = f'{now_day.strftime("%A")} {now_day.strftime("%d/%m/%Y")}'
                     data['label'] = f'Next Available in {day_count} Days'
                 data['slots'] = today_available
                 data['day_count'] = day_count
@@ -332,6 +332,7 @@ class DoctorTimeSlots(models.Model):
     doc_hospital = models.ForeignKey(DoctorWithHospital, on_delete=models.CASCADE, null=True, blank=True, related_name='doc_hospital_timeslots')
     day = models.ForeignKey(DoctorOnlineAvailability, on_delete=models.CASCADE, related_name='day_timeslots')
 
+    title = models.CharField(max_length=999, default='')
     start_time = models.TimeField()
     end_time = models.TimeField()
     fee = models.PositiveIntegerField(default=0)
@@ -385,6 +386,36 @@ class DoctorTimeSlots(models.Model):
             current_time += interval
 
         return times
+    
+
+    @property
+    def slot_next_date(self):
+        data = {}
+        day_count = 0
+        found = False
+        today = now()
+        today_day = today.strftime('%A')
+
+        while not found:
+            now_day = today + timedelta(days=day_count)
+            now_day_name = now_day.strftime('%A')
+            print(now_day_name)
+            if now_day_name == self.day.day:
+                if day_count == 0:
+                    data['label'] = 'Available Today'
+                elif day_count == 1:
+                    data['label'] = 'Available Tomorrow'
+                else:
+                    data['slot_date'] = f'{now_day_name} {now_day.strftime("%d/%m/%Y")}'
+                    data['label'] = f'Next Available in {day_count} Days'
+                
+                data['day_count'] = day_count
+                data['day_date'] = now_day.strftime('%Y-%m-%d')
+                found = True
+            else:
+                day_count = day_count + 1
+
+        return data
     
 
     def __str__(self):
