@@ -193,7 +193,7 @@
                                                       <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span>{{online_ava.label}}</span></p>
                                                       <a href="#" class="text-[15px] text-slate-700">Schedule for Another Day</a>
                                                 </div>
-                                                <div class="">
+                                                <div class="grid grid-cols-2 gap-4">
                                                       {% for slot in online_ava.slots %}
                                                             {% include 'Components/Doctor/Cards/viewProfileCardTiming_Online.html' with day_date=date slot_date=online_ava.slot_date slot=slot price=slot.final_price %}
                                                       {% endfor %}
