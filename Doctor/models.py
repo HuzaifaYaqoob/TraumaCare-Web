@@ -305,7 +305,14 @@ class DoctorWithHospital(models.Model):
                     data['slot_date'] = f'{now_day.strftime("%A")} {now_day.strftime("%d/%m/%Y")}'
                     data['label'] = f'Next Available in {day_count} Days'
 
-                data['slots'] = today_available
+                NewOnlineAva = []
+                for onava in today_available:
+                    available_intervals = onava.slots_interval
+                    if len(available_intervals) > 0:
+                        onava.model_slots_intervals = available_intervals
+                        NewOnlineAva.append(onava)
+
+                data['slots'] = NewOnlineAva
                 data['day_count'] = day_count
                 data['day_date'] = now_day.strftime('%Y-%m-%d')
                 found = True 
@@ -378,7 +385,7 @@ class DoctorTimeSlots(models.Model):
     
 
     @property
-    def slots_interval(self):
+    def slots_interval(self, slot_date):
         print('/////////////////')
         time_now = datetime.now() + timedelta(hours=5)
         time_now = time_now.time()
@@ -388,7 +395,7 @@ class DoctorTimeSlots(models.Model):
         times = []
         current_time = start_time
         while current_time < end_time:
-            if current_time.time() > time_now:
+            if current_time.time() > time_now or self.slot_next_date['day_count'] > 0:
                 times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
             current_time += interval
 

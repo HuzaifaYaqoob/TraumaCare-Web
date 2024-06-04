@@ -23,7 +23,7 @@
             </div>
             <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
                   {% get_doctor_slots doctor day_date clinic_id as doctor_bookings %}
-                  {% for interval in slot.slots_interval %}
+                  {% for interval in slot_intervals %}
                         <div class="mb-1">
                               {% if interval.0 in doctor_bookings %}
                                     <p class="cursor-not-allowed border bg-slate-200 text-gray-500 select-none px-2 py-1 rounded-lg text-center">{{interval.1}}</p>
