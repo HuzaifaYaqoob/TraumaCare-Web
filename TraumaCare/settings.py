@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     'Chat.apps.ChatConfig',
     'ChatXpo.apps.ChatxpoConfig',
     'Secure.apps.SecureConfig',
+    'Administration.apps.AdministrationConfig',
 ]
 
 MIDDLEWARE = [
@@ -81,6 +82,7 @@ MIDDLEWARE = [
 
     # Custom Milddlewares 
     'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
+    'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
 CORS_ALLOW_ALL_ORIGINS = True
