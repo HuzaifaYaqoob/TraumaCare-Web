@@ -420,7 +420,7 @@
                                           </div>
                                           <div class="">
                                                 {% for slot in next_available.slots %}
-                                                      {% with slot_intervals=slot.model_slots_intervals%}
+                                                      {% with slot_intervals=slot.model_slots_intervals %}
                                                             {% if slot_intervals|length > 0 %}
                                                                   {% include 'Components/Doctor/Cards/viewProfileCardTiming.html' with clinic=clinic clinic_id=clinic.id day_date=next_available.day_date slot_date=next_available.slot_date slot=slot price=slot.final_price %}
                                                             {% endif %}
