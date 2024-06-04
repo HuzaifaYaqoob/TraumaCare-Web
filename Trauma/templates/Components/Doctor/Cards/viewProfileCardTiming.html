@@ -2,7 +2,7 @@
 <div class="singleSlotCard" >
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}">
       <label for="dr-appointment-slot-card-{{slot.id}}" class="border block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
-            <p class="font-semibold"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"></span> {{slot.title}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
+            <p class="font-semibold"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"></span> {{slot.title}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
             <div class="flex items-center justify-between gap-4">
                   <div class="flex items-center gap-1 flex-1">
                         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -15,6 +15,12 @@ body {
     height: 23px !important;
 }
 
+input.slot-time-interval-radio:checked ~ label,
+input.slot-time-interval-radio ~ label:hover{
+    color: white;
+    background-color: #0A1C4B;
+    border-color: #0A1C4B !important;
+}
 
 .max-width1 {
     max-width: 1910px;

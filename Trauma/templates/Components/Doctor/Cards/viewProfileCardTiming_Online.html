@@ -3,7 +3,7 @@
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}" {% if forloop.counter == 1 %}checked{% endif %}>
       <label for="dr-appointment-slot-card-{{slot.id}}" class="border h-full block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
             <div class="flex items-center justify-between gap-4">
-                  <p class="font-semibold"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"></span> {{slot.title}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
+                  <p class="font-semibold"><span class="inline-flex items-center gap-2 {% if online_ava.day_count == 0 %}text-green-600{% elif online_ava.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if online_ava.day_count == 0 %}bg-green-600{% elif online_ava.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"></span> {{slot.title}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
             </div>
             <div class="flex items-center justify-between gap-4">
                   <div class="flex items-center gap-1">
@@ -31,7 +31,7 @@
                                     <p class="cursor-not-allowed border bg-slate-200 text-gray-500 select-none px-2 py-1 rounded-lg text-center">{{interval.1}}</p>
                               {% else %}
                                     <input type="radio" name="selected_time" value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{slot.id}}-{{interval.0}}" >
-                                    <label for="slot-time-interval-{{slot.id}}-{{interval.0}}" class="block cursor-pointer border px-2 py-1 rounded-lg text-center">{{interval.1}}</label>
+                                    <label for="slot-time-interval-{{slot.id}}-{{interval.0}}" class="block cursor-pointer border px-2 py-1 rounded-lg text-center timeslot-card">{{interval.1}}</label>
                               {% endif %}
                         </div>
                   {% endfor %}
