@@ -68,8 +68,6 @@ def createHospitalProfile(request):
 
     if locations:
         for hospital_location in locations:
-            print(hospital_location)
-            print(type(hospital_location))
             address_name = hospital_location.get('address_name', None)
             address = hospital_location.get('address', None)
             contactDetails = hospital_location.get('contactDetails', None)

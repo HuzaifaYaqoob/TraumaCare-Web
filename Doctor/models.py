@@ -1,6 +1,6 @@
 from django.db import models
 
-from django.utils.timezone import now
+from django.utils.timezone import now, localtime
 
 
 # Create your models here.
@@ -290,7 +290,7 @@ class DoctorWithHospital(models.Model):
         data = {}
         day_count = 0
         found = False
-        today = datetime.now() + timedelta(hours=5)
+        today = datetime.now()
         today_day = today.strftime('%A')
 
         while not found:
@@ -386,8 +386,7 @@ class DoctorTimeSlots(models.Model):
 
     @property
     def slots_interval(self):
-        print('/////////////////')
-        time_now = datetime.now() + timedelta(hours=5)
+        time_now = datetime.now()
         time_now = time_now.time()
         start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
         end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
@@ -407,7 +406,7 @@ class DoctorTimeSlots(models.Model):
         data = {}
         day_count = 0
         found = False
-        today = now()
+        today = datetime.now()
         today_day = today.strftime('%A')
 
         while not found:

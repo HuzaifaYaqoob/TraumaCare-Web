@@ -20,7 +20,6 @@ SETTING_BASE = Path(__file__).resolve().parent
 BASE_DIR = SETTING_BASE.parent
 
 env = environ.Env()
-print(SETTING_BASE)
 environ.Env.read_env(os.path.join(SETTING_BASE , '.env'))
 
 # Quick-start development settings - unsuitable for production
@@ -174,10 +173,10 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = "Asia/Karachi"
 
 USE_I18N = True
-
+USE_L10N = True
 USE_TZ = True
 
 

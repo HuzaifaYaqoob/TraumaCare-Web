@@ -47,7 +47,6 @@ def DoctorProfilePage(request, doctor_id):
             context['rating_percentage'] = 100
 
         doctor_specialities = doctor.doctor_specialities.all().values_list('speciality__id', flat=True)
-        print(doctor_specialities)
         context['suggested'] = Doctor.objects.filter(
             doctor_specialities__speciality__id__in = doctor_specialities,
         ).distinct()
@@ -75,7 +74,6 @@ def DoctorProfilePage(request, doctor_id):
                         online_availability_data[date_data['day_date']]['highest_discount'] = dics
             
             data = sorted(online_availability_data.items(), key = lambda x:datetime.strptime(x[0], '%Y-%m-%d'))
-            print(type(data))
             online_availability_data = {data[0][0] : data[0][1]}
 
             context['online_availability'] = online_availability_data
