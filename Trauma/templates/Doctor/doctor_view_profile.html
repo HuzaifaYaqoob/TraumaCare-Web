@@ -196,7 +196,11 @@
                                                       </div>
                                                       <div class="grid gap-4 {% if online_ava.slots|length > 1 %}grid-cols-2{% else %}grid-cols-1{% endif %}">
                                                             {% for slot in online_ava.slots %}
-                                                                  {% include 'Components/Doctor/Cards/viewProfileCardTiming_Online.html' with day_date=date slot_date=online_ava.slot_date slot=slot price=slot.final_price %}
+                                                                  {% with slot_intervals=slot.slots_interval%}
+                                                                        {% if slot_intervals|length > 0 %}
+                                                                              {% include 'Components/Doctor/Cards/viewProfileCardTiming_Online.html' with day_date=date slot_date=online_ava.slot_date slot=slot price=slot.final_price %}
+                                                                        {% endif %}
+                                                                  {% endwith %}
                                                             {% endfor %}
                                                       </div>
                                                 </div>
@@ -235,7 +239,7 @@
                               {% if doctor_reviews|length == 0 %}
                                     <div class="border px-10 py-16 flex-1 rounded-[20px]">
                                           <p class="text-2xl font-semibold mb-2 text-center text-slate-700">No Reviews yet</p>
-                                          <span class="block text-center text-sm">Be the first to provide a review. <a href="" class="text-blue-600">Book Appointment</a></span>
+                                          <span class="block text-center text-sm">Be the first to provide a review. <a href="#" class="text-blue-600">Book Appointment</a></span>
                                     </div>
                               {% endif %}
                               {% for review in doctor_reviews|slice:":2" %}
@@ -357,7 +361,7 @@
                                                 </div>
                                           </a>
                                           <div class="flex items-center gap-3 flex-wrap justify-center mt-3">
-                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.id}}" class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
+                                                <a href="#" class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
                                                       <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M0 4.51389C0 2.9184 1.2934 1.625 2.88889 1.625H10.1111C11.7066 1.625 13 2.9184 13 4.51389V12.0972C13 13.6927 11.7066 14.9861 10.1111 14.9861H2.88889C1.2934 14.9861 0 13.6927 0 12.0972V4.51389Z" fill="white"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38835 0C9.6875 0 9.93001 0.242512 9.93001 0.541667V2.70833C9.93001 3.00749 9.6875 3.25 9.38835 3.25C9.08919 3.25 8.84668 3.00749 8.84668 2.70833V0.541667C8.84668 0.242512 9.08919 0 9.38835 0Z" fill="white"/>
@@ -459,7 +463,7 @@
                               <div class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
                                     <p  class=" whitespace-nowrap">Consult Online</p>
                               </div>                   
-                              <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.id}}" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
+                              <a href="#" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
                                     <p class="text-white whitespace-nowrap ">Book Appointment</p>
                               </a>                   
                         </div>

@@ -121,7 +121,6 @@ class Doctor(models.Model):
     
 
     def get_doctor_rating_percentage(self, reviews=None):
-        print('called')
         if reviews:
             doctor_reviews = reviews
         else:
@@ -291,7 +290,7 @@ class DoctorWithHospital(models.Model):
         data = {}
         day_count = 0
         found = False
-        today = now()
+        today = datetime.now() + timedelta(hours=5)
         today_day = today.strftime('%A')
 
         while not found:
@@ -305,6 +304,7 @@ class DoctorWithHospital(models.Model):
                 else:
                     data['slot_date'] = f'{now_day.strftime("%A")} {now_day.strftime("%d/%m/%Y")}'
                     data['label'] = f'Next Available in {day_count} Days'
+
                 data['slots'] = today_available
                 data['day_count'] = day_count
                 data['day_date'] = now_day.strftime('%Y-%m-%d')
@@ -379,13 +379,16 @@ class DoctorTimeSlots(models.Model):
 
     @property
     def slots_interval(self):
+        time_now = datetime.now() + timedelta(hours=5)
+        time_now = time_now.time()
         start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
         end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
         interval = timedelta(minutes=self.doctor.get_time_inverval)
         times = []
         current_time = start_time
         while current_time < end_time:
-            times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
+            if current_time.time() > time_now:
+                times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
             current_time += interval
 
         return times
@@ -402,7 +405,6 @@ class DoctorTimeSlots(models.Model):
         while not found:
             now_day = today + timedelta(days=day_count)
             now_day_name = now_day.strftime('%A')
-            print(now_day_name)
             if now_day_name == self.day.day:
                 if day_count == 0:
                     data['label'] = 'Available Today'
