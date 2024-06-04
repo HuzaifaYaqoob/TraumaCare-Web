@@ -361,7 +361,7 @@
                                                 </div>
                                           </a>
                                           <div class="flex items-center gap-3 flex-wrap justify-center mt-3">
-                                                <a href="#" class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
+                                                <a href="{% url 'DoctorProfilePage' suggested_doctor.id %}" class="flex items-center gap-2 bg-[#24D0D0] px-4 py-2 rounded-lg cursor-pointer">
                                                       <svg width="13" height="15" viewBox="0 0 13 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M0 4.51389C0 2.9184 1.2934 1.625 2.88889 1.625H10.1111C11.7066 1.625 13 2.9184 13 4.51389V12.0972C13 13.6927 11.7066 14.9861 10.1111 14.9861H2.88889C1.2934 14.9861 0 13.6927 0 12.0972V4.51389Z" fill="white"/>
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M9.38835 0C9.6875 0 9.93001 0.242512 9.93001 0.541667V2.70833C9.93001 3.00749 9.6875 3.25 9.38835 3.25C9.08919 3.25 8.84668 3.00749 8.84668 2.70833V0.541667C8.84668 0.242512 9.08919 0 9.38835 0Z" fill="white"/>
@@ -375,12 +375,12 @@
                                                             </svg>
                                                       <p class="text-white whitespace-nowrap">Book Appointment</p>
                                                 </a>
-                                                <div class="flex items-center gap-2 px-4 py-2 rounded-lg  cursor-pointer border border-[#24D0D0]">
+                                                <a href="{% url 'DoctorProfilePage' suggested_doctor.id %}" class="flex items-center gap-2 px-4 py-2 rounded-lg  cursor-pointer border border-[#24D0D0]">
                                                       <svg width="13" height="9" viewBox="0 0 13 9" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path d="M10 1.25C10 0.560625 9.43937 0 8.75 0H1.25C0.560625 0 0 0.560625 0 1.25V7.5C0 8.18937 0.560625 8.75 1.25 8.75H8.75C9.43937 8.75 10 8.18937 10 7.5V5.41687L12.5 7.5V1.25L10 3.33313V1.25Z" fill="#24D0D0"/>
                                                             </svg>
                                                       <p class="text-[#24D0D0] whitespace-nowrap" >Video Consultation</p>
-                                                </div>
+                                                </a>
                                           </div>
                                     </div>
                               {% endfor %}
