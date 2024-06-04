@@ -22,7 +22,7 @@
                         {% endif %}
                   </div>
             </div>
-            <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
+            <div class="grid gap-2 mt-3 mb-2 {% if online_ava.slots|length > 1 %}grid-cols-4{% else %}grid-cols-6{% endif %}">
                   {% for interval in slot.slots_interval %}
                         <div class="mb-1">
                               {% if interval.0 in doctor_bookings %}
