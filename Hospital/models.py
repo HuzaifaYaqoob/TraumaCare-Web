@@ -21,6 +21,8 @@ class Hospital(models.Model):
     name = models.CharField(max_length=777, default='')
     description = models.TextField(default='')
 
+    slug = models.TextField(default='')
+
     is_approved = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
@@ -47,6 +49,13 @@ class Hospital(models.Model):
 
     def __str__(self):
         return f'{str(self.id)} -- {self.name}'
+    
+    def save(self, *args, **kwargs):
+        name = self.name
+        name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
+        name = name.lower()
+        self.slug = f'{name}-{self.uuid}'
+        super(Hospital, self).save(*args, **kwargs)
 
 
 class HospitalLocation(models.Model):

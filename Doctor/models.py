@@ -47,6 +47,8 @@ class Doctor(models.Model):
 
     desc = models.TextField(default='')
 
+    slug = models.CharField(max_length=999, default='')
+
     is_approved = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
@@ -141,6 +143,14 @@ class Doctor(models.Model):
     @property
     def get_time_inverval(self):
         return 20
+
+    
+    def save(self, *args, **kwargs):
+        name = self.name
+        name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
+        name = name.lower()
+        self.slug = f'{name}-{self.id}'
+        super(Doctor, self).save(*args, **kwargs)
 
 
 
