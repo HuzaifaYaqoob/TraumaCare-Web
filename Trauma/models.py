@@ -44,6 +44,16 @@ class Speciality(models.Model):
         ).count()
         # .distinct('doctor')
 
+    @property
+    def available_doctors(self):
+        from Doctor.models import Doctor
+        return Doctor.objects.filter(
+            doctor_specialities__speciality = self,
+            is_deleted = False,
+            is_active = True
+        )
+        # .distinct('doctor')
+
     
     class Meta:
         verbose_name = 'Specility'

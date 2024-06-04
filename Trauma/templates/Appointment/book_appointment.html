@@ -25,7 +25,7 @@
         padding: 20px;
         background-color: white;
         border-radius: 15px;
-        
+
     }
 </style>
 
@@ -44,194 +44,171 @@
 
 
 <section class="add-appoinments-section mb-4">
-    <div class="add-appoinments-main-div w-[95%] md:w-full gap-y-[20px] md:gap-y-0 gap-x-0 md:gap-x-[28px] md:flex-row flex-col-reverse">
-        <div class="flex-1 max-w-full mx-auto md:mx-0 md:max-w-[1000px]">
+    <div
+        class="add-appoinments-main-div w-[95%] md:w-full gap-y-[20px] md:gap-y-0 gap-x-0 md:gap-x-[28px] md:flex-row flex-col-reverse">
+        <div class="flex-1 w-full mx-auto md:mx-0 md:max-w-[1000px]">
             <div class="add-appoinments-left rounded-[15px] p-4 bg-white shadow-2xl mx-auto">
                 <div class="border border[#6d8cba3d] p-4 rounded-md pb-0 w-full">
                     <div class="flex items-center gap-4 mb-2">
                         <div>
-                            <h3 class="text-xl text-[#507ec2] font-semibold">March 2023</h3>
+                            <h3 class="text-xl text-[#507ec2] font-semibold">{{today_label}}</h3>
                         </div>
                         <div class="flex gap-2 items-center">
                             <div>
-                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M5.21849 11.3356C5.54194 11.0769 5.59438 10.6049 5.33562 10.2815L1.71044 5.74997L5.33562 1.21849C5.59438 0.895046 5.54194 0.423077 5.21849 0.16432C4.89505 -0.0944376 4.42308 -0.041996 4.16432 0.28145L0.164321 5.28145C-0.0548105 5.55536 -0.0548105 5.94458 0.164321 6.21849L4.16432 11.2185C4.42308 11.5419 4.89505 11.5944 5.21849 11.3356Z" fill="#507EC2"/>
+                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M5.21849 11.3356C5.54194 11.0769 5.59438 10.6049 5.33562 10.2815L1.71044 5.74997L5.33562 1.21849C5.59438 0.895046 5.54194 0.423077 5.21849 0.16432C4.89505 -0.0944376 4.42308 -0.041996 4.16432 0.28145L0.164321 5.28145C-0.0548105 5.55536 -0.0548105 5.94458 0.164321 6.21849L4.16432 11.2185C4.42308 11.5419 4.89505 11.5944 5.21849 11.3356Z"
+                                        fill="#507EC2" />
                                 </svg>
                             </div>
                             <div>
-                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0.281506 0.164376C-0.0419401 0.423133 -0.0943811 0.895102 0.164376 1.21855L3.78956 5.75003L0.164376 10.2815C-0.0943811 10.605 -0.0419401 11.0769 0.281506 11.3357C0.604953 11.5944 1.07692 11.542 1.33568 11.2185L5.33568 6.21855C5.55481 5.94464 5.55481 5.55542 5.33568 5.28151L1.33568 0.281506C1.07692 -0.0419401 0.604953 -0.0943811 0.281506 0.164376Z" fill="#507EC2"/>
+                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path fill-rule="evenodd" clip-rule="evenodd"
+                                        d="M0.281506 0.164376C-0.0419401 0.423133 -0.0943811 0.895102 0.164376 1.21855L3.78956 5.75003L0.164376 10.2815C-0.0943811 10.605 -0.0419401 11.0769 0.281506 11.3357C0.604953 11.5944 1.07692 11.542 1.33568 11.2185L5.33568 6.21855C5.55481 5.94464 5.55481 5.55542 5.33568 5.28151L1.33568 0.281506C1.07692 -0.0419401 0.604953 -0.0943811 0.281506 0.164376Z"
+                                        fill="#507EC2" />
                                 </svg>
                             </div>
                         </div>
                     </div>
                     <div class="relative w-full">
-                        <div class="absolute right-0 top-0 bottom-5 w-[100px] bg-gradient-to-r from-[#ffffff00] to-[#ffffff]"></div>
+                        <div
+                            class="absolute right-0 top-0 bottom-5 w-[100px] bg-gradient-to-r from-[#ffffff00] to-[#ffffff]">
+                        </div>
                         <div class="flex items-center justify-start gap-3 pb-5 w-full overflow-auto">
                             {% include 'Components/Appointment/DateCard.html' with active='true' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
-                            {% include 'Components/Appointment/DateCard.html' %}
                         </div>
                     </div>
-                
                 </div>
+                <input type="text" value="{{request.GET.doctor}}">
+                <div class="flex items-center gap-3 justify-between my-4">
+                    <div class="flex-1">
+                        <label class="mb-2 block" for="SelectHospital">Select Hospital</label>
+                        <select name="" id="SelectHospital" class="px-3 border py-2 rounded-lg w-full">
+                            <option value="" disabled selected>Select Hospital</option>
+                            {% for hospital in hospitals %}
+                            <option value="{{hospital.id}}">{{hospital.hospital.name}}, {{hospital.location.name}}
+                            </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <!-- <div class="mt-4">
+                    <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
+                        <div class="absolute top-4 left-5">
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 items-center ">
+                            <div class="w-28 h-28 rounded-full border border-[2px] bg-center bg-cover bg-no-repeat"
+                                style="background-image: url('https://source.unsplash.com/random/401×401/?doctor&face&human');">
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex justify-between items-center">
+                                    <a href="/" class="text-2xl text-white font-bold underline">Dr. Saqib Zia Ahmed
+                                        toor</a>
+                                    <div
+                                        class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
+                                                width="12" height="16" fill="black">
+                                                <rect fill="white" width="12" height="16" />
+                                                <path
+                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
+                                            </mask>
+                                            <path
+                                                d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
+                                                fill="white" />
+                                            <path
+                                                d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
+                                                fill="#C985FF" mask="url(#path-1-outside-1_1957_70)" />
+                                        </svg>
+                                        <p class="text-[#C985FF]">Verified</p>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 md:gap-8 my-1">
+                                    <div class="flex-1 md:flex-none">
+                                        <p class="text-white font-[600] mx-0">Dentist:</p>
+                                    </div>
+                                    <div class="flex-1 md:flex-none">
+                                        <p class="text-white font-[600] mx-0">Fee&nbsp;3000&nbsp;pkr</p>
+                                    </div>
+                                    <div class="flex-1 md:flex-none">
+                                        <p class="text-white font-[600] mx-0 max-w-max">0345678910</p>
+                                    </div>
+                                </div>
+                                <p class="text-white">As a doctor, you have undergone extensive education & training to
+                                    acquire the skills and knowledge necessary to provide medical care
+                                    to patients. </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bg-[#24D0D0] rounded-2xl relative px-3 md:px-8 py-3 md:py-8 mt-6">
+                        <div class="absolute top-4 left-5">
+                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"
+                                xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2"
+                                    stroke-linecap="round" stroke-linejoin="round" />
+                            </svg>
+                        </div>
+                        <div class="flex flex-col md:flex-row gap-4 items-center ">
+                            <div class="w-28 h-28 rounded-full border border-[2px] bg-cover bg-center bg-no-repeat"
+                                style="background-image: url('https://source.unsplash.com/random/401×401/?hospital&front');">
+
+                            </div>
+                            <div class="flex-1">
+                                <div class="flex  justify-between ">
+                                    <a href="/" class="text-2xl text-white font-bold underline">DH Dental Hospital
+                                        Lahore</a>
+                                    <div
+                                        class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
+                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
+                                                width="12" height="16" fill="black">
+                                                <rect fill="white" width="12" height="16" />
+                                                <path
+                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
+                                            </mask>
+                                            <path
+                                                d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
+                                                fill="white" />
+                                            <path
+                                                d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
+                                                fill="#24D0D0" mask="url(#path-1-outside-1_1957_70)" />
+                                        </svg>
+                                        <p class="text-[#24D0D0]">Verified</p>
+                                    </div>
+                                </div>
+                                <p class="text-white font-[600]">Fee&nbsp;3000&nbsp;pkr</p>
+                                <p class="text-white my-1">As a doctor, you have undergone extensive education &
+                                    training to
+                                    acquire the skills and knowledge necessary to provide medical care
+                                    to patients. </p>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
                 <div class="mt-4">
-                        <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
-                            <div class="absolute top-4 left-5">
-                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                            </div>
-                            <div class="flex flex-col md:flex-row gap-4 items-center ">
-                                <div class="w-28 h-28 rounded-full border border-[2px] bg-center bg-cover bg-no-repeat" style="background-image: url('https://source.unsplash.com/random/401×401/?doctor&face&human');">
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-center">
-                                        <a href="/" class="text-2xl text-white font-bold underline">Dr. Saqib Zia Ahmed toor</a>
-                                        <div class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
-                                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="16" fill="black">
-                                                <rect fill="white" width="12" height="16"/>
-                                                <path d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"/>
-                                                </mask>
-                                                <path d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" fill="white"/>
-                                                <path d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z" fill="#C985FF" mask="url(#path-1-outside-1_1957_70)"/>
-                                            </svg>
-                                            <p class="text-[#C985FF]">Verified</p>
-                                        </div>
-                                    </div>
-                                    <div class="flex gap-4 md:gap-8 my-1">
-                                        <div class="flex-1 md:flex-none">
-                                            <p class="text-white font-[600] mx-0">Dentist:</p>
-                                        </div>
-                                        <div class="flex-1 md:flex-none">
-                                            <p class="text-white font-[600] mx-0">Fee&nbsp;3000&nbsp;pkr</p>
-                                        </div>
-                                        <div class="flex-1 md:flex-none">
-                                            <p class="text-white font-[600] mx-0 max-w-max">0345678910</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-white">As a doctor, you have undergone extensive education & training to 
-                                        acquire the skills and knowledge necessary to provide medical care 
-                                        to patients. </p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-[#24D0D0] rounded-2xl relative px-3 md:px-8 py-3 md:py-8 mt-6">
-                            <div class="absolute top-4 left-5">
-                                <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg>
-                            </div>
-                            <div class="flex flex-col md:flex-row gap-4 items-center ">
-                                <div class="w-28 h-28 rounded-full border border-[2px] bg-cover bg-center bg-no-repeat" style="background-image: url('https://source.unsplash.com/random/401×401/?hospital&front');">
-                                    
-                                </div>
-                                <div class="flex-1">
-                                    <div class="flex  justify-between ">
-                                        <a href="/" class="text-2xl text-white font-bold underline">DH Dental Hospital Lahore</a>
-                                        <div class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
-                                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0" width="12" height="16" fill="black">
-                                                <rect fill="white" width="12" height="16"/>
-                                                <path d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"/>
-                                                </mask>
-                                                <path d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" fill="white"/>
-                                                <path d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z" fill="#24D0D0" mask="url(#path-1-outside-1_1957_70)"/>
-                                            </svg>
-                                            <p class="text-[#24D0D0]">Verified</p>
-                                        </div>
-                                    </div>
-                                    <p class="text-white font-[600]">Fee&nbsp;3000&nbsp;pkr</p>
-                                    <p class="text-white my-1">As a doctor, you have undergone extensive education & training to 
-                                        acquire the skills and knowledge necessary to provide medical care 
-                                        to patients. </p>
-                                </div>
-                            </div>
-                        </div>
-                </div>
-                <div class="mt-4"> 
                     <h3 class="text-[#6D8CBA] text-xl font-semibold">6 March, Availability</h3>
                     <div class="flex items-center  flex-wrap gap-3 mt-2">
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
+                        <div
+                            class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
                             <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
                         </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                        <div class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div> 
                     </div>
                 </div>
-                <div class="mt-4">
+                <!-- <div class="mt-4">
                     <h3 class="text-[#6D8CBA] text-xl font-bold">Select Services</h3>
                     <p class="text-[#6D8CBA]">Please take a moment to review the list of services we offer and select the 
                         ones you need.</p>
                 </div>
                 <div class="flex items-center gap-2 mt-2  flex-wrap gap-4">
-                    {% include 'Components/Service/ServiceCard.html' %}
-                    {% include 'Components/Service/ServiceCard.html' %}
                     {% include 'Components/Service/ServiceCard.html' %}
                 </div>
                 <div class="mt-4">
@@ -239,116 +216,136 @@
                 </div>
                 <div class="flex items-center gap-2 mt-2 flex-wrap gap-4 ">
                     {% include 'Components/Service/ServiceCard.html' %}
-                    {% include 'Components/Service/ServiceCard.html' %}
-                    {% include 'Components/Service/ServiceCard.html' %}
-                </div>
-                    <div>
-                        <h3 class="text-[#507EC2] text-xl font-bold mt-4">Select doctor for this service </h3>
-                        <div class="flex flex-wrap items-center gap-3 mt-3">
-                            <div class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                                
-                                <div class="h-[35px] w-[35px] rounded-[50%] " style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                </div> -->
+                <!-- <div>
+                    <h3 class="text-[#507EC2] text-xl font-bold mt-4">Select doctor for this service </h3>
+                    <div class="flex flex-wrap items-center gap-3 mt-3">
+                        <div
+                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
 
-                                </div>
-
-                                <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                                <div class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+                            <div class="h-[35px] w-[35px] rounded-[50%] "
+                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
 
                             </div>
-                            <div class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                                <div class="h-[35px] w-[35px] rounded-[50%] " style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
 
-                                </div>
-                                <p class="text-[#6D8CBA] text-md font-[600]">Dr. FAisal qur..</p>
-                                <div class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
+                            <div
+                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
 
                             </div>
-                            <div class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                                <div class="h-[35px] w-[35px] rounded-[50%] " style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
 
-                                </div>
-                                <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                                <div class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
-
-                            </div>
-                            <div class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                                <div class="h-[35px] w-[35px] rounded-[50%] " style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
-
-                                </div>
-                                <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                                <div class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
-
-                            </div>
-                            <div class="border-[#24D0D0] border cursor-pointer hover:bg-[#24d0d008]  rounded-lg px-2 py-3 ">
-                                <p class="text-[#6D8CBA] font-[600]">Direct avail by Doctors Hospital</p>
-        
-                            </div>
-                            
                         </div>
-                    
+                        <div
+                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
+                            <div class="h-[35px] w-[35px] rounded-[50%] "
+                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
+
+                            </div>
+                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. FAisal qur..</p>
+                            <div
+                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
+                            </div>
+
+                        </div>
+                        <div
+                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
+                            <div class="h-[35px] w-[35px] rounded-[50%] "
+                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
+
+                            </div>
+                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
+                            <div
+                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
+                            </div>
+
+                        </div>
+                        <div
+                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
+                            <div class="h-[35px] w-[35px] rounded-[50%] "
+                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
+
+                            </div>
+                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
+                            <div
+                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
+                            </div>
+
+                        </div>
+                        <div class="border-[#24D0D0] border cursor-pointer hover:bg-[#24d0d008]  rounded-lg px-2 py-3 ">
+                            <p class="text-[#6D8CBA] font-[600]">Direct avail by Doctors Hospital</p>
+
+                        </div>
+
                     </div>
-                    <div class="mt-4">
-                        <h3 class="text-xl font-bold text-[#507EC2]" >Select Time slot</h3>
-                        <div class="flex items-center flex-wrap gap-4 mt-3">
-                            <div class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                                <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                                <div class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+
+                </div> -->
+                <!-- <div class="mt-4">
+                    <h3 class="text-xl font-bold text-[#507EC2]">Select Time slot</h3>
+                    <div class="flex items-center flex-wrap gap-4 mt-3">
+                        <div
+                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
+                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
+                            <div
+                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
                             </div>
-                            <div class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                                <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                                <div class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+                        </div>
+                        <div
+                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
+                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
+                            <div
+                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
                             </div>
-                            <div class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                                <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                                <div class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+                        </div>
+                        <div
+                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
+                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
+                            <div
+                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
                             </div>
-                            <div class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                                <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                                <div class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]" >
-                                
-                                        
-                                </div>
+                        </div>
+                        <div
+                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
+                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
+                            <div
+                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
+
+
                             </div>
                         </div>
                     </div>
-                    <div class="mt-3">
-                        <h3 class="text-xl font-bold text-[#507EC2]">Other Services</h3>
-                        <div class="flex items-center gap-2 mt-2  flex-wrap gap-4">
-                            {% include 'Components/Service/ServiceCard.html' %}
-                            {% include 'Components/Service/ServiceCard.html' %}
-                            {% include 'Components/Service/ServiceCard.html' %}
-                        </div>
-                        <div class="flex items-center justify-center gap-1 w-28 h-10 px-1 bg-[#24D0D0] rounded-xl mt-2 ml-auto !mt-10 cursor-pointer ">
-                            <p class="text-white">Confirm</p>
-                            <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9.3 10.85C9.1 10.65 9.004 10.4083 9.012 10.125C9.02 9.84167 9.12434 9.6 9.325 9.4L12.15 6.575H1C0.71667 6.575 0.479004 6.479 0.287004 6.287C0.0950036 6.095 -0.000663206 5.85767 3.4602e-06 5.575C3.4602e-06 5.29167 0.0960036 5.054 0.288004 4.862C0.480004 4.67 0.717337 4.57433 1 4.575H12.15L9.3 1.725C9.1 1.525 9 1.28733 9 1.012C9 0.736666 9.1 0.499333 9.3 0.3C9.5 0.0999997 9.73767 0 10.013 0C10.2883 0 10.5257 0.0999997 10.725 0.3L15.3 4.875C15.4 4.975 15.471 5.08333 15.513 5.2C15.555 5.31667 15.5757 5.44167 15.575 5.575C15.575 5.70833 15.554 5.83333 15.512 5.95C15.47 6.06667 15.3993 6.175 15.3 6.275L10.7 10.875C10.5167 11.0583 10.2877 11.15 10.013 11.15C9.73834 11.15 9.50067 11.05 9.3 10.85Z" fill="white"/>
-                            </svg>
-                        </div>
+                </div> -->
+                <!-- <div class="mt-3">
+                    <h3 class="text-xl font-bold text-[#507EC2]">Other Services</h3>
+                    <div class="flex items-center gap-2 mt-2  flex-wrap gap-4">
+                        {% include 'Components/Service/ServiceCard.html' %}
                     </div>
+                    <div
+                        class="flex items-center justify-center gap-1 w-28 h-10 px-1 bg-[#24D0D0] rounded-xl mt-2 ml-auto !mt-10 cursor-pointer ">
+                        <p class="text-white">Confirm</p>
+                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.3 10.85C9.1 10.65 9.004 10.4083 9.012 10.125C9.02 9.84167 9.12434 9.6 9.325 9.4L12.15 6.575H1C0.71667 6.575 0.479004 6.479 0.287004 6.287C0.0950036 6.095 -0.000663206 5.85767 3.4602e-06 5.575C3.4602e-06 5.29167 0.0960036 5.054 0.288004 4.862C0.480004 4.67 0.717337 4.57433 1 4.575H12.15L9.3 1.725C9.1 1.525 9 1.28733 9 1.012C9 0.736666 9.1 0.499333 9.3 0.3C9.5 0.0999997 9.73767 0 10.013 0C10.2883 0 10.5257 0.0999997 10.725 0.3L15.3 4.875C15.4 4.975 15.471 5.08333 15.513 5.2C15.555 5.31667 15.5757 5.44167 15.575 5.575C15.575 5.70833 15.554 5.83333 15.512 5.95C15.47 6.06667 15.3993 6.175 15.3 6.275L10.7 10.875C10.5167 11.0583 10.2877 11.15 10.013 11.15C9.73834 11.15 9.50067 11.05 9.3 10.85Z"
+                                fill="white" />
+                        </svg>
+                    </div>
+                </div> -->
             </div>
         </div>
-        <div class="add-appoinments-right mx-auto md:mx-0 w-full md:min-w-[400px] shadow-2xl md:sticky md:top-[100px]">
+        <div
+            class="add-appoinments-right mx-auto md:mx-0 w-full md:max-w-[400px] md:min-w-[400px] shadow-2xl md:sticky md:top-[100px]">
             <h3 class="text-2xl text-[#507EC2] font-[600]">Order Summary</h3>
             <div class="flex flex-col gap-2 mt-2">
                 <div class="flex flex-col gap-1">
@@ -417,7 +414,7 @@
                     <div>
                         <p class="text-xl font-[600]">Appointment & Invoice</p>
                     </div>
-                   
+
                 </div>
                 <div class="px-1 text-[#626979] ">
                     We’ll send Appointment Confirmation & Invoice on your Email provided, You can download it as PDF

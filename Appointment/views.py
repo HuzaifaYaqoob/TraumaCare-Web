@@ -5,14 +5,26 @@ from django.contrib import messages
 
 from Doctor.models import Doctor, DoctorTimeSlots, DoctorWithHospital
 from Appointment.models import Appointment, AppointmentGroup
+from Trauma.models import Speciality
 
 from datetime import timedelta, datetime
+from django.db.models import Count
 
 # Create your views here.
 
 
 def BookAppointmentPage(request):
-    return render(request, 'Appointment/book_appointment.html')
+    doctor_id = request.GET.get('doctor', None)
+    context = {}
+    if doctor_id:
+        context['hospitals'] = DoctorWithHospital.objects.filter(doctor__id = doctor_id)
+        
+    
+    context['today_label'] = datetime.now().strftime("%B %Y")
+    context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
+    context['specialities'] = Speciality.objects.annotate(doctor_count=Count('speciality_doctorspecialities')).filter(is_deleted = False, is_active = True, doctor_count__gt = 0)
+    
+    return render(request, 'Appointment/book_appointment.html', context)
 
 
 def BookAppointment_DoctorPage(request):
@@ -37,11 +49,12 @@ def BookAppointment_DoctorPage(request):
         messages.error(request, 'Doctor is not active')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     
-    try:
-        doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
-    except:
-        messages.error(request, 'Doctor is not available at this Hospital.')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    if doct_hospital_id:
+        try:
+            doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
+        except:
+            messages.error(request, 'Doctor is not available at this Hospital.')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
     try:
         selected_slot = DoctorTimeSlots.objects.get(id = slot_id)
@@ -54,12 +67,12 @@ def BookAppointment_DoctorPage(request):
     )
 
     s_t = datetime.strptime(selected_time, "%H:%M:00")
-    end_time = timedelta(minutes=20)
+    end_time = timedelta(minutes=doctor.get_time_inverval)
     end_time = end_time + s_t
     appointment = Appointment.objects.create(
         appointment_group = appt_grp,
         doctor = doctor,
-        name = '',
+        name = f'Appointment with {doctor.name} at {f"{doct_hospital.hospital.name}, {doct_hospital.location.name}" if doct_hospital_id else "Online"}',
         date = selected_date,
         start_time = selected_time,
         end_time=end_time.strftime("%H:%M"),
@@ -69,9 +82,11 @@ def BookAppointment_DoctorPage(request):
         service_fee = selected_slot.service_fee,
         bill = selected_slot.final_price,
         status = 'Booked',
-        appointment_location = 'InPerson',
-        doct_hospital = doct_hospital
+        appointment_location = 'InPerson' if doct_hospital_id else 'Online',
     )
+    if doct_hospital_id:
+        appointment.doct_hospital = doct_hospital
+        appointment.save()
 
     messages.success(request, 'Your appointment is booked successfully.')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))

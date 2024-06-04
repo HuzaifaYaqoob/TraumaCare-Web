@@ -1,3 +1,4 @@
+{% load appointment_tags %}
 <div class="singleSlotCard h-full" >
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}" {% if forloop.counter == 1 %}checked{% endif %}>
       <label for="dr-appointment-slot-card-{{slot.id}}" class="border h-full block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
@@ -23,6 +24,7 @@
                   </div>
             </div>
             <div class="grid gap-2 mt-3 mb-2 {% if online_ava.slots|length > 1 %}grid-cols-4{% else %}grid-cols-6{% endif %}">
+                  {% get_doctor_online_slots doctor day_date as doctor_bookings %}
                   {% for interval in slot.slots_interval %}
                         <div class="mb-1">
                               {% if interval.0 in doctor_bookings %}

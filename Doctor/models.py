@@ -139,6 +139,9 @@ class Doctor(models.Model):
             return [min(fees), max(fees)]
         return None
 
+    @property
+    def get_time_inverval(self):
+        return 20
 
 
 
@@ -378,7 +381,7 @@ class DoctorTimeSlots(models.Model):
     def slots_interval(self):
         start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
         end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
-        interval = timedelta(minutes=20)
+        interval = timedelta(minutes=self.doctor.get_time_inverval)
         times = []
         current_time = start_time
         while current_time < end_time:
