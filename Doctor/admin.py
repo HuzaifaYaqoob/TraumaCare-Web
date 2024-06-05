@@ -52,7 +52,7 @@ class DoctorQueryInline(admin.TabularInline):
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
-    list_display = ['email', 'slug', 'user', 'name', 'heading', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
+    list_display = ['email', 'slug', 'user', 'name', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
 
     inlines = [
