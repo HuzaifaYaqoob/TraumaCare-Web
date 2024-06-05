@@ -3,6 +3,7 @@
 from Trauma.models import Speciality, Disease
 from django.conf import settings
 import random
+from datetime import datetime
 
 from Hospital.models import Hospital
 from Appointment.models import AppointmentGroup, Appointment
@@ -70,9 +71,13 @@ def appointments_context_processors(request):
     context = {}
 
     if request.user.is_authenticated:
-        context['user_appointments'] = Appointment.objects.filter(
-            appointment_group__user = request.user,
-            status__in = ["Pending", "Booked", "Confirmed"]
-        ).count()
+        today_date = datetime.now()
+        print('today_date')
+        print(today_date)
+        context['user_appointments'] = Appointment.objects.filter(appointment_group__user = request.user, status__in = ["Pending", "Booked", "Confirmed"], date__gte = today_date.strftime("%Y-%m-%d"), start_time__gte = today_date.strftime("%H:%M:%S"), )
+        if len(context['user_appointments']) > 0:
+            context['lastest_appointments'] = context['user_appointments'].order_by('date', 'start_time')[0]
+        
+        context['user_appointments'] = context['user_appointments'].count()
 
     return context
