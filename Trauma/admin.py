@@ -11,6 +11,7 @@ class SpecialityAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'speciality_type', 'color_code', 'rank' , 'is_deleted', 'is_active']
 
     search_fields = [ 'name', 'color_code']
+    list_editable = ['speciality_type']
 
 
 @admin.register(Disease)
