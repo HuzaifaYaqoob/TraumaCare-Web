@@ -39,22 +39,22 @@
             <div>
                   <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Experience
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">7 Year</p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">{{doctor.years_of_experience}} Year</p>
             </div>
             <div>
                   <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Fee
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">3000 PKR</p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">{{doctor.fee_range.0}} PKR</p>
             </div>
             <div>
                   <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Ratings
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]"> 97%</p>
+                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]"> {{doctor.get_doctor_rating_percentage}}%</p>
             </div>
       </div>
       <div class="mt-4 flex items-center justify-between px-4">
             <p class="text-[14px] sm:text-[15px] text-[#8A8A8A]">Available Today</p>
-            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&source=SpecialityViewPage"
+            <a href="{% url 'DoctorProfilePage' doctor.slug %}?source=SpecialityViewPage"
                   class="text-[#557DE5] text-[14px] sm:text-[15px] font-bold cursor-pointer">Book Appointment</p>
 
       </div>
