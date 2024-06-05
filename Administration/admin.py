@@ -10,10 +10,11 @@ class UserRequestLogAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'real_ip',
+        'log_requests',
         'method',
         'path',
         'user',
-        'remote_addr',
-        'remote_host',
+        'response_status',
+        'query_params',
         'timestamp',
     ]
