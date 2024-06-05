@@ -7,6 +7,7 @@ from . import views as apptView
 
 
 urlpatterns = [
+    path('my-appointments', apptView.MyAppointmentsPage, name='MyAppointmentsPage'),
     path('book-appointment', apptView.BookAppointmentPage, name='BookAppointmentPage'),
     path('checkout/', apptView.CheckoutPage, name='CheckoutPage'),
 

@@ -13,6 +13,22 @@ from django.db.models import Count
 # Create your views here.
 
 
+def MyAppointmentsPage(request):
+    today = datetime.now()
+    appointments = Appointment.objects.filter(
+            appointment_group__user = request.user,
+            date__gte = today.date()
+        )
+    
+    data = { }
+    for appt in appointments:
+        data[appt.date] = data.get(appt.date) or []
+        data[appt.date].append(appt)
+    context = {
+        'appointments' : data
+    }
+    return render(request, 'Appointment/myAppointments.html', context)
+
 def BookAppointmentPage(request):
     doctor_id = request.GET.get('doctor', None)
     context = {}
