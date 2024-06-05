@@ -8,7 +8,7 @@ from .models import Speciality, Disease, Country, State, City, RandomFiles, Veri
 
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'color_code', 'rank' , 'is_deleted', 'is_active']
+    list_display = ['id', 'name', 'speciality_type', 'color_code', 'rank' , 'is_deleted', 'is_active']
 
     search_fields = [ 'name', 'color_code']
 

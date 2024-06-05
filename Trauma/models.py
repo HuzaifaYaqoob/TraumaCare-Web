@@ -9,6 +9,7 @@ class Speciality(models.Model):
     id = models.UUIDField(default=uuid4, primary_key=True, unique=True, editable=False)
 
     name = models.CharField(max_length=500, default='')
+    speciality_type = models.CharField(max_length=999, default='')
     svg_icon = models.TextField()
     color_code = models.CharField(max_length=10, default='')
     description = models.TextField(default='')
