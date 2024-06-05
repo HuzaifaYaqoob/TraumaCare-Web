@@ -8,6 +8,8 @@ from datetime import datetime
 from Hospital.models import Hospital
 from Appointment.models import AppointmentGroup, Appointment
 
+from django.db.models import Q
+
 def global_context_processor(request):
     str_query = '?'
     for key in request.GET:
@@ -71,11 +73,14 @@ def appointments_context_processors(request):
     context = {}
 
     if request.user.is_authenticated:
-        today_date = datetime.now()
-        print('today_date')
-        print(today_date)
-        context['today_date_dddd'] = today_date
-        context['user_appointments'] = Appointment.objects.filter(appointment_group__user = request.user, status__in = ["Pending", "Booked", "Confirmed"], date__gte = today_date.strftime("%Y-%m-%d"), start_time__gte = today_date.strftime("%H:%M:%S"), )
+        today_date = datetime.now().date()
+        current_time = datetime.now().time()
+
+        context['user_appointments'] = Appointment.objects.filter(
+            Q(appointment_group__user=request.user),
+            Q(status__in=["Pending", "Booked", "Confirmed"]),
+            Q(date=today_date, start_time__gte=current_time) | Q(date__gt=today_date)
+        )
         if len(context['user_appointments']) > 0:
             context['lastest_appointments'] = context['user_appointments'].order_by('date', 'start_time')[0]
         
