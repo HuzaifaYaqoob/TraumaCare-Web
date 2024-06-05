@@ -143,6 +143,21 @@ class Doctor(models.Model):
     @property
     def get_time_inverval(self):
         return 20
+    
+
+    @property
+    def is_available_today(self):
+        today = datetime.now()
+        slots = DoctorTimeSlots.objects.filter(
+            doctor = self,
+            day__day = today.strftime('%A'),
+            start_time__gte = today.time(),
+            is_deleted = False,
+            is_active = True
+        )
+        if slots.exists():
+            return True
+        return False
 
     
     def save(self, *args, **kwargs):
