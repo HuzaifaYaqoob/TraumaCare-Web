@@ -266,7 +266,7 @@
                         let minutes = '{{lastest_appointments.start_time.minute}}'
                         function startCountdown() {
                             const targetTime = new Date();
-                            targetTime.setHours(days)
+                            targetTime.setDate(days)
                             targetTime.setHours(+hours, +minutes, 0, 0); // Set the target time to 6 PM
 
                             function updateCountdown() {
