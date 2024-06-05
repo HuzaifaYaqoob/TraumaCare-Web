@@ -74,6 +74,7 @@ def appointments_context_processors(request):
         today_date = datetime.now()
         print('today_date')
         print(today_date)
+        context['today_date_dddd'] = today_date
         context['user_appointments'] = Appointment.objects.filter(appointment_group__user = request.user, status__in = ["Pending", "Booked", "Confirmed"], date__gte = today_date.strftime("%Y-%m-%d"), start_time__gte = today_date.strftime("%H:%M:%S"), )
         if len(context['user_appointments']) > 0:
             context['lastest_appointments'] = context['user_appointments'].order_by('date', 'start_time')[0]
