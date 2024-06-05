@@ -13,30 +13,31 @@ class TrackUserLogMiddleware:
         response = self.get_response(request)
 
         if '/admin/' not in request.META.get('PATH_INFO') and 'favicon.ico' not in request.META.get('PATH_INFO'):
-            log = UserRequestLog.objects.create(
-                method = request.method,
-                query_params = request.META.get('QUERY_STRING', ''),
-                script_name = request.META.get('SCRIPT_NAME', ''),
-                path = request.META.get('PATH_INFO', ''),
+            log, created = UserRequestLog.objects.get_or_create(
                 real_ip = request.META.get('HTTP_X_REAL_IP', ''),
-                wdgi_multithread = request.META.get('wsgi.multithread', False),
-                wdgi_multiprocess = request.META.get('wsgi.multiprocess', False),
-                remote_addr = request.META.get('REMOTE_ADDR', ''),
-                remote_host = request.META.get('REMOTE_HOST', ''),
-                remote_port = request.META.get('REMOTE_PORT', ''),
-                server_name = request.META.get('SERVER_NAME', ''),
-                server_port = request.META.get('SERVER_PORT', ''),
-                http_host = request.META.get('HTTP_HOST', ''),
-                http_connection = request.META.get('HTTP_CONNECTION', ''),
-                http_cache_control = request.META.get('HTTP_CACHE_CONTROL', ''),
-                http_sec_ch_ua = request.META.get('HTTP_SEC_CH_UA', ''),
-                http_sec_ch_ua_mobile = request.META.get('HTTP_SEC_CH_UA_MOBILE', ''),
-                http_sec_ch_ua_platform = request.META.get('HTTP_SEC_CH_UA_PLATFORM', ''),
-                http_user_agent = request.META.get('HTTP_USER_AGENT', ''),
-                http_accept = request.META.get('HTTP_ACCEPT', ''),
+                method = request.method,
+                path = request.META.get('PATH_INFO', ''),
+                query_params = request.META.get('QUERY_STRING', ''),
                 response_status = response.status_code,
                 response_time = 1,
             )
+            log.log_requests = log.log_requests + 1
+            log.script_name = request.META.get('SCRIPT_NAME', '')
+            log.wdgi_multithread = request.META.get('wsgi.multithread', False)
+            log.wdgi_multiprocess = request.META.get('wsgi.multiprocess', False)
+            log.remote_addr = request.META.get('REMOTE_ADDR', '')
+            log.remote_host = request.META.get('REMOTE_HOST', '')
+            log.remote_port = request.META.get('REMOTE_PORT', '')
+            log.server_name = request.META.get('SERVER_NAME', '')
+            log.server_port = request.META.get('SERVER_PORT', '')
+            log.http_host = request.META.get('HTTP_HOST', '')
+            log.http_connection = request.META.get('HTTP_CONNECTION', '')
+            log.http_cache_control = request.META.get('HTTP_CACHE_CONTROL', '')
+            log.http_sec_ch_ua = request.META.get('HTTP_SEC_CH_UA', '')
+            log.http_sec_ch_ua_mobile = request.META.get('HTTP_SEC_CH_UA_MOBILE', '')
+            log.http_sec_ch_ua_platform = request.META.get('HTTP_SEC_CH_UA_PLATFORM', '')
+            log.http_user_agent = request.META.get('HTTP_USER_AGENT', '')
+            log.http_accept = request.META.get('HTTP_ACCEPT', '')
 
             newData = {}
             for key, val in request.META.items():

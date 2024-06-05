@@ -9,6 +9,8 @@ class UserRequestLog(models.Model):
     id = models.AutoField(primary_key=True)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL, related_name='user_logs')
 
+    log_requests = models.PositiveIntegerField(default=0)
+
 
     method = models.CharField(max_length=100, default='')
     query_params = models.TextField(blank=True, null=True)
