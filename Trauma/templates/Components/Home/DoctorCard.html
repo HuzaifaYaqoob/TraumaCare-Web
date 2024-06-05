@@ -13,7 +13,7 @@
     </div>
       <div class="flex-1">
         <a
-          href="/doctor/profile/view/{{doctor.id}}"
+          href="/doctor/profile/view/{{doctor.slug}}"
           class="text-[#23d0d0] capitalize text-xl font-semibold tracking-wide cursor-pointer"
           >
           Dr. {{doctor.name}}</a
@@ -35,7 +35,7 @@
     </div>
     <div class="flex flex-wrap items-center gap-1 px-4 mt-6">
       {% for speciality in doctor.get_specialities|slice:':4' %}
-          <a href="{% url 'SingleSpecialityPage' speciality_slug=speciality.slug %}?source=DoctorProfileCard&doctor_uri={{doctor.id}}" class="nav-item-svg-parent-div cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-1 px-2 border border-[#C9C9C9] rounded-lg border-solid hover:border-[{{speciality.color_code}}]">
+          <a href="{% url 'SingleSpecialityPage' speciality_slug=speciality.slug %}?source=DoctorProfileCard&doctor_uri={{doctor.slug}}" class="nav-item-svg-parent-div cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-1 px-2 border border-[#C9C9C9] rounded-lg border-solid hover:border-[{{speciality.color_code}}]">
               {{speciality.svg_icon|safe}}
               <span class="whitespace-nowrap text-gray-600 text-[13px] font-regular tracking-normal transition ">
                   {{speciality.name}}
@@ -61,7 +61,7 @@
       <p class="text-[#8ca5c9] text-sm font-regular capitalize">satisfaction</p>
       <p class="text-[#23d0d0] text-base font-semibold {% if doctor.get_doctor_rating_percentage > 80 %}text-green-600{% elif doctor.get_doctor_rating_percentage > 50 %}text-yellow-600{% else %}text-red-600{% endif %}">{{doctor.get_doctor_rating_percentage}}%</p>
     </div>
-    <a href="/doctor/profile/view/{{doctor.id}}">
+    <a href="/doctor/profile/view/{{doctor.slug}}">
       <div>
         <p class="text-[#15087e] text-sm font-regular cursor-pointer">
           Book an Appointment

@@ -23,10 +23,10 @@ def DoctorAskQuestionHandler(request, doctor_id):
     messages.success(request, 'Your query has been submitted successfully.')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-def DoctorProfilePage(request, doctor_id):
+def DoctorProfilePage(request, doctor_slug):
     try:
         doctor = Doctor.objects.get(
-            id = doctor_id,
+            slug = doctor_slug,
             is_active = True,
             is_deleted = False
         )

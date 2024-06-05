@@ -1,13 +1,13 @@
 <div class="border rounded-xl w-[400px] pb-4">
       <div class="bg-[#557de50d] rounded-xl rounded-b-none flex items-center gap-[9px] sm:gap-[11px] py-[12px] px-[10px] sm:py-[14px] sm;px-[12px]">
-            <a href="{% url 'DoctorProfilePage' doctor_id=doctor.id %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
+            <a href="{% url 'DoctorProfilePage' doctor_id=doctor.slug %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
                   class="block w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full border-[2px] border-[#557de5] bg-center bg-cover bg-no-repeat"
                   style="background-image: url('{{doctor.profile_image}}');">
 
             </a>
             <div class="flex-1">
                   <div class="flex justify-between items-center">
-                        <a href="{% url 'DoctorProfilePage' doctor_id=doctor.id %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
+                        <a href="{% url 'DoctorProfilePage' doctor_id=doctor.slug %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
                               class="line-clamp-1 text-[#515151] font-[600] text-[18px] sm:text-[20px]">Dr.
                               {{doctor.name}} </a>
                         <div class="flex cursor-pointer items-center gap-[6px] bg-[#557DE5] px-[10px] h-[22px] sm:h-[23px] rounded-[50px]">
@@ -54,7 +54,7 @@
       </div>
       <div class="mt-4 flex items-center justify-between px-4">
             <p class="text-[14px] sm:text-[15px] text-[#8A8A8A]">Available Today</p>
-            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.id}}&source=SpecialityViewPage"
+            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&source=SpecialityViewPage"
                   class="text-[#557DE5] text-[14px] sm:text-[15px] font-bold cursor-pointer">Book Appointment</p>
 
       </div>
