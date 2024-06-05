@@ -154,9 +154,9 @@ class Doctor(models.Model):
             start_time__gte = today.time(),
             is_deleted = False,
             is_active = True
-        )
+        ).order_by('start_time')
         if slots.exists():
-            return True
+            return slots[0]
         return False
 
     
