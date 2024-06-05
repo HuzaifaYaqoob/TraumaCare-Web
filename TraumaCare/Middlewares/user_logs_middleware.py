@@ -38,6 +38,7 @@ class TrackUserLogMiddleware:
             log.http_sec_ch_ua_platform = request.META.get('HTTP_SEC_CH_UA_PLATFORM', '')
             log.http_user_agent = request.META.get('HTTP_USER_AGENT', '')
             log.http_accept = request.META.get('HTTP_ACCEPT', '')
+            log.save()
 
             newData = {}
             for key, val in request.META.items():
