@@ -108,6 +108,7 @@ def searchFilterPage(request):
     most_experienced = request.GET.get('most_experienced', None)
     lowest_fee = request.GET.get('lowest_fee', None)
     highest_rating = request.GET.get('highest_rating', None)
+    disease_slug = request.GET.get('disease', None)
 
     query = {
         "is_deleted" : False,
@@ -118,6 +119,9 @@ def searchFilterPage(request):
     annotate_query = {}
     order_query = []
     reverse = False
+
+    if disease_slug:
+        query['doctor_disease_specialities__disease__slug__iexact'] = disease_slug.lower()
 
     if available_today:
         today_date = datetime.now()
