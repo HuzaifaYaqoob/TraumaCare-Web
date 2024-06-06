@@ -7,7 +7,7 @@ from django.conf import settings
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
-from django.db.models import Case, When, Min, Sum
+from django.db.models import Case, When, Min, Sum, Q
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 
@@ -101,6 +101,8 @@ def CartPage(request):
 
 def searchFilterPage(request):
     # return render(request, 'Search/booklabtest.html')
+    searchText = request.GET.get('query', '')
+
     available_today = request.GET.get('available_today', None)
     video_consultaion = request.GET.get('video_consultaion', None)
     discounts = request.GET.get('discounts', None)
@@ -109,11 +111,9 @@ def searchFilterPage(request):
     lowest_fee = request.GET.get('lowest_fee', None)
     highest_rating = request.GET.get('highest_rating', None)
     disease_slug = request.GET.get('disease', None)
+    speciality_slug = request.GET.get('speciality', None)
 
     query = {
-        "is_deleted" : False,
-        "is_blocked" : False,
-        "is_active" : True
     }
 
     annotate_query = {}
@@ -122,6 +122,9 @@ def searchFilterPage(request):
 
     if disease_slug:
         query['doctor_disease_specialities__disease__slug__iexact'] = disease_slug.lower()
+
+    if speciality_slug:
+        query['doctor_specialities__speciality__slug__iexact'] = speciality_slug.lower()
 
     if available_today:
         today_date = datetime.now()
@@ -161,7 +164,33 @@ def searchFilterPage(request):
         'remove_footer' : True
     }
 
-    doctors = Doctor.objects.filter(**query).annotate(**annotate_query).distinct().order_by(*order_query)
+    doctors = Doctor.objects.annotate(**annotate_query).filter(
+        Q(email__icontains = searchText) |
+        Q(heading__icontains = searchText) |
+        Q(slug__icontains = searchText) |
+        Q(desc__icontains = searchText) |
+        Q(doctor_specialities__speciality__name__icontains = searchText) |
+        Q(doctor_specialities__speciality__speciality_type__icontains = searchText) |
+        Q(doctor_specialities__speciality__description__icontains = searchText) |
+        Q(doctor_specialities__speciality__slug__icontains = searchText) |
+        Q(doctor_specialities__speciality__tag_line__icontains = searchText) |
+        Q(doctor_disease_specialities__disease__name__icontains = searchText) |
+        Q(doctor_disease_specialities__disease__description__icontains = searchText) |
+        Q(doctor_disease_specialities__disease__slug__icontains = searchText) |
+        Q(doctor_disease_specialities__disease__tag_line__icontains = searchText) |
+        Q(doctor_available_days__day__icontains = searchText) |
+        Q(doctor_hospital_timeslots__hospital__name__icontains = searchText) |
+        Q(doctor_hospital_timeslots__hospital__description__icontains = searchText) |
+        Q(doctor_hospital_timeslots__hospital__slug__icontains = searchText) |
+        Q(doctor_hospital_timeslots__location__name__icontains = searchText) |
+        Q(doctor_hospital_timeslots__location__street_address__icontains = searchText) |
+        Q(doctor_hospital_timeslots__location__city__name__icontains = searchText) |
+        Q(name__icontains = searchText),
+        is_deleted = False,
+        is_blocked = False,
+        is_active = True,
+        **query
+    ).distinct().order_by(*order_query)
 
 
     context['doctors'] = doctors[:: -1 if reverse else 1]

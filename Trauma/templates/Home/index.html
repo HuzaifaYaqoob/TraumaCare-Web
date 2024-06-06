@@ -461,7 +461,7 @@
     </div>
 </section>
 
-<div class="search-location-section ">
+<form action="/search"  class="search-location-section ">
     <div class="location-bar shadow-xl">
         <div>
             <svg width="15" height="28" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -484,14 +484,14 @@
         <input class="Specialities-para" placeholder="Specialities"></input>
     </div>
     <div class="frontPage-search-responsive-main flex items-center w-[440px] h-[55px] bg-[#ffffff] relative rounded-[6px] shadow-xl ">
-        <input type="search" class=" frontPage-search-responsive w-full pr-[34px] pl-[10px] h-full outline-none Search-Fiels-TC-WithMic rounded-[6px] border-[2px] border-[#ffffff] lg:text-[17px] text-[#0A1C4B]" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
+        <input type="search" name="query" class=" frontPage-search-responsive w-full pr-[34px] pl-[10px] h-full outline-none Search-Fiels-TC-WithMic rounded-[6px] border-[2px] border-[#ffffff] lg:text-[17px] text-[#0A1C4B]" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies"></input>
         <span class="cursor-pointer absolute h-full flex items-center justify-center cursor-pointer pl-[14px] pr-[10px] right-[0px]">
             <svg width="20" height="24" viewBox="0 0 22 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M5 6V16C5 19.3125 7.6875 22 11 22C14.3125 22 17 19.3125 17 16H12C11.45 16 11 15.55 11 15C11 14.45 11.45 14 12 14H17V12H12C11.45 12 11 11.55 11 11C11 10.45 11.45 10 12 10H17V8H12C11.45 8 11 7.55 11 7C11 6.45 11.45 6 12 6H17C17 2.6875 14.3125 0 11 0C7.6875 0 5 2.6875 5 6ZM19 15V16C19 20.4188 15.4187 24 11 24C6.58125 24 3 20.4188 3 16V13.5C3 12.6687 2.33125 12 1.5 12C0.66875 12 0 12.6687 0 13.5V16C0 21.5688 4.1375 26.1687 9.5 26.9V29H6.5C5.66875 29 5 29.6688 5 30.5C5 31.3312 5.66875 32 6.5 32H15.5C16.3312 32 17 31.3312 17 30.5C17 29.6688 16.3312 29 15.5 29H12.5V26.9C17.8625 26.1687 22 21.5688 22 16V13.5C22 12.6687 21.3312 12 20.5 12C19.6688 12 19 12.6687 19 13.5V15Z" fill="#0A1C4B"/>
             </svg>                
         </span>
     </div>
-    <a href="/search" class="search-button frontPage-search-responsive-btn">
+    <button class="search-button frontPage-search-responsive-btn">
         <div class="search-btn-svg frontPage-search-responsive-btn-svg">
             <svg width="18" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -500,8 +500,8 @@
             </svg>
         </div>
         <p class="search-button-para frontPage-search-responsive-btn-p">search</p>
-    </a>
-</div>
+    </button>
+</form>
 <!-- {% include 'ChatXpo/HomepageChat.html' %} -->
 <div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px mt-10"  style="max-width: 1650px;">
     <div>
