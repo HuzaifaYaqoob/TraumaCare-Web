@@ -7,10 +7,11 @@ from django.conf import settings
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
-from django.db.models import Case, When
+from django.db.models import Case, When, Min, Sum
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 
+from datetime import datetime
 def homePage(request):
     context = {}
 
@@ -100,10 +101,67 @@ def CartPage(request):
 
 def searchFilterPage(request):
     # return render(request, 'Search/booklabtest.html')
+    available_today = request.GET.get('available_today', None)
+    video_consultaion = request.GET.get('video_consultaion', None)
+    discounts = request.GET.get('discounts', None)
+    doctor_gender = request.GET.get('doctor_gender', None)
+    most_experienced = request.GET.get('most_experienced', None)
+    lowest_fee = request.GET.get('lowest_fee', None)
+    highest_rating = request.GET.get('highest_rating', None)
+
+    query = {
+        "is_deleted" : False,
+        "is_blocked" : False,
+        "is_active" : True
+    }
+
+    annotate_query = {}
+    order_query = []
+    reverse = False
+
+    if available_today:
+        today_date = datetime.now()
+        day_name = today_date.strftime("%A")
+        query['doctor_available_days__isnull'] = False
+        query['doctor_timeslots__start_time__isnull'] = False
+        query['doctor_available_days__day'] = day_name
+        query['doctor_timeslots__start_time__gte'] = today_date.time()
+
+    if video_consultaion:
+        query['doctor_timeslots__availability_type'] = 'Online'
+
+    if discounts:
+        query['doctor_timeslots__discount__gt'] = 0
+
+    if doctor_gender:
+        if doctor_gender == 'MALE':
+            query['user__gender'] = 'Male'
+        elif doctor_gender == 'FEMALE':
+            query['user__gender'] = 'Female'
+
+    if most_experienced:
+        order_query.append('working_since')
+
+    if lowest_fee:
+        annotate_query['fees'] = Min('doctor_timeslots__fee')
+        order_query.append('fees')
+        reverse = True
+
+    if highest_rating:
+        annotate_query['total_rating'] = Sum('doctor_reviews__rating')
+        order_query.append('total_rating')
+
+
     context = {
         'is_search_page' : True,
         'remove_footer' : True
     }
+
+    doctors = Doctor.objects.filter(**query).annotate(**annotate_query).distinct().order_by(*order_query)
+
+
+    context['doctors'] = doctors[:: -1 if reverse else 1]
+    context['count'] = len(doctors)
     return render(request, 'Search/Updated_FilterPage.html', context=context)
 
 def emergencyPage(request):

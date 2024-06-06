@@ -9,7 +9,7 @@ from Hospital.models import Hospital
 from Trauma.models import City
 from Appointment.models import AppointmentGroup, Appointment
 
-from django.db.models import Q
+from django.db.models import Q, Count
 
 def global_context_processor(request):
     str_query = '?'
@@ -60,7 +60,7 @@ def hospitals_context_processor(request):
     ).values('name', 'id', 'hospital_locations__city__name')
     return {
         'hospitals' : hospitals,
-        'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct()
+        'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct().annotate(hospital_count = Count('city_hospital_locations'))
     }
 
 

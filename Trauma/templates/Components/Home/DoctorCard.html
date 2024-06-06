@@ -24,9 +24,6 @@
           {{doctor.heading}}
         </p>
         <div class="flex items-center gap-3">
-          {% if doctor.is_available_today %}
-            <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span>Available Today</span></p>
-          {% endif %}
           {% if doctor.fee_range %}
             <p class="whitespace-nowrap">Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.0}}</span> - <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.1}}</span></p>
           {% endif %}
@@ -61,12 +58,16 @@
       <p class="text-[#8ca5c9] text-sm font-regular capitalize">satisfaction</p>
       <p class="text-[#23d0d0] text-base font-semibold {% if doctor.get_doctor_rating_percentage > 80 %}text-green-600{% elif doctor.get_doctor_rating_percentage > 50 %}text-yellow-600{% else %}text-red-600{% endif %}">{{doctor.get_doctor_rating_percentage}}%</p>
     </div>
-    <a href="/doctor/profile/view/{{doctor.slug}}">
-      <div>
-        <p class="text-[#15087e] text-sm font-regular cursor-pointer">
-          Book an Appointment
-        </p>
-      </div>
-    </a>
+    {% if doctor.is_available_today %}
+      <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] bg-green-600 rounded-full animate-ping"></span></span>Available Today</span></p>
+    {% else %}
+      <a href="/doctor/profile/view/{{doctor.slug}}">
+        <div>
+          <p class="text-[#15087e] text-sm font-regular cursor-pointer">
+            Find another slot
+          </p>
+        </div>
+      </a>
+    {% endif %}
   </div>
 </div>
