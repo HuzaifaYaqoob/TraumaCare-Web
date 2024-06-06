@@ -7,7 +7,7 @@ from django.conf import settings
 
 from Doctor.models import Doctor
 from Trauma.models import Speciality, Disease
-from django.db.models import Case, When, Min, Sum, Q
+from django.db.models import Case, When, Min, Sum, Q, Count
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 
@@ -110,6 +110,7 @@ def searchFilterPage(request):
     most_experienced = request.GET.get('most_experienced', None)
     lowest_fee = request.GET.get('lowest_fee', None)
     highest_rating = request.GET.get('highest_rating', None)
+    most_reviews = request.GET.get('most_reviews', None)
     disease_slug = request.GET.get('disease', None)
     speciality_slug = request.GET.get('speciality', None)
 
@@ -157,6 +158,10 @@ def searchFilterPage(request):
     if highest_rating:
         annotate_query['total_rating'] = Sum('doctor_reviews__rating')
         order_query.append('total_rating')
+
+    if highest_rating:
+        annotate_query['total_reviews'] = Count('doctor_reviews__rating')
+        order_query.append('total_reviews')
 
 
     context = {
