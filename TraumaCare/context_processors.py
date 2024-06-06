@@ -6,6 +6,7 @@ import random
 from datetime import datetime
 
 from Hospital.models import Hospital
+from Trauma.models import City
 from Appointment.models import AppointmentGroup, Appointment
 
 from django.db.models import Q
@@ -56,9 +57,10 @@ def hospitals_context_processor(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
-    ).values('name', 'id')
+    ).values('name', 'id', 'hospital_locations__city__name')
     return {
-        'hospitals' : hospitals
+        'hospitals' : hospitals,
+        'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct()
     }
 
 

@@ -5,6 +5,7 @@ from uuid import uuid4
 
 from Authentication.models import User
 from Profile.models import Profile
+from Trauma.models import Country, State, City
 
 
 class Hospital(models.Model):
@@ -68,6 +69,10 @@ class HospitalLocation(models.Model):
 
     name = models.CharField(max_length=999, default='')
     street_address = models.TextField(default='')
+
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True, default=None, related_name='country_hospital_locations')
+    state = models.ForeignKey(State, on_delete=models.PROTECT, null=True, default=None, related_name='state_hospital_locations')
+    city = models.ForeignKey(City, on_delete=models.PROTECT, null=True, default=None, related_name='city_hospital_locations')
 
     def __str__(self):
         return f'{str(self.id)} -- {self.hospital.name} -- {self.name}'

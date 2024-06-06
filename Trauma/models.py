@@ -123,7 +123,7 @@ class Country(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.id)
+        return self.name
 
     class Meta:
         verbose_name = 'Country'
@@ -144,7 +144,7 @@ class State(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.id)
+        return f'{self.name} -- {self.country.name}'
 
     class Meta:
         verbose_name = 'State'
@@ -165,7 +165,7 @@ class City(models.Model):
     is_active = models.BooleanField(default=True)
 
     def __str__(self):
-        return str(self.id)
+        return f'{self.name} -- {self.state.name} -- {self.country.name}'
 
     class Meta:
         verbose_name = 'City'
