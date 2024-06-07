@@ -234,7 +234,10 @@
 
             {% if user_appointments and lastest_appointments %}
                 <div class="mr-3">
-                    <a href="{% url 'MyAppointmentsPage' %}" id="countdown" class="text-[#0A1C4B] font-bold italic text-[26px]"></a>
+                    <p>
+                        <p class="m-0 p-0 text-xs text-center mb-[-7px]">Next Appointment in</p>
+                        <a href="{% url 'MyAppointmentsPage' %}" id="countdown" class="text-[#0A1C4B] font-bold italic text-[26px]"></a>
+                    </p>
                     <script>
                         let days = '{{lastest_appointments.date.day}}'
                         let hours = '{{lastest_appointments.start_time.hour}}'
