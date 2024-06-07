@@ -13,7 +13,32 @@ class TrackUserLogMiddleware:
     def __call__(self, request):
         response = self.get_response(request)
 
-        if '/admin/' not in request.META.get('PATH_INFO') and 'favicon.ico' not in request.META.get('PATH_INFO'):
+        restricted_paths = [
+            '/admin/' not in request.META.get('PATH_INFO'),
+            '/media/' not in request.META.get('PATH_INFO'),
+            '/.env' not in request.META.get('PATH_INFO'),
+            '/robots.txt' not in request.META.get('PATH_INFO'),
+            '/Core/Skin' not in request.META.get('PATH_INFO'),
+            '/wp-login.php' not in request.META.get('PATH_INFO'),
+            '/.config' not in request.META.get('PATH_INFO'),
+            '/.aws/config' not in request.META.get('PATH_INFO'),
+            '/.aws' not in request.META.get('PATH_INFO'),
+            '/_profiler/phpinfo' not in request.META.get('PATH_INFO'),
+            '/config/aws.yml' not in request.META.get('PATH_INFO'),
+            '/info.php' not in request.META.get('PATH_INFO'),
+            '/.env.bak' not in request.META.get('PATH_INFO'),
+            '/phpinfo.php' not in request.META.get('PATH_INFO'),
+            '/phpinfo' not in request.META.get('PATH_INFO'),
+            '/.aws/credentials' not in request.META.get('PATH_INFO'),
+            '/geoserver/web/' not in request.META.get('PATH_INFO'),
+            '/webui/' not in request.META.get('PATH_INFO'),
+            '/password.php' not in request.META.get('PATH_INFO'),
+            '/systembc/password.php' not in request.META.get('PATH_INFO'),
+            '/files/' not in request.META.get('PATH_INFO'),
+            'favicon.ico' not in request.META.get('PATH_INFO'),
+        ]
+
+        if all(restricted_paths):
             log, created = UserRequestLog.objects.get_or_create(
                 real_ip = request.META.get('HTTP_X_REAL_IP', ''),
                 method = request.method,
