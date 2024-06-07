@@ -5,14 +5,15 @@ from django.http import HttpResponseRedirect
 from Hospital.models import Hospital
 from Doctor.models import Doctor
 from django.contrib import messages
+from Trauma.models import Speciality
 
 
 def HospitalSearchPage(request):
     return render(request, '')
 
-def ViewHospitalProfile(request, hospital_id):
+def ViewHospitalProfile(request, hospital_slug):
     try:
-        hospital = Hospital.objects.get(id = hospital_id, is_deleted = False, is_active=True, is_blocked = False)
+        hospital = Hospital.objects.get(slug = hospital_slug, is_deleted = False, is_active=True, is_blocked = False)
     except:
         messages.error(request, 'Invalid Hospital')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
@@ -22,5 +23,6 @@ def ViewHospitalProfile(request, hospital_id):
     }
 
     context['doctors'] = Doctor.objects.filter(doctor_hospital_timeslots__hospital = hospital, is_deleted = False, is_blocked = False, is_active = True)
+    context['hospital_specialities'] = Speciality.objects.filter(speciality_doctorspecialities__doctor__in = context['doctors'])
 
     return render(request, 'Hospital/hospitalprofle.html', context)

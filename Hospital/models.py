@@ -46,6 +46,13 @@ class Hospital(models.Model):
             is_deleted=False,
             is_active=True
         ).last()
+    
+
+    @property
+    def default_location(self):
+        return HospitalLocation.objects.filter(
+            hospital=self,
+        ).first()
 
 
     def __str__(self):

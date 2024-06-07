@@ -88,7 +88,7 @@
                         <select name="" id="SelectHospital" class="px-3 border py-2 rounded-lg w-full">
                             <option value="" disabled selected>Select Hospital</option>
                             {% for hospital in hospitals %}
-                            <option value="{{hospital.id}}">{{hospital.hospital.name}}, {{hospital.location.name}}
+                            <option value="{{hospital.slug}}">{{hospital.hospital.name}}, {{hospital.location.name}}
                             </option>
                             {% endfor %}
                         </select>
