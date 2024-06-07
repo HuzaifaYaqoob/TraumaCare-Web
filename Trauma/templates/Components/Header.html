@@ -101,14 +101,14 @@
             </div>
             </a>
             <div class="hidden md:flex items-center pl-[20px] gap-1 pt-[3px] list-items">
-                <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group cursor-pointer">Doctors
+                <li class="li-first flex items-center gap-2 pr-0 !text-[18px] !mr-0 group cursor-pointer transition-all ">Doctors
                     <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6"
                         fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
                             stroke-linejoin="round" />
                     </svg>
-                    <div class="dropdown1 drop1 !w-[500px] rounded-2xl">
-                        <div class="dropdown1-div1 !px-2 ">
+                    <div class="dropdown1 drop1 !w-[600px] rounded-2xl ">
+                        <div class="dropdown1-div1 !px-2 flex-1">
                             <h2 class=" !text-[18px]">Find doctors By speciality</h2>
                             <ul>
                                 {% for spec in specialities|slice:':9' %}
@@ -117,7 +117,7 @@
                                 {% include 'Components/Header/view_all.html' with link='/speciality/' %}
                             </ul>
                         </div>
-                        <div class="dropdown1-div1 dropdown1-div1 !px-2 ">
+                        <div class="dropdown1-div1 dropdown1-div1 !px-2 flex-1">
                             <h2 class="!text-[18px] ">Find doctors By diseases</h2>
                             <ul>
                                 {% for disease in diseases|slice:':9' %}
