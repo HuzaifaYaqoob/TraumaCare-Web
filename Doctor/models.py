@@ -148,11 +148,10 @@ class Doctor(models.Model):
     @property
     def is_available_today(self):
         today = datetime.now()
-        return today.time()
         slots = DoctorTimeSlots.objects.filter(
             doctor = self,
             day__day = today.strftime('%A'),
-            start_time__gte = today.time(),
+            end_time__gte = today.time(),
             is_deleted = False,
             is_active = True
         ).order_by('start_time')
