@@ -355,7 +355,7 @@
                                                       <p class="Dermatologist-main-TCp1 text-black font-bold text-xl line-clamp-1">Dr. {{suggested_doctor.name}}</p>
                                                       <p class="text-[#9A9A9A]">{% if suggested_doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-[600] text-black">{{suggested_doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                                       {% if suggested_doctor.fee_range %}
-                                                            Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.0}}</span> - Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.1}}</span>
+                                                            Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.0}}</span>{% if suggested_doctor.fee_range.1 > suggested_doctor.fee_range.0 %} - Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.1}}</span>{% endif %}
                                                       {% endif %}
                                                 </div>
                                           </a>
