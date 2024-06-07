@@ -148,7 +148,6 @@ class Doctor(models.Model):
     @property
     def is_available_today(self):
         today = datetime.now()
-        return today.strftime('%A')
         slots = DoctorTimeSlots.objects.filter(
             doctor = self,
             day__day = today.strftime('%A'),
