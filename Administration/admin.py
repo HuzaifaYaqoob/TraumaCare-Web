@@ -7,6 +7,13 @@ from .models import UserRequestLog
 @admin.register(UserRequestLog)
 class UserRequestLogAdmin(admin.ModelAdmin):
 
+    list_filter = [
+        'real_ip',
+        'response_status',
+        'user',
+        'method',
+    ]
+
     list_display = [
         'id',
         'real_ip',
@@ -14,7 +21,7 @@ class UserRequestLogAdmin(admin.ModelAdmin):
         'method',
         'path',
         'user',
+        'timestamp',
         'response_status',
         'query_params',
-        'timestamp',
     ]
