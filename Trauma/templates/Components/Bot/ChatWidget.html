@@ -43,12 +43,24 @@
     <input type="hidden" UserAIBotChatWidgetChatId value="{{request.session.chat_id}}">
     <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
 
-    <div MainChatWidgetChatBot class="h-[650px] w-[550px] shadow-sm border bg-white p-[2px] rounded-[25px] flex flex-col justify-between gap-1 hidden" >
+    <div MainChatWidgetChatBot class="h-[650px] w-[550px] z-[10000] shadow-sm border bg-white p-[2px] rounded-[25px] flex flex-col justify-between gap-1 hidden" >
         <div class="bg-[#f4f6f7] px-4 py-3 flex items-center justify-between rounded-t-[25px] border-b">
             <div>
                 <p class="text-[19px] font-bold text-[#1a1e2b]">Dr. Ally <span class="text-sm text-slate-700 font-[400]">(AI Assistant)</span></p>
             </div>
-            <span class="text-xl chatWidgetBotIcon cursor-pointer">X</span>
+            <div class="flex items-center gap-4">
+                <span class="cursor-pointer">
+                    <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 5V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H5M15 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V5M19 15V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19H15M5 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V15" stroke="#484848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        <path d="M14 6H6C5.44772 6 5 6.44772 5 7V13C5 13.5523 5.44772 14 6 14H14C14.5523 14 15 13.5523 15 13V7C15 6.44772 14.5523 6 14 6Z" stroke="#484848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+                <span class="text-xl chatWidgetBotIcon cursor-pointer">
+                    <svg width="16" height="16" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7.5 1L1 7.5M1 1L7.5 7.5" stroke="#484848" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </div>
         </div>
         <div class="flex-1 px-2 pr-4 pt-4 overflow-auto scroll-smooth" MainChatWidgetChatMessages>
             {% for message in chat_widget_messages %}
