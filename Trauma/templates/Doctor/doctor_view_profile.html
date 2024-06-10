@@ -277,39 +277,29 @@
                               {% endfor %}
                         </div>
                   </div>
-                  <div class="rounded-[20px] p-4 border ">
-                        <div>
-                              <p class="text-[#6C6C6C] font-[600] text-center lg:text-start text-2xl">Education</p>
-                              <div class="flex items-center gap-4 mt-2 education-cards-main">
+                  <div class="rounded-[20px] p-4 border flex items-start ">
+                        <div class="flex-1">
+                              <p class="mb-3 text-[#6C6C6C] font-[600] text-center lg:text-start text-2xl">Education</p>
+                              <div class="flex items-center gap-4 education-cards-main">
                                     {% if educations|length == 0 %}
                                           <p>No Education</p>
                                     {% endif %}
                                     {% for education in educations %}
-                                          <div class="flex-1 education-cards">
+                                          <div class="flex-1">
                                                 <p class="text-[#807F7F] font-[500]">{{education.institute}} ({{education.degree_type}})</p>
-                                                <div class="flex items-center gap-2 mt-[8px] rounded-[50px] py-[1px] px-[14px] border max-w-max">
-                                                      <p class="text-[#555555] font-bold whitespace-nowrap">{{education.start_date.year}}-{{education.end_date.year}}</p>
-                                                      <img class="h-[28px] w-[26px]" src="{% static 'assets/Images/image 1438777.png' %}" alt="">
-                                                </div>
                                           </div>
                                     {% endfor %}
                               </div>
                         </div>
-                        <div class="mt-8">
-                              <p class="text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
-                              <div class="flex gap-4 items-center flex-col md:flex-row mt-[12px]">
+                        <div class="flex-1">
+                              <p class="mb-3 text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
+                              <div class="flex gap-4 items-center flex-col md:flex-row">
                                     {% if experiences|length == 0 %}
                                           <p class="text-center w-full">No Education</p>
                                     {% endif %}
                                     {% for experience in experiences %}
-                                          <div class="flex-1 flex flex-col gap-2 ">
+                                          <div class="flex-1">
                                                 <p class="text-[#807F7F] lg:text-start text-center">{{experience.speciality}}, {{experience.practice_institute}}</p>
-                                                <div class="flex items-center gap-[6px] mt-2 flex-wrap lg:justify-start justify-center">
-                                                      <div class="border flex items-center gap-2 p-2 px-4 rounded-[10px]">
-                                                            <p>{{experience.start_date.year}}-{{experience.end_date.year}}</p>
-                                                            <img class="h-[22px] w-[22px]" src="{% static 'assets/Images/female doctor at desk12.png' %}" alt="">
-                                                      </div>
-                                                </div>
                                           </div>
                                     {% endfor %}
                               </div>
