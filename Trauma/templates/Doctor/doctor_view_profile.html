@@ -293,16 +293,14 @@
                         </div>
                         <div class="flex-1">
                               <p class="mb-3 text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
-                              <div class="">
+                              <ul class="">
                                     {% if experiences|length == 0 %}
                                           <p class="text-center w-full">No Education</p>
                                     {% endif %}
                                     {% for experience in experiences %}
-                                          <div class="flex-1">
-                                                <p class="text-[#807F7F] lg:text-start text-center">{{experience.speciality}}, {{experience.practice_institute}}</p>
-                                          </div>
+                                          <li class="text-[#807F7F] lg:text-start text-center">{{experience.speciality}}, {{experience.practice_institute}}</li>
                                     {% endfor %}
-                              </div>
+                              </url>
                         </div>
                   </div>
                   <div class="border shadow-md rounded-xl p-6" >
