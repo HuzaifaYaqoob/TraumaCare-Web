@@ -1,0 +1,82 @@
+{% load static %}
+
+
+<style>
+    [ChatWidgetChatMessage]{
+        margin-bottom: 20px;
+    }
+    [ChatWidgetChatMessage].ai-bot-message {
+        flex-direction: row;
+    }
+    [ChatWidgetChatMessage].ai-bot-message p.chat-message {
+        border-radius: 0 10px 10px 0;
+        background-color: #eff1f4;
+    }
+
+    
+    [ChatWidgetChatMessage].user-message {
+        flex-direction: row-reverse;
+    }
+    [ChatWidgetChatMessage].user-message p.chat-message {
+        border-radius: 10px 0px 0px 10px;
+        background-color: #d7e8ff;
+        margin-left: auto;
+    }
+</style>
+
+<div class="fixed bottom-10 right-10 flex items-end gap-4 z-[100]">
+    <div MainChatWidgetChatBot class="h-[650px] w-[550px] shadow-sm border bg-white p-[2px] rounded-[25px] flex flex-col justify-between gap-1 hidden">
+        <div class="bg-[#f4f6f7] px-4 py-3 flex items-center justify-between rounded-t-[25px] border-b">
+            <div>
+                <p class="text-[19px] font-bold text-[#1a1e2b]">Dr. Ally <span class="text-sm text-slate-700 font-[400]">(AI Assistant)</span></p>
+            </div>
+            <span class="text-xl">X</span>
+        </div>
+        <div class="flex-1 px-2 pr-4 pt-4 overflow-auto">
+            <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
+                <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
+                <div class="flex-1">
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">I will Let crystal know</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">Here is the latest spec doc we reviewed with the engineer this morning.</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">We've not have a break in a while</p>
+                </div>
+            </div>
+            <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
+                <div class="flex-1">
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">I will Let crystal know</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">Here is the latest spec doc we reviewed with the engineer this morning.</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">We've not have a break in a while</p>
+                </div>
+            </div>
+            <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
+                <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
+                <div class="flex-1">
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">I will Let crystal know</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">Here is the latest spec doc we reviewed with the engineer this morning.</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">We've not have a break in a while</p>
+                </div>
+            </div>
+            <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
+                <div class="flex-1">
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">I will Let crystal know</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">Here is the latest spec doc we reviewed with the engineer this morning.</p>
+                    <p class="chat-message px-3 mb-1.5 py-2 #eff1f4 w-max max-w-[70%] font-[500]">We've not have a break in a while</p>
+                </div>
+            </div>
+        </div>
+        <div class="px-1.5 pb-1.5">
+            <div class="bg-[#ebecee] rounded-[18px] border-b border-[#a7a8ac] w-full px-3 py-2">
+                <textarea class="w-full bg-transparent border-0 outline-none" placeholder="Type a new message"></textarea>
+                <button class="max-w-max ml-auto block bg-[#0A1C4B] text-white px-3 py-0.5 rounded-lg">
+                    Send
+                </button>
+            </div>
+        </div>
+    </div>
+    <div MainChatWidgetChatBotIcon class="w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+        <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
+    </div>
+</div>
+
+
+<script src="{% static 'assets/js/ChatWidget.js' %}"></script>

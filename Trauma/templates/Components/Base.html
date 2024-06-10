@@ -19,7 +19,7 @@
                 {% include 'Components/SVG/LongArrow.html' with direction='BOTTOM' color='#7c3aed' %}
             </div>
         </div>
-        {% if hide_emergency_icon %}
+        <!-- {% if hide_emergency_icon %}
             <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#2FC670]" >
                 <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#2FC670]" >
                 </div>
@@ -39,7 +39,8 @@
                     </div>
                 </a>
             </div>
-        {% endif %}
+        {% endif %} -->
+        {% include 'Components/Bot/ChatWidget.html' %}
     </main>
 </div>
 
