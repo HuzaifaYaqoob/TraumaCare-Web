@@ -29,7 +29,8 @@ def appointment_get_doctor_availability(
     slots_string_2 = 'Slots are : '
     for slot in slots:
         slot_intervals = slot.slots_interval
-        slots_string_2 = slots_string_2 + f'{slot_intervals[0]} ({slot_intervals[1]}), '
+        if slot_intervals and len(slot_intervals) > 0:
+            slots_string_2 = slots_string_2 + f'{slot_intervals[0]} ({slot_intervals[1]}), '
     
 
     messages.append({'role' : 'system', 'content' : slots_string})
