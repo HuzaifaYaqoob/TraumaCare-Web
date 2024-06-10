@@ -9,14 +9,15 @@ from asgiref.sync import async_to_sync
 from .Query import askChatXpo
 
 from Secure.models import XpoKey
-key = XpoKey.objects.all()
 
-if key:
-    key = key[0].key
-else:
-    key = 'No key'
 
 def sendError(error, user=None):
+    key = XpoKey.objects.all()
+
+    if key:
+        key = key[0].key
+    else:
+        key = 'No key'
     message_data = {
         'type' : 'CHATXPO_AI_GENERATED_ERROR',
         'status' : 200,
@@ -100,4 +101,4 @@ def SendAiGeneratedMessageToUser(chatMessage=None, onError=sendError):
             }
         )
     except Exception as err:
-        onError(f'{str(err)} ---- {key}')
+        onError(f'{str(err)}')

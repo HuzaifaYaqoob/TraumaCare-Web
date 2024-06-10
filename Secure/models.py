@@ -8,6 +8,15 @@ from Authentication.models import User
 class XpoKey(models.Model):
     key = models.TextField(default='')
 
+    completion_tokens = models.IntegerField(default=0)
+    prompt_tokens = models.IntegerField(default=0)
+    token_used = models.IntegerField(default=0)
+
+    total_requests = models.IntegerField(default=0)
+
+    is_active = models.BooleanField(default=True)
+    is_deleted = models.BooleanField(default=False)
+
     def __str__(self):
         return f'{self.id}'
 
@@ -27,3 +36,14 @@ class ApplicationReview(models.Model):
 
     def __str__(self):
         return f'{self.uuid}'
+
+class ChatInstructions(models.Model):
+    uuid = models.CharField(default=uuid4, editable=False, max_length=999)
+    name = models.CharField(max_length=999, default='')
+    instruction = models.TextField(default='')
+
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
+
+    def __str__(self):
+        return f'{self.instruction}'
