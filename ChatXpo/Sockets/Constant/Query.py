@@ -16,7 +16,6 @@ from Hospital.models import Hospital
 import json
 from .Funcs import getUserOutput, getUserOutput_urdu
 
-
 import re
 
 def convert_to_html(content):
@@ -43,6 +42,9 @@ def convert_to_html(content):
     # Replace '`' for inline code
     content = re.sub(r'\`(.*?)\`', r'<code>\1</code>', content)
     
+    # Replace links
+    content = re.sub(r'\[(.*?)\]\((.*?)\)', r'<a href="\2">\1</a>', content)
+    
     # Replace '\n' for new lines
     content = content.replace('\n', '<br>')
     
@@ -59,6 +61,7 @@ def convert_to_html(content):
     return content
 
 
+
 def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False):
     key = XpoKey.objects.filter(is_active=True, is_deleted=False).order_by('-token_used')[0]
     client = OpenAI(api_key=key.key)
@@ -73,10 +76,10 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
     INSTRUCTIONS = []
     if instructions:
         INSTRUCTIONS = [{'role' : 'system', 'content' : i.instruction} for i in ChatInstructions.objects.filter(is_active=True).order_by('-created_at')]
-        doctors = Doctor.objects.filter(is_active=True, is_deleted=False).values('id', 'name', 'heading')
+        doctors = Doctor.objects.filter(is_active=True, is_deleted=False).values('id', 'name', 'heading', 'slug')
         doctors_string = 'Available doctors on Traumacare Platform are : '
         for d in doctors:
-            doctors_string += f'{d["name"]} ({d["id"]}) & Speciality ({d["heading"]}), '
+            doctors_string += f'{d["name"]} (ID : {str(d["id"])}, slug: [{d["slug"]}]) & Speciality ({d["heading"]}), '
 
         hospitals = Hospital.objects.filter(is_active=True, is_deleted=False, is_blocked=False).values('id', 'name')
         hospitals_string = 'Available Hospitals on Traumacare Platform are : '

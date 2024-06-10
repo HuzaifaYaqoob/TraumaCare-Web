@@ -21,6 +21,9 @@
         background-color: #d7e8ff;
         margin-left: auto;
     }
+    [ChatWidgetChatMessage] p.chat-message a{
+        color: #2563EB !important;
+    }
     .loader {
         width: 10px;
         aspect-ratio: 1;
@@ -45,7 +48,7 @@
             <div>
                 <p class="text-[19px] font-bold text-[#1a1e2b]">Dr. Ally <span class="text-sm text-slate-700 font-[400]">(AI Assistant)</span></p>
             </div>
-            <span class="text-xl">X</span>
+            <span class="text-xl chatWidgetBotIcon cursor-pointer">X</span>
         </div>
         <div class="flex-1 px-2 pr-4 pt-4 overflow-auto scroll-smooth" MainChatWidgetChatMessages>
             {% for message in chat_widget_messages %}
@@ -72,7 +75,7 @@
             </div>
         </div>
     </div>
-    <div MainChatWidgetChatBotIcon class="w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+    <div MainChatWidgetChatBotIcon class="chatWidgetBotIcon w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
         <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
     </div>
 </div>

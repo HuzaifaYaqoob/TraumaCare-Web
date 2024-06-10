@@ -7,6 +7,13 @@ const ShowHideChatWidget = () =>{
         chat_widget.classList.toggle('hidden')
         scrollToBottom()
     }
+
+    if (chat_widget.className.includes('hidden')){
+        localStorage.removeItem('showChatWidget')
+    }
+    else{
+        localStorage.setItem('showChatWidget', true)
+    }
 }
 
 let messagesMain = document.querySelector('[MainChatWidgetChatMessages]')
@@ -79,10 +86,13 @@ const onSubmitChatWidget = async () =>{
 }
 
 document.addEventListener('DOMContentLoaded', () =>{
-    let bot_icon = document.querySelector('[MainChatWidgetChatBotIcon]')
-    if (bot_icon){
-        bot_icon.addEventListener('click', ShowHideChatWidget)
+    if (localStorage.getItem('showChatWidget')){
+        ShowHideChatWidget()
     }
+    let bot_icons = document.querySelectorAll('.chatWidgetBotIcon')
+    bot_icons.forEach(bot_icon =>{
+        bot_icon.addEventListener('click', ShowHideChatWidget)
+    })
 
     let send_button = document.querySelector('[ChatWidgetSubmitButton]')
     if (send_button){
