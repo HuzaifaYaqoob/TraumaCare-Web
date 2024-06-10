@@ -5,7 +5,9 @@
     margin: 0px;
     box-sizing: border-box;
 }
-
+html {
+    scroll-behavior: smooth;
+  }
 body {
     font-family: 'Source Sans Pro', sans-serif;
 }

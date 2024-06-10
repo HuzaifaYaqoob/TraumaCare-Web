@@ -1,11 +1,13 @@
 
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 
 from ChatXpo.models import XpoChat, ChatMessage
 from ChatXpo.Apis.v1 import serializers as v1Serializers
+
+from ChatXpo.Sockets.Constant.Query import askChatXpo
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -78,3 +80,46 @@ def get_chat_messages(request):
             'chat_messages' : data
         }
     }, status=status.HTTP_200_OK)
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
+def send_chat_widget_message(request, chatId):
+    try:
+        chat = XpoChat.objects.get(uuid = chatId)
+    except Exception as err:
+        return Response({
+            'status' : 404,
+            'status_code' : '404',
+            'response' : {
+                'message' : 'Chat Not Found',
+                'error_message' : str(err),
+            }
+        }, status=status.HTTP_404_NOT_FOUND)
+    
+    query = request.data['query']
+
+    chat_messages = ChatMessage.objects.filter(
+        chat = chat,
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False,
+    ).order_by('created_at')
+
+    response = askChatXpo(
+        user_query = query,
+        previousQueries = list(chat_messages.values('role', 'content')),
+    )
+
+    msgs = [
+        ChatMessage(chat = chat, content = query, role = 'user'),
+        ChatMessage(chat = chat, content = response, role = 'assistant'),
+    ]
+
+    ChatMessage.objects.bulk_create(msgs)
+
+    return Response({
+        'status' : 200,
+        'response' : {
+            'message' : response
+        }
+    }, status=status.HTTP_201_CREATED)

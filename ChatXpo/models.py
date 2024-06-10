@@ -27,6 +27,12 @@ class ChatMessage(models.Model):
         ('Message', 'Message'),
         ('Notifier', 'Notifier'),
     )
+
+    AI_MESSAGE_TYPE = (
+        ('user', 'user'),
+        ('assistant', 'assistant'),
+        ('system', 'system'),
+    )
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
     chat = models.ForeignKey(XpoChat, on_delete=models.PROTECT, related_name='chat_messages')
 
@@ -39,12 +45,17 @@ class ChatMessage(models.Model):
     user_output_urdu = models.TextField(default='')
 
     message_type = models.CharField(choices=MESSAGE_TYPES, default='Message', max_length=50)
+    role = models.CharField(choices=AI_MESSAGE_TYPE, default='user', max_length=50)
 
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now=now)
     updated_at = models.DateTimeField(auto_now=now)
+
+    @property
+    def formated_content(self):
+        return self.content.replace('\n', '<br>')
 
     def __str__(self):
         return str(self.uuid)

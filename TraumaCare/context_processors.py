@@ -10,6 +10,7 @@ from Trauma.models import City
 from Appointment.models import AppointmentGroup, Appointment
 
 from django.db.models import Q, Count
+from ChatXpo.models import XpoChat, ChatMessage
 
 def global_context_processor(request):
     str_query = '?'
@@ -17,10 +18,32 @@ def global_context_processor(request):
         val = request.GET.get(key)
         str_query += f'{key}={val}&'
     
+    chat_id = request.session.get('chat_id', None)
+    if not chat_id:
+        if request.user.is_authenticated:
+            user_chat = XpoChat.objects.filter(
+                user = request.user,
+                is_active = True,
+                is_deleted = False,
+                is_blocked = False
+            ).order_by('-created_at')
+            if user_chat.exists():
+                chat_id = user_chat.first().uuid
+            else:
+                chat_id = XpoChat.objects.create(user = request.user, title = 'Chat Widget Chat').uuid
+        else:
+            chat_id = XpoChat.objects.create(user = None, title = 'Chat Widget Chat').uuid
+
+        request.session['chat_id'] = str(chat_id)
+    
+    messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).order_by('created_at')
+    
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
-        'reviews_count' : [1,2,3,4,5]
+        'reviews_count' : [1,2,3,4,5],
+        'chat_id' : str(chat_id),
+        'chat_widget_messages' : messages
     }
 
 

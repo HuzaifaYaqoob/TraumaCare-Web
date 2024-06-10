@@ -24,6 +24,6 @@ class ChatMessageAdmin(admin.ModelAdmin):
     list_display = [
         'uuid',
         'chat',
-        'display_content',
-        'message_type',
+        'role',
+        'content',
     ]

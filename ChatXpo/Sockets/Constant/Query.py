@@ -16,6 +16,49 @@ from Hospital.models import Hospital
 import json
 from .Funcs import getUserOutput, getUserOutput_urdu
 
+
+import re
+
+def convert_to_html(content):
+    """
+    Converts ChatGPT special symbols to HTML content.
+    
+    Parameters:
+    content (str): The input string containing ChatGPT special symbols.
+    
+    Returns:
+    str: The converted HTML content.
+    """
+    
+    # Replace '**' for bold text
+    content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
+    
+    # Replace '*' or '_' for italic text
+    content = re.sub(r'\*(.*?)\*', r'<em>\1</em>', content)
+    content = re.sub(r'\_(.*?)\_', r'<em>\1</em>', content)
+    
+    # Replace '~~' for strikethrough text
+    content = re.sub(r'\~\~(.*?)\~\~', r'<del>\1</del>', content)
+    
+    # Replace '`' for inline code
+    content = re.sub(r'\`(.*?)\`', r'<code>\1</code>', content)
+    
+    # Replace '\n' for new lines
+    content = content.replace('\n', '<br>')
+    
+    # Handle nested Markdown (bold and italic together)
+    content = re.sub(r'\*\*\*(.*?)\*\*\*', r'<strong><em>\1</em></strong>', content)
+    
+    # Handle bullet points (unordered lists)
+    content = re.sub(r'^\s*-\s+(.*)', r'<li>\1</li>', content, flags=re.MULTILINE)
+    if '<li>' in content:
+        content = '<ul>' + content + '</ul>'
+        content = content.replace('<ul><br>', '<ul>')
+        content = content.replace('<br></li>', '</li>')
+    
+    return content
+
+
 def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False):
     key = XpoKey.objects.filter(is_active=True, is_deleted=False).order_by('-token_used')[0]
     client = OpenAI(api_key=key.key)
@@ -72,4 +115,4 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
         return choosen_function(**params, messages=queries)
     else:
         chat_message = response.choices[0].message
-        return chat_message.content
+        return convert_to_html(chat_message.content)

@@ -7,6 +7,4 @@ from .views import Page
 
 urlpatterns = [
     path('/', Page),
-
-    
 ] 
