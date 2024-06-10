@@ -30,10 +30,10 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
     INSTRUCTIONS = []
     if instructions:
         INSTRUCTIONS = [{'role' : 'system', 'content' : i.instruction} for i in ChatInstructions.objects.filter(is_active=True).order_by('-created_at')]
-        doctors = Doctor.objects.filter(is_active=True, is_deleted=False).values('id', 'name')
+        doctors = Doctor.objects.filter(is_active=True, is_deleted=False).values('id', 'name', 'heading')
         doctors_string = 'Available doctors on Traumacare Platform are : '
         for d in doctors:
-            doctors_string += f'{d["name"]} ({d["id"]}), '
+            doctors_string += f'{d["name"]} ({d["id"]}) & Speciality ({d["heading"]}), '
 
         hospitals = Hospital.objects.filter(is_active=True, is_deleted=False, is_blocked=False).values('id', 'name')
         hospitals_string = 'Available Hospitals on Traumacare Platform are : '
@@ -65,9 +65,9 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
     choice = response.choices[0]
 
     if choice.finish_reason == 'function_call':
-        print('function')
         params = json.loads(choice.message.function_call.arguments)
         function_name = choice.message.function_call.name
+        # print(f'{function_name} function')
         choosen_function = eval(function_name)
         return choosen_function(**params, messages=queries)
     else:

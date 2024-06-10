@@ -21,12 +21,13 @@ class Command(BaseCommand):
             response = askChatXpo(msg, previousQueries=chats)
 
             answer = response
-            print(f'ChatXpo : {answer}')
+            print(f'Dr Ally : {answer}')
             chats.append(
                 {
                     'role' : 'assistant',
                     'content' : answer
                 }
             )
+            print('=' * 50)
         self.stdout.write(self.style.SUCCESS('Successfully added Specialities'))
 

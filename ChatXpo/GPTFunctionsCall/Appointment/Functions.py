@@ -9,7 +9,15 @@ GPT_COMMON_FUNCTIONS = [
             "properties": {
                 "appointmentDate": {
                     "type": "string",
-                    "description": f"Start Date of Slots range. Date must be onward from today date which is ({datetime.now().strftime('%Y-%m-%d')}), e.g YYYY-MM-DD"
+                    "description": f"Start Date of Slots range. Date must be onward from today date which is ({datetime.now().strftime('%Y-%m-%d')}), e.g YYYY-MM-DD. Slot date is not required from user. If user mentioned then that perfect, If not then return today's date"
+                },
+                "doctor_id": {
+                    "type": "string",
+                    "description": f"If user asks or indicates that he wanted to know about doctor or specific Doctor. Return Doctor ID"
+                },
+                "hospital_id": {
+                    "type": "string",
+                    "description": f"To know about Doctors available slots, Hospital ID is required. Return Hospital ID"
                 },
                 "slotsCount": {
                     "type": "number",
@@ -17,7 +25,8 @@ GPT_COMMON_FUNCTIONS = [
                 },
             },
             "required": [
-                "appointmentDate",
+                "hospital_id",
+                "doctor_id",
             ]
         }
     },
