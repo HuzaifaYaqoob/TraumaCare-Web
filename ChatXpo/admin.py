@@ -10,6 +10,9 @@ class XpoChatAdmin(admin.ModelAdmin):
         'uuid',
         'user',
         'title',
+        'is_active',
+        'is_deleted',
+        'is_blocked',
     ]
 
 

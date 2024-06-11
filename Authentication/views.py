@@ -16,6 +16,7 @@ from Authentication.models import User
 
 from Trauma.models import Country, VerificationCode
 from Authentication.Constants.Redirection import NextRedirect, getQueryParams
+from ChatXpo.models import XpoChat
 
 def LoginPage(request):
     if request.user.is_authenticated:
@@ -155,7 +156,16 @@ def ForgotPasswordPage(request):
 
 
 def HandleLogout(request):
+    chat_id = request.session.get('chat_id', None)
     auth.logout(request)
+
+    if chat_id:
+        try:
+            chat = XpoChat.objects.get(uuid = chat_id)
+        except:
+            del request.session['chat_id']
+        else:
+            request.session['chat_id'] = chat_id
     messages.info(request, 'Logout Successfully')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
@@ -189,6 +199,16 @@ def HandleLogin(request):
         user = auth.authenticate(username = user.username, password = password)
         if user is not None:
             auth.login(request, user)
+            chat_id = request.session.get('chat_id', None)
+            if chat_id:
+                try:
+                    user_chat = XpoChat.objects.get(uuid = chat_id)
+                except:
+                    request.session['chat_id'] = None
+                else:
+                    user_chat.user = user
+                    user_chat.save()
+
             messages.success(request, 'Login Successfully')
             response = HttpResponseRedirect(f'/auth/auto-login-redirection/{getQueryParams(request)}')
             
