@@ -39,14 +39,14 @@ def global_context_processor(request):
     else:
         messages.error(request, f'Invalid Request =>> {chat_id} <<=')
     
-    messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).order_by('created_at')
+    chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).order_by('created_at')
     
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
         'chat_id' : str(chat_id),
-        'chat_widget_messages' : messages
+        'chat_widget_messages' : chat_widget_messages
     }
 
 
