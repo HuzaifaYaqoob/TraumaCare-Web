@@ -163,7 +163,10 @@ def HandleLogout(request):
         try:
             chat = XpoChat.objects.get(uuid = chat_id)
         except:
-            del request.session['chat_id']
+            try:
+                del request.session['chat_id']
+            except:
+                pass
         else:
             request.session['chat_id'] = chat_id
     messages.info(request, 'Logout Successfully')
