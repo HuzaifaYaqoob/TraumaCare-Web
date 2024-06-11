@@ -8,6 +8,7 @@ class XpoChatAdmin(admin.ModelAdmin):
     actions = ['chat_messages_delete']
     list_display = [
         'uuid',
+        'user',
         'title',
     ]
 
