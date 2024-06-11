@@ -35,7 +35,7 @@ def global_context_processor(request):
         else:
             chat_id = XpoChat.objects.create(user = None, title = 'Chat Widget Chat').uuid
 
-        request.session['chat_id'] = str(chat_id)
+        request.session.set('chat_id', str(chat_id))
     else:
         messages.error(request, f'Invalid Request =>> {chat_id} <<=')
     
