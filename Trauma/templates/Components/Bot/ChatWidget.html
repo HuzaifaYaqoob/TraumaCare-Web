@@ -40,7 +40,7 @@
 
 
 <div class="fixed bottom-10 right-10 flex items-end gap-4 z-[100]">
-    <input type="hidden" UserAIBotChatWidgetChatId value="{{request.session.chat_id}}">
+    <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
     <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
 
     <div MainChatWidgetChatBot class="h-[650px] w-[550px] z-[10000] shadow-sm border bg-white p-[2px] rounded-[25px] flex flex-col justify-between gap-1 hidden" >

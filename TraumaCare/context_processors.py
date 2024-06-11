@@ -45,7 +45,7 @@ def global_context_processor(request):
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
-        'chat_id' : str(chat_id),
+        'chat_widget_chat_id' : str(chat_id),
         'chat_widget_messages' : chat_widget_messages
     }
 
