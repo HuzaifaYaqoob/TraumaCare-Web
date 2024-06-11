@@ -38,7 +38,7 @@ def global_context_processor(request):
         request.session['chat_id'] = str(chat_id)
     else:
         try:
-            chat_id = XpoChat.objects.get(uuid = chat_id)
+            chat_id = XpoChat.objects.get(uuid = chat_id).uuid
         except:
             chat_id = str(XpoChat.objects.create(user = None, title = 'Chat Widget Chat').uuid)
             request.session['chat_id'] = str(chat_id)
