@@ -31,7 +31,7 @@ IS_LOCAL_SERVER = env('IS_LOCAL_SERVER') or '1'
 
 DASHBOARD_REDIRECT_URL = env('DASHBOARD_REDIRECT_URL')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+
 
 ALLOWED_HOSTS = ['traumacare.pk']
 
