@@ -33,7 +33,7 @@ DASHBOARD_REDIRECT_URL = env('DASHBOARD_REDIRECT_URL')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['traumacare.pk']
 
 
 # Application definition
@@ -85,7 +85,7 @@ MIDDLEWARE = [
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
-CORS_ALLOW_ALL_ORIGINS = True
+
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
@@ -224,3 +224,9 @@ EMAIL_HOST_PASSWORD = "zpsjmfoaipkndfqy"
 
 ACCOUNT_TRAUMACARE_URL=env('ACCOUNT_TRAUMACARE_URL')
 THIS_APPLICATION_URL=env('THIS_APPLICATION_URL')
+
+
+try:
+    from .local_settings import *
+except:
+    pass

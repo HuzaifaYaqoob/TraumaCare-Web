@@ -10,10 +10,14 @@ class XpoChatAdmin(admin.ModelAdmin):
         'uuid',
         'user',
         'title',
+        'chat_messages',
         'is_active',
         'is_deleted',
         'is_blocked',
     ]
+
+    def chat_messages(self, chat):
+        return chat.chat_messages.all().count()
 
 
     def chat_messages_delete(modeladmin, request, queryset):
