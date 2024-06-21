@@ -54,13 +54,33 @@ const scrollToBottom = () =>{
     messagesMain.scrollTop = messagesMain.scrollHeight
 }
 
+const handlePredefinedMessageClick = (element, autoSubmit=true) =>{
+    let message = ''
+    let message_el = element.querySelector('[preDefinedMessage]')
+    if (message_el){
+        message = message_el.getAttribute('preDefinedMessage')
+    }
+    let textarea = document.querySelector('[MainChatWidgetChatBot] textarea')
+    textarea.value = message
+    if (autoSubmit){
+        onSubmitChatWidget()
+    }
+    else{
+        textarea.focus()
+    }
+}
+
 const onSubmitChatWidget = async () =>{
     if (!chat_id){
         chat_id = document.querySelector('[UserAIBotChatWidgetChatId]')
     }
+    let prev_messages = messagesMain.querySelectorAll('[ChatWidgetChatMessage]')
+    if (prev_messages.length == 0){
+        messagesMain.innerHTML = ''
+    }
     let textarea = document.querySelector('[MainChatWidgetChatBot] textarea')
     messagesMain.appendChild(getMessageContent(textarea.value, true))
-    messagesMain.appendChild(Loader())
+    messagesMain.appendChild(Loader()) // Loading...
     scrollToBottom()
     let value = textarea.value
     textarea.value = ''
