@@ -62,7 +62,7 @@ def convert_to_html(content):
 
 
 
-def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False):
+def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False, user=None):
     key = XpoKey.objects.filter(is_active=True, is_deleted=False).order_by('-token_used')[0]
     client = OpenAI(api_key=key.key)
     queries = [] or previousQueries
@@ -88,6 +88,8 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
         
         INSTRUCTIONS.append({'role' : 'system', 'content' : doctors_string})
         INSTRUCTIONS.append({'role' : 'system', 'content' : hospitals_string})
+        if user:
+            INSTRUCTIONS.append({'role' : 'system', 'content' : f'User : {user.first_name} {user.last_name}, Phone : {user.mobile_number}'})
 
     query = {}
     if not onlyText:
@@ -113,9 +115,9 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
     if choice.finish_reason == 'function_call':
         params = json.loads(choice.message.function_call.arguments)
         function_name = choice.message.function_call.name
-        # print(f'{function_name} function')
+        print(f'{function_name} function')
         choosen_function = eval(function_name)
-        return choosen_function(**params, messages=queries)
+        return choosen_function(**params, messages=queries, user=user)
     else:
         chat_message = response.choices[0].message
         return convert_to_html(chat_message.content)

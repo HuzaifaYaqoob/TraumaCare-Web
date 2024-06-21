@@ -108,6 +108,7 @@ def send_chat_widget_message(request, chatId):
     response = askChatXpo(
         user_query = query,
         previousQueries = list(chat_messages.values('role', 'content')),
+        user = chat.user if chat.user else chat.user
     )
 
     msgs = [

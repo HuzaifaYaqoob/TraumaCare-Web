@@ -23,4 +23,20 @@ GPT_COMMON_FUNCTIONS = [
             ]
         }
     },
+    {
+        "name": "user_asks_for_doctors_available_in_mentioned_hospitals",
+        "description": "If user asks or indicates that he wanted to know about doctors available in mentioned hospitals.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "hospital_id": {
+                    "type": "string",
+                    "description": f"If user asks or indicates that he wanted to know about doctors available in mentioned hospitals. Return Hospital ID"
+                },
+            },
+            "required": [
+                "hospital_id",
+            ]
+        }
+    },
 ]

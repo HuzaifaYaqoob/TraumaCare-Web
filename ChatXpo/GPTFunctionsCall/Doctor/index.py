@@ -6,7 +6,8 @@ from Doctor.models import Doctor, DoctorWithHospital
 def user_asked_to_get_doctor_details(
     doctor_id = None,
     is_asked_about_available_hospitals=False,
-    messages = []
+    messages = [],
+    **kwargs
 ):
 
     try:
@@ -43,3 +44,33 @@ def user_asked_to_get_doctor_details(
         return response
 
     
+
+def user_asks_for_doctors_available_in_mentioned_hospitals(
+    hospital_id = None,
+    messages = [],
+    **kwargs
+):
+
+    if not hospital_id:
+        return 'Please provide hospital_id'
+    
+    else:
+        from ChatXpo.Sockets.Constant.Query import askChatXpo
+
+        available_doctors = DoctorWithHospital.objects.filter(
+            doctor__is_active = True,
+            doctor__is_deleted = False,
+            doctor__is_blocked = False,
+            hospital__id = hospital_id,
+        )
+        print(available_doctors)
+        messages.append({'role' : 'system', 'content' : 'List of available doctors in this hospital along with locations'})
+        for doc_ava in available_doctors :
+            messages.append({'role' : 'system', 'content' : f"Doctor : {doc_ava.doctor.name}, doctor slug : {doc_ava.doctor.slug}, Hospital : {doc_ava.hospital.name}, Location : {doc_ava.location.name}, Location ID : {doc_ava.location.id}"})
+
+        response = askChatXpo(
+            're-arrange above given list in',
+            previousQueries=messages,
+            onlyText=True,
+        )
+        return response
