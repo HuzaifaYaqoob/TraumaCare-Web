@@ -111,6 +111,8 @@ def book_user_appointment(
         is_deleted = False,
         is_active = True
     ).last()
+    if not selected_slot:
+        return 'Not available in this slot.'
     
     appt_grp = AppointmentGroup.objects.create(
         user = user,
