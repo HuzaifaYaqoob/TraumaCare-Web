@@ -19,37 +19,36 @@ def global_context_processor(request):
         val = request.GET.get(key)
         str_query += f'{key}={val}&'
     
-    chat_id = request.session.get('chat_id', None)
-    if not chat_id:
-        if request.user.is_authenticated:
-            user_chat = XpoChat.objects.filter(
-                user = request.user,
-                is_active = True,
-                is_deleted = False,
-                is_blocked = False
-            ).order_by('-created_at')
-            if user_chat.exists():
-                chat_id = user_chat.first().uuid
-            else:
-                chat_id = XpoChat.objects.create(user = request.user, title = 'Chat Widget Chat').uuid
+    chat_id = None
+    if request.user.is_authenticated:
+        user_chat = XpoChat.objects.filter(
+            user = request.user,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False
+        ).order_by('-created_at')
+        if user_chat.exists():
+            chat_id = user_chat.first().uuid
         else:
-            chat_id = XpoChat.objects.create(user = None, title = 'Chat Widget Chat').uuid
+            newchat = XpoChat.objects.create(
+                user = request.user, 
+                title = 'Chat Widget Chat'
+            )
+            chat_id = newchat.uuid
+            ChatMessage.objects.create(
+                chat = newchat,
+                question = f'User Name : {request.user.full_name}, User Email : {request.user.email}, phone : {request.user.mobile_number if request.user.mobile_number else "No Phone Number Yet"}',
+                role = 'assistant',
+            )
 
-        request.session['chat_id'] = str(chat_id)
-    else:
-        try:
-            chat_id = XpoChat.objects.get(uuid = chat_id).uuid
-        except:
-            chat_id = str(XpoChat.objects.create(user = request.user if request.user.is_authenticated else None, title = 'Chat Widget Chat').uuid)
-            request.session['chat_id'] = str(chat_id)
     
-    chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).order_by('created_at')
+    chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).exclude(role = 'assistant').order_by('created_at')
     
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
-        'chat_widget_chat_id' : str(chat_id),
+        'chat_widget_chat_id' : chat_id,
         'chat_widget_messages' : chat_widget_messages
     }
 

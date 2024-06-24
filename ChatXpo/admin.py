@@ -10,11 +10,12 @@ class ChatMessagesInline(admin.TabularInline):
     model = ChatMessage
 
     fields = [
+        'role',
         'question',
         'answer'
     ]
 
-    readonly_fields = ('question', 'answer')
+    readonly_fields = ('role', 'question', 'answer')
     can_delete = False
     extra = 0
 

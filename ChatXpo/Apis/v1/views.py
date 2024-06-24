@@ -107,16 +107,13 @@ def send_chat_widget_message(request, chatId):
 
     chats = []
     for chat_msg in chat_messages:
-        if chat_msg.question:
-            chats.append({
-                'role' : 'user',
-                'content' : chat_msg.question
-            })
-        if chat_msg.answer:
-            chats.append({
-                'role' : 'assistant',
-                'content' : chat_msg.answer
-            })
+        if chat_msg.role == 'assistant':
+            chats.append({'role' : 'assistant', 'content' : chat_msg.question })
+        else:
+            if chat_msg.question:
+                chats.append({'role' : 'user', 'content' : chat_msg.question })
+            if chat_msg.answer:
+                chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
 
     response = askChatXpo(
         user_query = query,
