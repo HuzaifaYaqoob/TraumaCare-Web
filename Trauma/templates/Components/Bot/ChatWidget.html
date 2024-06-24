@@ -151,7 +151,7 @@
             <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
         </div>
     {% else %}
-        <a href="{% url 'LoginPage' %}" class="w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+        <a href="{% url 'LoginPage' %}?action=ChatBot" class="w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
             <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
         </a>
     {% endif %}

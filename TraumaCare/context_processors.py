@@ -20,6 +20,7 @@ def global_context_processor(request):
         str_query += f'{key}={val}&'
     
     chat_id = None
+    chat_widget_messages = []
     if request.user.is_authenticated:
         user_chat = XpoChat.objects.filter(
             user = request.user,
@@ -42,7 +43,8 @@ def global_context_processor(request):
             )
 
     
-    chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).exclude(role = 'assistant').order_by('created_at')
+        chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).exclude(role = 'assistant').order_by('created_at')
+    
     
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
