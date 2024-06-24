@@ -105,18 +105,26 @@ def send_chat_widget_message(request, chatId):
         is_blocked = False,
     ).order_by('created_at')
 
+    chats = []
+    for chat_msg in chat_messages:
+        if chat_msg.question:
+            chats.append({
+                'role' : 'user',
+                'content' : chat_msg.question
+            })
+        if chat_msg.answer:
+            chats.append({
+                'role' : 'assistant',
+                'content' : chat_msg.answer
+            })
+
     response = askChatXpo(
         user_query = query,
-        previousQueries = list(chat_messages.values('role', 'content')),
+        previousQueries = chats,
         user = chat.user if chat.user else chat.user
     )
 
-    msgs = [
-        ChatMessage(chat = chat, content = query, role = 'user'),
-        ChatMessage(chat = chat, content = response, role = 'assistant'),
-    ]
-
-    ChatMessage.objects.bulk_create(msgs)
+    ChatMessage.objects.create(chat = chat, question = query, answer = response,),
 
     return Response({
         'status' : 200,

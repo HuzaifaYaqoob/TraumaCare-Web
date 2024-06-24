@@ -120,10 +120,13 @@
                 </div>
             {% endif %}
             {% for message in chat_widget_messages %}
-                <div ChatWidgetChatMessage class="flex items-start w-full gap-3 {% if message.role == 'assistant' %}ai-bot-message{% else %}user-message{% endif %}">
-                    {% if message.role == 'assistant' %}
-                        <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
-                    {% endif %}
+                <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
+                    <div class="flex-1 w-full">
+                        <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">{{message.question|safe}}</p>
+                    </div>
+                </div>
+                <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
+                    <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
                     <div class="flex-1 w-full">
                         <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">{{message.formated_content|safe}}</p>
                     </div>
