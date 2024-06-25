@@ -9,6 +9,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
 from Constants.Emails.OtpEmail import sendOtpEmail
+import random
 
 # Create your views here.
 
@@ -63,59 +64,93 @@ def ResetPasswordPage(request):
 
 def OtpVerificationPage(request):
     error_msg1 = 'You are not allowed to access Verification Page'
-    
-    email = request.GET.get('email', None)
-    
-
-    if not all([email]):
-        messages.error(request, error_msg1)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-
-    context = {}
-    
     purpose = request.GET.get('purpose', 'EMAIL_VERIFICATION')
-    try:
-        user = User.objects.get(email = email)
-        if user.is_email_verified and purpose == 'EMAIL_VERIFICATION':
-            raise Exception(error_msg1)
-    
-        queries = {}
-        if purpose == 'FORGOT_PASSWORD':
-            queries['otp_type'] = 'FORGOT_PASSWORD'
 
-        codes = VerificationCode.objects.filter(
-            user = user, 
-            is_expired = False,
-            is_deleted = False,
-            is_used = False,
-            **queries
-        )
-        if len(codes) == 0:
-            raise Exception(error_msg1)
-    except:
-        messages.error(request, error_msg1)
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    else:
-        resend = request.GET.get('resend', None)
-        if resend is not None:
-            codes.delete()
-            otp = VerificationCode.objects.create(
-                user = user
-            )
-            sendOtpEmail(
-                {
-                    'user' : user,
-                    'verification_code' : otp
-                }
-            )
-            messages.success(request, 'OTP resent to your Email')
-            return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
+    if purpose == 'MOBILE_VERIFICATION':
+        phone = request.GET.get('phone', None)
+        if not all([phone]):
+            messages.error(request, error_msg1)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        try:
+            user = User.objects.get(mobile_number=phone)
         
-        context['user'] = user
+            codes = VerificationCode.objects.filter(
+                user = user, 
+                is_expired = False,
+                is_deleted = False,
+                is_used = False,
+                otp_type = 'MOBILE_VERIFICATION'
+            )
+            if len(codes) == 0:
+                raise Exception(error_msg1)
+        except:
+            messages.error(request, error_msg1)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            resend = request.GET.get('resend', None)
+            if resend is not None:
+                codes.delete()
+                otp = VerificationCode.objects.create(
+                    user = user,
+                    otp_type = 'MOBILE_VERIFICATION'
+                )
+                messages.success(request, 'OTP resent to your Phone')
+                return HttpResponseRedirect(f'/auth/verification/otp/?phone={phone}&purpose=MOBILE_VERIFICATION')
+            
+            context = {}
+            context['user'] = user
+            return render(request, 'Auth/OTP_verification.html', context)
+    else:
+        email = request.GET.get('email', None)
+
+        if not all([email]):
+            messages.error(request, error_msg1)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+        context = {}
+        
+        try:
+            user = User.objects.get(email = email)
+            if user.is_email_verified and purpose == 'EMAIL_VERIFICATION':
+                raise Exception(error_msg1)
+        
+            queries = {}
+            if purpose == 'FORGOT_PASSWORD':
+                queries['otp_type'] = 'FORGOT_PASSWORD'
+
+            codes = VerificationCode.objects.filter(
+                user = user, 
+                is_expired = False,
+                is_deleted = False,
+                is_used = False,
+                **queries
+            )
+            if len(codes) == 0:
+                raise Exception(error_msg1)
+        except:
+            messages.error(request, error_msg1)
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            resend = request.GET.get('resend', None)
+            if resend is not None:
+                codes.delete()
+                otp = VerificationCode.objects.create(
+                    user = user
+                )
+                sendOtpEmail(
+                    {
+                        'user' : user,
+                        'verification_code' : otp
+                    }
+                )
+                messages.success(request, 'OTP resent to your Email')
+                return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
+            
+            context['user'] = user
 
 
-    # return render(request, 'Auth/login.html')
-    return render(request, 'Auth/OTP_verification.html', context)
+        # return render(request, 'Auth/login.html')
+        return render(request, 'Auth/OTP_verification.html', context)
 
 
 def RegisterPage(request):
@@ -229,30 +264,63 @@ def HandleLogin(request):
 
 def HandleJoin(request):
     if request.method == 'POST':
-        email = request.POST.get('email', None)
-        username = request.POST.get('username', None)
-        dial_code = request.POST.get('dial_code', None)
+
         mobile_number = request.POST.get('mobile_number', None)
-        password = request.POST.get('password', None)
-        confirm_password = request.POST.get('confirm_password', None)
         
-        if not all([email, username, dial_code, mobile_number, password, confirm_password]):
-            messages.info(request, 'All fields are required')
+        if not mobile_number or len(mobile_number) != 11 or not mobile_number.startswith('03'):
+            messages.info(request, 'Invalid Mobile Number')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+        try:
+            user = User.objects.get(mobile_number = mobile_number)
+        except:
+            full_name = request.POST.get('username', None)
+            if not full_name:
+                messages.info(request, 'Full name required')
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-        user = User.objects.create_user(
-            username = username,
-            password = password,
-            email = email
-        )
-        user.dial_code = dial_code
-        user.mobile_number = mobile_number
-        user.save()
+            username = full_name.replace(' ', '')
+            keepChecking = True
+            while keepChecking:
+                try:
+                    user = User.objects.get(username = username)
+                except:
+                    keepChecking = False
+                else:
+                    username = f'{username}-{random.randint(1000, 9999)}'
 
-        messages.success(request, 'User Created Successfully')
+            email = f'{username}-{mobile_number}@traumacare.pk'
+            password = f'{username}-{mobile_number}'
+            dial_code = '92'
+            first_name, last_name = f'{full_name} '.split(' ')
 
-        # return HttpResponseRedirect('/auth/login/')
-        return HttpResponseRedirect(f'/auth/verification/otp/?email={user.email}')
+            user = User(
+                username = username,
+                email = email,
+                first_name = first_name,
+                last_name = last_name,
+                dial_code = dial_code,
+                mobile_number = mobile_number
+            )
+            user.set_password(password)
+            user.save()
+
+            VerificationCode.objects.create(
+                user = user,
+                otp_type = 'MOBILE_VERIFICATION'
+            )
+
+            messages.success(request, 'User Created Successfully')
+            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION')
+        else:
+            # Login User here.
+            VerificationCode.objects.create(
+                user = user,
+                otp_type = 'MOBILE_VERIFICATION'
+            )
+            messages.success(request, 'OTP Sent Successfully')
+            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION') 
+
     
     messages.error(request, 'Only POST method allowed')
     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
@@ -336,51 +404,68 @@ def ChangePasswordHandler(request):
 
 def handleOtp(request):
     email = request.GET.get('email', None)
+    phone = request.GET.get('phone', None)
+    purpose = request.GET.get('purpose', 'EMAIL_VERIFICATION')
     code = request.POST.get('code', None)
 
-    if not all([email, code]):
-        messages.info(request, 'Invalid Email or Code!')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    
-    try:
-        user = User.objects.get(email = email)
-    except:
-        messages.error(request, 'Invalid User')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    else:
-        purpose = request.GET.get('purpose', None)
+    if purpose == 'MOBILE_VERIFICATION':
+        if not all([phone, code]):
+            messages.info(request, 'Invalid Phone Number or Code!')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         try:
-            code = VerificationCode.objects.get(
-                user = user, 
-                is_expired = False,
-                is_deleted = False,
-                is_used = False,
-                code = code
-            )
-        except Exception as err:
-            messages.error(request, err if err else 'Invalid Code')
+            user = User.objects.get(mobile_number = phone)
+        except:
+            messages.error(request, 'Invalid User')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        if not all([email, code]):
+            messages.info(request, 'Invalid Email or Code!')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+        try:
+            user = User.objects.get(email = email)
+        except:
+            messages.error(request, 'Invalid User')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-        user.is_email_verified = True
+    try:
+        code = VerificationCode.objects.get(
+            user = user, 
+            is_expired = False,
+            is_deleted = False,
+            is_used = False,
+            code = code
+        )
+    except Exception as err:
+        messages.error(request, err if err else 'Invalid Code')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
+    next_url = request.GET.get('next', '/')
+
+    if purpose == 'MOBILE_VERIFICATION':
+        code.delete()
+        user.is_mobile_verified = True
         user.is_active = True
         user.save()
-        if purpose == 'FORGOT_PASSWORD':
-            code.is_expired = True
-            code.is_used = True
-            code.save()
+        messages.success(request, 'Logged In successful!')
+        auth.login(request, user)
+        return redirect(next_url)
+
+    elif purpose == 'FORGOT_PASSWORD':
+        code.is_expired = True
+        code.is_used = True
+        code.save()
+        
+    getQueries = '?'
+    for param, val in request.GET.items():
+        if param == 'next' and purpose == 'FORGOT_PASSWORD':
+            pass
         else:
-            code.delete()
-        messages.success(request, 'Email Verified!')
-        getQueries = '?'
-        next_url = request.GET.get('next', None)
-        for param, val in request.GET.items():
-            if param == 'next' and purpose == 'FORGOT_PASSWORD':
-                pass
-            else:
-                getQueries += f'{param}={val}&'
-            
-        return HttpResponseRedirect(f'{next_url}{getQueries}next=/auth/login/' if next_url else f'/auth/login/{getQueries}')
-    
+            getQueries += f'{param}={val}&'
+        
+    return HttpResponseRedirect(f'{next_url}{getQueries}next=/auth/login/' if next_url else f'/auth/login/{getQueries}')
+
 
 def AutoLoginRedirection(request):
     next_url = NextRedirect(request)

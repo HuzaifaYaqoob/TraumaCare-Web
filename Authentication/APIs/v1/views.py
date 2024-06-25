@@ -17,13 +17,13 @@ from Authentication.models import User
 def vaidate_unique_user(request):
     username = request.data.get('username', '')
     email = request.data.get('email', '')
-    dial_code = request.data.get('dial_code', '')
+    # dial_code = request.data.get('dial_code', '')
     mobile_number = request.data.get('mobile_number', '')
 
     users = User.objects.filter(
         Q(username = username) |
         Q(email = email) |
-        Q(mobile_number = mobile_number, dial_code = dial_code) 
+        Q(mobile_number = mobile_number) 
     )
 
     reserved_fields = []
@@ -35,9 +35,8 @@ def vaidate_unique_user(request):
         if email and user.email == email:
             reserved_fields.append('email')
 
-        if (dial_code and mobile_number) and (user.dial_code == dial_code and user.mobile_number == mobile_number):
+        if user.mobile_number == mobile_number:
             reserved_fields.append('mobile_number')
-
 
     return Response({
         'status' : False,

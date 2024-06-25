@@ -16,43 +16,37 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
 
 
     user_name = instance.username
-    first_name, *last_name = user_name.split(' ')
-
-    if len(last_name) > 0:
-        last_name = last_name[0]
-    else:
-        last_name = ''
 
     user_profile = Profile(
         user = instance,
-        first_name = first_name,
-        last_name = last_name,
-        full_name = instance.username,
+        first_name = instance.first_name,
+        last_name = instance.last_name,
+        full_name = f'{instance.first_name} {instance.last_name}'.strip(),
         email = instance.email,
     )
     user_profile.is_selected = True
     user_profile.save()
     
 
+# @receiver(post_save, sender=User)
+# def user_created_signal__SendOTPEmail(sender, instance, created, **kwargs):
+#     if created:
+#         from Trauma.models import VerificationCode
+#         otp = VerificationCode.objects.create(
+#             user = instance
+#         )
+#         sendOtpEmail(
+#             {
+#                 'user' : instance,
+#                 'verification_code' : otp
+#             }
+#         )
+
+#     return
+
+
 @receiver(post_save, sender=User)
-def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
-    if created:
-        from Trauma.models import VerificationCode
-        otp = VerificationCode.objects.create(
-            user = instance
-        )
-        sendOtpEmail(
-            {
-                'user' : instance,
-                'verification_code' : otp
-            }
-        )
-
-    return
-
-
-@receiver(post_save, sender=User)
-def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
+def user_created_signal__CreateDRFToken(sender, instance, created, **kwargs):
     if created:
         from rest_framework.authtoken.models import Token 
         Token.objects.get_or_create(user = instance)

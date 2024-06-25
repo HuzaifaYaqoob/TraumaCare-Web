@@ -25,52 +25,33 @@
                     </svg>
                 </a>
             </div>
-            <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl p-4 xl:top-1/4 lg:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
+            <!-- <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl p-4 xl:top-1/4 lg:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
                 <p class="leading-5 text-[15px] text-slate-500">To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
-            </div>
-            <!--  -->
-            <!-- <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl pt-3 pb-3 pl-3 pr-[8px] lg:top-[42%] xl:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
-                <li class="text-[#a9b8cd] text-[14px] ">Have at least one lowercase character.</li>
-                <li class="text-[#a9b8cd] text-[14px] ">Have at least one uppercase character.</li>
-                <li class="text-[#a9b8cd] text-[14px] ">Have at least one number.</li>
-                <li class="text-[#a9b8cd] text-[14px] ">Have at least one special charact.</li>
-                <li class="text-[#a9b8cd] text-[14px] ">Be at least 8 characters.</li>
             </div> -->
-            <!--  -->
             <form action="{% url 'HandleJoin' %}{{str_query}}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
                 <div class="main-step-section">
-                    <div class="block md:items-start md:flex md:gap-[8px]">
+                    <div class="block ">
                         <div class="register-form-step-1 flex-1">
-                            {% include 'Components/Form/TextField.html' with name='username' label='Username' placeholder='Enter your username' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
+                            {% include 'Components/Form/TextField.html' with name='username' label='Full Name' placeholder='Enter your Name' attributes='data-required' %}
                         </div>
                         <div class="register-form-step-2 flex-1">
-                            {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='Enter your Phone Number' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
+                            {% include 'Components/Form/phonenumber.html' with name='mobile_number' dial_code_name='dial_code' label='Phone Number' placeholder='0309 *** ** **' dropdown_data=dial_codes  attributes='data-required validate-unique-user combine-field="dial_code" validation-url="/api/v1/auth/validate-unique-user/" ' %}
                         </div>
+                        <span class="text-right text-xs block mb-3">We'll send OTP to your phone-number</span>
                     </div>
-                    <div>
+                    <!-- <div>
                         {% include 'Components/Form/EmailField.html' with name='email' attributes='data-required validate-unique-user validation-url="/api/v1/auth/validate-unique-user/" ' %}
-                    </div>
-                    <div class="register-form-step-3 block md:items-start md:flex md:gap-[8px] w-full">
+                    </div> -->
+                    <!-- <div class="register-form-step-3 block md:items-start md:flex md:gap-[8px] w-full">
                         {% include 'Components/Form/passwordField.html' with name='password' label='Password' placeholder='*********' attributes='data-required' %}
                         {% include 'Components/Form/passwordField.html' with name='confirm_password' label='Confirm Password' placeholder='*********' attributes='data-required' %}
-                    </div>
-                    <div class="mb-3 flex items-center gap-[5px]">
+                    </div> -->
+                    <!-- <div class="mb-3 flex items-center gap-[5px]">
                         <input type="checkbox" id="showOrHidePassword" showOrHidePasswordCheckBox>
                         <label class="text-slate-600 font-[500]" for="showOrHidePassword">Show Password</label>
-                    </div>
+                    </div> -->
                 </div>
-
-                <!-- <div class="flex align-items justify-end ">
-                    <div class="cursor-pointer flex align-items go-next-step-btn">
-                        <p class="text-tc-blue">Continue</p>
-                        <span class="icon ml-5px">
-                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M9 9L13 5M13 5L9 1M13 5L1 5" stroke="#557DE5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                            </svg>
-                        </span>
-                    </div>
-                </div> -->
                 <div class="form-button">
                     <button class="cursor-pointer !flex align-items justify">
                         <p>Register</p>

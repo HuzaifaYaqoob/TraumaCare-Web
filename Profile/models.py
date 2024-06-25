@@ -75,15 +75,15 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         if not self.first_name:
-            self.first_name = self.user.first_name or self.user.username
+            self.first_name = self.user.first_name or ''
         
         if not self.last_name:
-            self.last_name = self.user.last_name or self.user.username
+            self.last_name = self.user.last_name or ''
         
         if not self.email:
             self.email = self.user.email
         
         if not self.full_name:
-            self.full_name = self.user.username
+            self.full_name = self.first_name
 
         super(Profile, self).save(*args, **kwargs)

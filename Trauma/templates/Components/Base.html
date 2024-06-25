@@ -19,27 +19,29 @@
                 {% include 'Components/SVG/LongArrow.html' with direction='BOTTOM' color='#7c3aed' %}
             </div>
         </div>
-        <!-- {% if hide_emergency_icon %}
-            <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#2FC670]" >
-                <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#2FC670]" >
-                </div>
-                <a href="/emergency/">
-                    <div class="w-16 h-16 absolute top-1/2 left-1/2 !origin-center transform -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center bg-[#2FC670]" >
-                        {% include 'Components/SVG/EmergencyPageIcon.html' %}
+        {% comment %}
+            {% if hide_emergency_icon %}
+                <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#2FC670]" >
+                    <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#2FC670]" >
                     </div>
-                </a>
-            </div>
-        {% else %}
-            <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#0A1C4B]" >
-                <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#0A1C4B]" >
+                    <a href="/emergency/">
+                        <div class="w-16 h-16 absolute top-1/2 left-1/2 !origin-center transform -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center bg-[#2FC670]" >
+                            {% include 'Components/SVG/EmergencyPageIcon.html' %}
+                        </div>
+                    </a>
                 </div>
-                <a href="/emergency/">
-                    <div class="w-16 h-16 absolute top-1/2 left-1/2 !origin-center transform -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center bg-[#0A1C4B]" >
-                        {% include 'Components/SVG/EmergencyIcon.html' %}
+            {% else %}
+                <div class="z-[100] cursor-pointer w-16 h-16 rounded-full flex items-center justify-center fixed bottom-10 shadow-lg border right-10 bg-[#0A1C4B]" >
+                    <div class="animate-ping w-20 h-20 transform origin-center rounded-full flex items-center justify-center bg-[#0A1C4B]" >
                     </div>
-                </a>
-            </div>
-        {% endif %} -->
+                    <a href="/emergency/">
+                        <div class="w-16 h-16 absolute top-1/2 left-1/2 !origin-center transform -translate-x-1/2 -translate-y-1/2 rounded-full flex items-center justify-center bg-[#0A1C4B]" >
+                            {% include 'Components/SVG/EmergencyIcon.html' %}
+                        </div>
+                    </a>
+                </div>
+            {% endif %}
+        {% endcomment %}
         {% include 'Components/Bot/ChatWidget.html' %}
     </main>
 </div>

@@ -504,7 +504,7 @@
         <p class="search-button-para frontPage-search-responsive-btn-p">search</p>
     </button>
 </form>
-<!-- {% include 'ChatXpo/HomepageChat.html' %} -->
+{% comment %} {% include 'ChatXpo/HomepageChat.html' %} {%  endcomment %}
 <div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px mt-10"  style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-medium sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
@@ -599,7 +599,7 @@
             </div>
         </div>
     </div>
-     <!-- <div class="step-by-step-fetured-section">
+    {% comment %}<div class="step-by-step-fetured-section">
          <div class="Choose-Doctor cards4-CMOG-TC">
              <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                  <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -660,7 +660,7 @@
              <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                  for your disease!</p>
          </div>
-     </div> -->
+     </div> {% endcomment %}
 </section>
     <div class="!mt-12">
         <h2 class="text-center text-4xl font-semibold text-[#0A1C4B] Nearby-Doctors-TC">Nearby Doctors</h2>
@@ -793,9 +793,6 @@
         <p class="text-[#727272] mt-[10px] text-center text-[14px] md:text-[16px]">your overall rating of this Product</p>
         <div RatingStars class="complete-background-popups-before-stars flex items-center justify-center gap-[12px] sm:gap-[16px] md:gap-[24px] mt-[3px] sm:mt-[12px]">
             <input type="number" value="5" ratingInput name="star_rating" class="hidden" >
-            <!-- <svg class="cursor-pointer" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#FEB546"/>
-            </svg>             -->
             <svg class="cursor-pointer rating_star_svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path class="hover:fill-[#FEB546]" d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#A7A7A7"/>
             </svg>
@@ -1304,7 +1301,7 @@
                 <p class="p2 !font-medium">Well trained & Supportive staff</p>
             </div>
         </div>
-        <!-- <div class="main-div4">
+        {% comment %}<div class="main-div4">
             <div class="icon-svg"><svg width="38" height="40" viewBox="0 0 38 40" fill="none"
                     xmlns="http://www.w3.org/2000/svg">
                     <path
@@ -1328,7 +1325,7 @@
                 <p class="p1">Secure Online Payment</p>
                 <p class="p2 !font-medium">Secure checkout using SSL Certificate</p>
             </div>
-        </div> -->
+        </div>{% endcomment %}
     </div>
 </main>
 {% endblock baseBody %}

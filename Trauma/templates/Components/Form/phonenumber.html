@@ -1,17 +1,17 @@
 <div class="form-field" dropdown-main-component>
     <label for="" class="form-input-label">{{label}}</label>
-    <div class="phone-number-field-outer relative {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %} border border-transparent transition-all" error-border-element>
-        <div class="dial-code-field-outer cursor-not-allowed" dropdown>
+    <div class="phone-number-field-outer relative {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %} border border-slate-300 transition-all !bg-slate-100" error-border-element>
+        <!-- <div class="dial-code-field-outer cursor-not-allowed border-r border-slate-400 pr-3" dropdown>
             <input type="text" value="92" name="{% if dial_code_name %}{{dial_code_name}}{% else %}dial_code{% endif %}" id="" dropdown-field class="hidden dial-code-input " readonly>
             <div class="cursor-not-allowed flex-1" dropdown-value-display>
-                <span class="dummy-placeholder">+92</span>
+                <span class="dummy-placeholder text-slate-500">+92</span>
             </div>
             <span class="arrow">
                 <svg class="dropwdown-arrow" width="15" height="8" viewBox="0 0 15 8" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M13 6L7.5 1.6L2 6" stroke="#A9B8CB" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 </svg>
             </span>
-        </div>
+        </div> -->
         <!-- <div class="dropdown-data hidden tc-shadow" dropdown-data>
             <div class="dropdown-search-field">
                 <span>
@@ -36,6 +36,6 @@
                 <p class="ml-2">No Record Found</p>
             </div>
         </div> -->
-        <input autocomplete="off" type="number" name="{{name}}" {{attributes}} id="" class="number-field" placeholder="{{placeholder}}">
+        <input autocomplete="off" type="number" name="{{name}}" title="Please enter a valid Pakistani phone number (e.g.,03001234567)"  pattern="^03[0-9]{9}$"  {{attributes}} id="" class="number-field !mx-0" placeholder="{{placeholder}}">
     </div>
 </div>

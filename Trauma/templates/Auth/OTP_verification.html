@@ -19,11 +19,8 @@
             <div class="mt-20">
                   <div>
                         <div class="flex flex-col">
-                              <p class="text-center text-black text-[18px] sm:text-2xl font-[600]">Check Your email</p>
-                              <p class="text-center text-[13px] sm:text-[15px] text-[#838383]">we've sent the code to the {{user.username}}</p>
-                        </div>
-                        <div class="px-4 py-[10px] rounded-[10px] border flex w-full items-center gap-10 mt-4">
-                              <p class="outline-none text-gray-600">{{request.GET.email}}</p>
+                              <p class="text-center text-black text-[18px] sm:text-2xl font-[600]">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
+                              <p class="text-center text-[13px] sm:text-[15px] text-[#838383] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
                         </div>
                   </div>
                   <form class="mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
@@ -39,7 +36,7 @@
                               </svg>                                    
                         </button>
                   </form>
-                  <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all mx-auto w-full cursor-not-allowed px-5 py-3 mt-4 flex items-center justify-center  ">
+                  <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all rounded-10px mx-auto w-full cursor-not-allowed px-5 py-3 mt-4 flex items-center justify-center  ">
                         <p class="text-slate-900 font-[500] transition-all">Resend code in 50 sec</p>
                   </button>
             </div>

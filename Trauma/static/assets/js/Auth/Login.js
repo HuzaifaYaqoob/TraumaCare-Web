@@ -6,39 +6,46 @@ const UserValidationApi = (e) =>{
     if (validation_tm){
         clearTimeout(validation_tm)
     }
+    let element = e.target
+    let parent_form = element.closest('form')
+    let button = parent_form.querySelector('button')
+    if (button){
+        button.disabled = true
+    }
+
 
     let tm = setTimeout(() => {
-        let element = e.target
-        let {name ,value} = element
+        let {value} = element
         if (!value){
             return
         }
-        let parent_form = element.closest('.form-field')
         
         let form_data = new FormData()
-
-        if (!name){
-            form_data.append('email', value)
-            form_data.append('username', value)
-            form_data.append('dial_code', value)
-            form_data.append('mobile_number', value)
-        }
-        else{
-            form_data.append(name, value)
-        }
+        form_data.append('mobile_number', value)
 
         fetch("/api/v1/auth/validate-unique-user/", {method : 'POST', body : form_data}).then(response => response.json()).then(result =>{
             console.log(result.response.reserved_fields)
+            if (button){
+                button.disabled = false
+            }
+
+            let username_field = parent_form.querySelector('[name="username"]')
+
             if (result?.response?.reserved_fields?.length > 0){
                 remove_error_from_field(element)
-                element.name = result?.response?.reserved_fields[0] ? result?.response?.reserved_fields[0] : ''
+                if (username_field){
+                    username_field.parentElement.classList?.add('hidden')
+                    username_field.required = false
+                }
             }
             else{
-                element.name = ''
-                add_error_from_field(element, `User doesn't exist`)
+                if (username_field){
+                    username_field.parentElement.classList?.remove('hidden')
+                    username_field.required = true
+                }
             }
         })
-    }, 500);
+    }, 200);
 
     validation_tm = tm
 
@@ -46,10 +53,8 @@ const UserValidationApi = (e) =>{
 
 
 const ValidateUniqueUser = () =>{
-    let input_fields = document.querySelectorAll('[check-user-exist]')
-    input_fields.forEach(un_field =>{
-        un_field.addEventListener('input' , UserValidationApi)
-    })
+    let mobile_field = document.querySelector('[name="mobile_number"]')
+    mobile_field.addEventListener('input' , UserValidationApi)
 }
 
 

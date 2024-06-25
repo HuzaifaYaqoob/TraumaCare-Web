@@ -33,6 +33,13 @@ const UserValidationApi = (e) =>{
         fetch(url, {method : 'POST', body : form_data}).then(response => response.json()).then(result =>{
             console.log(result.response.reserved_fields)
             if (result?.response?.reserved_fields?.length > 0){
+                if (!result?.response?.reserved_fields?.includes('mobile_number')){
+                    let form = element.closest('form')
+                    let username = form.querySelector('[name="username"]')
+                    if (username){
+                        username.closest('[usernameFieldParent]')?.classList.remove('hidden')
+                    }
+                }
                 add_error_from_field(element, `User already exist with this ${name}`)
             }
             else{
@@ -68,6 +75,13 @@ const handleSubmit = (e) =>{
         })
         ShowNotification({type : 'error', message : 'Please fix the error above!'})
         return
+    }
+
+    let phn_field = form.querySelector('[name="mobile_number"]')
+    if (phn_field){
+        if (phn_field.value.length != 11 || !phn_field.value.startsWith('03')){
+            add_error_from_field(phn_field, 'Enter a valid phone number')
+        }
     }
 
     let psword = form.querySelector('[name="password"]')
