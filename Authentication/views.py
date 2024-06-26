@@ -292,7 +292,12 @@ def HandleJoin(request):
             email = f'{username}-{mobile_number}@traumacare.pk'
             password = f'{username}-{mobile_number}'
             dial_code = '92'
-            first_name, last_name = f'{full_name} '.split(' ')
+            full_name = f'{full_name} '.split(' ')
+            first_name = full_name[0]
+            try:
+                last_name = full_name[1]
+            except:
+                last_name = ''
 
             user = User(
                 username = username,
