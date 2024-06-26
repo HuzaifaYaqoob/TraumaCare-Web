@@ -14,3 +14,7 @@ class UserAdmin(admin.ModelAdmin):
 
     search_fields = ['id', 'username', 'email', 'country__name']
     list_filter = ['joined_at']
+
+    def phone_number(self, obj):
+        is_mobile_verified = 'https://traumacare.pk/static/admin/img/icon-yes.svg' if obj.is_mobile_verified else 'https://traumacare.pk/static/admin/img/icon-no.svg'
+        return f'{is_mobile_verified} {obj.mobile_number}'
