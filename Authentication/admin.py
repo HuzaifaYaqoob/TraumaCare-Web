@@ -9,7 +9,7 @@ from .models import User
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
     ordering = ['-joined_at']
-    list_display = ['username', 'email', 'first_name', 'last_name', 'mobile_number', 'is_mobile_verified', 'joined_at']
+    list_display = ['username', 'email', 'first_name', 'last_name', 'phone_number', 'is_mobile_verified', 'joined_at']
     # 'id', 
 
     search_fields = ['id', 'username', 'email', 'country__name']
