@@ -229,4 +229,5 @@ THIS_APPLICATION_URL=env('THIS_APPLICATION_URL')
 try:
     from .local_settings import *
 except:
+    DEBUG = True
     pass
