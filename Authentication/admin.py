@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-
+from django.utils.html import mark_safe
 from .models import User
 
 # Register your models here.
@@ -17,6 +17,6 @@ class UserAdmin(admin.ModelAdmin):
 
     def phone_number(self, obj):
         is_mobile_verified = '<img src="https://traumacare.pk/static/admin/img/icon-yes.svg" />' if obj.is_mobile_verified else '<img src="https://traumacare.pk/static/admin/img/icon-no.svg" />'
-        return f'{is_mobile_verified} {obj.mobile_number}'
+        return f'{mark_safe(is_mobile_verified)} {obj.mobile_number}'
     
     phone_number.image_tag = True
