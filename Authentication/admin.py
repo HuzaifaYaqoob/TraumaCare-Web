@@ -16,7 +16,7 @@ class UserAdmin(admin.ModelAdmin):
     list_filter = ['joined_at']
 
     def phone_number(self, obj):
-        is_mobile_verified = '<img src="https://traumacare.pk/static/admin/img/icon-yes.svg" />' if obj.is_mobile_verified else '<img src="https://traumacare.pk/static/admin/img/icon-no.svg" />'
+        is_mobile_verified = '<img style="margin-right:10px" src="%s" />' % 'https://traumacare.pk/static/admin/img/icon-yes.svg' if obj.is_mobile_verified else 'https://traumacare.pk/static/admin/img/icon-no.svg'
         return mark_safe(f'{is_mobile_verified} {obj.mobile_number}')
     
     phone_number.image_tag = True
