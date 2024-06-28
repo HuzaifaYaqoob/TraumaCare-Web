@@ -37,6 +37,8 @@ def convert_to_html(content):
     
     return content
 
+CLEANR = re.compile('<.*?>') # regex for cleaning html tags
+
 
 class Category(models.Model):
     name = models.CharField(max_length=999, default='')
@@ -68,6 +70,11 @@ class BlogPost(models.Model):
     @property
     def cover_image(self):
         return BlogMedia.objects.filter(post = self).first()
+    
+    @property
+    def content_content(self):
+        cleantext = re.sub(CLEANR, '', self.content)
+        return cleantext.replace('#', '')
     
     def save(self, *args, **kwargs):
         self.content = convert_to_html(self.content)
