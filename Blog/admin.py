@@ -15,7 +15,7 @@ class ImageInline(admin.TabularInline):
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'tags', 'created_at']
+    list_display = ['title', 'images', 'category', 'tags', 'created_at']
     #  'slug', 
     inlines = [TagsInline, ImageInline]
 
