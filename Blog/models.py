@@ -65,6 +65,10 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
     
+    @property
+    def cover_image(self):
+        return BlogMedia.objects.filter(post = self).first()
+    
     def save(self, *args, **kwargs):
         self.content = convert_to_html(self.content)
         self.slug = self.title.replace(' ', '-').replace('/', '-').replace('--', '-')

@@ -7,6 +7,6 @@ from Blog.models import BlogPost
 
 def BlogHomePage(request):
     context = {
-        'posts' : BlogPost.objects.all().order_by('-created_at')
+        'posts' : BlogPost.objects.all().order_by('-created_at')[:20]
     }
     return render(request, 'Blog/blog-home.html', context)
