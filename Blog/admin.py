@@ -15,12 +15,17 @@ class ImageInline(admin.TabularInline):
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'tags', 'slug', 'created_at']
+    list_display = ['title', 'category', 'tags', 'created_at']
+    #  'slug', 
     inlines = [TagsInline, ImageInline]
 
     def tags(self, obj):
         tags = obj.tags.all()
         return ', '.join([tag.name for tag in tags])
+    
+    def images(self, obj):
+        images = obj.blog_medias.all()
+        return len(images)
 
 @admin.register(BlogMedia)
 class MediaAdmin(admin.ModelAdmin):
