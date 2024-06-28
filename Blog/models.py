@@ -66,7 +66,7 @@ class BlogPost(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
-        # self.content = convert_to_html(self.content)
+        self.content = convert_to_html(self.content)
         self.slug = self.title.replace(' ', '-').replace('/', '-').replace('--', '-')
         super(BlogPost, self).save(*args, **kwargs)
 
