@@ -11,8 +11,12 @@ class TagsInline(admin.TabularInline):
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'created_at']
+    list_display = ['title', 'category', 'tags', 'created_at']
     inlines = [TagsInline]
+
+    def tags(self, obj):
+        tags = obj.tags.all()
+        return ', '.join([tag.name for tag in tags])
 
 @admin.register(BlogMedia)
 class MediaAdmin(admin.ModelAdmin):
