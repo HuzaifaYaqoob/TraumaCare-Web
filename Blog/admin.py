@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import BlogMedia, BlogPost, Tag, Category
+from .models import BlogMedia, BlogPost, Tag, Category, BlogPostTopic
 # Register your models here.
 
 
@@ -33,3 +33,8 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
+
+
+@admin.register(BlogPostTopic)
+class BlogPostTopicAdmin(admin.ModelAdmin):
+    list_display = ['name']
