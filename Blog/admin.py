@@ -24,7 +24,7 @@ class PostAdmin(admin.ModelAdmin):
         return ', '.join([tag.name for tag in tags])
     
     def images(self, obj):
-        images = obj.blog_medias.all()
+        images = obj.blog_post_medias.all()
         return len(images)
 
 @admin.register(BlogMedia)
