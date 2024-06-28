@@ -13,7 +13,7 @@ GPT_COMMON_FUNCTIONS = [
                 },
                 "content": {
                     "type": "string",
-                    "description": f"Content of Blog Post. Content length must be greated than 4000 words, must invlude Bold, Italic, Paragrams, Awesome Content. More realistic and SEO Friendly"
+                    "description": f"Content of Blog Post. Content length must be greated than 5000 words, must invlude Bold, Italic, Paragrams, Awesome Content. More realistic and SEO Friendly"
                 },
                 "category": {
                     "type": "string",

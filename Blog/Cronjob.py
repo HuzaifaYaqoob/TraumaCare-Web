@@ -32,6 +32,10 @@ def generateBlogPost():
         'role' : 'system',
         'content' : f'Most IMPORTANT ::: also generate post on Diseases which are most actively affecting our patients. We are trying to increase our traffic',
     })
+    data.append({
+        'role' : 'system',
+        'content' : f'Most IMPORTANT ::: Post content must be greater than 5000 words. Post must be too lengthy',
+    })
     response = askChatXpo(
         'Generate a blog post for above instructions. Generate Title, Content, Tags, Read time, category. C',
         previousQueries=data,

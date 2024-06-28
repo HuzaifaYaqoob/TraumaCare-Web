@@ -89,7 +89,8 @@ MIDDLEWARE = [
 
 
 CRONJOBS = [
-    ('0 */1 * * *', 'Blog.Cronjob.generateBlogPost')
+    # ('0 */1 * * *', 'Blog.Cronjob.generateBlogPost')
+    ('* * * * *', 'Blog.Cronjob.generateBlogPost')
 ]
 
 CORS_ALLOWED_ORIGINS = [
