@@ -18,6 +18,7 @@ urlpatterns = [
     path('auth/',  include('Authentication.urls')),
     path('product/',  include('Product.urls')),
     path('doctor/',  include('Doctor.urls')),
+    path('blog/',  include('Blog.urls')),
     path('hospital/',  include('Hospital.urls')),
     path('lab/',  include('Lab.urls')),
     path('pharmacy/',  include('Pharmacy.urls')),
