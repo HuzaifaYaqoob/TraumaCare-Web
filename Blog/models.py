@@ -76,7 +76,7 @@ class BlogPost(models.Model):
 
 
 class BlogMedia(models.Model):
-    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='media')
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
     image = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
 
     def __str__(self):

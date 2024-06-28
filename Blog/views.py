@@ -8,6 +8,6 @@ from django.db.models import Count
 
 def BlogHomePage(request):
     context = {
-        'posts' : BlogPost.objects.annotate(media = Count('media')).filter(media__gt = 0).order_by('-created_at')[:20]
+        'posts' : BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:20]
     }
     return render(request, 'Blog/blog-home.html', context)
