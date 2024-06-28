@@ -9,10 +9,14 @@ class TagsInline(admin.TabularInline):
     model = Tag
     extra = 0
 
+class ImageInline(admin.TabularInline):
+    model = BlogMedia
+    extra = 1
+
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'tags', 'created_at']
-    inlines = [TagsInline]
+    inlines = [TagsInline, ImageInline]
 
     def tags(self, obj):
         tags = obj.tags.all()
