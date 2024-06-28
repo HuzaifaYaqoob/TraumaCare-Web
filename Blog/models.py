@@ -58,6 +58,7 @@ class BlogPost(models.Model):
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_posts', default=None)
     content = models.TextField()
     read_time = models.PositiveIntegerField(default=0)
+    slug = models.TextField(max_length=999, default='')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -65,7 +66,8 @@ class BlogPost(models.Model):
         return self.title
     
     def save(self, *args, **kwargs):
-        self.content = convert_to_html(self.content)
+        # self.content = convert_to_html(self.content)
+        self.slug = self.title.replace(' ', '-').replace('/', '-').replace('--', '-')
         super(BlogPost, self).save(*args, **kwargs)
 
 
