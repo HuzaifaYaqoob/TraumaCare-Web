@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
+    'django_crontab',
 
     'Trauma.apps.TraumaConfig',
     'Authentication.apps.AuthenticationConfig',
@@ -68,6 +69,7 @@ INSTALLED_APPS = [
     'ChatXpo.apps.ChatxpoConfig',
     'Secure.apps.SecureConfig',
     'Administration.apps.AdministrationConfig',
+    'Blog.apps.BlogConfig',
 ]
 
 MIDDLEWARE = [
@@ -85,6 +87,10 @@ MIDDLEWARE = [
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
+
+CRONJOBS = [
+    ('0 */1 * * *', 'Blog.Cronjob.generateBlogPost')
+]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",

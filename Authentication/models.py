@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
+from django.contrib.auth.models import PermissionsMixin
 import uuid
 from django.utils.timezone import now
 # Create your models here.
@@ -43,7 +44,7 @@ class MyAccountManager(BaseUserManager):
         return user
 
 
-class User(AbstractBaseUser):
+class User(AbstractBaseUser, PermissionsMixin):
     SOCIAL_PLATFORM_CHOICES = [
         ('Google', 'Google'),
         ('Facebook', 'Facebook'),

@@ -166,6 +166,13 @@ class Doctor(models.Model):
         name = name.lower()
         self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
+    
+    class Meta:
+        permissions = [
+            ("can_view_task", "Can view task"),
+            ("can_edit_task", "Can edit task"),
+            ("can_delete_task", "Can delete task"),
+        ]
 
 
 
