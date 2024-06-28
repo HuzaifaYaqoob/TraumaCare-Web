@@ -1,7 +1,12 @@
 from django.shortcuts import render
 
+from Blog.models import BlogPost
+
 # Create your views here.
 
 
 def BlogHomePage(request):
-    return render(request, 'Blog/blog-home.html')
+    context = {
+        'posts' : BlogPost.objects.all().order_by('-created_at')
+    }
+    return render(request, 'Blog/blog-home.html', context)
