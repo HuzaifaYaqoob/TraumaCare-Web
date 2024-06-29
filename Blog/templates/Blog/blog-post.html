@@ -46,15 +46,18 @@
 
 
 
-<section class="add-appoinments-section py-[30px] md:py-[50px] max-w-[1440px] mx-auto px-[15px] md:px-[20px] ">
+<section class="add-appoinments-section py-[30px] md:py-[50px] max-w-[1440px] w-full mx-auto px-[15px] md:px-[20px] flex items-start">
+    <div class="max-w-[900px]">
+        <h1 class="text-[33px] font-[600]">{{post.title}}</h1>
+        <p>Home >> {{post.category.name}} >> {{post.title}}</p>
+        <p>Published on {{post.created_at|date}} . {{post.read_time}} min read</p>
+        <div class="bg-center bg-cover bg-no-repeat h-[400px]" style="background-image: url('{{post.cover_image.image.url}}');">
 
-{{post.title}}
-
-<br>
-
-<div class='main-blog-post-content'>
-    {{post.content|safe}}
-</div
+        </div>
+        <div class='main-blog-post-content'>
+            {{post.content|safe}}
+        </div>
+    </div>
 </section>
 
 {% endblock baseBody %}
