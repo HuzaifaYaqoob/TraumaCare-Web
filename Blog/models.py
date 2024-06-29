@@ -107,13 +107,13 @@ class BlogMedia(models.Model):
             # Assuming `self.image` is the background image path
 
             # background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
+            ext = self.image.name.split('.')[-1]
             background = Image.open(self.image)
             bg_w, bg_h = background.size
 
             # Calculate the size of the foreground image based on the background
             cfg_w, cfg_h = bg_w // 2, bg_h // 2
 
-            # foreground_path = f'{settings.BASE_DIR}/Files/fg1.jpg'
             foreground_path = f'{settings.BASE_DIR}/Files/tc_watermark.png'
             foreground = Image.open(foreground_path).convert("RGBA")
 
@@ -147,7 +147,7 @@ class BlogMedia(models.Model):
             
             slug = self.post.slug
             slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
-            saving_url = f"media/Blog/Images/{slug[0:44]}-{time_now.strftime("%d-%H%M%S")}.jpeg"
+            saving_url = f"media/Blog/Images/{slug[0:44]}-{time_now.strftime("%d-%H%M%S")}.{ext}"
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
             self.is_thumbnail_generated = True
