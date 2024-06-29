@@ -95,7 +95,7 @@ class BlogPost(models.Model):
 
 class BlogMedia(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
-    image = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
+    image = models.FileField(upload_to='Blog/Images/%Y-%m', default='')
     is_thumbnail_generated = models.BooleanField(default=False)
 
     def __str__(self):
