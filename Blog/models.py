@@ -8,6 +8,7 @@ from datetime import datetime
 
 import re
 import uuid
+import time
 def convert_to_html(content):
 
     # Replace matched patterns with corresponding HTML tags
@@ -107,7 +108,7 @@ class BlogMedia(models.Model):
 
             if '.webp' in self.image.url:
                 import webp
-                background = webp.load_image(f'{settings.BASE_DIR}{self.image.url}').convert('RGB')
+                # background = webp.load_image(f'{settings.BASE_DIR}{self.image.url}').convert('RGB')
                 background = webp.load_image(self.image).convert('RGB')
             else:
                 # background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
@@ -146,6 +147,7 @@ class BlogMedia(models.Model):
             background.paste(foreground, (x, y), foreground)
 
             # Save the resulting image
+            time.sleep(1)
             time_now = datetime.now()
             
             slug = self.post.slug
