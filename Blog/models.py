@@ -108,7 +108,7 @@ class BlogMedia(models.Model):
 
             # background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
             ext = self.image.name.split('.')[-1]
-            background = Image.open(self.image)
+            background = Image.open(self.image).convert('RGBA')
             bg_w, bg_h = background.size
 
             # Calculate the size of the foreground image based on the background
