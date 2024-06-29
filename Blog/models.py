@@ -2,9 +2,11 @@ from django.db import models
 
 # Create your models here.
 
-
+from PIL import Image
+from django.conf import settings
 
 import re
+import uuid
 def convert_to_html(content):
 
     # Replace matched patterns with corresponding HTML tags
@@ -92,9 +94,57 @@ class BlogPost(models.Model):
 class BlogMedia(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
     image = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
+    is_thumbnail_generated = models.BooleanField(default=False)
 
     def __str__(self):
         return self.post.title
+    
+    def save(self, *args, **kwargs):
+        if not self.is_thumbnail_generated:
+
+            # Assuming `self.image` is the background image path
+
+            background = Image.open(self.image)
+            bg_w, bg_h = background.size
+
+            # Calculate the size of the foreground image based on the background
+            cfg_w, cfg_h = bg_w // 2, bg_h // 2
+
+            # foreground_path = f'{settings.BASE_DIR}/Files/fg1.jpg'
+            foreground_path = f'{settings.BASE_DIR}/Files/tc_watermark.png'
+            foreground = Image.open(foreground_path).convert("RGBA")
+
+            # Calculate aspect ratio
+            aspect_ratio = foreground.width / foreground.height
+
+            # Calculate new width and height while maintaining aspect ratio
+            new_width = cfg_w
+            new_height = int(new_width / aspect_ratio)
+
+            # Resize the foreground image
+            foreground = foreground.resize((new_width, new_height), Image.ANTIALIAS)
+            fg_w, fg_h = foreground.size
+
+            # Calculate position to paste the foreground image at the center of the background
+            x, y = ((bg_w - fg_w) // 2, (bg_h - fg_h) // 2)
+
+            # Adjust alpha channel if it exists
+            bands = list(foreground.split())
+            if len(bands) == 4:
+                # Assuming alpha is the last band
+                bands[3] = bands[3].point(lambda x: x * 0.4)
+                foreground = Image.merge(foreground.mode, bands)
+
+            # Paste the foreground image onto the background
+            background.paste(foreground, (x, y), foreground)
+
+            # Save the resulting image
+            saving_url = f"media/{self.post.slug}-{str(uuid.uuid4()).split('-')[0]}-{self.image.url.split('/media/')[-1]}"
+            background.save(saving_url, quality=70)
+            self.image = f'{saving_url}'.split('media/')[-1]
+            self.is_thumbnail_generated = True
+        
+        super(BlogMedia, self).save(*args, **kwargs)
 
 
 class Tag(models.Model):
