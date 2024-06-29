@@ -46,21 +46,32 @@
 
 
 
-<section class="add-appoinments-section gap-5 py-[30px] md:py-[50px] max-w-[1440px] w-full mx-auto px-[15px] md:px-[20px] flex items-start">
-    <div class="max-w-[900px]">
-        <p>Home >> {{post.category.name}} >> {{post.title}}</p>
-        <h1 class="text-[33px] font-[600]">{{post.title}}</h1>
-        <p>Published on {{post.created_at|date}} . {{post.read_time}} min read</p>
-        <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[400px]" style="background-image: url('{{post.cover_image.image.url}}');">
-
-        </div>
+<section class="add-appoinments-section gap-5 py-[30px] md:py-[50px] max-w-[1440px] w-full mx-auto px-[15px] md:px-[20px] flex items-start max-w-[1200px] mx-auto ">
+    <div class="flex-1">
+        <p class="text-[15px] font-[500] text-[#0A1C4B] flex items-center gap-[4px] transition-all ">
+            <a class="hover:text-[#24d0d0] " href="/">Home</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform msFilter\"><path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path><path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path></svg>
+            <a class="hover:text-[#24d0d0] " href="/blog">{{post.category.name}}</a>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" style="fill: rgba(0, 0, 0, 1);transform msFilter\"><path d="M10.296 7.71 14.621 12l-4.325 4.29 1.408 1.42L17.461 12l-5.757-5.71z"></path><path d="M6.704 6.29 5.296 7.71 9.621 12l-4.325 4.29 1.408 1.42L12.461 12z"></path></svg>
+            <a class="hover:text-[#24d0d0] " href="/blog">{{post.title}}</a>
+        </p>
+        <h1 class="text-[33px] font-[600] text-[#0A1C4B] ">{{post.title}}</h1>
+        <p class="text-[15px] font-[500] text-[#0A1C4B]">Published on {{post.created_at|date}} . {{post.read_time}} min read</p>
+        <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[540px]" style="background-image: url('{{post.cover_image.image.url}}');"></div>
         <div class='main-blog-post-content mt-10'>
             {{post.content|safe}}
         </div>
     </div>
-    <div>
+    <div class="w-[420px] mt-[87px] ">
         {% for pImage in post.blog_post_medias.all %}
-            <img class="mb-5 rounded-3xl" src="{{pImage.image.url}}"/>
+        <div class=" flex gap-[12px] w-full cursor-pointer mt-[10px] ">
+            <div class="w-[120px] h-[120px] bg-cover bg-center bg-no-repeat rounded-[11px] " style="background-image: url({{pImage.image.url}});"></div>
+            <div class="flex-1 ">
+                <h2 class="text-[18px] font-[600] text-[#0A1C4B] line-clamp-1 ">Danish Yaqoob</h2>
+                <p class="text-[13px] font-[500] text-[#0A1C4B] line-clamp-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsa esse labore hic tempore id alias eaque, iste repellat quod doloribus quae ducimus, molestias sequi corrupti in sed fugiat fugit aliquam eos nostrum ex? Earum facilis iusto architecto maiores, voluptatem eligendi est nulla totam tenetur vel repudiandae sequi temporibus officia!</p>
+            </div>
+        </div>
+            <!-- <img class="mb-5 rounded-3xl w-[120px] h-[120px] " src="{{pImage.image.url}}"/> -->
         {% endfor %}
     </div>
 </section>
