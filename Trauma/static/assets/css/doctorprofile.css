@@ -12,31 +12,6 @@ body {
     box-sizing: border-box;
 }
 
-
-.main-header {
-    background-color: rgba(255, 255, 255, 1);
-    height: 80px;
-    width: 100%;
-    /* border: 1px solid red; */
-}
-
-
-.float-left {
-    float: left;
-    height: 100%;
-    display: flex;
-    /* border: 1px solid rgb(12, 12, 12); */
-    margin-left: 90px;
-}
-
-
-.logo svg {
-    height: 77px;
-    width: 200px;
-    cursor: pointer;
-}
-
-
 .list-items {
     display: flex;
     /* border: 1px solid red; */
@@ -68,42 +43,6 @@ body {
 .list-items li:last-child {
     padding-right: 0;
 }
-
-
-
-
-
-
-
-
-
-
-
-/*  */
-/*  */
-/*  */
-/* float :right */
-/*  */
-/*  */
-/*  */
-
-
-
-
-
-
-
-.float-right {
-    height: 100%;
-    text-align: right;
-    justify-content: end;
-    display: flex;
-    padding-top: 1px;
-    /* border: 1px solid rgb(12, 12, 12); */
-    margin-right: 80px;
-    padding-right: 2px;
-}
-
 
 .logo-paragraph p {
     font-size: 24px;

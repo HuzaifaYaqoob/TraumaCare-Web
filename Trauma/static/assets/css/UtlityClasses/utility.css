@@ -365,22 +365,6 @@ input[type='number']::-webkit-outer-spin-button
 }
 
 
-
-@media (max-width:1284px){
-    .book-appointment-button .Book-appoinment {
-        display: none !important;
-    }
-
-}
-
-
-@media (max-width:1210px) and (min-width:700px){
-    .book-appointment-button .Book-appoinment {
-        display: block !important;
-    }
-
-}
-
 .line-clamp-1{
     overflow: hidden !important;
     display: -webkit-box !important;
@@ -425,4 +409,30 @@ input[type='number']::-webkit-outer-spin-button
 }
 .rating_star_svg:hover ~ .rating_star_svg path{
     fill : #A7A7A7
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*  */
+/* Real Utlity Classes */
+/*  */
+
+
+.boxshadow{
+    box-shadow: 0px 7px 30px rgba(0, 0, 0, 0.25);
 }
