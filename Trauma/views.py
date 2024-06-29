@@ -10,6 +10,7 @@ from Trauma.models import Speciality, Disease
 from django.db.models import Case, When, Min, Sum, Q, Count
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
+from Blog.models import BlogPost
 
 from datetime import datetime
 def homePage(request):
@@ -17,6 +18,7 @@ def homePage(request):
 
     doctors = Doctor.objects.all()
     context['doctors'] = doctors
+    context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:8]
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     return render(request, 'Home/index.html', context)
 
