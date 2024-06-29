@@ -1,0 +1,30 @@
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock title %}
+
+
+{% block BaseCSS %}
+
+
+<style>
+    
+</style>
+
+
+{% endblock BaseCSS %}
+
+{% block baseBody %}
+
+
+
+<section class="add-appoinments-section py-[30px] md:py-[50px] max-w-[1440px] mx-auto px-[15px] md:px-[20px] ">
+
+{{post.title}}
+
+<br>
+
+{{post.content|safe}}
+    
+</section>
+
+{% endblock baseBody %}
