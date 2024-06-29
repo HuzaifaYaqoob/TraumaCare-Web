@@ -105,7 +105,11 @@ class BlogMedia(models.Model):
 
             # Assuming `self.image` is the background image path
 
-            background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
+            if '.webp' in self.image.url:
+                import webp
+                background = webp.load_image(f'{settings.BASE_DIR}{self.image.url}').convert('RGB')
+            else:
+                background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
             # background = Image.open(self.image)
             bg_w, bg_h = background.size
 
