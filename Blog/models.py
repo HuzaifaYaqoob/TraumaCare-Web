@@ -147,7 +147,7 @@ class BlogMedia(models.Model):
             
             slug = self.post.slug
             slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
-            saving_url = f"media/Blog/Images/{slug[0:44]}-{time_now.strftime("%d-%H%M%S")}.{ext}"
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now.strftime("%d-%H%M%S")}.{ext}"
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
             self.is_thumbnail_generated = True
