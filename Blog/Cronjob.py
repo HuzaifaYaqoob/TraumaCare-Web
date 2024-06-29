@@ -51,6 +51,7 @@ def generateBlogPost():
             user=None,
             inputFunction='generate_blog_post'
         )
+        p.delete()
         break
 
     print(response)
