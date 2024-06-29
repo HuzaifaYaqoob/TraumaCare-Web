@@ -7,7 +7,26 @@
 
 
 <style>
-    
+
+    .main-blog-post-content h1{
+        font-size : 30px;
+    }
+    .main-blog-post-content h2{
+        font-size : 25px;
+    }
+    .main-blog-post-content h3{
+        font-size : 20px;
+    }
+    .main-blog-post-content h1,
+    .main-blog-post-content h2,
+    .main-blog-post-content h3{
+        font-weight: 700;
+    }
+    .main-blog-post-content h1 ~ div,
+    .main-blog-post-content h2 ~ div,
+    .main-blog-post-content h3 ~ div{
+        padding-left: 35px;
+    }
 </style>
 
 
@@ -23,8 +42,9 @@
 
 <br>
 
-{{post.content|safe}}
-    
+<div class='main-blog-post-content'>
+    {{post.content|safe}}
+</div
 </section>
 
 {% endblock baseBody %}

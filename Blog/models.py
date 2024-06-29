@@ -6,6 +6,9 @@ from django.db import models
 
 import re
 def convert_to_html(content):
+
+    # Replace matched patterns with corresponding HTML tags
+    
     # Replace '**' for bold text
     content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
     
@@ -35,14 +38,9 @@ def convert_to_html(content):
         content = content.replace('<ul><br>', '<ul>')
         content = content.replace('<br></li>', '</li>')
     
-    pattern = r'(?<=\n|^)(#{1,3})\s*(.*?)(?=\n|\s*\#{1,3}\s*|\Z)'
-    # Replace matched patterns with corresponding HTML tags
-    def replace(match):
-        header_level = len(match.group(1))  # Determine header level based on number of '#'
-        return f'<h{header_level}>{match.group(2).strip()}</h{header_level}>'
-    
-    # Perform substitution
-    content = re.sub(pattern, replace, content, flags=re.DOTALL)
+    print('done')
+    content = re.sub(r'(#{1,3})\s*(.*?)($|<br>|<br\/>)($|<br>|<br\/>)(.*?)(?=$|#)', lambda match: f'<h{len(match.group(1))}>{match.group(2).strip()}</h{len(match.group(1))}>{match.group(3)}<div>{match.group(5)}</div>{match.group(4)}', content, flags=re.MULTILINE)
+
     
     return content
 
