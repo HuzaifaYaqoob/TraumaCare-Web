@@ -4,6 +4,7 @@ from django.db import models
 
 from PIL import Image
 from django.conf import settings
+from datetime import datetime
 
 import re
 import uuid
@@ -104,6 +105,7 @@ class BlogMedia(models.Model):
 
             # Assuming `self.image` is the background image path
 
+            # background = Image.open(f'{settings.BASE_DIR}/media/{self.image}')
             background = Image.open(self.image)
             bg_w, bg_h = background.size
 
@@ -139,7 +141,11 @@ class BlogMedia(models.Model):
             background.paste(foreground, (x, y), foreground)
 
             # Save the resulting image
-            saving_url = f"media/{self.post.slug}-{str(uuid.uuid4()).split('-')[0]}-{self.image.url.split('/media/')[-1]}"
+            time_now = datetime.now()
+            
+            slug = self.post.slug
+            slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
+            saving_url = f"media/Blog/Images/{time_now.strftime('%Y-%m')}/{slug[0:40]}{time_now.strftime("%d-%H%M%S")}.jpeg"
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
             self.is_thumbnail_generated = True
