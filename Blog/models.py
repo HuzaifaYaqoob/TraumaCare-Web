@@ -9,6 +9,7 @@ from datetime import datetime
 import re
 import uuid
 import time
+import random
 def convert_to_html(content):
 
     # Replace matched patterns with corresponding HTML tags
@@ -79,7 +80,12 @@ class BlogPost(models.Model):
     
     @property
     def cover_image(self):
-        return BlogMedia.objects.filter(post = self).first()
+        medias = BlogMedia.objects.filter(post = self)
+        if len(medias) == 0:
+            return None
+        random.shuffle(medias)
+        return medias[0]
+
 
     @property
     def content_content(self):
