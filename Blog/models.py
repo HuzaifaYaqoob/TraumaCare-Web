@@ -83,7 +83,7 @@ class BlogPost(models.Model):
         medias = BlogMedia.objects.filter(post = self)
         if len(medias) == 0:
             return None
-        random.shuffle(medias)
+        random.shuffle(list(medias))
         return medias[0]
 
 
