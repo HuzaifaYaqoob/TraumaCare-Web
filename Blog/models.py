@@ -76,7 +76,7 @@ class BlogPost(models.Model):
     @property
     def cover_image(self):
         return BlogMedia.objects.filter(post = self).first()
-    
+
     @property
     def content_content(self):
         CLEANR = re.compile('<.*?>') # regex for cleaning html tags
