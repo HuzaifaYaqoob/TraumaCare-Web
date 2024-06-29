@@ -35,6 +35,7 @@
                             <p class="text-[13px] font-[400] text-[#0a1c4b]/70 line-clamp-1 ">May 9, 2023</p>
                         </div>
                     </div> -->
+                    <p class="line-clamp-1 text-[16px] font-[500] text-[#0a1c4b] mt-[7px] leading-[20px] ">{{post.category.name}}</p>
                     <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-2 text-[20px] font-[600] text-[#0a1c4b] mt-[4px] leading-[26px] ">{{post.title}}</a>
                     <p class="line-clamp-3 text-[15px] font-[500] text-[#0a1c4b]/70 mt-[7px] leading-[20px] ">{{post.content_content}}</p>
                 </div>
