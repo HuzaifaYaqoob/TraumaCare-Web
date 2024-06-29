@@ -37,7 +37,6 @@ def convert_to_html(content):
     
     return content
 
-CLEANR = re.compile('<.*?>') # regex for cleaning html tags
 
 
 class Category(models.Model):
@@ -73,6 +72,7 @@ class BlogPost(models.Model):
     
     @property
     def content_content(self):
+        CLEANR = re.compile('<.*?>') # regex for cleaning html tags
         cleantext = re.sub(CLEANR, '', self.content)
         return cleantext.replace('#', '')
     
