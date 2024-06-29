@@ -103,18 +103,6 @@ class User(AbstractBaseUser, PermissionsMixin):
     def __str__(self):
         return self.username
 
-    # For checking permissions. to keep it simple all admin have ALL permissons
-    def has_perm(self, perm, obj=None):
-        return self.is_admin
-
-    # Does this user have permission to view this app? (ALWAYS YES FOR SIMPLICITY)
-    def has_module_perms(self, app_label):
-        return True
-
-    def get_all_permissions(self, user=None):
-        return []
-
-    
     def country_name(self):
         if self.country:
             return self.country.name
