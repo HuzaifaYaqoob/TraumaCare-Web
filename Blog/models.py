@@ -6,6 +6,9 @@ from django.db import models
 
 import re
 def convert_to_html(content):
+
+    # Replace matched patterns with corresponding HTML tags
+    
     # Replace '**' for bold text
     content = re.sub(r'\*\*(.*?)\*\*', r'<strong>\1</strong>', content)
     
@@ -35,7 +38,12 @@ def convert_to_html(content):
         content = content.replace('<ul><br>', '<ul>')
         content = content.replace('<br></li>', '</li>')
     
+    print('done')
+    content = re.sub(r'(#{1,3})\s*(.*?)($|<br>|<br\/>)($|<br>|<br\/>)(.*?)(?=$|#)', lambda match: f'<h{len(match.group(1))}>{match.group(2).strip()}</h{len(match.group(1))}>{match.group(3)}<div>{match.group(5)}</div>{match.group(4)}', content, flags=re.MULTILINE)
+
+    
     return content
+
 
 
 class Category(models.Model):
@@ -65,6 +73,16 @@ class BlogPost(models.Model):
     def __str__(self):
         return self.title
     
+    @property
+    def cover_image(self):
+        return BlogMedia.objects.filter(post = self).first()
+
+    @property
+    def content_content(self):
+        CLEANR = re.compile('<.*?>') # regex for cleaning html tags
+        cleantext = re.sub(CLEANR, '', self.content)
+        return cleantext.replace('#', '')
+    
     def save(self, *args, **kwargs):
         self.content = convert_to_html(self.content)
         self.slug = self.title.replace(' ', '-').replace('/', '-').replace('--', '-')
@@ -72,7 +90,7 @@ class BlogPost(models.Model):
 
 
 class BlogMedia(models.Model):
-    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='media')
+    post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
     image = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
 
     def __str__(self):
@@ -82,6 +100,13 @@ class BlogMedia(models.Model):
 class Tag(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='tags')
     name = models.CharField(max_length=100, default='')
+
+    def __str__(self):
+        return self.name
+
+
+class BlogPostTopic(models.Model):
+    name = models.TextField(default='')
 
     def __str__(self):
         return self.name

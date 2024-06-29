@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import BlogMedia, BlogPost, Tag, Category
+from .models import BlogMedia, BlogPost, Tag, Category, BlogPostTopic
 # Register your models here.
 
 
@@ -15,12 +15,17 @@ class ImageInline(admin.TabularInline):
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'category', 'tags', 'slug', 'created_at']
+    list_display = ['title', 'images', 'category', 'tags', 'created_at']
+    #  'slug', 
     inlines = [TagsInline, ImageInline]
 
     def tags(self, obj):
         tags = obj.tags.all()
         return ', '.join([tag.name for tag in tags])
+    
+    def images(self, obj):
+        images = obj.blog_post_medias.all()
+        return len(images)
 
 @admin.register(BlogMedia)
 class MediaAdmin(admin.ModelAdmin):
@@ -33,3 +38,8 @@ class TagAdmin(admin.ModelAdmin):
 @admin.register(Category)
 class CategoryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name']
+
+
+@admin.register(BlogPostTopic)
+class BlogPostTopicAdmin(admin.ModelAdmin):
+    list_display = ['name']

@@ -572,6 +572,25 @@
             {% endfor %}
         </div>
     </div>
+    <div class="grid grid-cols-4 gap-[22px] mt-[40px] md:mt-[70px] max-w-[1440px] mx-auto">
+        {% for post in blog_posts %}
+            <div class="sm:max-w-[450px] w-full rounded-[9px] overflow-hidden border shadow ">
+                <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({{post.cover_image.image.url}});" ></div>
+                <div class="p-[12px] ">
+                    <!-- <div class="flex items-center gap-[12px] ">
+                        <div class="bg-cover bg-center bg-no-repeat rounded-[100px] h-[50px] w-[50px] bg-red-300 "></div>
+                        <div>
+                            <h2 class="text-[15px] font-[600] text-[#0a1c4b] line-clamp-1 ">Danish yaqoob</h2>
+                            <p class="text-[13px] font-[400] text-[#0a1c4b]/70 line-clamp-1 ">May 9, 2023</p>
+                        </div>
+                    </div> -->
+                    <p class="line-clamp-1 text-[13px] font-[500] text-[#0a1c4b] mt-[7px] leading-[20px] ">{{post.category.name}}</p>
+                    <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-2 text-[20px] font-[600] text-[#0a1c4b] mt-[4px] leading-[26px] ">{{post.title}}</a>
+                    <p class="line-clamp-3 text-[15px] font-[500] text-[#0a1c4b]/70 mt-[7px] leading-[20px] ">{{post.content_content}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
 
             

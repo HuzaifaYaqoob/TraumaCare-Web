@@ -7,6 +7,7 @@ from django.core.management.base import BaseCommand
 import csv
 
 from Blog.Cronjob import generateBlogPost
+from Blog.models import BlogPostTopic
 
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):

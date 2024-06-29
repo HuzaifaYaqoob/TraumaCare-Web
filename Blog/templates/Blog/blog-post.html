@@ -1,0 +1,68 @@
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}{{post.title}}{% endblock title %}
+
+
+{% block BaseCSS %}
+
+
+<style>
+
+    .main-blog-post-content {
+        color: #363636;
+    }
+    .main-blog-post-content h1{
+        font-size : 30px;
+    }
+    .main-blog-post-content h2{
+        font-size : 25px;
+    }
+    .main-blog-post-content h3{
+        font-size : 20px;
+    }
+    .main-blog-post-content h1,
+    .main-blog-post-content h2,
+    .main-blog-post-content h3{
+        font-weight: 700;
+        color: black !important;
+    }
+    .main-blog-post-content h1 ~ div,
+    .main-blog-post-content h2 ~ div,
+    .main-blog-post-content h3 ~ div{
+        padding-left: 35px;
+    }
+
+    .main-blog-post-content strong{
+        font-weight: 600;
+        color: black;
+    }
+
+</style>
+
+
+{% endblock BaseCSS %}
+
+{% block baseBody %}
+
+
+
+<section class="add-appoinments-section gap-5 py-[30px] md:py-[50px] max-w-[1440px] w-full mx-auto px-[15px] md:px-[20px] flex items-start">
+    <div class="max-w-[900px]">
+        <p>Home >> {{post.category.name}} >> {{post.title}}</p>
+        <h1 class="text-[33px] font-[600]">{{post.title}}</h1>
+        <p>Published on {{post.created_at|date}} . {{post.read_time}} min read</p>
+        <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[400px]" style="background-image: url('{{post.cover_image.image.url}}');">
+
+        </div>
+        <div class='main-blog-post-content mt-10'>
+            {{post.content|safe}}
+        </div>
+    </div>
+    <div>
+        {% for pImage in post.blog_post_medias.all %}
+            <img class="mb-5 rounded-3xl" src="{{pImage.image.url}}"/>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock baseBody %}
