@@ -38,6 +38,8 @@ class CustomUserAdmin(UserAdmin):
                 "classes": ("wide",),
                 "fields": (
                     "email",
+                    "password",
+                    "username",
                     "first_name",
                     "last_name",
                 ),
