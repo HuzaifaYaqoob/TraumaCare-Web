@@ -108,9 +108,10 @@ class BlogMedia(models.Model):
             if '.webp' in self.image.url:
                 import webp
                 background = webp.load_image(f'{settings.BASE_DIR}{self.image.url}').convert('RGB')
+                background = webp.load_image(self.image).convert('RGB')
             else:
-                background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
-            # background = Image.open(self.image)
+                # background = Image.open(f'{settings.BASE_DIR}{self.image.url}')
+                background = Image.open(self.image)
             bg_w, bg_h = background.size
 
             # Calculate the size of the foreground image based on the background
