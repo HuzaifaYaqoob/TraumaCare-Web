@@ -31,7 +31,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(BlogMedia)
 class MediaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'post', 'image']
+    list_display = ['id', 'post', 'image', 'thumbnail']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):
