@@ -102,6 +102,7 @@ class BlogPost(models.Model):
 class BlogMedia(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
     image = models.FileField(upload_to='Blog/Images/%Y-%m', default='')
+    thumbnail = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
     is_thumbnail_generated = models.BooleanField(default=False)
 
     def __str__(self):
@@ -141,7 +142,7 @@ class BlogMedia(models.Model):
             bands = list(foreground.split())
             if len(bands) == 4:
                 # Assuming alpha is the last band
-                bands[3] = bands[3].point(lambda x: x * 0.4)
+                bands[3] = bands[3].point(lambda x: x * 0.6)
                 foreground = Image.merge(foreground.mode, bands)
 
             # Paste the foreground image onto the background
@@ -153,9 +154,26 @@ class BlogMedia(models.Model):
             
             slug = self.post.slug
             slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
+<<<<<<< HEAD
             saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now}.{ext}"
+=======
+
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now.strftime("%d-%H%M%S")}-{bg_w}X{bg_h}.{ext}"
+>>>>>>> a2916c123edcd2b8208ec1b3b562bdafb392e3ba
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
+
+            new_width = 400
+            if bg_w > new_width:
+                bg_h = int((new_width / bg_w) * bg_h)
+                bg_w = new_width
+
+                background = background.resize((bg_w, bg_h), Image.ANTIALIAS)
+
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now.strftime("%d-%H%M%S")}-{bg_w}X{bg_h}.{ext}"
+            background.save(saving_url, quality=95)
+            self.thumbnail = f'{saving_url}'.split('media/')[-1]
+
             self.is_thumbnail_generated = True
         
         super(BlogMedia, self).save(*args, **kwargs)
