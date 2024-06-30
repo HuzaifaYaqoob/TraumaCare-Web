@@ -63,15 +63,14 @@
         </div>
     </div>
     <div class="w-[420px] mt-[87px] ">
-        {% for pImage in post.blog_post_medias.all %}
-        <div class=" flex gap-[12px] w-full cursor-pointer mt-[10px] ">
-            <div class="w-[120px] h-[120px] bg-cover bg-center bg-no-repeat rounded-[11px] " style="background-image: url({{pImage.image.url}});"></div>
-            <div class="flex-1 ">
-                <h2 class="text-[18px] font-[600] text-[#0A1C4B] line-clamp-1 ">Danish Yaqoob</h2>
-                <p class="text-[13px] font-[500] text-[#0A1C4B] line-clamp-4 ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro ipsa esse labore hic tempore id alias eaque, iste repellat quod doloribus quae ducimus, molestias sequi corrupti in sed fugiat fugit aliquam eos nostrum ex? Earum facilis iusto architecto maiores, voluptatem eligendi est nulla totam tenetur vel repudiandae sequi temporibus officia!</p>
-            </div>
-        </div>
-            <!-- <img class="mb-5 rounded-3xl w-[120px] h-[120px] " src="{{pImage.image.url}}"/> -->
+        {% for s_post in suggested %}
+            <a href="{% url 'PostViewPage' s_post.slug %}" class=" flex gap-[12px] w-full cursor-pointer mt-[10px] ">
+                <div class="w-[120px] h-[120px] bg-cover bg-center bg-no-repeat rounded-[11px] " style="background-image: url({% if s_post.cover_image.mini_thumbnail %}{{s_post.cover_image.mini_thumbnail.url}}{% else %}{{s_post.cover_image.thumbnail.url}}{% endif %});"></div>
+                <div class="flex-1 ">
+                    <h2 class="text-[18px] font-[600] text-[#0A1C4B] line-clamp-1 ">{{s_post.title}}</h2>
+                    <p class="text-[13px] font-[500] text-[#0A1C4B] line-clamp-3 ">{{s_post.content_content}}</p>
+                </div>
+            </a>
         {% endfor %}
     </div>
 </section>

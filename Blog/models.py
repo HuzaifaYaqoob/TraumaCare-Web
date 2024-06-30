@@ -103,6 +103,7 @@ class BlogMedia(models.Model):
     post = models.ForeignKey(BlogPost, on_delete=models.CASCADE, related_name='blog_post_medias')
     image = models.FileField(upload_to='Blog/Images/%Y-%m', default='')
     thumbnail = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
+    mini_thumbnail = models.ImageField(upload_to='Blog/Images/%Y-%m', default='')
     is_thumbnail_generated = models.BooleanField(default=False)
 
     def __str__(self):
@@ -153,7 +154,7 @@ class BlogMedia(models.Model):
             time_now = datetime.now().strftime("%d-%H%M%S")
             
             slug = self.post.slug
-            saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now}.{ext}"
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now}-{bg_w}x{bg_h}.{ext}"
 
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
@@ -163,11 +164,22 @@ class BlogMedia(models.Model):
                 bg_h = int((new_width / bg_w) * bg_h)
                 bg_w = new_width
 
+                tmb_bg = background.resize((bg_w, bg_h), Image.ANTIALIAS)
+
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now}-{bg_w}x{bg_h}.{ext}"
+            tmb_bg.save(saving_url, quality=95)
+            self.thumbnail = f'{saving_url}'.split('media/')[-1]
+
+            new_width = 200
+            if bg_w > new_width:
+                bg_h = int((new_width / bg_w) * bg_h)
+                bg_w = new_width
+
                 background = background.resize((bg_w, bg_h), Image.ANTIALIAS)
 
-            saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now}-{bg_w}X{bg_h}.{ext}"
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now}-{bg_w}x{bg_h}.{ext}"
             background.save(saving_url, quality=95)
-            self.thumbnail = f'{saving_url}'.split('media/')[-1]
+            self.mini_thumbnail = f'{saving_url}'.split('media/')[-1]
 
             self.is_thumbnail_generated = True
         
