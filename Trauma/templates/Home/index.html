@@ -575,7 +575,7 @@
     <div class="grid grid-cols-4 gap-[22px] mt-[40px] md:mt-[70px] max-w-[1440px] mx-auto">
         {% for post in blog_posts %}
             <div class="sm:max-w-[450px] w-full rounded-[9px] overflow-hidden border shadow ">
-                <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({{post.cover_image.image.url}});" ></div>
+                <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({% if post.cover_image.thumbnail %}{{post.cover_image.thumbnail.url}}{% else %}{{post.cover_image.image.url}}{% endif %});" ></div>
                 <div class="p-[12px] ">
                     <!-- <div class="flex items-center gap-[12px] ">
                         <div class="bg-cover bg-center bg-no-repeat rounded-[100px] h-[50px] w-[50px] bg-red-300 "></div>

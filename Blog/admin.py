@@ -12,10 +12,12 @@ class TagsInline(admin.TabularInline):
 class ImageInline(admin.TabularInline):
     model = BlogMedia
     extra = 1
+    fields = ['image', 'thumbnail']
+    readonly_fields = ['thumbnail']
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
-    list_display = ['title', 'images', 'category', 'tags', 'created_at']
+    list_display = ['title', 'images', 'category', 'tags', 'slug', 'created_at']
     #  'slug', 
     inlines = [TagsInline, ImageInline]
 
