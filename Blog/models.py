@@ -95,7 +95,7 @@ class BlogPost(models.Model):
     
     def save(self, *args, **kwargs):
         self.content = convert_to_html(self.content)
-        self.slug = self.title.replace(' ', '-').replace('/', '-').replace('--', '-')
+        self.slug = self.title.replace(' ', '-').replace('/', '-').replace("'", '').replace('"', '').replace(':', '-').replace('--', '-')
         super(BlogPost, self).save(*args, **kwargs)
 
 
@@ -153,7 +153,6 @@ class BlogMedia(models.Model):
             time_now = datetime.now().strftime("%d-%H%M%S")
             
             slug = self.post.slug
-            slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
             saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now}.{ext}"
 
             background.save(saving_url, quality=70)
