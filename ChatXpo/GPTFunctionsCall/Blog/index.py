@@ -21,6 +21,7 @@ def generate_blog_post(
     category, created = Category.objects.get_or_create(name = category)
     post = BlogPost.objects.create(
         title = title,
+        content = gpt_content,
         content = content,
         category = category,
         read_time = read_time,

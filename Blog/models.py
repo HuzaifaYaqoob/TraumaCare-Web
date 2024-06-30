@@ -69,6 +69,7 @@ class Category(models.Model):
 class BlogPost(models.Model):
     title = models.CharField(max_length=200)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name='category_posts', default=None)
+    gpt_content = models.TextField(default='')
     content = models.TextField()
     read_time = models.PositiveIntegerField(default=0)
     slug = models.TextField(max_length=999, default='')
@@ -94,7 +95,7 @@ class BlogPost(models.Model):
         return cleantext.replace('#', '')
     
     def save(self, *args, **kwargs):
-        self.content = convert_to_html(self.content)
+        self.content = convert_to_html(self.gpt_content or self.content)
         self.slug = self.title.replace(' ', '-').replace('/', '-').replace("'", '').replace('"', '').replace(':', '-').replace('--', '-')
         super(BlogPost, self).save(*args, **kwargs)
 
