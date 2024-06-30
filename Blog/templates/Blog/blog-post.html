@@ -57,7 +57,7 @@
         </p>
         <h1 class="text-[33px] font-[600] text-[#0A1C4B] ">{{post.title}}</h1>
         <p class="text-[15px] font-[500] text-[#0A1C4B]">Published on {{post.created_at|date}} . {{post.read_time}} min read</p>
-        <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[540px]" style="background-image: url('{% if post.cover_image.thumbnail %}{{post.cover_image.thumbnail.url}}{% else %}{{post.cover_image.image.url}}{% endif %}');"></div>
+        <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[540px]" style="background-image: url('{{post.cover_image.image.url}}');"></div>
         <div class='main-blog-post-content mt-10'>
             {{post.content|safe}}
         </div>
