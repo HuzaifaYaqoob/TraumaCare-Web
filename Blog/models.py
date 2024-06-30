@@ -150,12 +150,16 @@ class BlogMedia(models.Model):
 
             # Save the resulting image
             time.sleep(1)
-            time_now = datetime.now()
+            time_now = datetime.now().strftime("%d-%H%M%S")
             
             slug = self.post.slug
             slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
+<<<<<<< HEAD
+            saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now}.{ext}"
+=======
 
             saving_url = f"media/Blog/Images/traumacare-{slug[0:34]}-{time_now.strftime("%d-%H%M%S")}-{bg_w}X{bg_h}.{ext}"
+>>>>>>> a2916c123edcd2b8208ec1b3b562bdafb392e3ba
             background.save(saving_url, quality=70)
             self.image = f'{saving_url}'.split('media/')[-1]
 
