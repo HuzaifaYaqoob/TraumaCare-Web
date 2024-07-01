@@ -309,6 +309,8 @@ class DoctorWithHospital(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
     location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
 
+    phone = models.CharField(max_length=999, default='')
+
     @property
     def available_days(self):
         return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True)
