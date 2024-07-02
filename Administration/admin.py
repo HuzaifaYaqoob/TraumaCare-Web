@@ -17,11 +17,17 @@ class UserRequestLogAdmin(admin.ModelAdmin):
     list_display = [
         'id',
         'real_ip',
+        'location',
         'log_requests',
-        'method',
+        'response',
         'path',
         'user',
         'timestamp',
-        'response_status',
-        'query_params',
     ]
+
+
+    def location(self, log):
+        return f'{log.city}, {log.country} ({log.country_code})'
+    
+    def response(self, log):
+        return f'{log.method} {log.response_status}'

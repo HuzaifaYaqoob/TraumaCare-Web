@@ -164,6 +164,10 @@
                     </script>
                 </div>
             {% endif %}
+            {{request.city}}
+            {{request.state}}
+            {{request.country}}
+            {{request.country_code}}
             <a href="/appointment/book-appointment" class="bg-[#0A1C4B] rounded-[50px] book-appointment-button cursor-pointer flex items-center gap-[10px] py-[5px] px-[6px] mr-3">
                 <span class="rounded-[50%] flex items-center justify-center w-[28px] sm:w-[31px] h-[28px] sm:h-[31px] bg-[#ffffff52] book-appointment-button-svg {% if user_appointments %}border-[3px] border-[#25d0cf]{% endif %}">
                     {% if user_appointments %}
