@@ -164,10 +164,10 @@
                     </script>
                 </div>
             {% endif %}
-            {{request.city}}
-            {{request.state}}
-            {{request.country}}
-            {{request.country_code}}
+            <div class="border px-4 mr-3 py-[7px] rounded-full flex gap-2 items-center border-[#01411c]">
+                <img class="w-[25px] drop-shadow" src="{% static 'assets/Images/pk_flag.jpg' %}" alt="">
+                <p class="font-semibold text-[#01411c]">{{request.city}}</p>
+            </div>
             <a href="/appointment/book-appointment" class="bg-[#0A1C4B] rounded-[50px] book-appointment-button cursor-pointer flex items-center gap-[10px] py-[5px] px-[6px] mr-3">
                 <span class="rounded-[50%] flex items-center justify-center w-[28px] sm:w-[31px] h-[28px] sm:h-[31px] bg-[#ffffff52] book-appointment-button-svg {% if user_appointments %}border-[3px] border-[#25d0cf]{% endif %}">
                     {% if user_appointments %}
