@@ -1,10 +1,220 @@
-
 {% extends 'Components/Base.html' %}
 {% load static %}
 {% block title %}Your Appointments{% endblock title %}
 
+{% block BaseCSS %}
+    <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/Trauma/static/assets/css/UtlityClasses/utility.css">
+{% endblock BaseCSS %}
+
+<style>
+   .transition{
+        transition: all 0.3s ease-in-out;
+    }
+</style>
 
 {% block baseBody %}
 
-   {{appointments}} appointments
+   {{appointments}} 
+
+   <section class="max-w-[1200px] mx-auto py-[50px] px-[15px] md:px-[20px]">
+      <h2 class="text-[#0A1C4B] text-[40px] font-[600] ">Bookings</h2>
+      <p class="text-[#0A1C4B] text-[17px] font-[500] mt-[6px] ">See your scheduled event from our calender events links.</p>
+      <div class="mt-[40px] flex items-center gap-[10px] rounded-[8px] bg-[#8f9296]/15 p-[6px] max-w-max ">
+          <div class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+              All
+          </div>
+          <div class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+              Upcoming
+          </div>
+          <div class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+              Pending
+          </div>
+          <div class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+              Cancelled
+          </div>
+      </div>
+      <div class=" mt-[30px] ">
+          <div class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[30px] py-[22px] mt-[12px] ">
+              <div class="flex-1 flex ">
+                  <div class="group max-w-max border-r border-[#8f9296]/40 pr-[32px] cursor-default ">
+                      <p class="text-[#0A1C4B] text-[17px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">Wed</p>
+                      <h3 class="text-[#0A1C4B] text-[36px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">30</h3>
+                  </div>
+                  <div class="flex flex-col justify-between ">
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-clock text-[#8f9296] text-[14px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">09:00 - 09:30</p>
+                      </div>
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">Online</p>
+                      </div>
+                  </div>
+                  <div class="flex flex-col justify-between px-[28px]">
+                      <p class="text-[#0A1C4B] text-[16px] font-[500] ">30min call meeting Peer <> Leslie</p>
+                      <div class="flex items-center ">
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white translate-x-2 " style="background-image: url(https://media.istockphoto.com/id/1340785350/photo/studio-portrait-of-a-young-woman-winking-against-a-yellow-background.jpg?s=612x612&w=0&k=20&c=GLOkMBIvSVqx0Nb8QyYQ5CCTwxNeBwriUR32LblFDuo=);"></div>
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white " style="background-image: url(https://cdn.create.vista.com/api/media/small/414789892/stock-photo-curly-african-american-woman-twirling-hair-finger-blue);"></div>
+                      </div>
+                  </div>
+              </div>
+                  <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group ">
+                      <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">Edit</p>
+                      <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
+                      <div class="absolute right-0 top-[45px] pt-[6px] hidden group-hover:block z-50 ">
+                          <div class="rounded-[8px] w-[220px] bg-white border border-[#8f9296]/40 relative z-50  ">
+                              <div class="p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-clock text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Reschedule booking</p>
+                                  </div>
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] mt-[9px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Edit location</p>
+                                  </div>
+                              </div>
+                              <div class="border-t border-[#8f9296]/40 p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[18px] w-[18px] p-[4px] rounded-[100px] bg-[#8f9296] transition-all group-hover/item:bg-black ">
+                                          <i class="fa-solid fa-xmark text-[#fff] text-[12px] transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] transition-all group-hover/item:text-black whitespace-nowrap ">Cancle Event</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+          <div class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[30px] py-[22px] mt-[12px] ">
+              <div class="flex-1 flex ">
+                  <div class="group max-w-max border-r border-[#8f9296]/40 pr-[32px] cursor-default ">
+                      <p class="text-[#0A1C4B] text-[17px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">Web</p>
+                      <h3 class="text-[#0A1C4B] text-[36px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">30</h3>
+                  </div>
+                  <div class="flex flex-col justify-between">
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-clock text-[#8f9296] text-[14px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">09:00 - 09:30</p>
+                      </div>
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">Online</p>
+                      </div>
+                  </div>
+                  <div class="flex flex-col justify-between px-[28px]">
+                      <p class="text-[#0A1C4B] text-[16px] font-[500] ">30min call meeting Peer <> Leslie</p>
+                      <div class="flex items-center">
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white translate-x-2 " style="background-image: url(https://media.istockphoto.com/id/1340785350/photo/studio-portrait-of-a-young-woman-winking-against-a-yellow-background.jpg?s=612x612&w=0&k=20&c=GLOkMBIvSVqx0Nb8QyYQ5CCTwxNeBwriUR32LblFDuo=);"></div>
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white " style="background-image: url(https://cdn.create.vista.com/api/media/small/414789892/stock-photo-curly-african-american-woman-twirling-hair-finger-blue);"></div>
+                      </div>
+                  </div>
+              </div>
+                  <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group ">
+                      <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">Edit</p>
+                      <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
+                      <div class="absolute right-0 top-[45px] pt-[6px] hidden group-hover:block z-50 ">
+                          <div class="rounded-[8px] w-[220px] bg-white border border-[#8f9296]/40 relative z-50  ">
+                              <div class="p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-clock text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Reschedule booking</p>
+                                  </div>
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] mt-[9px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Edit location</p>
+                                  </div>
+                              </div>
+                              <div class="border-t border-[#8f9296]/40 p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[18px] w-[18px] p-[4px] rounded-[100px] bg-[#8f9296] transition-all group-hover/item:bg-black ">
+                                          <i class="fa-solid fa-xmark text-[#fff] text-[12px] transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] transition-all group-hover/item:text-black whitespace-nowrap ">Cancle Event</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+          <div class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[30px] py-[22px] mt-[12px] ">
+              <div class="flex-1 flex ">
+                  <div class="group max-w-max border-r border-[#8f9296]/40 pr-[32px] cursor-default ">
+                      <p class="text-[#0A1C4B] text-[17px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">Web</p>
+                      <h3 class="text-[#0A1C4B] text-[36px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] ">30</h3>
+                  </div>
+                  <div class="flex flex-col justify-between">
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-clock text-[#8f9296] text-[14px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">09:00 - 09:30</p>
+                      </div>
+                      <div class="flex items-center gap-[11px] px-[28px] ">
+                          <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                              <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] "></i>
+                          </span>
+                          <p class="text-[#0A1C4B] text-[16px] font-[500] ">Online</p>
+                      </div>
+                  </div>
+                  <div class="flex flex-col justify-between px-[28px]">
+                      <p class="text-[#0A1C4B] text-[16px] font-[500] ">30min call meeting Peer <> Leslie</p>
+                      <div class="flex items-center">
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white translate-x-2 " style="background-image: url(https://media.istockphoto.com/id/1340785350/photo/studio-portrait-of-a-young-woman-winking-against-a-yellow-background.jpg?s=612x612&w=0&k=20&c=GLOkMBIvSVqx0Nb8QyYQ5CCTwxNeBwriUR32LblFDuo=);"></div>
+                          <div class="bg-cover bg-center bg-no-repeat h-[21px] w-[21px] rounded-[100px] border border-white " style="background-image: url(https://cdn.create.vista.com/api/media/small/414789892/stock-photo-curly-african-american-woman-twirling-hair-finger-blue);"></div>
+                      </div>
+                  </div>
+              </div>
+                  <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group ">
+                      <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">Edit</p>
+                      <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
+                      <div class="absolute right-0 top-[45px] pt-[6px] hidden group-hover:block z-50 ">
+                          <div class="rounded-[8px] w-[220px] bg-white border border-[#8f9296]/40 relative z-50 ">
+                              <div class="p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-clock text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Reschedule booking</p>
+                                  </div>
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] mt-[9px] ">
+                                      <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                          <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Edit location</p>
+                                  </div>
+                              </div>
+                              <div class="border-t border-[#8f9296]/40 p-[6px] ">
+                                  <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                                      <span class="flex items-center justify-center h-[18px] w-[18px] p-[4px] rounded-[100px] bg-[#8f9296] transition-all group-hover/item:bg-black ">
+                                          <i class="fa-solid fa-xmark text-[#fff] text-[12px] transition-all "></i>
+                                      </span>
+                                      <p class="text-[#4f5051] text-[16px] font-[500] transition-all group-hover/item:text-black whitespace-nowrap ">Cancle Event</p>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+          </div>
+      </div>
+  </section>
+   
 {% endblock baseBody %}
