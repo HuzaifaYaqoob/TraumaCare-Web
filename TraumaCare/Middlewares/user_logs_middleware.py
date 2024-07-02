@@ -31,6 +31,8 @@ class TrackUserLogMiddleware:
             request.country_code = user_loc.get('country_code', None)
             request.state = user_loc.get('region', None)
             request.city = user_loc.get('city', None)
+            if request.country_code == 'PK':
+                request.country_flag = '/static/assets/Images/pk_flag.jpg'
 
         response = self.get_response(request)
         

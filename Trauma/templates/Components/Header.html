@@ -165,7 +165,9 @@
                 </div>
             {% endif %}
             <div class="border px-4 mr-3 py-[7px] rounded-full flex gap-2 items-center border-[#01411c]">
-                <img class="w-[25px] drop-shadow" src="{% static 'assets/Images/pk_flag.jpg' %}" alt="">
+                {% if request.country_flag %}
+                    <img class="w-[25px] drop-shadow" src="{{request.country_flag}}" alt="">
+                {% endif %}
                 <p class="font-semibold text-[#01411c]">{{request.city}}</p>
             </div>
             <a href="/appointment/book-appointment" class="bg-[#0A1C4B] rounded-[50px] book-appointment-button cursor-pointer flex items-center gap-[10px] py-[5px] px-[6px] mr-3">
