@@ -168,7 +168,7 @@
                 {% if request.country_flag %}
                     <img class="w-[25px] drop-shadow" src="{{request.country_flag}}" alt="">
                 {% endif %}
-                <p class="font-semibold text-[#01411c]">{{request.city}}</p>
+                <p class="font-semibold text-[#01411c]">{% if request.city %}{{request.city}}{% else %}{{request.country}}{% endif %}</p>
             </div>
             <a href="/appointment/book-appointment" class="bg-[#0A1C4B] rounded-[50px] book-appointment-button cursor-pointer flex items-center gap-[10px] py-[5px] px-[6px] mr-3">
                 <span class="rounded-[50%] flex items-center justify-center w-[28px] sm:w-[31px] h-[28px] sm:h-[31px] bg-[#ffffff52] book-appointment-button-svg {% if user_appointments %}border-[3px] border-[#25d0cf]{% endif %}">
