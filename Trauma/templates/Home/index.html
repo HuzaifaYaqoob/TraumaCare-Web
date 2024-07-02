@@ -12,6 +12,12 @@
 
 {% block baseBody %}
 <style>
+    .transition{
+        transition: all 0.3s ease-in-out;
+    }
+
+
+
     .Search-Doctors-Hospitals-para{
         border: 2px solid #ffffff;
         background-color: #ffffff;
@@ -377,7 +383,7 @@
         </div>
         <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pr-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
     </div>
-    <button class="px-[16px] sm:px-[22px] h-full flex items-center gap-[6px] sm:gap-[9px] bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-[10deg] hover:scale-[1.2] transition ">
+    <button class="px-[16px] sm:px-[22px] h-full flex items-center gap-[6px] sm:gap-[9px] bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-12 hover:scale-[1.2] transition ">
         <div class="flex items-center justify-center ">
             <svg width="18" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -389,6 +395,8 @@
     </button>
 </form>
 {% comment %} {% include 'ChatXpo/HomepageChat.html' %} {%  endcomment %}
+
+
 <div class="flex m-auto rounded-md bg-white flex-col items-center  pb-4 gap-4 pl-[4px] pr-4px mt-10"  style="max-width: 1650px;">
     <div>
         <h2 class="text-2xl font-medium sm:text-4xl text-[#0A1C4B]">You may be in search of</h2>
@@ -403,7 +411,7 @@
             </a>
         {% endfor %}
         <div
-            class="btn-more-TC bg-[#24D0D0] hover:rotate-12 hover:scale-125 hover:shadow-xl effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2">
+            class="btn-more-TC bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2">
             <p class=" capitalize text-white font-medium">more</p>
         </div>
     </div>
