@@ -17,13 +17,14 @@ def MyAppointmentsPage(request):
     today = datetime.now()
     appointments = Appointment.objects.filter(
             appointment_group__user = request.user,
-            date__gte = today.date()
-        )
+            # date__gte = today.date()
+        ).order_by('-date')
     
     data = { }
     for appt in appointments:
-        data[appt.date] = data.get(appt.date) or []
-        data[appt.date].append(appt)
+        print(appt.date.strftime('%B'))
+        data[appt.date.strftime('%B')] = data.get(appt.date.strftime('%B')) or []
+        data[appt.date.strftime('%B')].append(appt)
     context = {
         'appointments' : data
     }

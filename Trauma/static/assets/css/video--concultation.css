@@ -404,8 +404,7 @@ body {
     display: flex;
     height: 90px;
     justify-content: center;
-    background: rgba(255, 255, 255, 0.5);
-    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255);
     gap: 25px;
 }
 

@@ -1,0 +1,63 @@
+<div class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[14px] sm:px-[18px] md:px-[30px] md:py-[16px] py-[11px] sm:py-[14px] mb-5 mt-[12px] md:flex-row flex-col gap-[22px] ">
+    <div class="flex-1 w-full flex sm:flex-row items-center flex-col gap-[22px] sm:gap-[0px] ">
+        <div class="group max-w-max sm:border-r border-[#8f9296]/40 md:pr-[32px] cursor-default ">
+            <p class="text-[#0A1C4B] text-[17px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] {% if appointment.is_today %}text-[#e5511f]{% endif %}">{{appointment.day_name}}</p>
+            <h3 class="text-[#0A1C4B] text-[43px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] {% if appointment.is_today %}text-[#e5511f]{% endif %}">{{appointment.date_prefix_zero}}</h3>
+        </div>
+        <div class="flex flex-1 w-full sm:mt-[0px] mt-[14px] ">
+            <div class="flex flex-col justify-between w-[200px]">
+                <div class="flex items-center gap-[11px] px-[28px]">
+                    <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                        <i class="fa-solid fa-clock text-[#8f9296] text-[14px] "></i>
+                    </span>
+                    <p class="text-[#0A1C4B] text-[16px] font-[500] whitespace-nowrap ">{{appointment.start_time}} - {{appointment.end_time}}</p>
+                </div>
+                <div class="flex items-center gap-[11px] pl-[28px]">
+                    <span class="flex items-center justify-center h-[26px] w-[20px] ">
+                        <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] "></i>
+                    </span>
+                    <p class="text-[#0A1C4B] text-[16px] font-[500] whitespace-nowrap line-clamp-1">{% if appointment.appointment_location == 'Online' %}Online{% else %}{{appointment.doct_hospital.location.street_address}}{% endif %}</p>
+                </div>
+            </div>
+            <div class="flex flex-col justify-between px-[28px]">
+                <p class="text-[#0A1C4B] text-[16px] font-[500] line-clamp-1 ">{{appointment.name}}</p>
+                <div class="flex items-center ">
+                    <div class="bg-cover bg-center bg-no-repeat h-[26px] w-[26px] content-box rounded-[100px] border-[2px] border-white translate-x-2 " style="background-image: url({{appointment.doctor.profile_image}});"></div>
+                    <div class="bg-cover bg-center bg-no-repeat h-[26px] w-[26px] rounded-[100px] border border-white " style="background-image: url({{appointment.user.profile_image}});"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% if appointment.status != 'Finished' and appointment.status != 'Cancelled' %}
+        <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex md:items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group mt-[14px] md:mt-[0px] ">
+            <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">Edit</p>
+            <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
+            <div class="absolute right-0 top-[45px] pt-[6px] hidden group-hover:block z-50 ">
+                <div class="rounded-[8px] w-[220px] bg-white border border-[#8f9296]/40 relative z-50  ">
+                    <div class="p-[6px] ">
+                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                            <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                <i class="fa-solid fa-clock text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                            </span>
+                            <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Reschedule booking</p>
+                        </div>
+                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] mt-[9px] ">
+                            <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                            </span>
+                            <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Edit location</p>
+                        </div>
+                    </div>
+                    <div class="border-t border-[#8f9296]/40 p-[6px] ">
+                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                            <span class="flex items-center justify-center h-[18px] w-[18px] p-[4px] rounded-[100px] bg-[#8f9296] transition-all group-hover/item:bg-black ">
+                                <i class="fa-solid fa-xmark text-[#fff] text-[12px] transition-all "></i>
+                            </span>
+                            <p class="text-[#4f5051] text-[16px] font-[500] transition-all group-hover/item:text-black whitespace-nowrap ">Cancle Event</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% endif %}
+</div>
