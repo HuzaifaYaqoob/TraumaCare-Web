@@ -76,12 +76,12 @@
                         </div>
                     </div>
                     <div class="border-t border-[#8f9296]/40 p-[6px] ">
-                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                        <a href='{% url "CancelMyAppointment" appointment.id %}' class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
                             <span class="flex items-center justify-center h-[18px] w-[18px] p-[4px] rounded-[100px] bg-[#8f9296] transition-all group-hover/item:bg-black ">
                                 <i class="fa-solid fa-xmark text-[#fff] text-[12px] transition-all "></i>
                             </span>
                             <p class="text-[#4f5051] text-[16px] font-[500] transition-all group-hover/item:text-black whitespace-nowrap ">Cancel Appointment</p>
-                        </div>
+                        </a>
                     </div>
                 </div>
             </div>

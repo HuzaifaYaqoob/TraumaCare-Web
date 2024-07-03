@@ -44,6 +44,21 @@ def MyAppointmentsPage(request):
     }
     return render(request, 'Appointment/myAppointments.html', context)
 
+def CancelMyAppointment(request, appointment_id):
+    try:
+        appointment = Appointment.objects.get(id = appointment_id, appointment_group__user = request.user)
+    except:
+        messages.error(request, 'Invalid Request')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        appointment.status = 'Cancelled'
+        appointment.appointment_group.status = 'Cancelled'
+        appointment.appointment_group.save()
+        appointment.save()
+        messages.success(request, 'Appointment Cancelled')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def BookAppointmentPage(request):
     doctor_id = request.GET.get('doctor', None)
     context = {}
