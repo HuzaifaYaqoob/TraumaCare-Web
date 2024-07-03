@@ -449,10 +449,10 @@
                         <p class="text-2xl font-[600] text-[#555555] text-center mt-[18px]">Book an Appointment</p>     
                         <p class="text-[#9A9A9A] text-center">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                         <div class="flex items-center gap-3 flex-wrap justify-center mt-[16px]">
-                              <div class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
-                                    <p  class=" whitespace-nowrap">Consult Online</p>
-                              </div>
-                              <a href="#" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
+                              <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
+                                    <p class=" whitespace-nowrap">Consult Online</p>
+                              </a>
+                              <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
                                     <p class="text-white whitespace-nowrap ">Book Appointment</p>
                               </a>
                         </div>

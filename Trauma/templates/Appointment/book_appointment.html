@@ -90,16 +90,21 @@
                 {% if doctor %}
                     
                     <div class="my-4">
-                        <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
+                        <div class="rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
                             <div class="flex flex-col md:flex-row gap-4 items-start ">
-                                <div class="w-28 h-28 rounded-full border border-[2px] bg-center bg-cover bg-no-repeat"
+                                <div class="w-28 h-28 rounded-full bg-center bg-cover bg-no-repeat"
                                     style="background-image: url('{{doctor.profile_image}}');">
                                 </div>
                                 <div class="flex-1">
                                     <div class="flex justify-between items-center">
-                                        <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl text-white font-bold underline">Dr. {{doctor.name}}</a>
+                                        <div class='flex gap-5 items-center'>
+                                            <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl font-bold underline">Dr. {{doctor.name}}</a>
+                                            {% with fee_range=doctor.fee_range %}
+                                                <p class="font-[600] mx-0">Fee : Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.0}}</span>  to  Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.1}}</span></p>
+                                            {% endwith %}
+                                        </div>
                                         <div
-                                            class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
+                                            class="flex items-center gap-1 border border-[#0A1C4B] bg-white px-3 md:px-6 cursor-pointer rounded-full absolute md:static top-4 right-4">
                                             <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
                                                 <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
@@ -113,27 +118,18 @@
                                                     fill="white" />
                                                 <path
                                                     d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
-                                                    fill="#C985FF" mask="url(#path-1-outside-1_1957_70)" />
+                                                    fill="#0A1C4B" mask="url(#path-1-outside-1_1957_70)" />
                                             </svg>
-                                            <p class="text-[#C985FF]">Verified</p>
+                                            <p class="text-[#0A1C4B]">Verified</p>
                                         </div>
                                     </div>
                                     {% if hospital %}
-                                        <div class="flex-1 md:flex-none">
-                                            <p class="text-white font-[600] mx-0"><span class='underline'>{{hospital.hospital.name}}</span> ({{hospital.location.name}})</p>
+                                        <div class="flex-1 flex gap-5 md:flex-none">
+                                            <p class="font-[600] mx-0"><span class='underline'>{{hospital.hospital.name}}</span> ({{hospital.location.name}})</p>
+                                            <a href='?doctor={{doctor.slug}}' class="text-blue-600">Change hospital</a>
                                         </div>
                                     {% endif %}
-                                    <div class="flex gap-4 md:gap-8 my-1">
-                                        <div class="flex-1 md:flex-none">
-                                            <p class="text-white font-[600] mx-0">{{doctor.heading}}</p>
-                                        </div>
-                                        <div class="flex-1 md:flex-none">
-                                            {% with fee_range=doctor.fee_range %}
-                                                <p class="text-white font-[600] mx-0">Fee : {{fee_range.0}} - {{fee_range.1}} pkr</p>
-                                            {% endwith %}
-                                        </div>
-                                    </div>
-                                    <p class="text-white line-clamp-2">{{doctor.desc}}</p>
+                                    <p class="line-clamp-3 text-slate-500 mt-3">{{doctor.desc}}</p>
                                 </div>
                             </div>
                         </div>
@@ -141,7 +137,7 @@
                         {% elif not hospital %}
                             <form>
                                 <input type="text" name="doctor" class='hidden' value="{{doctor.slug}}">
-                                <select name="hospital">
+                                <select name="hospital" class='px-3 py-2 rounded-lg border my-4'>
                                     <option value="" disabled selected>Select Hospital</option>
                                     {% for h in hospitals %}
                                         <option value="{{h.id}}">{{h.hospital.name}} at {{h.location.street_address}}</option>

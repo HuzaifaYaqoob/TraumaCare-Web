@@ -71,7 +71,7 @@
                     <li class=" cursor-pointer flex items-center gap-[6px] !text-[17px] font-[500] !mr-0 group ">
                         <a href='{% url "BlogHomePage" %}'>Health Blog</a>
                     </li>
-                    <li class="relative cursor-pointer !text-red-600 flex items-center gap-3 !text-[18px] !mr-0 group !p-0">
+                    {% comment %}<li class="relative cursor-pointer !text-red-600 flex items-center gap-3 !text-[18px] !mr-0 group !p-0">
                         <a href="/emergency/" class="pt-[10px] pr-[10px] pb-[11px] pl-[15px]">
                             Emergency
                         </a>
@@ -79,8 +79,8 @@
                             {% include 'Components/SVG/EmergencyIcon.html' %}
                             {% include 'Components/SVG/EmergencyIcon.html' with className='animate-ping absolute' %}
                         </span>
-                    </li>
-                    <div class="item-dropdown4 !px-1">
+                    </li> {% endcomment %}
+                    {% comment %}<div class="item-dropdown4 !px-1">
                         <h2 class="!text-[18px]">Medical Store in Pakistan</h2>
                         <ul class="item-dropdown4-ul  !px-1">
                             {% include 'Components/Header/NavItem.html' with name=' Lahore' %}
@@ -93,8 +93,7 @@
                             {% include 'Components/Header/NavItem.html' with name='Sialkot' %}
                             {% include 'Components/Header/view_all.html' %}
                         </ul>
-                    </div>
-                    </li>
+                    </div>{% endcomment %}
                     
                     <div class="item-dropdown5 group-hover:block !px-1">
                         <h2 class="!text-[18px]">lABS In Pakistan</h2>
@@ -110,7 +109,6 @@
                             {% include 'Components/Header/view_all.html' %}
                         </ul>
                     </div>
-                    </li>
                     
                 </div>
             </div>
