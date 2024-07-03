@@ -3,13 +3,15 @@
 from rest_framework.decorators import api_view, permission_classes
 
 from rest_framework.response import Response
-from rest_framework.permissions import IsAuthenticated
+from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
 from Doctor.models import Doctor, DoctorSpeciality, DoctorDiseasesSpeciality, DoctorOnlineAvailability, DoctorTimeSlots, Doctor24By7, DoctorMedia
 from Profile.models import Profile
 from Trauma.models import Speciality, Disease
 
+from Appointment.models import Appointment
+from datetime import datetime
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
@@ -282,3 +284,49 @@ def createDoctorProfile(request):
 #         }
 #     }
 # }
+
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def getDoctorHospitalSlots(request, doctor_id, hospital_id):
+    selected_date = request.GET.get('selected_date', None)
+    if selected_date:
+        selected_date = datetime.strptime(selected_date, '%Y-%m-%d')
+    else:
+        selected_date = datetime.now()
+    
+    day_name = selected_date.strftime('%A')
+    
+
+    slots = DoctorTimeSlots.objects.filter(
+        day__day = day_name,
+        doctor = doctor_id,
+        doc_hospital = hospital_id
+    )
+
+    data = []
+
+    for slot in slots:
+        apps = Appointment.objects.filter(
+            doctor = slot.doctor,
+            date = selected_date,
+            doct_hospital = slot.doc_hospital,
+        ).exclude(
+            status__in = ["Finished", "Cancelled", "Expired"]
+        ).values_list('start_time', flat=True)
+
+        start_times = [sTime.strftime('%H:%M:00') for sTime in apps]
+        intervals = []
+        for interval in slot.slots_interval:
+            if interval[0] not in start_times:
+                intervals.append(interval)
+
+        data.append({
+            'name' : slot.title,
+            'id' : slot.id,
+            'intervals' : intervals
+        })
+    return Response({
+        'slots' : data
+    })

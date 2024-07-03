@@ -10,7 +10,6 @@ from Trauma.models import Speciality
 from datetime import timedelta, datetime
 from django.db.models import Count
 
-# Create your views here.
 
 
 def MyAppointmentsPage(request):
@@ -60,14 +59,48 @@ def CancelMyAppointment(request, appointment_id):
 
 
 def BookAppointmentPage(request):
-    doctor_id = request.GET.get('doctor', None)
+    doctor_slug = request.GET.get('doctor', None)
     context = {}
-    if doctor_id:
-        context['hospitals'] = DoctorWithHospital.objects.filter(doctor__id = doctor_id)
+    if doctor_slug:
+        try:
+            doctor = Doctor.objects.get(slug = doctor_slug)
+        except:
+            messages.error(request, 'Invalid Doctor profile')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            context['doctor'] = doctor
         
+        hospital_id = request.GET.get('hospital', None)
+        if hospital_id:
+            try:
+                hospital = DoctorWithHospital.objects.get(id = hospital_id)
+            except:
+                messages.error(request, 'Invalid Hospital')
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            context['hospital'] = hospital
+
+            days_slots = []
+            date_now = datetime.now()
+            for i in range(30):
+                date = date_now + timedelta(days = i)
+                data = {
+                    'date' : date,
+                    'day_name' : date.strftime("%a"),
+                    'date_format' : date.strftime("%Y-%m-%d"),
+                    'date_prefix_zero' : date.strftime("%d"),
+                }
+                if i == 0:
+                    data['is_today'] = True
+                else:
+                    data['month'] = date.strftime("%B")
+                days_slots.append(data)
+            context['days_slots'] = days_slots
+        else:
+            context['hospitals'] = DoctorWithHospital.objects.filter(doctor = doctor, hospital__is_deleted = False, hospital__is_active = True, hospital__is_blocked = False)
+    else:
+        context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
     
     context['today_label'] = datetime.now().strftime("%B %Y")
-    context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
     context['specialities'] = Speciality.objects.annotate(doctor_count=Count('speciality_doctorspecialities')).filter(is_deleted = False, is_active = True, doctor_count__gt = 0)
     
     return render(request, 'Appointment/book_appointment.html', context)

@@ -25,7 +25,37 @@
         padding: 20px;
         background-color: white;
         border-radius: 15px;
+    }
 
+    input[name='selected_date']:checked + label {
+        border-bottom: 3px solid #0A1C4B;
+    }
+    
+    .selected_date_slots{
+        display: none;
+    }
+    input[name='selected_date']:checked ~ .selected_date_slots {
+        display: block;
+    }
+
+    input[name='selected_time']:checked + label {
+        border-color: #0A1C4B;
+        background-color: #0a1c4b07;
+        color: #0A1C4B;
+    }
+
+    div[loadingMain]{
+        display: none;
+    }
+
+    div[ShowTimeSlots][loading] ~ div[loadingMain]{
+        position: absolute;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgba(0, 0, 0, 0.376);
+        color: white;
     }
 </style>
 
@@ -48,6 +78,165 @@
         class="add-appoinments-main-div w-[95%] md:w-full gap-y-[20px] md:gap-y-0 gap-x-0 md:gap-x-[28px] md:flex-row flex-col-reverse">
         <div class="flex-1 w-full mx-auto md:mx-0 md:max-w-[1000px]">
             <div class="add-appoinments-left rounded-[15px] p-4 bg-white shadow-2xl mx-auto">
+                {% if doctor %}
+                    <input type="text" name="doctor_id" value="{{doctor.id}}">
+                    <div class="my-4">
+                        <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
+                            <div class="flex flex-col md:flex-row gap-4 items-start ">
+                                <div class="w-28 h-28 rounded-full border border-[2px] bg-center bg-cover bg-no-repeat"
+                                    style="background-image: url('{{doctor.profile_image}}');">
+                                </div>
+                                <div class="flex-1">
+                                    <div class="flex justify-between items-center">
+                                        <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl text-white font-bold underline">Dr. {{doctor.name}}</a>
+                                        <div
+                                            class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
+                                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
+                                                    width="12" height="16" fill="black">
+                                                    <rect fill="white" width="12" height="16" />
+                                                    <path
+                                                        d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
+                                                </mask>
+                                                <path
+                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
+                                                    fill="white" />
+                                                <path
+                                                    d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
+                                                    fill="#C985FF" mask="url(#path-1-outside-1_1957_70)" />
+                                            </svg>
+                                            <p class="text-[#C985FF]">Verified</p>
+                                        </div>
+                                    </div>
+                                    {% if hospital %}
+                                        <div class="flex-1 md:flex-none">
+                                            <p class="text-white font-[600] mx-0"><span class='underline'>{{hospital.hospital.name}}</span> ({{hospital.location.name}})</p>
+                                        </div>
+                                    {% endif %}
+                                    <div class="flex gap-4 md:gap-8 my-1">
+                                        <div class="flex-1 md:flex-none">
+                                            <p class="text-white font-[600] mx-0">{{doctor.heading}}</p>
+                                        </div>
+                                        <div class="flex-1 md:flex-none">
+                                            {% with fee_range=doctor.fee_range %}
+                                                <p class="text-white font-[600] mx-0">Fee : {{fee_range.0}} - {{fee_range.1}} pkr</p>
+                                            {% endwith %}
+                                        </div>
+                                    </div>
+                                    <p class="text-white line-clamp-2">{{doctor.desc}}</p>
+                                </div>
+                            </div>
+                        </div>
+                        {% if not hospital %}
+                            <form>
+                                <input type="text" name="doctor" value="{{doctor.slug}}">
+                                <select name="hospital">
+                                    <option value="" disabled selected>Select Hospital</option>
+                                    {% for h in hospitals %}
+                                        <option value="{{h.id}}">{{h.hospital.name}} at {{h.location.street_address}}</option>
+                                    {% endfor %}
+                                </select>
+                            </form>
+                            <script>
+                                // Auto submit form when hospital selected
+                                document.querySelector('select[name="hospital"]').addEventListener('change', (e) => {
+                                    const form = document.querySelector('form')
+                                    form.submit()
+                                })
+                            </script>
+                        {% endif %}
+                        {% if days_slots %}
+                            <div>
+                                <div class="flex gap-1 overflow-auto py-4 mx-4">
+                                    {% for day in days_slots %}
+                                        <div>
+                                            <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="" {% if day.is_today %}checked{% endif %}>
+                                            <label for="selected_date_{{day.date_format}}" class="block px-7 py-3 cursor-pointer">
+                                                <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
+                                                {% if day.slot.slots|length > 0 %}
+                                                    <span class="text-center block">{{day.slot.fee}} pkr</span>
+                                                {% endif %}
+                                            </label>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                <div class="relative rounded-3xl !overflow-hidden">
+                                    <div class="" ShowTimeSlots>
+                                        <!-- <div class="border px-4 py-4 rounded-3xl">
+                                            <p class="mb-5">Evening Slots</p>
+                                            <div class="flex gap-3 flex-wrap">
+                                                <div class="">
+                                                    
+                                                </div>
+                                            </div>
+                                        </div> -->
+                                    </div>
+                                    <div loadingMain>
+                                        loading...
+                                    </div>
+                                </div>
+                                <script>
+                                    // Auto submit form when date selected
+                                    let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
+                                    let doctor_id = "{{doctor.id}}"
+                                    let hospital_id = "{{hospital.id}}"
+
+                                    const getSlotsForSelectedDate = async (e) => {
+                                        ShowTimeSlots.setAttribute('loading', 'true')
+                                        let selected_date = e.target.value
+
+                                        let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id}/?selected_date=${selected_date}`)
+                                        response = await response.json()
+                                        ShowTimeSlots.innerHTML = ''
+                                        if (response?.slots?.length == 0) {
+                                            let div = document.createElement('div')
+                                            div.className = 'border px-4 py-10 rounded-3xl'
+                                            let p = document.createElement('p')
+                                            p.className = 'text-center'
+                                            p.innerHTML = 'No slots available'
+                                            div.append(p)
+                                            ShowTimeSlots.append(div)
+                                        }
+                                        response?.slots?.forEach(slot => {
+                                            console.log(slot)
+                                            let div = document.createElement('div')
+                                            div.className = 'border px-4 py-4 rounded-3xl'
+
+                                            let p = document.createElement('p')
+                                            p.className = 'mb-5'
+                                            p.innerHTML = slot.name
+                                            div.append(p)
+
+                                            let intervals_div = document.createElement('div')
+                                            intervals_div.className = 'flex gap-3 flex-wrap'
+                                            slot?.intervals?.forEach((interval, index) => {
+                                                let int_div = document.createElement('div')
+                                                int_div.className = ''
+
+                                                let slot_html = `
+                                                        <input type="radio" id="selected_time_${interval[0]}" name="selected_time" value="${interval[0]}}" class="slot_checkbox hidden">
+                                                        <label for="selected_time_${interval[0]}" class="border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                                `
+                                                int_div.innerHTML = slot_html
+                                                intervals_div.append(int_div)
+                                            })
+
+                                            div.append(intervals_div)
+                                            ShowTimeSlots.append(div)
+                                        })
+                                        ShowTimeSlots.removeAttribute('loading')
+                                    }
+                                    document.querySelectorAll('input[name="selected_date"]').forEach(input => {
+                                        input.addEventListener('change', getSlotsForSelectedDate)
+                                    })
+
+                                    getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
+                                </script>
+                            </div>
+                        {% endif %}
+                    </div>
+                {% endif %}
                 <div class="border border[#6d8cba3d] p-4 rounded-md pb-0 w-full">
                     <div class="flex items-center gap-4 mb-2">
                         <div>
@@ -94,106 +283,7 @@
                         </select>
                     </div>
                 </div>
-                <!-- <div class="mt-4">
-                    <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
-                        <div class="absolute top-4 left-5">
-                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 items-center ">
-                            <div class="w-28 h-28 rounded-full border border-[2px] bg-center bg-cover bg-no-repeat"
-                                style="background-image: url('https://source.unsplash.com/random/401×401/?doctor&face&human');">
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex justify-between items-center">
-                                    <a href="/" class="text-2xl text-white font-bold underline">Dr. Saqib Zia Ahmed
-                                        toor</a>
-                                    <div
-                                        class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
-                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
-                                                width="12" height="16" fill="black">
-                                                <rect fill="white" width="12" height="16" />
-                                                <path
-                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
-                                            </mask>
-                                            <path
-                                                d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
-                                                fill="white" />
-                                            <path
-                                                d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
-                                                fill="#C985FF" mask="url(#path-1-outside-1_1957_70)" />
-                                        </svg>
-                                        <p class="text-[#C985FF]">Verified</p>
-                                    </div>
-                                </div>
-                                <div class="flex gap-4 md:gap-8 my-1">
-                                    <div class="flex-1 md:flex-none">
-                                        <p class="text-white font-[600] mx-0">Dentist:</p>
-                                    </div>
-                                    <div class="flex-1 md:flex-none">
-                                        <p class="text-white font-[600] mx-0">Fee&nbsp;3000&nbsp;pkr</p>
-                                    </div>
-                                    <div class="flex-1 md:flex-none">
-                                        <p class="text-white font-[600] mx-0 max-w-max">0345678910</p>
-                                    </div>
-                                </div>
-                                <p class="text-white">As a doctor, you have undergone extensive education & training to
-                                    acquire the skills and knowledge necessary to provide medical care
-                                    to patients. </p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="bg-[#24D0D0] rounded-2xl relative px-3 md:px-8 py-3 md:py-8 mt-6">
-                        <div class="absolute top-4 left-5">
-                            <svg width="14" height="10" viewBox="0 0 14 10" fill="none"
-                                xmlns="http://www.w3.org/2000/svg">
-                                <path d="M5 1L1 5M1 5L5 9M1 5L13 5" stroke="#F8F8F8" stroke-width="2"
-                                    stroke-linecap="round" stroke-linejoin="round" />
-                            </svg>
-                        </div>
-                        <div class="flex flex-col md:flex-row gap-4 items-center ">
-                            <div class="w-28 h-28 rounded-full border border-[2px] bg-cover bg-center bg-no-repeat"
-                                style="background-image: url('https://source.unsplash.com/random/401×401/?hospital&front');">
-
-                            </div>
-                            <div class="flex-1">
-                                <div class="flex  justify-between ">
-                                    <a href="/" class="text-2xl text-white font-bold underline">DH Dental Hospital
-                                        Lahore</a>
-                                    <div
-                                        class="flex items-center gap-1 bg-white px-3 md:px-6 cursor-pointer rounded-full  absolute md:static top-4 right-4">
-                                        <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
-                                            xmlns="http://www.w3.org/2000/svg">
-                                            <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
-                                                width="12" height="16" fill="black">
-                                                <rect fill="white" width="12" height="16" />
-                                                <path
-                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
-                                            </mask>
-                                            <path
-                                                d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
-                                                fill="white" />
-                                            <path
-                                                d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
-                                                fill="#24D0D0" mask="url(#path-1-outside-1_1957_70)" />
-                                        </svg>
-                                        <p class="text-[#24D0D0]">Verified</p>
-                                    </div>
-                                </div>
-                                <p class="text-white font-[600]">Fee&nbsp;3000&nbsp;pkr</p>
-                                <p class="text-white my-1">As a doctor, you have undergone extensive education &
-                                    training to
-                                    acquire the skills and knowledge necessary to provide medical care
-                                    to patients. </p>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
+                
                 <div class="mt-4">
                     <h3 class="text-[#6D8CBA] text-xl font-semibold">6 March, Availability</h3>
                     <div class="flex items-center  flex-wrap gap-3 mt-2">
@@ -344,84 +434,86 @@
                 </div> -->
             </div>
         </div>
-        <div
-            class="add-appoinments-right mx-auto md:mx-0 w-full md:max-w-[400px] md:min-w-[400px] shadow-2xl md:sticky md:top-[100px]">
-            <h3 class="text-2xl text-[#507EC2] font-[600]">Order Summary</h3>
-            <div class="flex flex-col gap-2 mt-2">
-                <div class="flex flex-col gap-1">
-                    <div class="flex justify-between">
-                        <h3 class="">Doctor Fee</h3>
-                        <p><span class="text-[#5d6879]">Rs</span> &nbsp;3000/-</p>
-                    </div>
-                    <div class="flex justify-between">
-                        <h3 class="">1x X-Ray </h3>
-                        <p><span class="text-[#5d6879]"> Rs</span> &nbsp;3000/-</p>
-                    </div>
-                </div>
-                <div class="bg-[#24d0d00d] p-2 flex flex-col gap-2">
-                    <div class="flex justify-between items-start">
-                        <div>
-                            <h3>Doctor Discount</h3>
+        {% comment %}
+            <div
+                class="add-appoinments-right mx-auto md:mx-0 w-full md:max-w-[400px] md:min-w-[400px] shadow-2xl md:sticky md:top-[100px]">
+                <h3 class="text-2xl text-[#507EC2] font-[600]">Order Summary</h3>
+                <div class="flex flex-col gap-2 mt-2">
+                    <div class="flex flex-col gap-1">
+                        <div class="flex justify-between">
+                            <h3 class="">Doctor Fee</h3>
+                            <p><span class="text-[#5d6879]">Rs</span> &nbsp;3000/-</p>
                         </div>
-                        <div>
-                            <p class="text-end text-[#5d6879]">20 %</p>
-                            <h3> <span class="text-[#5d6879]">- Rs</span> &nbsp;600/-</h3>
+                        <div class="flex justify-between">
+                            <h3 class="">1x X-Ray </h3>
+                            <p><span class="text-[#5d6879]"> Rs</span> &nbsp;3000/-</p>
                         </div>
                     </div>
-                    <div class="flex justify-between items-start">
+                    <div class="bg-[#24d0d00d] p-2 flex flex-col gap-2">
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3>Doctor Discount</h3>
+                            </div>
+                            <div>
+                                <p class="text-end text-[#5d6879]">20 %</p>
+                                <h3> <span class="text-[#5d6879]">- Rs</span> &nbsp;600/-</h3>
+                            </div>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3>Doctor Discount</h3>
+                            </div>
+                            <div>
+                                <p class="text-end text-[#5d6879]">20 %</p>
+                                <h3> <span class="text-[#5d6879]">- Rs</span> &nbsp;600/-</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div class="flex justify-between">
+                            <p>Tax</p>
+                            <p> <span class="text-[#5d6879]">Rs</span> 0/-</p>
+                        </div>
+                        <div class="bg-[#59dbdb80] w-full h-[0.01rem]">
+
+                        </div>
+                        <div class="flex justify-between">
+                            <p>Total</p>
+                            <p><span class="text-[#5d6879]">Rs</span> 00000/-</p>
+                        </div>
+                    </div>
+                    <div
+                        class="flex mt-2 justify-between gap-8 items-center border border-[#36aa6c] cursor-pointer hover:bg-[#edfaf3] p-2 rounded-md">
                         <div>
-                            <h3>Doctor Discount</h3>
+                            <p class="text-[#36aa6c]">Your total saving on this order</p>
                         </div>
                         <div>
-                            <p class="text-end text-[#5d6879]">20 %</p>
-                            <h3> <span class="text-[#5d6879]">- Rs</span> &nbsp;600/-</h3>
+                            <p class="text-[#36aa6c]">Rs 1200/-</p>
                         </div>
                     </div>
-                </div>
-                <div class="flex flex-col gap-4">
-                    <div class="flex justify-between">
-                        <p>Tax</p>
-                        <p> <span class="text-[#5d6879]">Rs</span> 0/-</p>
-                    </div>
-                    <div class="bg-[#59dbdb80] w-full h-[0.01rem]">
-
-                    </div>
-                    <div class="flex justify-between">
-                        <p>Total</p>
-                        <p><span class="text-[#5d6879]">Rs</span> 00000/-</p>
-                    </div>
-                </div>
-                <div
-                    class="flex mt-2 justify-between gap-8 items-center border border-[#36aa6c] cursor-pointer hover:bg-[#edfaf3] p-2 rounded-md">
-                    <div>
-                        <p class="text-[#36aa6c]">Your total saving on this order</p>
-                    </div>
-                    <div>
-                        <p class="text-[#36aa6c]">Rs 1200/-</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-2 mt-3">
-                    <div>
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="12" cy="12" r="12" fill="#36AA6C" />
-                            <path
-                                d="M17.0366 8.46318C17.2925 8.7191 17.2925 9.13404 17.0366 9.38997L10.3214 16.1052C9.93087 16.4957 9.2977 16.4957 8.90718 16.1052L6.46357 13.6616C6.20755 13.4055 6.20755 12.9905 6.46357 12.7344C6.71937 12.4786 7.13403 12.4784 7.39014 12.7339L8.90751 14.2475C9.29805 14.6371 9.93029 14.6369 10.3205 14.247L16.11 8.46296C16.366 8.20724 16.7808 8.20734 17.0366 8.46318Z"
-                                fill="white" />
-                        </svg>
+                    <div class="flex items-center gap-2 mt-3">
+                        <div>
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <circle cx="12" cy="12" r="12" fill="#36AA6C" />
+                                <path
+                                    d="M17.0366 8.46318C17.2925 8.7191 17.2925 9.13404 17.0366 9.38997L10.3214 16.1052C9.93087 16.4957 9.2977 16.4957 8.90718 16.1052L6.46357 13.6616C6.20755 13.4055 6.20755 12.9905 6.46357 12.7344C6.71937 12.4786 7.13403 12.4784 7.39014 12.7339L8.90751 14.2475C9.29805 14.6371 9.93029 14.6369 10.3205 14.247L16.11 8.46296C16.366 8.20724 16.7808 8.20734 17.0366 8.46318Z"
+                                    fill="white" />
+                            </svg>
 
 
-                    </div>
-                    <div>
-                        <p class="text-xl font-[600]">Appointment & Invoice</p>
-                    </div>
+                        </div>
+                        <div>
+                            <p class="text-xl font-[600]">Appointment & Invoice</p>
+                        </div>
 
-                </div>
-                <div class="px-1 text-[#626979] ">
-                    We’ll send Appointment Confirmation & Invoice on your Email provided, You can download it as PDF
-                    as well or can take Screen Shot for Proof.
+                    </div>
+                    <div class="px-1 text-[#626979] ">
+                        We’ll send Appointment Confirmation & Invoice on your Email provided, You can download it as PDF
+                        as well or can take Screen Shot for Proof.
+                    </div>
                 </div>
             </div>
-        </div>
+        {% endcomment %}
     </div>
 </section>
 

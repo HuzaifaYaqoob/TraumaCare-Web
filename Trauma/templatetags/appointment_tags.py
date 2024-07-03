@@ -12,7 +12,7 @@ def get_doctor_slots(doctor, date, hospital_id):
         date = date,
         doct_hospital__id = hospital_id,
     ).exclude(
-        status__in = ["Finished", "Cancelled"]
+        status__in = ["Finished", "Cancelled", "Expired"]
     ).values_list('start_time', flat=True)
     return [sTime.strftime('%H:%M:00') for sTime in apps]
 

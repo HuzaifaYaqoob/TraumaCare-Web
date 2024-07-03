@@ -401,7 +401,7 @@
                                           <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
                                           <div class="flex items-center justify-between">
                                                 <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full animate-ping"></span></span> {{next_available.label}}</span></p>
-                                                <a href="#" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-[15px] text-slate-700">Schedule for Another Day</a>
                                           </div>
                                           <div class="">
                                                 {% for slot in next_available.slots %}
