@@ -158,11 +158,11 @@
                         {% if days_slots %}
                             <form action="{% url 'BookAppointment_DoctorPage' %}" method="post">
                                 {% csrf_token %}
-                                <input type="text" name="doctor" value="{{doctor.id}}">
-                                <input type="text" name="doct_hospital" value="{{hospital.id}}">
+                                <input type="text" class="hidden" name="doctor" value="{{doctor.id}}">
+                                <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
 
 
-                                <input type="text" name="dr-appointment-slot" value="{{doctor.id}}">
+                                <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
                                 <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
                                     {% for day in days_slots %}
                                         <div>
