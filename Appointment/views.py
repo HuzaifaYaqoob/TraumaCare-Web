@@ -15,14 +15,28 @@ from django.db.models import Count
 
 def MyAppointmentsPage(request):
     today = datetime.now()
+    req_status = request.GET.get('status', None)
+
+    query = {}
+
+    if not req_status or req_status == 'ALL':
+        pass
+    elif req_status == 'Upcoming':
+        query['date__gte'] = today.date()
+    elif req_status == 'Past':
+        query['date__lt'] = today.date()
+    elif req_status == 'Cancelled':
+        query['status__in'] = ['Cancelled', 'Expired']
+    else:
+        query['status'] = req_status
+
     appointments = Appointment.objects.filter(
             appointment_group__user = request.user,
-            # date__gte = today.date()
+            **query
         ).order_by('-date')
     
     data = { }
     for appt in appointments:
-        print(appt.date.strftime('%B'))
         data[appt.date.strftime('%B')] = data.get(appt.date.strftime('%B')) or []
         data[appt.date.strftime('%B')].append(appt)
     context = {

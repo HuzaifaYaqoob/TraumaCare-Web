@@ -36,6 +36,7 @@ class Appointment(models.Model):
         ('Confirmed', 'Confirmed'),
         ('Finished', 'Finished'),
         ('Cancelled', 'Cancelled'),
+        ('Expired', 'Expired'),
     )
 
     APPOINTMENT_LOCATION_CHOICES = (

@@ -28,7 +28,34 @@
             </div>
         </div>
     </div>
-    {% if appointment.status != 'Finished' and appointment.status != 'Cancelled' %}
+    {% if appointment.status == 'Cancelled' or appointment.status == 'Expired' %}
+        <div class="px-[24px] rounded-[8px] py-[11px] flex md:items-center relative gap-[8px] transition-all group mt-[14px] md:mt-[0px] {% if appointment.status == 'Expired' or appointment.status == 'Cancelled' %}bg-red-100 cursor-not-allowed{% else %}hover:bg-[#091c4b] bg-[#8f9296]/15 cursor-pointer{% endif %}">
+            <p class="font-[600] text-[15px] transition-all {% if appointment.status == 'Expired' or appointment.status == 'Cancelled' %}text-red-600{% else %}text-[#0A1C4B] group-hover:text-white{% endif %}">{{appointment.status}}</p>
+        </div>
+    {% elif appointment.status == 'Finished' %}
+        <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex md:items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group mt-[14px] md:mt-[0px] ">
+            <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">{{appointment.status}}</p>
+            <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
+            <div class="absolute right-0 top-[45px] pt-[6px] hidden group-hover:block z-50 ">
+                <div class="rounded-[8px] w-[220px] bg-white border border-[#8f9296]/40 relative z-50  ">
+                    <div class="p-[6px] ">
+                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] ">
+                            <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                <i class="fa-solid fa-clock text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                            </span>
+                            <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Add Review</p>
+                        </div>
+                        <div class="flex items-center gap-[6px] w-full group/item hover:bg-[#8f9296]/15 transition-all rounded-[7px] cursor-pointer px-[13px] py-[8px] mt-[9px] ">
+                            <span class="flex items-center justify-center h-[20px] w-[20px] ">
+                                <i class="fa-solid fa-location-dot text-[#8f9296] text-[16px] group-hover/item:text-black transition-all "></i>
+                            </span>
+                            <p class="text-[#4f5051] text-[16px] font-[500] group-hover/item:text-black transition-all whitespace-nowrap ">Edit location</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    {% else %}
         <div class="px-[24px] rounded-[8px] cursor-pointer py-[11px] flex md:items-center relative gap-[8px] transition-all hover:bg-black bg-[#8f9296]/15 group mt-[14px] md:mt-[0px] ">
             <p class="text-[#0A1C4B] group-hover:text-white font-[600] text-[15px] transition-all ">Edit</p>
             <i class="fa-solid fa-angle-down text-[#0A1C4B] group-hover:text-white transition-all text-[15px] group-hover:rotate-[180deg] "></i>
