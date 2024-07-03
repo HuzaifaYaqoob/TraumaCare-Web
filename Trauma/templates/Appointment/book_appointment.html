@@ -88,7 +88,7 @@
         <div class="flex-1 w-full mx-auto md:max-w-[1000px]">
             <div class="add-appoinments-left rounded-[15px] p-4 bg-white shadow-2xl mx-auto">
                 {% if doctor %}
-                    <input type="text" name="doctor_id" value="{{doctor.id}}">
+                    
                     <div class="my-4">
                         <div class="bg-[#C985FF] rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
                             <div class="flex flex-col md:flex-row gap-4 items-start ">
@@ -156,7 +156,13 @@
                             </script>
                         {% endif %}
                         {% if days_slots %}
-                            <div>
+                            <form action="{% url 'BookAppointment_DoctorPage' %}" method="post">
+                                {% csrf_token %}
+                                <input type="text" name="doctor" value="{{doctor.id}}">
+                                <input type="text" name="doct_hospital" value="{{hospital.id}}">
+
+
+                                <input type="text" name="dr-appointment-slot" value="{{doctor.id}}">
                                 <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
                                     {% for day in days_slots %}
                                         <div>
@@ -174,70 +180,102 @@
                                         loading...
                                     </div>
                                 </div>
-                                <script>
-                                    // Auto submit form when date selected
-                                    let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
-                                    let doctor_id = "{{doctor.id}}"
-                                    let hospital_id = "{{hospital.id}}"
+                                <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                                    <p class=" text-center">Book an appointment instantly</p>
+                                    <p class="text-xs text-center">it only takes a second</p>
+                                </button>
+                            </form>
+                            <script>
+                                // Auto submit form when date selected
+                                let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
+                                let doctor_id = "{{doctor.id}}"
+                                let hospital_id = "{{hospital.id}}"
 
-                                    const getSlotsForSelectedDate = async (e) => {
-                                        ShowTimeSlots.innerHTML = ''
-                                        ShowTimeSlots.setAttribute('loading', 'true')
+                                const handleSingleSlotSelect = (e) => {
+                                    let das = e.target.closest('.singleSlotCard')
+                                    if (das) {
+                                        let inp = das.querySelector('[name="dr-appointment-slot"]')
+                                        if (inp){
+                                            inp.checked = true
+                                        }
+                                    }
+                                }
 
-                                        let selected_date = e.target.value
+                                const getSlotsForSelectedDate = async (e) => {
+                                    ShowTimeSlots.innerHTML = ''
+                                    ShowTimeSlots.setAttribute('loading', 'true')
 
-                                        let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id}/?selected_date=${selected_date}`)
-                                        response = await response.json()
-                                        
-                                        if (response?.slots?.length == 0) {
-                                            let div = document.createElement('div')
-                                            div.className = 'px-4 py-10 rounded-3xl'
+                                    let selected_date = e.target.value
+
+                                    let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id}/?selected_date=${selected_date}`)
+                                    response = await response.json()
+                                    
+                                    if (response?.slots?.length == 0) {
+                                        let div = document.createElement('div')
+                                        div.className = 'px-4 py-10 rounded-3xl'
+                                        let p = document.createElement('p')
+                                        p.className = 'text-center'
+                                        p.innerHTML = 'No slots available'
+                                        div.append(p)
+                                        ShowTimeSlots?.append(div)
+                                    }
+                                    response?.slots?.forEach((slot, sI) => {
+                                        console.log(slot)
+                                        let div = document.createElement('div')
+                                        div.className = 'px-6 py-4 mb-3 rounded-3xl singleSlotCard'
+
+                                        let p = document.createElement('p')
+                                        p.className = 'mb-5'
+                                        p.innerHTML = `${slot.name} <span class='font-[600] text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
+                                        div.append(p)
+
+                                        let slt_inpt = document.createElement('input')
+                                        if (sI == 0) slt_inpt.checked = true
+                                        slt_inpt.type = 'radio'
+                                        slt_inpt.name = 'dr-appointment-slot'
+                                        slt_inpt.id = 'dr-appointment-slot_' + slot.id
+                                        slt_inpt.value = slot.id
+                                        slt_inpt.className = 'hidden'
+                                        div.append(slt_inpt)
+
+                                        let intervals_div = document.createElement('div')
+                                        intervals_div.className = 'flex gap-3 flex-wrap'
+                                        if (slot?.intervals?.length == 0) {
+                                            intervals_div.className = ''
+                                            let inner_div = document.createElement('div')
+                                            inner_div.className = 'px-4 py-2 rounded-3xl'
                                             let p = document.createElement('p')
                                             p.className = 'text-center'
                                             p.innerHTML = 'No slots available'
-                                            div.append(p)
-                                            ShowTimeSlots?.append(div)
+                                            inner_div.append(p)
+                                            intervals_div?.append(inner_div)
                                         }
-                                        response?.slots?.forEach((slot, sI) => {
-                                            console.log(slot)
-                                            let div = document.createElement('div')
-                                            div.className = 'px-6 py-4 mb-3 rounded-3xl'
+                                        slot?.intervals?.forEach((interval, index) => {
+                                            let int_div = document.createElement('div')
+                                            int_div.className = ''
 
-                                            let p = document.createElement('p')
-                                            p.className = 'mb-5'
-                                            p.innerHTML = `${slot.name} <span class='font-[600] text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
-                                            div.append(p)
-
-                                            let intervals_div = document.createElement('div')
-                                            intervals_div.className = 'flex gap-3 flex-wrap'
-                                            slot?.intervals?.forEach((interval, index) => {
-                                                let int_div = document.createElement('div')
-                                                int_div.className = ''
-
-                                                let slot_html = `
-                                                        <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                        <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
-                                                `
-                                                int_div.innerHTML = slot_html
-                                                intervals_div.append(int_div)
-                                            })
-
-                                            div.append(intervals_div)
-                                            ShowTimeSlots.append(div)
+                                            let slot_html = `
+                                                    <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
+                                                    <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                            `
+                                            int_div.innerHTML = slot_html
+                                            intervals_div.append(int_div)
                                         })
-                                        ShowTimeSlots.removeAttribute('loading')
-                                    }
-                                    document.querySelectorAll('input[name="selected_date"]').forEach(input => {
-                                        input.addEventListener('change', getSlotsForSelectedDate)
-                                    })
 
-                                    getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
-                                </script>
-                            </div>
-                            <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
-                                <p class=" text-center">Book an appointment instantly</p>
-                                <p class="text-xs text-center">it only takes a second</p>
-                            </button>
+                                        div.append(intervals_div)
+                                        ShowTimeSlots.append(div)
+                                    })
+                                    ShowTimeSlots.removeAttribute('loading')
+                                    ShowTimeSlots.querySelectorAll('input[name="selected_time"]').forEach(input => {
+                                        input.addEventListener('change', handleSingleSlotSelect)
+                                    })
+                                }
+                                document.querySelectorAll('input[name="selected_date"]').forEach(input => {
+                                    input.addEventListener('change', getSlotsForSelectedDate)
+                                })
+
+                                getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
+                            </script>
                         {% endif %}
                     </div>
                 {% endif %}
