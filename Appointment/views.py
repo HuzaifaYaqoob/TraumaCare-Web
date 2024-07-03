@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
 from django.contrib import messages
@@ -10,35 +10,102 @@ from Trauma.models import Speciality
 from datetime import timedelta, datetime
 from django.db.models import Count
 
-# Create your views here.
 
 
 def MyAppointmentsPage(request):
     today = datetime.now()
+    req_status = request.GET.get('status', None)
+
+    query = {}
+
+    if not req_status or req_status == 'ALL':
+        pass
+    elif req_status == 'Upcoming':
+        query['date__gte'] = today.date()
+    elif req_status == 'Past':
+        query['date__lt'] = today.date()
+    elif req_status == 'Cancelled':
+        query['status__in'] = ['Cancelled', 'Expired']
+    else:
+        query['status'] = req_status
+
     appointments = Appointment.objects.filter(
             appointment_group__user = request.user,
-            date__gte = today.date()
-        )
+            **query
+        ).order_by('-date')
     
     data = { }
     for appt in appointments:
-        data[appt.date] = data.get(appt.date) or []
-        data[appt.date].append(appt)
+        data[appt.date.strftime('%B')] = data.get(appt.date.strftime('%B')) or []
+        data[appt.date.strftime('%B')].append(appt)
     context = {
         'appointments' : data
     }
     return render(request, 'Appointment/myAppointments.html', context)
 
+def CancelMyAppointment(request, appointment_id):
+    try:
+        appointment = Appointment.objects.get(id = appointment_id, appointment_group__user = request.user)
+    except:
+        messages.error(request, 'Invalid Request')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    else:
+        appointment.status = 'Cancelled'
+        appointment.appointment_group.status = 'Cancelled'
+        appointment.appointment_group.save()
+        appointment.save()
+        messages.success(request, 'Appointment Cancelled')
+        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
+
 def BookAppointmentPage(request):
-    doctor_id = request.GET.get('doctor', None)
+    doctor_slug = request.GET.get('doctor', None)
     context = {}
-    if doctor_id:
-        context['hospitals'] = DoctorWithHospital.objects.filter(doctor__id = doctor_id)
+    if doctor_slug:
+        try:
+            doctor = Doctor.objects.get(slug = doctor_slug)
+        except:
+            messages.error(request, 'Invalid Doctor profile')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            context['doctor'] = doctor
         
+        hospital_id = request.GET.get('hospital', None)
+        mode = request.GET.get('mode', None)
+        hospital = None
+        if mode == 'Online':
+            context['mode'] = mode
+            
+        elif hospital_id :
+            try:
+                hospital = DoctorWithHospital.objects.get(id = hospital_id)
+            except:
+                messages.error(request, 'Invalid Hospital')
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+            context['hospital'] = hospital
+        else:
+            context['hospitals'] = DoctorWithHospital.objects.filter(doctor = doctor, hospital__is_deleted = False, hospital__is_active = True, hospital__is_blocked = False)
+        
+        if hospital or mode == 'Online':
+            days_slots = []
+            date_now = datetime.now()
+            for i in range(30):
+                date = date_now + timedelta(days = i)
+                data = {
+                    'date' : date,
+                    'day_name' : date.strftime("%a"),
+                    'date_format' : date.strftime("%Y-%m-%d"),
+                    'date_prefix_zero' : date.strftime("%d"),
+                }
+                if i == 0:
+                    data['is_today'] = True
+                else:
+                    data['month'] = date.strftime("%B")
+                days_slots.append(data)
+            context['days_slots'] = days_slots
+    else:
+        context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
     
-    context['today_label'] = datetime.now().strftime("%B %Y")
-    context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
-    context['specialities'] = Speciality.objects.annotate(doctor_count=Count('speciality_doctorspecialities')).filter(is_deleted = False, is_active = True, doctor_count__gt = 0)
     
     return render(request, 'Appointment/book_appointment.html', context)
 
@@ -105,7 +172,7 @@ def BookAppointment_DoctorPage(request):
         appointment.save()
 
     messages.success(request, 'Your appointment is booked successfully.')
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect(f'/appointment/my-appointments#appointment_{appointment.id}')
 
 def CheckoutPage(request):
     return render(request, 'checkout/checkout-appoinment.html')

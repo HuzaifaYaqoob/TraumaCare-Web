@@ -12,8 +12,8 @@ class TagsInline(admin.TabularInline):
 class ImageInline(admin.TabularInline):
     model = BlogMedia
     extra = 1
-    fields = ['image', 'thumbnail']
-    readonly_fields = ['thumbnail']
+    fields = ['image', 'thumbnail', 'mini_thumbnail']
+    readonly_fields = ['thumbnail', 'mini_thumbnail']
 
 @admin.register(BlogPost)
 class PostAdmin(admin.ModelAdmin):
@@ -31,7 +31,7 @@ class PostAdmin(admin.ModelAdmin):
 
 @admin.register(BlogMedia)
 class MediaAdmin(admin.ModelAdmin):
-    list_display = ['id', 'post', 'image', 'thumbnail']
+    list_display = ['id', 'post', 'image', 'thumbnail', 'mini_thumbnail']
 
 @admin.register(Tag)
 class TagAdmin(admin.ModelAdmin):

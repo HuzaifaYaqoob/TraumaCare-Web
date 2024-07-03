@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 from pathlib import Path
 import environ
 import os
+
+from .tc_settings import *
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
 
@@ -71,7 +73,7 @@ INSTALLED_APPS = [
     'Administration.apps.AdministrationConfig',
     'Blog.apps.BlogConfig',
 ]
-
+GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',

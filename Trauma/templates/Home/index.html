@@ -363,7 +363,7 @@
                     fill="#0A2C4B" />
             </svg>
         </div>
-        <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Lahore"></input>
+        <input value='{% if request.city %}{{request.city}}{% endif %}' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Lahore" />
     </div>
     <div class="relative flex-1 h-full hidden md:block ">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">

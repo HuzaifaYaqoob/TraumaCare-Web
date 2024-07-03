@@ -5,6 +5,7 @@ from uuid import uuid4
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from Authentication.models import User
 from Hospital.models import Hospital, HospitalLocation
+from datetime import datetime
 # Create your models here.
 
 
@@ -35,6 +36,7 @@ class Appointment(models.Model):
         ('Confirmed', 'Confirmed'),
         ('Finished', 'Finished'),
         ('Cancelled', 'Cancelled'),
+        ('Expired', 'Expired'),
     )
 
     APPOINTMENT_LOCATION_CHOICES = (
@@ -81,5 +83,27 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    @property
+    def day_name(self):
+        if self.date:
+            # Short Day name
+            return self.date.strftime('%a')
+        
+        return None
+
+    @property
+    def user(self):
+        return self.appointment_group.user
+    
+    @property
+    def is_today(self):
+        if self.date:
+            return datetime.now().date() == self.date
+        
+    @property
+    def date_prefix_zero(self):
+        if self.date:
+            return self.date.strftime('%d')
+        
     def __str__(self):
         return str(self.id)

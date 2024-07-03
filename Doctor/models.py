@@ -309,6 +309,8 @@ class DoctorWithHospital(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
     location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
 
+    phone = models.CharField(max_length=999, default='')
+
     @property
     def available_days(self):
         return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True)
@@ -431,6 +433,20 @@ class DoctorTimeSlots(models.Model):
         while current_time < end_time:
             if current_time.time() > time_now or self.slot_next_date['day_count'] > 0:
                 times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
+            current_time += interval
+
+        return times
+
+        
+    @property
+    def get_all_intervals(self):
+        start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
+        end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
+        interval = timedelta(minutes=self.doctor.get_time_inverval)
+        times = []
+        current_time = start_time
+        while current_time < end_time:
+            times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
             current_time += interval
 
         return times

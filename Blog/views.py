@@ -19,6 +19,7 @@ def PostViewPage(request, post_slug):
         return redirect('BlogHomePage')
 
     context = {
-        'post' : post
+        'post' : post,
+        'suggested' : BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:10]
     }
     return render(request, 'Blog/blog-post.html', context)

@@ -192,7 +192,7 @@
                                                       <input type="text" class="hidden" name="selected_date" value="{{online_ava.day_date}}">
                                                       <div class="flex items-center justify-between mb-3">
                                                             <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 {% if online_ava.day_count == 0 %}text-green-600{% elif online_ava.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if online_ava.day_count == 0 %}bg-green-600{% elif online_ava.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] {% if online_ava.day_count == 0 %}bg-green-600{% elif online_ava.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full animate-ping"></span></span>{{online_ava.label}}</span></p>
-                                                            <a href="#" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="text-[15px] text-slate-700">Schedule for Another Day</a>
                                                       </div>
                                                       <div class="grid gap-4 {% if online_ava.slots|length > 1 %}grid-cols-2{% else %}grid-cols-1{% endif %}">
                                                             {% for slot in online_ava.slots %}
@@ -401,7 +401,7 @@
                                           <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
                                           <div class="flex items-center justify-between">
                                                 <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full animate-ping"></span></span> {{next_available.label}}</span></p>
-                                                <a href="#" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-[15px] text-slate-700">Schedule for Another Day</a>
                                           </div>
                                           <div class="">
                                                 {% for slot in next_available.slots %}
@@ -449,10 +449,10 @@
                         <p class="text-2xl font-[600] text-[#555555] text-center mt-[18px]">Book an Appointment</p>     
                         <p class="text-[#9A9A9A] text-center">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                         <div class="flex items-center gap-3 flex-wrap justify-center mt-[16px]">
-                              <div class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
-                                    <p  class=" whitespace-nowrap">Consult Online</p>
-                              </div>
-                              <a href="#" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
+                              <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
+                                    <p class=" whitespace-nowrap">Consult Online</p>
+                              </a>
+                              <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block bg-[#24D0D0] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer">
                                     <p class="text-white whitespace-nowrap ">Book Appointment</p>
                               </a>
                         </div>
