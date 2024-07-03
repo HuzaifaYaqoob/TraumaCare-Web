@@ -291,6 +291,7 @@ def createDoctorProfile(request):
 @permission_classes([AllowAny])
 def getDoctorHospitalSlots(request, doctor_id, hospital_id):
     selected_date = request.GET.get('selected_date', None)
+    mode = request.GET.get('mode', None)
     if selected_date:
         selected_date = datetime.strptime(selected_date, '%Y-%m-%d')
     else:
@@ -298,11 +299,17 @@ def getDoctorHospitalSlots(request, doctor_id, hospital_id):
     
     day_name = selected_date.strftime('%A')
     
+    query = {}
+    if mode == 'Online':
+        query['availability_type'] = 'Online'
+    else:
+        query['doc_hospital'] = hospital_id
+
 
     slots = DoctorTimeSlots.objects.filter(
         day__day = day_name,
         doctor = doctor_id,
-        doc_hospital = hospital_id
+        **query
     )
 
     data = []

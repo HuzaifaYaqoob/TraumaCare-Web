@@ -137,9 +137,10 @@
                                 </div>
                             </div>
                         </div>
-                        {% if not hospital %}
+                        {% if mode == 'Online' %}
+                        {% elif not hospital %}
                             <form>
-                                <input type="text" name="doctor" value="{{doctor.slug}}">
+                                <input type="text" name="doctor" class='hidden' value="{{doctor.slug}}">
                                 <select name="hospital">
                                     <option value="" disabled selected>Select Hospital</option>
                                     {% for h in hospitals %}
@@ -159,7 +160,9 @@
                             <form action="{% url 'BookAppointment_DoctorPage' %}" method="post">
                                 {% csrf_token %}
                                 <input type="text" class="hidden" name="doctor" value="{{doctor.id}}">
-                                <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
+                                {% if hospital %}
+                                    <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
+                                {% endif %}
 
 
                                 <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
@@ -190,6 +193,7 @@
                                 let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
                                 let doctor_id = "{{doctor.id}}"
                                 let hospital_id = "{{hospital.id}}"
+                                let mode = "{{mode}}"
 
                                 const handleSingleSlotSelect = (e) => {
                                     let das = e.target.closest('.singleSlotCard')
@@ -207,7 +211,7 @@
 
                                     let selected_date = e.target.value
 
-                                    let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id}/?selected_date=${selected_date}`)
+                                    let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id || mode}/?selected_date=${selected_date}${mode == 'Online' ? '&mode=Online' : ''}`)
                                     response = await response.json()
                                     
                                     if (response?.slots?.length == 0) {

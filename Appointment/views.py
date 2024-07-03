@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.http import HttpResponseRedirect
 
 from django.contrib import messages
@@ -71,14 +71,22 @@ def BookAppointmentPage(request):
             context['doctor'] = doctor
         
         hospital_id = request.GET.get('hospital', None)
-        if hospital_id:
+        mode = request.GET.get('mode', None)
+        hospital = None
+        if mode == 'Online':
+            context['mode'] = mode
+            
+        elif hospital_id :
             try:
                 hospital = DoctorWithHospital.objects.get(id = hospital_id)
             except:
                 messages.error(request, 'Invalid Hospital')
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
             context['hospital'] = hospital
-
+        else:
+            context['hospitals'] = DoctorWithHospital.objects.filter(doctor = doctor, hospital__is_deleted = False, hospital__is_active = True, hospital__is_blocked = False)
+        
+        if hospital or mode == 'Online':
             days_slots = []
             date_now = datetime.now()
             for i in range(30):
@@ -95,13 +103,9 @@ def BookAppointmentPage(request):
                     data['month'] = date.strftime("%B")
                 days_slots.append(data)
             context['days_slots'] = days_slots
-        else:
-            context['hospitals'] = DoctorWithHospital.objects.filter(doctor = doctor, hospital__is_deleted = False, hospital__is_active = True, hospital__is_blocked = False)
     else:
         context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
     
-    context['today_label'] = datetime.now().strftime("%B %Y")
-    context['specialities'] = Speciality.objects.annotate(doctor_count=Count('speciality_doctorspecialities')).filter(is_deleted = False, is_active = True, doctor_count__gt = 0)
     
     return render(request, 'Appointment/book_appointment.html', context)
 
@@ -168,7 +172,7 @@ def BookAppointment_DoctorPage(request):
         appointment.save()
 
     messages.success(request, 'Your appointment is booked successfully.')
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+    return redirect(f'/appointment/my-appointments#appointment_{appointment.id}')
 
 def CheckoutPage(request):
     return render(request, 'checkout/checkout-appoinment.html')

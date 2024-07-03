@@ -26,7 +26,6 @@ class TrackUserLogMiddleware:
 
         user_loc = self.get_user_location(real_ip)
         if user_loc:
-            print(user_loc)
             request.country = user_loc.get('country_name', None)
             request.country_code = user_loc.get('country_code', None)
             request.state = user_loc.get('region', None)

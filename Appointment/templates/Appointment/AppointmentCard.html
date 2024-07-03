@@ -1,4 +1,4 @@
-<div class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[14px] sm:px-[18px] md:px-[30px] md:py-[16px] py-[11px] sm:py-[14px] mb-5 mt-[12px] md:flex-row flex-col gap-[22px] ">
+<div id='appointment_{{appointment.id}}' class="border border-[#8f9296]/40 rounded-[10px] flex items-center justify-between px-[14px] sm:px-[18px] md:px-[30px] md:py-[16px] py-[11px] sm:py-[14px] mb-5 mt-[12px] md:flex-row flex-col gap-[22px] ">
     <div class="flex-1 w-full flex sm:flex-row items-center flex-col gap-[22px] sm:gap-[0px] ">
         <div class="group max-w-max sm:border-r border-[#8f9296]/40 md:pr-[32px] cursor-default ">
             <p class="text-[#0A1C4B] text-[17px] font-[600] group-hover:text-[#e65524] text-center leading-[29px] {% if appointment.is_today %}text-[#e5511f]{% endif %}">{{appointment.day_name}}</p>
