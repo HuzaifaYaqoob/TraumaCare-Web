@@ -28,7 +28,9 @@
     }
 
     input[name='selected_date']:checked + label {
-        border-bottom: 3px solid #0A1C4B;
+        border-bottom: 5px solid #0A1C4B;
+        color: #0A1C4B;
+        font-weight: 600;
     }
     
     .selected_date_slots{
@@ -39,23 +41,29 @@
     }
 
     input[name='selected_time']:checked + label {
+        border-width: 2px;
         border-color: #0A1C4B;
         background-color: #0a1c4b07;
         color: #0A1C4B;
+        font-weight: 600;
     }
 
     div[loadingMain]{
         display: none;
     }
 
+    div[AvailabeDates]::-webkit-scrollbar{
+        display: none !important;
+    }
     div[ShowTimeSlots][loading] ~ div[loadingMain]{
         position: absolute;
         inset: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        background-color: rgba(0, 0, 0, 0.376);
+        /* background-color: rgba(0, 0, 0, 0.376); */
         color: white;
+        height: 200px;
     }
 </style>
 
@@ -76,7 +84,7 @@
 <section class="add-appoinments-section mb-4">
     <div
         class="add-appoinments-main-div w-[95%] md:w-full gap-y-[20px] md:gap-y-0 gap-x-0 md:gap-x-[28px] md:flex-row flex-col-reverse">
-        <div class="flex-1 w-full mx-auto md:mx-0 md:max-w-[1000px]">
+        <div class="flex-1 w-full mx-auto md:max-w-[1000px]">
             <div class="add-appoinments-left rounded-[15px] p-4 bg-white shadow-2xl mx-auto">
                 {% if doctor %}
                     <input type="text" name="doctor_id" value="{{doctor.id}}">
@@ -148,29 +156,18 @@
                         {% endif %}
                         {% if days_slots %}
                             <div>
-                                <div class="flex gap-1 overflow-auto py-4 mx-4">
+                                <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
                                     {% for day in days_slots %}
                                         <div>
-                                            <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="" {% if day.is_today %}checked{% endif %}>
-                                            <label for="selected_date_{{day.date_format}}" class="block px-7 py-3 cursor-pointer">
+                                            <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="hidden" {% if day.is_today %}checked{% endif %}>
+                                            <label for="selected_date_{{day.date_format}}" class="block px-7 py-5 cursor-pointer">
                                                 <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
-                                                {% if day.slot.slots|length > 0 %}
-                                                    <span class="text-center block">{{day.slot.fee}} pkr</span>
-                                                {% endif %}
                                             </label>
                                         </div>
                                     {% endfor %}
                                 </div>
                                 <div class="relative rounded-3xl !overflow-hidden">
                                     <div class="" ShowTimeSlots>
-                                        <!-- <div class="border px-4 py-4 rounded-3xl">
-                                            <p class="mb-5">Evening Slots</p>
-                                            <div class="flex gap-3 flex-wrap">
-                                                <div class="">
-                                                    
-                                                </div>
-                                            </div>
-                                        </div> -->
                                     </div>
                                     <div loadingMain>
                                         loading...
@@ -183,29 +180,31 @@
                                     let hospital_id = "{{hospital.id}}"
 
                                     const getSlotsForSelectedDate = async (e) => {
+                                        ShowTimeSlots.innerHTML = ''
                                         ShowTimeSlots.setAttribute('loading', 'true')
+
                                         let selected_date = e.target.value
 
                                         let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id}/?selected_date=${selected_date}`)
                                         response = await response.json()
-                                        ShowTimeSlots.innerHTML = ''
+                                        
                                         if (response?.slots?.length == 0) {
                                             let div = document.createElement('div')
-                                            div.className = 'border px-4 py-10 rounded-3xl'
+                                            div.className = 'px-4 py-10 rounded-3xl'
                                             let p = document.createElement('p')
                                             p.className = 'text-center'
                                             p.innerHTML = 'No slots available'
                                             div.append(p)
-                                            ShowTimeSlots.append(div)
+                                            ShowTimeSlots?.append(div)
                                         }
-                                        response?.slots?.forEach(slot => {
+                                        response?.slots?.forEach((slot, sI) => {
                                             console.log(slot)
                                             let div = document.createElement('div')
-                                            div.className = 'border px-4 py-4 rounded-3xl'
+                                            div.className = 'px-6 py-4 mb-3 rounded-3xl'
 
                                             let p = document.createElement('p')
                                             p.className = 'mb-5'
-                                            p.innerHTML = slot.name
+                                            p.innerHTML = `${slot.name} <span class='font-[600] text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
                                             div.append(p)
 
                                             let intervals_div = document.createElement('div')
@@ -215,8 +214,8 @@
                                                 int_div.className = ''
 
                                                 let slot_html = `
-                                                        <input type="radio" id="selected_time_${interval[0]}" name="selected_time" value="${interval[0]}}" class="slot_checkbox hidden">
-                                                        <label for="selected_time_${interval[0]}" class="border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                                        <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
+                                                        <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
                                                 `
                                                 int_div.innerHTML = slot_html
                                                 intervals_div.append(int_div)
@@ -234,204 +233,13 @@
                                     getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
                                 </script>
                             </div>
+                            <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                                <p class=" text-center">Book an appointment instantly</p>
+                                <p class="text-xs text-center">it only takes a second</p>
+                            </button>
                         {% endif %}
                     </div>
                 {% endif %}
-                <div class="border border[#6d8cba3d] p-4 rounded-md pb-0 w-full">
-                    <div class="flex items-center gap-4 mb-2">
-                        <div>
-                            <h3 class="text-xl text-[#507ec2] font-semibold">{{today_label}}</h3>
-                        </div>
-                        <div class="flex gap-2 items-center">
-                            <div>
-                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M5.21849 11.3356C5.54194 11.0769 5.59438 10.6049 5.33562 10.2815L1.71044 5.74997L5.33562 1.21849C5.59438 0.895046 5.54194 0.423077 5.21849 0.16432C4.89505 -0.0944376 4.42308 -0.041996 4.16432 0.28145L0.164321 5.28145C-0.0548105 5.55536 -0.0548105 5.94458 0.164321 6.21849L4.16432 11.2185C4.42308 11.5419 4.89505 11.5944 5.21849 11.3356Z"
-                                        fill="#507EC2" />
-                                </svg>
-                            </div>
-                            <div>
-                                <svg width="6" height="12" viewBox="0 0 6 12" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <path fill-rule="evenodd" clip-rule="evenodd"
-                                        d="M0.281506 0.164376C-0.0419401 0.423133 -0.0943811 0.895102 0.164376 1.21855L3.78956 5.75003L0.164376 10.2815C-0.0943811 10.605 -0.0419401 11.0769 0.281506 11.3357C0.604953 11.5944 1.07692 11.542 1.33568 11.2185L5.33568 6.21855C5.55481 5.94464 5.55481 5.55542 5.33568 5.28151L1.33568 0.281506C1.07692 -0.0419401 0.604953 -0.0943811 0.281506 0.164376Z"
-                                        fill="#507EC2" />
-                                </svg>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="relative w-full">
-                        <div
-                            class="absolute right-0 top-0 bottom-5 w-[100px] bg-gradient-to-r from-[#ffffff00] to-[#ffffff]">
-                        </div>
-                        <div class="flex items-center justify-start gap-3 pb-5 w-full overflow-auto">
-                            {% include 'Components/Appointment/DateCard.html' with active='true' %}
-                        </div>
-                    </div>
-                </div>
-                <input type="text" value="{{request.GET.doctor}}">
-                <div class="flex items-center gap-3 justify-between my-4">
-                    <div class="flex-1">
-                        <label class="mb-2 block" for="SelectHospital">Select Hospital</label>
-                        <select name="" id="SelectHospital" class="px-3 border py-2 rounded-lg w-full">
-                            <option value="" disabled selected>Select Hospital</option>
-                            {% for hospital in hospitals %}
-                            <option value="{{hospital.slug}}">{{hospital.hospital.name}}, {{hospital.location.name}}
-                            </option>
-                            {% endfor %}
-                        </select>
-                    </div>
-                </div>
-                
-                <div class="mt-4">
-                    <h3 class="text-[#6D8CBA] text-xl font-semibold">6 March, Availability</h3>
-                    <div class="flex items-center  flex-wrap gap-3 mt-2">
-                        <div
-                            class="border border-[#91a8cb] px-6 py-2 rounded-md hover:border-[#24D0D0] hover:bg-[#24D0D0] group cursor-pointer transition-all">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- <div class="mt-4">
-                    <h3 class="text-[#6D8CBA] text-xl font-bold">Select Services</h3>
-                    <p class="text-[#6D8CBA]">Please take a moment to review the list of services we offer and select the 
-                        ones you need.</p>
-                </div>
-                <div class="flex items-center gap-2 mt-2  flex-wrap gap-4">
-                    {% include 'Components/Service/ServiceCard.html' %}
-                </div>
-                <div class="mt-4">
-                    <h3 class="text-[#6D8CBA] text-xl font-bold">Packages</h3>
-                </div>
-                <div class="flex items-center gap-2 mt-2 flex-wrap gap-4 ">
-                    {% include 'Components/Service/ServiceCard.html' %}
-                </div> -->
-                <!-- <div>
-                    <h3 class="text-[#507EC2] text-xl font-bold mt-4">Select doctor for this service </h3>
-                    <div class="flex flex-wrap items-center gap-3 mt-3">
-                        <div
-                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-
-                            <div class="h-[35px] w-[35px] rounded-[50%] "
-                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
-
-                            </div>
-
-                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                            <div
-                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-
-                        </div>
-                        <div
-                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                            <div class="h-[35px] w-[35px] rounded-[50%] "
-                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
-
-                            </div>
-                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. FAisal qur..</p>
-                            <div
-                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-
-                        </div>
-                        <div
-                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                            <div class="h-[35px] w-[35px] rounded-[50%] "
-                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
-
-                            </div>
-                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                            <div
-                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-
-                        </div>
-                        <div
-                            class="border relative border-[#24d0d0] cursor-pointer hover:bg-[#24d0d008] rounded-lg py-2 px-1 flex items-center gap-2">
-                            <div class="h-[35px] w-[35px] rounded-[50%] "
-                                style="background: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcREJABO838SvPqz39uGQ8dWKV19eSR7OE-BYQ&usqp=CAU); background-repeat: no-repeat; background-size: cover; background-position: center;">
-
-                            </div>
-                            <p class="text-[#6D8CBA] text-md font-[600]">Dr. Zia Ahmad..</p>
-                            <div
-                                class="absolute w-[20px] h-[20px] border-[2px] border-[#ffffff] rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-
-                        </div>
-                        <div class="border-[#24D0D0] border cursor-pointer hover:bg-[#24d0d008]  rounded-lg px-2 py-3 ">
-                            <p class="text-[#6D8CBA] font-[600]">Direct avail by Doctors Hospital</p>
-
-                        </div>
-
-                    </div>
-
-                </div> -->
-                <!-- <div class="mt-4">
-                    <h3 class="text-xl font-bold text-[#507EC2]">Select Time slot</h3>
-                    <div class="flex items-center flex-wrap gap-4 mt-3">
-                        <div
-                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                            <div
-                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-                        </div>
-                        <div
-                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                            <div
-                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-                        </div>
-                        <div
-                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                            <div
-                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-                        </div>
-                        <div
-                            class="border relative border-[#91a8cb] cursor-pointer group hover:bg-[#24D0D0] hover:border-[#24D0D0] transition-all px-6 py-2 rounded-md hover:bg-[]">
-                            <p class="text-[#91a8cb]  group-hover:text-white">10:00 PM</p>
-                            <div
-                                class="absolute border-[3px] border-white       w-5 h-5 rounded-full top-[-10px] right-[-10px] bg-[#24D0D0]">
-
-
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="mt-3">
-                    <h3 class="text-xl font-bold text-[#507EC2]">Other Services</h3>
-                    <div class="flex items-center gap-2 mt-2  flex-wrap gap-4">
-                        {% include 'Components/Service/ServiceCard.html' %}
-                    </div>
-                    <div
-                        class="flex items-center justify-center gap-1 w-28 h-10 px-1 bg-[#24D0D0] rounded-xl mt-2 ml-auto !mt-10 cursor-pointer ">
-                        <p class="text-white">Confirm</p>
-                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M9.3 10.85C9.1 10.65 9.004 10.4083 9.012 10.125C9.02 9.84167 9.12434 9.6 9.325 9.4L12.15 6.575H1C0.71667 6.575 0.479004 6.479 0.287004 6.287C0.0950036 6.095 -0.000663206 5.85767 3.4602e-06 5.575C3.4602e-06 5.29167 0.0960036 5.054 0.288004 4.862C0.480004 4.67 0.717337 4.57433 1 4.575H12.15L9.3 1.725C9.1 1.525 9 1.28733 9 1.012C9 0.736666 9.1 0.499333 9.3 0.3C9.5 0.0999997 9.73767 0 10.013 0C10.2883 0 10.5257 0.0999997 10.725 0.3L15.3 4.875C15.4 4.975 15.471 5.08333 15.513 5.2C15.555 5.31667 15.5757 5.44167 15.575 5.575C15.575 5.70833 15.554 5.83333 15.512 5.95C15.47 6.06667 15.3993 6.175 15.3 6.275L10.7 10.875C10.5167 11.0583 10.2877 11.15 10.013 11.15C9.73834 11.15 9.50067 11.05 9.3 10.85Z"
-                                fill="white" />
-                        </svg>
-                    </div>
-                </div> -->
             </div>
         </div>
         {% comment %}

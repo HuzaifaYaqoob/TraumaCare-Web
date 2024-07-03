@@ -306,6 +306,7 @@ def getDoctorHospitalSlots(request, doctor_id, hospital_id):
     )
 
     data = []
+    today_date = datetime.now().date()
 
     for slot in slots:
         apps = Appointment.objects.filter(
@@ -318,13 +319,15 @@ def getDoctorHospitalSlots(request, doctor_id, hospital_id):
 
         start_times = [sTime.strftime('%H:%M:00') for sTime in apps]
         intervals = []
-        for interval in slot.slots_interval:
+        slot_intervals = slot.slots_interval if today_date == selected_date.date() else slot.get_all_intervals
+        for interval in slot_intervals:
             if interval[0] not in start_times:
                 intervals.append(interval)
 
         data.append({
             'name' : slot.title,
             'id' : slot.id,
+            'fee' : slot.final_price,
             'intervals' : intervals
         })
     return Response({

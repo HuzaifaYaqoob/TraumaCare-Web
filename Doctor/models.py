@@ -436,6 +436,20 @@ class DoctorTimeSlots(models.Model):
             current_time += interval
 
         return times
+
+        
+    @property
+    def get_all_intervals(self):
+        start_time = datetime.strptime(self.start_time.strftime("%H:%M"), "%H:%M")
+        end_time = datetime.strptime(self.end_time.strftime("%H:%M"), "%H:%M")
+        interval = timedelta(minutes=self.doctor.get_time_inverval)
+        times = []
+        current_time = start_time
+        while current_time < end_time:
+            times.append([current_time.strftime("%H:%M:00"), current_time.strftime("%I:%M %p")])
+            current_time += interval
+
+        return times
     
 
     @property
