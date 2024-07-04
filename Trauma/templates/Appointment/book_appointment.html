@@ -278,6 +278,22 @@
                             </script>
                         {% endif %}
                     </div>
+                {% else %}
+                    <form>
+                        <select name="doctor" class='px-3 py-2 rounded-lg border my-4'>
+                            <option value="" disabled selected>Select Doctor</option>
+                            {% for doct in doctors %}
+                                <option value="{{doct.slug}}">Dr. {{doct.name}} <span class='text-xs'>({{doct.heading}})</span></option>
+                            {% endfor %}
+                        </select>
+                    </form>
+                    <script>
+                        // Auto submit form when Doctor selected
+                        document.querySelector('select[name="doctor"]').addEventListener('change', (e) => {
+                            const form = document.querySelector('form')
+                            form.submit()
+                        })
+                    </script>
                 {% endif %}
             </div>
         </div>
