@@ -23,6 +23,7 @@ class Hospital(models.Model):
     description = models.TextField(default='')
 
     slug = models.TextField(default='')
+    fee = models.FloatField(default=0.0, verbose_name='Platform Service Fee(%)')
 
     is_approved = models.BooleanField(default=False)
 
@@ -69,9 +70,6 @@ class Hospital(models.Model):
 class HospitalLocation(models.Model):
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
 
-    user = models.ForeignKey(User, related_name='hospital_locations', on_delete=models.PROTECT)
-    profile = models.ForeignKey(Profile, related_name='profile_hospital_locations', on_delete=models.PROTECT)
-
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, related_name='hospital_locations')
 
     name = models.CharField(max_length=999, default='')
@@ -83,36 +81,28 @@ class HospitalLocation(models.Model):
 
     def __str__(self):
         return f'{str(self.id)} -- {self.hospital.name} -- {self.name}'
-
+    
 class LocationContact(models.Model):
     CONTACT_TYPE_CHOICES = (
         ('EMAIL', 'EMAIL'),
         ('PHONE_NUMBER', 'PHONE_NUMBER'),
     )
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
-    user = models.ForeignKey(User, related_name='hospital_location_contacts', on_delete=models.PROTECT)
-    profile = models.ForeignKey(Profile, related_name='profile_hospital_location_contacts', on_delete=models.PROTECT)
 
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, related_name='hospital_location_contacts')
     location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, related_name='location_contacts')
 
     contact_type = models.CharField(choices=CONTACT_TYPE_CHOICES, default='EMAIL', max_length=50)
     contact_title = models.CharField(default='', max_length=500)
-    email = models.CharField(default='', max_length=500)
+    email = models.CharField(default='', max_length=500, blank=True)
 
 
     dial_code = models.CharField(max_length=20, default='')
-    mobile_number = models.CharField(max_length=20, default='')
+    mobile_number = models.CharField(max_length=20, default='', blank=True)
 
     def __str__(self):
         return f'{str(self.id)} -- {self.hospital.name} -- {self.location.name} -- {self.contact_title}'
 
-    @property
-    def phone_number(self):
-        if self.dial_code and self.mobile_number:
-            return f'+{self.dial_code}-{self.mobile_number}'
-    
-        return ''
 
 
 

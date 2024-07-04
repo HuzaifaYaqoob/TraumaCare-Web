@@ -39,7 +39,7 @@ class Doctor(models.Model):
     heading = models.CharField(max_length=700, default='')
 
     dial_code = models.CharField(max_length=20, default='')
-    mobile_number = models.CharField(max_length=20, default='')
+    mobile_number = models.CharField(max_length=20, default='', verbose_name='Doctor Personal Number')
 
     working_since = models.DateField()
 
@@ -479,6 +479,14 @@ class DoctorTimeSlots(models.Model):
                 day_count = day_count + 1
 
         return data
+    
+
+    def save(self, *args, **kwargs):
+        if not self.service_fee:
+            if self.doc_hospital:
+                self.service_fee = self.doc_hospital.hospital.fee
+
+        super(DoctorTimeSlots, self).save(*args, **kwargs)
     
 
     def __str__(self):

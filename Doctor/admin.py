@@ -25,9 +25,13 @@ class DoctorOnlineAvailabilityInline(admin.TabularInline):
     model = DoctorOnlineAvailability
     extra = 0
 
+    fields = ['day']
+
 class DoctorTimeSlotsInline(admin.TabularInline):
     model = DoctorTimeSlots
     extra = 0
+
+    exclude = ['discount']
 
 
 class Doctor24By7Inline(admin.TabularInline):
@@ -52,7 +56,21 @@ class DoctorQueryInline(admin.TabularInline):
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
-    list_display = ['email', 'slug', 'user', 'name', 'phone_number', 'diseases', 'speciality', 'is_approved', 'is_active', 'is_deleted', 'is_blocked', 'is_featured', 'is_recommended']
+    list_display = [
+        # 'email', 
+        # 'slug', 
+        'name', 
+        'user', 
+        'mobile_number', 
+        'diseases', 
+        'speciality', 
+        'is_approved', 
+        'is_active', 
+        'is_deleted', 
+        'is_blocked', 
+        'is_featured', 
+        'is_recommended'
+    ]
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
 
     inlines = [
@@ -67,6 +85,13 @@ class DoctorAdmin(admin.ModelAdmin):
         DoctorExperienceInline,
         DoctorReviewInline,
         DoctorQueryInline,
+    ]
+
+    exclude = [
+        'slug',
+        'email',
+        'online_availability',
+        'dial_code',
     ]
 
     

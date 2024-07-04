@@ -7,16 +7,43 @@ from .models import *
 
 class HospitalLocationInline(admin.TabularInline):
     model = HospitalLocation
-    extra = 0
+    extra = 1
+
+    fields = [
+        "name",
+        "street_address",
+        # "country",
+        "state",
+        "city",
+    ]
+
+
+class LocationContactInline(admin.TabularInline):
+    model = LocationContact
+    extra = 2
+
+    fields = [
+        "location",
+        "contact_type",
+        "contact_title",
+        "email",
+        "mobile_number",
+    ]
+
 
 class HospitalMediaInline(admin.TabularInline):
     model = HospitalMedia
-    extra = 0
+    extra = 1
+
 
 @admin.register(Hospital)
 class HospitalAdmin(admin.ModelAdmin):
+    search_fields = [
+        'name',
+    ]
     list_filter = [
         'facility_type',
+        'fee',
         'is_approved',
         'is_active',
         'is_deleted',
@@ -25,16 +52,24 @@ class HospitalAdmin(admin.ModelAdmin):
         'is_recommended',
     ]
     list_display = [
-        'id',
-        'name',
+        'hospital_name',
+        'fee',
         'facility_type',
+        'is_active',
         'is_approved',
     ]
 
+    readonly_fields = ['slug']
+
     inlines = [
         HospitalLocationInline,
-        HospitalMediaInline
+        LocationContactInline,
+        HospitalMediaInline,
     ]
+
+    def hospital_name(self, obj):
+        locations = obj.hospital_locations.all()
+        return f'{obj.name} ({locations.count()})'
 
 
 

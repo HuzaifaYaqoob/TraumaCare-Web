@@ -112,7 +112,6 @@ def createDoctorProfile(request):
         dial_code = dial_code,
         mobile_number = m_number,
         working_since = working_since,
-        # online_availability = availability_type,
     )
 
     specialities = [DoctorSpeciality(doctor = doctor, speciality = Speciality.objects.get(id = speciality)) for speciality in specialities]

@@ -25,7 +25,7 @@ from django.contrib.auth.admin import UserAdmin
 
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ['username', 'email', 'first_name', 'last_name', 'phone_number', 'joined_at']
+    list_display = ['phone_number', 'username', 'email', 'first_name', 'last_name', 'joined_at']
     search_fields = ['id', 'username', 'email', 'country__name']
     ordering = ['-joined_at']
     list_filter = ['joined_at']
@@ -47,7 +47,7 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
     fieldsets = (
-        (None, {"fields": ("email", "is_email_verified",)}),
+        (None, {"fields": ("mobile_number", "is_mobile_verified", "email", "is_email_verified",)}),
         ("Personal info", {"fields": ("first_name", "last_name", )}),
         (
             "Permissions",
