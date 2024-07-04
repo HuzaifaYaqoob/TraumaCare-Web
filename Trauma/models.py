@@ -186,6 +186,8 @@ class VerificationCode(models.Model):
 
     otp_type = models.CharField(max_length=999, default='')
 
+    mobile_number = models.CharField(default='', max_length=999)
+
     is_expired = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     is_used = models.BooleanField(default=False)
@@ -198,9 +200,12 @@ class VerificationCode(models.Model):
             import random
             random_id = ''.join([str(random.randint(0, 999)).zfill(3) for _ in range(2)])
             self.code = random_id
+        
+        if not self.mobile_number:
+            self.mobile_number = self.user.mobile_number
 
         super(VerificationCode, self).save(*args, **kwargs)
-
+    
     def __str__(self):
         return f'{self.id}'
 

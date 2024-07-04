@@ -89,7 +89,7 @@ def OtpVerificationPage(request):
         else:
             resend = request.GET.get('resend', None)
             if resend is not None:
-                codes.delete()
+                codes.update(is_used = True, is_deleted = True, is_expired = True)
                 otp = VerificationCode.objects.create(
                     user = user,
                     otp_type = 'MOBILE_VERIFICATION'
@@ -133,7 +133,7 @@ def OtpVerificationPage(request):
         else:
             resend = request.GET.get('resend', None)
             if resend is not None:
-                codes.delete()
+                codes.update(is_used = True, is_deleted = True, is_expired = True)
                 otp = VerificationCode.objects.create(
                     user = user
                 )
@@ -358,7 +358,7 @@ def ForgotPasswordHandler(request):
             is_deleted = False,
             is_used = False,
         )
-        codes.delete()
+        codes.update(is_used = True, is_deleted = True)
         otp = VerificationCode.objects.create(
             user = user,
             otp_type = 'FORGOT_PASSWORD'
@@ -401,7 +401,10 @@ def ChangePasswordHandler(request):
         codes = VerificationCode.objects.filter(
             user = user, 
         )
-        codes.delete()
+        codes.update(
+            is_used = True,
+            is_deleted = True
+        )
         messages.success(request, 'Password Changed Successfully')
         next_url = request.GET.get('next', None)
         return HttpResponseRedirect(next_url if next_url else f'/auth/login/')
@@ -449,7 +452,9 @@ def handleOtp(request):
     next_url = request.GET.get('next', '/')
 
     if purpose == 'MOBILE_VERIFICATION':
-        code.delete()
+        code.is_expired = True
+        code.is_used = True
+        code.save()
         user.is_mobile_verified = True
         user.is_active = True
         user.save()
