@@ -1,6 +1,6 @@
 {% load static %}
 <header class=' bg-[#ffffff] sticky top-0 right-0 left-0 z-40 {% if not is_search_page %} shadow-md {% endif %}'>
-    <div class="max-w-[1550px] mx-auto h-[70px] sm:h-[80px] w-full flex items-center justify-between px-[15px] md:px-[20px]">
+    <div class="max-w-[1300px] mx-auto h-[70px] sm:h-[80px] w-full flex items-center justify-between px-[15px] md:px-[20px]">
         <div class="flex items-center ">
             <div class="h-[70px] flex items-center sm:h-[77px] sm:w-[190px] cursor-pointer ">
                 <a href="/" class="flex items-center gap-3">
@@ -13,12 +13,8 @@
             </div>
             <div class="hidden lg:block pl-[30px] flex-1">
                 <div class="hidden md:flex items-center gap-[18px] pt-[3px] ">
-                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[500] !mr-0 group cursor-pointer transition-all py-[10px] ">Doctors
-                        <svg class=" group-hover:rotate-[180deg] transition-all" width="10  " height="6" viewBox="0 0 12 6"
-                            fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 1L6 4.84927L11 1" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round"
-                                stroke-linejoin="round" />
-                        </svg>
+                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[600] !mr-0 group cursor-pointer transition-all py-[10px] ">Doctors
+                        {% include 'Components/Utility/chevron_arrow.html' %}
                         <div class="hidden group-hover:block absolute top-[45px] left-0 pt-[10px] ">
                             <div class="flex bg-white cursor-default !w-[600px] rounded-2xl cursor-default p-[14px] boxshadow ">
                                 <div class="!px-2 flex-1">
@@ -42,7 +38,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[500] !mr-0 group cursor-pointer transition-all py-[10px]">Consult Online
+                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[600] !mr-0 group cursor-pointer transition-all py-[10px]">Consult Online
                         {% include 'Components/Utility/chevron_arrow.html' %}
                         <div class="hidden group-hover:block absolute top-[45px] left-0 pt-[10px] w-[200px] ">
                             <div class="rounded-2xl bg-white cursor-default cursor-default !p-[14px] w-full boxshadow">
@@ -54,7 +50,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[500] !mr-0 group cursor-pointer transition-all py-[10px]">Hospitals
+                    <li class="relative flex items-center gap-[6px] pr-0 !text-[17px] !font-[600] !mr-0 group cursor-pointer transition-all py-[10px]">Hospitals
                         {% include 'Components/Utility/chevron_arrow.html' %}
                         <div class="hidden group-hover:block absolute top-[45px] left-0 pt-[10px] w-[200px] ">
                             <div class="rounded-2xl bg-white cursor-default cursor-default !p-[14px] w-full boxshadow ">
@@ -68,7 +64,7 @@
                             </div>
                         </div>
                     </li>
-                    <li class=" cursor-pointer flex items-center gap-[6px] !text-[17px] font-[500] !mr-0 group ">
+                    <li class=" cursor-pointer flex items-center gap-[6px] !text-[17px] font-[600] !mr-0 group ">
                         <a href='{% url "BlogHomePage" %}'>Health Blog</a>
                     </li>
                     {% comment %}<li class="relative cursor-pointer !text-red-600 flex items-center gap-3 !text-[18px] !mr-0 group !p-0">
@@ -162,11 +158,11 @@
                     </script>
                 </div>
             {% endif %}
-            <div class="border px-4 mr-3 py-[7px] rounded-full flex gap-2 items-center border-[#01411c]">
+            <div class="sm:border sm:px-4 mr-3 sm:py-[7px] rounded-[30px] flex gap-2 items-center sm:border-[#0A1C4B]">
                 {% if request.country_flag %}
-                    <img class="w-[25px] drop-shadow" src="{{request.country_flag}}" alt="">
+                    <img class="w-[28px] sm:w-[25px] drop-shadow" src="{{request.country_flag}}" alt="">
                 {% endif %}
-                <p class="font-semibold text-[#01411c]">{% if request.city %}{{request.city}}{% else %}{{request.country}}{% endif %}</p>
+                <p class="font-semibold text-[#0A1C4B] hidden sm:block ">{% if request.city %}{{request.city}}{% else %}{{request.country}}{% endif %}</p>
             </div>
             <a href="/appointment/book-appointment" class="bg-[#0A1C4B] rounded-[50px] book-appointment-button cursor-pointer flex items-center gap-[10px] py-[5px] px-[6px] mr-3">
                 <span class="rounded-[50%] flex items-center justify-center w-[28px] sm:w-[31px] h-[28px] sm:h-[31px] bg-[#ffffff52] book-appointment-button-svg {% if user_appointments %}border-[3px] border-[#25d0cf]{% endif %}">
