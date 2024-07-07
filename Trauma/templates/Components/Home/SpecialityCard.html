@@ -1,9 +1,7 @@
-
-
 <a href="{% if is_this_speciality_card %}/speciality{% else %}/diseases{% endif %}/view/{{data.slug}}">
-    <div class="flex gap-3 pt-4 pl-3 cursor-pointer pb-4 pr-4 bg-[#fff] border border-solid border-[#e8e8e8/80] rounded-lg speciality-cards-TC hover:border-[{{data.color_code}}] hover:shadow-[{{data.color_code}}15] hover:shadow-xl transition-all">
+    <div class="flex gap-2 cursor-pointer p-3 bg-[#fff] border border-[#e8e8e8/80] rounded-lg hover:border-[{{data.color_code}}] hover:shadow-[{{data.color_code}}15] hover:shadow-xl transition-all">
         <div class="flex flex-col gap-1 w-[35px]">
-            <div class="p-1 bg-[{{data.color_code}}25] speciality-cards-TC-1 rounded h-[35px] flex items-center justify-center">
+            <div class="p-1 bg-[{{data.color_code}}25] h-[32px] w-[32px] rounded p-[5px] flex items-center justify-center">
                 {{data.svg_icon|safe}}             
             </div>
             <!-- <p class="bg-[#557de51a] px-1 speciality-cards-TC-2 rounded text-[#363636] text-center font-semibold line-clamp-1">
@@ -13,13 +11,9 @@
                 {{data.available_doctors_count}}
             </p> -->
         </div>
-        <div class="flex flex-col flex-1 gap-1">
-            <div>
-                <h2 class="text-[#343434] speciality-cards-TC-3 font-semibold text-xl leading-none line-clamp-1">{{data.name}}</h2>
-            </div>
-            <div>
-                <p class="text-[#8A8A8A] speciality-cards-TC-4 leading-snug text-sm mt-[5px] line-clamp-3">{{data.description}}</p>
-            </div>
+        <div class="flex-1 ">
+            <h2 class="text-[#343434] font-[600] text-[18px] line-clamp-1">{{data.name}}</h2>
+            <p class="text-[#8A8A8A] text-sm mt-[2px] line-clamp-3">{{data.description}}</p>
         </div>
         <div class="cursor-pointer speciality-cards-TC-5">
             <svg width="15" height="15" viewBox="0 0 12 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,23 +1,17 @@
-<div class="flex items-center  max-w-[1500px]  mx-auto justify-center justify-between !mt-8 speciality-doctor-heading doctor-discover-TC" >
-      <div>
-          <h2 class="text-[#0A1C4B] font-semibold">Top Sales medicines</h2>
-      </div>
-      <a href="/medicine/">
-            <div class="flex items-center gap-2 cursor-pointer">
-            <div class="text-[#0A1C4B] font-semibold view-all-TC">
-                  View All Medicines
-            </div>
-            <div class="view-all-TC-svg">
-                  <svg width="16" height="16" viewBox="0 0 20 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 13L19 7M19 7L13 1M19 7L1 7" stroke="#0A1C4B" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>                    
-            </div>
-            </div>
-      </a>
+<section class="pt-[50px] ">
+  <div class="flex items-center justify-between md:flex-row flex-col ">
+    <h2 class="text-[#0A1C4B] text-[28px] font-[600] ">Top Sales medicines</h2>
+    <a href="/medicine/" class="bg-[#0A1C4B] text-white rounded-[8px] md:mt-[0px] mt-[18px] flex items-center gap-[10px] px-[18px] py-[11px] ">
+        <p class="font-[500] text-[16px] ">View All Medicines</p>
+        <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
+          <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
+          </svg>                            
+      </span>
+    </a>
   </div>
-
-  <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap mt-0 max-w-[1500px] ">
-      <div class="swiper-wrapper py-12">
+  <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap ">
+      <div class="swiper-wrapper py-[22px]">
         <div class="swiper-slide" style="border: none;">
           {% include 'Components/Pharmacy/MedicineCard.html' %}
         </div>
@@ -40,8 +34,8 @@
           {% include 'Components/Pharmacy/MedicineCard.html' %}
         </div>
       </div>
-      <div class="swiper-pagination absolute bottom-[500px]"></div>
+      <div class="mt-[12px] ">
+        <div class="swiper-pagination ">fnvnfknv</div>
+      </div>
   </div>
-  
-
-  
+</section>

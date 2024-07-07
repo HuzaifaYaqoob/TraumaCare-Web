@@ -1966,22 +1966,6 @@ a {
 
 
 
-
-
-.div3-image {
-    background: url(../Images/pfofile.png.jpg);
-    height: 85px;
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    border: 2px solid (rgba(10, 28, 75, 1), rgba(36, 208, 208, 1));
-    width: 85px;
-    border-radius: 50%;
-    margin-top: 25px;
-}
-
-
-
 .div4-image {
     background: url(../Images/pofile1.png.jpg);
     height: 85px;
@@ -2052,7 +2036,6 @@ a {
     }
 
     .div4-image,
-    .div3-image,
     .div5-image {
         height: 75px;
         width: 75px;

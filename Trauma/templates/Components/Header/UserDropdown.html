@@ -1,33 +1,16 @@
-
-<div class="svg3 mt-[-20px] md:mt-0 md:flex items-center mr-3 ">
-    <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
-        <path
-            d="M29.7147 17.7143C29.7147 20.8702 27.1563 23.4286 24.0004 23.4286C20.8445 23.4286 18.2861 20.8702 18.2861 17.7143C18.2861 14.5584 20.8445 12 24.0004 12C27.1563 12 29.7147 14.5584 29.7147 17.7143Z"
-            fill="#0A1C4B" />
-        <path
-            d="M34 31.9999C34 35.1558 29.5228 37.7142 24 37.7142C18.4772 37.7142 14 35.1558 14 31.9999C14 28.844 18.4772 26.2856 24 26.2856C29.5228 26.2856 34 28.844 34 31.9999Z"
-            fill="#0A1C4B" />
-    </svg>
-    <div class="icon-drowpdown min-w-[250px] sm:min-w-[350px] p-2">
-        <a href="{% url 'MyAppointmentsPage' %}" class="icon-drowpdown1 rounded-lg">
-            <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"
-                    fill="#0A1C4B" />
-                <path
-                    d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"
-                    fill="#0A1C4B" />
-            </svg>
-            <p class="!font-[400]">Appointments</p>
-        </a>
-        {% if not request.user.has_doctor_profile %}
-            <a href="{% url 'CreateNewBusinessProfileRedirection' %}" target="_blank" class="border block rounded-lg my-1 px-2 py-1 hover:bg-gray-200 transition-all ">
-                <p class="text-left font-[400]">Unlock Your Potential: <span class="font-bold">Become a Doctor</span> in Just 1 Minute!</p>
-            </a>
-        {% endif %}
-        {% for profile in request.user.profiles %}
-            <a href="#" target="_blank" class="icon-drowpdown1 rounded-lg">
+<section class="lg:block hidden ">
+    <div class="svg3 mt-[-20px] md:mt-0 md:flex items-center mr-3 ">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
+            <path
+                d="M29.7147 17.7143C29.7147 20.8702 27.1563 23.4286 24.0004 23.4286C20.8445 23.4286 18.2861 20.8702 18.2861 17.7143C18.2861 14.5584 20.8445 12 24.0004 12C27.1563 12 29.7147 14.5584 29.7147 17.7143Z"
+                fill="#0A1C4B" />
+            <path
+                d="M34 31.9999C34 35.1558 29.5228 37.7142 24 37.7142C18.4772 37.7142 14 35.1558 14 31.9999C14 28.844 18.4772 26.2856 24 26.2856C29.5228 26.2856 34 28.844 34 31.9999Z"
+                fill="#0A1C4B" />
+        </svg>
+        <div class="icon-drowpdown min-w-[250px] sm:min-w-[350px] p-2">
+            <a href="{% url 'MyAppointmentsPage' %}" class="icon-drowpdown1 rounded-lg">
                 <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path
                         d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"
@@ -36,12 +19,32 @@
                         d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"
                         fill="#0A1C4B" />
                 </svg>
-                <p class="!font-[400]">{% if profile.profile_type == 'Doctor' %}Dr. {% endif %}{{profile.full_name}}</p>
+                <p class="!font-[400]">Appointments</p>
             </a>
-        {% endfor %}
-        <a href="{% url 'HandleLogout' %}" class="icon-drowpdown2 rounded-lg mt-1 ">
-            {% include 'Components/SVG/LogoutIcon.html' %}
-            <p class="!font-[400]">Logout</p>
-        </a>
+            {% if not request.user.has_doctor_profile %}
+                <a href="{% url 'CreateNewBusinessProfileRedirection' %}" target="_blank" class="border block rounded-lg my-1 px-2 py-1 hover:bg-gray-200 transition-all ">
+                    <p class="text-left font-[400]">Unlock Your Potential: <span class="font-bold">Become a Doctor</span> in Just 1 Minute!</p>
+                </a>
+            {% endif %}
+            {% for profile in request.user.profiles %}
+                <a href="#" target="_blank" class="icon-drowpdown1 rounded-lg">
+                    <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"
+                            fill="#0A1C4B" />
+                        <path
+                            d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"
+                            fill="#0A1C4B" />
+                    </svg>
+                    <p class="!font-[400]">{% if profile.profile_type == 'Doctor' %}Dr. {% endif %}{{profile.full_name}}</p>
+                </a>
+            {% endfor %}
+            <a href="{% url 'HandleLogout' %}" class="icon-drowpdown2 rounded-lg mt-1 ">
+                <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15.324 13.093H14.0429C13.9554 13.093 13.8734 13.1321 13.8187 13.2009C13.6912 13.3591 13.5545 13.5116 13.4105 13.6568C12.8217 14.2585 12.1243 14.738 11.3568 15.0688C10.5616 15.4117 9.70694 15.5876 8.84376 15.586C7.97086 15.586 7.12529 15.4112 6.33075 15.0688C5.56323 14.738 4.86578 14.2585 4.27697 13.6568C3.68711 13.0571 3.21677 12.3463 2.892 11.5637C2.55486 10.7526 2.38538 9.89118 2.38538 9.00002C2.38538 8.10885 2.55668 7.24746 2.892 6.4363C3.21637 5.65304 3.68289 4.94793 4.27697 4.34328C4.87106 3.73863 5.56172 3.26235 6.33075 2.93119C7.12529 2.58886 7.97086 2.41398 8.84376 2.41398C9.71666 2.41398 10.5622 2.587 11.3568 2.93119C12.1258 3.26235 12.8165 3.73863 13.4105 4.34328C13.5545 4.49026 13.6894 4.64281 13.8187 4.79909C13.8734 4.86793 13.9572 4.907 14.0429 4.907H15.324C15.4388 4.907 15.5099 4.77677 15.4461 4.67816C14.0484 2.46049 11.6028 0.992586 8.82371 1.00003C4.45739 1.01119 0.956669 4.62979 1.00041 9.08188C1.04414 13.4633 4.53939 17 8.84376 17C11.6155 17 14.0502 15.534 15.4461 13.3219C15.5081 13.2233 15.4388 13.093 15.324 13.093ZM16.9441 8.88281L14.3582 6.79909C14.2616 6.72095 14.1213 6.79165 14.1213 6.9163V8.33025H8.39911C8.31893 8.33025 8.25332 8.39723 8.25332 8.47909V9.52094C8.25332 9.6028 8.31893 9.66978 8.39911 9.66978H14.1213V11.0837C14.1213 11.2084 14.2634 11.2791 14.3582 11.2009L16.9441 9.11722C16.9615 9.1033 16.9756 9.08551 16.9853 9.0652C16.995 9.0449 17 9.0226 17 9.00002C17 8.97743 16.995 8.95513 16.9853 8.93482C16.9756 8.91452 16.9615 8.89673 16.9441 8.88281Z" fill="#0A1C4B" stroke="#0A1C4B"/>
+                </svg>                
+                <p class="!font-[400]">Logout</p>
+            </a>
+        </div>
     </div>
-</div>
+</section>
