@@ -1,0 +1,7 @@
+<div class=" grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-[22px] mt-[22px] ">
+    {% for doctor in doctors %}
+        <div class="border border flex-1 w-full !m-[0px]" style="border: none;"> 
+            {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+        </div>
+    {% endfor %}
+</div>
