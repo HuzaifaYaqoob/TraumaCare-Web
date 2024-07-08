@@ -99,13 +99,13 @@
                         </div>
                     </a>
                 {% endfor %}
-                <div class="btn-more-TC bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2">
+                <div class="bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2 transition">
                     <p class="capitalize text-white font-medium">more</p>
                 </div>
             </div>
         </section>
         <section class="pt-[50px]">
-            <h3 class="text-[#0A1C4B] text-[25px] sm:text-[28px] md:text-[31px] lg:text-[35px] font-[600] text-center">A methodical approach to arriving at your solution</h3>
+            <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">A methodical approach to arriving at your solution</h3>
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[22px] mt-[30px] grid_4_cards">
                 <div class="bg-[#f0da69] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow ">
                     <div>
@@ -243,7 +243,7 @@
             </div> {% endcomment %}
         </section>
         <section class="pt-[50px] ">
-            <h2 class=" text-[#0A1C4B] text-[25px] sm:text-[28px] md:text-[31px] lg:text-[35px] font-[600] text-center ">Nearby Doctors</h2>
+            <h2 class=" text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center ">Nearby Doctors</h2>
             {% include 'Components/doctorSection/index.html' %}
         </section>
         <section class="pt-[50px] ">
@@ -330,7 +330,7 @@
             </div>
         </section>
         <section class="pt-[50px]" >
-            <h2 class="text-[#0A1C4B] text-[25px] sm:text-[28px] md:text-[31px] lg:text-[35px] font-[600] text-center">Look! What our customers say</h2>
+            <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Look! What our customers say</h2>
             <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center ">
                 {% if application_reviews|length > 3 %}
 
@@ -349,7 +349,7 @@
             </div>
         </section>
         <section class="pt-[50px]">
-            <h2 class="text-[#0A1C4B] text-[25px] sm:text-[28px] md:text-[31px] lg:text-[35px] font-[600] text-center">Join to reach millions of patients & Doctors</h2>
+            <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Join to reach millions of patients & Doctors</h2>
             <div class="mt-[40px] flex items-center justify-between lg:flex-row flex-col ">
                 <div class="w-full md:flex-1">
                     <span class="font-[600] text-[#0A1C4B] text-[21px] gap-[5px] sm:text-[25px] flex items-center whitespace-nowrap line-clamp-1"><a class="flex items-center  ">Trauma<p class="text-[#7fe4e4] ">care </p></a>facilitate doctors with </span>
@@ -446,7 +446,7 @@
     </main>
     <main class="max-w-[1300px] px-[15px] md:px-[20px] mx-auto bg-white ">
         <section class="pt-[50px] ">
-            <h2 class="text-[#0A1C4B] text-[25px] sm:text-[28px] md:text-[31px] lg:text-[35px] font-[600] text-center">Blogs</h2>
+            <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Blogs</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] lg:gap-[22px] mt-[22px] ">
                 {% for post in blog_posts %}
                     <div class="sm:max-w-[450px] w-full rounded-[9px] overflow-hidden border shadow ">
@@ -661,8 +661,4 @@
       }
     })
   </script>
-
-
-<!-- Here your Js end  -->
-
 {% endblock main_base_script %}
