@@ -10,32 +10,60 @@
       </span>
     </a>
   </div>
-  <div class="swiper mySwiper flex items-center gap-[25px] justify-center flex-wrap ">
-      <div class="swiper-wrapper py-[22px]">
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-        <div class="swiper-slide" style="border: none;">
-          {% include 'Components/Pharmacy/MedicineCard.html' %}
-        </div>
-      </div>
-      <div class="mt-[12px] ">
-        <div class="swiper-pagination ">fnvnfknv</div>
-      </div>
-  </div>
+  <div class="swiper-container max-w-[1300px] w-full overflow-hidden bg-white">
+
+    <div class="swiper-wrapper flex items-center justify-center gap-[22px] py-[22px] max-w-[1300px] w-full bg-white">
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+        <div class="swiper-slide !mr-[0px]">{% include 'Components/Pharmacy/MedicineCard.html' %}</div>
+    </div>
+
+    <div class="swiper-pagination static mt-[12px]"></div>
+
+    <!-- <div class="swiper-button-next"></div>
+    <div class="swiper-button-prev"></div> -->
+
+</div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+      var swiper = new Swiper('.swiper-container', {
+          slidesPerView: 4,
+          spaceBetween: 10,
+          pagination: {
+              el: '.swiper-pagination',
+              clickable: true,
+          },
+          autoplay: {
+              delay: 1900,
+              disableOnInteraction: false,
+          },
+          // navigation: {
+          //     nextEl: '.swiper-button-next',
+          //     prevEl: '.swiper-button-prev',
+          // },
+          breakpoints: {
+              300: {
+                  slidesPerView: 1,
+                  spaceBetween: 20
+              },
+              510: {
+                  slidesPerView: 2,
+                  spaceBetween: 20
+              },
+              840: {
+                  slidesPerView: 3,
+                  spaceBetween: 30
+              },
+              1130: {
+                  slidesPerView: 4,
+                  spaceBetween: 40
+              }
+          }
+      });
+  });
+</script>

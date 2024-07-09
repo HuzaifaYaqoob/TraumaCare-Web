@@ -3,7 +3,7 @@
 {% block title %}Traumacare: Your Telehealth Solution for Online Medicine, Appointments & Consultations {% endblock title %}
 
 {% block BaseCSS %}
-    <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/Trauma/static/assets/css/UtlityClasses/utility.css">
@@ -15,6 +15,9 @@
     .transition{
         transition: all 0.3s ease-in-out;
     }
+    .transition_2s{
+        transition: all 0.2s ease-in-out;
+    }
     @media (max-width:450px) {
     .grid_4_cards{
         grid-template-columns: 1fr;
@@ -25,16 +28,14 @@
 
 
 <section class="bg-[#0A1C4B] flex !items-center h-[750px] sm:h-[700px] md:h-[450px]">
-    <div class="flex items-center gap-[22px] max-w-[1300px] mx-auto px-[15px] md:px-[20px] md:flex-row flex-col ">
+    <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1300px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
         <div class=" flex-1 ">
-            <!-- <h1 class="md:text-[45px] !p-0 capitalize lg:text-[55px] text-white text-center font-[600]">Collaborating for the future of healthcare.</h1> -->
             <h1 class=" xl:text-[40px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-white text-left font-[700] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
-            <p class="text-left font-[300] lg:text-[18px] xl:text-[20px] mt-[14px] md:text-[16px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
+            <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
             <div class="mt-[16px] flex gap-3 items-center flex-wrap ">
                 <button class=" bg-[#2FC670] px-4 py-3 rounded-lg" >
                     How may I Help you?
                 </button>
-                <!-- <span >OR <a href="" class="text-blue-500">Get Madication</a></span> -->
                 <div class="flex items-center gap-3 ">
                     <button class="underline text-blue-300">Try me!</button>
                     <span class="text-[#fff]" >It's absolutly FREE</span>
@@ -46,7 +47,7 @@
         </div>
     </div>
 </section>
-<form action="/search"  class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1300px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+<form action="/search" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1300px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
     <div class="relative flex-1 h-full hidden md:block ">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
             <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -57,7 +58,7 @@
         </div>
         <input value='{% if request.city %}{{request.city}}{% endif %}' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Lahore" />
     </div>
-    <div class="relative flex-1 h-full hidden md:block ">
+    <div class="relative flex-1 h-full hidden md:block group " onclick="specialities_drop()">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
             <svg width="20" height="30" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -65,7 +66,18 @@
                     fill="#0A1C4B" />
             </svg>
         </div>
-        <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Specialities"></input>
+        <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
+        <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
+            <i class="fa-solid fa-chevron-down text-[13px] text-[#0A1C4B] z-50 transition_2s specialities_drop_svg"></i>
+        </span>
+        <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-[#fff] border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 1</p>
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 2</p>
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 3</p>
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 4</p>
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 5</p>
+            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 6</p>
+        </div>
     </div>
     <div class="relative flex-[2] h-full ">
         <div class="h-full flex items-center justify-center absolute z-50 right-[8px] ">
@@ -333,18 +345,16 @@
             <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Look! What our customers say</h2>
             <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center ">
                 {% if application_reviews|length > 3 %}
-
                 {% endif %}
                 <div class="{% if application_reviews|length > 3 %} swiper-wrapper {% else %} flex gap-3 {% endif %} py-12 !z-0">
                     {% for review in application_reviews %}
-                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} !w-[350px] !z-0" style="border: none;">
+                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} !max-w-[350px] w-full !z-0" style="border: none;">
                             {% include 'Components/reviewCard.html' %}
                         </div>
                     {% endfor %}
                 </div>
                 {% if application_reviews|length > 3 %}
                     <div class="swiper-pagination"></div>
-
                 {% endif %}
             </div>
         </section>
@@ -352,7 +362,7 @@
             <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Join to reach millions of patients & Doctors</h2>
             <div class="mt-[40px] flex items-center justify-between lg:flex-row flex-col ">
                 <div class="w-full md:flex-1">
-                    <span class="font-[600] text-[#0A1C4B] text-[21px] gap-[5px] sm:text-[25px] flex items-center whitespace-nowrap line-clamp-1"><a class="flex items-center  ">Trauma<p class="text-[#7fe4e4] ">care </p></a>facilitate doctors with </span>
+                    <p class="font-[600] text-[#0A1C4B] text-[21px] gap-[5px] sm:text-[25px] flex items-center flex-wrap"><span class="flex items-center">Trauma<span class="text-[#7fe4e4]">care</span></span>facilitate doctors with </p>
                     <div class="flex items-center gap-[14px] mt-[22px]">
                         <span class="h-[17px] w-[17px] ">
                             <svg class="h-full w-full " viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -539,7 +549,6 @@
   <!-- Initialize Swiper -->
   
   <script>
-
     document.addEventListener('DOMContentLoaded' , ()=>{
         var swiper = new Swiper(".mySwiper", {
         slidesPerView: 6,
@@ -660,5 +669,37 @@
         total.addEventListener("click", totalshow1);
       }
     })
+
+    // specialities_drop
+
+
+    let SpecialitiesInput = document.getElementById('SpecialitiesInput');
+    value = true;
+
+    function specialities_drop() {
+        let specialities_drop_svg = document.querySelector('.specialities_drop_svg');
+        let specialities_drop_div = document.querySelector('.specialities_drop_div');
+
+        if (value === true) {
+            specialities_drop_svg.classList.add('rotate-180');
+            specialities_drop_div.classList.add('!block');
+            SpecialitiesInput.classList.add('!border-[#23d0d0]');
+            value = false;
+        }else{
+            specialities_drop_svg.classList.remove('rotate-180');
+            specialities_drop_div.classList.remove('!block');
+            SpecialitiesInput.classList.remove('!border-[#23d0d0]');
+            value = true;
+        }
+    }
+
+    // 
+
+    function SepcialitiesDropdownFun(e) {
+        let item = e.closest('.dropdown-item');
+
+        SpecialitiesInput.value = item.innerText;
+        // console.log(item.innerText);
+    }
   </script>
 {% endblock main_base_script %}
