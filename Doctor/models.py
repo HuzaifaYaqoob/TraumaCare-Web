@@ -134,7 +134,8 @@ class Doctor(models.Model):
         
     @property
     def fee_range(self):
-        fees = DoctorTimeSlots.objects.filter(doctor = self).distinct('fee')
+        fees = DoctorTimeSlots.objects.filter(doctor = self)
+        # .distinct('fee')
         if len(fees):
             fees = [int((fee.fee * (100 - (fee.discount))) / 100) if fee.discount else fee.fee for fee in fees]
             return [min(fees), max(fees)]

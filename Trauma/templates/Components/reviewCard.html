@@ -1,20 +1,29 @@
-<div class="div-3div-div1 rounded-3xl cursor-pointer w-[350px] border !pb-[26px]">
-      <p class='line-clamp-3' >“{{review.text}}”</p>
-      <div class="div3-image" style="background-image: url('{% if review.user %}{{review.user.profile_image}}{% else %}https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=200{% endif %}');">
-
-      </div>
-      <p class="ayesha mb-2 !font-[400]">{{review.name}}</p>
-        <div class="flex items-center justify-center gap-3">
-            {% for star_number in reviews_count %}
-                {% if forloop.counter <= review.rating %}
-                    <svg class="" width="16" height="16" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+    .linear_gradient{
+        background: linear-gradient(to right, #0A1C4B, #24D0D0);
+    }
+</style>
+<div class="rounded-[14px] p-[12px] cursor-default max-w-[350px] w-full border flex flex-col items-center py-[16px] ">
+    <p class='line-clamp-6 text-center text-[14px] sm:text-[16px] text-[#0A1C4B]' >“{{review.text}}”</p>
+    <span class="h-[90px] w-[90px] p-[2px] mt-[12px] rounded-[100px] linear_gradient">
+        <div class="h-full w-full rounded-[100px] bg-cover bg-no-repeat bg-center " style="background-image: url('{% if review.user %}{{review.user.profile_image}}{% else %}https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=200{% endif %}');"></div>
+    </span>
+    <p class="py-[10px] text-[17px] capitalize text-[#0A1C4B] font-[400] line-clamp-1 ">{{review.name}}</p>
+    <div class="flex items-center justify-center gap-2">
+        {% for star_number in reviews_count %}
+            {% if forloop.counter <= review.rating %}
+                <span class="h-[13px] w-[13px]">
+                    <svg class="h-full w-full" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#FEB546"/>
                     </svg>
-                {% else %}
-                    <svg class="" width="16" height="16" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#A7A7A7"/>
-                    </svg>
-                {% endif %}
-            {% endfor %}
-        </div>
+                </span>
+            {% else %}
+            <span class="h-[13px] w-[13px]">
+                <svg class="h-full w-full" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#A7A7A7"/>
+                </svg>
+            </span>
+            {% endif %}
+        {% endfor %}
+    </div>
   </div>

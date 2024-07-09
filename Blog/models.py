@@ -166,6 +166,8 @@ class BlogMedia(models.Model):
                 bg_w = new_width
 
                 tmb_bg = background.resize((bg_w, bg_h), Image.ANTIALIAS)
+            else:
+                tmb_bg = background
 
             saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now}-{bg_w}x{bg_h}.{ext}"
             tmb_bg.save(saving_url, quality=95)
