@@ -66,17 +66,14 @@
                     fill="#0A1C4B" />
             </svg>
         </div>
-        <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
+        <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
         <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
             <i class="fa-solid fa-chevron-down text-[13px] text-[#0A1C4B] z-50 transition_2s specialities_drop_svg"></i>
         </span>
         <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-[#fff] border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 1</p>
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 2</p>
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 3</p>
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 4</p>
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 5</p>
-            <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " onclick="SepcialitiesDropdownFun(this)">TraumaCare 6</p>
+            {% for speciality in specialities %}
+                <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
+            {% endfor %}
         </div>
     </div>
     <div class="relative flex-[2] h-full ">
@@ -698,7 +695,7 @@
     function SepcialitiesDropdownFun(e) {
         let item = e.closest('.dropdown-item');
 
-        SpecialitiesInput.value = item.innerText;
+        SpecialitiesInput.value = item.getAttribute('slug');
         // console.log(item.innerText);
     }
   </script>
