@@ -94,6 +94,11 @@ class BlogPost(models.Model):
         cleantext = re.sub(CLEANR, '', self.content)
         return cleantext.replace('#', '')
     
+    @property
+    def blog_tags_string(self):
+        tags = self.tags.all()
+        return ', '.join([tag.name for tag in tags])
+    
     def save(self, *args, **kwargs):
         self.content = convert_to_html(self.gpt_content or self.content)
         self.slug = self.title.replace(' ', '-').replace('/', '-').replace("'", '').replace('"', '').replace(':', '-').replace('--', '-')

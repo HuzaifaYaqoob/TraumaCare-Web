@@ -22,8 +22,7 @@ class PostAdmin(admin.ModelAdmin):
     inlines = [TagsInline, ImageInline]
 
     def tags(self, obj):
-        tags = obj.tags.all()
-        return ', '.join([tag.name for tag in tags])
+        return obj.blog_tags_string
     
     def images(self, obj):
         images = obj.blog_post_medias.all()
