@@ -1,14 +1,12 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
 {% block title %}Traumacare: Your Telehealth Solution for Online Medicine, Appointments & Consultations {% endblock title %}
-
 {% block BaseCSS %}
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/Trauma/static/assets/css/UtlityClasses/utility.css">
 {% endblock BaseCSS %}
-
 
 {% block baseBody %}
 <style>
@@ -28,7 +26,7 @@
 
 
 <section class="bg-[#0A1C4B] flex !items-center h-[750px] sm:h-[700px] md:h-[450px]">
-    <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1300px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
+    <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1400px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
         <div class=" flex-1 ">
             <h1 class=" xl:text-[40px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-white text-left font-[700] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
             <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
@@ -47,7 +45,7 @@
         </div>
     </div>
 </section>
-<form action="/search" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1300px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+<form action="/search" autocomplete="off" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
     <div class="relative flex-1 h-full hidden md:block ">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
             <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -96,7 +94,7 @@
     </button>
 </form>
 {% comment %} {% include 'ChatXpo/HomepageChat.html' %} {%  endcomment %}
-    <main class="max-w-[1300px] px-[15px] md:px-[20px] py-[50px] mx-auto bg-white ">
+    <main class="max-w-[1400px] px-[15px] md:px-[20px] py-[50px] mx-auto bg-white ">
         <section>
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
             <div class="flex gap-2 flex-wrap items-center justify-center mt-[26px] ">
@@ -409,7 +407,7 @@
         </section>
     </main>
     <main class="py-[50px] mt-[50px] w-full bg-[#0A1C4B] ">
-        <section class="max-w-[1300px] mx-auto px-[15px] md:px-[20px] flex items-center justify-center lg:justify-between !gap-[50px] flex-wrap">
+        <section class="max-w-[1400px] mx-auto px-[15px] md:px-[20px] flex items-center justify-center lg:justify-between !gap-[50px] flex-wrap">
             <div class="flex items-center gap-[13px]">
                 <span class="h-[30px] w-[30px] flex items-center justify-center ">
                     <svg class="h-full w-full " viewBox="0 0 44 42" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -451,7 +449,7 @@
             </div>
         </section>
     </main>
-    <main class="max-w-[1300px] px-[15px] md:px-[20px] mx-auto bg-white ">
+    <main class="max-w-[1400px] px-[15px] md:px-[20px] mx-auto bg-white ">
         <section class="pt-[50px] ">
             <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Blogs</h2>
             <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] lg:gap-[22px] mt-[22px] ">
