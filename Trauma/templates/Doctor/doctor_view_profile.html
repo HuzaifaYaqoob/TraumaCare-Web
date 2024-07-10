@@ -181,7 +181,7 @@
                         </div>
                   </div>
                   {% if online_availability|length > 0 %}
-                        <div class="flex flex-col gap-3">
+                        <div id='AvailableForOnlineVideoConsultation' class="flex flex-col gap-3">
                               <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Available for Video Consultation</p>
                               <div>
                                     {% for date, online_ava in online_availability.items %}
