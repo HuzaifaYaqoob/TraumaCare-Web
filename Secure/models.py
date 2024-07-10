@@ -26,6 +26,7 @@ class ApplicationReview(models.Model):
     user = models.ForeignKey(User, on_delete=models.PROTECT, null=True, blank=True, related_name='user_application_reviews')
     name = models.CharField(max_length=225, default='')
     email = models.CharField(max_length=225, default='')
+    phone_number = models.CharField(max_length=999, default='')
 
     rating = models.FloatField(default=0)
     text = models.TextField(default='')

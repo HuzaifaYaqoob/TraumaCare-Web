@@ -8,7 +8,7 @@ from Secure.models import ApplicationReview
 
 def handleApplicationReviewSubmit(request):
     username = request.POST.get('username', None)
-    user_email = request.POST.get('user_email', None)
+    mobile_number = request.POST.get('mobile_number', None)
     star_rating = request.POST.get('star_rating', None)
     content = request.POST.get('content', None)
 
@@ -17,7 +17,8 @@ def handleApplicationReviewSubmit(request):
     ApplicationReview.objects.create(
         user = user if user.is_authenticated else None,
         name = user.full_name if user.is_authenticated else username,
-        email = user.email if user.is_authenticated else user_email,
+        email = user.email if user.is_authenticated else 'mobile_number@traumacare.pk',
+        phone_number = mobile_number,
         rating = star_rating,
         text = content
     )
