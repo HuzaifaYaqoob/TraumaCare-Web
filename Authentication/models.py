@@ -141,17 +141,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def has_doctor_profile(self):
         from Doctor.models import Doctor
-        try:
-            Doctor.objects.get(
-                user = self,
-                is_active = True,
-                is_deleted = False,
-                is_blocked = False,
-            )
-        except Exception as err:
-            return False
-        else:
+        doc_profiles = Doctor.objects.filter(
+            user = self,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        )
+        if doc_profiles.exists():
             return True
+        else:
+            return False
     
 
     @property

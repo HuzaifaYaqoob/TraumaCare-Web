@@ -1,7 +1,7 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
 
-{% block title %}{{speciality.name}} - {{speciality.tag_lin}}{% endblock title %}
+{% block title %}{{doctors|length}} Best {{speciality.speciality_type}} in {% if request.GET.city %}{{request.GET.city}}{% elif request.city %}{{request.city}}{% else %}Pakistan{% endif %}{% endblock title %}
 
 
 {% block baseBody %}

@@ -253,27 +253,29 @@
             <h2 class=" text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center ">Nearby Doctors</h2>
             {% include 'Components/doctorSection/index.html' %}
         </section>
-        <section class="pt-[50px] ">
-            <div class="w-full bg-[#171919] rounded-[22px] relative px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
-                <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
-                <div class="w-full lg:max-w-[400px] w-full pt-[22px] sm:pt-[30px] z-20 relative ">
-                    <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
-                    <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">Are You a Doctor?</h3>
-                    <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
-                    <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'LoginPage' %}{% endif %}" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
-                        <p class="font-[500] text-[16px] ">Join Us Now</p>
-                        <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
-                            <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
-                            </svg>                            
-                        </span>
-                    </a>
+        {% if not request.user.has_doctor_profile %}
+            <section class="pt-[50px] ">
+                <div class="w-full bg-[#171919] rounded-[22px] relative px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
+                    <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
+                    <div class="w-full lg:max-w-[400px] w-full pt-[22px] sm:pt-[30px] z-20 relative ">
+                        <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
+                        <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">Are You a Doctor?</h3>
+                        <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
+                        <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'LoginPage' %}?signupAsDoctor=true{% endif %}" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
+                            <p class="font-[500] text-[16px] ">Join Us Now</p>
+                            <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
+                                <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
+                                </svg>                            
+                            </span>
+                        </a>
+                    </div>
+                    <div class="flex lg:flex-1 w-full items-center justify-center lg:justify-end mt-[22px] lg:mt-[0px] z-20 ">
+                        <img class="sm:h-[360px] " src="{% static 'assets/Images/doctor-nurses-special-equipment 1.png' %}" alt="">
+                    </div>
                 </div>
-                <div class="flex lg:flex-1 w-full items-center justify-center lg:justify-end mt-[22px] lg:mt-[0px] z-20 ">
-                    <img class="sm:h-[360px] " src="{% static 'assets/Images/doctor-nurses-special-equipment 1.png' %}" alt="">
-                </div>
-            </div>
-        </section>
+            </section>
+        {% endif %}
         {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
         <section class="pt-[50px] " >
             <div class="flex items-center justify-between md:flex-row flex-col ">
@@ -353,61 +355,6 @@
                 {% endif %}
             </div>
         </section>
-<<<<<<< HEAD
-        {% comment %} <section class="pt-[50px]">
-            <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">Join to reach millions of patients & Doctors</h2>
-            <div class="mt-[40px] flex items-center justify-between lg:flex-row flex-col ">
-                <div class="w-full md:flex-1">
-                    <p class="font-[600] text-[#0A1C4B] text-[21px] gap-[5px] sm:text-[25px] flex items-center flex-wrap"><span class="flex items-center">Trauma<span class="text-[#7fe4e4]">care</span></span>facilitate doctors with </p>
-                    <div class="flex items-center gap-[14px] mt-[22px]">
-                        <span class="h-[17px] w-[17px] ">
-                            <svg class="h-full w-full " viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M22 17.5H13M22 11.5H13M22 23.5H13M20.5 1V5.5M8.5 1V5.5M7 31H22C25.3137 31 28 28.3137 28 25V9.25C28 5.93629 25.3137 3.25 22 3.25H7C3.68629 3.25 1 5.93629 1 9.25V25C1 28.3137 3.68629 31 7 31Z" stroke="#0A1C4B" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M9.24902 11.5015C9.24902 12.3299 8.57745 13.0015 7.74902 13.0015C6.9206 13.0015 6.24902 12.3299 6.24902 11.5015C6.24902 10.673 6.9206 10.0015 7.74902 10.0015C8.57745 10.0015 9.24902 10.673 9.24902 11.5015Z" fill="#0A1C4B"/>
-                                <path d="M9.24902 17.501C9.24902 18.3294 8.57745 19.001 7.74902 19.001C6.9206 19.001 6.24902 18.3294 6.24902 17.501C6.24902 16.6725 6.9206 16.001 7.74902 16.001C8.57745 16.001 9.24902 16.6725 9.24902 17.501Z" fill="#0A1C4B"/>
-                                <path d="M9.24902 23.5005C9.24902 24.3289 8.57745 25.0005 7.74902 25.0005C6.9206 25.0005 6.24902 24.3289 6.24902 23.5005C6.24902 22.6721 6.9206 22.0005 7.74902 22.0005C8.57745 22.0005 9.24902 22.6721 9.24902 23.5005Z" fill="#0A1C4B"/>
-                            </svg>   
-                        </span>
-                        <p class="text-[16px] text-[#0A1C4B] font-[500] line-clamp-1 ">Online bookingsto get more appointments easily.</p>
-                    </div>
-                    <div class="flex items-center gap-[14px] mt-[10px]">
-                        <span class="h-[17px] w-[17px] ">
-                            <svg class="h-full w-full " viewBox="0 0 29 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M8.5 13H20.5M8.5 19H20.5M8.5 25H14.5M8.5 4C8.5 5.65685 9.84315 7 11.5 7H17.5C19.1569 7 20.5 5.65685 20.5 4M8.5 4C8.5 2.34315 9.84315 1 11.5 1H17.5C19.1569 1 20.5 2.34315 20.5 4M8.5 4H7C3.68629 4 1 6.68629 1 10V25C1 28.3137 3.68629 31 7 31H22C25.3137 31 28 28.3137 28 25V10C28 6.68629 25.3137 4 22 4H20.5" stroke="#0A1C4B" stroke-width="2" stroke-linecap="round"/>
-                            </svg>                        
-                        </span>
-                        <p class="text-[16px] text-[#0A1C4B] font-[500] line-clamp-1">you can create & view patient history or record From anywhere.</p>
-                    </div>
-                    <div class="flex items-center gap-[14px] mt-[10px]">
-                        <span class="h-[17px] w-[17px] ">
-                            <svg class="h-full w-full " viewBox="0 0 29 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M1 9.25146C1 5.93776 3.68629 3.25146 7 3.25146H22C25.3137 3.25146 28 5.93776 28 9.25146V25.0015C28 28.3152 25.3137 31.0015 22 31.0015H7C3.68629 31.0015 1 28.3152 1 25.0015V9.25146Z" stroke="#0A1C4B" stroke-width="2"/>
-                                <path d="M1 11.498H28" stroke="#0A1C4B" stroke-width="2" stroke-linecap="round"/>
-                                <path d="M8.49609 1L8.49609 5.5" stroke="#0A1C4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <path d="M20.5039 1V5.5" stroke="#0A1C4B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                <ellipse cx="14.499" cy="20.4985" rx="1.5" ry="1.5" fill="#0A1C4B"/>
-                                <ellipse cx="20.5029" cy="20.4985" rx="1.5" ry="1.5" fill="#0A1C4B"/>
-                                <ellipse cx="8.50391" cy="20.4985" rx="1.5" ry="1.5" fill="#0A1C4B"/>
-                            </svg>                        
-                        </span>
-                        <p class="text-[16px] text-[#0A1C4B] font-[500] line-clamp-1">To Manage your schedule efficiently.</p>
-                    </div>
-                    <button class="bg-[#0A1C4B] text-white rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] mt-[22px] ">
-                        <p class="font-[500] ">Register Doctor</p>
-                        <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
-                            <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
-                            </svg>                            
-                        </span>
-                    </button>
-                </div>
-                <div class="flex items-center justify-center md:justify-end mt-[42px] md:mt-[0px] ">
-                    <img class="max-h-[320px] " src="{% static 'assets/Images/register-doctor.png' %}" alt="">
-                </div>
-            </div>
-        </section> {% endcomment %}
-=======
->>>>>>> 88cd171398d3b9259660e3ac096f87d7062a602a
     </main>
     <main class="py-[50px] mt-[50px] w-full bg-[#0A1C4B] ">
         <section class="max-w-[1400px] mx-auto px-[15px] md:px-[20px] flex items-center justify-center lg:justify-between !gap-[50px] flex-wrap">

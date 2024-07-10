@@ -17,7 +17,7 @@ class DoctorMediaInline(admin.TabularInline):
     model = DoctorMedia
     extra = 0   
 
-class DoctorWithHospitalInline(admin.TabularInline):
+class DoctorWithHospitalInline(admin.StackedInline):
     model = DoctorWithHospital
     extra = 0   
 
@@ -27,11 +27,11 @@ class DoctorOnlineAvailabilityInline(admin.TabularInline):
 
     fields = ['day']
 
-class DoctorTimeSlotsInline(admin.TabularInline):
+class DoctorTimeSlotsInline(admin.StackedInline):
     model = DoctorTimeSlots
     extra = 0
 
-    exclude = ['discount']
+    exclude = ['discount', 'service_fee']
 
 
 class Doctor24By7Inline(admin.TabularInline):

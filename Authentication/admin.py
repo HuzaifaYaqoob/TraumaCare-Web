@@ -6,6 +6,7 @@ from .models import User
 # Register your models here.
 
 from django.contrib.auth.admin import UserAdmin
+from Profile.models import Profile
 
 # @admin.register(User)
 # class UserAdmin(admin.ModelAdmin):
@@ -22,6 +23,11 @@ from django.contrib.auth.admin import UserAdmin
     
 #     phone_number.image_tag = True
 
+class UserProfileInline(admin.StackedInline):
+    model = Profile
+    extra = 0
+
+    exclude = ['email', 'full_name']
 
 
 class CustomUserAdmin(UserAdmin):
@@ -29,6 +35,7 @@ class CustomUserAdmin(UserAdmin):
     search_fields = ['id', 'username', 'email', 'country__name']
     ordering = ['-joined_at']
     list_filter = ['is_mobile_verified', 'joined_at']
+    inlines = [UserProfileInline]
 
 
     add_fieldsets = (

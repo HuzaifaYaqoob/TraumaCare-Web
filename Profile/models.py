@@ -83,7 +83,6 @@ class Profile(models.Model):
         if not self.email:
             self.email = self.user.email
         
-        if not self.full_name:
-            self.full_name = self.first_name
+        self.full_name = f'{self.first_name} {self.last_name}'.strip()
 
         super(Profile, self).save(*args, **kwargs)

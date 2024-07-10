@@ -1,6 +1,6 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}Disease Title{% endblock title %}
+{% block title %}{{disease.name}}{% endblock title %}
 
 
 {% block baseBody %}
@@ -18,8 +18,7 @@
             <a href="{% url 'DiseasesViewAllPage' %}" class="text-slate-500 hover:text-slate-800 font-[500]">View All Diseases</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-
+            </svg>
       </div>
       <div>
             <p class="text-slate-800 font-[500] cursor-pointer">{{disease.name}}</p>
@@ -51,16 +50,14 @@
       </div>
       </div>
       <div class="mt-4">
-            <h3 class="text-[#5F5D5D] text-xl font-[600]">Gynecologist in Pakistan</h3>
+            <h3 class="text-[#5F5D5D] text-xl font-[600]">Best {{disease.name}} specialist in Pakistan</h3>
             <div class="mt-4 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 relative">
                   <div class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[50%] left-[-70px]">
                         <svg width="20" height="18" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                               <path d="M19.5359 16.7207C19.6784 16.5785 19.7914 16.4097 19.8685 16.2238C19.9456 16.0379 19.9853 15.8386 19.9853 15.6374C19.9853 15.4362 19.9456 15.2369 19.8685 15.051C19.7914 14.8651 19.6784 14.6963 19.5359 14.5541L13.5895 8.59236L19.5513 2.61522C19.6936 2.47297 19.8064 2.30408 19.8834 2.11822C19.9604 1.93235 20 1.73314 20 1.53196C20 1.33078 19.9604 1.13157 19.8834 0.945705C19.8064 0.759839 19.6936 0.590957 19.5513 0.448701C19.409 0.306445 19.2402 0.193602 19.0543 0.116613C18.8684 0.0396249 18.6692 -1.49891e-09 18.468 0C18.2669 1.49891e-09 18.0676 0.0396249 17.8818 0.116613C17.6959 0.193602 17.527 0.306445 17.3848 0.448701L10.3321 7.50142C9.73281 8.10067 9.73281 9.06869 10.3321 9.66794L17.3848 16.7207C17.5254 16.863 17.6929 16.976 17.8775 17.0531C18.0622 17.1303 18.2603 17.17 18.4604 17.17C18.6605 17.17 18.8586 17.1303 19.0432 17.0531C19.2278 16.976 19.3953 16.863 19.5359 16.7207Z" fill="#24D0D0" fill-opacity="0.5"/>
                               <path d="M10.3169 16.7053C10.4594 16.5631 10.5724 16.3943 10.6495 16.2084C10.7266 16.0225 10.7663 15.8233 10.7663 15.622C10.7663 15.4208 10.7266 15.2215 10.6495 15.0356C10.5724 14.8498 10.4594 14.6809 10.3169 14.5388L4.37053 8.577L10.3323 2.61522C10.6196 2.32792 10.781 1.93826 10.781 1.53196C10.781 1.12566 10.6196 0.736 10.3323 0.448702C10.045 0.161403 9.65535 0 9.24904 0C8.84274 0 8.45308 0.161403 8.16578 0.448702L1.11306 7.50142C0.513814 8.10067 0.513814 9.06869 1.11306 9.66794L8.16578 16.7207C8.45367 17.0027 8.84148 17.1595 9.24453 17.1566C9.64757 17.1537 10.0331 16.9915 10.3169 16.7053Z" fill="#24D0D0"/>
-                              </svg>
-                              
+                        </svg>
                   </div>
-
                   <div class="flex-1 border p-4  rounded-xl">
                         <div class="bg-[#557de50d] rounded-xl flex items-center gap-4 p-2">
                               <div class="w-20 h-20 rounded-full border border-[#557de5]">
