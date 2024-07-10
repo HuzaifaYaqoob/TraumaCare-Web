@@ -27,7 +27,7 @@ class Command(BaseCommand):
         posts = BlogPost.objects.annotate(count=Count('blog_post_medias')).filter(count=0)
         for index, post in enumerate(posts):
 
-            prompt = f'Generate an image where title is {post.title}, category is {post.category.name} and Description is {post.content_content[:100]}, You may include setting with advanced medical equipment and technology if necessary. You may Include if necessary elements like holographic displays, robotic assistants, and innovative medical devices to depict a cutting-edge healthcare environment. Use the primary color #0A1C4B for the main elements and the secondary color #24D0D0 for accents and highlights to enhance the visual appeal.'
+            prompt = f'Generate an image where title is {post.title}, category is {post.category.name} and Description is {post.content_content[:100]}, You may include setting with advanced medical equipment and technology if necessary. You may Include if necessary elements like holographic displays, robotic assistants, and innovative medical devices to depict a cutting-edge healthcare environment. you can add Human relevant to Post. Image tone should be light color'
             print('*'*50)
             print(f'{index}/{len(posts)}')
             print(post)
