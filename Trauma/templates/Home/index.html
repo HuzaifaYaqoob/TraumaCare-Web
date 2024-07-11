@@ -620,8 +620,6 @@
     })
 
     // specialities_drop
-
-
     let SpecialitiesInput = document.getElementById('SpecialitiesInput');
     value = true;
 
@@ -645,9 +643,13 @@
     // 
 
     function SepcialitiesDropdownFun(e) {
+        let form = e.closest('form');
         let item = e.closest('.dropdown-item');
 
         SpecialitiesInput.value = item.getAttribute('slug');
+        if (form){
+            form.submit()
+        }
         // console.log(item.innerText);
     }
   </script>
