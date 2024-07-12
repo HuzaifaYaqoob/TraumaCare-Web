@@ -64,7 +64,7 @@
                     fill="#0A1C4B" />
             </svg>
         </div>
-        <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
+        <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
         <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
             <i class="fa-solid fa-chevron-down text-[13px] text-[#0A1C4B] z-50 transition_2s specialities_drop_svg"></i>
         </span>
@@ -97,13 +97,10 @@
     <main class="max-w-[1400px] px-[15px] md:px-[20px] py-[50px] mx-auto bg-white ">
         <section>
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
-            <div class="flex gap-2 flex-wrap items-center justify-center mt-[26px] ">
+            <div class="flex items-center gap-[8px] justify-center flex-wrap mt-[26px] ">
                 {% for disease in diseases|slice:':7' %}
-                    <a  href="/search/?disease={{disease.slug}}"
-                        class=" hover:bg-gray-200 transition-all flex items-center justify-center gap-3 cursor-pointer border rounded border-solid divide-blue-700 p-px pl-2 pr-2">
-                        <div>   
-                            <p class="capitalize !font-[400]">{{disease.name}}</p>
-                        </div>
+                    <a  href="/search/?disease={{disease.slug}}" class=" cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
+                        <p>{{disease.name}}</p>
                     </a>
                 {% endfor %}
                 <div class="bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2 transition">

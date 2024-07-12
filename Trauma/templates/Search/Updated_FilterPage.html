@@ -86,7 +86,7 @@
                         fill="#0A1C4B" />
                 </svg>
             </div>
-            <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[8px] pl-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
+            <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
             <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
                 <i class="fa-solid fa-chevron-down text-[13px] text-[#0A1C4B] z-50 transition_2s specialities_drop_svg"></i>
             </span>
@@ -116,58 +116,58 @@
         </button>
     </form>
     <section class="max-w-[1400px] mx-auto px-[15px] md:px-[20px] py-[40px] ">
-        <div class="flex items-center gap-[14px] justify-center flex-wrap ">
+        <div class="flex items-center gap-[8px] justify-center flex-wrap ">
             <div>
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="available_today" name="available_today" {% if request.GET.available_today %}checked{% endif %} class="filter_page_checkbox">
-                <label for="available_today" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="available_today" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Available Today
                 </label>
             </div>
             <div>
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="video_consultaion" name="video_consultaion" {% if request.GET.video_consultaion %}checked{% endif %} class="filter_page_checkbox">
-                <label for="video_consultaion" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="video_consultaion" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Video Consultation
                 </label>
             </div>
             <div >
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="discounts" name="discounts" {% if request.GET.discounts %}checked{% endif %} class="filter_page_checkbox">
-                <label for="discounts" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="discounts" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Discounts
                 </label>
             </div>
             <div >
                 <input onclick="handleGenderClick(this)" type="radio" id="female_doctor_gender" value="FEMALE" name="doctor_gender" {% if request.GET.doctor_gender == 'FEMALE' %}checked{% endif %} class="filter_page_checkbox">
-                <label for="female_doctor_gender" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="female_doctor_gender" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Female Only
                 </label>
             </div>
             <div >
                 <input onclick="handleGenderClick(this)" type="radio" id="male_doctor_gender" value="MALE" name="doctor_gender" {% if request.GET.doctor_gender == 'MALE' %}checked{% endif %} class="filter_page_checkbox">
-                <label for="male_doctor_gender" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="male_doctor_gender" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Male Only
                 </label>
             </div>
             <div>
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="most_experienced" name="most_experienced" {% if request.GET.most_experienced %}checked{% endif %} class="filter_page_checkbox">
-                <label for="most_experienced" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="most_experienced" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Most Experienced
                 </label>
             </div>
             <div >
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="lowest_fee" name="lowest_fee" {% if request.GET.lowest_fee %}checked{% endif %} class="filter_page_checkbox">
-                <label for="lowest_fee" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="lowest_fee" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Lowest Fee
                 </label>
             </div>
             <div >
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="highest_rating" name="highest_rating" {% if request.GET.highest_rating %}checked{% endif %} class="filter_page_checkbox">
-                <label for="highest_rating" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="highest_rating" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Highest Rating
                 </label>
             </div>
             <div >
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="most_reviews" name="most_reviews" {% if request.GET.most_reviews %}checked{% endif %} class="filter_page_checkbox">
-                <label for="most_reviews" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:text-white">
+                <label for="most_reviews" class="cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                     Most Reviews
                 </label>
             </div>
