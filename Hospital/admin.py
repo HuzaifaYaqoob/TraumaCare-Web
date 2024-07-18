@@ -56,6 +56,7 @@ class HospitalAdmin(admin.ModelAdmin):
         'hospital_name',
         'fee',
         'facility_type',
+        'is_onboard',
         'is_active',
         'is_approved',
     ]
