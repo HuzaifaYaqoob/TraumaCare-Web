@@ -26,6 +26,7 @@ class Hospital(models.Model):
     fee = models.FloatField(default=0.0, verbose_name='Platform Service Fee(%)')
 
     is_approved = models.BooleanField(default=False)
+    is_onboard = models.BooleanField(default=False)
 
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
