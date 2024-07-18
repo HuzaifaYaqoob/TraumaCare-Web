@@ -71,7 +71,7 @@ class HospitalAdmin(admin.ModelAdmin):
 
     def hospital_name(self, obj):
         locations = obj.hospital_locations.all()
-        return f'{obj.name} ({locations.count()})'
+        return f'{obj.name} (Loc. {locations.count()})'
 
 
 
