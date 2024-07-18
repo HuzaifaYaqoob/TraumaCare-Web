@@ -44,6 +44,7 @@ class HospitalAdmin(admin.ModelAdmin):
     list_filter = [
         'facility_type',
         'fee',
+        'is_onboard',
         'is_approved',
         'is_active',
         'is_deleted',
