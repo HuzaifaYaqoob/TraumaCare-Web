@@ -11,9 +11,11 @@ class ChatMessagesInline(admin.TabularInline):
 
     fields = [
         'role',
-        'question',
-        'answer'
+        'QNA',
     ]
+
+    def QNA(self, obj):
+        return obj.question
 
     readonly_fields = ('role', 'question', 'answer')
     can_delete = False
