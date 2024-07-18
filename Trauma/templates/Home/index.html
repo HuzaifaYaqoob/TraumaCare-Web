@@ -253,6 +253,7 @@
             {% include 'Components/doctorSection/index.html' %}
         </section>
         {% if not request.user.has_doctor_profile %}
+        {% comment %} or request.user.is_authenticated  {% endcomment %}
             <section class="pt-[50px] ">
                 <div class="w-full bg-[#171919] rounded-[22px] relative px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
                     <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
@@ -274,6 +275,30 @@
                     </div>
                 </div>
             </section>
+        {% elif not request.user.has_hospital_profile or request.user.is_authenticated %}
+            <section class="pt-[50px] ">
+                <div class="w-full bg-[#171919] rounded-[22px] relative px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
+                    <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
+                    <div class="w-full lg:max-w-[400px] w-full pt-[22px] sm:pt-[30px] z-20 relative ">
+                        <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
+                        <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">You own a <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Hospital</span> or <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Clinic</span>?</h3>
+                        <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with Doctors & peers, enhance your practice, and grow your network!</p>
+                        <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'LoginPage' %}?signupAsDoctor=true{% endif %}" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
+                            <p class="font-[500] text-[16px] ">Join Us Now</p>
+                            <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
+                                <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
+                                </svg>                            
+                            </span>
+                        </a>
+                    </div>
+                    <div class="flex lg:flex-1 w-full items-center justify-center lg:justify-end mt-[22px] lg:mt-[0px] z-20 ">
+                        <img class="sm:h-[400px]" src="{% static 'assets/Images/hospital-image.png' %}" alt="">
+                    </div>
+                </div>
+            </section>
+        {% else %}
+        done
         {% endif %}
         {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
         <section class="pt-[50px] " >
