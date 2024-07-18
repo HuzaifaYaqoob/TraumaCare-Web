@@ -2,10 +2,11 @@
 from django.urls import path
 
 
-from .views import LoginPage, ResetPasswordPage, ChangePasswordHandler, RegisterPage, HandleJoin, ForgotPasswordPage, ForgotPasswordHandler, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection, CreateNewBusinessProfileRedirection
+from .views import LoginPage, HospitalLoginPage, ResetPasswordPage, ChangePasswordHandler, RegisterPage, HandleJoin, ForgotPasswordPage, ForgotPasswordHandler, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection, CreateNewBusinessProfileRedirection
 
 urlpatterns = [
     path('login/', LoginPage, name='LoginPage'),
+    path('hospital_login/', HospitalLoginPage, name='HospitalLoginPage'),
     path('join/', RegisterPage, name='RegisterPage'),
     path('forgot-password/', ForgotPasswordPage, name='ForgotPasswordPage'),
     path('verification/otp/', OtpVerificationPage, name='OtpVerificationPage'),

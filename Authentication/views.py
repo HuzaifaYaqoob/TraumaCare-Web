@@ -27,6 +27,14 @@ def LoginPage(request):
     return render(request, 'Auth/LoginUpdated.html')
 
 
+def HospitalLoginPage(request):
+    if request.user.is_authenticated:
+        return redirect(f'{settings.HOSPITAL_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}')
+
+    # return render(request, 'Auth/login.html')
+    return redirect(f'/auth/login/?next={request.path}')
+
+
 def ResetPasswordPage(request):
     if request.user.is_authenticated:
         return HttpResponseRedirect(f'/')
@@ -264,7 +272,7 @@ def HandleLogin(request):
 
 def HandleJoin(request):
     if request.method == 'POST':
-
+        next_url = request.GET.get('next', None)
         mobile_number = request.POST.get('mobile_number', None)
         
         if not mobile_number or len(mobile_number) != 11 or not mobile_number.startswith('03'):
@@ -316,7 +324,8 @@ def HandleJoin(request):
             )
 
             messages.success(request, 'User Created Successfully')
-            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION')
+            
+            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION{f"&next={next_url}" if next_url else ""}')
         else:
             # Login User here.
             VerificationCode.objects.create(
@@ -324,7 +333,7 @@ def HandleJoin(request):
                 otp_type = 'MOBILE_VERIFICATION'
             )
             messages.success(request, 'OTP Sent Successfully')
-            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION') 
+            return HttpResponseRedirect(f'/auth/verification/otp/?phone={user.mobile_number}&purpose=MOBILE_VERIFICATION{f"&next={next_url}" if next_url else ""}') 
 
     
     messages.error(request, 'Only POST method allowed')
@@ -416,6 +425,7 @@ def handleOtp(request):
     purpose = request.GET.get('purpose', 'EMAIL_VERIFICATION')
     code = request.POST.get('code', None)
 
+    print(purpose)
     if purpose == 'MOBILE_VERIFICATION':
         if not all([phone, code]):
             messages.info(request, 'Invalid Phone Number or Code!')
