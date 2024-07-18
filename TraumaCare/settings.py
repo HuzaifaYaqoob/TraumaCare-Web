@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'Secure.apps.SecureConfig',
     'Administration.apps.AdministrationConfig',
     'Blog.apps.BlogConfig',
+    'AskDoctor.apps.AskdoctorConfig',
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
