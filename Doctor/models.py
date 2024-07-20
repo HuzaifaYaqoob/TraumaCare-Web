@@ -165,6 +165,10 @@ class Doctor(models.Model):
         name = self.name
         name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
         name = name.lower()
+        if not self.mobile_number:
+            self.dial_code = self.user.dial_code
+            self.mobile_number = self.user.mobile_number
+            
         self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
     

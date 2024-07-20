@@ -38,6 +38,7 @@ class PhoneMessageAdmin(admin.ModelAdmin):
     ordering = ['-updated_at']
     list_display = [
         'phone_number',
+        'sms_type',
         'text',
         'created_at',
         'is_sent',

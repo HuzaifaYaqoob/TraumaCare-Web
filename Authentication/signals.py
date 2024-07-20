@@ -35,6 +35,7 @@ def generatePhoneMessage_VerificationCode(sender, instance, created, **kwargs):
         from Administration.models import PhoneMessage
         PhoneMessage.objects.create(
             phone_number = instance.mobile_number,
+            sms_type = 'OTP',
             text = f"Your TraumaCare verification code is {instance.code}. Don't share this code with anyone. Thanks for choosing TraumaCare, an innovative healthcare solution by RedExpo."
         )
 
