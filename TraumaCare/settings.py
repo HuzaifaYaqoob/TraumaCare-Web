@@ -93,7 +93,7 @@ MIDDLEWARE = [
 
 CRONJOBS = [
     ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost'),
-    ('* * * * *', 'Appointment.cronjob.expirePassedAppointments'),
+    ('0 * * * *', 'Appointment.cronjob.expirePassedAppointments'),
 ]
 
 CORS_ALLOWED_ORIGINS = [
