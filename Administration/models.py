@@ -4,7 +4,12 @@ from django.db import models
 
 import uuid
 from Authentication.models import User
+import re
 
+def convert_phone_number(phone_number):
+    pattern = r'^(?:\+92|92|0)?(\d{10})$'
+    replacement = r'92\1'
+    return re.sub(pattern, replacement, phone_number)
 
 class UserRequestLog(models.Model):
     id = models.AutoField(primary_key=True)
@@ -42,6 +47,7 @@ class PhoneMessage(models.Model):
         ('OTP', 'OTP'),
         ('Appointment', 'Appointment'),
         ('OnlineAppointment', 'OnlineAppointment'),
+        ('DoctorWithHospital', 'DoctorWithHospital'),
     )
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)

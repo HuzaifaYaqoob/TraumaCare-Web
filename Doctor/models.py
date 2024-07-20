@@ -316,6 +316,14 @@ class DoctorWithHospital(models.Model):
 
     phone = models.CharField(max_length=999, default='')
 
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_hospital_informed = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+
     @property
     def available_days(self):
         return DoctorTimeSlots.objects.filter(doc_hospital = self, is_deleted=False, is_active=True)
