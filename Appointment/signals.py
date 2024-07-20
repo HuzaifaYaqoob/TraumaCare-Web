@@ -24,13 +24,13 @@ def generatePhoneMessage_Appointment(sender, instance, created, **kwargs):
             # Send Message to Patient
             PhoneMessage.objects.create(
                 phone_number = instance.appointment_group.user.mobile_number,
-                sms_type = 'Appointment',
+                sms_type = 'OnlineAppointment',
                 text = f"Your online appointment with Dr. {instance.doctor.name} on {app_date} at {app_time} has been confirmed by TraumaCare, powered by RedExpo."
             )
             # Send Message to Doctor
             PhoneMessage.objects.create(
                 phone_number = instance.doctor.user.mobile_number,
-                sms_type = 'Appointment',
+                sms_type = 'OnlineAppointment',
                 text = f"You have a new online appointment with {instance.appointment_group.user.full_name} on {app_date} at {app_time}, booked via TraumaCare, powered by RedExpo."
             )
             instance.is_sms_sent = True

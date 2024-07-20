@@ -41,13 +41,14 @@ class PhoneMessage(models.Model):
     SMS_TYPE_CHOICES = (
         ('OTP', 'OTP'),
         ('Appointment', 'Appointment'),
+        ('OnlineAppointment', 'OnlineAppointment'),
     )
     
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
     phone_number = models.TextField()
     text = models.TextField()
     mask = models.CharField(max_length=999, null=True, blank=True)
-    sms_type = models.CharField(max_length=999, null=True, blank=True)
+    sms_type = models.CharField(max_length=999, null=True, blank=True, choices=SMS_TYPE_CHOICES)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     is_sent = models.BooleanField(default=False)
