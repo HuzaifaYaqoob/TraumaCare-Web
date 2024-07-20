@@ -2,6 +2,7 @@ from django.db import models
 
 # Create your models here.
 
+import uuid
 from Authentication.models import User
 
 
@@ -33,3 +34,24 @@ class UserRequestLog(models.Model):
 
     def __str__(self):
         return f"{self.real_ip} - {self.path} at {self.timestamp}"
+    
+
+
+class PhoneMessage(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False, unique=True)
+    phone_number = models.TextField()
+    text = models.TextField()
+    mask = models.CharField(max_length=999, null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_sent = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
+
+
+    def __str__(self):
+        return self.phone_number
+    
+    def save(self, *args, **kwargs):
+        if not self.mask:
+            self.mask = 'REDEXPO'
+        super(PhoneMessage, self).save(*args, **kwargs)

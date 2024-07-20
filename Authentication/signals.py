@@ -7,6 +7,7 @@ from django.dispatch import receiver
 from Constants.Emails.OtpEmail import sendOtpEmail
 
 from Authentication.models import User
+from Trauma.models import VerificationCode
 from Profile.models import Profile
 
 @receiver(post_save, sender=User)
@@ -28,21 +29,14 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
     user_profile.save()
     
 
-# @receiver(post_save, sender=User)
-# def user_created_signal__SendOTPEmail(sender, instance, created, **kwargs):
-#     if created:
-#         from Trauma.models import VerificationCode
-#         otp = VerificationCode.objects.create(
-#             user = instance
-#         )
-#         sendOtpEmail(
-#             {
-#                 'user' : instance,
-#                 'verification_code' : otp
-#             }
-#         )
-
-#     return
+@receiver(post_save, sender=VerificationCode)
+def generatePhoneMessage_VerificationCode(sender, instance, created, **kwargs):
+    if created and instance.otp_type == 'MOBILE_VERIFICATION':
+        from Administration.models import PhoneMessage
+        PhoneMessage.objects.create(
+            phone_number = instance.mobile_number,
+            text = f"Your TraumaCare verification code is {instance.code}. Don't share this code with anyone. Thanks for choosing TraumaCare, an innovative healthcare solution by RedExpo."
+        )
 
 
 @receiver(post_save, sender=User)
