@@ -20,6 +20,30 @@
         grid-template-columns: 1fr;
     }
 }
+
+.helllo::before{
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    left: 200px;
+    width: 100px;
+    height: 44px;
+    content: '';
+    border-top-left-radius: 22px;
+    box-shadow: -30px -20px 0 white;
+}
+
+.helllo::after {
+    background-color: transparent;
+    position: absolute;
+    top: 0;
+    right: 200px; /* Adjust as needed */
+    width: 100px;
+    height: 44px;
+    content: '';
+    border-top-right-radius: 22px;
+    box-shadow: 30px -20px 0 white;
+}
 </style>
 
 
@@ -44,7 +68,7 @@
         </div>
     </div>
 </section>
-<form action="/search" autocomplete="off" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+<form action="/search" autocomplete="off" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-[15px] md:px-[20px] relative z-40 ">
     <div class="relative flex-1 h-full hidden md:block ">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
             <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,11 +89,11 @@
         </div>
         <input name='speciality' class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[34px] relative flex-1 border-[2px] border-white shadow-xl " id="SpecialitiesInput" placeholder="Specialities"></input>
         <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
-            <i class="fa-solid fa-chevron-down text-[13px] text-[#0A1C4B] z-50 transition_2s specialities_drop_svg"></i>
+            <svg class="z-50 transition_2s specialities_drop_svg h-[14px] w-[14px] fill-[#0A1C4B] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
         </span>
         <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-[#fff] border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
             {% for speciality in specialities %}
-                <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition " slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
+                <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition z-50 relative" slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
             {% endfor %}
         </div>
     </div>
@@ -98,13 +122,13 @@
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap mt-[26px] ">
                 {% for disease in diseases|slice:':7' %}
-                    <a  href="/search/?disease={{disease.slug}}" class=" cursor-pointer px-4 py-2 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
+                    <a  href="/search/?disease={{disease.slug}}" class=" cursor-pointer px-4 py-1 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                         <p>{{disease.name}}</p>
                     </a>
                 {% endfor %}
-                <div class="bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded divide-blue-700 p-px pl-2 pr-2 transition">
+                <!-- <div class="bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded-full divide-blue-700 p-px pl-2 pr-2 transition">
                     <p class="capitalize text-white font-medium">more</p>
-                </div>
+                </div> -->
             </div>
         </section>
         <section class="pt-[50px]">
@@ -337,7 +361,10 @@
         <section>
             {% include 'Components/GetRegisterd/index.html' %}
         </section>
-        <section class="relative flex flex-col items-center w-full mt-[50px] h-[250px] md:h-[260px] rounded-[11px] md:rounded-[14px]" style="background-image: linear-gradient(#557DE5, #24D0D0);">
+        <section class="relative flex flex-col items-center w-full mt-[50px] rounded-[13px] pb-[60px] md:rounded-[14px]" style="background-image: linear-gradient(#557DE5, #24D0D0);">
+            <div class=" mx-auto bg-[#fff] h-[44px] w-[200px] rounded-bl-[22px] rounded-br-[22px] flex items-center justify-center relative helllo helllo2 ">
+
+            </div>
             <div class="absolute top-[140px] md:top-[130px] left-[20px] md:left-[43px]">
                 <svg width="130" height="130" viewBox="0 0 171 74" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <g opacity="0.6">
