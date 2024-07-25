@@ -44,6 +44,7 @@ class HospitalAdmin(admin.ModelAdmin):
     list_filter = [
         'facility_type',
         'fee',
+        'is_onboard',
         'is_approved',
         'is_active',
         'is_deleted',
@@ -52,9 +53,10 @@ class HospitalAdmin(admin.ModelAdmin):
         'is_recommended',
     ]
     list_display = [
-        'hospital_name',
+        'hospital_and_locations',
         'fee',
         'facility_type',
+        'is_onboard',
         'is_active',
         'is_approved',
     ]
@@ -67,7 +69,7 @@ class HospitalAdmin(admin.ModelAdmin):
         HospitalMediaInline,
     ]
 
-    def hospital_name(self, obj):
+    def hospital_and_locations(self, obj):
         locations = obj.hospital_locations.all()
         return f'{obj.name} ({locations.count()})'
 

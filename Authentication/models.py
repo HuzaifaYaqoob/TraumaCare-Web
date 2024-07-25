@@ -151,6 +151,20 @@ class User(AbstractBaseUser, PermissionsMixin):
             return True
         else:
             return False
+
+    @property
+    def has_hospital_profile(self):
+        from Hospital.models import Hospital
+        hos_profiles = Hospital.objects.filter(
+            user = self,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        )
+        if hos_profiles.exists():
+            return True
+        else:
+            return False
     
 
     @property

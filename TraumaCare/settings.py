@@ -72,6 +72,7 @@ INSTALLED_APPS = [
     'Secure.apps.SecureConfig',
     'Administration.apps.AdministrationConfig',
     'Blog.apps.BlogConfig',
+    'AskDoctor.apps.AskdoctorConfig',
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
@@ -91,7 +92,8 @@ MIDDLEWARE = [
 
 
 CRONJOBS = [
-    ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost')
+    ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost'),
+    ('0 * * * *', 'Appointment.cronjob.expirePassedAppointments'),
 ]
 
 CORS_ALLOWED_ORIGINS = [
@@ -232,6 +234,7 @@ EMAIL_HOST_PASSWORD = "zpsjmfoaipkndfqy"
 
 ACCOUNT_TRAUMACARE_URL=env('ACCOUNT_TRAUMACARE_URL')
 THIS_APPLICATION_URL=env('THIS_APPLICATION_URL')
+HOSPITAL_TRAUMACARE_URL=env('HOSPITAL_TRAUMACARE_URL')
 
 
 try:

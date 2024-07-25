@@ -6,7 +6,7 @@ from datetime import datetime, timedelta
 # Register your models here.
 
 
-class ChatMessagesInline(admin.TabularInline):
+class ChatMessagesInline(admin.StackedInline):
     model = ChatMessage
 
     fields = [

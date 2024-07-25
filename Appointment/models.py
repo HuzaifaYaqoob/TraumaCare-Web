@@ -83,6 +83,8 @@ class Appointment(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    is_sms_sent = models.BooleanField(default=False)
+
     @property
     def day_name(self):
         if self.date:

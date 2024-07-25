@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import UserRequestLog
+from .models import UserRequestLog, PhoneMessage
 
 @admin.register(UserRequestLog)
 class UserRequestLogAdmin(admin.ModelAdmin):
@@ -31,3 +31,16 @@ class UserRequestLogAdmin(admin.ModelAdmin):
     
     def response(self, log):
         return f'{log.method} {log.response_status}'
+
+
+@admin.register(PhoneMessage)
+class PhoneMessageAdmin(admin.ModelAdmin):
+    ordering = ['-updated_at']
+    list_display = [
+        'phone_number',
+        'sms_type',
+        'text',
+        'created_at',
+        'is_sent',
+        'is_deleted',
+    ]

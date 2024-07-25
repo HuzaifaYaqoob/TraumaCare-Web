@@ -165,6 +165,10 @@ class Doctor(models.Model):
         name = self.name
         name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
         name = name.lower()
+        if not self.mobile_number:
+            self.dial_code = self.user.dial_code
+            self.mobile_number = self.user.mobile_number
+            
         self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
     
@@ -311,6 +315,14 @@ class DoctorWithHospital(models.Model):
     location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
 
     phone = models.CharField(max_length=999, default='')
+
+
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    is_hospital_informed = models.BooleanField(default=False)
+
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+
 
     @property
     def available_days(self):
