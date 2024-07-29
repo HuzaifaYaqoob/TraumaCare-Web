@@ -1,4 +1,4 @@
 <div class="form-field">
     <label for="{% if id %}{{id}}{% else %}{{name}}{% endif %}" class="form-input-label">{{label}}</label>
-    <input type="text" autocomplete="off" error-border-element name="{{name}}" id="{% if id %}{{id}}{% else %}{{name}}{% endif %}" class="form-input {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %} border !focus:border-[#23d0d0] !border-slate-300 transition-all !bg-slate-100" placeholder="{{placeholder}}" {{attributes}} >
+    <input type="text" autocomplete="off" error-border-element name="{{name}}" id="{% if id %}{{id}}{% else %}{{name}}{% endif %}" class="form-input {% if size == 'md' %} !py-[8px] !px-[10px] {% else %} !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] {% endif %} border !focus:border-[#23d0d0] !border-slate-300 transition-all required !bg-slate-100" placeholder="{{placeholder}}" {{attributes}} >
 </div>
