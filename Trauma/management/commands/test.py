@@ -5,14 +5,17 @@
 from django.core.management.base import BaseCommand
 
 import csv
-
-from Blog.Cronjob import generateBlogPost
-from Blog.models import BlogPostTopic, BlogMedia
 from django.conf import settings
 from PIL import Image
 
+from ChatXpo.Sockets.Constant.Query import askChatXpo
+
 from datetime import datetime
 import time
+
+from openai import OpenAI
+
+import re
 
 
 class Command(BaseCommand):
@@ -21,36 +24,39 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-        mm = BlogMedia.objects.filter()
-        for m in mm:
-            if '.webp' in m.image.name:
-                continue
-            ext = m.image.name.split('.')[-1]
-            url = f'{settings.BASE_DIR}{m.image.url}'.replace('%3A', ':')
-            try:
-                background = Image.open(url)
-            except Exception as err:
-                print(err)
-                continue
-            bg_w, bg_h = background.size
-            print(url)
+        file_path = 'Files/WhatsApp Image 2024-08-02 at 16.13.06.jpeg'
 
-            time.sleep(1)
-            time_now = datetime.now()
+        import pytesseract
+        from PIL import Image
 
-            slug = m.post.slug
-            slug = slug.replace(' ', '-').replace('/', '-').replace(':', '-').replace('--', '-')
-            new_width = 200
-            if bg_w > new_width:
-                bg_h = int((new_width / bg_w) * bg_h)
-                bg_w = new_width
+        # Open the image file
+        image = Image.open(file_path)
 
-                background = background.resize((bg_w, bg_h), Image.ANTIALIAS)
+        # Perform OCR using PyTesseract
+        text = pytesseract.image_to_string(image)
 
-            saving_url = f"media/Blog/Images/traumacare-{slug[0:30]}-{time_now.strftime("%d-%H%M%S")}-{bg_w}x{bg_h}.{ext}"
-            background.save(saving_url, quality=95)
-            m.mini_thumbnail = f'{saving_url}'.split('media/')[-1]
-            m.save()
+        text = re.sub(r'[^\x00-\x7F]+', ' ', text)
+        text = re.sub(r'\s+', ' ', text).strip()
+
+        # Print the extracted text
+        print(text)
+
+
+        # client = OpenAI(api_key='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')
+
+        # queries = [ {"role": "system", "content": "You are a helpful assistant that can read images."}, 
+        #            {"role": "user", "content": f"Extract the text from the image from "} ]
+
+        # response = client.chat.completions.create(
+        #     model = 'gpt-4-vision-preview',
+        #     messages = queries,
+        # )
+        # choice = response.choices[0]
+        # chat_message = response.choices[0].message
+        # print(chat_message)
+
+
+
 
         self.stdout.write(self.style.SUCCESS('Successfully added Specialities'))
 
