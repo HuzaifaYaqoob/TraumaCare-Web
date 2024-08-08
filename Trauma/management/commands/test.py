@@ -42,7 +42,7 @@ class Command(BaseCommand):
         print(text)
 
 
-        # client = OpenAI(api_key='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')
+        # client = OpenAI(api_key='')
 
         # queries = [ {"role": "system", "content": "You are a helpful assistant that can read images."}, 
         #            {"role": "user", "content": f"Extract the text from the image from "} ]
