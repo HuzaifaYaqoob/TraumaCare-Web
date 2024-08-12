@@ -6,8 +6,11 @@ from django.conf import settings
 from Doctor.models import Doctor
 
 class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
-    hd = serializers.CharField(source='heading')
+    sp = serializers.SerializerMethodField()
     img = serializers.SerializerMethodField()
+
+    def get_sp(self, doctor):
+        return doctor.heading[:30]
 
 
     def get_img(self, doctor):
@@ -20,6 +23,6 @@ class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'name',
-            'hd',
+            'sp',
             'img',
         ]
