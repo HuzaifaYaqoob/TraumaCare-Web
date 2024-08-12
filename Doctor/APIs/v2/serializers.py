@@ -10,7 +10,7 @@ class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
     img = serializers.SerializerMethodField()
 
     def get_sp(self, doctor):
-        return doctor.heading[:30]
+        return doctor.heading[:50]
 
 
     def get_img(self, doctor):
