@@ -18,6 +18,6 @@ def getHomePageDoctors(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False
-    )
+    ).distinct('id')
 
     return Response({"data" : DeviceHomePageDoctorsSerializer(doctors, many=True).data}, status=status.HTTP_200_OK)
