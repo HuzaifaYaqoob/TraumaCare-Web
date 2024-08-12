@@ -21,7 +21,7 @@ import xmltodict
 
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):
-        self.sessions_id = '03bf20e39ccd41a49545f166cdaa56df'
+        self.sessions_id = '19b6f14ad95a4259ba18cf83acc74f89'
         super().__init__(*args, **kwargs)
 
     def get_session_id(self):
@@ -38,7 +38,7 @@ class Command(BaseCommand):
         # for num in numbers:
         #     to = to + str(num) + ','
         
-        url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={self.sessions_id}&to={to}&text={text}&mask=REDEXPO'
+        url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={self.sessions_id}&to={to}&text={text}&'
         print(url)
         response = requests.get(url)
         response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
