@@ -70,7 +70,7 @@ def get_chat_messages(request):
             is_active = True,
             is_deleted = False,
             is_blocked = False,
-        ).order_by('created_at')
+        ).exclude(answer = '').order_by('created_at')
         data = v1Serializers.ChatMessageSerializer(chat_messages, many=True).data
         return Response({
             'status' : 200,
