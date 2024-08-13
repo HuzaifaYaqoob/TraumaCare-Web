@@ -5,7 +5,7 @@ urlpatterns = [
 
     path('', include('Trauma.APIs.v1.urls') ),
     path('v1/auth/', include('Authentication.APIs.v1.urls') ),
-    path('device/auth/', include('Authentication.APIs.v1.urls') ),
+    path('device/auth/', include('Authentication.APIs.device.urls') ),
 
     path('v1/chatxpo/', include('ChatXpo.Apis.v1.urls') ),
 
