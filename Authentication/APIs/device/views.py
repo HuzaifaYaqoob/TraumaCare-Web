@@ -6,6 +6,8 @@ from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import status
 
+from Trauma.models import VerificationCode
+
 
 from django.db.models import Q 
 
@@ -17,14 +19,14 @@ from Authentication.models import User
 @permission_classes([AllowAny])
 def HandleLogin(request):
     
-    mobile_number = request.data.get('mobile_number', None)
+    mobile_number = request.data.get('mobile_number', 'None')
     
 
     if not mobile_number or len(mobile_number) != 11 or not mobile_number.startswith('03'):
         return Response({
             'status' : False,
             'message' : 'Invalid Phone Number',
-        })
+        }, status=status.HTTP_400_BAD_REQUEST)
 
     try:
         user = User.objects.get(mobile_number = mobile_number)
@@ -34,7 +36,7 @@ def HandleLogin(request):
             return Response({
                 'status' : False,
                 'message' : 'Full name required',
-            })
+            }, status=status.HTTP_400_BAD_REQUEST)
 
         username = full_name.replace(' ', '')
         keepChecking = True
