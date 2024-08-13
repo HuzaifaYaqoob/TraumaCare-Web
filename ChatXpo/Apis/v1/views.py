@@ -119,12 +119,12 @@ def send_chat_widget_message(request, chatId):
             if chat_msg.answer:
                 chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
 
-    response = askChatXpo(
-        user_query = query,
-        previousQueries = chats,
-        user = chat.user if chat.user else chat.user
-    )
-    # response = 'Unable to respond to your query at the moment, Team is fixing this issue very soon. Thanks for Your patience.'
+    # response = askChatXpo(
+    #     user_query = query,
+    #     previousQueries = chats,
+    #     user = chat.user if chat.user else chat.user
+    # )
+    response = 'Unable to respond to your query at the moment, Team is fixing this issue very soon. Thanks for Your patience.'
 
     ChatMessage.objects.create(chat = chat, question = query, answer = response,),
 
