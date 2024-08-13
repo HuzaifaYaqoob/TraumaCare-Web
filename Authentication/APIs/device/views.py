@@ -29,10 +29,10 @@ def HandleOtpVerification(request):
             is_deleted = False, 
             is_expired = False
         )
-    except:
+    except Exception as err:
         return Response({
             'status' : False,
-            'message' : 'Invalid Code',
+            'message' : str(err),
         }, status=status.HTTP_400_BAD_REQUEST)
 
     code.is_used = True
