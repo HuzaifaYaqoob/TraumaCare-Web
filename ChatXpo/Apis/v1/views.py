@@ -89,58 +89,48 @@ def get_chat_messages(request):
 @permission_classes([AllowAny])
 def send_chat_widget_message(request, chatId):
     try:
-        try:
-            chat = XpoChat.objects.get(uuid = chatId)
-        except Exception as err:
-            return Response({
-                'status' : 404,
-                'status_code' : '404',
-                'response' : {
-                    'message' : 'Chat Not Found',
-                    'error_message' : str(err),
-                }
-            }, status=status.HTTP_404_NOT_FOUND)
-        
-        try:
-            query = request.data['query']
-
-            chat_messages = ChatMessage.objects.filter(
-                chat = chat,
-                is_active = True,
-                is_deleted = False,
-                is_blocked = False,
-            ).order_by('created_at')
-
-            chats = []
-            for chat_msg in chat_messages:
-                if chat_msg.role == 'assistant':
-                    chats.append({'role' : 'assistant', 'content' : chat_msg.question })
-                else:
-                    if chat_msg.question:
-                        chats.append({'role' : 'user', 'content' : chat_msg.question })
-                    if chat_msg.answer:
-                        chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
-
-            response = askChatXpo(
-                user_query = query,
-                previousQueries = chats,
-                user = chat.user if chat.user else chat.user
-            )
-
-            ChatMessage.objects.create(chat = chat, question = query, answer = response,),
-
-            return Response({
-                'status' : 200,
-                'response' : {
-                    'message' : response
-                }
-            }, status=status.HTTP_201_CREATED)
-        except Exception as err:
-            return Response({
-                'message' : str(err)
-            }, status=status.HTTP_201_CREATED)
-
+        chat = XpoChat.objects.get(uuid = chatId)
     except Exception as err:
         return Response({
-            'message' : str(err)
-        })
+            'status' : 404,
+            'status_code' : '404',
+            'response' : {
+                'message' : 'Chat Not Found',
+                'error_message' : str(err),
+            }
+        }, status=status.HTTP_404_NOT_FOUND)
+    
+    query = request.data['query']
+
+    chat_messages = ChatMessage.objects.filter(
+        chat = chat,
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False,
+    ).order_by('created_at')
+
+    chats = []
+    for chat_msg in chat_messages:
+        if chat_msg.role == 'assistant':
+            chats.append({'role' : 'assistant', 'content' : chat_msg.question })
+        else:
+            if chat_msg.question:
+                chats.append({'role' : 'user', 'content' : chat_msg.question })
+            if chat_msg.answer:
+                chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
+
+    # response = askChatXpo(
+    #     user_query = query,
+    #     previousQueries = chats,
+    #     user = chat.user if chat.user else chat.user
+    # )
+    response = 'Unable to respond to your query at the moment, Team is fixing this issue very soon. Thanks for Your patience.'
+
+    ChatMessage.objects.create(chat = chat, question = query, answer = response,),
+
+    return Response({
+        'status' : 200,
+        'response' : {
+            'message' : response
+        }
+    }, status=status.HTTP_201_CREATED)
