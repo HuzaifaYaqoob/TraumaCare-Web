@@ -5,6 +5,7 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework import status
+from rest_framework.authtoken.models import Token
 
 from Trauma.models import VerificationCode
 
@@ -46,9 +47,15 @@ def HandleOtpVerification(request):
     code.is_used = True
     code.is_expired = True
     code.save()
+    user.is_active = True
+    user.save()
+
+    
+    token = Token.objects.get_or_create(user = user)[0].key
     return Response({
         'status' : True,
         'message' : 'Code Verified',
+        'token' : token
     }, status=status.HTTP_200_OK)
 
 
@@ -117,6 +124,12 @@ def HandleLogin(request):
         })
     else:
         # Login User here.
+        if user.is_deleted:
+            return Response({
+                'status' : False,
+                'message' : 'You are not allowed to login with this Phone Number.',
+            }, status=status.HTTP_400_BAD_REQUEST)
+
         VerificationCode.objects.create(
             user = user,
             otp_type = 'MOBILE_VERIFICATION'
