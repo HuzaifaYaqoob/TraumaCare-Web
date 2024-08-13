@@ -22,17 +22,9 @@ def HandleOtpVerification(request):
     otp = request.data.get('otp', None)
 
     try:
-        user = User.objects.get(mobile_number = mobile_number)
-    except:
-        return Response({
-            'status' : False,
-            'message' : 'Invalid User',
-        }, status=status.HTTP_400_BAD_REQUEST)
-
-    try:
         code = VerificationCode.objects.get(
-            user = user, 
             otp = otp, 
+            mobile_number = mobile_number,
             is_used = False, 
             is_deleted = False, 
             is_expired = False
