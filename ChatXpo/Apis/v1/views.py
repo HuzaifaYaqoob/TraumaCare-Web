@@ -100,36 +100,41 @@ def send_chat_widget_message(request, chatId):
             }
         }, status=status.HTTP_404_NOT_FOUND)
     
-    query = request.data['query']
+    try:
+        query = request.data['query']
 
-    chat_messages = ChatMessage.objects.filter(
-        chat = chat,
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False,
-    ).order_by('created_at')
+        chat_messages = ChatMessage.objects.filter(
+            chat = chat,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        ).order_by('created_at')
 
-    chats = []
-    for chat_msg in chat_messages:
-        if chat_msg.role == 'assistant':
-            chats.append({'role' : 'assistant', 'content' : chat_msg.question })
-        else:
-            if chat_msg.question:
-                chats.append({'role' : 'user', 'content' : chat_msg.question })
-            if chat_msg.answer:
-                chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
+        chats = []
+        for chat_msg in chat_messages:
+            if chat_msg.role == 'assistant':
+                chats.append({'role' : 'assistant', 'content' : chat_msg.question })
+            else:
+                if chat_msg.question:
+                    chats.append({'role' : 'user', 'content' : chat_msg.question })
+                if chat_msg.answer:
+                    chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
 
-    response = askChatXpo(
-        user_query = query,
-        previousQueries = chats,
-        user = chat.user if chat.user else chat.user
-    )
+        response = askChatXpo(
+            user_query = query,
+            previousQueries = chats,
+            user = chat.user if chat.user else chat.user
+        )
 
-    ChatMessage.objects.create(chat = chat, question = query, answer = response,),
+        ChatMessage.objects.create(chat = chat, question = query, answer = response,),
 
-    return Response({
-        'status' : 200,
-        'response' : {
-            'message' : response
-        }
-    }, status=status.HTTP_201_CREATED)
+        return Response({
+            'status' : 200,
+            'response' : {
+                'message' : response
+            }
+        }, status=status.HTTP_201_CREATED)
+    except Exception as err:
+        return Response({
+            'message' : str(err)
+        }, status=status.HTTP_201_CREATED)
