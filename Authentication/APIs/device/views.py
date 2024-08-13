@@ -17,9 +17,46 @@ from Authentication.models import User
 
 @api_view(['POST'])
 @permission_classes([AllowAny])
+def HandleOtpVerification(request):
+    mobile_number = request.data.get('mobile_number', None)
+    otp = request.data.get('otp', None)
+
+    try:
+        user = User.objects.get(mobile_number = mobile_number)
+    except:
+        return Response({
+            'status' : False,
+            'message' : 'Invalid User',
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    try:
+        code = VerificationCode.objects.get(
+            user = user, 
+            otp = otp, 
+            is_used = False, 
+            is_deleted = False, 
+            is_expired = False
+        )
+    except:
+        return Response({
+            'status' : False,
+            'message' : 'Invalid Code',
+        }, status=status.HTTP_400_BAD_REQUEST)
+
+    code.is_used = True
+    code.is_expired = True
+    code.save()
+    return Response({
+        'status' : True,
+        'message' : 'Code Verified',
+    }, status=status.HTTP_200_OK)
+
+
+@api_view(['POST'])
+@permission_classes([AllowAny])
 def HandleLogin(request):
     
-    mobile_number = request.data.get('mobile_number', 'None')
+    mobile_number = request.data.get('mobile_number', None)
     
 
     if not mobile_number or len(mobile_number) != 11 or not mobile_number.startswith('03'):
