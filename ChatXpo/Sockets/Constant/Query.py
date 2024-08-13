@@ -99,7 +99,7 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
 
     # Asking GPT 
     response = client.chat.completions.create(
-        model = 'gpt-4o',
+        model = 'gpt-4o-mini',
         messages = INSTRUCTIONS + queries,
         **query
     )
