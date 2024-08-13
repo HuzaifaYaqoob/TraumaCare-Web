@@ -55,7 +55,8 @@ def HandleOtpVerification(request):
     return Response({
         'status' : True,
         'message' : 'Code Verified',
-        'token' : token
+        'token' : token,
+        'name'  : user.full_name
     }, status=status.HTTP_200_OK)
 
 
