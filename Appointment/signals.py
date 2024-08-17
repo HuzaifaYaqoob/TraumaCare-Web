@@ -26,7 +26,7 @@ def generatePhoneMessage_Appointment(sender, instance, created, **kwargs):
             PhoneMessage.objects.create(
                 phone_number = to,
                 sms_type = 'OnlineAppointment',
-                text = f"*Online appointment confirmed:* {patient.full_name} has an online appointment with Dr. {doctor.name} on {app_date} at {app_time}, booked via TraumaCare, powered by RedExpo."
+                text = f"Online appointment confirmed: {patient.full_name} has an online appointment with Dr. {doctor.name} on {app_date} at {app_time}, booked via TraumaCare, powered by RedExpo."
             )
 
         elif instance.appointment_location == 'InPerson' and instance.doct_hospital:
@@ -37,7 +37,7 @@ def generatePhoneMessage_Appointment(sender, instance, created, **kwargs):
             PhoneMessage.objects.create(
                 phone_number = to,
                 sms_type = 'Appointment',
-                text = f"*Appointment Confirmation:* {patient.full_name} has an appointment with Dr. {doctor.name} at {hospital.name}, {location.name}, on {app_date} at {app_time}. Confirmed via TraumaCare, powered by RedExpo."
+                text = f"Appointment Confirmation: {patient.full_name} has an appointment with Dr. {doctor.name} at {hospital.name}, {location.name}, on {app_date} at {app_time}. Confirmed via TraumaCare, powered by RedExpo."
             )
 
         instance.is_sms_sent = True

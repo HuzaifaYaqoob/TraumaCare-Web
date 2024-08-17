@@ -87,6 +87,8 @@ class PhoneMessage(models.Model):
     def save(self, *args, **kwargs):
         if self.sms_type == 'OTP':
             self.priority = 1
+        elif self.sms_type == 'Appointment' or self.sms_type == 'OnlineAppointment':
+            self.priority = 2
 
         if not self.mask:
             self.mask = 'REDEXPO'
