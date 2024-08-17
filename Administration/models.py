@@ -85,9 +85,9 @@ class PhoneMessage(models.Model):
         return self.phone_number
     
     def save(self, *args, **kwargs):
-        if sms_type == 'OTP':
+        if self.sms_type == 'OTP':
             self.priority = 1
-            
+
         if not self.mask:
             self.mask = 'REDEXPO'
         super(PhoneMessage, self).save(*args, **kwargs)
