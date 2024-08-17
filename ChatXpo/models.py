@@ -2,6 +2,8 @@ from django.db import models
 from django.utils.timezone import now
 from uuid import uuid4
 from Authentication.models import User
+from Doctor.models import Doctor
+from Hospital.models import Hospital
 # Create your models here.
 
 
@@ -60,3 +62,12 @@ class ChatMessage(models.Model):
 
     def __str__(self):
         return str(self.uuid)
+
+class MessageContent(models.Model):
+    message = models.ForeignKey(ChatMessage, on_delete=models.PROTECT, related_name='message_contents')
+    doctor = models.ForeignKey(Doctor, on_delete=models.PROTECT, related_name='doctor_messages', null=True, blank=True)
+    hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, related_name='hospital_messages', null=True, blank=True)
+
+    def __str__(self):
+        return str(self.id)
+    
