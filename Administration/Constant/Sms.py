@@ -41,6 +41,7 @@ def sendMessage(sms_instance, provider='Telenor'):
     response = requests.get(url)
     response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
     # {'corpsms': {'command': 'Submit_SM', 'data': '5275753564', 'response': 'OK'}}
+    corpsms = response_json.get('corpsms', None)
     if not corpsms:
         return False
 
