@@ -18,27 +18,21 @@ import time
 import json
 import xmltodict
 
+from Administration.Constant.Sms import sendMessage, generateSmsKey
 
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):
-        self.sessions_id = '19b6f14ad95a4259ba18cf83acc74f89'
+        self.sessions_id = '88c9a5989f074452b1bd08c873780e84'
         super().__init__(*args, **kwargs)
 
-    def get_session_id(self):
-        url = 'https://telenorcsms.com.pk:27677/corporate_sms2/api/auth.jsp?msisdn=923400193324&password=BrightFuture098765'
-
-        response = requests.post(url)
-        response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
-        print(response_json)
-    
 
     def send_message(self, numbers=[]):
-        text = 'Hello'
-        to = '923187834096,923187130480'
-        # for num in numbers:
-        #     to = to + str(num) + ','
+        text = "Your TraumaCare verification code is 858150. Don't share this code with anyone. Thanks for choosing TraumaCare, an innovative healthcare solution by RedExpo."
+        to = ''
+        for num in numbers:
+            to = to + str(num) + ','
         
-        url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={self.sessions_id}&to={to}&text={text}&'
+        url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={self.sessions_id}&to={to}&text={text}&mask=REDEXPO'
         print(url)
         response = requests.get(url)
         response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
@@ -47,11 +41,12 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
 
-        # self.get_session_id()
+        key = generateSmsKey()
+        print(key)
         
-        self.send_message(
-            numbers=['923464529005',]
-        )
+        # self.send_message(
+        #     numbers=["923400193324"]
+        # )
        
         self.stdout.write(self.style.SUCCESS('Successfully added Specialities'))
 

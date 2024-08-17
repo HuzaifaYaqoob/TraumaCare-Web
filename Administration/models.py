@@ -39,7 +39,23 @@ class UserRequestLog(models.Model):
 
     def __str__(self):
         return f"{self.real_ip} - {self.path} at {self.timestamp}"
-    
+
+
+class SmsServiceKey(models.Model):
+    KEY_PROVIDER_CHOICES = (
+        ('Telenor', 'Telenor'),
+        ('Jazz', 'Jazz'),
+        ('Zong', 'Zong'),
+    )
+
+    key = models.TextField()
+    key_provider = models.CharField(max_length=999, default='Telenor', choices=KEY_PROVIDER_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    is_active = models.BooleanField(default=True)
+
+    def __str__(self):
+        return self.key
 
 
 class PhoneMessage(models.Model):
@@ -61,11 +77,17 @@ class PhoneMessage(models.Model):
     is_sent = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
 
+    sms_ids = models.TextField(null=True, blank=True)
+    priority = models.IntegerField(default=10)
+
 
     def __str__(self):
         return self.phone_number
     
     def save(self, *args, **kwargs):
+        if sms_type == 'OTP':
+            self.priority = 1
+            
         if not self.mask:
             self.mask = 'REDEXPO'
         super(PhoneMessage, self).save(*args, **kwargs)
