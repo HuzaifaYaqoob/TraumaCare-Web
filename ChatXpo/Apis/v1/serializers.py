@@ -14,5 +14,7 @@ class ChatMessageSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = ChatMessage
-        fields = ['uuid', 'user_query', 'user_output_urdu', 'message_type', 'created_at']
+        fields = ['uuid', 'question', 'answer', 'message_type', 'created_at']
+
+        # 'user_query', 
         # 'display_content', 

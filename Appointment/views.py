@@ -166,10 +166,8 @@ def BookAppointment_DoctorPage(request):
         bill = selected_slot.final_price,
         status = 'Booked',
         appointment_location = 'InPerson' if doct_hospital_id else 'Online',
+        doct_hospital = doct_hospital if doct_hospital_id else None,
     )
-    if doct_hospital_id:
-        appointment.doct_hospital = doct_hospital
-        appointment.save()
 
     messages.success(request, 'Your appointment is booked successfully.')
     return redirect(f'/appointment/my-appointments#appointment_{appointment.id}')

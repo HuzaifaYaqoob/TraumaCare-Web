@@ -73,6 +73,7 @@ INSTALLED_APPS = [
     'Administration.apps.AdministrationConfig',
     'Blog.apps.BlogConfig',
     'AskDoctor.apps.AskdoctorConfig',
+    'Meet.apps.MeetConfig',
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
@@ -94,11 +95,14 @@ MIDDLEWARE = [
 CRONJOBS = [
     ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost'),
     ('0 * * * *', 'Appointment.cronjob.expirePassedAppointments'),
+    ('*/20 * * * *', 'Administration.Cronjob.sms.refreshSmsKey'),
+    ('*/1 * * * *', 'Administration.Cronjob.sms.sendPendingSms'),
 ]
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
 ]
+CORS_ORIGIN_ALLOW_ALL = True
 
 
 ROOT_URLCONF = 'TraumaCare.urls'
@@ -241,3 +245,5 @@ try:
     from .local_settings import *
 except:
     pass
+
+DEBUG = True

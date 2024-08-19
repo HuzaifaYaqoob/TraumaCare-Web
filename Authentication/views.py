@@ -34,6 +34,13 @@ def HospitalLoginPage(request):
     # return render(request, 'Auth/login.html')
     return redirect(f'/auth/login/?next={request.path}')
 
+def TraumacareMeetLoginPage(request):
+    if request.user.is_authenticated:
+        return redirect(f'{settings.HOSPITAL_TRAUMACARE_URL}/?user_id={request.user.id}&auth_token={request.user.auth_token}')
+
+    # return render(request, 'Auth/login.html')
+    return redirect(f'/auth/login/?next={request.path}')
+
 
 def ResetPasswordPage(request):
     if request.user.is_authenticated:

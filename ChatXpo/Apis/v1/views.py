@@ -63,23 +63,27 @@ def get_chat_messages(request):
             }
         }, status=status.HTTP_404_NOT_FOUND)
 
-    chat_messages = ChatMessage.objects.filter(
-        chat__user = request.user,
-        chat = chat,
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False,
-    ).order_by('created_at')
-    data = v1Serializers.ChatMessageSerializer(chat_messages, many=True).data
-    return Response({
-        'status' : 200,
-        'status_code' : '200',
-        'response' : {
-            'message' : 'User chat Messages',
-            'error_message' : '',
-            'chat_messages' : data
-        }
-    }, status=status.HTTP_200_OK)
+    try:
+        chat_messages = ChatMessage.objects.filter(
+            chat__user = request.user,
+            chat = chat,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        ).exclude(answer = '').order_by('created_at')
+        data = v1Serializers.ChatMessageSerializer(chat_messages, many=True).data
+        return Response({
+            'status' : 200,
+            'status_code' : '200',
+            'response' : {
+                'message' : 'User chat Messages',
+                'chat_messages' : data
+            }
+        }, status=status.HTTP_200_OK)
+    except Exception as err:
+        return Response({
+            'message' : str(err)
+        },)
 
 @api_view(['POST'])
 @permission_classes([AllowAny])

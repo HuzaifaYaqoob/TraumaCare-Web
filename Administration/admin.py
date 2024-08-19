@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import UserRequestLog, PhoneMessage
+from .models import UserRequestLog, PhoneMessage, SmsServiceKey
 
 @admin.register(UserRequestLog)
 class UserRequestLogAdmin(admin.ModelAdmin):
@@ -40,7 +40,19 @@ class PhoneMessageAdmin(admin.ModelAdmin):
         'phone_number',
         'sms_type',
         'text',
+        'priority',
         'created_at',
+        'sms_ids',
         'is_sent',
         'is_deleted',
+    ]
+
+@admin.register(SmsServiceKey)
+class SmsServiceKeyAdmin(admin.ModelAdmin):
+    ordering = ['-updated_at']
+    list_display = [
+        'id',
+        'key',
+        'key_provider',
+        'updated_at',
     ]
