@@ -5,11 +5,11 @@
 
 {% block baseBody %}
     <div class="py-10">
-        <div class="max-w-[800px] w-[90%] mx-auto flex flex-col gap-2">
+        <div class="max-w-[800px] mx-auto flex flex-col gap-2">
             <h1 class="text-center text-[#557DE5] text-4xl font-[600]">Explore our Extensive Disease Database for In-depth Information and Resources.</h1>
             <p class="text-center text-[#797979] text-xl font-[300]">Unlock the Power of Knowledge: Delve into our Comprehensive Disease Database for a Wealth of Information on Symptoms, Causes, Treatments, and Prevention Strategies</p>
         </div>
-        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC max-w-[1300px] mx-auto mt-4 w-[90%]">
+        <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 2xl:grid-cols-4 gap-3 !mt-8 speciality-cards-main-TC max-w-[1500px] mx-auto mt-4 px-[15px] md:px-[20px]">
             {% for disease in diseases %}
                 {% include 'Components/Home/SpecialityCard.html' with data=disease %}
             {% endfor %}

@@ -50,7 +50,7 @@
 {% block baseBody %}
 
     <section class="bg-[#0A1C4B] flex !items-center h-[750px] sm:h-[700px] md:h-[450px]">
-        <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1400px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
+        <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1500px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
             <div class=" flex-1 ">
                 <h1 class=" xl:text-[40px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-white text-left font-[700] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
                 <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
@@ -69,7 +69,7 @@
             </div>
         </div>
     </section>
-    <form action="/search" autocomplete="off" class=" relative z-40 flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+    <form action="/search" autocomplete="off" class=" relative z-40 flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1500px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
         <div class="relative flex-1 h-full hidden md:block ">
             <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
                 <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +176,7 @@
             <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
         </button>
     </form> -->
-    <section class="max-w-[1400px] mx-auto px-[15px] md:px-[20px] py-[40px] ">
+    <section class="max-w-[1500px] mx-auto px-[15px] md:px-[20px] py-[40px] ">
         <div class="flex items-center gap-[8px] justify-center flex-wrap ">
             <div>
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="available_today" name="available_today" {% if request.GET.available_today %}checked{% endif %} class="filter_page_checkbox">
