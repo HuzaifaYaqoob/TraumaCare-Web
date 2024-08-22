@@ -44,34 +44,10 @@ class DoctorWithHospitalViewProfileSerializer(serializers.ModelSerializer):
 class DoctorSingleProfileGet(serializers.ModelSerializer):
     sp = serializers.SerializerMethodField()
     img = serializers.SerializerMethodField()
-    days = serializers.SerializerMethodField()
     hospitals = serializers.SerializerMethodField()
 
     def get_hospitals(self, doctor):
         return DoctorWithHospitalViewProfileSerializer(DoctorWithHospital.objects.filter(doctor = doctor, is_deleted = False, is_active = True), many=True).data
-
-    def get_days(self, doctor):
-        days_slots = []
-        date_now = datetime.now()
-        current_month = date_now.month
-        for i in range(30):
-            date = date_now + timedelta(days = i)
-            data = {
-                'day' : date.strftime("%a"),
-                'date_format' : date.strftime("%Y-%m-%d"),
-                'date' : date.strftime("%d"),
-            }
-            if current_month != date.month:
-                data['month'] = date.strftime("%b")
-
-            # if i == 0:
-                # data['is_today'] = True
-            # else:
-                # data['month'] = date.strftime("%B")
-
-            days_slots.append(data)
-        
-        return days_slots
 
     def get_sp(self, doctor):
         return doctor.heading
@@ -90,6 +66,5 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
             'sp',
             'img',
             'desc',
-            'days',
             'hospitals',
         ]
