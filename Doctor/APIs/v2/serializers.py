@@ -46,7 +46,7 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
                 'date_prefix_zero' : date.strftime("%d"),
             }
             if current_month != date.month:
-                data['month'] = date.strftime("%B")
+                data['month'] = date.strftime("%b")
 
             # if i == 0:
                 # data['is_today'] = True
