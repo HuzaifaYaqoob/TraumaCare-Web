@@ -21,3 +21,18 @@ def getHomePageDoctors(request):
     ).distinct('id')
 
     return Response({"data" : DeviceHomePageDoctorsSerializer(doctors, many=True).data}, status=status.HTTP_200_OK)
+
+@api_view(['Get'])
+@permission_classes([AllowAny])
+def getDoctorProfile(request, doctorId):
+    try:
+        doctor = Doctor.objects.get(
+            id = doctorId,
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False
+        )
+    except Exception as err:
+        return Response({"error" : str(err), 'message' : 'Invalid Doctor ID'}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response({**DeviceHomePageDoctorsSerializer(doctor).data}, status=status.HTTP_200_OK)
