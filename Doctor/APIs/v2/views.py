@@ -48,7 +48,6 @@ def getDoctorHospitalDays(request, hospitalId):
             id = hospitalId,
             is_active = True,
             is_deleted = False,
-            is_blocked = False
         )
     except Exception as err:
         return Response({"error" : str(err), 'message' : 'Invalid Hospital Instance Id'}, status=status.HTTP_404_NOT_FOUND)
