@@ -91,4 +91,5 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
             'img',
             'desc',
             'days',
+            'hospitals',
         ]
