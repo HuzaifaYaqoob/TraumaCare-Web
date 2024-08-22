@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
-from Doctor.APIs.v2.serializers import DeviceHomePageDoctorsSerializer
+from Doctor.APIs.v2.serializers import DeviceHomePageDoctorsSerializer, DoctorSingleProfileGet
 from Doctor.models import Doctor
 from django.db.models import Q
 
@@ -35,4 +35,4 @@ def getDoctorProfile(request, doctorId):
     except Exception as err:
         return Response({"error" : str(err), 'message' : 'Invalid Doctor ID'}, status=status.HTTP_404_NOT_FOUND)
 
-    return Response({**DeviceHomePageDoctorsSerializer(doctor).data}, status=status.HTTP_200_OK)
+    return Response({**DoctorSingleProfileGet(doctor).data}, status=status.HTTP_200_OK)
