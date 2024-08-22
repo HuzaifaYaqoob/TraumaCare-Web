@@ -7,9 +7,10 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
 from Doctor.APIs.v2.serializers import DeviceHomePageDoctorsSerializer, DoctorSingleProfileGet
-from Doctor.models import Doctor, DoctorWithHospital
+from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from django.db.models import Q
 
+from Appointment.models import Appointment
 from datetime import datetime, timedelta
 
 @api_view(['Get'])
@@ -68,3 +69,48 @@ def getDoctorHospitalDays(request, hospitalId):
         days_slots.append(data)
     
     return Response(days_slots, status=status.HTTP_200_OK)
+
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def getDoctorHospitalSlots(request, doctorId, hospitalId):
+    selected_date = request.GET.get('selected_date', None)
+    if selected_date:
+        selected_date = datetime.strptime(selected_date, '%Y-%m-%d')
+    else:
+        selected_date = datetime.now()
+    
+    day_name = selected_date.strftime('%A')
+    
+    slots = DoctorTimeSlots.objects.filter(
+        day__day = day_name,
+        doctor = doctorId,
+        doc_hospital = hospitalId
+    )
+
+    data = []
+    today_date = datetime.now().date()
+
+    for slot in slots:
+        apps = Appointment.objects.filter(
+            doctor = slot.doctor,
+            date = selected_date,
+            doct_hospital = slot.doc_hospital,
+        ).exclude(
+            status__in = ["Finished", "Cancelled", "Expired"]
+        ).values_list('start_time', flat=True)
+
+        start_times = [sTime.strftime('%H:%M:00') for sTime in apps]
+        intervals = []
+        slot_intervals = slot.slots_interval if today_date == selected_date.date() else slot.get_all_intervals
+        for interval in slot_intervals:
+            if interval[0] not in start_times:
+                intervals.append(interval)
+
+        data.append({
+            'name' : slot.title,
+            'id' : slot.id,
+            'fee' : slot.final_price,
+            'intervals' : intervals
+        })
+    return Response(data)
