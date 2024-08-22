@@ -40,10 +40,9 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
         for i in range(30):
             date = date_now + timedelta(days = i)
             data = {
-                'date' : date,
-                'day_name' : date.strftime("%a"),
+                'day' : date.strftime("%a"),
                 'date_format' : date.strftime("%Y-%m-%d"),
-                'date_prefix_zero' : date.strftime("%d"),
+                'date' : date.strftime("%d"),
             }
             if current_month != date.month:
                 data['month'] = date.strftime("%b")
