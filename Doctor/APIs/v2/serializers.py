@@ -4,6 +4,7 @@
 from rest_framework import serializers
 from django.conf import settings
 from Doctor.models import Doctor
+from datetime import datetime, timedelta
 
 class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
     sp = serializers.SerializerMethodField()
@@ -30,6 +31,31 @@ class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
 class DoctorSingleProfileGet(serializers.ModelSerializer):
     sp = serializers.SerializerMethodField()
     img = serializers.SerializerMethodField()
+    days = serializers.SerializerMethodField()
+
+    def get_days(self, doctor):
+        days_slots = []
+        date_now = datetime.now()
+        current_month = date_now.month
+        for i in range(30):
+            date = date_now + timedelta(days = i)
+            data = {
+                'date' : date,
+                'day_name' : date.strftime("%a"),
+                'date_format' : date.strftime("%Y-%m-%d"),
+                'date_prefix_zero' : date.strftime("%d"),
+            }
+            if current_month != date.month:
+                data['month'] = date.strftime("%B")
+
+            # if i == 0:
+                # data['is_today'] = True
+            # else:
+                # data['month'] = date.strftime("%B")
+
+            days_slots.append(data)
+        
+        return days_slots
 
     def get_sp(self, doctor):
         return doctor.heading
@@ -48,4 +74,5 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
             'sp',
             'img',
             'desc',
+            'days',
         ]
