@@ -107,11 +107,14 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
             if interval[0] not in start_times:
                 intervals.append(interval)
 
-        if len(intervals) > 0:
-            data.append({
-                'name' : slot.title,
-                'id' : slot.id,
-                'fee' : slot.final_price,
-                'intervals' : intervals
-            })
+        d = {
+            'name' : slot.title,
+            'id' : slot.id,
+            'fee' : slot.final_price,
+            'intervals' : intervals
+        }
+        if len(intervals) == 0:
+            # Message for Patient that doctor time has been passed
+            d['msg'] = 'Doctor time has been passed'
+        data.append(d)
     return Response(data)
