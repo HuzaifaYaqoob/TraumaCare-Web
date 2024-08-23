@@ -160,6 +160,7 @@ def BookAppointment_DoctorPage(request, doctorId):
         return Response({
             'message' : 'Selected Slot is not Available',
             'error' : str(err),
+            'id' : slot_id
         }, status=status.HTTP_404_NOT_FOUND)
     
     appt_grp = AppointmentGroup.objects.create(
