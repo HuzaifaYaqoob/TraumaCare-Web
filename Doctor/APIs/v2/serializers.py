@@ -74,3 +74,9 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
             'desc',
             'hospitals',
         ]
+    
+
+    def to_representation(self, instance):
+        data = super().to_representation(instance)
+        data['exp'] = instance.years_of_experience
+        return data
