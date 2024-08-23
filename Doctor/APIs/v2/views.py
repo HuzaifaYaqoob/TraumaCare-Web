@@ -107,10 +107,11 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
             if interval[0] not in start_times:
                 intervals.append(interval)
 
-        data.append({
-            'name' : slot.title,
-            'id' : slot.id,
-            'fee' : slot.final_price,
-            'intervals' : intervals
-        })
+        if len(intervals) > 0:
+            data.append({
+                'name' : slot.title,
+                'id' : slot.id,
+                'fee' : slot.final_price,
+                'intervals' : intervals
+            })
     return Response(data)
