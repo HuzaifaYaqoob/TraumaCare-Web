@@ -111,7 +111,9 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
             'name' : slot.title,
             'id' : slot.id,
             'fee' : slot.final_price,
-            'intervals' : intervals
+            'intervals' : intervals,
+            'start' : slot.start_time_formated,
+            'end' : slot.end_time_formated,
         }
         if len(intervals) == 0:
             # Message for Patient that doctor time has been passed
