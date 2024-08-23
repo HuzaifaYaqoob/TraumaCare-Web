@@ -100,12 +100,15 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
             status__in = ["Finished", "Cancelled", "Expired"]
         ).values_list('start_time', flat=True)
 
-        start_times = [sTime.strftime('%H:%M:00') for sTime in apps]
+        appointment_times = [app_Time.strftime('%H:%M:00') for app_Time in apps]
         intervals = []
         slot_intervals = slot.slots_interval if today_date == selected_date.date() else slot.get_all_intervals
         for interval in slot_intervals:
-            if interval[0] not in start_times:
-                intervals.append(interval)
+            if interval[0] in appointment_times:
+                # Setting True if Slot already reserved
+                interval.append(True)
+
+            intervals.append(interval)
 
         d = {
             'name' : slot.title,
