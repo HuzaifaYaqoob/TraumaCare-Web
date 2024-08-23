@@ -10,7 +10,7 @@ from Doctor.APIs.v2.serializers import DeviceHomePageDoctorsSerializer, DoctorSi
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from django.db.models import Q
 
-from Appointment.models import Appointment
+from Appointment.models import Appointment, AppointmentGroup
 from datetime import datetime, timedelta
 
 @api_view(['Get'])
@@ -120,3 +120,69 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
             d['msg'] = 'Doctor time has been passed'
         data.append(d)
     return Response(data)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def BookAppointment_DoctorPage(request, doctorId):
+    
+    doct_hospital_id = request.POST.get('doct_hospital', None)
+    slot_id = request.POST.get('slot_id', None)
+
+    selected_date = request.POST.get('selected_date', None)
+    selected_time = request.POST.get('selected_time', None)
+
+    try:
+        doctor = Doctor.objects.get(id = doctorId, is_deleted = False, is_blocked = False)
+    except:
+        return Response({
+            'message' : 'Invalid Doctor Profile'
+        }, status=status.HTTP_404_NOT_FOUND)
+
+    if not doctor.is_active:
+        return Response({
+            'message' : 'Doctor is not active'
+        }, status=status.HTTP_404_NOT_FOUND)
+    
+    if doct_hospital_id:
+        try:
+            doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
+        except:
+            return Response({
+                'message' : 'Doctor is not available at this Hospital'
+            }, status=status.HTTP_404_NOT_FOUND)
+
+    try:
+        selected_slot = DoctorTimeSlots.objects.get(id = slot_id)
+    except:
+        return Response({
+            'message' : 'Selected Slot is not Available'
+        }, status=status.HTTP_404_NOT_FOUND)
+    
+    appt_grp = AppointmentGroup.objects.create(
+        user = request.user,
+    )
+
+    s_t = datetime.strptime(selected_time, "%H:%M:00")
+    end_time = timedelta(minutes=doctor.get_time_inverval)
+    end_time = end_time + s_t
+    appointment = Appointment.objects.create(
+        appointment_group = appt_grp,
+        doctor = doctor,
+        name = f'Appointment with {doctor.name} at {f"{doct_hospital.hospital.name}, {doct_hospital.location.name}" if doct_hospital_id else "Online"}',
+        date = selected_date,
+        start_time = selected_time,
+        end_time=end_time.strftime("%H:%M"),
+        slot = selected_slot,
+        fee = selected_slot.fee,
+        discount = selected_slot.discount,
+        service_fee = selected_slot.service_fee,
+        bill = selected_slot.final_price,
+        status = 'Booked',
+        appointment_location = 'InPerson' if doct_hospital_id else 'Online',
+        doct_hospital = doct_hospital if doct_hospital_id else None,
+    )
+
+    return Response({
+        'message' : 'Your appointment is booked successfully'
+    }, status=status.HTTP_201_CREATED)

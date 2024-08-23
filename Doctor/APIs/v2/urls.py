@@ -12,4 +12,5 @@ urlpatterns = [
     path('get-doctor/<str:doctorId>/', api_device.getDoctorProfile),
     path('get-doctor-hospital-days/<str:hospitalId>/', api_device.getDoctorHospitalDays),
     path('get-doctor-hospital-slots/<str:doctorId>/<str:hospitalId>/', api_device.getDoctorHospitalSlots),
+    path('book-appointment/<str:doctorId>/', api_device.BookAppointment_DoctorPage),
 ] 
