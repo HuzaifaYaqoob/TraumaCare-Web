@@ -32,6 +32,11 @@ class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
 class DoctorWithHospitalViewProfileSerializer(serializers.ModelSerializer):
     name = serializers.CharField(source='hospital.name')
     address = serializers.CharField(source='location.name')
+    fee_range = serializers.SerializerMethodField()
+
+    def get_fee_range(self, hospital):
+        return hospital.fee_range
+
 
     class Meta:
         model = DoctorWithHospital  
@@ -39,6 +44,7 @@ class DoctorWithHospitalViewProfileSerializer(serializers.ModelSerializer):
             'id',
             'name',
             'address',
+            'fee_range',
         ]
 
 class DoctorSingleProfileGet(serializers.ModelSerializer):
