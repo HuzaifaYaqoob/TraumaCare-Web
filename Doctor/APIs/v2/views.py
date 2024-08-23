@@ -134,9 +134,10 @@ def BookAppointment_DoctorPage(request, doctorId):
 
     try:
         doctor = Doctor.objects.get(id = doctorId, is_deleted = False, is_blocked = False)
-    except:
+    except Exception as err:
         return Response({
-            'message' : 'Invalid Doctor Profile'
+            'message' : 'Invalid Doctor Profile',
+            'error' : str(err),
         }, status=status.HTTP_404_NOT_FOUND)
 
     if not doctor.is_active:
@@ -147,16 +148,18 @@ def BookAppointment_DoctorPage(request, doctorId):
     if doct_hospital_id:
         try:
             doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
-        except:
+        except Exception as err:
             return Response({
-                'message' : 'Doctor is not available at this Hospital'
+                'message' : 'Doctor is not available at this Hospital',
+                'error' : str(err),
             }, status=status.HTTP_404_NOT_FOUND)
 
     try:
         selected_slot = DoctorTimeSlots.objects.get(id = slot_id)
-    except:
+    except Exception as err:
         return Response({
-            'message' : 'Selected Slot is not Available'
+            'message' : 'Selected Slot is not Available',
+            'error' : str(err),
         }, status=status.HTTP_404_NOT_FOUND)
     
     appt_grp = AppointmentGroup.objects.create(
