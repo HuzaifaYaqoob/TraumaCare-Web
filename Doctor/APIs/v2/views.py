@@ -84,8 +84,8 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
     
     slots = DoctorTimeSlots.objects.filter(
         day__day = day_name,
-        doctor = doctorId,
-        doc_hospital = hospitalId
+        doctor__id = doctorId,
+        doc_hospital__id = hospitalId
     )
 
     data = []
