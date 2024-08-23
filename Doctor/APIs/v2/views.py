@@ -126,11 +126,11 @@ def getDoctorHospitalSlots(request, doctorId, hospitalId):
 @permission_classes([IsAuthenticated])
 def BookAppointment_DoctorPage(request, doctorId):
     
-    doct_hospital_id = request.POST.get('doct_hospital', None)
-    slot_id = request.POST.get('slot_id', None)
+    doct_hospital_id = request.data.get('doct_hospital', None)
+    slot_id = request.data.get('slot_id', None)
 
-    selected_date = request.POST.get('selected_date', None)
-    selected_time = request.POST.get('selected_time', None)
+    selected_date = request.data.get('selected_date', None)
+    selected_time = request.data.get('selected_time', None)
 
     try:
         doctor = Doctor.objects.get(id = doctorId, is_deleted = False, is_blocked = False)
