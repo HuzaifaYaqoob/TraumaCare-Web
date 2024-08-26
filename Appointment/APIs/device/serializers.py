@@ -18,6 +18,4 @@ class GetMyAppointmentsSerializer(serializers.ModelSerializer):
         data['day'] = appointment.day_name
         data['date'] = appointment.date_prefix_zero
         data['time'] = [appointment.start_time_format, appointment.end_time_format]
-        if appointment.is_today:
-            data['is_today'] = True
         return data
