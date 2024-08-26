@@ -11,3 +11,10 @@ class GetMyAppointmentsSerializer(serializers.ModelSerializer):
             'id',
             'name',
         ]
+    
+
+    def to_representation(self, appointment):
+        data = super().to_representation(appointment)
+        data['day'] = appointment.day_name
+        data['date'] = appointment.date_prefix_zero
+        return data
