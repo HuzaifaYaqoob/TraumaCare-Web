@@ -17,6 +17,10 @@ from .serializers import GetMyAppointmentsSerializer
 @api_view(['GET'])
 @permission_classes([IsAuthenticated])
 def getMyAppointments(request):
-    apps = Appointment.objects.filter(appointment_group__user = request.user)
+    query = {}
+    date = request.GET.get('date', None)
+    if date:
+        query['date'] = date
+    apps = Appointment.objects.filter(appointment_group__user = request.user, **query)
 
     return Response(GetMyAppointmentsSerializer(apps, many=True).data)
