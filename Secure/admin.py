@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from Secure.models import XpoKey, ApplicationReview, ChatInstructions
+from Secure.models import XpoKey, ApplicationReview, ChatInstructions, TraumacareApp
 # Register your models here.
 
 
@@ -16,3 +16,9 @@ class ApplicationReviewAdmin(admin.ModelAdmin):
 @admin.register(ChatInstructions)
 class ChatInstructionsAdmin(admin.ModelAdmin):
   list_display = ['id', 'name', 'instruction', 'is_active',]
+
+
+@admin.register(TraumacareApp)
+class TraumacareAppAdmin(admin.ModelAdmin):
+  ordering = ['-added_at']
+  list_display = ['name', 'version', 'added_at']
