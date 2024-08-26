@@ -13,6 +13,11 @@ class AppointmentDoctorSerializer(serializers.ModelSerializer):
             'id',
             'name',
         ]
+    
+    def to_representation(self, doctor):
+        data = super().to_representation(doctor)
+        data['image'] = doctor.profile_image
+        return data
 
 class GetMyAppointmentsSerializer(serializers.ModelSerializer):
     doctor = AppointmentDoctorSerializer()
