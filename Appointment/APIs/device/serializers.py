@@ -4,6 +4,7 @@ from rest_framework import serializers
 
 from Appointment.models import Appointment
 from Doctor.models import Doctor
+from django.conf import settings
 
 
 class AppointmentDoctorSerializer(serializers.ModelSerializer):
@@ -16,7 +17,7 @@ class AppointmentDoctorSerializer(serializers.ModelSerializer):
     
     def to_representation(self, doctor):
         data = super().to_representation(doctor)
-        data['image'] = doctor.profile_image
+        data['image'] = f'{settings.THIS_APPLICATION_URL}{doctor.profile_image}'
         return data
 
 class GetMyAppointmentsSerializer(serializers.ModelSerializer):
