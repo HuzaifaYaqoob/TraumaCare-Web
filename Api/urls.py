@@ -10,7 +10,7 @@ urlpatterns = [
     path('v1/chatxpo/', include('ChatXpo.Apis.v1.urls') ),
 
     # Appointment
-    path('v1/appointment/', include('Appointment.APIs.device.urls') ),
+    path('device/appointment/', include('Appointment.APIs.device.urls') ),
 
     path('v1/doctor/', include('Doctor.APIs.v1.urls') ),
     path('device/doctor/', include('Doctor.APIs.v2.urls') ),
