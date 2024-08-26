@@ -53,7 +53,8 @@ class ChatInstructions(models.Model):
 class TraumacareApp(models.Model):
     name = models.CharField(max_length=999, default='')
     version = models.CharField(max_length=999, default='')
-    file = models.FileField(upload_to='trauma_app')
+    android = models.FileField(upload_to='trauma_app')
+    ios = models.FileField(upload_to='trauma_app', null=True, blank=True)
     added_at = models.DateTimeField(auto_now_add=now)
 
     def __str__(self):
