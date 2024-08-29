@@ -106,6 +106,17 @@ class Appointment(models.Model):
     def date_prefix_zero(self):
         if self.date:
             return self.date.strftime('%d')
+
+    @property
+    def start_time_format(self):
+        if self.start_time:
+            return self.start_time.strftime('%I:%M %p')
+    
+    @property
+    def end_time_format(self):
+        if self.end_time:
+            return self.end_time.strftime('%I:%M %p')
         
+
     def __str__(self):
         return str(self.id)

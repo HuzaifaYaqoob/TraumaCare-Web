@@ -48,3 +48,14 @@ class ChatInstructions(models.Model):
 
     def __str__(self):
         return f'{self.instruction}'
+
+
+class TraumacareApp(models.Model):
+    name = models.CharField(max_length=999, default='')
+    version = models.CharField(max_length=999, default='')
+    android = models.FileField(upload_to='trauma_app')
+    ios = models.FileField(upload_to='trauma_app', null=True, blank=True)
+    added_at = models.DateTimeField(auto_now_add=now)
+
+    def __str__(self):
+        return f'{self.name}'

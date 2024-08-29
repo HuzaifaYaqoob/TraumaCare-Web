@@ -134,7 +134,7 @@ class Doctor(models.Model):
         
     @property
     def fee_range(self):
-        fees = DoctorTimeSlots.objects.filter(doctor = self)
+        fees = DoctorTimeSlots.objects.filter(doctor = self, is_deleted=False, is_active=True)
         # .distinct('fee')
         if len(fees):
             fees = [int((fee.fee * (100 - (fee.discount))) / 100) if fee.discount else fee.fee for fee in fees]
@@ -322,6 +322,15 @@ class DoctorWithHospital(models.Model):
     is_hospital_informed = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+
+    @property
+    def fee_range(self):
+        fees = DoctorTimeSlots.objects.filter(doctor = self.doctor, doc_hospital = self, is_deleted=False, is_active=True)
+        # .distinct('fee')
+        if len(fees):
+            fees = [int((fee.fee * (100 - (fee.discount))) / 100) if fee.discount else fee.fee for fee in fees]
+            return [min(fees), max(fees)]
+        return None
 
 
     @property
