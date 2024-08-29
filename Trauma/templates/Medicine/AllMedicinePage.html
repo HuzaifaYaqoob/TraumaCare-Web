@@ -53,7 +53,7 @@
 
 {% block baseBody %}
 {% include 'Components/Pharmacy/SecondNavSticky.html' %}
-<section class="m-auto px-[0px] sm:px-[20px] xl:px-[60px] xl:px-[90px] max-w-[1920px]">
+<section class="mx-auto px-[15px] md:px-[20px] max-w-[1500px]">
       <div class="relative bg-[#24D0D01A] rounded-lg pt-[70px] sm:pt-[90px] pb-[24px] sm:pb-[30px] px-[60px] flex justify-center 2xl:justify-between flex-wrap ">
             <div class="">
                   <h1 class="text-[22px] sm:text-[34px] md:text-[46px] leading-tight text-[#557DE5] text-center 2xl:text-start 2xl:max-w-[770px]">
@@ -377,22 +377,14 @@
             </div>
             <div class="swiper-pagination absolute !bottom-[0px]"></div>
       </div>
-      <!-- <div class="">
-            <h2 class="text-[30px] font-semibold text-[#0A1C4B] mb-[20px]">Brands</h2>
-      </div>
-      <div class="rounded-3xl bg-[#24D0D01A] py-[60px] mb-[20px]">
-            
-      </div> -->
 </section>
 {% endblock baseBody %}
 
 
 {% block main_base_script %}
 
-<!-- Here your Js starts  -->
 
 <script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
-  <!-- Initialize Swiper -->
   <script>
       document.addEventListener('DOMContentLoaded' , ()=>{
             var swiper = new Swiper(".mySwiper", {
