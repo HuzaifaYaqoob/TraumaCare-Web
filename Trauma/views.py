@@ -13,6 +13,7 @@ from Secure.models import ApplicationReview
 from Blog.models import BlogPost
 
 from datetime import datetime
+
 def homePage(request):
     context = {}
 
@@ -21,6 +22,10 @@ def homePage(request):
     context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:8]
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     return render(request, 'Home/index.html', context)
+
+
+def onboarding(request):
+    return render(request, 'Onboarding.html')
 
 def chatXpo_redirection(request):
     if not request.user.is_authenticated:
