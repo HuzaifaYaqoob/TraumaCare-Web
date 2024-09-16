@@ -118,7 +118,6 @@
         <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
     </button>
 </form>
-{% comment %} {% include 'ChatXpo/HomepageChat.html' %} {%  endcomment %}
     <main class="max-w-[1500px] px-[15px] md:px-[20px] py-[50px] mx-auto bg-white ">
         <section>
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
@@ -128,9 +127,6 @@
                         <p>{{disease.name}}</p>
                     </a>
                 {% endfor %}
-                <!-- <div class="bg-[#24D0D0] hover:rotate-12 hover:scale-125 effect1 flex items-center justify-center gap-3 cursor-pointer rounded-full divide-blue-700 p-px pl-2 pr-2 transition">
-                    <p class="capitalize text-white font-medium">more</p>
-                </div> -->
             </div>
         </section>
         <section class="pt-[50px]">
@@ -208,7 +204,7 @@
                     </div>
                 </div>
             </div>
-            {% comment %}<div class="step-by-step-fetured-section">
+            <div class="step-by-step-fetured-section">
                 <div class="Choose-Doctor cards4-CMOG-TC">
                     <div class="Choose-Doctor-icon cards4-CMOG-TC-icon">
                         <svg width="30" height="35" viewBox="0 0 30 35" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -269,14 +265,13 @@
                     <p class="Choose-Doctor-para cards4-CMOG-TC-pera">Let's find the right Doctor <br>
                         for your disease!</p>
                 </div>
-            </div> {% endcomment %}
+            </div>
         </section>
         <section class="pt-[50px] ">
             <h2 class=" text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center ">Nearby Doctors</h2>
             {% include 'Components/doctorSection/index.html' %}
         </section>
-        {% if not request.user.has_doctor_profile %}
-        {% comment %} or request.user.is_authenticated  {% endcomment %}
+        {% if not request.user.has_doctor_profile or request.user.is_authenticated %}
             <section class="pt-[50px] ">
                 <div class="w-full bg-[#171919] rounded-[22px] relative items-center px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
                     <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
@@ -320,8 +315,6 @@
                     </div>
                 </div>
             </section>
-        {% else %}
-        done
         {% endif %}
         {% include 'Components/Pharmacy/HomeMedicineSection.html' %}
         <section class="pt-[50px] " >
@@ -465,13 +458,6 @@
                     <div class="w-full rounded-[9px] overflow-hidden border shadow ">
                         <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({% if post.cover_image.thumbnail %}{{post.cover_image.thumbnail.url}}{% else %}{{post.cover_image.image.url}}{% endif %});" ></div>
                         <div class="p-[12px] ">
-                            <!-- <div class="flex items-center gap-[12px] ">
-                                <div class="bg-cover bg-center bg-no-repeat rounded-[100px] h-[50px] w-[50px] bg-red-300 "></div>
-                                <div>
-                                    <h2 class="text-[15px] font-[600] text-[#0a1c4b] line-clamp-1 ">Danish yaqoob</h2>
-                                    <p class="text-[13px] font-[400] text-[#0a1c4b]/70 line-clamp-1 ">May 9, 2023</p>
-                                </div>
-                            </div> -->
                             <div class="text-[#24D0D0] text-[11px] font-[500] bg-[#DDF0FF] max-w-max rounded-[30px] px-[11px] py-[4px] ">{{post.category.name}}</div>
                             <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-1 text-[21px] font-[600] text-[#0a1c4b] mt-[6px] leading-[26px] ">{{post.title}}</a>
                             <p class="line-clamp-2 text-[14px] font-[500] text-[#0a1c4b]/70 mt-[6px] leading-[20px] ">{{post.content_content}}</p>

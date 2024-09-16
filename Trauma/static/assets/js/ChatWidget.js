@@ -51,7 +51,9 @@ const Loader = () =>{
 }
 
 const scrollToBottom = () =>{
-    messagesMain.scrollTop = messagesMain.scrollHeight
+    if (messagesMain){
+        messagesMain.scrollTop = messagesMain.scrollHeight
+    }
 }
 
 const handlePredefinedMessageClick = (element, autoSubmit=true) =>{
