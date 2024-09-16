@@ -25,7 +25,14 @@ def homePage(request):
 
 
 def onboarding(request):
-    return render(request, 'Onboarding.html')
+    onboarding_type = request.GET.get('onboarding_type',  None)
+    if onboarding_type == None:
+        return redirect('/onboarding/?onboarding_type=doctor')
+    
+    if onboarding_type == 'doctor':
+        return render(request, 'DoctorOnboarding.html')
+    elif onboarding_type == 'hospital':
+        return render(request, 'HospitalOnboarding.html')
 
 def chatXpo_redirection(request):
     if not request.user.is_authenticated:

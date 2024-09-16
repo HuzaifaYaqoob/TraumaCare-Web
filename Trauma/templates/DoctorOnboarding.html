@@ -1,0 +1,95 @@
+{% extends 'Components/Base.html' %}
+{% load static %}
+{% block title %}Traumacare: Your Telehealth Solution for Online Medicine, Appointments & Consultations {% endblock title %}
+{% block BaseCSS %}
+    <!-- <script src="../path/to/flowbite/dist/flowbite.min.js"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/flowbite@2.5.1/dist/flowbite.min.js"></script>
+{% endblock BaseCSS %}
+
+{% block baseBody %}
+
+<section class="px-5 md:px-10 py-8 md:py-12 ">
+    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto " style="box-shadow: 0 2px 4px rgba(211, 211, 211, 0.4);">
+        <div class="w-full bg-[#00BECD]/10 px-3 py-10 ">
+            <h3 class="text-[#24D0D0] font-semibold text-3xl text-center">Doctor Onboarding Form</h3>
+            <p class="text-center text-[#507EC2] text-sm mt-2">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
+        </div>
+        <form action="" class="p-4 sm:p-5 md:p-6">
+            <div class="flex gap-4 flex-col sm:flex-row">
+                <div class="w-full flex-1">
+                    <label for="Full Name" class="text-[#507EC2] font-medium text-sm">Full Name <span class="text-[#F02149]">*</span></label>
+                    <input type="text" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Full Name" id="Full Name">
+                </div>
+                <div class="w-full flex-1">
+                    <label for="Specialty" class="text-[#507EC2] font-medium text-sm">Specialty <span class="text-[#F02149]">*</span></label>
+                    <input type="text" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Specialty" id="Specialty">
+                </div>
+            </div>
+            <div class="flex gap-4 mt-4 flex-col sm:flex-row">
+                <div class="w-full flex-1">
+                    <label class="text-[#507EC2] font-medium text-sm">Working Since <span class="text-[#F02149]">*</span></label>
+                    <div class="flex-1 w-full flex items-center justify-between relative">
+                        <input datepicker id="default-datepicker" type="text" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Select date">
+                        <div class="flex items-center ps-3.5 pointer-events-none absolute inset-y-0  right-[10px] h-full flex items-center ps-3.5 pointer-events-none">
+                            <svg width="19" height="19" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.65 2.9H21.75V1.45C21.75 1.06544 21.5972 0.696623 21.3253 0.424695C21.0534 0.152767 20.6846 0 20.3 0C19.9154 0 19.5466 0.152767 19.2747 0.424695C19.0028 0.696623 18.85 1.06544 18.85 1.45V2.9H10.15V1.45C10.15 1.06544 9.99723 0.696623 9.7253 0.424695C9.45338 0.152767 9.08456 0 8.7 0C8.31544 0 7.94662 0.152767 7.6747 0.424695C7.40277 0.696623 7.25 1.06544 7.25 1.45V2.9H4.35C3.19631 2.9 2.08987 3.3583 1.27409 4.17409C0.458302 4.98987 0 6.09631 0 7.25V24.65C0 25.8037 0.458302 26.9101 1.27409 27.7259C2.08987 28.5417 3.19631 29 4.35 29H24.65C25.8037 29 26.9101 28.5417 27.7259 27.7259C28.5417 26.9101 29 25.8037 29 24.65V7.25C29 6.09631 28.5417 4.98987 27.7259 4.17409C26.9101 3.3583 25.8037 2.9 24.65 2.9ZM26.1 24.65C26.1 25.0346 25.9472 25.4034 25.6753 25.6753C25.4034 25.9472 25.0346 26.1 24.65 26.1H4.35C3.96544 26.1 3.59662 25.9472 3.3247 25.6753C3.05277 25.4034 2.9 25.0346 2.9 24.65V14.5H26.1V24.65ZM26.1 11.6H2.9V7.25C2.9 6.86544 3.05277 6.49662 3.3247 6.2247C3.59662 5.95277 3.96544 5.8 4.35 5.8H7.25V7.25C7.25 7.63456 7.40277 8.00338 7.6747 8.2753C7.94662 8.54723 8.31544 8.7 8.7 8.7C9.08456 8.7 9.45338 8.54723 9.7253 8.2753C9.99723 8.00338 10.15 7.63456 10.15 7.25V5.8H18.85V7.25C18.85 7.63456 19.0028 8.00338 19.2747 8.2753C19.5466 8.54723 19.9154 8.7 20.3 8.7C20.6846 8.7 21.0534 8.54723 21.3253 8.2753C21.5972 8.00338 21.75 7.63456 21.75 7.25V5.8H24.65C25.0346 5.8 25.4034 5.95277 25.6753 6.2247C25.9472 6.49662 26.1 6.86544 26.1 7.25V11.6Z" fill="#6D8CBA"/>
+                            </svg>                                
+                        </div>
+                    </div>  
+                </div>
+                <div class="w-full flex-1">
+                    <label for="gender" class="text-[#507EC2] font-medium text-sm">Gender <span class="text-[#F02149]">*</span></label>
+                    <div class="px-2.5 bg-[#24D0D0]/5 rounded-lg">
+                        <select id="gender" class=" text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-[11px] outline-[#24D0D0] border-0  w-full font-medium placeholder-[#6D8CBA]">
+                            <option disabled selected>Choose your gender</option>
+                            <option value="Male">Male</option>
+                            <option value="Female">Female</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="gap-4 mt-4">
+                <label for="message" class="text-[#507EC2] font-medium text-sm">About <span class="text-[#F02149]">*</span></label>
+                <textarea id="message" class="resize-none h-[180px] w-full outline-[#24D0D0] border-0 flex-1 mt-1 bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " ></textarea>
+            </div>
+            <div class="flex items-center gap-3 mt-6 flex-wrap">
+                <div class="w-40 h-36 rounded-xl relative cursor-pointer border-dashed border-[2px] border-[#507EC2] flex flex-col items-center justify-center">
+                    <input class="absolute h-full w-full inset-0 opacity-0 cursor-pointer " type="file" name="" id="">
+                    <span class="flex items-center justify-center h-6 w-6">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.85938 13H18.1451" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 7.85938V18.1451" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> 
+                    </span>       
+                    <p class="text-[#507EC2] font-medium text-sm text-center mt-2 leading-4">Your Profile <br> Image</p>                
+                </div>
+                <div class="w-40 h-36 rounded-xl cursor-pointer relative border-dashed border-[2px] border-[#507EC2] flex flex-col items-center justify-center">
+                    <input class="absolute h-full w-full inset-0 opacity-0 cursor-pointer " type="file" name="" id="">
+                    <span class="flex items-center justify-center h-6 w-6">
+                        <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M7.85938 13H18.1451" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M13 7.85938V18.1451" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg> 
+                    </span>       
+                    <p class="text-[#507EC2] font-medium text-sm text-center mt-2 leading-4">PMC documents <br> (Optional)</p>                
+                </div>
+            </div>
+            <div class="flex items-center gap-2 mt-8">
+                <input type="checkbox" name="" id="checkbox" required>
+                <p class="text-[#507EC2] font-medium text-sm cursor-default select-none"><label for="checkbox">Agree to our</label> <span class="font-semibold cursor-pointer">Term and Conditions</span> & <span class="font-semibold cursor-pointer">Privacy Policy.</span></p>
+            </div>
+            <button class="ml-auto rounded-lg px-6 py-[10px] bg-[#24D0D0] flex items-center justify-center cursor-pointer mt-6 text-white">
+                Submit
+            </button>
+        </form>
+    </div>
+</section>
+
+{% endblock baseBody %}
+
+{% block main_base_script %}
+
+{% endblock main_base_script %}
