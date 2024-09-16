@@ -57,35 +57,10 @@ def onboarding(request):
                 profile_type = 'Hospital',
                 profile_image = hospital_image,
             )
-            hospital = Hospital.objects.create(
-                user = request.user,
-                profile = h_p,
-                facility_type = Hospital,
-                name = hospital_name,
-                # description
-                # fee
-            )
-            hops_l = HospitalLocation.objects.create(
-                hospital = hospital,
-                name = address_title,
-                street_address = address,
-                country = Country.objects.get(name__iexact = 'pakistan',),
-                state = State.objects.get(id = address_state),
-                city = City.objects.get(id = address_city),
-            )
-            LocationContact.objects.create(
-                hospital = hospital,
-                location = hops_l,
-                contact_type = "EMAIL",
-                contact_title = 'Contact Email',
-                email = hospital_email,
-            )
-
-            HospitalMedia.objects.create(
-                hospital = hospital,
-                file_type = 'Profile Image',
-                file = hospital_image
-            )
+            hospital = Hospital.objects.create(user = request.user, profile = h_p, facility_type = Hospital, name = hospital_name,)
+            hops_l = HospitalLocation.objects.create(hospital = hospital, name = address_title,street_address = address, country = Country.objects.get(name__iexact = 'pakistan',), state = State.objects.get(id = address_state), city = City.objects.get(id = address_city),)
+            LocationContact.objects.create(hospital = hospital, location = hops_l, contact_type = "EMAIL", contact_title = 'Contact Email', email = hospital_email,)
+            HospitalMedia.objects.create(hospital = hospital, file_type = 'Profile Image', file = hospital_image)
 
             messages.success(request, 'Onboarding Successful!')
             return redirect('/')
