@@ -36,6 +36,9 @@ def onboarding(request):
 
         return render(request, 'DoctorOnboarding.html')
     elif onboarding_type == 'hospital':
+        if request.user.has_hospital_profile:
+            messages.info(request, 'Hospital Profile Already Exists!')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         return render(request, 'HospitalOnboarding.html')
     else:
         return redirect('/onboarding/?onboarding_type=doctor')
