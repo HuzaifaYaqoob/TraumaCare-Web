@@ -22,7 +22,7 @@
                 <p class="!font-[400]">Appointments</p>
             </a>
             {% if not request.user.has_doctor_profile %}
-                <a href="{% url 'CreateNewBusinessProfileRedirection' %}" target="_blank" class="border block rounded-lg my-1 px-2 py-1 hover:bg-gray-200 transition-all ">
+                <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=doctor" target="_blank" class="border block rounded-lg my-1 px-2 py-1 hover:bg-gray-200 transition-all ">
                     <p class="text-left font-[400]">Unlock Your Potential: <span class="font-bold">Become a Doctor</span> in Just 1 Minute!</p>
                 </a>
             {% endif %}

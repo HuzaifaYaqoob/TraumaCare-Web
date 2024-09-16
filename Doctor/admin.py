@@ -1,5 +1,6 @@
 from django.contrib import admin
 
+from django.utils.html import mark_safe
 from .models import Doctor, Doctor24By7, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
 
 # Register your models here.
@@ -59,9 +60,8 @@ class DoctorAdmin(admin.ModelAdmin):
     list_display = [
         # 'email', 
         # 'slug', 
-        'name', 
-        'user', 
-        'mobile_number', 
+        'doctor', 
+        # 'mobile_number', 
         'diseases', 
         'speciality', 
         'is_approved', 
@@ -93,6 +93,10 @@ class DoctorAdmin(admin.ModelAdmin):
         'online_availability',
         'dial_code',
     ]
+
+    def doctor(self, d):
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({d.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {d.name}</p><p style="margin:0;padding:0;font-size:13px">{d.mobile_number}</p></span></div>'
+        return mark_safe(div)
 
     
     def diseases(self, doctor_instance):
