@@ -74,7 +74,7 @@ class Profile(models.Model):
     
 
     def save(self, *args, **kwargs):
-        if profile_type == 'Patient':
+        if self.profile_type == 'Patient':
             self.first_name = self.user.first_name or self.first_name
             self.last_name = self.user.last_name or self.last_name
             self.email = self.user.email or self.email

@@ -14,52 +14,53 @@
             <h3 class="text-[#24D0D0] font-semibold text-3xl text-center">Hospital Onboarding Form</h3>
             <p class="text-center text-[#507EC2] text-sm mt-2">Hello there! <br> Please fill the details in this Hospital Onboarding form.</p>
         </div>
-        <form action="" class="p-4 sm:p-5 md:p-6">
+        <form action="" method="POST" enctype="multipart/form-data" class="p-4 sm:p-5 md:p-6">
+            {% csrf_token %}
             <div class="flex gap-4 flex-col sm:flex-row mt-4">
                 <div class="w-full flex-1">
                     <label for="Hospital Name" class="text-[#507EC2] font-medium text-sm">Hospital Name <span class="text-[#F02149]">*</span></label>
-                    <input type="text" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Hospital Name" id="Hospital Name">
+                    <input type="text" required name='hospital_name' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Hospital Name" id="Hospital Name">
                 </div>
                 <div class="w-full flex-1">
                     <label for="email" class="text-[#507EC2] font-medium text-sm">Email <span class="text-[#F02149]">*</span></label>
-                    <input type="email" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Example@gmail.com" id="email">
+                    <input type="email" required name='hospital_email' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="youremail@gmail.com" id="email">
                 </div>
             </div>
             <div class="w-full flex-1 mt-4">
                 <label for="Address" class="text-[#507EC2] font-medium text-sm">Address Title <span class="text-[#F02149]">*</span></label>
-                <input type="text" class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Johar Town Branch" id="Address">
+                <input type="text" required name='address_title' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Johar Town Branch" id="Address">
             </div>
             <div class="flex gap-4 flex-col sm:flex-row mt-4">
                 <div class="w-full flex-1">
                     <label for="State" class="text-[#507EC2] font-medium text-sm">State <span class="text-[#F02149]">*</span></label>
                     <div class="px-2.5 bg-[#24D0D0]/5 rounded-lg">
-                        <select id="gender" class=" text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-[11px] outline-[#24D0D0] border-0  w-full font-medium placeholder-[#6D8CBA]">
-                            <option selected>Punjab</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
+                        <select id="state" required name='address_state' class=" text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-[11px] outline-[#24D0D0] border-0  w-full font-medium placeholder-[#6D8CBA]">
+                            <option disabled selected value=''>Select State</option>
+                            {% for state in states %}
+                                <option value="{{state.id}}">{{state.name}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
                 <div class="w-full flex-1">
                     <label for="City" class="text-[#507EC2] font-medium text-sm">City <span class="text-[#F02149]">*</span></label>
                     <div class="px-2.5 bg-[#24D0D0]/5 rounded-lg">
-                        <select id="gender" class=" text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-[11px] outline-[#24D0D0] border-0  w-full font-medium placeholder-[#6D8CBA]">
-                            <option selected>Lahore</option>
-                            <option value="Male">Male</option>
-                            <option value="Female">Female</option>
-                            <option value="Other">Other</option>
+                        <select id="city" required name='address_city' class=" text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-[11px] outline-[#24D0D0] border-0  w-full font-medium placeholder-[#6D8CBA]">
+                            <option disabled selected value=''>Select City</option>
+                            {% for city in cities %}
+                                <option value="{{city.id}}">{{city.name}}</option>
+                            {% endfor %}
                         </select>
                     </div>
                 </div>
             </div>
             <div class="w-full flex-1 mt-4">
                 <label for="Full Address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
-                <input type="text" class="outline-0 border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Full Address" id="Full Address">
+                <input type="text" required name='address' class="outline-0 border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-[11px] text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Full Address" id="Full Address">
             </div>
             <div class="flex items-center gap-3 mt-6 flex-wrap">
                 <div class="w-40 h-36 rounded-xl relative cursor-pointer border-dashed border-[2px] border-[#507EC2] flex flex-col items-center justify-center">
-                    <input class="absolute h-full w-full inset-0 opacity-0 cursor-pointer " type="file" name="" id="">
+                    <input required name='hospital_image' class="absolute h-full w-full inset-0 opacity-0 cursor-pointer " type="file" name="" id="">
                     <span class="flex items-center justify-center h-6 w-6">
                         <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M13 25C19.6274 25 25 19.6274 25 13C25 6.37258 19.6274 1 13 1C6.37258 1 1 6.37258 1 13C1 19.6274 6.37258 25 13 25Z" stroke="#507EC2" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>

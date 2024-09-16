@@ -6,11 +6,15 @@ from django.contrib import messages
 from django.conf import settings
 
 from Doctor.models import Doctor
-from Trauma.models import Speciality, Disease
+from Trauma.models import Speciality, Disease, State, Country, City
 from django.db.models import Case, When, Min, Sum, Q, Count
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 from Blog.models import BlogPost
+
+from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia
+
+from Profile.models import Profile
 
 from datetime import datetime
 
@@ -29,17 +33,77 @@ def onboarding(request):
     if onboarding_type == None:
         return redirect('/onboarding/?onboarding_type=doctor')
     
+    if request.method == 'POST':
+        if onboarding_type == 'doctor':
+            pass
+        else:
+            hospital_name = request.POST.get('hospital_name', None)
+            hospital_email = request.POST.get('hospital_email', None)
+            address_title = request.POST.get('address_title', None)
+            address_state = request.POST.get('address_state', None)
+            address_city = request.POST.get('address_city', None)
+            address = request.POST.get('address', None)
+            hospital_image = request.FILES.get('hospital_image', None)
+
+            f_name, *l_name = f'{hospital_name} '.split(' ')
+            l_name = ' '.join(l_name)
+
+            h_p = Profile.objects.create(
+                user = request.user,
+                first_name = f_name,
+                last_name = l_name,
+                full_name = hospital_name,
+                email = hospital_email,
+                profile_type = 'Hospital',
+                profile_image = hospital_image,
+            )
+            hospital = Hospital.objects.create(
+                user = request.user,
+                profile = h_p,
+                facility_type = Hospital,
+                name = hospital_name,
+                # description
+                # fee
+            )
+            hops_l = HospitalLocation.objects.create(
+                hospital = hospital,
+                name = address_title,
+                street_address = address,
+                country = Country.objects.get(name__iexact = 'pakistan',),
+                state = State.objects.get(id = address_state),
+                city = City.objects.get(id = address_city),
+            )
+            LocationContact.objects.create(
+                hospital = hospital,
+                location = hops_l,
+                contact_type = "EMAIL",
+                contact_title = 'Contact Email',
+                email = hospital_email,
+            )
+
+            HospitalMedia.objects.create(
+                hospital = hospital,
+                file_type = 'Profile Image',
+                file = hospital_image
+            )
+
+            messages.success(request, 'Onboarding Successful!')
+            return redirect('/')
+    
+    context = {}
     if onboarding_type == 'doctor':
         if request.user.has_doctor_profile:
             messages.info(request, 'Doctor Profile Already Exists!')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-        return render(request, 'DoctorOnboarding.html')
+        return render(request, 'DoctorOnboarding.html', context)
     elif onboarding_type == 'hospital':
         if request.user.has_hospital_profile:
             messages.info(request, 'Hospital Profile Already Exists!')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-        return render(request, 'HospitalOnboarding.html')
+        context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        return render(request, 'HospitalOnboarding.html', context)
     else:
         return redirect('/onboarding/?onboarding_type=doctor')
 
