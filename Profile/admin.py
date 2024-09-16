@@ -7,12 +7,10 @@ from .models import Profile
 
 @admin.register(Profile)
 class ProfileAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
     list_display = [
-        'id',
-        'user',
-        'first_name',
-        'last_name',
         'full_name',
+        'user',
         'email',
         'profile_type',
         'is_active',

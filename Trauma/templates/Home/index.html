@@ -279,7 +279,7 @@
                         <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
                         <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">Are You a Doctor?</h3>
                         <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
-                        <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'LoginPage' %}?signupAsDoctor=true{% endif %}" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
+                        <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=doctor" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
                             <p class="font-[500] text-[16px] ">Join Us Now</p>
                             <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                                 <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -301,7 +301,7 @@
                         <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
                         <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">You own a <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Hospital</span> or <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Clinic</span>?</h3>
                         <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with Doctors & peers, enhance your practice, and grow your network!</p>
-                        <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'LoginPage' %}?signupAsDoctor=true{% endif %}" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
+                        <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=hospital" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
                             <p class="font-[500] text-[16px] ">Join Us Now</p>
                             <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                                 <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">

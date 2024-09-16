@@ -101,7 +101,7 @@ class User(AbstractBaseUser, PermissionsMixin):
     objects = MyAccountManager()
 
     def __str__(self):
-        return self.username
+        return self.full_name
 
     def country_name(self):
         if self.country:

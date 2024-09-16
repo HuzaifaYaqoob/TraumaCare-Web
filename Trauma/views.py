@@ -1,7 +1,7 @@
 
 
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.conf import settings
 
@@ -30,9 +30,15 @@ def onboarding(request):
         return redirect('/onboarding/?onboarding_type=doctor')
     
     if onboarding_type == 'doctor':
+        if request.user.has_doctor_profile:
+            messages.info(request, 'Doctor Profile Already Exists!')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+
         return render(request, 'DoctorOnboarding.html')
     elif onboarding_type == 'hospital':
         return render(request, 'HospitalOnboarding.html')
+    else:
+        return redirect('/onboarding/?onboarding_type=doctor')
 
 def chatXpo_redirection(request):
     if not request.user.is_authenticated:
