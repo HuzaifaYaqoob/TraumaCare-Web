@@ -1,6 +1,7 @@
 from django.db import models
 
 from django.utils.timezone import now, localtime
+from django.utils.html import mark_safe
 
 
 # Create your models here.
@@ -62,7 +63,7 @@ class Doctor(models.Model):
 
 
     def __str__(self):
-        return f'{str(self.id)} -- {self.name}'
+        return self.doctor_admin_card()
     
     @property
     def phone_number(self):
@@ -174,6 +175,11 @@ class Doctor(models.Model):
             
         self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
+    
+    
+    def doctor_admin_card(self):
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p><p style="margin:0;padding:0;font-size:13px">{self.mobile_number}</p></span></div>'
+        return mark_safe(div)
     
     class Meta:
         permissions = [

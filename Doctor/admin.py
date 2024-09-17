@@ -95,8 +95,7 @@ class DoctorAdmin(admin.ModelAdmin):
     ]
 
     def doctor(self, d):
-        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({d.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {d.name}</p><p style="margin:0;padding:0;font-size:13px">{d.mobile_number}</p></span></div>'
-        return mark_safe(div)
+        return d.doctor_admin_card()
 
     
     def diseases(self, doctor_instance):
