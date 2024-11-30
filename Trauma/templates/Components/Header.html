@@ -5,16 +5,18 @@
         filter: drop-shadow(-2px 2px 2px #000000);
     }
 </style>
-<div class="w-full px-4 md:px-5 bg-black py-2 relative">
-    <div class="flex items-center justify-center mx-auto gap-5">
-        <p class="text-sm text-white">Here we can put some other tagline or something else for appointment booking.</p>
-        <button class="rounded-md text-white px-5 py-2.5 bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D]">
+<div class="w-full pl-4 md:pl-5 bg-[#050403] py-2 relative pr-16">
+    <div class="flex items-center justify-center mx-auto gap-5 relative z-40 bg-transparent">
+        <p class="text-sm text-white line-clamp-2">Here we can put some other tagline or something else for appointment booking.</p>
+        <button class="rounded-md text-white px-5 py-2.5 bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] whitespace-nowrap">
             Book an Appointment
         </button>        
     </div>
     <span class="absolute right-0 top-0 h-full w-16 flex items-center justify-center">
         <svg class="fill-white size-5 cursor-pointer" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
     </span>
+    <img class="absolute z-0 top-0 left-[15%] select-none" src="/static/assets/Images/traumacareAIcare/haederleft.png" alt="">
+    <img class="absolute z-0 top-0 right-[10%] select-none" src="/static/assets/Images/traumacareAIcare/haederright.png" alt="">
 </div>
 <header class=' bg-[#ffffff] sticky top-0 right-0 left-0 z-40 relative z-50 {% if not is_search_page %} shadow-md {% endif %}'>
     <div class="max-w-[1500px] mx-auto h-[70px] sm:h-[80px] w-full flex items-center justify-between px-4 md:px-5">
