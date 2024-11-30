@@ -69,7 +69,7 @@
             </div>
         </div>
     </section>
-    <form action="/search" autocomplete="off" class=" relative z-40 flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1500px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+    <form action="/search" autocomplete="off" class=" relative z-40 flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1500px] mx-auto px-[8px] sm:px-4 md:px-5">
         <div class="relative flex-1 h-full hidden md:block ">
             <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
                 <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -118,7 +118,7 @@
         </button>
     </form>
     <!-- <form action="" method="get" autocomplete="off"  MainFilterForm>
-        <div class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-[15px] md:px-[20px]">
+        <div class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1400px] mx-auto px-[8px] sm:px-4 md:px-5">
             <div class="relative flex-1 h-full hidden md:block ">
                 <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
                     <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -176,7 +176,7 @@
             <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
         </button>
     </form> -->
-    <section class="max-w-[1500px] mx-auto px-[15px] md:px-[20px] py-[40px] ">
+    <section class="max-w-[1500px] mx-auto px-4 md:px-5 py-[40px] ">
         <div class="flex items-center gap-[8px] justify-center flex-wrap ">
             <div>
                 <input onchange="handleFilterSelect(event)" type="checkbox" id="available_today" name="available_today" {% if request.GET.available_today %}checked{% endif %} class="filter_page_checkbox">
@@ -253,7 +253,7 @@
                 <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
             </button>
         </div>
-        <section class="max-w-[1400px] mx-auto px-[15px] md:px-[20px] py-[40px] ">
+        <section class="max-w-[1400px] mx-auto px-4 md:px-5 py-[40px] ">
             <div class="flex items-center gap-[14px] justify-center flex-wrap ">
                 <div>
                     <input onchange="handleFilterSelect(event)" type="checkbox" id="available_today" name="available_today" {% if request.GET.available_today %}checked{% endif %} class="filter_page_checkbox">
