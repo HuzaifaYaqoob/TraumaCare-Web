@@ -19,7 +19,7 @@
                   </div>
                   <div class="mt-[20px]">
                         <p class="text-center text-black text-[18px] sm:text-2xl font-[600]">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
-                        <p class="text-center text-[14px] sm:text-[15px] text-[#838383] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
+                        <p class="text-center text-sm sm:text-sm text-[#838383] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
                   </div>
                   <form class="mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
                         {% csrf_token %}
@@ -34,7 +34,7 @@
                         </button>
                   </form>
                   <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all rounded-10px mx-auto w-full cursor-not-allowed py-2 sm:py-3 mt-3 sm:mt-4 flex items-center justify-center  ">
-                        <p class="text-slate-900 font-[500] transition-all text-[14px] sm:text-[16px] ">Resend code in 50 sec</p>
+                        <p class="text-slate-900 font-medium transition-all text-sm sm:text-[16px] ">Resend code in 50 sec</p>
                   </button>
             </div>
       </div>

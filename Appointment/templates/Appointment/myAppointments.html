@@ -23,25 +23,25 @@
 
     <section class="max-w-[1200px] mx-auto py-[50px] px-4 md:px-5">
         <h2 class="text-[#0A1C4B] text-[40px] font-[600] ">Bookings</h2>
-        <p class="text-[#0A1C4B] text-[17px] font-[500] mt-[6px] ">See your scheduled event from our calender events links.</p>
+        <p class="text-[#0A1C4B] text-[17px] font-medium mt-[6px] ">See your scheduled event from our calender events links.</p>
         <form action="" class="mt-[40px] flex items-center gap-[10px] rounded-[8px] bg-[#8f9296]/15 p-[6px] max-w-max overflow-auto ">
             <input class="hidden" id="ALL" type="radio" value="ALL" name="status" {% if request.GET.status == 'ALL' or not request.GET.status %}checked{% endif %} >
-            <label for="ALL" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+            <label for="ALL" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-medium py-[8px] text-[#0A1C4B] cursor-pointer ">
                 All
             </label>
 
             <input class="hidden" id="Upcoming" type="radio" value="Upcoming" name="status" {% if request.GET.status == 'Upcoming' %}checked{% endif %} >
-            <label for="Upcoming" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+            <label for="Upcoming" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-medium py-[8px] text-[#0A1C4B] cursor-pointer ">
                 Upcoming
             </label>
 
             <input class="hidden" id="Past" type="radio" value="Past" name="status" {% if request.GET.status == 'Past' %}checked{% endif %} >
-            <label for="Past" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+            <label for="Past" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-medium py-[8px] text-[#0A1C4B] cursor-pointer ">
                 Past
             </label>
 
             <input class="hidden" id="Cancelled" type="radio" value="Cancelled" name="status" {% if request.GET.status == 'Cancelled' %}checked{% endif %} >
-            <label for="Cancelled" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-[500] py-[8px] text-[#0A1C4B] cursor-pointer ">
+            <label for="Cancelled" class="rounded-[8px] flex items-center justify-center max-w-max hover:bg-white transition-all px-[24px] text-[17px] font-medium py-[8px] text-[#0A1C4B] cursor-pointer ">
                 Cancelled / Expired
             </label>
         </form>

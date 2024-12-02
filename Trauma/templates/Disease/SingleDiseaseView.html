@@ -9,19 +9,19 @@
 <div class="max-w-[1500px] mx-auto py-12 px-4 md:px-5">
       <div class="flex gap-3 items-center">
       <div class="flex gap-1 items-center cursor-pointer">
-            <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-[500]">Home</a>
+            <a href="{% url 'homePage' %}" class="text-slate-500 hover:text-slate-800 font-medium">Home</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
       </div>
       <div class="flex items-center gap-1 cursor-pointer">
-            <a href="{% url 'DiseasesViewAllPage' %}" class="text-slate-500 hover:text-slate-800 font-[500]">View All Diseases</a>
+            <a href="{% url 'DiseasesViewAllPage' %}" class="text-slate-500 hover:text-slate-800 font-medium">View All Diseases</a>
             <svg class="mt-[0.1rem] text-[#797979]" width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path fill-rule="evenodd" clip-rule="evenodd" d="M1.20807 1.12149C0.969001 1.31275 0.93024 1.66159 1.12149 1.90066L3.80096 5.25L1.12149 8.59934C0.93024 8.83841 0.969001 9.18725 1.20807 9.3785C1.44714 9.56976 1.79598 9.531 1.98724 9.29193L4.94374 5.5963C5.10571 5.39384 5.10571 5.10616 4.94374 4.9037L1.98724 1.20807C1.79598 0.969001 1.44714 0.93024 1.20807 1.12149Z" fill="#797979" stroke="#797979" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
       </div>
       <div>
-            <p class="text-slate-800 font-[500] cursor-pointer">{{disease.name}}</p>
+            <p class="text-slate-800 font-medium cursor-pointer">{{disease.name}}</p>
       </div>
       </div>
       <div class="flex items-center gap-4 mt-10 ">
@@ -32,7 +32,7 @@
             <div class="flex-1">
                   <p class="text-[{{disease.color_code}}] font-semibold text-4xl">{{disease.name}}</p>
                   <p class="text-[#24D0D0] text-xl font-[600]">{{disease.available_doctors_count}} Best Gynecologist in Pakistan</p>
-                  <p class="text-[#8A8A8A] font-[500] line-clamp-4">{{disease.description}}</p>
+                  <p class="text-[#8A8A8A] font-medium line-clamp-4">{{disease.description}}</p>
             </div>
       </div>
       <div class="flex-1 bg-[#24d0d01a] p-6 rounded-xl">
@@ -367,7 +367,7 @@
                                                 </svg>
                                     <p class="text-[#656565] text-xl font-[600]">National hospital Dha Islamabad</p>  
                                     </div>
-                                    <p class="text-[#24D0D0] font-[500] text-lg">Antenatal Care</p>
+                                    <p class="text-[#24D0D0] font-medium text-lg">Antenatal Care</p>
                                     <div class="mt-2 flex items-center justify-between">
                                           <div  class="text-center">
                                                 <p class="text-[#656565]">Price
@@ -388,7 +388,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -407,7 +407,7 @@
                                                 </svg>
                                     <p class="text-[#656565] text-xl font-[600]">National hospital Dha Islamabad</p>  
                                     </div>
-                                    <p class="text-[#24D0D0] font-[500] text-lg">Antenatal Care</p>
+                                    <p class="text-[#24D0D0] font-medium text-lg">Antenatal Care</p>
                                     <div class="mt-2 flex items-center justify-between">
                                           <div  class="text-center">
                                                 <p class="text-[#656565]">Price
@@ -428,7 +428,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -447,7 +447,7 @@
                                                 </svg>
                                     <p class="text-[#656565] text-xl font-[600]">National hospital Dha Islamabad</p>  
                                     </div>
-                                    <p class="text-[#24D0D0] font-[500] text-lg">Antenatal Care</p>
+                                    <p class="text-[#24D0D0] font-medium text-lg">Antenatal Care</p>
                                     <div class="mt-2 flex items-center justify-between">
                                           <div  class="text-center">
                                                 <p class="text-[#656565]">Price
@@ -468,7 +468,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -487,7 +487,7 @@
                                                 </svg>
                                     <p class="text-[#656565] text-xl font-[600]">National hospital Dha Islamabad</p>  
                                     </div>
-                                    <p class="text-[#24D0D0] font-[500] text-lg">Antenatal Care</p>
+                                    <p class="text-[#24D0D0] font-medium text-lg">Antenatal Care</p>
                                     <div class="mt-2 flex items-center justify-between">
                                           <div  class="text-center">
                                                 <p class="text-[#656565]">Price
@@ -508,7 +508,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -570,7 +570,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -612,7 +612,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -654,7 +654,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -696,7 +696,7 @@
                               </div>
                               <hr>
                               <div class="px-4 py-2 flex items-center justify-between">
-                                    <p class="text-[#656565] font-[500]">Gynecologist</p>
+                                    <p class="text-[#656565] font-medium">Gynecologist</p>
                                     <div class="flex items-center gap-2">
                                           <p class="text-[#24D0D0] font-[600]">Book Appointment</p>
                                           <svg width="6" height="9" viewBox="0 0 6 9" fill="none" xmlns="http://www.w3.org/2000/svg">

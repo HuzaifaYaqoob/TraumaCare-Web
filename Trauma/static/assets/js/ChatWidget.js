@@ -31,7 +31,7 @@ const getMessageContent = (message, isMe=false) =>{
     div.className = `flex items-start w-full gap-3 ${isMe ? 'user-message' : 'ai-bot-message'} `
     let content = `${isMe ? '' : `<img class="w-[30px] border rounded-full h-auto" src="/static/assets/Images/bot-icon.jpeg" />`}
         <div class="flex-1 w-full">
-            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">${message.replace('\n', '<br/>')}</p>
+            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">${message.replace('\n', '<br/>')}</p>
         </div>`
     
     div.innerHTML = content

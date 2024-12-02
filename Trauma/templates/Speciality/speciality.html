@@ -92,7 +92,7 @@
                   </svg>
             </div>
             <div>
-                  <p class="text-slate-800 font-[500] cursor-pointer">{{speciality.name}}</p>
+                  <p class="text-slate-800 font-medium cursor-pointer">{{speciality.name}}</p>
             </div>
       </div>
       <div class="flex items-start gap-4 mt-[24px] lg:mt-10 spacility-first-TC">
@@ -104,12 +104,12 @@
                   <div class="flex-1">
                         <h1 class="spacility-first-TC-1-h1 text-[{{speciality.color_code}}] font-semibold text-[28px] sm:text-4xl">{{speciality.name}}</h1>
                         <p class="spacility-first-TC-1-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">{{speciality.available_doctors_count}} best specialist in Pakistan</p>
-                        <p class="spacility-first-TC-1-p2 text-[15px] sm:text-[16px] text-[#8A8A8A] font-[500] line-clamp-4">{{speciality.description}}</p>
+                        <p class="spacility-first-TC-1-p2 text-sm sm:text-[16px] text-[#8A8A8A] font-medium line-clamp-4">{{speciality.description}}</p>
                   </div>
             </div>
             <div class="w-[530px] bg-[#24d0d01a] px-6 py-[18px] rounded-xl spacility-first-TC-2">
                   <p class="spacility-first-TC-2-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">All {{speciality.name}} treatment under Single roof.</p>
-                  <p class="spacility-first-TC-2-p2 text-[#24D0D0] text-[15px] sm:text-[16px]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
+                  <p class="spacility-first-TC-2-p2 text-[#24D0D0] text-sm sm:text-[16px]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
                   <div class="flex items-center gap-4 mt-2 spacility-first-TC-2-2">
                         <a href="{% url 'BookAppointmentPage' %}?speciality={{speciality.slug}}"
                               class="spacility-first-TC-2-2-1 border border-[#24d0d0] px-3 py-2 text-[#24D0D0] rounded-md hover:bg-[#24D0D0] hover:text-[#ffffff]">

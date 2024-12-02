@@ -116,20 +116,20 @@
                         </div>
                         <!-- <div class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
                             <span></span>
-                            <p class="text-[15px]">How can I stay fit during the winter?</p>
+                            <p class="text-sm">How can I stay fit during the winter?</p>
                         </div> -->
                     </div>
                 {% endif %}
                 {% for message in chat_widget_messages %}
                     <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
                         <div class="flex-1 w-full">
-                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">{{message.question|safe}}</p>
+                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">{{message.question|safe}}</p>
                         </div>
                     </div>
                     <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
                         <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
                         <div class="flex-1 w-full">
-                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-[500]">{{message.formated_content|safe}}</p>
+                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">{{message.formated_content|safe}}</p>
                         </div>
                     </div>
                 {% endfor %}

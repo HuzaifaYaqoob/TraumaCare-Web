@@ -26,7 +26,7 @@
                 </a>
             </div>
             <!-- <div class="mb-3 xl:mb-0 xl:absolute transition-all border border-[#23d0d010] rounded-xl p-4 xl:top-1/4 lg:transform xl:-translate-y-1/6 xl:w-[280px] bg-[#23d0d010] xl:right-[-20px] xl:translate-x-full overflow-auto">
-                <p class="leading-5 text-[15px] text-slate-500">To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
+                <p class="leading-5 text-sm text-slate-500">To access our services, please provide a unique Mobile Number, Email and Username, which will serve as your login credentials.</p>
             </div> -->
             <form action="{% url 'HandleJoin' %}{{str_query}}" method="post" main-register-form class="register-main-form" data-activestep="1">
                 {% csrf_token %}
@@ -49,7 +49,7 @@
                     </div> -->
                     <!-- <div class="mb-3 flex items-center gap-[5px]">
                         <input type="checkbox" id="showOrHidePassword" showOrHidePasswordCheckBox>
-                        <label class="text-slate-600 font-[500]" for="showOrHidePassword">Show Password</label>
+                        <label class="text-slate-600 font-medium" for="showOrHidePassword">Show Password</label>
                     </div> -->
                 </div>
                 <div class="form-button">

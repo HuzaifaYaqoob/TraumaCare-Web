@@ -1,5 +1,5 @@
 <div class="border rounded-xl w-[400px] pb-4">
-      <div class="bg-[#557de50d] rounded-xl rounded-b-none flex items-center gap-[9px] sm:gap-3 py-[12px] px-[10px] sm:py-[14px] sm;px-[12px]">
+      <div class="bg-[#557de50d] rounded-xl rounded-b-none flex items-center gap-2 sm:gap-3 py-[12px] px-[10px] sm:py-[14px] sm;px-[12px]">
             <a href="{% url 'DoctorProfilePage' doctor_slug=doctor.slug %}?source=SpecialityViewPage&speciality={{speciality.slug}}"
                   class="block w-[80px] h-[80px] sm:w-[90px] sm:h-[90px] rounded-full border-[2px] border-[#557de5] bg-center bg-cover bg-no-repeat"
                   style="background-image: url('{{doctor.profile_image}}');">
@@ -37,47 +37,47 @@
       </div>
       <div class="flex items-center justify-center justify-between px-4 mt-[10px]">
             <div>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Experience
+                  <p class="text-center text-sm sm:text-sm text-[#585454]">Experience
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">{{doctor.years_of_experience}} Year</p>
+                  <p class="text-center text-sm sm:text-sm text-[#557de5]">{{doctor.years_of_experience}} Year</p>
             </div>
             <div>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Fee
+                  <p class="text-center text-sm sm:text-sm text-[#585454]">Fee
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]">{{doctor.fee_range.0}} PKR</p>
+                  <p class="text-center text-sm sm:text-sm text-[#557de5]">{{doctor.fee_range.0}} PKR</p>
             </div>
             <div>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#585454]">Ratings
+                  <p class="text-center text-sm sm:text-sm text-[#585454]">Ratings
                   </p>
-                  <p class="text-center text-[14px] sm:text-[15px] text-[#557de5]"> {{doctor.get_doctor_rating_percentage}}%</p>
+                  <p class="text-center text-sm sm:text-sm text-[#557de5]"> {{doctor.get_doctor_rating_percentage}}%</p>
             </div>
       </div>
       <div class="mt-4 flex items-center justify-between px-4">
-            <p class="text-[14px] sm:text-[15px] text-[#8A8A8A]">Available Today</p>
+            <p class="text-sm sm:text-sm text-[#8A8A8A]">Available Today</p>
             <a href="{% url 'DoctorProfilePage' doctor.slug %}?source=SpecialityViewPage"
-                  class="text-[#557DE5] text-[14px] sm:text-[15px] font-bold cursor-pointer">Book Appointment</a>
+                  class="text-[#557DE5] text-sm sm:text-sm font-bold cursor-pointer">Book Appointment</a>
 
       </div>
       <div class="flex items gap-[5px] flex-wrap mt-4 px-4">
             <div
                   class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
-                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">10:00 AM - 11:00 AM</p>
+                  <p class="text-[#A8A8A8] font-medium text-sm sm:text-sm group-hover:text-white">10:00 AM - 11:00 AM</p>
             </div>
             <div
                   class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
-                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">10:00 AM - 11:00 AM</p>
+                  <p class="text-[#A8A8A8] font-medium text-sm sm:text-sm group-hover:text-white">10:00 AM - 11:00 AM</p>
             </div>
             <div
                   class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
-                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">07 PM - 09 PM</p>
+                  <p class="text-[#A8A8A8] font-medium text-sm sm:text-sm group-hover:text-white">07 PM - 09 PM</p>
             </div>
             <div
                   class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg border hover:bg-[#557DE5] cursor-pointer group transition-all">
-                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">07 AM Tue</p>
+                  <p class="text-[#A8A8A8] font-medium text-sm sm:text-sm group-hover:text-white">07 AM Tue</p>
             </div>
             <div
                   class="border-[#c6c6c6] px-[10px] py-[6px] sm:px-3 sm:py-[7px] rounded-[6px] sm:rounded-lg hover:bg-[#557DE5] cursor-pointer group transition-all border">
-                  <p class="text-[#A8A8A8] font-[500] text-[14px] sm:text-[15px] group-hover:text-white">Hover me</p>
+                  <p class="text-[#A8A8A8] font-medium text-sm sm:text-sm group-hover:text-white">Hover me</p>
             </div>
       </div>
 </div>

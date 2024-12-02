@@ -8,7 +8,7 @@
         <a href="/doctor/profile/view/{{doctor.slug}}" class="text-[#0A1C4B] capitalize text-[20px] font-[600] tracking-wide cursor-pointer line-clamp-1">
           Dr. {{doctor.name}}
         </a>
-        <p class="text-[#0A1C4B] font-[400] line-clamp-2 text-[14px] mt-[2px]">
+        <p class="text-[#0A1C4B] font-[400] line-clamp-2 text-sm mt-[2px]">
           {{doctor.heading}}
         </p>
         <div class="flex items-center gap-3">
@@ -41,7 +41,7 @@
   </div>
   <div class="py-[12px] px-[22px] border-t border-[#D3D3D3] flex items-center justify-between">
     <div class="flex items-center gap-1">
-      <p class="text-[#8ca5c9] text-[14px] font-[400] capitalize">satisfaction</p>
+      <p class="text-[#8ca5c9] text-sm font-[400] capitalize">satisfaction</p>
       <p class="text-[#23d0d0] text-base font-semibold {% if doctor.get_doctor_rating_percentage > 80 %}text-green-600{% elif doctor.get_doctor_rating_percentage > 50 %}text-yellow-600{% else %}text-red-600{% endif %}">{{doctor.get_doctor_rating_percentage}}%</p>
     </div>
     {% if doctor.is_available_today %}
@@ -49,7 +49,7 @@
     {% else %}
       <a href="/doctor/profile/view/{{doctor.slug}}">
         <div>
-          <p class="text-[#8ca5c9] text-[14px] font-[400] cursor-pointer">
+          <p class="text-[#8ca5c9] text-sm font-[400] cursor-pointer">
             Find another slot
           </p>
         </div>

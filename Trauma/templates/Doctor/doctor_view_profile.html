@@ -162,7 +162,7 @@
                                                       <path d="M5.66667 12.6667L3 10L3.94 9.06L5.66667 10.78L10.06 6.38667L11 7.33333M7 2L1 4.66667V8.66667C1 12.3667 3.56 15.8267 7 16.6667C10.44 15.8267 13 12.3667 13 8.66667V4.66667L7 2Z" fill="#24D0D0"/>
                                                       <path d="M3 10L2.29289 9.29289L1.58579 10L2.29289 10.7071L3 10ZM3.94 9.06L4.64574 8.35153L3.93863 7.64715L3.23289 8.35289L3.94 9.06ZM5.66667 10.78L4.96093 11.4885L5.66803 12.1928L6.37377 11.4871L5.66667 10.78ZM10.06 6.38667L10.7696 5.68206L10.0625 4.96995L9.35289 5.67956L10.06 6.38667ZM7 2L7.40614 1.08619L7 0.905682L6.59386 1.08619L7 2ZM1 4.66667L0.593861 3.75286L0 4.01679V4.66667H1ZM7 16.6667L6.76278 17.6381L7 17.696L7.23722 17.6381L7 16.6667ZM13 4.66667H14V4.01679L13.4061 3.75286L13 4.66667ZM6.37377 11.9596L3.70711 9.29289L2.29289 10.7071L4.95956 13.3738L6.37377 11.9596ZM3.70711 10.7071L4.64711 9.76711L3.23289 8.35289L2.29289 9.29289L3.70711 10.7071ZM3.23426 9.76847L4.96093 11.4885L6.3724 10.0715L4.64574 8.35153L3.23426 9.76847ZM6.37377 11.4871L10.7671 7.09377L9.35289 5.67956L4.95956 10.0729L6.37377 11.4871ZM9.3504 7.09127L10.2904 8.03794L11.7096 6.62873L10.7696 5.68206L9.3504 7.09127ZM6.59386 1.08619L0.593861 3.75286L1.40614 5.58048L7.40614 2.91381L6.59386 1.08619ZM0 4.66667V8.66667H2V4.66667H0ZM0 8.66667C0 12.7861 2.83594 16.6792 6.76278 17.6381L7.23722 15.6952C4.28406 14.9741 2 11.9472 2 8.66667H0ZM7.23722 17.6381C11.1641 16.6792 14 12.7861 14 8.66667H12C12 11.9472 9.71594 14.9741 6.76278 15.6952L7.23722 17.6381ZM14 8.66667V4.66667H12V8.66667H14ZM13.4061 3.75286L7.40614 1.08619L6.59386 2.91381L12.5939 5.58048L13.4061 3.75286Z" fill="#FDFDFD" mask="url(#path-2-outside-1_4805_4575)"/>
                                                 </svg>
-                                                <p class="text-white text-[15px]">Verified doctor</p>
+                                                <p class="text-white text-sm">Verified doctor</p>
                                           </div>
                                     {% endif %}
                               </div>
@@ -192,7 +192,7 @@
                                                       <input type="text" class="hidden" name="selected_date" value="{{online_ava.day_date}}">
                                                       <div class="flex items-center justify-between mb-3">
                                                             <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 {% if online_ava.day_count == 0 %}text-green-600{% elif online_ava.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if online_ava.day_count == 0 %}bg-green-600{% elif online_ava.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] {% if online_ava.day_count == 0 %}bg-green-600{% elif online_ava.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full animate-ping"></span></span>{{online_ava.label}}</span></p>
-                                                            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="text-sm text-slate-700">Schedule for Another Day</a>
                                                       </div>
                                                       <div class="grid gap-4 {% if online_ava.slots|length > 1 %}grid-cols-2{% else %}grid-cols-1{% endif %}">
                                                             {% for slot in online_ava.slots %}
@@ -285,7 +285,7 @@
                                           <p>No Education</p>
                                     {% endif %}
                                     {% for education in educations %}
-                                          <li style="list-style: disc;" class="text-[#807F7F] font-[500]">{{education.institute}} ({{education.degree_type}})</li>
+                                          <li style="list-style: disc;" class="text-[#807F7F] font-medium">{{education.institute}} ({{education.degree_type}})</li>
                                     {% endfor %}
                               </ul>
                         </div>
@@ -317,7 +317,7 @@
                                                       </svg>
                                                 </div>
                                           </div>
-                                          <p class="text-[#9A9A9A] text-[15px] px-4 leading-5 line-clamp-3 ask-questions-main-text-1">{{query.answer}}</p>
+                                          <p class="text-[#9A9A9A] text-sm px-4 leading-5 line-clamp-3 ask-questions-main-text-1">{{query.answer}}</p>
                                     </div>
                               {% endfor %}
                         </div>
@@ -388,7 +388,7 @@
                                           <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></div>
                                           <div class="flex-1">
                                                 <p class="line-clamp-1 font-[600] text-[20px] text-[#000]">{{clinic.hospital.name}}</p>
-                                                <p class="line-clamp-2 text-[#9A9A9A] text-[14px]">{{clinic.location.street_address}}</p>
+                                                <p class="line-clamp-2 text-[#9A9A9A] text-sm">{{clinic.location.street_address}}</p>
                                           </div>
                                     </a>
                                     {% if clinic.highest_discount_day and clinic.highest_discount_day.discount > 0 %}
@@ -401,7 +401,7 @@
                                           <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
                                           <div class="flex items-center justify-between">
                                                 <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"><span class="absolute inline-block w-[12px] h-[12px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full animate-ping"></span></span> {{next_available.label}}</span></p>
-                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-[15px] text-slate-700">Schedule for Another Day</a>
+                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-sm text-slate-700">Schedule for Another Day</a>
                                           </div>
                                           <div class="">
                                                 {% for slot in next_available.slots %}

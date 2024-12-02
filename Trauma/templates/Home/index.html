@@ -54,7 +54,7 @@
     <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1500px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
         <div class=" flex-1 ">
             <h1 class=" xl:text-[42px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-white text-left font-[700] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
-            <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
+            <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-sm !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
             <div class="mt-[16px] flex gap-3 items-center flex-wrap ">
                 <button class="chatWidgetBotIcon bg-[#2FC670] px-4 py-3 rounded-lg" >
                     How may I Help you?
@@ -95,7 +95,7 @@
         </span>
         <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-[#fff] border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
             {% for speciality in specialities %}
-                <p class="py-[9px] text-[15px] text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition z-50 relative" slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
+                <p class="py-[9px] text-sm text-[#0A1C4B] px-[16px] py-[11px] hover:bg-[#24D0D0] hover:text-[#fff] cursor-pointer transition-all dropdown-item transition z-50 relative" slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
             {% endfor %}
         </div>
     </div>
@@ -107,7 +107,7 @@
         </div>
         <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[15px] pr-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
     </div>
-    <button class="px-[13px] sm:px-[16px] md:px-[22px] h-full flex items-center gap-[5px] shadow-xl sm:gap-[7px] md:gap-[9px] bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-12 hover:scale-[1.2] transition ">
+    <button class="px-[13px] sm:px-[16px] md:px-[22px] h-full flex items-center gap-[5px] shadow-xl sm:gap-[7px] md:gap-2 bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-12 hover:scale-[1.2] transition ">
         <div class="flex items-center justify-center ">
             <svg class="h-[16px] w-[16px] sm:h-[18px] sm:w-[18px] md:h-[22px] md:w-[22px] " viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -115,7 +115,7 @@
                     fill="white" />
             </svg>
         </div>
-        <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
+        <p class="text-sm sm:text-[16px] md:text-[18px] font-medium text-white ">Search</p>
     </button>
 </form>
     <main class="max-w-[1500px] px-4 md:px-5 py-[50px] mx-auto bg-white ">
@@ -123,7 +123,7 @@
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap mt-[26px] ">
                 {% for disease in diseases|slice:':7' %}
-                    <a  href="/search/?disease={{disease.slug}}" class=" cursor-pointer px-4 py-1 rounded-full border text-[14px] text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
+                    <a  href="/search/?disease={{disease.slug}}" class=" cursor-pointer px-4 py-1 rounded-full border text-sm text-[#0A1C4B] hover:bg-[#0A1C4B] hover:border-[#0A1C4B] transition-all hover:text-white">
                         <p>{{disease.name}}</p>
                     </a>
                 {% endfor %}
@@ -135,11 +135,11 @@
                 <div class="bg-[#f0da69] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow ">
                     <div>
                         <h4 class="text-[#252b61] text-[18px] sm:text-[21px] font-[600] line-clamp-1">Instant Video Consultation</h4>
-                        <p class="mt-[3px] text-[13px] sm:text-[14px] font-[500] text-[#252b61] line-clamp-2">Connect within 30 secs</p>
+                        <p class="mt-[3px] text-[13px] sm:text-sm font-medium text-[#252b61] line-clamp-2">Connect within 30 secs</p>
                     </div>
                     <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
                         <span class="rounded-[100px] mb-5 h-[32px] w-[32px] flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0 ">
-                            <i class="fa-solid fa-arrow-right text-[#fff] text-[14px] "></i>
+                            <i class="fa-solid fa-arrow-right text-[#fff] text-sm "></i>
                         </span>
                         <span class="w-[110px] sm:w-[130px] md::w-[150px] h-[110px] sm:h-[130px] md:h-[150px] flex items-center justify-center ">
                             <svg class="h-full w-full " viewBox="0 0 128 147" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -152,11 +152,11 @@
                 <div class="bg-[#a3dac2] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow">
                     <div>
                         <h4 class="text-[#252b61] text-[18px] sm:text-[21px] font-[600] line-clamp-1">Find Doctors near you</h4>
-                        <p class="mt-[3px] text-[13px] sm:text-[14px] font-[500] text-[#252b61] line-clamp-2">Expert Doctors, Just Around the Corner</p>
+                        <p class="mt-[3px] text-[13px] sm:text-sm font-medium text-[#252b61] line-clamp-2">Expert Doctors, Just Around the Corner</p>
                     </div>
                     <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
                         <span class="rounded-[100px] mb-5 h-[32px] w-[32px] flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0 ">
-                            <i class="fa-solid fa-arrow-right text-[#fff] text-[14px] "></i>
+                            <i class="fa-solid fa-arrow-right text-[#fff] text-sm "></i>
                         </span>
                         <span class="w-[110px] sm:w-[130px] md::w-[150px] h-[110px] sm:h-[130px] md:h-[150px] flex items-center justify-center ">
                             <svg class="h-full w-full " viewBox="0 0 122 147" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -168,11 +168,11 @@
                 <div class="bg-[#e7c2d4] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow">
                     <div>
                         <h4 class="text-[#252b61] text-[18px] sm:text-[21px] font-[600] line-clamp-1">Confirm Appointment</h4>
-                        <p class="mt-[3px] text-[13px] sm:text-[14px] font-[500] text-[#252b61] line-clamp-2">Your Time, Our Priority</p>
+                        <p class="mt-[3px] text-[13px] sm:text-sm font-medium text-[#252b61] line-clamp-2">Your Time, Our Priority</p>
                     </div>
                     <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
                         <span class="rounded-[100px] mb-5 h-[32px] w-[32px] flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0 ">
-                            <i class="fa-solid fa-arrow-right text-[#fff] text-[14px] "></i>
+                            <i class="fa-solid fa-arrow-right text-[#fff] text-sm "></i>
                         </span>
                         <span class="w-[110px] sm:w-[130px] md::w-[150px] h-[110px] sm:h-[130px] md:h-[150px] flex items-center justify-center ">
                             <svg class="h-full w-full " viewBox="0 0 146 146" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -185,11 +185,11 @@
                 <div class="bg-[#92bdf6] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow">
                     <div>
                         <h4 class="text-[#252b61] text-[18px] sm:text-[21px] font-[600] line-clamp-1">Get Prescribed</h4>
-                        <p class="mt-[3px] text-[13px] sm:text-[14px] font-[500] text-[#252b61] line-clamp-2">Your Prescription, Your Convenience</p>
+                        <p class="mt-[3px] text-[13px] sm:text-sm font-medium text-[#252b61] line-clamp-2">Your Prescription, Your Convenience</p>
                     </div>
                     <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
                         <span class="rounded-[100px] mb-5 h-[32px] w-[32px] flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0 ">
-                            <i class="fa-solid fa-arrow-right text-[#fff] text-[14px] "></i>
+                            <i class="fa-solid fa-arrow-right text-[#fff] text-sm "></i>
                         </span>
                         <span class="w-[110px] sm:w-[130px] md::w-[150px] h-[110px] sm:h-[130px] md:h-[150px] flex items-center justify-center ">
                             <svg class="h-full w-full " viewBox="0 0 147 140" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -276,11 +276,11 @@
                 <div class="w-full bg-[#171919] rounded-[22px] relative items-center px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
                     <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
                     <div class="w-full lg:max-w-[560px] w-full z-20 relative ">
-                        <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
+                        <p class="text-sm sm:text-sm text-white font-[300] ">Join Our Medical Community!</p>
                         <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">Are You a Doctor?</h3>
-                        <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
+                        <p class="text-sm sm:text-sm font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
                         <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=doctor" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
-                            <p class="font-[500] text-[16px] ">Join Us Now</p>
+                            <p class="font-medium text-[16px] ">Join Us Now</p>
                             <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                                 <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
@@ -298,11 +298,11 @@
                 <div class="w-full bg-[#171919] rounded-[22px] relative px-[22px] sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
                     <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
                     <div class="w-full lg:max-w-[400px] w-full pt-[22px] sm:pt-[30px] z-20 relative ">
-                        <p class="text-[14px] sm:text-[15px] text-white font-[300] ">Join Our Medical Community!</p>
+                        <p class="text-sm sm:text-sm text-white font-[300] ">Join Our Medical Community!</p>
                         <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">You own a <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Hospital</span> or <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Clinic</span>?</h3>
-                        <p class="text-[14px] sm:text-[15px] font-[300] text-white mt-[7px] ">Create your professional profile to connect with Doctors & peers, enhance your practice, and grow your network!</p>
+                        <p class="text-sm sm:text-sm font-[300] text-white mt-[7px] ">Create your professional profile to connect with Doctors & peers, enhance your practice, and grow your network!</p>
                         <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=hospital" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] max-w-max ">
-                            <p class="font-[500] text-[16px] ">Join Us Now</p>
+                            <p class="font-medium text-[16px] ">Join Us Now</p>
                             <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                                 <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
@@ -321,7 +321,7 @@
             <div class="flex items-center justify-between md:flex-row flex-col ">
                 <h3 class="text-[#0A1C4B] text-[28px] font-[600] text-center">Discover doctors based on your condition.</h3>
                 <a href="/speciality/" class="bg-[#0A1C4B] text-white md:mt-[0px] mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] ">
-                    <p class="font-[500] text-[16px] ">View All Specialist</p>
+                    <p class="font-medium text-[16px] ">View All Specialist</p>
                     <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                         <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
@@ -339,7 +339,7 @@
             <div class="flex items-center justify-between md:flex-row flex-col ">
                 <h3 class="text-[#0A1C4B] text-[28px] font-[600] text-center">Find doctors for your specific disease.</h3>
                 <a href="{% url 'DiseasesViewAllPage' %}" class="bg-[#0A1C4B] md:mt-[0px] mt-[18px] text-white rounded-[8px] flex items-center gap-[10px] px-[18px] py-[11px] ">
-                    <p class="font-[500] text-[16px] ">View All Diseases</p>
+                    <p class="font-medium text-[16px] ">View All Diseases</p>
                     <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
                         <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
@@ -380,7 +380,7 @@
                 </svg>            
             </div>
             <h2 class="text-[#ffffff] mt-[70px] md:mt-[100px] text-center text-[18px] sm:text-[20px] md:text-[26px] lg:text-[32px] font-[600]">Rate our App, tell us how’s your experience?</h2>
-            <div id="add_review_btn" class="submit-review-btn text-[#ffffff] text-[13px] md:text-[15px] border-[2px] mt-[20px] border-[#ffffff] cursor-pointer font-[600] flex items-center justify-center px-[26px] py-[9px] rounded-[30px]" >
+            <div id="add_review_btn" class="submit-review-btn text-[#ffffff] text-[13px] md:text-sm border-[2px] mt-[20px] border-[#ffffff] cursor-pointer font-[600] flex items-center justify-center px-[26px] py-[9px] rounded-[30px]" >
                 Rate & Send Feedback
             </div>
         </section>
@@ -413,8 +413,8 @@
                     </svg>
                 </span>
                 <div class="">
-                    <h4 class="text-[21px] font-[500] text-[#fff] whitespace-nowrap ">PMC Verified Doctors</h4>
-                    <p class="text-[14px] font-[300] text-[#fff] whitespace-nowrap">Authentic & updated information</p>
+                    <h4 class="text-[21px] font-medium text-[#fff] whitespace-nowrap ">PMC Verified Doctors</h4>
+                    <p class="text-sm font-[300] text-[#fff] whitespace-nowrap">Authentic & updated information</p>
                 </div>
             </div>
             <div class="flex items-center gap-[13px] ">
@@ -426,8 +426,8 @@
                     </svg>
                 </span>
                 <div class="">
-                    <h4 class="text-[21px] font-[500] text-[#fff] whitespace-nowrap">Money Back Guarantee</h4>
-                    <p class="text-[14px] font-[300] text-[#fff] whitespace-nowrap">We return money within 48 hours</p>
+                    <h4 class="text-[21px] font-medium text-[#fff] whitespace-nowrap">Money Back Guarantee</h4>
+                    <p class="text-sm font-[300] text-[#fff] whitespace-nowrap">We return money within 48 hours</p>
                 </div>
             </div>
             <div class="flex items-center gap-[13px]">
@@ -439,8 +439,8 @@
                     </svg>
                 </span>
                 <div class="">
-                    <h4 class="text-[21px] font-[500] text-[#fff] whitespace-nowrap">24/7 Customer Support</h4>
-                    <p class="text-[14px] font-[300] text-[#FFFFFF] whitespace-nowrap">Well trained & Supportive staff</p>
+                    <h4 class="text-[21px] font-medium text-[#fff] whitespace-nowrap">24/7 Customer Support</h4>
+                    <p class="text-sm font-[300] text-[#FFFFFF] whitespace-nowrap">Well trained & Supportive staff</p>
                 </div>
             </div>
         </section>
@@ -458,9 +458,9 @@
                     <div class="w-full rounded-[9px] overflow-hidden border shadow ">
                         <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({% if post.cover_image.thumbnail %}{{post.cover_image.thumbnail.url}}{% else %}{{post.cover_image.image.url}}{% endif %});" ></div>
                         <div class="p-[12px] ">
-                            <div class="text-[#24D0D0] text-[11px] font-[500] bg-[#DDF0FF] max-w-max rounded-[30px] px-[11px] py-[4px] ">{{post.category.name}}</div>
+                            <div class="text-[#24D0D0] text-[11px] font-medium bg-[#DDF0FF] max-w-max rounded-[30px] px-[11px] py-[4px] ">{{post.category.name}}</div>
                             <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-1 text-[21px] font-[600] text-[#0a1c4b] mt-[6px] leading-[26px] ">{{post.title}}</a>
-                            <p class="line-clamp-2 text-[14px] font-[500] text-[#0a1c4b]/70 mt-[6px] leading-[20px] ">{{post.content_content}}</p>
+                            <p class="line-clamp-2 text-sm font-medium text-[#0a1c4b]/70 mt-[6px] leading-[20px] ">{{post.content_content}}</p>
                         </div>
                     </div>
                 {% endfor %}
@@ -472,7 +472,7 @@
             <form action="{% url 'handleApplicationReviewSubmit' %}" method="post"  class=" bg-[#ffffff] rounded-[30px] px-[16px] md:px-[22px] py-[12px] md:py-[20px] w-[320px] sm:w-[420px] md:w-[450px] ">
                 {% csrf_token %}
                 <div class="flex items-center justify-between pb-[10px] ">
-                    <h2 class="text-[#6A727D] text-[14px] sm:text-[15px] md:text-[17px] font-[600]">Add Review</h2>
+                    <h2 class="text-[#6A727D] text-sm sm:text-sm md:text-[17px] font-[600]">Add Review</h2>
                     <span class="cursor-pointer cancle-popup" id="cancle_popup_btn">
                         <svg width="13" height="13" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 11L11 1M1 1L11 11" stroke="#6A727D" stroke-width="2" stroke-linecap="round"/>
@@ -485,7 +485,7 @@
                         <div class="rounded-[16px] h-[50px] md:h-[70px] w-[60px] md:w-[80px]" style="background: url('{% if request.user.profile_image %}{{request.user.profile_image}}{% else %}https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=2000{% endif %}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                         <div>
                             <h3 class="text-[16px] md:text-[18px] font-[600] leading-5 text-[#4A4848] cursor-pointer">{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}</h3>
-                            <p class="text-[12px] md:text-[14px] text-[#9B9B9B]">{{request.user.email}}</p>
+                            <p class="text-[12px] md:text-sm text-[#9B9B9B]">{{request.user.email}}</p>
                         </div>
                     </div>
                     {% else %}
@@ -499,7 +499,7 @@
                         </div>
                     {% endif %}
                     <hr class="mt-[9px] sm:mt-[12px] md:mt-[16px]">
-                    <p class="text-[#727272] mt-[10px] text-center text-[14px] md:text-[16px]">Your overall rating of this Product</p>
+                    <p class="text-[#727272] mt-[10px] text-center text-sm md:text-[16px]">Your overall rating of this Product</p>
                     <div RatingStars class="complete-background-popups-before-stars flex items-center justify-center gap-[12px] sm:gap-[16px] md:gap-[24px] mt-[3px] sm:mt-[12px]">
                         <input type="number" value="5" ratingInput name="star_rating" class="hidden" >
                         <svg class="cursor-pointer rating_star_svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -519,11 +519,11 @@
                         </svg>
                     </div>
                     <hr class="mt-[9px] sm:mt-[13px] md:mt-[16px]">
-                    <h2 class="text-[#626262] mt-[10px] md:mt-[17px] text-[14px] md:text-[17px] font-[600]">How’s your Experience?</h2>
-                    <textarea name="content" placeholder="Your Experience..." class="w-full border-0 bg-[#23d0d010] focus:border focus:border-[#23d0d0] text-[#9B9B9B] h-[130px] sm:h-[180px] px-[12px] text-[14px] py-[7px] mt-[8px] rounded-[10px] resize-none " name="" id="" cols="30" rows="10" style="outline: none; border: none;"></textarea>
+                    <h2 class="text-[#626262] mt-[10px] md:mt-[17px] text-sm md:text-[17px] font-[600]">How’s your Experience?</h2>
+                    <textarea name="content" placeholder="Your Experience..." class="w-full border-0 bg-[#23d0d010] focus:border focus:border-[#23d0d0] text-[#9B9B9B] h-[130px] sm:h-[180px] px-[12px] text-sm py-[7px] mt-[8px] rounded-[10px] resize-none " name="" id="" cols="30" rows="10" style="outline: none; border: none;"></textarea>
                     <hr class="mt-[9px] sm:mt-[12px] md:mt-[22px]">
                     <div class="flex justify-between mt-[9px] sm:mt-[10px] md:mt-[13px]">
-                        <h2 class="text-[#626262] text-[14px] md:text-[17px] font-[600]">Would you recommend this product?</h2>
+                        <h2 class="text-[#626262] text-sm md:text-[17px] font-[600]">Would you recommend this product?</h2>
                     </div>
                     <button class="active:scale-90 transition-all mt-[7px] sm:mt-[10px] md:mt-[14px] rounded-[12px] cursor-pointer bg-[#24D0D0] text-[#ffffff] text-[16px] md:text-[18px] flex items-center justify-center w-full px-[20px] py-[9px] md:py-[12px]">
                         Submit Review
