@@ -50,13 +50,14 @@
 
 
 
-<section class="bg-[#0A1C4B] flex !items-center h-[750px] sm:h-[700px] md:h-[450px]">
+<section class="max-w-[1500px] mx-auto rounded-[35px] mt-5 bg-[#151e2c] px-10 flex !items-center h-[750px] sm:h-[700px] md:h-[600px]">
     <div class="flex items-center gap-[15px] sm:gap-[22px] max-w-[1500px] mx-auto pl-[15px] md:px-[20px] md:flex-row flex-col ">
         <div class=" flex-1 ">
-            <h1 class=" xl:text-[42px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-white text-left font-[700] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1>
-            <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
+            {% comment %} <h1 class="gradient_text xl:text-[50px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-left font-[800] line-clamp-3 ">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
+            <h1 class="gradient_text xl:text-[55px] !p-0 capitalize lg:text-[35px] md:text-[33px] text-[28px] text-left font-[800] line-clamp-3 ">AI-Powered Health: Virtual Consultations and <img src='{% static "assets/Images/underline.png" %}' class='w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
+            <p class="text-left font-[300] lg:text-[17px] xl:text-[18px] mt-[14px] md:text-[15px] !text-gray-200 line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
             <div class="mt-[16px] flex gap-3 items-center flex-wrap ">
-                <button class="chatWidgetBotIcon bg-[#2FC670] px-4 py-3 rounded-lg" >
+                <button class="chatWidgetBotIcon bg-[#2FC670] px-4 py-3 rounded-lg gradient_button" >
                     How may I Help you?
                 </button>
                 <div class="flex items-center gap-3 ">
@@ -65,12 +66,12 @@
                 </div>
             </div>
         </div>
-        <div class="mt-[22px] md:mt-[0px] ">
+        <div class="mt-[22px] md:mt-[0px] min-w-[500px]">
             {% include 'Components/SVG/AIBot.html' %}
         </div>
     </div>
 </section>
-<form action="/search" autocomplete="off" class="flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1500px] mx-auto px-[8px] sm:px-[15px] md:px-[20px] relative z-40 ">
+<form action="/search" autocomplete="off" class="hidden flex items-center justify-center -translate-y-1/2 gap-[6px] h-[48px] sm:h-[51px] md:h-[55px] max-w-[1300px] mx-auto px-[8px] sm:px-[15px] md:px-[20px] relative z-40 ">
     <div class="relative flex-1 h-full hidden md:block ">
         <div class="h-full flex items-center justify-center absolute z-50 left-[8px] ">
             <svg width="20" height="30" viewBox="0 0 22 28" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -107,7 +108,7 @@
         </div>
         <input class="h-full outline-none w-full text-[16px] text-[#0A1C4B] rounded-[6px] px-[15px] pr-[34px] relative flex-1 border-[2px] border-white focus:border-[#23d0d0] shadow-xl " placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
     </div>
-    <button class="px-[13px] sm:px-[16px] md:px-[22px] h-full flex items-center gap-[5px] shadow-xl sm:gap-[7px] md:gap-[9px] bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-12 hover:scale-[1.2] transition ">
+    <button class="gradient_button px-[13px] sm:px-[16px] md:px-[22px] h-full flex items-center gap-[5px] shadow-xl sm:gap-[7px] md:gap-[9px] bg-[#24D0D0] rounded-[6px] cursor-pointer hover:second_shadow hover:rotate-12 hover:scale-[1.2] transition ">
         <div class="flex items-center justify-center ">
             <svg class="h-[16px] w-[16px] sm:h-[18px] sm:w-[18px] md:h-[22px] md:w-[22px] " viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -118,8 +119,8 @@
         <p class="text-[15px] sm:text-[16px] md:text-[18px] font-[500] text-white ">Search</p>
     </button>
 </form>
-    <main class="max-w-[1500px] px-[15px] md:px-[20px] py-[50px] mx-auto bg-white ">
-        <section>
+    <main class="max-w-[1500px] px-[15px] md:px-[20px] pb-[50px] mx-auto bg-white ">
+        {% comment %} <section>
             <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap mt-[26px] ">
                 {% for disease in diseases|slice:':7' %}
@@ -128,9 +129,9 @@
                     </a>
                 {% endfor %}
             </div>
-        </section>
-        <section class="pt-[50px]">
-            <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">A methodical approach to arriving at your solution</h3>
+        </section> {% endcomment %}
+        <section class="">
+            {% comment %} <h3 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-[600] text-center">A methodical approach to arriving at your solution</h3> {% endcomment %}
             <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[22px] mt-[30px] grid_4_cards">
                 <div class="bg-[#f0da69] px-[22px] py-[11px] rounded-[20px] flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow ">
                     <div>
