@@ -103,16 +103,16 @@
                   </div>
                   <div class="flex-1">
                         <h1 class="spacility-first-TC-1-h1 text-[{{speciality.color_code}}] font-semibold text-[28px] sm:text-4xl">{{speciality.name}}</h1>
-                        <p class="spacility-first-TC-1-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">{{speciality.available_doctors_count}} best specialist in Pakistan</p>
+                        <p class="spacility-first-TC-1-p1 text-[#24D0D0] text-[18px] sm:text-xl font-semibold">{{speciality.available_doctors_count}} best specialist in Pakistan</p>
                         <p class="spacility-first-TC-1-p2 text-sm sm:text-[16px] text-[#8A8A8A] font-medium line-clamp-4">{{speciality.description}}</p>
                   </div>
             </div>
             <div class="w-[530px] bg-[#24d0d01a] px-6 py-[18px] rounded-xl spacility-first-TC-2">
-                  <p class="spacility-first-TC-2-p1 text-[#24D0D0] text-[18px] sm:text-xl font-[600]">All {{speciality.name}} treatment under Single roof.</p>
+                  <p class="spacility-first-TC-2-p1 text-[#24D0D0] text-[18px] sm:text-xl font-semibold">All {{speciality.name}} treatment under Single roof.</p>
                   <p class="spacility-first-TC-2-p2 text-[#24D0D0] text-sm sm:text-[16px]">{{speciality.available_doctors_count}} Best specialists in pakistan</p>
                   <div class="flex items-center gap-4 mt-2 spacility-first-TC-2-2">
                         <a href="{% url 'BookAppointmentPage' %}?speciality={{speciality.slug}}"
-                              class="spacility-first-TC-2-2-1 border border-[#24d0d0] px-3 py-2 text-[#24D0D0] rounded-md hover:bg-[#24D0D0] hover:text-[#ffffff]">
+                              class="spacility-first-TC-2-2-1 border border-[#24d0d0] px-3 py-2 text-[#24D0D0] rounded-md hover:bg-[#24D0D0] hover:text-white">
                               <p class="">Book Appointment</p>
                         </a>
                         <div class="spacility-first-TC-2-2-1 bg-[#24D0D0] px-4 py-2 rounded-md cursor-pointer border border-[#24D0D0]">
@@ -122,7 +122,7 @@
             </div>
       </div>
       <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Gynecologist-main">{{speciality.speciality_type}} in Pakistan</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-semibold Gynecologist-main">{{speciality.speciality_type}} in Pakistan</h3>
             <div
                   class="mt-4 flex items-center gap-4 relative flex-wrap Gynecologist-main-under">
                   {% for doctor in doctors %}
@@ -131,7 +131,7 @@
             </div>
       </div>
       {% comment %} <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Related-main">Related Hospitals</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-semibold Related-main">Related Hospitals</h3>
             <div class="mt-4 flex items-center gap-[10px] flex-wrap Related-H-cards-main">
                 {% include 'Components/Search/HospitalCard.html' %}
                 {% include 'Components/Search/HospitalCard.html' %}
@@ -139,7 +139,7 @@
             </div>
       </div> {% endcomment %}
       <!-- <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] service-main">Services</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-semibold service-main">Services</h3>
             <div class="mt-4 relative flex items-center gap-4 swiper mySwiper service-cards">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">
@@ -173,7 +173,7 @@
             </div>
       </div> -->
       <!-- <div class="mt-10">
-            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-[600] Packages-main">Packages</h3>
+            <h3 class="text-[#5F5D5D] text-[22px] sm:text-[26px] font-semibold Packages-main">Packages</h3>
             <div class="mt-4 relative flex items-center gap-4 swiper mySwiper ">
                   <div
                         class="absolute flex items-center justify-center w-10 h-10 bg-[#24d0d026] cursor-pointer rounded-full top-[40%] left-[-70px]">

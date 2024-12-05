@@ -18,7 +18,7 @@
                         {% include 'Components/SVG/OTPVPSVG.html' %}
                   </div>
                   <div class="mt-[20px]">
-                        <p class="text-center text-black text-[18px] sm:text-2xl font-[600]">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
+                        <p class="text-center text-black text-[18px] sm:text-2xl font-semibold">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
                         <p class="text-center text-sm sm:text-sm text-[#838383] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
                   </div>
                   <form class="mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">

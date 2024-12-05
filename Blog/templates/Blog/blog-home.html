@@ -18,10 +18,10 @@
 
 
 <section class="add-appoinments-section py-[30px] md:py-[50px] max-w-[1440px] mx-auto px-4 md:px-5 ">
-    <div class="flex items-center justify-center text-center mx-auto max-w-max rounded-[30px] bg-teal-100/50 text-[#24d0d0] px-[12px] mt-7 font-[600] text-sm ">
+    <div class="flex items-center justify-center text-center mx-auto max-w-max rounded-[30px] bg-teal-100/50 text-[#24d0d0] px-[12px] mt-7 font-semibold text-sm ">
         Blogs
     </div>
-    <h2 class="text-center text-[32px] font-[600] text-[#0a1c4b] mt-[10px] ">Our Fresh News</h2>
+    <h2 class="text-center text-[32px] font-semibold text-[#0a1c4b] mt-[10px] ">Our Fresh News</h2>
     <p class="text-center text-sm max-w-[700px] mx-auto font-[400] text-[#0a1c4b] mt-[7px] ">Our healthcare blog is your go-to source for all things health and wellness. Whether you’re a patient, doctor, or hospital administrator, find valuable insights, the latest medical research, and wellness tips. Explore, inform, and inspire better health for all.</p>
     <div class="grid grid-cols-4 gap-[22px] mt-[40px] md:mt-[70px] ">
         {% for post in posts %}
@@ -31,12 +31,12 @@
                     <!-- <div class="flex items-center gap-[12px] ">
                         <div class="bg-cover bg-center bg-no-repeat rounded-[100px] h-[50px] w-[50px] bg-red-300 "></div>
                         <div>
-                            <h2 class="text-sm font-[600] text-[#0a1c4b] line-clamp-1 ">Danish yaqoob</h2>
+                            <h2 class="text-sm font-semibold text-[#0a1c4b] line-clamp-1 ">Danish yaqoob</h2>
                             <p class="text-[13px] font-[400] text-[#0a1c4b]/70 line-clamp-1 ">May 9, 2023</p>
                         </div>
                     </div> -->
                     <p class="line-clamp-1 text-[13px] font-medium text-[#0a1c4b] mt-[7px] leading-[20px] ">{{post.category.name}}</p>
-                    <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-2 text-[20px] font-[600] text-[#0a1c4b] mt-[4px] leading-[26px] ">{{post.title}}</a>
+                    <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-2 text-[20px] font-semibold text-[#0a1c4b] mt-[4px] leading-[26px] ">{{post.title}}</a>
                     <p class="line-clamp-3 text-sm font-medium text-[#0a1c4b]/70 mt-[7px] leading-[20px] ">{{post.content_content}}</p>
                 </div>
             </div>

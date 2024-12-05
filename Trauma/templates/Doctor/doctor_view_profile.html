@@ -123,7 +123,7 @@
 {% block baseBody %}
       <div class="flex gap-4 max-w-[1400px] mx-auto p-4 flex-col lg:flex-row">
             <div class="flex-[2] flex flex-col gap-3">
-                  <div class="bg-white rounded-[20px] px-5 py-7 border">
+                  <div class="bg-white rounded-2xl px-5 py-7 border">
                         <div class="flex gap-7 mb-5 flex-col items-center justify-center md:flex-row">
                               <div class="w-[80px] h-[80px] rounded-full relative" id="userProfileImage" style="background: url({{doctor.profile_image}}); background-position: center; background-size: cover; background-repeat: no-repeat;">
                                     <svg width="95" height="95" viewBox="0 0 250 250" class="circular-progress absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
@@ -141,9 +141,9 @@
                                                       </div>
                                                 {% endif %}
                                           </div>
-                                          <p class="text-[#555555] text-[16px] font-[600]  md:text-start text-center">{{doctor.heading}}</p>
+                                          <p class="text-[#555555] text-[16px] font-semibold  md:text-start text-center">{{doctor.heading}}</p>
                                           <div class="flex items-center justify-center md:justify-start gap-4 my-1">
-                                                <p class="text-[#9A9A9A]">{% if doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-[600] text-black">{{doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
+                                                <p class="text-[#9A9A9A]">{% if doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-semibold text-black">{{doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                                 |
                                                 <div class="flex items-center gap-[8px]">
                                                       <img class="h-[12px] mt-[2px]" src="{% static 'assets/Images/pakistan_flag.png' %}" alt="">
@@ -176,16 +176,16 @@
                               <p class="text-[#9A9A9A] text-center md:text-start">Physiotherapist, Pain Management Specialist, Chiropractor DPT, MPhil (Biomechanics)</p>                        
                         </div> -->
                         <div class="flex flex-col gap-1">
-                              <p class="text-[#555555] text-center md:text-start font-[600] text-xl">About</p>
+                              <p class="text-[#555555] text-center md:text-start font-semibold text-xl">About</p>
                               <p class="text-[#9A9A9A] line-clamp-2 text-center md:text-start">{{doctor.desc|safe}}</p>
                         </div>
                   </div>
                   {% if online_availability|length > 0 %}
                         <div id='AvailableForOnlineVideoConsultation' class="flex flex-col gap-3">
-                              <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Available for Video Consultation</p>
+                              <p class="text-2xl font-semibold text-[#000] Private Clinics-heading">Available for Video Consultation</p>
                               <div>
                                     {% for date, online_ava in online_availability.items %}
-                                          <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 mb-4 rounded-[20px]">
+                                          <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 mb-4 rounded-2xl">
                                                 {% csrf_token %}
                                                 <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
                                                 <div class="">
@@ -204,7 +204,7 @@
                                                             {% endfor %}
                                                       </div>
                                                 </div>
-                                                <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                                                <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
                                                       <p class=" text-center">Book an appointment instantly</p>
                                                       <p class="text-xs text-center">it only takes a second</p>
                                                 </button>
@@ -213,8 +213,8 @@
                               </div>
                         </div>
                   {% endif %}
-                  <div class="rounded-[20px] p-4 flex flex-col gap-2 border items-center lg:items-start">
-                        <p class="text-[#6C6C6C] text-2xl font-[600]">Specialities</p>
+                  <div class="rounded-2xl p-4 flex flex-col gap-2 border items-center lg:items-start">
+                        <p class="text-[#6C6C6C] text-2xl font-semibold">Specialities</p>
                         <div class="flex mt-[10px] lg:mt-[0px] items-center gap-[8px] md:gap-3 flex-wrap justify-center lg:justify-start">
                               {% for speciality in doctor.specialities %}
                                     <a href="{% url 'SingleSpecialityPage' speciality.slug %}" class="group bg-[{{speciality.color_code}}10] transition-all hover:bg-[{{speciality.color_code}}] border border-[{{speciality.color_code}}] cursor-pointer px-2 py-1 rounded-lg ">
@@ -230,20 +230,20 @@
                   </div>
                   <div class="mb-4">
                         <div class="flex items-center my-3 justify-between">
-                              <p class="text-2xl font-[600] text-[#000]">What people think about <i>"{{doctor.name}}"</i></p>
+                              <p class="text-2xl font-semibold text-[#000]">What people think about <i>"{{doctor.name}}"</i></p>
                               {% if doctor_reviews|length > 2 %}
                                     <p class="text-[#24D0D0] underline">View All Reviews</p>
                               {% endif %}
                         </div>
                         <div class="flex items-center gap-4">
                               {% if doctor_reviews|length == 0 %}
-                                    <div class="border px-10 py-16 flex-1 rounded-[20px]">
+                                    <div class="border px-10 py-16 flex-1 rounded-2xl">
                                           <p class="text-2xl font-semibold mb-2 text-center text-slate-700">No Reviews yet</p>
                                           <span class="block text-center text-sm">Be the first to provide a review. <a href="#" class="text-blue-600">Book Appointment</a></span>
                                     </div>
                               {% endif %}
                               {% for review in doctor_reviews|slice:":2" %}
-                                    <div class="border p-6 rounded-[20px]">
+                                    <div class="border p-6 rounded-2xl">
                                           <div class="flex items-center gap-[1px] mt-[12px]">
                                                 <svg width="11" height="19" viewBox="0 0 14 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                       <path d="M6.00197 13.2145C5.46838 16.1492 4.58375 18.2555 3.87465 19.5543C3.60083 20.0668 4.1625 20.6285 4.66098 20.3407C10.5796 16.8934 13.1773 11.8595 13.4932 7.82948C13.774 4.34714 11.401 0.766501 7.7993 0.113561C4.20463 -0.5464 0.757389 1.84069 0.10445 5.44239C-0.576573 9.21259 2.08433 12.8354 6.00197 13.2145Z" fill="#24D0D0"/>
@@ -277,9 +277,9 @@
                               {% endfor %}
                         </div>
                   </div>
-                  <div class="rounded-[20px] p-4 border flex items-start px-3 pl-6">
+                  <div class="rounded-2xl p-4 border flex items-start px-3 pl-6">
                         <div class="flex-1">
-                              <p class="mb-3 text-[#6C6C6C] font-[600] text-center lg:text-start text-2xl">Education</p>
+                              <p class="mb-3 text-[#6C6C6C] font-semibold text-center lg:text-start text-2xl">Education</p>
                               <ul class="education-cards-main">
                                     {% if educations|length == 0 %}
                                           <p>No Education</p>
@@ -290,7 +290,7 @@
                               </ul>
                         </div>
                         <div class="flex-1">
-                              <p class="mb-3 text-2xl text-[#6C6C6C] text-center lg:text-start font-[600]">Experience</p>
+                              <p class="mb-3 text-2xl text-[#6C6C6C] text-center lg:text-start font-semibold">Experience</p>
                               <ul class="">
                                     {% if experiences|length == 0 %}
                                           <p class="text-center w-full">No Education</p>
@@ -302,10 +302,10 @@
                         </div>
                   </div>
                   <div class="border shadow-md rounded-xl p-6" >
-                        <p class="text-[#555555] font-[600] text-xl lg:text-start text-center">Frequently Asked Questions</p>
+                        <p class="text-[#555555] font-semibold text-xl lg:text-start text-center">Frequently Asked Questions</p>
                         <div class="flex  flex-col  gap-[14px] flex-1 mt-10">
                               {% for query in queries %}
-                                    <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-[12px] relative pb-[26px] tc-shadow position-text-main-TC">
+                                    <div class="flex flex-col pt-[80px] rounded-t-3xl rounded-xl relative pb-[26px] tc-shadow position-text-main-TC">
                                           <div class="ask-questions-main rounded-[50px] top-[0%] absolute left-[0] right-[0] px-4 py-[9px] cursor-pointer tc-shadow gap-10  flex items-center justify-between">
                                                 <div class="flex items-center gap-3">
                                                       <img class="ask-questions-main-image h-[40px] w-[40px]" src="{% static 'assets/Images/Ellipse 527.png' %}" alt="">
@@ -331,7 +331,7 @@
                         </div>
                   </div>
                   <div class="border shadow-md p-4 rounded-xl">
-                        <p class="text-[#555555] font-[600] text-center md:text-start text-2xl">Other Suggested</p>
+                        <p class="text-[#555555] font-semibold text-center md:text-start text-2xl">Other Suggested</p>
                         <div class="flex items-center gap-2 mt-3 flex-col md:flex-row">
                               {% for suggested_doctor in suggested %}
                                     <div class="border rounded-xl p-4 flex-1 ">
@@ -339,7 +339,7 @@
                                                 <div class="w-[70px] h-[70px] rounded-lg bg-center bg-cover bg-no-repeat" style="background-image: url({{suggested_doctor.profile_image}});"></div>
                                                 <div>
                                                       <p class="Dermatologist-main-TCp1 text-black font-bold text-xl line-clamp-1">Dr. {{suggested_doctor.name}}</p>
-                                                      <p class="text-[#9A9A9A]">{% if suggested_doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-[600] text-black">{{suggested_doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
+                                                      <p class="text-[#9A9A9A]">{% if suggested_doctor.years_of_experience %}<span class="underline"><span class="text-[18px] font-semibold text-black">{{suggested_doctor.years_of_experience}}</span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                                       {% if suggested_doctor.fee_range %}
                                                             Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.0}}</span>{% if suggested_doctor.fee_range.1 > suggested_doctor.fee_range.0 %} - Rs. <span class="text-[18px] font-bold text-blue-500 italic">{{suggested_doctor.fee_range.1}}</span>{% endif %}
                                                       {% endif %}
@@ -373,21 +373,21 @@
                   </div>
             </div>
             <div class="flex-1 flex flex-col gap-3">
-                  <p class="text-2xl font-[600] text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
+                  <p class="text-2xl font-semibold text-[#000] Private Clinics-heading">Clinics and Hospitals</p>
                   {% if practicing_locations|length == 0 %}
                         <div class="mb-4 rounded-[10px] py-5">
                               <p class="px-10 text-center text-slate-700">The doctor is not affiliated with any hospital and does not have a private clinic.</p>
                         </div>
                   {% endif %}
                   {% for clinic in practicing_locations %}
-                        <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 rounded-[20px]">
+                        <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border p-4 rounded-2xl">
                               {% csrf_token %}
                               <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
                               <div class="flex-1 flex items-center justify-between">
                                     <a href="{% url 'ViewHospitalProfile' clinic.hospital.slug %}" class="flex gap-3 items-start">
                                           <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></div>
                                           <div class="flex-1">
-                                                <p class="line-clamp-1 font-[600] text-[20px] text-[#000]">{{clinic.hospital.name}}</p>
+                                                <p class="line-clamp-1 font-semibold text-[20px] text-[#000]">{{clinic.hospital.name}}</p>
                                                 <p class="line-clamp-2 text-[#9A9A9A] text-sm">{{clinic.location.street_address}}</p>
                                           </div>
                                     </a>
@@ -414,7 +414,7 @@
                                           </div>
                                     {% endwith %}
                               </div>
-                              <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-[12px] block bg-[#0A1C4B] text-[#ffffff]">
+                              <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
                                     <p class=" text-center">Book an appointment instantly</p>
                                     <p class="text-xs text-center">it only takes a second</p>
                               </button>
@@ -446,7 +446,7 @@
                   </script>
                   <div class="sticky top-[100px] bg-white shadow-lg rounded-xl px-4 py-8 flex flex-col items-center gap-3 border">
                         {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
-                        <p class="text-2xl font-[600] text-[#555555] text-center mt-[18px]">Book an Appointment</p>     
+                        <p class="text-2xl font-semibold text-[#555555] text-center mt-[18px]">Book an Appointment</p>     
                         <p class="text-[#9A9A9A] text-center">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                         <div class="flex items-center gap-3 flex-wrap justify-center mt-[16px]">
                               <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="bg-[#24D0D01A] px-6 py-2 rounded-lg border border-[#24D0D0] cursor-pointer hover:bg-[#24D0D0] hover:border-[#24D0D0] hover:text-white text-[#24D0D0]">
