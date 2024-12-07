@@ -17,10 +17,14 @@
         transition: all 0.2s ease-in-out;
     }
     @media (max-width:450px) {
-    .grid_4_cards{
-        grid-template-columns: 1fr;
+        .grid_4_cards{
+            grid-template-columns: 1fr;
+        }
     }
-}
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        content: none;
+    }
 </style>
 
 
@@ -182,15 +186,15 @@
         {% if doctors.length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
-            <p class="text-center text-lg text-[#111111]">No doctors found.</p>
+            <p class="text-center text-sm text-[#111111]">No doctors found.</p>
         {% endif %}
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Reviews That Reflect Our Care</h3>
         {% if application_reviews|length == 0 %}
-            <p class="text-center text-lg text-[#111111]">No review found.</p>
+            <p class="text-center text-sm text-[#111111]">No review found.</p>
         {% else %}
-            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center">
+            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center !mt-16">
                 <div class="{% if application_reviews|length > 3 %} swiper-wrapper {% else %} !flex items-center gap-3 {% endif %} !z-0">
                     {% for review in application_reviews %}
                         <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[350px] w-full !z-0" style="border: none;">
@@ -198,12 +202,25 @@
                         </div>
                     {% endfor %}
                 </div>
-                {% if application_reviews|length > 3 %}
-                    <div class="swiper-pagination"></div>
+                {% if application_reviews|length > 4 %}
+                    <div class="absolute left-0 flex items-center justify-center w-24 h-full">
+                        <button class="left-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                            <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white"/>
+                            </svg>                            
+                        </button>
+                    </div>
+                    <div class="absolute right-0 flex items-center justify-center w-24 h-full">
+                        <button class="right-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                            <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white"/>
+                            </svg>                            
+                        </button>
+                    </div>
                 {% endif %}
             </div>
         {% endif %}
-    </section>    
+    </section>
     <section class="max-w-[1500px] mx-auto relative flex lg:items-center w-full rounded-xl bg-gradient-to-b from-[#312777] to-[#952591] lg:flex-row flex-col">
         <div class="flex-1 p-7 space-y-1">
             <h2 class="text-white text-2xl lg:text-3xl font-semibold !leading-[38px] lg:!leading-[40px]">Rate Our App, <br>Tell Us How’s Your Experience?</h2>
@@ -215,6 +232,28 @@
         <div class="lg:flex-1 w-full flex items-center justify-center lg:justify-end">
             <img class="sm:h-80" src="/static/assets/Images/traumacareAIcare/reviewcard.png" alt="">
         </div>
+    </section>
+    <section class="max-w-[1500px] mx-auto space-y-7">
+        <div class="space-y-2">
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Latest Blogs And News</h3>
+            <p class="text-sm text-[#0A0E19] text-center">We aim to ensure that knowledge and news related to development technologies are readily accessible to all.</p>
+        </div>
+        {% if blog_posts %}
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-5">
+                {% for post in blog_posts %}
+                    <div class="w-full rounded-2xl overflow-hidden border border-[#CACBE6]">
+                        <div class="w-full bg-cover bg-center bg-no-repeat h-[250px]" style="background-image: url({% if post.cover_image.thumbnail %}{{ post.cover_image.thumbnail.url }}{% else %}{{ post.cover_image.image.url }}{% endif %});"></div>
+                        <div class="px-3 py-4 space-y-1">
+                            <div class="text-[#FFFFFF] text-xs font-medium bg-[#0755E9] max-w-max rounded-full px-2.5 py-[3px]">{{ post.category.name }}</div>
+                            <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-1 text-xl font-semibold text-[#0A1C4B]">{{ post.title }}</a>
+                            <p class="line-clamp-2 text-sm font-medium text-[#0A1C4BB2]">{{ post.content_content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>        
+        {% else %}
+            <p class="text-center text-sm text-[#111111]">No blogs found.</p>
+        {% endif %}
     </section>
 </main>
 
@@ -314,28 +353,6 @@
         </section> -->
         <section class="hidden">
             {% include 'Components/GetRegisterd/index.html' %}
-        </section>
-    </main>
-    <main class="w-full">
-        <section class="pt-[50px] max-w-[1500px] py-[50px] px-4 md:px-5 mx-auto">
-            <div class="rounded-[22px] bg-[#E1ECFF] flex items-center justify-center mx-auto max-w-max gap-[4px] py-[4px] px-[12px] ">
-                <span class="bg-[#24D0D0] rounded-[50px] h-[7px] w-[7px] "></span>
-                <p class="text-[12px] text-[#0A1C4B] ">Blog</p>
-            </div>
-            <h2 class="text-[#0A1C4B] text-[22px] sm:text-[30px] md:text-[42px] font-semibold text-center mt-[7px] ">Latest Blogs and News</h2>
-            <p class="text-[16px] md:text-[17px] text-[#0A0E19] mt-[7px] text-center">We aim to ensure that knowledge and news related to development technologies are readily accessible to all.</p>
-            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-[15px] lg:gap-[22px] mt-[42px] ">
-                {% for post in blog_posts %}
-                    <div class="w-full rounded-[9px] overflow-hidden border shadow ">
-                        <div class="w-full bg-cover bg-center bg-no-repeat h-[250px] " style="background-image: url({% if post.cover_image.thumbnail %}{{post.cover_image.thumbnail.url}}{% else %}{{post.cover_image.image.url}}{% endif %});" ></div>
-                        <div class="p-[12px] ">
-                            <div class="text-[#24D0D0] text-[11px] font-medium bg-[#DDF0FF] max-w-max rounded-[30px] px-[11px] py-[4px] ">{{post.category.name}}</div>
-                            <a href="{% url 'PostViewPage' post.slug %}" class="line-clamp-1 text-[21px] font-semibold text-[#0a1c4b] mt-[6px] leading-[26px] ">{{post.title}}</a>
-                            <p class="line-clamp-2 text-sm font-medium text-[#0a1c4b]/70 mt-[6px] leading-[20px] ">{{post.content_content}}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-            </div>
         </section>
     </main>
     <section class="hidden " id="main_review_card">
@@ -492,10 +509,6 @@
         slidesPerView: 6,
         spaceBetween:  20 ,
         loop:true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
         breakpoints : {
             320 :{
                 slidesPerView: 1,
@@ -526,43 +539,70 @@
     })
 
     // 
+    
+    document.addEventListener("DOMContentLoaded", () => {
+        const swiper = new Swiper('.mySwiper0fThreeCards', {
+            slidesPerView: 3,
+            spaceBetween: 10,
+            navigation: {
+                nextEl: '.right-nav',
+                prevEl: '.left-nav',
+            },
+            breakpoints: {
+                320: {
+                    slidesPerView: 1,
+                },
+                650: {
+                    slidesPerView: 2,
+                },
+                800: {
+                    slidesPerView: 3,
+                },
+                768: {
+                    slidesPerView: 3,
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+                1250: {
+                    slidesPerView: 3,
+                },
+                1500: {
+                    slidesPerView: 3,
+                },
+                1600: {
+                    slidesPerView: 4,
+                },
+            },
+            on: {
+                slideChange: function () {
+                    const prevButton = document.querySelector('.left-nav');
+                    const nextButton = document.querySelector('.right-nav');
 
-    document.addEventListener('DOMContentLoaded' , ()=>{
-        var swiper = new Swiper(".mySwiper0fThreeCards", {
-        slidesPerView: 6,
-        spaceBetween:  20 ,
-        loop:true,
-        pagination: {
-            el: ".swiper-pagination",
-            clickable: true,
-        },
-        breakpoints : {
-            320 :{
-                slidesPerView: 1,
-            } ,
-            650: {
-                slidesPerView: 2,
+                    // Show/Hide Prev Button
+                    if (this.isBeginning) {
+                        prevButton.style.display = 'none';
+                    } else {
+                        prevButton.style.display = 'flex';
+                    }
+
+                    // Show/Hide Next Button
+                    if (this.isEnd) {
+                        nextButton.style.display = 'none';
+                    } else {
+                        nextButton.style.display = 'flex';
+                    }
+                },
             },
-            800: {
-                slidesPerView: 3,
-            },
-            768: {
-                slidesPerView: 3,
-            },
-            1024: {
-                slidesPerView: 3,
-            },
-            1250: {
-                slidesPerView: 3,
-            },
-            1500: {
-                slidesPerView: 3,
-            },
-            1600: {
-                slidesPerView: 3,
-            }
-        }
         });
-    })
+
+        // Initially hide buttons if necessary
+        const prevButton = document.querySelector('.left-nav');
+        const nextButton = document.querySelector('.right-nav');
+
+        if (swiper.isBeginning) prevButton.style.display = 'none';
+        if (swiper.isEnd) nextButton.style.display = 'none';
+    });
+
   </script>
 {% endblock main_base_script %}
