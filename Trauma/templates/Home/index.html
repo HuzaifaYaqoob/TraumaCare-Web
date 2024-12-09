@@ -190,6 +190,61 @@
         {% endif %}
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
+        <div class="grid grid-cols-3 gap-5">
+            <div class="bg-gradient-to-b from-[#BF1EF8] to-[#4F37E7] col-span-2 p-5 pb-0 flex items-center gap-2 rounded-2xl">
+                <div class="flex-1 space-y-1">
+                    <p class="text-xs text-white">Join Our Medical Community!</p>
+                    <h2 class="text-white text-4xl font-bold">Are You a Doctor?</h2>
+                    <p class="text-white text-sm">Create your professional profile to connect with patients & peers, enhance your practice, & grow your network!</p>
+                    <a href="/onboarding/?signupAsDoctor=true&onboarding_type=doctor" class="w-full flex items-center justify-between bg-white rounded-lg p-2 cursor-pointer !mt-5">
+                        <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#BD1EF8] to-[#5635E8] text-sm font-semibold">Join Us Now</p>
+                        <span class="rounded-full px-12 bg-gradient-to-b from-[#A424F4] to-[#5137E7] py-2">
+                            <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <g clip-path="url(#clip0_80_127)">
+                                <path d="M12.4987 5.76909C12.7642 6.03464 12.7642 6.4652 12.4987 6.73076L8.17119 11.0582C7.90563 11.3238 7.47508 11.3238 7.20953 11.0582C6.94397 10.7927 6.94397 10.3622 7.20953 10.0966L11.0562 6.24992L7.20953 2.40326C6.94397 2.13771 6.94397 1.70716 7.20953 1.4416C7.47508 1.17604 7.90563 1.17604 8.17119 1.4416L12.4987 5.76909ZM0.797852 5.56992H12.0178V6.92992H0.797852V5.56992Z" fill="white"/>
+                                </g>
+                                <defs>
+                                <clipPath id="clip0_80_127">
+                                <rect width="12" height="11.2" fill="white" transform="translate(0.739258 0.649902)"/>
+                                </clipPath>
+                                </defs>
+                            </svg>                                
+                        </span>
+                    </a>
+                </div>
+                <img class="h-64" src="/static/assets/Images/traumacareAIcare/grid1.png" alt="">
+            </div>
+            <div class="bg-gradient-to-b from-[#56A8FA] to-[#6640EE] p-5 rounded-2xl flex flex-col justify-between gap-1">
+                <div class="space-y-1">
+                    <p class="text-xs text-white">Join Our Medical Community!</p>
+                    <h2 class="text-white text-3xl font-bold">Empower Your Pharmacy!</h2>
+                    <p class="text-white text-sm">Connect with doctors and patients, expand your reach, and offer seamless medicine delivery services.</p>
+                </div>
+                <div class="w-full flex items-center justify-between bg-white rounded-lg p-2 cursor-pointer !mt-5">
+                    <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#6642EE] to-[#57A4FA] text-sm font-semibold">Partner with Us</p>
+                    <span class="rounded-full px-12 bg-gradient-to-b from-[#56A5FA] to-[#5137E7] py-2">
+                        <svg width="13" height="12" viewBox="0 0 13 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <g clip-path="url(#clip0_80_127)">
+                            <path d="M12.4987 5.76909C12.7642 6.03464 12.7642 6.4652 12.4987 6.73076L8.17119 11.0582C7.90563 11.3238 7.47508 11.3238 7.20953 11.0582C6.94397 10.7927 6.94397 10.3622 7.20953 10.0966L11.0562 6.24992L7.20953 2.40326C6.94397 2.13771 6.94397 1.70716 7.20953 1.4416C7.47508 1.17604 7.90563 1.17604 8.17119 1.4416L12.4987 5.76909ZM0.797852 5.56992H12.0178V6.92992H0.797852V5.56992Z" fill="white"/>
+                            </g>
+                            <defs>
+                            <clipPath id="clip0_80_127">
+                            <rect width="12" height="11.2" fill="white" transform="translate(0.739258 0.649902)"/>
+                            </clipPath>
+                            </defs>
+                        </svg>                                
+                    </span>
+                </div>
+            </div>
+            <div class="bg-gradient-to-b from-[#EE498F] to-[#FA5D63]">
+
+            </div>
+            <div class="bg-gradient-to-b from-[#0C1946] to-[#202DA7] col-span-2">
+
+            </div>
+        </div>
+    </section>
+    <section class="max-w-[1500px] mx-auto space-y-7">
         <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Reviews That Reflect Our Care</h3>
         {% if application_reviews|length == 0 %}
             <p class="text-center text-sm text-[#111111]">No review found.</p>
@@ -252,68 +307,12 @@
                 {% endfor %}
             </div>        
         {% else %}
-            <p class="text-center text-sm text-[#111111]">No blogs found.</p>
+            <p class="text-center text-sm text-[#111111]">Blogs not found.</p>
         {% endif %}
     </section>
 </main>
 
 
-
-
-
-<!--  -->
-<!--  -->
-<!--  -->
-
-
-
-
-    <main class="max-w-[1500px] px-[15px] md:px-[20px] pb-[50px] mx-auto bg-white">
-        {% if not request.user.has_doctor_profile or request.user.is_authenticated %}
-            <section class="pt-[50px]">
-                <div class="w-full bg-[#171919] rounded-[22px] relative items-center px-5 sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
-                    <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
-                    <div class="w-full lg:max-w-[560px] w-full z-20 relative ">
-                        <p class="text-sm sm:text-sm text-white font-[300] ">Join Our Medical Community!</p>
-                        <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">Are You a Doctor?</h3>
-                        <p class="text-sm sm:text-sm font-[300] text-white mt-[7px] ">Create your professional profile to connect with patients & peers, enhance your practice, and grow your network!</p>
-                        <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=doctor" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-3 max-w-max ">
-                            <p class="font-medium text-[16px] ">Join Us Now</p>
-                            <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
-                                <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
-                                </svg>                            
-                            </span>
-                        </a>
-                    </div>
-                    <div class="flex lg:flex-1 w-full items-center justify-center lg:justify-end mt-[22px] lg:mt-[0px] z-20 ">
-                        <img class="sm:h-[360px] " src="{% static 'assets/Images/doctor-nurses-special-equipment 1.png' %}" alt="">
-                    </div>
-                </div>
-            </section>
-        {% elif not request.user.has_hospital_profile or request.user.is_authenticated %}
-            <section class="pt-[50px] ">
-                <div class="w-full bg-[#171919] rounded-[22px] relative px-5 sm:px-[50px] sm:pt-[30px] flex items-start justify-between lg:flex-row flex-col ">
-                    <img class="absolute bottom-0 left-0 right-0 w-full h-[300px] z-0 " src="{% static 'assets/Images/doctor-banner-frame.png' %}" alt="">
-                    <div class="w-full lg:max-w-[400px] w-full pt-[22px] sm:pt-[30px] z-20 relative ">
-                        <p class="text-sm sm:text-sm text-white font-[300] ">Join Our Medical Community!</p>
-                        <h3 class="text-[42px] sm:text-[52px] md:text-[62px] text-white font-[700] leading-[46px] mt-[5px] sm:leading-[56px] md:leading-[65px] ">You own a <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Hospital</span> or <span class="px-3 my-0.5 inline-block bg-[#00BECD] rounded-lg">Clinic</span>?</h3>
-                        <p class="text-sm sm:text-sm font-[300] text-white mt-[7px] ">Create your professional profile to connect with Doctors & peers, enhance your practice, and grow your network!</p>
-                        <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=hospital" class="bg-[#00BECD] text-white mt-[18px] rounded-[8px] flex items-center gap-[10px] px-[18px] py-3 max-w-max ">
-                            <p class="font-medium text-[16px] ">Join Us Now</p>
-                            <span class="h-[26px] w-[26px] flex items-center justify-center bg-white rounded-[100px] p-[7px] ">
-                                <svg class="h-full w-full " viewBox="0 0 15 14" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M14.6992 6.39896C15.0311 6.7309 15.0311 7.2691 14.6992 7.60104L9.28982 13.0104C8.95787 13.3424 8.41968 13.3424 8.08774 13.0104C7.75579 12.6785 7.75579 12.1403 8.08774 11.8083L12.8961 7L8.08774 2.19167C7.75579 1.85973 7.75579 1.32154 8.08774 0.989592C8.41968 0.657647 8.95787 0.657647 9.28982 0.989592L14.6992 6.39896ZM0.0731468 6.15H14.0981V7.85H0.0731468V6.15Z" fill="#3B2E71"/>
-                                </svg>                            
-                            </span>
-                        </a>
-                    </div>
-                    <div class="flex lg:flex-1 w-full items-center justify-center lg:justify-end mt-[22px] lg:mt-[0px] z-20 ">
-                        <img class="sm:h-[400px]" src="{% static 'assets/Images/hospital-image.png' %}" alt="">
-                    </div>
-                </div>
-            </section>
-        {% endif %}
         <!-- {% include 'Components/Pharmacy/HomeMedicineSection.html' %} -->
         <!-- <section class="pt-[50px] " >
             <div class="flex items-center justify-between md:flex-row flex-col ">
@@ -351,11 +350,14 @@
                 {% endfor %}
             </div>
         </section> -->
+
+        
+    <main class="max-w-[1500px] px-[15px] md:px-[20px] pb-[50px] mx-auto bg-white">
         <section class="hidden">
             {% include 'Components/GetRegisterd/index.html' %}
         </section>
     </main>
-    <section class="hidden " id="main_review_card">
+    <section class="hidden" id="main_review_card">
         <div class="fixed inset-0 h-[100vh] w-[100vw] bg-[#000]/50 add_review_popup z-50 flex items-center justify-center ">
             <form action="{% url 'handleApplicationReviewSubmit' %}" method="post"  class=" bg-white rounded-3xl px-4 md:px-5 py-3 md:py-5 w-[320px] sm:w-[420px] md:w-[450px] ">
                 {% csrf_token %}
