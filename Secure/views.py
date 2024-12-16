@@ -17,7 +17,7 @@ def handleApplicationReviewSubmit(request):
     ApplicationReview.objects.create(
         user = user if user.is_authenticated else None,
         name = user.full_name if user.is_authenticated else username,
-        email = user.email if user.is_authenticated else 'mobile_number@traumacare.pk',
+        email = user.email if user.is_authenticated else 'mobile_number@traumaaicare.com',
         phone_number = mobile_number,
         rating = star_rating,
         text = content

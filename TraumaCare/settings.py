@@ -35,7 +35,7 @@ DASHBOARD_REDIRECT_URL = env('DASHBOARD_REDIRECT_URL')
 # SECURITY WARNING: don't run with debug turned on in production!
 
 
-ALLOWED_HOSTS = ['traumacare.pk', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ['traumaaicare.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
