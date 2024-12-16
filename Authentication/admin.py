@@ -84,11 +84,13 @@ class CustomUserAdmin(UserAdmin):
     def get_queryset(self, request):
         query_set = super().get_queryset(request)
         query = Q()
+        exclude_query = Q()
         if request.user.is_superuser:
             pass
         elif request.user.is_staff:
             query &= Q(is_admin=True)
             query &= Q(is_staff=True)
-        return query_set.filter(query)
+            exclude_query = Q(is_superuser=True)
+        return query_set.filter(query).exclude(exclude_query)
 
 admin.site.register(User, CustomUserAdmin)
