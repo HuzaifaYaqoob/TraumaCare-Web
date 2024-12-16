@@ -73,8 +73,8 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
     def phone_number(self, user):
-        image_html_tag = '<img style="margin-right:7px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
-        return mark_safe(f'{image_html_tag} {user.mobile_number}')
+        is_mobile_verified = '<img style="margin-right:7px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
+        return mark_safe(f'{is_mobile_verified} {user.mobile_number}')
     
     phone_number.image_tag = True
 admin.site.register(User, CustomUserAdmin)
