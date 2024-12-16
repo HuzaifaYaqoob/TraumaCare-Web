@@ -34,7 +34,7 @@ class CustomUserAdmin(UserAdmin):
     list_display = ['phone_number', 'username', 'email', 'first_name', 'last_name', 'joined_at']
     search_fields = ['id', 'username', 'email', 'country__name']
     ordering = ['-joined_at']
-    list_filter = ['is_mobile_verified', 'joined_at']
+    list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
     inlines = [UserProfileInline]
 
 
