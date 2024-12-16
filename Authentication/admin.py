@@ -77,4 +77,11 @@ class CustomUserAdmin(UserAdmin):
         return mark_safe(f'{is_mobile_verified} {user.mobile_number}')
     
     phone_number.image_tag = True
+
+
+    # Methods 
+    def get_queryset(self, request):
+        query_set = super().get_queryset(request)
+        return query_set
+
 admin.site.register(User, CustomUserAdmin)
