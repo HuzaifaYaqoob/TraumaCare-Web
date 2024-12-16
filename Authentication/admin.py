@@ -1,4 +1,5 @@
 from django.contrib import admin
+from django.db.models import Q
 
 from django.utils.html import mark_safe
 from .models import User
@@ -82,6 +83,12 @@ class CustomUserAdmin(UserAdmin):
     # Methods 
     def get_queryset(self, request):
         query_set = super().get_queryset(request)
-        return query_set
+        query = Q()
+        if request.user.is_superuser:
+            pass
+        elif request.user.is_staff:
+            query &= Q(is_admin=True)
+            query &= Q(is_staff=True)
+        return query_set.filter(query)
 
 admin.site.register(User, CustomUserAdmin)
