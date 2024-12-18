@@ -14,3 +14,11 @@
 .main-footer.float-right.d-none.d-sm-inline{
     display: none !important;
 }
+
+.breadcrumb{
+    align-items: center !important;
+}
+.breadcrumb .breadcrumb-item{
+    display: flex;
+    align-items: center !important;
+}
