@@ -114,7 +114,14 @@ JAZZMIN_SETTINGS = {
     "icons": {
         "authentication": "fas fa-users",
         "authentication.user": "fas fa-user",
+        "hospital": "fas fa-hospital-alt",
+        "hospital.hospital": "fas fa-hospital",
         "doctor": "fas fa-users",
+        "doctor.doctor": "fas fa-user-tie",
+        "doctor.doctoronlineavailability": "fas fa-calendar-day",
+        "doctor.doctorwithhospital": "fas fa-hospital",
+        "task": "fas fa-tasks",
+        "task.task": "fas fa-tasks",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
