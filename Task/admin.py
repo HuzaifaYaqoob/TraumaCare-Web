@@ -54,7 +54,7 @@ class TaskAdmin(admin.ModelAdmin):
     def task(self, task_obj):
         div = f'<div style=""><p style="margin:0;padding:0;font-size:13px;font-weight:400">{task_obj.task_type}</p><p style="margin:0;padding:0;font-size:16px">{task_obj.title}</p></div>'
         return mark_safe(div)
-    creator.admin_order_field = 'title'
+    task.admin_order_field = 'title'
     
     def date(self, task):
         return mark_safe(f'<span><p style="white-space:nowrap;">{task.start_date.strftime("%Y-%m-%d")}</p><p>{task.start_date.strftime("%Y-%m-%d")}</p></span>')
