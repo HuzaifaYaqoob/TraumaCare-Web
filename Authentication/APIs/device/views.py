@@ -94,7 +94,7 @@ def HandleLogin(request):
                 else:
                     username = f'{username}-{random.randint(1000, 9999)}'
 
-            email = f'{username}-{mobile_number}@traumacare.pk'
+            email = f'{username}-{mobile_number}@traumaaicare.com'
             password = f'{username}-{mobile_number}'
             dial_code = '92'
             full_name = f'{full_name} '.split(' ')
