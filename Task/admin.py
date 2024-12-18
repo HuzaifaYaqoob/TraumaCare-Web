@@ -8,7 +8,7 @@ from .models import Task, TaskAttachment
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['task', 'task_priority', 'task_status', 'date', 'assigned', 'creator',]
+    list_display = ['task', 'task_priority', 'task_status', 'date', 'assigned', 'assinged_by',]
 
     exclude = ['created_by', 'start_time', 'end_time']
 
@@ -45,11 +45,11 @@ class TaskAdmin(admin.ModelAdmin):
         return mark_safe(div)
     assigned.admin_order_field = 'assigned_to'
     
-    def creator(self, task):
+    def assinged_by(self, task):
         user = task.created_by
         div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px;white-space:nowrap;">{user.full_name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400">{task.created_at.strftime("%Y-%m-%d %H:%M %p")}</p></span></div>'
         return mark_safe(div)
-    creator.admin_order_field = 'created_by'
+    assinged_by.admin_order_field = 'created_by'
 
     def task(self, task_obj):
         div = f'<div style=""><p style="margin:0;padding:0;font-size:13px;font-weight:400">{task_obj.task_type}</p><p style="margin:0;padding:0;font-size:16px">{task_obj.title}</p></div>'
