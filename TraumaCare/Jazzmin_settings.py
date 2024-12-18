@@ -112,7 +112,7 @@ JAZZMIN_SETTINGS = {
         "authentication": "fas fa-user",
         "authentication.user": "fas fa-user",
         "auth.Group": "fas fa-users",
-        "doctor.doctor": "fa fa-user-doctor",
+        "doctor.doctor": "fas fa-user-doctor",
     },
     # Icons that are used when one is not manually specified
     "default_icon_parents": "fas fa-chevron-circle-right",
