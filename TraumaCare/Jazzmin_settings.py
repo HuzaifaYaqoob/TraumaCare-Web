@@ -55,12 +55,13 @@ JAZZMIN_SETTINGS = {
         # Url that gets reversed (Permissions can be added)
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["doctor.view_doctor"]},
+        {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["task.view_task"]},
 
         # external url that opens in a new window (Permissions can be added)
         # {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
 
         # model admin to link to (Permissions checked against model)
-        {"model": "auth.User"},
+        {"model": "authentication.user"},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
         {"app": "books"},
