@@ -246,4 +246,9 @@ try:
 except:
     pass
 
+try:
+    from .Jazzmin_settings import *
+except:
+    pass
+
 DEBUG = True

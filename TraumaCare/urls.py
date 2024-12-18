@@ -7,12 +7,14 @@ from django.conf.urls.static import static
 
 
 from Trauma.views import test, searchFilterPage, CartPage
+from .views import set_language
 
 urlpatterns = [
     path('admin/', admin.site.urls),
 
 
 
+    path('set_language/',  set_language, name='set_language'),
     path('application/',  include('Secure.urls')),
     path('api/',  include('Api.urls')),
     path('auth/',  include('Authentication.urls')),
