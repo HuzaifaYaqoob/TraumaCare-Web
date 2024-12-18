@@ -32,7 +32,7 @@ class UserProfileInline(admin.StackedInline):
 
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ['phone_number', 'username', 'email', 'first_name', 'last_name', 'joined_at']
+    list_display = ['phone_number', 'email', 'first_name', 'last_name', 'joined_at']
     search_fields = ['id', 'username', 'first_name', 'last_name', 'email', 'country__name']
     ordering = ['-joined_at']
     list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
@@ -81,8 +81,11 @@ class CustomUserAdmin(UserAdmin):
         ),
     )
     def phone_number(self, user):
-        is_mobile_verified = '<img style="margin-right:7px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
-        return mark_safe(f'{is_mobile_verified} {user.mobile_number}')
+
+        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
+        is_mobile_verified = f'{is_mobile_verified} {user.mobile_number}'
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">{user.full_name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400">{is_mobile_verified}</p></span></div>'
+        return mark_safe(div)
     
     phone_number.image_tag = True
 
