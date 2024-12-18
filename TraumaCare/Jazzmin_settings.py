@@ -54,7 +54,9 @@ JAZZMIN_SETTINGS = {
 
         # Url that gets reversed (Permissions can be added)
         {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
+        {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["hospital.view_hospital"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["doctor.view_doctor"]},
+        {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["appointment.view_appointment"]},
         {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["task.view_task"]},
 
         # external url that opens in a new window (Permissions can be added)
