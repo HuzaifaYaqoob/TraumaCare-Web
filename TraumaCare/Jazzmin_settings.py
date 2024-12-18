@@ -1,6 +1,6 @@
 
 def getUserImage(user, *args, **kwargs):
-    return user.profile_image
+    return user.profile_image if user.profile_image else 'https://ionicframework.com/docs/img/demos/avatar.svg'
 
 
 JAZZMIN_SETTINGS = {
