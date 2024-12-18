@@ -22,3 +22,18 @@
     display: flex;
     align-items: center !important;
 }
+
+.related-widget-wrapper .selector,
+.related-widget-wrapper .selector .selector-available,
+.related-widget-wrapper .selector .selector-chosen,
+.related-widget-wrapper .selector .selector-chooser{
+    float: none !important;
+    width: 100%;
+}
+.related-widget-wrapper .selector .selector-chooser{
+    margin: 0 !important;
+}
+.field-user_permissions{
+    max-width: 100% !important;
+    flex: 1 !important;
+}
