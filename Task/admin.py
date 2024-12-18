@@ -8,7 +8,7 @@ from .models import Task, TaskAttachment
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['task', 'task_priority', 'date', 'task_status', 'assigned', 'creator',]
+    list_display = ['task', 'task_priority', 'task_status', 'date', 'assigned', 'creator',]
 
     exclude = ['created_by', 'start_time', 'end_time']
 
