@@ -134,7 +134,7 @@ class User(AbstractBaseUser, PermissionsMixin):
                 profile_type = 'Patient'
             )
         except:
-            return None
+            return 'https://ionicframework.com/docs/img/demos/avatar.svg'
         else:
             return general_profile.image_full_path
     
