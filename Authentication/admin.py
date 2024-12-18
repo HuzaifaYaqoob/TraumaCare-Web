@@ -39,21 +39,21 @@ class CustomUserAdmin(UserAdmin):
     inlines = [UserProfileInline]
 
 
-    add_fieldsets = (
-        (
-            None,
-            {
-                "classes": ("wide",),
-                "fields": (
-                    "email",
-                    "password",
-                    "username",
-                    # "first_name",
-                    # "last_name",
-                ),
-            },
-        ),
-    )
+    # add_fieldsets = (
+    #     (
+    #         'Create User',
+    #         {
+    #             "classes": ("wide",),
+    #             "fields": (
+    #                 # "email",
+    #                 "password",
+    #                 "username",
+    #                 # "first_name",
+    #                 # "last_name",
+    #             ),
+    #         },
+    #     ),
+    # )
     fieldsets = (
         ("Personal info", {"fields": (
                             "first_name",

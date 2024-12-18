@@ -17,12 +17,14 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
 
 
     user_name = instance.username
+    first_name = instance.first_name or user_name
+    last_name = instance.last_name or user_name
 
     user_profile = Profile(
         user = instance,
-        first_name = instance.first_name,
-        last_name = instance.last_name,
-        full_name = f'{instance.first_name} {instance.last_name}'.strip(),
+        first_name = first_name,
+        last_name = last_name,
+        full_name = f'{first_name} {last_name}'.strip(),
         email = instance.email,
     )
     user_profile.is_selected = True
