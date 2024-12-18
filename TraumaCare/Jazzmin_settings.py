@@ -1,3 +1,8 @@
+
+def getUserImage(user, *args, **kwargs):
+    return user.profile_image
+
+
 JAZZMIN_SETTINGS = {
     # title of the window (Will default to current_admin_site.site_title if absent or None)
     "site_title": "Trauma AI Care",
@@ -38,7 +43,7 @@ JAZZMIN_SETTINGS = {
     ],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
-    "user_avatar": "assets/Images/small_logo.png",
+    "user_avatar": getUserImage,
 
     ############
     # Top Menu #
