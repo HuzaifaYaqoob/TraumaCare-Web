@@ -62,4 +62,9 @@ class TaskAdmin(admin.ModelAdmin):
     
     def get_queryset(self, request):
         query_set = super().get_queryset(request)
-        return query_set
+        query = Q()
+        if request.user.is_superuser:
+            pass
+        elif request.user.is_staff:
+            query &= (Q(assigned_to=request.user | Q(created_by=request.user)))
+        return query_set.filter(query)
