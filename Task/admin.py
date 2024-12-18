@@ -8,9 +8,9 @@ from .models import Task, TaskAttachment
 
 @admin.register(Task)
 class TaskAdmin(admin.ModelAdmin):
-    list_display = ['title', 'task_priority', 'task_type', 'start_date', 'end_date', 'task_status', 'created_by', 'assigned_to', 'created_at']
+    list_display = ['title', 'task_priority', 'task_type', 'start_date', 'end_date', 'task_status', 'assigned', 'creator',]
 
-    exclude = ['created_by']
+    exclude = ['created_by', 'start_time', 'end_time']
 
     def save_model(self, request, obj, form, change):
         if not change:
@@ -37,3 +37,12 @@ class TaskAdmin(admin.ModelAdmin):
             color = 'Green'
         return mark_safe(f'<span style="color: {color}; font-weight: bold;">{task.status}</span>')
     
+    def assigned(self, task):
+        user = task.assigned_to
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span><p style="margin:0;padding:0;font-size:16px">{user.full_name}</p></div>'
+        return mark_safe(div)
+    
+    def creator(self, task):
+        user = task.created_by
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">{user.full_name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400">{task.created_at.strftime("%Y-%m-%d %H:%M:%S")}</p></span></div>'
+        return mark_safe(div)
