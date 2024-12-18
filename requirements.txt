@@ -22,7 +22,6 @@ django-environ==0.11.2
 django-jazzmin==2.6.0
 djangorestframework==3.14.0
 frozenlist==1.4.1
-GDAL==3.9.0
 geoip2==4.8.0
 h11==0.14.0
 httpcore==1.0.2
