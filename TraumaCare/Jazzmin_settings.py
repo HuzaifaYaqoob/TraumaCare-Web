@@ -53,7 +53,8 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["Authentication.view_user"]},
+        {"name": "Home",  "url": "admin:index", "permissions": []},
+        {"name": "Users",  "url": "/admin/Authentication/user/", "permissions": ["Authentication.view_user"]},
         {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["Hospital.view_hospital"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
         {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["Appointment.view_appointment"]},
