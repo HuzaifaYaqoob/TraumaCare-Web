@@ -39,7 +39,7 @@ JAZZMIN_SETTINGS = {
     "search_model": [
         "Authentication.User", 
         # "auth.Group",
-        # "Doctor.Doctor",
+        "Doctor.Doctor",
     ],
 
     # Field name on user model that contains avatar ImageField/URLField/Charfield or a callable that receives the user
