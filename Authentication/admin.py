@@ -98,8 +98,8 @@ class CustomUserAdmin(UserAdmin):
         if request.user.is_superuser:
             pass
         elif request.user.is_staff:
-            query &= Q(is_admin=True)
-            query &= Q(is_staff=True)
+            # query &= Q(is_admin=True)
+            # query &= Q(is_staff=True)
             exclude_query = Q(is_superuser=True)
         return query_set.filter(query).exclude(exclude_query)
 
