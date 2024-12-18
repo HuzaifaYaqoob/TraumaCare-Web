@@ -66,5 +66,8 @@ class TaskAdmin(admin.ModelAdmin):
         if request.user.is_superuser:
             pass
         elif request.user.is_staff:
-            query &= (Q(assigned_to=request.user | Q(created_by=request.user)))
-        return query_set.filter(query)
+            query_set = query_set.filter(
+                Q(created_by = request.user) |
+                Q(assigned_to = request.user)
+            )
+        return query_set
