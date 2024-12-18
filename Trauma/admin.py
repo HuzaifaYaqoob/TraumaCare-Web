@@ -3,7 +3,8 @@ from django.contrib import admin
 from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode
 
 # Register your models here.
-
+admin.site.site_header = 'Trauma AI Care | Staff Portal'
+admin.site.site_title = 'Trauma AI Care | Staff Portal'
 
 
 @admin.register(Speciality)
