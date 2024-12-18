@@ -55,7 +55,7 @@ class Profile(models.Model):
         verbose_name_plural = 'Profiles'
 
     def __str__(self):
-        return f'{self.email} - {self.full_name} - - {self.id}'
+        return f'{self.email} - {self.full_name}({self.profile_type}) - - {self.id}'
 
     @property
     def profile_label(self):
