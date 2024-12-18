@@ -74,6 +74,7 @@ INSTALLED_APPS = [
     'Blog.apps.BlogConfig',
     'AskDoctor.apps.AskdoctorConfig',
     'Meet.apps.MeetConfig',
+    'Task.apps.TaskConfig',
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
