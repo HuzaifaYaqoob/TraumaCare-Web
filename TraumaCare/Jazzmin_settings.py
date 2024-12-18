@@ -53,11 +53,11 @@ JAZZMIN_SETTINGS = {
     "topmenu_links": [
 
         # Url that gets reversed (Permissions can be added)
-        {"name": "Home",  "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["hospital.view_hospital"]},
+        {"name": "Home",  "url": "admin:index", "permissions": ["Authentication.view_user"]},
+        {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["Hospital.view_hospital"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
         {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["Appointment.view_appointment"]},
-        {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["task.view_task"]},
+        {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["Task.view_task"]},
 
         # external url that opens in a new window (Permissions can be added)
         # {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
