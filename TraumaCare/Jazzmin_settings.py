@@ -77,7 +77,7 @@ JAZZMIN_SETTINGS = {
     # Additional links to include in the user menu on the top right ("app" url type is not allowed)
     "usermenu_links": [
         # {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
-        {"model": "auth.user"}
+        {"model": "Authentication.User"}
     ],
 
     #############
@@ -97,7 +97,7 @@ JAZZMIN_SETTINGS = {
     "hide_models": [],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    "order_with_respect_to": ["authentication", "hospital", "doctor", "doctor.doctor", 'appointment'],
+    "order_with_respect_to": ["authentication", "hospital", "doctor", "doctor.doctor", 'appointment', 'task'],
 
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
