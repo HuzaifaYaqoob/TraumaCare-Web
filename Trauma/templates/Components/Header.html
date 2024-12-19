@@ -20,18 +20,18 @@
     <img class="absolute z-0 top-0 left-[15%] select-none" src="/static/assets/Images/traumacareAIcare/haederleft.png" alt="">
     <img class="absolute z-0 top-0 right-[10%] select-none" src="/static/assets/Images/traumacareAIcare/haederright.png" alt="">
 </div>
-<header class='bg-white sticky top-0 relative z-50 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 {% if not is_search_page %} {% endif %}'>
+<header class='bg-transparent sticky top-0 relative z-50 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 {% if not is_search_page %} {% endif %}'>
     <div class="max-w-[1500px] mx-auto w-full flex items-center gap-2 justify-between">
         <div class="flex gap-3">
             <div>
-                <div class="border border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
+                <div class="border bg-white border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
                     <a href="/"><img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt=""></a>
                     <div class="h-[32px] w-[1px] bg-[#CACBE6]"></div>
                     <p class="text-[#333333] text-xs line-clamp-2">Health, without<br>the hassle</p>
                 </div>
             </div>
             <div class="hidden xl:block flex-1">
-                <div class="hidden md:flex items-center gap-5 rounded-xl px-4 py-3 border border-[#CACBE6]">
+                <div class="hidden md:flex items-center gap-5 rounded-xl px-4 py-3 border bg-white border-[#CACBE6]">
                     <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C]">Doctors
                         <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
                         <!-- group-hover:block -->
@@ -181,7 +181,7 @@
                 </div>
             {% endif %}
             <div class="hidden md:block">
-                <div class="border px-3 py-3 rounded-xl flex gap-2 items-center border-[#CACBE6]">
+                <div class="border bg-white px-3 py-3 rounded-xl flex gap-2 items-center border-[#CACBE6]">
                     {% if request.country_flag %}
                         <img class="w-7 sm:w-6 drop-shadow" src="{{request.country_flag}}" alt="">
                     {% endif %}
@@ -191,7 +191,7 @@
             {% if request.user.is_authenticated %}
             {% else %}
                 <div class="sm:block hidden">
-                    <div class="border p-1.5 rounded-xl flex border-[#CACBE6]">
+                    <div class="border p-1.5 rounded-xl flex border-[#CACBE6] bg-white">
                         <a href="/auth/login/" class="font-medium text-[#3C3C3C] px-3.5 py-1.5 text-md">
                             Login
                         </a>
