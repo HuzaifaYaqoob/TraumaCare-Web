@@ -216,13 +216,15 @@ class Doctor(models.Model):
                 ).order_by('start_time')
                 if slots.exists():
                     slot = slots[0]
-                    if i == 0:
-                        data['date'] = 'Today'
-                    else:
-                        data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
-                    data['slots'] = slot.slots_interval
-                    data['fee'] = slot.fee
-                    break
+                    slot_slots = slot.slots_interval
+                    if slot_slots and len(slot_slots) > 0
+                        if i == 0:
+                            data['date'] = 'Today'
+                        else:
+                            data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
+                        data['slots'] = slot_slots[:4]
+                        data['fee'] = slot.fee
+                        break
             current_date_iter = current_date_iter + timedelta(days=1)
         
         return data
