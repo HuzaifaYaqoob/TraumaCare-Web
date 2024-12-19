@@ -36,12 +36,12 @@
       </p>
     </div>
     <!-- {{doct_availability}} -->
-    <div class="border-t border-[#D3D3D3] pt-[19px]">
+    <div class="border-t border-[#D3D3D3] pt-[14px]">
       <div class="flex items-center justify-between gap-2">
         <p class="outfit-font font-semibold text-[16px] text-[#151E2C]">{{doct_availability.date}}</p>
         <p class="font-bold italic text-[18px] text-[#151E2C]">{{doct_availability.fee}} PKR</p>
       </div>
-      <div class="grid grid-cols-3 gap-2 mt-[5px]">
+      <div class="grid grid-cols-3 gap-2 mt-[12px]">
         {% for slot in doct_availability.slots %}
           <div class="rounded-full bg-[#0755E9] cursor-pointer">
             <p class="font-semibold text-white text-center text-[16px] px-1 py-2">{{slot.1}}</p>
