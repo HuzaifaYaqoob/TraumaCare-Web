@@ -309,7 +309,7 @@ def getDoctorHospitalSlots(request, doctor_id, hospital_id):
         day__day = day_name,
         doctor = doctor_id,
         **query
-    )
+    ).order_by('start_time')
 
     data = []
     today_date = datetime.now().date()
