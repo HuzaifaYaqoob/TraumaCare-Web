@@ -108,6 +108,7 @@ class LocationContactAdmin(admin.ModelAdmin):
         'contact_type',
         'contact_title',
         'email',
+        'mobile_number',
     ]
 
 @admin.register(HospitalMedia)
