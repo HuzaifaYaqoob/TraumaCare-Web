@@ -220,7 +220,7 @@ class Doctor(models.Model):
                         data['date'] = 'Today'
                     else:
                         data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
-                    data['slots'] = slot.slots_interval[:4]
+                    data['slots'] = slot.slots_interval
                     data['fee'] = slot.fee
                     break
             current_date_iter = current_date_iter + timedelta(days=1)
