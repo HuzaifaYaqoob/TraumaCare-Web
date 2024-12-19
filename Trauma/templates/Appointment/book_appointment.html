@@ -250,21 +250,24 @@
                                             // inner_div.append(p)
                                             // intervals_div?.append(inner_div)
                                             intervals_div.remove()
+                                            div.remove()
                                         }
-                                        slot?.intervals?.forEach((interval, index) => {
-                                            let int_div = document.createElement('div')
-                                            int_div.className = ''
+                                        else{
+                                            slot?.intervals?.forEach((interval, index) => {
+                                                let int_div = document.createElement('div')
+                                                int_div.className = ''
 
-                                            let slot_html = `
-                                                    <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                    <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
-                                            `
-                                            int_div.innerHTML = slot_html
-                                            intervals_div.append(int_div)
-                                        })
+                                                let slot_html = `
+                                                        <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
+                                                        <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                                `
+                                                int_div.innerHTML = slot_html
+                                                intervals_div.append(int_div)
+                                            })
 
-                                        div.append(intervals_div)
-                                        ShowTimeSlots.append(div)
+                                            div.append(intervals_div)
+                                            ShowTimeSlots.append(div)
+                                        }
                                     })
                                     ShowTimeSlots.removeAttribute('loading')
                                     ShowTimeSlots.querySelectorAll('input[name="selected_time"]').forEach(input => {
