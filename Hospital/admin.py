@@ -15,6 +15,8 @@ class HospitalLocationInline(admin.TabularInline):
         # "country",
         "state",
         "city",
+        "lat",
+        "lng",
     ]
 
 
