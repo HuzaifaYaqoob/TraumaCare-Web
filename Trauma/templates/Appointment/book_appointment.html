@@ -241,14 +241,15 @@
                                         let intervals_div = document.createElement('div')
                                         intervals_div.className = 'flex gap-3 flex-wrap'
                                         if (slot?.intervals?.length == 0) {
-                                            intervals_div.className = ''
-                                            let inner_div = document.createElement('div')
-                                            inner_div.className = 'px-4 py-2 rounded-3xl'
-                                            let p = document.createElement('p')
-                                            p.className = 'text-center'
-                                            p.innerHTML = 'No slots available'
-                                            inner_div.append(p)
-                                            intervals_div?.append(inner_div)
+                                            // intervals_div.className = ''
+                                            // let inner_div = document.createElement('div')
+                                            // inner_div.className = 'px-4 py-2 rounded-3xl'
+                                            // let p = document.createElement('p')
+                                            // p.className = 'text-center'
+                                            // p.innerHTML = 'No slots available'
+                                            // inner_div.append(p)
+                                            // intervals_div?.append(inner_div)
+                                            intervals_div.remove()
                                         }
                                         slot?.intervals?.forEach((interval, index) => {
                                             let int_div = document.createElement('div')
