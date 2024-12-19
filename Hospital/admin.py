@@ -79,6 +79,16 @@ class HospitalAdmin(admin.ModelAdmin):
 
 @admin.register(HospitalLocation)
 class HospitalLocationAdmin(admin.ModelAdmin):
+    list_filter = [
+        'hospital'
+    ]
+    search_fields = [
+        'name',
+        'hospital__name',
+        'street_address',
+        'lat',
+        'lng',
+    ]
     list_display = [
         'name',
         'hospital',
