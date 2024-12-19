@@ -21,7 +21,11 @@ from datetime import datetime
 def homePage(request):
     context = {}
 
-    doctors = Doctor.objects.all()
+    doctors = Doctor.objects.filter(
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False,
+    )
     print(doctors)
     context['doctors'] = doctors
     context['blog_posts'] = BlogPost.objects.order_by('-created_at')[:8]
