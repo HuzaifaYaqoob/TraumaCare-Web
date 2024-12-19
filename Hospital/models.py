@@ -67,7 +67,7 @@ class Hospital(models.Model):
 
     
     def hospital_admin_card(self, tag_line=None):
-        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image.file.url if self.profile_image else "https://ionicframework.com/docs/img/demos/avatar.svg"}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px;font-weight:600;color:#007bff">Dr. {self.name}</p>{f'<p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{tag_line}</p>' if tag_line else ''}</span></div>'
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image.file.url if self.profile_image else "https://ionicframework.com/docs/img/demos/avatar.svg"}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px;font-weight:600;color:#007bff">{self.name}</p>{f'<p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{tag_line}</p>' if tag_line else ''}</span></div>'
         return mark_safe(div)
     
     def save(self, *args, **kwargs):
