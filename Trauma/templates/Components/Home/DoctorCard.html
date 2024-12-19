@@ -12,20 +12,28 @@
     </div>
     <div class="flex-1 space-y-1">
       {% include 'Components/Ratings.html' with rating=2 reviews=21 %}
-      <p class="text-[#0755E9] line-clamp-2 text-[13px]">
+      <p class="text-[#0755E9] line-clamp-2 !mt-0 text-[13px]">
         {{doctor.heading}}
       </p>
       {% if doctor.is_available_today %}
         <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
       {% endif %}
-      <div class="flex items-center gap-3">
+      <!-- <div class="flex items-center gap-3">
         {% if doctor.fee_range %}
           <p class="whitespace-nowrap">Rs. <span class="text-lg font-bold text-blue-500 italic">{{doctor.fee_range.0}}</span>{% if doctor.fee_range.1 > doctor.fee_range.0 %} - <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.1}}</span>{% endif %}</p>
         {% endif %}
-      </div>
+      </div> -->
     </div>
   </div>
-  <div class="flex flex-wrap gap-1.5 mt-5">
+  <div>
+    <p class="text-[#0A1C4B] text-sm line-clamp-2 text-[14px] text-[#3C3C3C]">
+      {{doctor.desc}}
+    </p>
+  </div>
+  <div>
+    
+  </div>
+  <!-- <div class="flex flex-wrap gap-1.5 mt-5">
     {% for speciality in doctor.get_specialities|slice:':4' %}
         <a href="{% url 'SingleSpecialityPage' speciality_slug=speciality.slug %}?source=DoctorProfileCard&doctor_uri={{doctor.slug}}" class=" cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-[5px] px-2 border border-[#C9C9C9] rounded-[7px] hover:border-[{{speciality.color_code}}]">
           <span class="flex items-center justify-center h-[20px] w-[20px] ">
@@ -44,7 +52,7 @@
     <a href="/doctor/profile/view/{{doctor.slug}}#AvailableForOnlineVideoConsultation" class="cursor-pointer py-1 px-4 text-sm font-regular text-white flex items-center justify-center tracking-normal rounded-md bg-[#23d0d0]">
       Consult Online
     </a>
-  </div>
+  </div> -->
   <div class="py-3 px-5 border-t border-[#D3D3D3] flex items-center justify-between">
     <div class="flex items-center gap-1">
       <p class="text-[#8ca5c9] text-sm font-medium capitalize">satisfaction</p>
