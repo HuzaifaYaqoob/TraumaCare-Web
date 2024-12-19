@@ -217,7 +217,7 @@ class Doctor(models.Model):
                 if slots.exists():
                     slot = slots[0]
                     slot_slots = slot.slots_interval
-                    if slot_slots and len(slot_slots) > 0
+                    if slot_slots and len(slot_slots) > 0:
                         if i == 0:
                             data['date'] = 'Today'
                         else:
