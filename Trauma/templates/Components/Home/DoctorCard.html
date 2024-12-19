@@ -12,7 +12,7 @@
     </div>
     <div class="flex-1 space-y-1">
       {% include 'Components/Ratings.html' with rating=2 reviews=21 %}
-      <p class="text-[#0755E9] line-clamp-2 !mt-0 text-[13px]">
+      <p class="text-[#0755E9] line-clamp-1 !mt-0 text-[13px]">
         {{doctor.heading}}
       </p>
       {% if doctor.is_available_today %}
@@ -31,7 +31,7 @@
     </p>
   </div>
   <div>
-    
+
   </div>
   <!-- <div class="flex flex-wrap gap-1.5 mt-5">
     {% for speciality in doctor.get_specialities|slice:':4' %}
