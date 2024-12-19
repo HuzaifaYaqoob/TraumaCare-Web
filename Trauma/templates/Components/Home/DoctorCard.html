@@ -1,23 +1,23 @@
 {% load static %}
 
-<div class="gap-5 rounded-xl relative bg-white border border-[#CACBE6] max-w-[360px] w-full px-5 py-3 space-y-2">
-  <a href="/doctor/profile/view/{{doctor.slug}}" class="text-[#151E2C] capitalize text-[22px] font-semibold tracking-wide cursor-pointer line-clamp-1">
+<div class="gap-5 rounded-[20px] relative bg-white border border-[#CACBE6] max-w-[360px] w-full px-5 py-3 space-y-2">
+  <a href="/doctor/profile/view/{{doctor.slug}}" class="outfit-font text-[#151E2C] capitalize text-[24px] font-semibold tracking-wide cursor-pointer line-clamp-1">
     Dr. {{doctor.name}}
   </a>
   <div class="flex items-start gap-4">
-    <div class="size-24 rounded-full relative cursor-pointer bg-center border-[0.5px] border-[#3C3C3C] bg-cover bg-no-repeat" style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');">
+    <div class="size-[90px] rounded-full relative cursor-pointer bg-center border-[0.5px] border-[#3C3C3C] bg-cover bg-no-repeat" style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');">
       <span class="absolute size-6 bg-[#0755E9] rounded-full flex items-center justify-center right-0 bottom-0">
         <svg class="fill-white size-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 128C0 92.7 28.7 64 64 64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2l0 256c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1l0-17.1 0-128 0-17.1 14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"/></svg>
       </span>
     </div>
     <div class="flex-1 space-y-1">
-      <div class="flex items-center">
-
-      </div>
-      <p class="text-[#0755E9] font-medium line-clamp-2 text-sm">
+      {% include 'Components/Ratings.html' with rating=2 reviews=21 %}
+      <p class="text-[#0755E9] line-clamp-2 text-[13px]">
         {{doctor.heading}}
       </p>
-      <p class="rounded-md py-2 px-3 bg-[#05DC7533] text-[#009455] text-xs max-w-max">Available Today</p>
+      {% if doctor.is_available_today %}
+        <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
+      {% endif %}
       <div class="flex items-center gap-3">
         {% if doctor.fee_range %}
           <p class="whitespace-nowrap">Rs. <span class="text-lg font-bold text-blue-500 italic">{{doctor.fee_range.0}}</span>{% if doctor.fee_range.1 > doctor.fee_range.0 %} - <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.1}}</span>{% endif %}</p>
