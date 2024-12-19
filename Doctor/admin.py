@@ -170,18 +170,19 @@ class DoctorSpecialityAdmin(admin.ModelAdmin):
 @admin.register(DoctorTimeSlots)
 class DoctorTimeSlotsAdmin(admin.ModelAdmin):
     list_filter = [
-        'doctor'
+        'doctor',
+        'doc_hospital__hospital',
     ]
     list_display = [
         'doc',
-        'title',
+        'hos',
         'day',
-        'availability_type',
+        # 'availability_type',
         'start_time',
         'end_time',
         'fee',
         'discount',
-        'service_fee',
+        # 'service_fee',
         'is_active',
     ]
 
@@ -189,6 +190,13 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
     def doc(self, d):
         return d.doctor.doctor_admin_card()
     doc.admin_order_field = 'doctor'
+
+    @admin.display(description='Hospital')
+    def hos(self, d):
+        if d.doc_hospital:
+            return d.doc_hospital.hospital.hospital_admin_card(tag_line=d.title)
+        return f'{d.availability_type} Slot'
+    hos.admin_order_field = 'hospital'
 
 
 @admin.register(DoctorReview)
@@ -198,10 +206,15 @@ class DoctorReviewAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorWithHospital)
 class DoctorWithHospitalAdmin(admin.ModelAdmin):
+    list_filter = [
+        'doctor',
+        'hospital',
+        'is_active',
+    ]
     list_display = [
         'doc',
-        'hospital',
-        'location',
+        'hos',
+        # 'location',
         'phone',
         'is_active',
     ]
@@ -209,4 +222,9 @@ class DoctorWithHospitalAdmin(admin.ModelAdmin):
     def doc(self, d):
         return d.doctor.doctor_admin_card()
     doc.admin_order_field = 'doctor'
+
+    @admin.display(description='Hospital')
+    def hos(self, d):
+        return d.hospital.hospital_admin_card(tag_line=d.location.street_address)
+    hos.admin_order_field = 'hospital'
 
