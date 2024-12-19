@@ -178,7 +178,7 @@ class Doctor(models.Model):
     
     
     def doctor_admin_card(self):
-        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p><p style="margin:0;padding:0;font-size:13px">{self.mobile_number}</p></span></div>'
+        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.mobile_number}</p></span></div>'
         return mark_safe(div)
     
     class Meta:
