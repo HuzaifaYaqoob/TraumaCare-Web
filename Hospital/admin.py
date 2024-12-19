@@ -80,10 +80,16 @@ class HospitalAdmin(admin.ModelAdmin):
 @admin.register(HospitalLocation)
 class HospitalLocationAdmin(admin.ModelAdmin):
     list_display = [
-        'id',
-        'hospital',
         'name',
+        'hospital',
+        'street_address',
+        'location',
+        'lat',
+        'lng',
     ]
+
+    def location(self, location):
+        return f'{location.country.name if location.country else "Pakistan"} > {location.state.name if location.state else "---"} > {location.city.name if location.city else "---"}'
 
 @admin.register(LocationContact)
 class LocationContactAdmin(admin.ModelAdmin):
