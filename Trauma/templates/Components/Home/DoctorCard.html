@@ -11,7 +11,7 @@
       </span>
     </div>
     <div class="flex-1 space-y-1">
-      {% include 'Components/Ratings.html' with rating=2 reviews=21 %}
+      {% include 'Components/Ratings.html' with rating=doctor.total_reviews reviews=21 %}
       <p class="text-[#0755E9] line-clamp-1 !mt-0 text-[13px]">
         {{doctor.heading}}
       </p>
