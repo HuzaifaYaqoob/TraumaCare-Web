@@ -25,8 +25,6 @@ def homePage(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
-    ).annotate(
-        total_reviews = Count('doctor_reviews__rating'),
     )
     print(doctors)
     context['doctors'] = doctors
