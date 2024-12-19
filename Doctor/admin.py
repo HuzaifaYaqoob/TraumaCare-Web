@@ -176,7 +176,7 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
     list_display = [
         'doc',
         'hos',
-        'day',
+        'available_day',
         'title',
         'start_time',
         'end_time',
@@ -185,6 +185,11 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
         # 'service_fee',
         'is_active',
     ]
+
+    @admin.display(description='Day')
+    def available_day(self, d):
+        return d.day.day
+    available_day.admin_order_field = 'day'
 
     @admin.display(description='Doctor')
     def doc(self, d):
