@@ -277,7 +277,7 @@ class DoctorOnlineAvailability(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_available_days')
 
 
-    day = models.CharField(choices=DAYS_CHOICES, default='Monday', max_length=20)
+    day = models.CharField(choices=DAYS_CHOICES, default='', max_length=20)
 
 
     is_deleted = models.BooleanField(default=False)

@@ -26,7 +26,7 @@ class DoctorOnlineAvailabilityInline(admin.TabularInline):
     model = DoctorOnlineAvailability
     extra = 0
 
-    fields = ['day']
+    fields = ['day', 'is_active']
 
 class DoctorTimeSlotsInline(admin.StackedInline):
     model = DoctorTimeSlots
