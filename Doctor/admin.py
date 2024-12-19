@@ -177,7 +177,7 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
         'doc',
         'hos',
         'day',
-        # 'availability_type',
+        'title',
         'start_time',
         'end_time',
         'fee',
@@ -194,7 +194,7 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
     @admin.display(description='Hospital')
     def hos(self, d):
         if d.doc_hospital:
-            return d.doc_hospital.hospital.hospital_admin_card(tag_line=d.title)
+            return d.doc_hospital.hospital.hospital_admin_card(tag_line=d.doc_hospital.location.name)
         return f'{d.availability_type} Slot'
     hos.admin_order_field = 'hospital'
 
