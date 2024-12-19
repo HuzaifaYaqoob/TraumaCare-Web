@@ -65,6 +65,17 @@ class Doctor(models.Model):
     def __str__(self):
         return self.doctor_admin_card()
     
+
+    def reviews(self):
+        revs = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        return revs
+
+    def reviews_rating(self):
+        revs = self.reviews()
+        if len(revs) == 0:
+            return [5, 0]
+        return [sum(revs.values_list('rating', flat=True))/len(revs), len(revs)]
+    
     @property
     def phone_number(self):
         if self.dial_code and self.mobile_number:
