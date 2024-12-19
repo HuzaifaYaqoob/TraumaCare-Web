@@ -28,12 +28,12 @@
     </div>
   </div>
   {% with doct_availability=doctor.doctor_card_availability %}
-  <div>
-    <p class="text-[#0A1C4B] text-sm text-[14px] text-[#3C3C3C] {% if doct_availability.slots|length == 0 %}line-clamp-5{% elif doct_availability.slots|length > 3 %}line-clamp-2{% else %}line-clamp-4{% endif %}">
-      {{doctor.desc}}
-    </p>
-  </div>
-  <!-- {{doct_availability}} -->
+    <div>
+      <p class="text-[#0A1C4B] text-sm text-[14px] text-[#3C3C3C] {% if doct_availability.slots|length == 0 %}line-clamp-5{% elif doct_availability.slots|length > 3 %}line-clamp-2{% else %}line-clamp-4{% endif %}">
+        {{doctor.desc}}
+      </p>
+    </div>
+    <!-- {{doct_availability}} -->
     <div class="border-t border-[#D3D3D3] pt-[14px]">
       <div class="flex items-center justify-between gap-2">
         <p class="outfit-font font-semibold text-[16px] text-[#151E2C]">{{doct_availability.date}}</p>
