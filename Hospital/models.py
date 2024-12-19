@@ -80,6 +80,9 @@ class HospitalLocation(models.Model):
     state = models.ForeignKey(State, on_delete=models.PROTECT, null=True, default=None, related_name='state_hospital_locations')
     city = models.ForeignKey(City, on_delete=models.PROTECT, null=True, default=None, related_name='city_hospital_locations')
 
+    lat = models.CharField(max_length=999, default='', verbose_name='Latitude')
+    lng = models.CharField(max_length=999, default='', verbose_name='Longitude')
+
     def __str__(self):
         return f'{str(self.id)} -- {self.hospital.name} -- {self.name}'
     
