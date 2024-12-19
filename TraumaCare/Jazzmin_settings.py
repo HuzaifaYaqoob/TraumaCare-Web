@@ -97,7 +97,17 @@ JAZZMIN_SETTINGS = {
     "hide_models": [],
 
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
-    "order_with_respect_to": ["authentication", "hospital", "doctor", "doctor.doctor", 'appointment', 'task'],
+    "order_with_respect_to": [
+        "authentication", 
+        "hospital", 
+        "doctor", 
+        "doctor.doctor", 
+        "doctor.doctorwithhospital", 
+        "doctor.doctoronlineavailability", 
+        "doctor.DoctorTimeSlots", 
+        'appointment', 
+        'task'
+    ],
 
     # Custom links to append to app groups, keyed on app name
     # "custom_links": {
@@ -118,8 +128,9 @@ JAZZMIN_SETTINGS = {
         "hospital.hospital": "fas fa-hospital",
         "doctor": "fas fa-users",
         "doctor.doctor": "fas fa-user-tie",
-        "doctor.doctoronlineavailability": "fas fa-calendar-day",
         "doctor.doctorwithhospital": "fas fa-hospital",
+        "doctor.doctoronlineavailability": "fas fa-calendar-day",
+        "doctor.doctortimeslots": "fas fa-calendar-day",
         "task": "fas fa-tasks",
         "task.task": "fas fa-tasks",
     },

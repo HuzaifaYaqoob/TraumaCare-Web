@@ -169,10 +169,34 @@ class DoctorSpecialityAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorTimeSlots)
 class DoctorTimeSlotsAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_filter = [
+        'doctor'
+    ]
+    list_display = [
+        'doc',
+        'title',
+        'day',
+        'availability_type',
+        'start_time',
+        'end_time',
+        'fee',
+        'discount',
+        'service_fee',
+        'is_active',
+    ]
+
+    @admin.display(description='Doctor')
+    def doc(self, d):
+        return d.doctor.doctor_admin_card()
+    doc.admin_order_field = 'doctor'
 
 
 @admin.register(DoctorReview)
 class DoctorReviewAdmin(admin.ModelAdmin):
+    list_display = ['id']
+
+
+@admin.register(DoctorWithHospital)
+class DoctorWithHospitalAdmin(admin.ModelAdmin):
     list_display = ['id']
 
