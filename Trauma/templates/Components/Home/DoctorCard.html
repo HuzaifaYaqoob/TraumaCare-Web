@@ -14,12 +14,14 @@
       {% with reviews_rating=doctor.reviews_rating %}
         {% include 'Components/Ratings.html' with rating=reviews_rating.0 reviews=reviews_rating.1 %}
       {% endwith %}
-      <p class="text-[#0755E9] line-clamp-1 !mt-0 text-[13px]">
-        {{doctor.heading}}
-      </p>
-      {% if doctor.is_available_today %}
-        <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
-      {% endif %}
+      {% with is_available_today=doctor.is_available_today %}
+        <p class="text-[#0755E9] !mt-0 text-[13px] {% if is_available_today %}line-clamp-1{% else %}line-clamp-2{% endif %}">
+          {{doctor.heading}}
+        </p>
+        {% if doctor.is_available_today %}
+          <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
+        {% endif %}
+      {% endwith %}
       <!-- <div class="flex items-center gap-3">
         {% if doctor.fee_range %}
           <p class="whitespace-nowrap">Rs. <span class="text-lg font-bold text-blue-500 italic">{{doctor.fee_range.0}}</span>{% if doctor.fee_range.1 > doctor.fee_range.0 %} - <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.1}}</span>{% endif %}</p>
