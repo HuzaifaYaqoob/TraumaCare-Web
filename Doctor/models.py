@@ -181,6 +181,38 @@ class Doctor(models.Model):
         div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.mobile_number}</p></span></div>'
         return mark_safe(div)
     
+
+    def doctor_card_availability(self):
+        data = {
+            'date' : 'Today',
+            'fee' : 3000,
+            'slots' : []
+        }
+        today = datetime.now()
+        current_date_iter = today
+        available_days = DoctorOnlineAvailability.objects.filter(doctor = self, is_active = True, is_deleted = False).distinct('day').values_list('day', flat=True)
+        for i in range(7):
+            if current_date_iter.strftime('%A') in available_days:
+                query = {}
+                if i == 0:
+                    query['end_time__gte'] = current_date_iter.time()
+                slots = DoctorTimeSlots.objects.filter(
+                    doctor = self,
+                    day__day = current_date_iter.strftime('%A'),
+                    is_deleted = False,
+                    is_active = True,
+                    **query
+                ).order_by('start_time')
+                if slots.exists():
+                    slot = slots[0]
+                    data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
+                    data['slots'] = slot.slots_interval[:4]
+                    data['fee'] = slot.fee
+                    break
+            current_date_iter = current_date_iter + timedelta(days=1)
+        
+        return data
+    
     class Meta:
         permissions = [
             ("can_view_task", "Can view task"),
