@@ -136,7 +136,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         except:
             return 'https://ionicframework.com/docs/img/demos/avatar.svg'
         else:
-            return general_profile.image_full_path
+            return general_profile.image_full_path or 'https://ionicframework.com/docs/img/demos/avatar.svg'
     
     @property
     def has_doctor_profile(self):

@@ -1,6 +1,7 @@
 <section class="lg:block hidden ">
     <div class="svg3 mt-[-20px] md:mt-0 md:flex items-center mr-3 ">
-        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <div class="w-[48px] h-[48px] bg-center bg-no-repeat bg-cover rounded-full" style="background-image: url('{% if user.profile_image %}{{user.profile_image}}{% endif %}');"></div>
+        <!-- <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
             <circle cx="24" cy="24" r="24" fill="#0A2C4B" fill-opacity="0.15" />
             <path
                 d="M29.7147 17.7143C29.7147 20.8702 27.1563 23.4286 24.0004 23.4286C20.8445 23.4286 18.2861 20.8702 18.2861 17.7143C18.2861 14.5584 20.8445 12 24.0004 12C27.1563 12 29.7147 14.5584 29.7147 17.7143Z"
@@ -8,7 +9,7 @@
             <path
                 d="M34 31.9999C34 35.1558 29.5228 37.7142 24 37.7142C18.4772 37.7142 14 35.1558 14 31.9999C14 28.844 18.4772 26.2856 24 26.2856C29.5228 26.2856 34 28.844 34 31.9999Z"
                 fill="#0A1C4B" />
-        </svg>
+        </svg> -->
         <div class="icon-drowpdown min-w-[250px] sm:min-w-[350px] p-2">
             <a href="{% url 'MyAppointmentsPage' %}" class="icon-drowpdown1 rounded-lg">
                 <svg width="16" height="21" viewBox="0 0 16 21" fill="none" xmlns="http://www.w3.org/2000/svg">
