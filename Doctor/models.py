@@ -205,7 +205,10 @@ class Doctor(models.Model):
                 ).order_by('start_time')
                 if slots.exists():
                     slot = slots[0]
-                    data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
+                    if i == 0:
+                        data['date'] = 'Today'
+                    else:
+                        data['date'] = f'{current_date_iter.strftime("%a")}, {current_date_iter.strftime("%b")} {current_date_iter.strftime("%d")}'
                     data['slots'] = slot.slots_interval[:4]
                     data['fee'] = slot.fee
                     break
