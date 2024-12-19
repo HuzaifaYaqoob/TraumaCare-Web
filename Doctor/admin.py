@@ -198,5 +198,15 @@ class DoctorReviewAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorWithHospital)
 class DoctorWithHospitalAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = [
+        'doc',
+        'hospital',
+        'location',
+        'phone',
+        'is_active',
+    ]
+    @admin.display(description='Doctor')
+    def doc(self, d):
+        return d.doctor.doctor_admin_card()
+    doc.admin_order_field = 'doctor'
 
