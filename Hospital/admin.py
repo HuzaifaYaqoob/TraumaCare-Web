@@ -55,7 +55,8 @@ class HospitalAdmin(admin.ModelAdmin):
         'is_recommended',
     ]
     list_display = [
-        'hospital_and_locations',
+        # 'hospital_and_locations',
+        'hospital',
         'fee',
         'facility_type',
         'is_onboard',
@@ -74,6 +75,12 @@ class HospitalAdmin(admin.ModelAdmin):
     def hospital_and_locations(self, obj):
         locations = obj.hospital_locations.all()
         return f'{obj.name} ({locations.count()})'
+    
+    @admin.display(description='Hospital')
+    def hospital(self, hospital):
+        locations = hospital.hospital_locations.all()
+        return hospital.hospital_admin_card(tag_line=f'{locations.count()} Location')
+    hospital.admin_order_field = 'name'
 
 
 
