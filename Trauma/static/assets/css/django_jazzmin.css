@@ -38,7 +38,7 @@
     max-width: 100% !important;
     flex: 1 !important;
 }
-.jazzy-actions{
+#jazzy-actions{
     position: sticky !important;
     top: 100px !important;
 }
