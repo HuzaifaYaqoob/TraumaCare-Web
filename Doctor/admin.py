@@ -76,7 +76,7 @@ class DoctorAdmin(admin.ModelAdmin):
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
 
     inlines = [
-        DoctorDiseasesSpecialityInline,
+        # DoctorDiseasesSpecialityInline,
         DoctorSpecialityInline,
         DoctorMediaInline,
         DoctorWithHospitalInline,
