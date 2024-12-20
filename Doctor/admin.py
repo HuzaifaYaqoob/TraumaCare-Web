@@ -88,13 +88,17 @@ class DoctorAdmin(admin.ModelAdmin):
         DoctorReviewInline,
         DoctorQueryInline,
     ]
-
-    exclude = [
-        'slug',
-        'email',
-        'online_availability',
-        'dial_code',
-    ]
+    def get_exclude(self, request, obj=None):
+        excluded_fields = ['slug', 'email', 'online_availability', 'dial_code']
+        if obj and obj.pk:
+            excluded_fields.extend(['user', 'profile'])
+        return excluded_fields
+    # exclude = [
+    #     'slug',
+    #     'email',
+    #     'online_availability',
+    #     'dial_code',
+    # ]
 
     def doctor(self, d):
         return d.doctor_admin_card()
