@@ -42,7 +42,7 @@ class Doctor(models.Model):
     dial_code = models.CharField(max_length=20, default='')
     mobile_number = models.CharField(max_length=20, default='', verbose_name='Doctor Personal Number')
 
-    working_since = models.DateField()
+    working_since = models.DateField(null=True)
 
     online_availability = models.CharField(choices=AVAILABILITY_CHOICES, default='24_HOURS_OPEN', max_length=100)
 

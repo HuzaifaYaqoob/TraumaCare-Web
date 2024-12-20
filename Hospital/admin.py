@@ -72,6 +72,12 @@ class HospitalAdmin(admin.ModelAdmin):
         HospitalMediaInline,
     ]
 
+    def get_exclude(self, request, obj=None):
+        excluded_fields = ['slug']
+        if obj and obj.pk:
+            excluded_fields.extend(['user', 'profile'])
+        return excluded_fields
+
     def hospital_and_locations(self, obj):
         locations = obj.hospital_locations.all()
         return f'{obj.name} ({locations.count()})'
