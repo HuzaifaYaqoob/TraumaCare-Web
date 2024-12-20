@@ -57,6 +57,7 @@ class HospitalAdmin(admin.ModelAdmin):
     list_display = [
         # 'hospital_and_locations',
         'hospital',
+        'doctors',
         'fee',
         'facility_type',
         'is_onboard',
@@ -87,6 +88,18 @@ class HospitalAdmin(admin.ModelAdmin):
         locations = hospital.hospital_locations.all()
         return hospital.hospital_admin_card(tag_line=f'{locations.count()} Location')
     hospital.admin_order_field = 'name'
+
+    def doctors(self, hospital):
+        from Doctor.models import Doctor
+        return Doctor.objects.filter(
+            doctor_hospital_timeslots__hospital = hospital,
+            doctor_hospital_timeslots__is_deleted = False,
+            doctor_hospital_timeslots__is_active = True,
+
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        ).distinct().count()
 
 
 
