@@ -173,7 +173,7 @@ class DoctorSpecialityAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorTimeSlots)
 class DoctorTimeSlotsAdmin(admin.ModelAdmin):
-    ordering = ['doctor', 'doc_hospital', 'day__day']
+    ordering = ['doctor', 'doc_hospital', 'day__day', 'start_time']
     list_filter = [
         'doctor',
         'doc_hospital__hospital',
