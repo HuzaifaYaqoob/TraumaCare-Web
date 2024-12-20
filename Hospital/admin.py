@@ -74,7 +74,7 @@ class HospitalAdmin(admin.ModelAdmin):
     ]
 
     def get_exclude(self, request, obj=None):
-        excluded_fields = ['slug']
+        excluded_fields = ['slug', 'fee']
         if obj and obj.pk:
             excluded_fields.extend(['user', 'profile'])
         return excluded_fields
