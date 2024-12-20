@@ -371,7 +371,7 @@ class DoctorWithHospital(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, null=True, blank=True, related_name='hospital_timeslots')
     location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, null=True, blank=True, related_name='location_timeslots')
 
-    phone = models.CharField(max_length=999, default='')
+    phone = models.CharField(max_length=999, default='', help_text='Number for the doctor’s PA or hospital contact for appointment confirmations.')
 
 
     is_deleted = models.BooleanField(default=False)
