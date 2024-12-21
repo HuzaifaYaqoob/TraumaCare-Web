@@ -71,7 +71,8 @@ class DoctorAdmin(admin.ModelAdmin):
         'is_deleted', 
         'is_blocked', 
         'is_featured', 
-        'is_recommended'
+        'is_recommended',
+        'created_at',
     ]
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
 
