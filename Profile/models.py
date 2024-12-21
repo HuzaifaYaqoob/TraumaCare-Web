@@ -7,7 +7,13 @@ from Authentication.models import User
 
 
 from django.conf import settings
+from TraumaCare.Constant.index import addWatermark
 from Constants.Data.Profile import DUMMY_PROFILE_IMAGE
+
+import time
+from PIL import Image
+from datetime import datetime
+
 # Create your models here.
 
 
@@ -39,13 +45,14 @@ class Profile(models.Model):
     email = models.EmailField()
 
     profile_type = models.CharField(default='Patient', choices=PROFILE_CHOICES, max_length=15)
-    profile_image = models.ImageField(upload_to='Patients/Images/%Y-%m', default='')
+    profile_image = models.ImageField(upload_to='Patients/Images/%Y-%m', default='', help_text='Whenever change Image, You must uncheck "Is Watermark Added"')
 
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
 
     is_selected = models.BooleanField(default=False)
+    is_watermark_added = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now_add=now)
@@ -84,5 +91,17 @@ class Profile(models.Model):
             self.email = self.email or self.user.email
         
         self.full_name = f'{self.first_name} {self.last_name}'.strip()
+
+
+        if not self.is_watermark_added and self.profile_image:
+            today_time = datetime.now()
+            ext = self.profile_image.name.split('.')[-1]
+            self.profile_image = addWatermark(
+                self.profile_image, 
+                f"media/Patients/Images/{today_time.year}-{today_time.month}/{self.id}.{ext}"
+            )
+
+            self.is_watermark_added = True
+        
 
         super(Profile, self).save(*args, **kwargs)
