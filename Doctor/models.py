@@ -5,6 +5,7 @@ from django.utils.html import mark_safe
 
 
 # Create your models here.
+from TraumaCare.Constant.index import addWatermark
 
 from Authentication.models import User
 from Profile.models import Profile
@@ -263,16 +264,29 @@ class DoctorMedia(models.Model):
     doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_medias')
 
     file_type = models.CharField(choices=DOCTOR_MEDIA_TYPES, default='Profile Image',max_length=30)
-    file = models.FileField(upload_to='Doctor/Files/%Y-%m')
+    file = models.FileField(upload_to='Doctor/Files/%Y-%m', help_text='Whenever change Image, You must uncheck "Is Watermark Added"')
 
     is_deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_watermark_added = models.BooleanField(default=False)
 
     created_at = models.DateTimeField(auto_now_add=now)
 
 
     def __str__(self):
         return f'{str(self.id)} -- '
+    
+    def save(self, *args, **kwargs):
+        if not self.is_watermark_added and self.file and self.file_type == 'Profile Image':
+            today_time = datetime.now()
+            ext = self.file.name.split('.')[-1]
+            self.file = addWatermark(
+                self.file, 
+                f"media/Doctor/Files/{today_time.year}-{today_time.month}/{self.id}.{ext}"
+            )
+
+            self.is_watermark_added = True
+        super(DoctorMedia, self).save(*args, **kwargs)
 
 
 class DoctorSpeciality(models.Model):

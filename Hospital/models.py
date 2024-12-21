@@ -4,10 +4,13 @@ from django.utils.timezone import now
 from uuid import uuid4
 
 from django.utils.html import mark_safe
+from TraumaCare.Constant.index import addWatermark
+
 
 from Authentication.models import User
 from Profile.models import Profile
 from Trauma.models import Country, State, City
+from datetime import timedelta, datetime
 
 
 class Hospital(models.Model):
@@ -142,10 +145,11 @@ class HospitalMedia(models.Model):
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, related_name='hospital_medias')
 
     file_type = models.CharField(choices=HOSPITAL_MEDIA_TYPES, default='Profile Image',max_length=30)
-    file = models.FileField(upload_to='Hospital/Files/%Y-%m')
+    file = models.FileField(upload_to='Hospital/Files/%Y-%m', help_text='Whenever change Image, You must uncheck "Is Watermark Added"')
 
     is_deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)
+    is_watermark_added = models.BooleanField(default=False)
 
     # CNIC Details 
     # cnic_name = models.CharField(max_length=200, default='')
@@ -157,3 +161,15 @@ class HospitalMedia(models.Model):
 
     def __str__(self):
         return f'{str(self.id)} -- {self.hospital.name}'
+    
+    def save(self, *args, **kwargs):
+        if not self.is_watermark_added and self.file and self.file_type == 'Profile Image':
+            today_time = datetime.now()
+            ext = self.file.name.split('.')[-1]
+            self.file = addWatermark(
+                self.file, 
+                f"media/Hospital/Files/{today_time.year}-{today_time.month}/{self.id}.{ext}"
+            )
+
+            self.is_watermark_added = True
+        super(HospitalMedia, self).save(*args, **kwargs)
