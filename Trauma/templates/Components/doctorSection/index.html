@@ -2,7 +2,7 @@
     <div class="swiper-wrapper">
         {% for doctor in doctors %}
             <div class="swiper-slide">
-                {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                {% include 'Components/Home/DoctorCard.html' with doctor=doctor %}
             </div>
         {% endfor %}
     </div>

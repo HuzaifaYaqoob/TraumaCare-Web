@@ -330,11 +330,12 @@
                               </form>
                         </div>
                   </div>
-                  <div class="border shadow-md p-4 rounded-xl">
+                  <div class="">
                         <p class="text-[#555555] font-semibold text-center md:text-start text-2xl">Other Suggested</p>
                         <div class="flex items-center gap-2 mt-3 flex-col md:flex-row">
                               {% for suggested_doctor in suggested %}
-                                    <div class="border rounded-xl p-4 flex-1 ">
+                                    {% include 'Components/Home/DoctorCard.html' with doctor=suggested_doctor %}
+                                    {% comment %} <div class="border rounded-xl p-4 flex-1 ">
                                           <a href="{% url 'DoctorProfilePage' suggested_doctor.slug %}" class="flex items-center gap-4 flex-wrap Dermatologist-main-TC">
                                                 <div class="w-[70px] h-[70px] rounded-lg bg-center bg-cover bg-no-repeat" style="background-image: url({{suggested_doctor.profile_image}});"></div>
                                                 <div>
@@ -367,7 +368,7 @@
                                                       <p class="text-[#24D0D0] whitespace-nowrap" >Video Consultation</p>
                                                 </a>
                                           </div>
-                                    </div>
+                                    </div> {% endcomment %}
                               {% endfor %}
                         </div>
                   </div>
