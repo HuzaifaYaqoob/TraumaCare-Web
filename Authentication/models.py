@@ -180,3 +180,47 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     class Meta:
         unique_together = ['dial_code', 'mobile_number']
+
+class Role(models.Model):
+    STATUS_CHOICES = (
+        ('Active', 'Active'),
+        ('Inactive', 'Inactive'),
+    )
+  
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE, null=True, related_name='role_created_by')
+    name = models.CharField(max_length=255, default='')
+    description = models.TextField(blank=True, null=True)  # Optional description of the role
+
+    rank = models.IntegerField(default=0)
+    parent = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='child_roles')
+
+    slug = models.TextField(default=uuid.uuid4)
+
+    status = models.CharField(max_length=255, default='Active', choices=STATUS_CHOICES)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def save(self, *args, **kwargs):
+        name = self.name
+        name = name.replace(' ', '-').lower()
+        self.slug = name
+        super(Role, self).save(*args, **kwargs)
+
+    def __str__(self):
+        return f'({self.rank}) {self.name}{f" >> {self.parent.name}" if self.parent else ""}'
+
+    def get_child_roles(self):
+        return Role.objects.filter(parent=self)
+    
+    def role_user(self):
+        return User.objects.filter(user_roles__role=self, user_roles__is_active=True, is_active=True, is_deleted=False)
+
+class StaffRole(models.Model):
+
+    role = models.ManyToManyField(Role)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='user_roles')
+
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.user.full_name}'
