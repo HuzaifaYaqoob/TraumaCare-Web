@@ -58,7 +58,7 @@ class DoctorQueryInline(admin.TabularInline):
 
 @admin.register(Doctor)
 class DoctorAdmin(admin.ModelAdmin):
-    ordering = ['created_at']
+    ordering = ['-created_at']
     list_display = [
         # 'email', 
         # 'slug', 
