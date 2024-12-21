@@ -6,8 +6,16 @@ from Constants.Data.Profile import DUMMY_PROFILE_IMAGE
 import time
 from PIL import Image
 from datetime import datetime
+import os
 
 def addWatermark(input_image, output_path):
+    last_dir = "/".join(output_path.split('/')[:-1])
+    print('Creating directory')
+    print(last_dir)
+    if not os.path.exists(last_dir):
+        print('Creating directory')
+        os.makedirs(last_dir)
+
     img_name = input_image.name
     ext = img_name.split('.')[-1]
     background = Image.open(input_image)
