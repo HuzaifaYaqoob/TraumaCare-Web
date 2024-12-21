@@ -47,6 +47,7 @@ class Doctor(models.Model):
     online_availability = models.CharField(choices=AVAILABILITY_CHOICES, default='24_HOURS_OPEN', max_length=100)
 
     desc = models.TextField(default='')
+    pmdc_id = models.CharField(max_length=999, default='')
 
     slug = models.CharField(max_length=999, default='')
 
