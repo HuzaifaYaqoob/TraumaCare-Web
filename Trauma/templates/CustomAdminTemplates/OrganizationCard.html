@@ -2,7 +2,7 @@
     
     {% with userRole=role.role_user %}
         {% if userRole|length == 1 %}
-            <a href='/admin/Authentication/user/{{userRole.0.id}}/' target="_blank" class='!inline-flex items-center gap-3' >
+            <a href='{% url "OrganizationHierarchyPage" %}?selected_role={{role.id}}' class='!inline-flex items-center gap-3' >
                 <div class="bg-center bg-cover w-[50px] h-[50px] rounded-full" style="background-image: url({{userRole.0.profile_image}});">
 
                 </div>
@@ -12,7 +12,7 @@
                 </div>
             </a>
         {% else %}
-            <a href="#">{{role.name}}</a>
+            <a href='{% url "OrganizationHierarchyPage" %}?selected_role={{role.id}}'>{{role.name}}</a>
         {% endif %}
     {% endwith %}
     {% with nestedRoles=role.get_child_roles %}
