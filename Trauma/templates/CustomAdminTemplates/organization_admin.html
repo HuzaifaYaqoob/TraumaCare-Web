@@ -93,7 +93,7 @@
     <section>
         <div class="text-[#7B7B7B] flex flex-wrap gap-2">
             {% for breadcrumb in breadcrumbs %}
-                <a href="{{breadcrumb.url}}" class="cursor-pointer">{{breadcrumb.name}}</a> &gt; 
+                <a href="{{breadcrumb.url}}" class="cursor-pointer">{{breadcrumb.name}}</a>{% if not forloop.last %} &gt; {% endif %}
             {% endfor %}
         </div>
         <div class="tree">

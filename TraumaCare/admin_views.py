@@ -15,7 +15,7 @@ def OrganizationHierarchyPage(request):
 
     breadcrumbs = [
         # {'name' : 'Home', 'url' : ''},
-        # {'name' : 'Dashboard', 'url' : ''},
+        
     ]
     finished = False
     currentRole = FirstRole
@@ -26,6 +26,9 @@ def OrganizationHierarchyPage(request):
             currentRole = currentRole.parent
         else:
             finished = True
+        
+    breadcrumbs.insert(0, {'name' : 'Dashboard', 'url' : '/admin/'})
+    breadcrumbs.append({'name' : FirstRole.name, 'url' : f"#"})
     context['FirstRole'] = FirstRole
     context['breadcrumbs'] = breadcrumbs
     return render(request, 'CustomAdminTemplates/organization_admin.html', context)
