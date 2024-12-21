@@ -131,7 +131,7 @@
             </div>
             <div class="flex-1 py-12 grid grid-cols-4 gap-4 justify-center">
                 {% for doctor in doctors %}
-                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor image='https://source.unsplash.com/random/401×401/?doctor&face&human' %}
+                    {% include 'Components/Home/DoctorCard.html' with doctor=doctor %}
                 {% endfor %}
             </div>
         </section>
