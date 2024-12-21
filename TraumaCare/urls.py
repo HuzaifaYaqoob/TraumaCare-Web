@@ -11,7 +11,7 @@ from .views import set_language
 from .admin_views import OrganizationHierarchyPage
 
 urlpatterns = [
-    path('admin/organization/', OrganizationHierarchyPage),
+    path('admin/organization/', OrganizationHierarchyPage, name='OrganizationHierarchyPage'),
     path('admin/', admin.site.urls),
 
 
