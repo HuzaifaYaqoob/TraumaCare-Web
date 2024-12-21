@@ -332,7 +332,7 @@
                   </div>
                   <div class="">
                         <p class="text-[#555555] font-semibold text-center md:text-start text-2xl">Other Suggested</p>
-                        <div class="flex items-center gap-2 mt-3 flex-col md:flex-row">
+                        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-2 mt-3 flex-col md:flex-row">
                               {% for suggested_doctor in suggested %}
                                     {% include 'Components/Home/DoctorCard.html' with doctor=suggested_doctor %}
                                     {% comment %} <div class="border rounded-xl p-4 flex-1 ">
