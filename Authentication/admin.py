@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import Q
 
 from django.utils.html import mark_safe
-from .models import User
+from .models import User, Role, StaffRole
 
 # Register your models here.
 
@@ -23,6 +23,32 @@ from Profile.models import Profile
 #         return mark_safe(f'{is_mobile_verified} {obj.mobile_number}')
     
 #     phone_number.image_tag = True
+@admin.register(Role)
+class RoleAdmin(admin.ModelAdmin):
+    ordering = ['rank']
+    list_display = [
+        'name',
+        'rank',
+        'parent',
+        'created_by',
+        'status',
+        'created_at',
+    ]
+
+    exclude = ['slug', 'created_by']
+
+    def save_model(self, request, obj, form, change):
+        if not change:
+            obj.created_by = request.user
+        super().save_model(request, obj, form, change)
+
+
+@admin.register(StaffRole)
+class StaffRoleAdmin(admin.ModelAdmin):
+    list_display = [
+        'user'
+    ]
+
 
 class UserProfileInline(admin.StackedInline):
     model = Profile

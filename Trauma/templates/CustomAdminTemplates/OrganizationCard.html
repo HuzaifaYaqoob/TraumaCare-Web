@@ -1,0 +1,27 @@
+<li>
+    
+    {% with userRole=role.role_user %}
+        {% if userRole|length == 1 %}
+            <a href='/admin/Authentication/user/{{userRole.0.id}}/' target="_blank" class='!inline-flex items-center gap-3' >
+                <div class="bg-center bg-cover w-[50px] h-[50px] rounded-full" style="background-image: url({{userRole.0.profile_image}});">
+
+                </div>
+                <div>
+                    <p class="font-semibold text-[18px]">{{userRole.0.full_name}}</p>
+                    <p class="text-left text-black">{{role.name}}</p>
+                </div>
+            </a>
+        {% else %}
+            <a href="#">{{role.name}}</a>
+        {% endif %}
+    {% endwith %}
+    {% with nestedRoles=role.get_child_roles %}
+        {% if nestedRoles|length > 0 %}
+            <ul>
+                {% for child_role in nestedRoles %}
+                    {% include 'CustomAdminTemplates/OrganizationCard.html' with role=child_role %}
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+</li>

@@ -59,6 +59,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
         {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["Appointment.view_appointment"]},
         {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["Task.view_task"]},
+        {"name": "Organization",  "url": "/admin/organization/", "permissions": []},
 
         # external url that opens in a new window (Permissions can be added)
         # {"name": "Support", "url": "https://github.com/farridav/django-jazzmin/issues", "new_window": True},
@@ -67,7 +68,7 @@ JAZZMIN_SETTINGS = {
         {"model": "authentication.user"},
 
         # App with dropdown menu to all its models pages (Permissions checked against models)
-        {"app": "Authentication"},
+        # {"app": "Authentication"},
     ],
 
     #############
@@ -99,6 +100,9 @@ JAZZMIN_SETTINGS = {
     # List of apps (and/or models) to base side menu ordering off of (does not need to contain all apps/models)
     "order_with_respect_to": [
         "authentication", 
+        "authentication.role", 
+        "authentication.user", 
+        "authentication.staffrole", 
         "hospital", 
         "doctor", 
         "doctor.doctor", 
