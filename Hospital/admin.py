@@ -60,6 +60,7 @@ class HospitalAdmin(admin.ModelAdmin):
         'doctors',
         'fee',
         'facility_type',
+        'website',
         'is_onboard',
         'is_active',
         'is_approved',
