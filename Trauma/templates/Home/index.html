@@ -77,10 +77,7 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7 !mt-0">
-        <div>
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[ٍ#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold">Nearby Doctors</h3>
-            <p>We have found {{doctors|length}} nearby doctors</p>
-        </div>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[ٍ#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
