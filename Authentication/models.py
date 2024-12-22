@@ -115,6 +115,8 @@ class User(AbstractBaseUser, PermissionsMixin):
     
 
     def save(self, *args, **kwargs):
+        if not self.email:
+            self.email = f'{self.username}@fake.traumacare.pk'
         if not self.country:
             try:
                 country = Country.objects.get(name__iexact = 'pakistan', dial_code='92')
