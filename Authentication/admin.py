@@ -45,9 +45,16 @@ class RoleAdmin(admin.ModelAdmin):
 
 @admin.register(StaffRole)
 class StaffRoleAdmin(admin.ModelAdmin):
+    list_filter = ['is_active', 'role']
     list_display = [
-        'user'
+        'user',
+        'roles',
+        'is_active',
+        'created_at',
     ]
+
+    def roles(self, obj):
+        return ', '.join([role.name for role in obj.role.all()])
 
 
 class UserProfileInline(admin.StackedInline):
