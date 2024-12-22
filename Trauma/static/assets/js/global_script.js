@@ -207,6 +207,7 @@ const accessLocation = () =>{
 }
 
 const StartScript = () =>{
+    accessLocation()
     BodyClicked()
     DropdownField()
 
