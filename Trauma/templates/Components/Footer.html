@@ -105,7 +105,7 @@
                     </h4>
                     <ul class="space-y-2">
                         {% for hospital in hospitals %}
-                            <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap">{{hospital.name}} </li>
+                            <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap">{{hospital.name}} ({{hospital.hospital_locations__city__name}}) </li>
                         {% endfor %}
                         <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap">View List</li>
                     </ul>
