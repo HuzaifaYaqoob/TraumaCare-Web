@@ -26,6 +26,7 @@ class Hospital(models.Model):
     facility_type = models.CharField(max_length=50, default='Hospital', choices=FACILITY_TYPE_CHOICES)
     name = models.CharField(max_length=777, default='')
     description = models.TextField(default='')
+    website = models.TextField(default='')
 
     slug = models.TextField(default='')
     fee = models.FloatField(default=0.0, verbose_name='Platform Service Fee(%)')
