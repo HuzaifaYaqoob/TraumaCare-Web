@@ -88,8 +88,7 @@ def hospitals_context_processor(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
-    ).values('name', 'id', 'hospital_locations__name')
-    hospitals = [{**i, 'location' : i['hospital_locations__name']} for i in hospitals]
+    ).values('name', 'id')
     return {
         'hospitals' : hospitals,
         'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct().annotate(hospital_count = Count('city_hospital_locations'))
