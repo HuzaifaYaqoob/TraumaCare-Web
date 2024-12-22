@@ -193,6 +193,19 @@ const handlePasswordShowOrHide = () =>{
     })
 }
 
+const accessLocation = () =>{
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) =>{
+            let latitude = position.coords.latitude
+            let longitude = position.coords.longitude
+            alert(`${latitude} - ${longitude}`)
+        })
+    } else {
+    // I believe it may also mean geolocation isn't supported
+        alert('Geolocation denied') 
+    }
+}
+
 const StartScript = () =>{
     BodyClicked()
     DropdownField()
