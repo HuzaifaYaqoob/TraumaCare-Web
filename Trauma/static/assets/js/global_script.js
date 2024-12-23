@@ -198,7 +198,7 @@ const accessLocation = () =>{
         navigator.geolocation.getCurrentPosition((position) =>{
             let latitude = position.coords.latitude
             let longitude = position.coords.longitude
-            alert(`${latitude} - ${longitude}`)
+            // alert(`${latitude}, ${longitude}`)
         })
     } else {
     // I believe it may also mean geolocation isn't supported
