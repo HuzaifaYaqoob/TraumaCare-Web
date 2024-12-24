@@ -51,7 +51,7 @@ def DoctorProfilePage(request, doctor_slug):
             is_active = True,
             is_deleted = False,
             is_blocked = False,
-            doctor_specialities__speciality__id__in = doctor_specialities,
+            # doctor_specialities__speciality__id__in = doctor_specialities,
         ).distinct()
         context['suggested'] = suggested
         context['lowest_rate_suggested'] = suggested
