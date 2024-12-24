@@ -426,12 +426,12 @@ class DoctorWithHospital(models.Model):
             today_available = DoctorTimeSlots.objects.filter(doc_hospital = self, day__day = now_day.strftime('%A'), is_deleted=False, is_active=True).order_by('start_time')
             if today_available:
                 if day_count == 0:
-                    data['label'] = 'Available Today'
+                    data['label'] = 'Today'
                 elif day_count == 1:
-                    data['label'] = 'Available Tomorrow'
+                    data['label'] = 'Tomorrow'
                 else:
                     data['slot_date'] = f'{now_day.strftime("%A")} {now_day.strftime("%d/%m/%Y")}'
-                    data['label'] = f'Next Available in {day_count} Days'
+                    data['label'] = f'{now_day.strftime("%a")}, {now_day.strftime("%b %d")}'
 
                 NewOnlineAva = []
                 for onava in today_available:
@@ -559,12 +559,12 @@ class DoctorTimeSlots(models.Model):
             now_day_name = now_day.strftime('%A')
             if now_day_name == self.day.day:
                 if day_count == 0:
-                    data['label'] = 'Available Today'
+                    data['label'] = 'Today'
                 elif day_count == 1:
-                    data['label'] = 'Available Tomorrow'
+                    data['label'] = 'Tomorrow'
                 else:
                     data['slot_date'] = f'{now_day_name} {now_day.strftime("%d/%m/%Y")}'
-                    data['label'] = f'Next Available in {day_count} Days'
+                    data['label'] = f'{now_day_name}, {now_day.strftime("%b %d")}'
                 
                 data['day_count'] = day_count
                 data['day_date'] = now_day.strftime('%Y-%m-%d')

@@ -220,7 +220,7 @@
                                                 <div class="">
                                                       <input type="text" class="hidden" name="selected_date" value="{{online_ava.day_date}}">
                                                       <div class="flex items-center justify-between mb-3">
-                                                            <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 {% if online_ava.day_count == 0 %}text-green-600{% elif online_ava.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}">{{online_ava.label}}</span></p>
+                                                            <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 outfit-font">{{online_ava.label}}</span></p>
                                                             <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="text-sm text-[#0755E9] underline">Other Time?</a>
                                                       </div>
                                                       <div class="grid gap-4 {% if online_ava.slots|length > 1 %}grid-cols-2{% else %}grid-cols-1{% endif %}">
@@ -388,7 +388,7 @@
                                           <input type="text" class="hidden" name="selected_date" value="{{next_available.day_date}}">
                                           <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
                                           <div class="flex items-center justify-between">
-                                                <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}">{{next_available.label}}</span></p>
+                                                <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 outfit-font">{{next_available.label}}</span></p>
                                                 <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-sm text-[#0755E9] underline">Other Time?</a>
                                           </div>
                                           <div class="">
