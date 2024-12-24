@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import Q, Count
 
 from django.utils.html import mark_safe
-from .models import Doctor, Doctor24By7, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
+from .models import Doctor, Doctor24By7, Leave, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
 
 # Register your models here.
 
@@ -240,3 +240,21 @@ class DoctorWithHospitalAdmin(admin.ModelAdmin):
         return d.hospital.hospital_admin_card(tag_line=d.location.street_address)
     hos.admin_order_field = 'hospital'
 
+
+@admin.register(Leave)
+class LeaveAdmin(admin.ModelAdmin):
+    list_filter = [
+        'doctor',
+    ]
+    list_display = [
+        'doct',
+        'start_date',
+        'end_date',
+        'is_active',
+        'created_at',
+    ]
+
+    @admin.display(description='Doctor')
+    def doct(self, leave_obj):
+        return leave_obj.doctor.doctor_admin_card()
+    doct.admin_order_field = 'doctor'
