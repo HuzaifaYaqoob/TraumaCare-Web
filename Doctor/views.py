@@ -47,12 +47,15 @@ def DoctorProfilePage(request, doctor_slug):
             context['rating_percentage'] = 100
 
         doctor_specialities = doctor.doctor_specialities.all().values_list('speciality__id', flat=True)
-        context['suggested'] = Doctor.objects.filter(
+        suggested = Doctor.objects.filter(
             is_active = True,
             is_deleted = False,
             is_blocked = False,
             doctor_specialities__speciality__id__in = doctor_specialities,
         ).distinct()
+        context['suggested'] = suggested
+        context['lowest_rate_suggested'] = suggested
+
 
         online_availability_data = {}
         
