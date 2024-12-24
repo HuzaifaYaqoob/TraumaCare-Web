@@ -182,21 +182,23 @@
                               <p class="text-[#555555] text-[14px] line-clamp-3 text-left outfit-font md:text-start">{{doctor.desc|safe}}</p>
                         </div>
                   </div>
-                  <div class="my-5">
-                        <p class="text-2xl font-medium text-[#000] Private Clinics-heading outfit-font">Top Suggested at lowest Price</p>
-                        <div class="flex flex-wrap gap-3 mt-3">
-                              {% for sug_doctor in lowest_rate_suggested %}
-                                    <a href="{% url 'DoctorProfilePage' sug_doctor.slug %}" class="border rounded-md flex gap-2">
-                                          <div class="bg-center w-[80px] bg-cover bg-no-repeat rounded-md" style="background-image: url({{sug_doctor.profile_image}});"></div>
-                                          <div class="py-2 pr-3">
-                                                <p class="text-md font-medium text-[#000] outfit-font">Dr. {{sug_doctor.name}}</p>
-                                                <p class="text-gray-800 text-[13px] outfit-font">{{sug_doctor.heading|truncatechars:30}}</p>
-                                                <p class="text-[#0555e9] text-[23px] outfit-font font-bold italic">{{sug_doctor.fee_range.0}} <span class="font-[400] text-black text-sm">PKR</span></p>
-                                          </div>
-                                    </a>
-                              {% endfor %}
+                  {% if lowest_rate_suggested|length > 0 %}
+                        <div class="my-5">
+                              <p class="text-2xl font-medium text-[#000] Private Clinics-heading outfit-font">Top Suggested at lowest Price</p>
+                              <div class="flex flex-wrap gap-3 mt-3">
+                                    {% for sug_doctor in lowest_rate_suggested %}
+                                          <a href="{% url 'DoctorProfilePage' sug_doctor.slug %}" class="border rounded-md flex gap-2">
+                                                <div class="bg-center w-[80px] bg-cover bg-no-repeat rounded-md" style="background-image: url({{sug_doctor.profile_image}});"></div>
+                                                <div class="py-2 pr-3">
+                                                      <p class="text-md font-medium text-[#000] outfit-font">Dr. {{sug_doctor.name}}</p>
+                                                      <p class="text-gray-800 text-[13px] outfit-font">{{sug_doctor.heading|truncatechars:30}}</p>
+                                                      <p class="text-[#0555e9] text-[23px] outfit-font font-bold italic">{{sug_doctor.fee_range.0}} <span class="font-[400] text-black text-sm">PKR</span></p>
+                                                </div>
+                                          </a>
+                                    {% endfor %}
+                              </div>
                         </div>
-                  </div>
+                  {% endif %}
 
                   {% if online_availability|length > 0 %}
                         <div id='AvailableForOnlineVideoConsultation' class="flex flex-col gap-3">
