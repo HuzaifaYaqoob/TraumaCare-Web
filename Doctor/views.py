@@ -54,7 +54,7 @@ def DoctorProfilePage(request, doctor_slug):
             doctor_specialities__speciality__id__in = doctor_specialities,
         ).distinct()
         context['suggested'] = suggested
-        context['lowest_rate_suggested'] = suggested.order_by('doctor_timeslots__fee')[:6]
+        context['lowest_rate_suggested'] = suggested.order_by('doctor_timeslots__fee')[:3]
 
 
         online_availability_data = {}
