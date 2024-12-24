@@ -62,7 +62,8 @@ class DoctorAdmin(admin.ModelAdmin):
     list_display = [
         # 'email', 
         # 'slug', 
-        'doctor', 
+        # 'doctor', 
+        'desc',
         # 'mobile_number', 
         'days', 
         'diseases', 
