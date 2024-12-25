@@ -111,66 +111,74 @@ def BookAppointmentPage(request):
 
 
 def BookAppointment_DoctorPage(request):
-    if request.method != 'POST':
-        messages.error(request, 'Invalid Request')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    
-    doctor_id = request.POST.get('doctor', None)
-    slot_id = request.POST.get('dr-appointment-slot', None)
-    doct_hospital_id = request.POST.get('doct_hospital', None)
+    if request.method == 'GET':
+        return render(request, 'checkout/checkout_appoinment.html')
+    elif request.method == 'POST':
+        
+        print(request.POST)
+        # doctor
+        # selected_date
+        # doct_hospital
+        # dr-appointment-slot
+        # selected_time
 
-    selected_date = request.POST.get('selected_date', None)
-    selected_time = request.POST.get('selected_time', None)
-
-    try:
-        doctor = Doctor.objects.get(id = doctor_id, is_deleted = False, is_blocked = False)
-    except:
-        messages.error(request, 'Invalid Doctor Profile')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        doctor_id = request.POST.get('doctor', None)
+        slot_id = request.POST.get('dr-appointment-slot', None)
+        doct_hospital_id = request.POST.get('doct_hospital', None)
 
-    if not doctor.is_active:
-        messages.error(request, 'Doctor is not active')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    
-    if doct_hospital_id:
+        selected_date = request.POST.get('selected_date', None)
+        selected_time = request.POST.get('selected_time', None)
+
         try:
-            doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
+            doctor = Doctor.objects.get(id = doctor_id, is_deleted = False, is_blocked = False)
         except:
-            messages.error(request, 'Doctor is not available at this Hospital.')
+            messages.error(request, 'Invalid Doctor Profile')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-    try:
-        selected_slot = DoctorTimeSlots.objects.get(id = slot_id)
-    except:
-        messages.error(request, 'Selected Slot is not Available')
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-    
-    appt_grp = AppointmentGroup.objects.create(
-        user = request.user,
-    )
+        if not doctor.is_active:
+            messages.error(request, 'Doctor is not active')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+        if doct_hospital_id:
+            try:
+                doct_hospital = DoctorWithHospital.objects.get(id = doct_hospital_id)
+            except:
+                messages.error(request, 'Doctor is not available at this Hospital.')
+                return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
-    s_t = datetime.strptime(selected_time, "%H:%M:00")
-    end_time = timedelta(minutes=doctor.get_time_inverval)
-    end_time = end_time + s_t
-    appointment = Appointment.objects.create(
-        appointment_group = appt_grp,
-        doctor = doctor,
-        name = f'Appointment with {doctor.name} at {f"{doct_hospital.hospital.name}, {doct_hospital.location.name}" if doct_hospital_id else "Online"}',
-        date = selected_date,
-        start_time = selected_time,
-        end_time=end_time.strftime("%H:%M"),
-        slot = selected_slot,
-        fee = selected_slot.fee,
-        discount = selected_slot.discount,
-        service_fee = selected_slot.service_fee,
-        bill = selected_slot.final_price,
-        status = 'Booked',
-        appointment_location = 'InPerson' if doct_hospital_id else 'Online',
-        doct_hospital = doct_hospital if doct_hospital_id else None,
-    )
+        try:
+            selected_slot = DoctorTimeSlots.objects.get(id = slot_id)
+        except:
+            messages.error(request, 'Selected Slot is not Available')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+        appt_grp = AppointmentGroup.objects.create(
+            user = request.user,
+        )
 
-    messages.success(request, 'Your appointment is booked successfully.')
-    return redirect(f'/appointment/my-appointments#appointment_{appointment.id}')
+        s_t = datetime.strptime(selected_time, "%H:%M:00")
+        end_time = timedelta(minutes=doctor.get_time_inverval)
+        end_time = end_time + s_t
+        appointment = Appointment.objects.create(
+            appointment_group = appt_grp,
+            doctor = doctor,
+            name = f'Appointment with {doctor.name} at {f"{doct_hospital.hospital.name}, {doct_hospital.location.name}" if doct_hospital_id else "Online"}',
+            date = selected_date,
+            start_time = selected_time,
+            end_time=end_time.strftime("%H:%M"),
+            slot = selected_slot,
+            fee = selected_slot.fee,
+            discount = selected_slot.discount,
+            service_fee = selected_slot.service_fee,
+            bill = selected_slot.final_price,
+            status = 'Booked',
+            appointment_location = 'InPerson' if doct_hospital_id else 'Online',
+            doct_hospital = doct_hospital if doct_hospital_id else None,
+        )
+
+        messages.success(request, 'Your appointment is booked successfully.')
+        return redirect(f'/appointment/my-appointments#appointment_{appointment.id}')
 
 def CheckoutPage(request):
     return render(request, 'checkout/checkout-appoinment.html')

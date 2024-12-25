@@ -153,7 +153,7 @@
                             </script>
                         {% endif %}
                         {% if days_slots %}
-                            <form action="{% url 'BookAppointment_DoctorPage' %}" method="post">
+                            <form action="{% url 'BookAppointment_DoctorPage' %}" method="get">
                                 {% csrf_token %}
                                 <input type="text" class="hidden" name="doctor" value="{{doctor.id}}">
                                 {% if hospital %}

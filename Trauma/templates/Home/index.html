@@ -76,8 +76,16 @@
             </form>
         </div>
     </section>
-    <section class="max-w-[1500px] mx-auto space-y-12 !mt-0">
-        <div class="space-y-6">
+    <section class="max-w-[1500px] mx-auto space-y-7 !mt-0">
+        <!-- <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[ٍ#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3> -->
+        {% if doctors|length > 0 %}
+            {% include 'Components/doctorSection/index.html' %}
+        {% else %}
+            <p class="text-center text-sm text-[#111111]">No doctors found.</p>
+        {% endif %}
+    </section>
+    <section class="max-w-[1500px] mx-auto space-y-12 ">
+        <!-- <div class="space-y-6">
             <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap">
                 {% for disease in diseases|slice:':7' %}
@@ -86,7 +94,7 @@
                     </a>
                 {% endfor %}
             </div>
-        </div>
+        </div> -->
         <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[22px] grid_4_cards">
             <div class="bg-[#f0da69] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow ">
                 <div>
@@ -168,14 +176,6 @@
                 </div>
             </div>
         </div>
-    </section>
-    <section class="max-w-[1500px] mx-auto space-y-7">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3>
-        {% if doctors|length > 0 %}
-            {% include 'Components/doctorSection/index.html' %}
-        {% else %}
-            <p class="text-center text-sm text-[#111111]">No doctors found.</p>
-        {% endif %}
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <div class="grid grid-cols-3 gap-5">
