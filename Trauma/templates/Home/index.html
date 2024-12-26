@@ -21,16 +21,12 @@
         <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-8 sm:pb-10 md:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
             <div class="flex-1 space-y-4">
                 {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
-                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img src='{% static "assets/Images/underline.png" %}' class='w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
+                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img src='{% static "assets/Images/underline.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
                 <p class="font-normal text-sm sm:text-md lg:text-lg text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
                 <div class="flex gap-3 items-center flex-wrap ">
                     <button class="bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white font-medium px-4 py-3 rounded-lg">
                         How may I Help you?
                     </button>
-                    <!-- <div class="flex items-center gap-3 ">
-                        <button class="chatWidgetBotIcon underline text-blue-300">Try me!</button>
-                        <span class="text-white" >It's absolutly FREE</span>
-                    </div> -->
                 </div>
             </div>
             <div class="max-w-[500px] flex items-center justify-end">
@@ -76,8 +72,8 @@
             </form>
         </div>
     </section>
-    <section class="max-w-[1500px] mx-auto space-y-7 !mt-0">
-        <!-- <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[ٍ#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3> -->
+    <section class="max-w-[1500px] mx-auto space-y-7 !mt-4">
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
@@ -86,7 +82,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-12 ">
         <!-- <div class="space-y-6">
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">You may be in search of</h3>
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap">
                 {% for disease in diseases|slice:':7' %}
                     <a  href="/search/?disease={{disease.slug}}" class="cursor-pointer px-3 py-2 rounded-xl border border-[#CACBE6] text-sm text-[#151E2C]">
@@ -95,14 +91,14 @@
                 {% endfor %}
             </div>
         </div> -->
-        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[22px] grid_4_cards">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 grid_4_cards">
             <div class="bg-[#f0da69] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between hover:shadow ">
                 <div>
                     <h4 class="text-[#151E2C] text-xl md:text-2xl font-semibold line-clamp-1">Instant Video Consultation</h4>
                     <p class="text-xs sm:text-sm font-medium text-[#111111] line-clamp-2">Connect within 30 secs</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
-                    <span class="rounded-full p-2 size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
+                    <span class="rounded-full p-2 size-8 sm:size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
                         <svg class="h-full w-full" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8072 7.85949C21.9769 8.02941 22.0723 8.25974 22.0723 8.4999C22.0723 8.74006 21.9769 8.9704 21.8072 9.14032L14.5572 16.3903C14.4743 16.4794 14.3742 16.5508 14.263 16.6003C14.1519 16.6498 14.0319 16.6765 13.9102 16.6786C13.7885 16.6808 13.6676 16.6584 13.5548 16.6128C13.442 16.5672 13.3394 16.4994 13.2534 16.4133C13.1673 16.3273 13.0995 16.2248 13.0539 16.1119C13.0083 15.9991 12.986 15.8782 12.9881 15.7565C12.9902 15.6348 13.0169 15.5148 13.0664 15.4037C13.1159 15.2925 13.1874 15.1925 13.2764 15.1095L18.9797 9.40615L1.83348 9.40615C1.59313 9.40615 1.36262 9.31067 1.19266 9.14072C1.02271 8.97076 0.927229 8.74025 0.927229 8.4999C0.927229 8.25955 1.02271 8.02904 1.19266 7.85909C1.36262 7.68913 1.59313 7.59365 1.83348 7.59365L18.9797 7.59365L13.2764 1.89032C13.1874 1.80735 13.1159 1.7073 13.0664 1.59613C13.0169 1.48497 12.9902 1.36496 12.9881 1.24328C12.986 1.1216 13.0083 1.00073 13.0539 0.887887C13.0995 0.775043 13.1673 0.672535 13.2534 0.586479C13.3394 0.500423 13.442 0.432582 13.5548 0.387002C13.6676 0.341423 13.7885 0.319039 13.9102 0.321186C14.0319 0.323333 14.1519 0.349966 14.263 0.399498C14.3742 0.44903 14.4743 0.520445 14.5572 0.609484L21.8072 7.85949Z" fill="white"/>
                         </svg>                            
@@ -121,7 +117,7 @@
                     <p class="text-xs sm:text-sm font-medium text-[#111111] line-clamp-2">Expert Doctors, Just Around the Corner</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
-                    <span class="rounded-full p-2 size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
+                    <span class="rounded-full p-2 size-8 sm:size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
                         <svg class="h-full w-full" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8072 7.85949C21.9769 8.02941 22.0723 8.25974 22.0723 8.4999C22.0723 8.74006 21.9769 8.9704 21.8072 9.14032L14.5572 16.3903C14.4743 16.4794 14.3742 16.5508 14.263 16.6003C14.1519 16.6498 14.0319 16.6765 13.9102 16.6786C13.7885 16.6808 13.6676 16.6584 13.5548 16.6128C13.442 16.5672 13.3394 16.4994 13.2534 16.4133C13.1673 16.3273 13.0995 16.2248 13.0539 16.1119C13.0083 15.9991 12.986 15.8782 12.9881 15.7565C12.9902 15.6348 13.0169 15.5148 13.0664 15.4037C13.1159 15.2925 13.1874 15.1925 13.2764 15.1095L18.9797 9.40615L1.83348 9.40615C1.59313 9.40615 1.36262 9.31067 1.19266 9.14072C1.02271 8.97076 0.927229 8.74025 0.927229 8.4999C0.927229 8.25955 1.02271 8.02904 1.19266 7.85909C1.36262 7.68913 1.59313 7.59365 1.83348 7.59365L18.9797 7.59365L13.2764 1.89032C13.1874 1.80735 13.1159 1.7073 13.0664 1.59613C13.0169 1.48497 12.9902 1.36496 12.9881 1.24328C12.986 1.1216 13.0083 1.00073 13.0539 0.887887C13.0995 0.775043 13.1673 0.672535 13.2534 0.586479C13.3394 0.500423 13.442 0.432582 13.5548 0.387002C13.6676 0.341423 13.7885 0.319039 13.9102 0.321186C14.0319 0.323333 14.1519 0.349966 14.263 0.399498C14.3742 0.44903 14.4743 0.520445 14.5572 0.609484L21.8072 7.85949Z" fill="white"/>
                         </svg>                            
@@ -139,7 +135,7 @@
                     <p class="text-xs sm:text-sm font-medium text-[#111111] line-clamp-2">Your Time, Our Priority</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
-                    <span class="rounded-full p-2 size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
+                    <span class="rounded-full p-2 size-8 sm:size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
                         <svg class="h-full w-full" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8072 7.85949C21.9769 8.02941 22.0723 8.25974 22.0723 8.4999C22.0723 8.74006 21.9769 8.9704 21.8072 9.14032L14.5572 16.3903C14.4743 16.4794 14.3742 16.5508 14.263 16.6003C14.1519 16.6498 14.0319 16.6765 13.9102 16.6786C13.7885 16.6808 13.6676 16.6584 13.5548 16.6128C13.442 16.5672 13.3394 16.4994 13.2534 16.4133C13.1673 16.3273 13.0995 16.2248 13.0539 16.1119C13.0083 15.9991 12.986 15.8782 12.9881 15.7565C12.9902 15.6348 13.0169 15.5148 13.0664 15.4037C13.1159 15.2925 13.1874 15.1925 13.2764 15.1095L18.9797 9.40615L1.83348 9.40615C1.59313 9.40615 1.36262 9.31067 1.19266 9.14072C1.02271 8.97076 0.927229 8.74025 0.927229 8.4999C0.927229 8.25955 1.02271 8.02904 1.19266 7.85909C1.36262 7.68913 1.59313 7.59365 1.83348 7.59365L18.9797 7.59365L13.2764 1.89032C13.1874 1.80735 13.1159 1.7073 13.0664 1.59613C13.0169 1.48497 12.9902 1.36496 12.9881 1.24328C12.986 1.1216 13.0083 1.00073 13.0539 0.887887C13.0995 0.775043 13.1673 0.672535 13.2534 0.586479C13.3394 0.500423 13.442 0.432582 13.5548 0.387002C13.6676 0.341423 13.7885 0.319039 13.9102 0.321186C14.0319 0.323333 14.1519 0.349966 14.263 0.399498C14.3742 0.44903 14.4743 0.520445 14.5572 0.609484L21.8072 7.85949Z" fill="white"/>
                         </svg>                            
@@ -158,7 +154,7 @@
                     <p class="text-xs sm:text-sm font-medium text-[#111111] line-clamp-2">Your Prescription, Your Convenience</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
-                    <span class="rounded-full p-2 size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
+                    <span class="rounded-full p-2 size-8 sm:size-9 flex items-center justify-center bg-[#252b61] absolute bottom-0 left-0">
                         <svg class="h-full w-full" viewBox="0 0 23 17" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M21.8072 7.85949C21.9769 8.02941 22.0723 8.25974 22.0723 8.4999C22.0723 8.74006 21.9769 8.9704 21.8072 9.14032L14.5572 16.3903C14.4743 16.4794 14.3742 16.5508 14.263 16.6003C14.1519 16.6498 14.0319 16.6765 13.9102 16.6786C13.7885 16.6808 13.6676 16.6584 13.5548 16.6128C13.442 16.5672 13.3394 16.4994 13.2534 16.4133C13.1673 16.3273 13.0995 16.2248 13.0539 16.1119C13.0083 15.9991 12.986 15.8782 12.9881 15.7565C12.9902 15.6348 13.0169 15.5148 13.0664 15.4037C13.1159 15.2925 13.1874 15.1925 13.2764 15.1095L18.9797 9.40615L1.83348 9.40615C1.59313 9.40615 1.36262 9.31067 1.19266 9.14072C1.02271 8.97076 0.927229 8.74025 0.927229 8.4999C0.927229 8.25955 1.02271 8.02904 1.19266 7.85909C1.36262 7.68913 1.59313 7.59365 1.83348 7.59365L18.9797 7.59365L13.2764 1.89032C13.1874 1.80735 13.1159 1.7073 13.0664 1.59613C13.0169 1.48497 12.9902 1.36496 12.9881 1.24328C12.986 1.1216 13.0083 1.00073 13.0539 0.887887C13.0995 0.775043 13.1673 0.672535 13.2534 0.586479C13.3394 0.500423 13.442 0.432582 13.5548 0.387002C13.6676 0.341423 13.7885 0.319039 13.9102 0.321186C14.0319 0.323333 14.1519 0.349966 14.263 0.399498C14.3742 0.44903 14.4743 0.520445 14.5572 0.609484L21.8072 7.85949Z" fill="white"/>
                         </svg>                            
@@ -178,12 +174,12 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
-        <div class="grid grid-cols-3 gap-5">
-            <div class="bg-gradient-to-b from-[#BF1EF8] to-[#4F37E7] col-span-2 p-5 pb-0 flex items-center gap-10 rounded-[20px]">
+        <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+            <div class="bg-gradient-to-b from-[#BF1EF8] to-[#4F37E7] sm:col-span-2 p-5 pb-0 flex items-center flex-col md:flex-row gap-10 rounded-[20px]">
                 <div class="flex-1 space-y-1">
-                    <p class="text-[15px] font-medium text-white mb-[-10px] outfit-font">Join Our Medical Community!</p>
-                    <h2 class="text-white text-[50px] font-bold outfit-font !m-0">Are You a Doctor?</h2>
-                    <p class="text-white text-[18px] outfit-font">Create your professional profile to connect with patients & peers, enhance your practice, & grow your network!</p>
+                    <p class="text-sm lg:text-[15px] font-medium text-white outfit-font">Join Our Medical Community!</p>
+                    <h2 class="text-white text-3xl sm:text-4xl lg:text-[50px] font-bold outfit-font">Are You a Doctor?</h2>
+                    <p class="text-white text-sm sm:text-md lg:text-[18px] outfit-font line-clamp-2">Create your professional profile to connect with patients & peers, enhance your practice, & grow your network!</p>
                     <a href="/onboarding/?signupAsDoctor=true&onboarding_type=doctor" class="w-full flex items-center justify-between bg-white rounded-[8px] p-2 cursor-pointer !mt-5">
                         <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#BD1EF8] to-[#5635E8] text-[16px] font-semibold outfit-font">Join Us Now</p>
                         <span class="rounded-full px-12 bg-gradient-to-b from-[#A424F4] to-[#5137E7] py-2">
@@ -200,13 +196,13 @@
                         </span>
                     </a>
                 </div>
-                <img class="max-h-[300px] min-h-[40] h-auto max-w-[450px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid1.png" alt="">
+                <img class="h-60 lg:h-72" src="/static/assets/Images/traumacareAIcare/grid1.png" alt="">
             </div>
             <div class="bg-gradient-to-b from-[#56A8FA] to-[#6640EE] p-5 rounded-[20px] flex flex-col justify-between gap-1">
                 <div class="space-y-1">
-                    <p class="text-[15px] font-medium text-white mb-[-10px] outfit-font">Join Our Medical Community!</p>
-                    <h2 class="text-white text-[36px] outfit-font font-bold">Empower Your Pharmacy!</h2>
-                    <p class="text-white text-[18px] outfit-font">Connect with doctors and patients, expand your reach, and offer seamless medicine delivery services.</p>
+                    <p class="text-sm lg:text-[15px] font-medium text-white outfit-font">Join Our Medical Community!</p>
+                    <h2 class="text-white text-3xl sm:text-4xl lg:text-[36px] outfit-font font-bold">Empower Your Pharmacy!</h2>
+                    <p class="text-white text-sm sm:text-md lg:text-[18px] outfit-font line-clamp-2">Connect with doctors and patients, expand your reach, and offer seamless medicine delivery services.</p>
                 </div>
                 <div class="w-full flex items-center justify-between bg-white rounded-lg p-2 cursor-pointer !mt-5">
                     <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#6642EE] to-[#57A4FA] text-[16px] font-semibold outfit-font">Partner with Us</p>
@@ -224,10 +220,10 @@
                     </span>
                 </div>
             </div>
-            <div class="bg-gradient-to-b from-[#EE498F] to-[#FA5D63] rounded-2xl space-y-2">
+            <div class="bg-gradient-to-b from-[#EE498F] to-[#FA5D63] rounded-2xl space-y-2 relative">
                 <div class="p-5 space-y-1">
-                    <h2 class="text-white text-[40px] font-bold outfit-font">Enhance Your Hospital's Impact!</h2>
-                    <p class="text-white text-[17px] outfit-font">Boost visibility, connect with skilled doctors, and offer better patient care through streamlined operations.</p>
+                    <h2 class="text-white text-3xl sm:text-4xl lg:text-[40px] font-bold outfit-font">Enhance Your Hospital's Impact!</h2>
+                    <p class="text-white text-sm sm:text-md lg:text-[17px] outfit-font line-clamp-2">Boost visibility, connect with skilled doctors, and offer better patient care through streamlined operations.</p>
                     <a class="w-full flex items-center justify-between bg-white rounded-lg p-2 cursor-pointer !mt-5 max-w-[180px] w-full">
                         <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#EF4B8C] to-[#FA5D64] text-[16px] font-semibold outfit-font">Join Our Network</p>
                         <span class="rounded-full bg-gradient-to-b from-[#EE498E] to-[#FA5D64] p-1.5">
@@ -244,15 +240,15 @@
                         </span>
                     </a>
                 </div>
-                <div class="flex items-center">
-                    <p class="p-5 text-[#FFEF9D] outfit-font text-[24px]">Get patient feedback & manage appointments online.</p>
-                    <img class="h-40" src="/static/assets/Images/traumacareAIcare/grid3.png" alt="">
+                <div class="flex items-center p-5 pr-40 md:pr-44 !mt-6">
+                    <p class="text-[#FFEF9D] outfit-font text-md sm:text-lg md:text-xl lg:text-2xl line-clamp-3">Get patient feedback & manage appointments online.</p>
                 </div>
+                <img class="h-36 md:h-40 absolute right-0 bottom-0" src="/static/assets/Images/traumacareAIcare/grid3.png" alt="">
             </div>
-            <div class="relative bg-gradient-to-b from-[#0C1946] to-[#202DA7] col-span-2 p-5 pb-0 flex items-center gap-10 rounded-2xl">
+            <div class="relative bg-gradient-to-b from-[#0C1946] to-[#202DA7] sm:col-span-2 p-5 pb-0 flex items-center flex-col md:flex-row gap-10 rounded-2xl">
                 <div class="flex-1 space-y-1 z-[1]">
-                    <h2 class="text-white text-[60px] font-bold outfit-font leading-[67px]">Virtual Care, Real Results</h2>
-                    <p class="text-white text-[18px] outfit-font">Experience the future of healthcare with our <br><a href="" class="text-[#FFD600] cursor-pointer">Virtual AI Doctor.</a> <br> <br>Get accurate symptom analysis, personalized recommendations, and round-the-clock support all from the comfort of your home.</p>
+                    <h2 class="text-white text-3xl sm:text-4xl lg:text-5xl xl:text-[60px] font-bold outfit-font xl:leading-[67px]">Virtual Care, Real Results</h2>
+                    <p class="text-white text-sm sm:text-md lg:text-[18px] outfit-font">Experience the future of healthcare with our <br><a href="" class="text-[#FFD600] cursor-pointer">Virtual AI Doctor.</a> <br> <br><p class="line-clamp-2 text-white outfit-font text-sm sm:text-md lg:text-[18px]">Get accurate symptom analysis, personalized recommendations, and round-the-clock support all from the comfort of your home.</p></p>
                     <a class="w-full flex items-center justify-between bg-white rounded-lg p-2 cursor-pointer !mt-5">
                         <p class="bg-clip-text text-transparent bg-gradient-to-r from-[#111E5D] to-[#202DA5] text-[16px] font-semibold outfit-font">Book Your Appointment</p>
                         <span class="rounded-full px-12 bg-gradient-to-b from-[#0D1A4B] to-[#202DA6] py-2">
@@ -270,33 +266,36 @@
                     </a>
                 </div>
                 <div class='min-w-[300px]'>
+                    <img class="block xl:hidden max-h-[340px] min-h-[44] h-auto max-w-[460px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
                 </div>
-                <img class="absolute bottom-0 right-0 max-h-[550px] min-h-[40] h-auto max-w-[650px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
+                <div class="hidden xl:block">
+                    <img class="absolute bottom-0 right-0 max-h-[550px] min-h-[40] h-auto max-w-[650px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
+                </div>
             </div>
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Reviews That Reflect Our Care</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Reviews That Reflect Our Care</h3>
         {% if application_reviews|length == 0 %}
             <p class="text-center text-sm text-[#111111]">No review found.</p>
         {% else %}
-            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center !mt-16">
+            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center !mt-10">
                 <div class="{% if application_reviews|length > 3 %} swiper-wrapper {% else %} !flex items-center gap-3 {% endif %} !z-0">
                     {% for review in application_reviews %}
-                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[350px] w-full !z-0" style="border: none;">
+                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[200px] w-full !z-0" style="border: none;">
                             {% include 'Components/reviewCard.html' %}
                         </div>
                     {% endfor %}
                 </div>
                 {% if application_reviews|length > 4 %}
-                    <div class="absolute left-0 flex items-center justify-center w-24 h-full">
+                    <div class="absolute left-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
                         <button class="left-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
                             <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white"/>
                             </svg>                            
                         </button>
                     </div>
-                    <div class="absolute right-0 flex items-center justify-center w-24 h-full">
+                    <div class="absolute right-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
                         <button class="right-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
                             <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white"/>
@@ -308,7 +307,7 @@
         {% endif %}
     </section>
     <section class="max-w-[1500px] mx-auto relative flex lg:items-center w-full rounded-xl bg-gradient-to-b from-[#312777] to-[#952591] lg:flex-row flex-col">
-        <div class="flex-1 p-7 space-y-1">
+        <div class="flex-1 p-4 sm:p-6 md:p-7 space-y-1">
             <h2 class="text-white text-2xl lg:text-3xl font-semibold !leading-[38px] lg:!leading-[40px]">Rate Our App, <br>Tell Us How’s Your Experience?</h2>
             <p class="text-white text-sm max-w-[600px]">Your opinion matters! Help us improve by rating our app and sharing your experience. Your feedback drives us to deliver even better care and features tailored to you.</p>
             <button id="add_review_btn" class="submit-review-btn !mt-5 bg-[#FFFFFF1A] text-white text-sm cursor-pointer font-semibold flex items-center justify-center px-7 py-2.5 rounded-full" >
@@ -321,7 +320,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <div class="space-y-2">
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center">Latest Blogs And News</h3>
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Latest Blogs And News</h3>
             <p class="text-sm text-[#0A0E19] text-center">We aim to ensure that knowledge and news related to development technologies are readily accessible to all.</p>
         </div>
         {% if blog_posts %}
