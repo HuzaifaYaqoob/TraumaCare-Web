@@ -108,7 +108,7 @@ class LocationContact(models.Model):
     uuid = models.UUIDField(default=uuid4, unique=True, editable=False)
 
     hospital = models.ForeignKey(Hospital, on_delete=models.PROTECT, related_name='hospital_location_contacts')
-    location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, related_name='location_contacts')
+    location = models.ForeignKey(HospitalLocation, on_delete=models.PROTECT, related_name='location_contacts', help_text='Select Location for this Hospital')
 
     contact_type = models.CharField(choices=CONTACT_TYPE_CHOICES, default='EMAIL', max_length=50)
     contact_title = models.CharField(default='', max_length=500)
