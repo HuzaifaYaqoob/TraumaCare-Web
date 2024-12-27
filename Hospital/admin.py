@@ -10,17 +10,17 @@ class HospitalLocationInline(admin.StackedInline):
     extra = 1
 
     fields = [
-        "name",
-        "street_address",
         # "country",
         "state",
         "city",
+        "name",
+        "street_address",
         "lat",
         "lng",
     ]
 
 
-class LocationContactInline(admin.TabularInline):
+class LocationContactInline(admin.StackedInline):
     model = LocationContact
     extra = 2
 
