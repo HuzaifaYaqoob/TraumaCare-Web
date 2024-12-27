@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import *
 
 
-class HospitalLocationInline(admin.TabularInline):
+class HospitalLocationInline(admin.StackedInline):
     model = HospitalLocation
     extra = 1
 
