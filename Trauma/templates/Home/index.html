@@ -73,7 +73,7 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7 !mt-4">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Nearby Doctors</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Nearby Doctors</h3>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
@@ -82,7 +82,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-12 ">
         <!-- <div class="space-y-6">
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">You may be in search of</h3>
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">You may be in search of</h3>
             <div class="flex items-center gap-[8px] justify-center flex-wrap">
                 {% for disease in diseases|slice:':7' %}
                     <a  href="/search/?disease={{disease.slug}}" class="cursor-pointer px-3 py-2 rounded-xl border border-[#CACBE6] text-sm text-[#151E2C]">
@@ -275,7 +275,7 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Reviews That Reflect Our Care</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Reviews That Reflect Our Care</h3>
         {% if application_reviews|length == 0 %}
             <p class="text-center text-sm text-[#111111]">No review found.</p>
         {% else %}
@@ -320,7 +320,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <div class="space-y-2">
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center">Latest Blogs And News</h3>
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Latest Blogs And News</h3>
             <p class="text-sm text-[#0A0E19] text-center">We aim to ensure that knowledge and news related to development technologies are readily accessible to all.</p>
         </div>
         {% if blog_posts %}
@@ -342,20 +342,20 @@
     </section>
 </main>
 <section class="hidden" id="main_review_card">
-    <div class="fixed inset-0 h-[100vh] w-[100vw] bg-[#000]/50 add_review_popup z-50 flex items-center justify-center ">
-        <form action="{% url 'handleApplicationReviewSubmit' %}" method="post"  class=" bg-white rounded-3xl px-4 md:px-5 py-3 md:py-5 w-[320px] sm:w-[420px] md:w-[450px] ">
+    <div class="fixed inset-0 h-[100vh] w-[100vw] bg-[#000]/50 add_review_popup z-50 flex items-center justify-center">
+        <form action="{% url 'handleApplicationReviewSubmit' %}" method="post"  class="bg-white rounded-3xl px-4 md:px-5 py-3 md:py-5 w-[320px] sm:w-[420px] md:w-[450px]">
             {% csrf_token %}
-            <div class="flex items-center justify-between pb-[10px] ">
-                <h2 class="text-[#6A727D] text-sm sm:text-sm md:text-[17px] font-semibold">Add Review</h2>
+            <div class="flex items-center justify-between">
+                <h2 class="bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] text-xs sm:text-sm md:text-lg font-semibold">Add Review</h2>
                 <span class="cursor-pointer cancle-popup" id="cancle_popup_btn">
-                    <svg width="13" height="13" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M1 11L11 1M1 1L11 11" stroke="#6A727D" stroke-width="2" stroke-linecap="round"/>
+                    <svg class="fill-[#151E2C] stroke-[#151E2C]" width="13" height="13" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 11L11 1M1 1L11 11" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </span>
             </div>
-            <div class=" overflow-y-auto ">
+            <div class="overflow-y-auto mt-3">
                 {% if request.user.is_authenticated %}
-                <div class="flex gap-[12px] md:gap-[20px] mt-[10px]">
+                <div class="flex gap-3 md:gap-5">
                     <div class="rounded-[16px] h-[50px] md:h-[70px] w-[60px] md:w-[80px]" style="background: url('{% if request.user.profile_image %}{{request.user.profile_image}}{% else %}https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=2000{% endif %}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <div>
                         <h3 class="text-[16px] md:text-[18px] font-semibold leading-5 text-[#4A4848] cursor-pointer">{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}</h3>
@@ -366,16 +366,16 @@
                     <div>
                         {% include 'Components/Form/TextField.html' with size='md' placeholder='Your Name' name='username' %}
                         <div class='form-field'>
-                            <div class="phone-number-field-outer relative !py-[8px] !px-[10px] md:!px-[20px] md:!py-[16px] border border-slate-300 transition-all !bg-slate-100">
-                                <input autocomplete="off" type="number" name="mobile_number" id="mobile_number" class="number-field !mx-0" placeholder="0309 *** ** **" required="">
+                            <div class="relative border border-slate-300 transition-all !bg-slate-100 rounded-lg">
+                                <input autocomplete="off" type="number" name="mobile_number" id="mobile_number" class="number-field py-4 px-5" placeholder="0309 *** ** **" required="">
                             </div>
                         </div>
                     </div>
                 {% endif %}
                 <hr class="mt-[9px] sm:mt-[12px] md:mt-[16px]">
                 <p class="text-[#727272] mt-[10px] text-center text-sm md:text-[16px]">Your overall rating of this Product</p>
-                <div RatingStars class="complete-background-popups-before-stars flex items-center justify-center gap-[12px] sm:gap-[16px] md:gap-[24px] mt-[3px] sm:mt-[12px]">
-                    <input type="number" value="5" ratingInput name="star_rating" class="hidden" >
+                <div RatingStars class="complete-background-popups-before-stars flex items-center justify-center gap-3 sm:gap-4 md:gap-6 mt-1 sm:mt-3">
+                    <input type="number" value="5" ratingInput name="star_rating" class="hidden">
                     <svg class="cursor-pointer rating_star_svg" width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path class="hover:fill-[#FEB546]" d="M12.0492 1.90712C13.2562 -0.635703 16.7437 -0.635707 17.9508 1.90711L20.0368 6.30177C20.5161 7.31152 21.4427 8.0114 22.5144 8.17333L27.179 8.87804C29.878 9.2858 30.9557 12.7343 29.0027 14.7136L25.6274 18.1344C24.8518 18.9204 24.4979 20.0528 24.681 21.1626L25.4778 25.9928C25.9389 28.7876 23.1174 30.9189 20.7034 29.5994L16.5312 27.3189C15.5726 26.7949 14.4274 26.7949 13.4688 27.3189L9.29665 29.5994C6.88259 30.9189 4.06113 28.7877 4.52218 25.9928L5.31898 21.1626C5.50206 20.0528 5.14817 18.9204 4.37262 18.1344L0.997313 14.7136C-0.955701 12.7343 0.121992 9.2858 2.82099 8.87804L7.48556 8.17333C8.55733 8.0114 9.48385 7.31152 9.96316 6.30177L12.0492 1.90712Z" fill="#A7A7A7"/>
                     </svg>
