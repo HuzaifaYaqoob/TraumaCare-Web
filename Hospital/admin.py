@@ -5,22 +5,22 @@ from django.contrib import admin
 from .models import *
 
 
-class HospitalLocationInline(admin.TabularInline):
+class HospitalLocationInline(admin.StackedInline):
     model = HospitalLocation
     extra = 1
 
     fields = [
-        "name",
-        "street_address",
         # "country",
         "state",
         "city",
+        "name",
+        "street_address",
         "lat",
         "lng",
     ]
 
 
-class LocationContactInline(admin.TabularInline):
+class LocationContactInline(admin.StackedInline):
     model = LocationContact
     extra = 2
 
