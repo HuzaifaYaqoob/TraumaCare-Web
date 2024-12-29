@@ -15,7 +15,7 @@ COLORS = {
     "Hospital" : "#05DC75",
     "Pharmacy" : '#F01275',
     "Lab" : "#F8DB48",
-    "Private_Clinic" : '#0755E9',
+    "Private_Clinic" : '#A737D5',
 }
 
 # @admin.register(User)
@@ -125,13 +125,23 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
+
+    def get_label(self, text, color='#0755E9'):
+        return f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;padding:2px 5px;border-radius:5px;background-color:{color};color:white">{text}</span>"""
     def user(self, user):
         labels = []
+        
+        if user.is_superuser:
+            labels.append(self.get_label("Superuser", color='#F8DB48'))
+        elif user.is_staff or user.is_admin:
+            labels.append(self.get_label("Staff", color='#18BFFF'))
+
         profiles = list(set(user.profiles.values_list('profile_type', flat=True)))
         if 'Patient' in profiles:
             profiles.remove('Patient')
+
         for p_i, p in enumerate(profiles):
-            labels.append(f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;padding:2px 5px;border-radius:5px;background-color:{COLORS[p]};color:white">{p}</span>""")
+            labels.append(self.get_label(p, COLORS[p]))
         
         print(labels)
 
