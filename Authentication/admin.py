@@ -134,7 +134,7 @@ class CustomUserAdmin(UserAdmin):
         if user.is_superuser:
             labels.append(self.get_label("Superuser", color='#F8DB48'))
         elif user.is_staff or user.is_admin:
-            labels.append(self.get_label("Staff", color='#18BFFF'))
+            labels.append(self.get_label("Admin Staff", color='#18BFFF'))
 
         profiles = list(set(user.profiles.values_list('profile_type', flat=True)))
         if 'Patient' in profiles:
