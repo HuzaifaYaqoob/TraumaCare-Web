@@ -143,7 +143,6 @@ class CustomUserAdmin(UserAdmin):
         for p_i, p in enumerate(profiles):
             labels.append(self.get_label(p, COLORS[p]))
         
-        print(labels)
 
         is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
         is_mobile_verified = f'{is_mobile_verified} {user.mobile_number}'
