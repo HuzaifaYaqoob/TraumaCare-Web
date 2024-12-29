@@ -193,25 +193,66 @@ const handlePasswordShowOrHide = () =>{
     })
 }
 
-const accessLocation = () =>{
+const accessLocation = async () => {
     if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) =>{
-            let latitude = position.coords.latitude
-            let longitude = position.coords.longitude
-            // alert(`${latitude}, ${longitude}`)
-        })
+        return new Promise((resolve, reject) => {
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    const latitude = position.coords.latitude;
+                    const longitude = position.coords.longitude;
+                    resolve([latitude, longitude]); // Resolve the promise with lat and long
+                },
+                (error) => {
+                    reject(error); // Reject the promise if there's an error
+                }
+            );
+        });
     } else {
-    // I believe it may also mean geolocation isn't supported
-        alert('Geolocation denied') 
+        throw new Error('Geolocation is not supported by this browser');
+    }
+};
+
+// https://www.google.com/maps/dir/?api=1&origin=31.5162624,74.3112704&destination=31.48372354559183,74.28036546591997
+
+const ShowDistances = async () =>{
+    let coords = document.querySelectorAll('[ShowDistance]')
+    if (coords.length > 0){
+        const user_location = await accessLocation()
+        if (user_location){
+            const location_coords = {}
+            coords.forEach(coord =>{
+                let loc_coords = coord.getAttribute('ShowDistance')
+                location_coords[loc_coords] = loc_coords
+            })
+            const response = await fetch('/api/v1/get_location_distance/', {
+                method : 'POST',
+                headers : {
+                    'Content-Type': 'application/json'
+                },
+                body : JSON.stringify({"my_coords" : {'lat' : user_location[0],'lng' : user_location[1],},'location_coords' : location_coords})
+            })
+            let result = await response.json()
+            console.log(result)
+            for (let key in result){
+                let element = document.querySelector(`[ShowDistance="${key}"]`)
+                if (element){
+                    element.innerHTML = `(${result[key]} Km)`
+                    let a = `<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=${user_location[0]},${user_location[1]}&destination=${key}" class="whitespace-nowrap underline">Get Directions</a>`
+                    element.parentElement.innerHTML += a
+                }
+            }
+        }
     }
 }
 
 const StartScript = () =>{
-    accessLocation()
+    // accessLocation()
     BodyClicked()
     DropdownField()
+    ShowDistances()
 
     OnInputRemoveErrors()
+
 
     const stars = document.querySelectorAll('[RatingStars] svg')
     stars.forEach((star_svg, index) =>{
