@@ -9,6 +9,15 @@ from .models import User, Role, StaffRole
 from django.contrib.auth.admin import UserAdmin
 from Profile.models import Profile
 
+COLORS = {
+    "Patient" : 'Black',
+    "Doctor" : '#0755E9',
+    "Hospital" : "#05DC75",
+    "Pharmacy" : '#F01275',
+    "Lab" : "#F8DB48",
+    "Private_Clinic" : '#0755E9',
+}
+
 # @admin.register(User)
 # class UserAdmin(admin.ModelAdmin):
 #     ordering = ['-joined_at']
@@ -65,7 +74,7 @@ class UserProfileInline(admin.StackedInline):
 
 
 class CustomUserAdmin(UserAdmin):
-    list_display = ['phone_number', 'email', 'first_name', 'last_name', 'joined_at']
+    list_display = ['user', 'email', 'first_name', 'last_name', 'joined_at']
     search_fields = ['id', 'username', 'first_name', 'last_name', 'email', 'country__name']
     ordering = ['-joined_at']
     list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
@@ -113,14 +122,29 @@ class CustomUserAdmin(UserAdmin):
             },
         ),
     )
-    def phone_number(self, user):
+    def user(self, user):
+        labels = []
+        profiles = list(set(user.profiles.values_list('profile_type', flat=True)))
+        profiles.remove('Patient')
+        for p_i, p in enumerate(profiles):
+            labels.append(f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;margin-right:3px;padding:2px 5px;border-radius:5px;background-color:{COLORS[p]};color:white">{p}</span>""")
+        
+        print(labels)
 
         is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
         is_mobile_verified = f'{is_mobile_verified} {user.mobile_number}'
-        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">{user.full_name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400">{is_mobile_verified}</p></span></div>'
+        div = f"""<div style="display : flex;gap:10px">
+                    <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span>
+                    <span>
+                        <p style="margin:0;padding:0;font-size:16px">{user.full_name}</p>
+                        <p style="margin:0;padding:0;font-size:13px;font-weight:400">{is_mobile_verified}</p>
+                        <span style='margin-top:5px;display:flex;gap:5px;'>{"".join(labels)}</span>
+                    </span>
+                </div>"""
         return mark_safe(div)
     
-    phone_number.image_tag = True
+    user.image_tag = True
+    user.admin_order_field = "first_name"
 
 
     # Methods 
