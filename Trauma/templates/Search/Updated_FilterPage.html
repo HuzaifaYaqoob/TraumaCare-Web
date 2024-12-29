@@ -10,61 +10,6 @@
 {% block baseBody %}
 
 <main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-10">
-    <section>
-        <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-8 sm:pb-10 md:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
-            <div class="flex-1 space-y-4">
-                {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
-                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img src='{% static "assets/Images/underline.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
-                <p class="font-normal text-sm sm:text-md lg:text-lg text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span class="text-[#2FC670] font-semibold ">AI Assistance</span>.</p>
-                <div class="flex gap-3 items-center flex-wrap ">
-                    <button class="bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white font-medium px-4 py-3 rounded-lg">
-                        How may I Help you?
-                    </button>
-                </div>
-            </div>
-            <div class="max-w-[500px] flex items-center justify-end">
-                {% include 'Components/SVG/AIBot.html' %}
-            </div>
-        </div>
-        <div class="p-[1px] bg-gradient-to-r from-[#0755E9] to-[#05DC75] max-w-[1500px] w-[96%] md:w-[91%] lg:w-[88%] xl:w-[85%] mx-auto rounded-xl -translate-y-1/2">
-            <form action="/search" autocomplete="off" class="bg-white rounded-xl flex items-center justify-center gap-1.5 h-[50px] md:h-[57px] lg:h-[65px] w-full p-1 md:p-1.5 lg:p-2 relative z-40">
-                <div class="flex items-center gap-1 flex-1 h-full pl-2">
-                    <span class="h-full size-5 flex items-center justify-center">
-                        <svg class="h-full w-full" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 0C11.3869 0 13.6761 0.948211 15.364 2.63604C17.0518 4.32387 18 6.61305 18 9C18 12.074 16.324 14.59 14.558 16.395C13.6757 17.2871 12.7129 18.0958 11.682 18.811L11.256 19.101L11.056 19.234L10.679 19.474L10.343 19.679L9.927 19.921C9.64463 20.0822 9.32513 20.1669 9 20.1669C8.67487 20.1669 8.35537 20.0822 8.073 19.921L7.657 19.679L7.137 19.359L6.945 19.234L6.535 18.961C5.42283 18.2085 4.3869 17.3491 3.442 16.395C1.676 14.589 0 12.074 0 9C0 6.61305 0.948211 4.32387 2.63604 2.63604C4.32387 0.948211 6.61305 0 9 0ZM9 6C8.60603 6 8.21593 6.0776 7.85195 6.22836C7.48797 6.37913 7.15726 6.6001 6.87868 6.87868C6.6001 7.15726 6.37913 7.48797 6.22836 7.85195C6.0776 8.21593 6 8.60603 6 9C6 9.39397 6.0776 9.78407 6.22836 10.1481C6.37913 10.512 6.6001 10.8427 6.87868 11.1213C7.15726 11.3999 7.48797 11.6209 7.85195 11.7716C8.21593 11.9224 8.60603 12 9 12C9.79565 12 10.5587 11.6839 11.1213 11.1213C11.6839 10.5587 12 9.79565 12 9C12 8.20435 11.6839 7.44129 11.1213 6.87868C10.5587 6.31607 9.79565 6 9 6Z" fill="#0755E9"/>
-                        </svg>                            
-                    </span>
-                    <input value='{% if request.city %}{{request.city}}{% endif %}' class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full" placeholder="Lahore" />
-                </div>
-                <div class="h-[36px] w-[1px] bg-[#CACBE6]"></div>
-                <div class="flex gap-3 flex-1 h-full" onclick="specialities_drop()">
-                    <input name='speciality' class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full" id="SpecialitiesInput" placeholder="Specialities"></input>
-                    <!-- <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
-                        <svg class="z-50 transition_2s specialities_drop_svg h-[14px] w-[14px] fill-[#0A1C4B] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                    </span>
-                    <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-white border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
-                        {% for speciality in specialities %}
-                            <p class="py-[9px] text-sm text-[#0A1C4B] px-[16px] py-3 hover:bg-[#24D0D0] hover:text-white cursor-pointer transition-all dropdown-item transition z-50 relative" slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
-                        {% endfor %}
-                    </div> -->
-                </div>
-                <div class="h-[36px] w-[1px] bg-[#CACBE6]"></div>
-                <div class="flex-[2] h-full ">
-                    <input class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
-                </div>
-                <button class="bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-5 h-full flex items-center gap-2 rounded-lg cursor-pointer">
-                    <span class="size-5 flex items-center justify-center ">
-                        <svg class="h-full w-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M10.5 20.5C12.7187 20.4995 14.8735 19.7568 16.6213 18.39L22.1162 23.885L23.8838 22.1175L18.3888 16.6225C19.7563 14.8746 20.4995 12.7193 20.5 10.5C20.5 4.98625 16.0138 0.5 10.5 0.5C4.98625 0.5 0.5 4.98625 0.5 10.5C0.5 16.0138 4.98625 20.5 10.5 20.5ZM10.5 3C14.6362 3 18 6.36375 18 10.5C18 14.6362 14.6362 18 10.5 18C6.36375 18 3 14.6362 3 10.5C3 6.36375 6.36375 3 10.5 3Z"
-                                fill="white" />
-                        </svg>
-                    </span>
-                    <p class="text-sm md:text-[16px] font-medium text-white ">Search</p>
-                </button>
-            </form>
-        </div>
-    </section>
     <section class="max-w-[1500px] mx-auto space-y-10">
         <div class="space-y-6">
             <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">You may be in search of</h3>

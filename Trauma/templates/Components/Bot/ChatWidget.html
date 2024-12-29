@@ -8,21 +8,12 @@
     [ChatWidgetChatMessage].ai-bot-message {
         flex-direction: row;
     }
-    [ChatWidgetChatMessage].ai-bot-message p.chat-message {
-        border-radius: 0 10px 10px 0;
-        background-color: #eff1f4;
-    }
 
     [ChatWidgetChatMessage].user-message {
         flex-direction: row-reverse;
     }
     [ChatWidgetChatMessage].user-message p.chat-message {
-        border-radius: 10px 0px 0px 10px;
-        background-color: #d7e8ff;
         margin-left: auto;
-    }
-    [ChatWidgetChatMessage] p.chat-message a{
-        color: #2563EB !important;
     }
     .loader {
         width: 10px;
@@ -44,104 +35,108 @@
         <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
         <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
 
-        <div MainChatWidgetChatBot class="h-[650px] w-[550px] z-[10000] shadow-sm border bg-white p-[2px] rounded-[25px] flex flex-col justify-between gap-1 hidden" >
-            <div class="bg-[#f4f6f7] px-4 py-3 flex items-center justify-between rounded-t-[25px] border-b">
-                <div>
-                    <p class="text-[19px] font-bold text-[#1a1e2b]">Dr. Ally <span class="text-sm text-slate-700 font-[400]">(AI Assistant)</span></p>
+        <div MainChatWidgetChatBot class="w-[600px] z-[10000] bg-white rounded-2xl overflow-hidden flex flex-col justify-between !gap-0 hidden">
+            <div class="bg-gradient-to-r from-[#0755E9] to-[#05D57C] px-3 py-2 flex items-center justify-between">
+                <div class="flex items-center gap-2">
+                    <img class="size-11" src="/static/assets/Images/chatbotLogo.png" alt="Image Loading...">
+                    <div class="flex flex-col">
+                        <p class="font-semibold text-white">{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}</p>
+                        <span class="text-xs text-[#E7E7E7] font-medium">Traumaaicare Assistant</span>
+                    </div>
                 </div>
                 <div class="flex items-center gap-4">
-                    <span class="cursor-pointer">
+                    <!-- <span class="cursor-pointer">
                         <svg width="16" height="16" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M1 5V3C1 2.46957 1.21071 1.96086 1.58579 1.58579C1.96086 1.21071 2.46957 1 3 1H5M15 1H17C17.5304 1 18.0391 1.21071 18.4142 1.58579C18.7893 1.96086 19 2.46957 19 3V5M19 15V17C19 17.5304 18.7893 18.0391 18.4142 18.4142C18.0391 18.7893 17.5304 19 17 19H15M5 19H3C2.46957 19 1.96086 18.7893 1.58579 18.4142C1.21071 18.0391 1 17.5304 1 17V15" stroke="#484848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                             <path d="M14 6H6C5.44772 6 5 6.44772 5 7V13C5 13.5523 5.44772 14 6 14H14C14.5523 14 15 13.5523 15 13V7C15 6.44772 14.5523 6 14 6Z" stroke="#484848" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
-                    </span>
-                    <span class="text-xl chatWidgetBotIcon cursor-pointer">
-                        <svg width="16" height="16" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M7.5 1L1 7.5M1 1L7.5 7.5" stroke="#484848" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    </span> -->
+                    <span class="text-xl chatWidgetBotIcon cursor-pointer size-7 flex items-center justify-center">
+                        <svg class="fill-white stroke-white" width="16" height="16" viewBox="0 0 9 9" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M7.5 1L1 7.5M1 1L7.5 7.5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                     </span>
                 </div>
             </div>
-            <div class="flex-1 px-2 pr-4 pt-4 overflow-auto scroll-smooth" MainChatWidgetChatMessages>
-                {% if chat_widget_messages|length == 0 %}
-                    <div class="w-full grid grid-cols-2 gap-x-3 gap-y-3 px-12 pt-3">
-                        <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235);"><path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <p preDefinedMessage="Check availability for next monday for Dr. " class="text-[#676767] font-[400] text-[13px]">Check availability for Dr. Huzaifa's next Monday.</p>
+            <div class="border border-[#CACBE6] border-t-0 rounded-2xl rounded-t-none">
+                <div class="px-2 pt-4 overflow-auto scroll-smooth h-[500px]" MainChatWidgetChatMessages>
+                    {% if chat_widget_messages|length == 0 %}
+                        <div class="w-full grid grid-cols-2 gap-x-3 gap-y-3 px-12 pt-3">
+                            <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235);"><path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path></svg>
+                                </span>
+                                <p preDefinedMessage="Check availability for next monday for Dr. " class="text-[#676767] font-[400] text-[13px]">Check availability for Dr. Huzaifa's next Monday.</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9.65 13.026-3.287 1.19A2 2 0 0 1 3.8 13.027l-.342-.934.597-1.275L1.75 7.419l2.348-.85 2.564 1.484a2 2 0 0 0 1.689.15l8.512-3.083c.291-.106.603-.142.912-.107l2.833.325a1.842 1.842 0 0 1 .422 3.565l-5.276 1.911m.598-1.275L13 14.5l-2.817 1.02-.343-3.622"></path><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 19h18"></path></svg>
+                                </span>
+                                <p preDefinedMessage="Schedule a consultation with a cardiologist next week" class="text-[#676767] font-[400] text-[13px]">Schedule a consultation with a cardiologist next week.</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18V7h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4"></path></svg>
+                                </span>
+                                <p preDefinedMessage="I'd like to book an appointment with Dr. " class="text-[#676767] font-[400] text-[13px]">I'd like to book an appointment with Dr. Huzaifa.</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235);"><path fill="currentColor" fill-rule="evenodd" d="M12.455 4.105a1 1 0 0 0-.91 0L1.987 8.982 1.077 7.2l9.56-4.877a3 3 0 0 1 2.726 0l9.56 4.877A1.98 1.98 0 0 1 24 9.22V15a1 1 0 1 1-2 0v-3.784l-2.033.995v4.094a3 3 0 0 1-1.578 2.642l-4.967 2.673a3 3 0 0 1-2.844 0l-4.967-2.673a3 3 0 0 1-1.578-2.642v-4.094l-2.927-1.433C-.374 10.053-.39 7.949 1.077 7.2l.91 1.782 9.573 4.689a1 1 0 0 0 .88 0L22 8.989v-.014zM6.033 13.19v3.114a1 1 0 0 0 .526.88l4.967 2.674a1 1 0 0 0 .948 0l4.967-2.673a1 1 0 0 0 .526-.88V13.19l-4.647 2.276a3 3 0 0 1-2.64 0z" clip-rule="evenodd"></path></svg>
+                                </span>
+                                <p preDefinedMessage="What are the qualifications of Dr. " class="text-[#676767] font-[400] text-[13px]">What are the qualifications of Dr. Huzaifa?</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path></svg>
+                                </span>
+                                <p preDefinedMessage="Show me a list of dermatologists in Lahore." class="text-[#676767] font-[400] text-[13px]">Show me a list of dermatologists in Lahore.</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path></svg>
+                                </span>
+                                <p preDefinedMessage="What are the symptoms of diabetes." class="text-[#676767] font-[400] text-[13px]">What are the symptoms of diabetes.</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path></svg>
+                                </span>
+                                <p preDefinedMessage="How can I improve my mental health?" class="text-[#676767] font-[400] text-[13px]">How can I improve my mental health?</p>
+                            </div>
+                            <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span class="w-[30px] h-[30px] flex items-center justify-start">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path></svg>
+                                </span>
+                                <p preDefinedMessage="Give me tips for a healthy diet." class="text-[#676767] font-[400] text-[13px]">Give me tips for a healthy diet.</p>
+                            </div>
+                            <!-- <div class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
+                                <span></span>
+                                <p class="text-sm">How can I stay fit during the winter?</p>
+                            </div> -->
                         </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m9.65 13.026-3.287 1.19A2 2 0 0 1 3.8 13.027l-.342-.934.597-1.275L1.75 7.419l2.348-.85 2.564 1.484a2 2 0 0 0 1.689.15l8.512-3.083c.291-.106.603-.142.912-.107l2.833.325a1.842 1.842 0 0 1 .422 3.565l-5.276 1.911m.598-1.275L13 14.5l-2.817 1.02-.343-3.622"></path><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 19h18"></path></svg>
-                            </span>
-                            <p preDefinedMessage="Schedule a consultation with a cardiologist next week" class="text-[#676767] font-[400] text-[13px]">Schedule a consultation with a cardiologist next week.</p>
+                    {% endif %}
+                    {% for message in chat_widget_messages %}
+                        <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
+                            <div class="flex-1 w-full">
+                                <p class="chat-message px-3 mb-1.5 py-2.5 rounded-xl rounded-r-none bg-[#0755E9] w-max max-w-[70%] font-medium text-white text-sm">{{message.question|safe}}</p>
+                            </div>
                         </div>
-                        <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 18V7h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10V6a3 3 0 0 1 3-3v0a3 3 0 0 1 3 3v4"></path></svg>
-                            </span>
-                            <p preDefinedMessage="I'd like to book an appointment with Dr. " class="text-[#676767] font-[400] text-[13px]">I'd like to book an appointment with Dr. Huzaifa.</p>
+                        <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
+                            <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
+                            <div class="flex-1 w-full">
+                                <p class="chat-message px-3 mb-1.5 py-2.5 rounded-xl rounded-l-none bg-[#0755E91A] w-max max-w-[70%] font-medium text-[#0755E9] text-sm">{{message.formated_content|safe}}</p>
+                            </div>
                         </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235);"><path fill="currentColor" fill-rule="evenodd" d="M12.455 4.105a1 1 0 0 0-.91 0L1.987 8.982 1.077 7.2l9.56-4.877a3 3 0 0 1 2.726 0l9.56 4.877A1.98 1.98 0 0 1 24 9.22V15a1 1 0 1 1-2 0v-3.784l-2.033.995v4.094a3 3 0 0 1-1.578 2.642l-4.967 2.673a3 3 0 0 1-2.844 0l-4.967-2.673a3 3 0 0 1-1.578-2.642v-4.094l-2.927-1.433C-.374 10.053-.39 7.949 1.077 7.2l.91 1.782 9.573 4.689a1 1 0 0 0 .88 0L22 8.989v-.014zM6.033 13.19v3.114a1 1 0 0 0 .526.88l4.967 2.674a1 1 0 0 0 .948 0l4.967-2.673a1 1 0 0 0 .526-.88V13.19l-4.647 2.276a3 3 0 0 1-2.64 0z" clip-rule="evenodd"></path></svg>
-                            </span>
-                            <p preDefinedMessage="What are the qualifications of Dr. " class="text-[#676767] font-[400] text-[13px]">What are the qualifications of Dr. Huzaifa?</p>
-                        </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path></svg>
-                            </span>
-                            <p preDefinedMessage="Show me a list of dermatologists in Lahore." class="text-[#676767] font-[400] text-[13px]">Show me a list of dermatologists in Lahore.</p>
-                        </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(203, 139, 208);"><path stroke="currentColor" stroke-linecap="round" stroke-width="2" d="M3 6h7M3 10h4"></path><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.428 17.572 20.5 10.5a2.828 2.828 0 1 0-4-4l-7.072 7.072a2 2 0 0 0-.547 1.022L8 19l4.406-.881a2 2 0 0 0 1.022-.547"></path></svg>
-                            </span>
-                            <p preDefinedMessage="What are the symptoms of diabetes." class="text-[#676767] font-[400] text-[13px]">What are the symptoms of diabetes.</p>
-                        </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path></svg>
-                            </span>
-                            <p preDefinedMessage="How can I improve my mental health?" class="text-[#676767] font-[400] text-[13px]">How can I improve my mental health?</p>
-                        </div>
-                        <div onclick="handlePredefinedMessageClick(this)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span class="w-[30px] h-[30px] flex items-center justify-start">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(226, 197, 65);"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19a3 3 0 1 1-6 0M15.865 16A7.54 7.54 0 0 0 19.5 9.538C19.5 5.375 16.142 2 12 2S4.5 5.375 4.5 9.538A7.54 7.54 0 0 0 8.135 16m7.73 0h-7.73m7.73 0v3h-7.73v-3"></path></svg>
-                            </span>
-                            <p preDefinedMessage="Give me tips for a healthy diet." class="text-[#676767] font-[400] text-[13px]">Give me tips for a healthy diet.</p>
-                        </div>
-                        <!-- <div class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
-                            <span></span>
-                            <p class="text-sm">How can I stay fit during the winter?</p>
-                        </div> -->
-                    </div>
-                {% endif %}
-                {% for message in chat_widget_messages %}
-                    <div ChatWidgetChatMessage class="flex items-start w-full gap-3 user-message">
-                        <div class="flex-1 w-full">
-                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">{{message.question|safe}}</p>
-                        </div>
-                    </div>
-                    <div ChatWidgetChatMessage class="flex items-start w-full gap-3 ai-bot-message">
-                        <img class="w-[30px] border rounded-full h-auto" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
-                        <div class="flex-1 w-full">
-                            <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">{{message.formated_content|safe}}</p>
-                        </div>
-                    </div>
-                {% endfor %}
-                
-            </div>
-            <div class="px-1.5 pb-1.5">
-                <div class="bg-[#ebecee] rounded-[18px] border-b border-[#a7a8ac] w-full px-3 py-2">
-                    <textarea class="w-full bg-transparent mb-2 h-[25px] border-0 outline-none" placeholder="Type a new message"></textarea>
-                    <div class="flex">
-                        <span class="text-xs">Press<code class="text-[10px] mx-2">Shift + Enter</code>to send</span>
-                        <button ChatWidgetSubmitButton class="max-w-max ml-auto block bg-[#0A1C4B] text-white px-3 py-0.5 rounded-lg">
-                            Send
+                    {% endfor %}
+                </div>
+                <div class="px-3 py-2">
+                    <div class="bg-[#F7F7F7] rounded-md w-full px-3 py-2 flex items-center gap-2 p-1.5 h-[70px]">
+                        <textarea class="w-full bg-transparent border-0 outline-none text-black font-medium text-[15px] placeholder-black h-full flex-1 resize-none" placeholder="Type a new message"></textarea>
+                        <button ChatWidgetSubmitButton class="max-w-max ml-auto block bg-[#0755E9] px-4 rounded-lg flex items-center justify-center h-full rounded-lg">
+                            <svg width="30" height="27" viewBox="0 0 30 27" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M19.3736 7.95114L10.0522 14.0557C9.84301 13.7362 9.56677 13.4606 9.23763 13.2479L2.35127 8.83053C0.149117 7.41758 0.976519 4.01726 3.59451 3.71536L25.1185 1.22903C27.3981 0.964496 28.9852 3.38782 27.8316 5.37168L16.9509 24.1072C15.6266 26.3871 12.1782 25.7854 11.7639 23.2032L10.4647 15.1268C10.403 14.7446 10.2617 14.3803 10.0499 14.0572" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>                                
                         </button>
                     </div>
                 </div>
