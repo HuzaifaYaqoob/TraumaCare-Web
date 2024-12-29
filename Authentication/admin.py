@@ -125,9 +125,10 @@ class CustomUserAdmin(UserAdmin):
     def user(self, user):
         labels = []
         profiles = list(set(user.profiles.values_list('profile_type', flat=True)))
-        profiles.remove('Patient')
+        if 'Patient' in profiles:
+            profiles.remove('Patient')
         for p_i, p in enumerate(profiles):
-            labels.append(f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;margin-right:3px;padding:2px 5px;border-radius:5px;background-color:{COLORS[p]};color:white">{p}</span>""")
+            labels.append(f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;padding:2px 5px;border-radius:5px;background-color:{COLORS[p]};color:white">{p}</span>""")
         
         print(labels)
 
