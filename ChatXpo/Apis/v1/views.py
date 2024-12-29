@@ -119,11 +119,22 @@ def send_chat_widget_message(request, chatId):
             if chat_msg.answer:
                 chats.append({'role' : 'assistant', 'content' : chat_msg.answer })
 
-    response = askChatXpo(
-        user_query = query,
-        previousQueries = chats,
-        user = chat.user if chat.user else chat.user
-    )
+    try:
+        response = askChatXpo(
+            user_query = query,
+            previousQueries = chats,
+            user = chat.user if chat.user else chat.user
+        )
+    except Exception as ex_error:
+        response = 'Abhi is waqt OpenAI ki Key expire ho chuki hai, that"s why me koi response return nahi kr sakta'
+        # return Response({
+        #     'status' : 400,
+        #     'status_code' : '400',
+        #     'response' : {
+        #         'message' : 'Something went wrong',
+        #         'error_message' : str(ex_error),
+        #     }
+        # }, status=status.HTTP_400_BAD_REQUEST)
 
     ChatMessage.objects.create(chat = chat, question = query, answer = response,),
 
