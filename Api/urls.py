@@ -1,9 +1,13 @@
 
 from django.urls import path, include
 
+from . import views
+
 urlpatterns = [
 
     path('', include('Trauma.APIs.v1.urls') ),
+    path('v1/get_location_distance/', views.get_location_distance, name='get_location_distance'),
+
     path('v1/auth/', include('Authentication.APIs.v1.urls') ),
     path('device/auth/', include('Authentication.APIs.device.urls') ),
 
