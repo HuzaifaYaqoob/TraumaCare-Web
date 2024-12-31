@@ -13,17 +13,17 @@
                 Book an Appointment
             </a>        
         </div>
-        <span class="absolute right-0 top-0 h-full w-16 flex items-center justify-center">
+        <!-- <span class="absolute right-0 top-0 h-full w-16 flex items-center justify-center">
             <svg class="fill-white size-5 cursor-pointer" id="cancel-btn" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
                 <path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/>
             </svg>
-        </span>
+        </span> -->
         <img class="absolute z-0 top-0 left-[15%] select-none" src="/static/assets/Images/traumacareAIcare/haederleft.png" alt="">
         <img class="absolute z-0 top-0 right-[10%] select-none" src="/static/assets/Images/traumacareAIcare/haederright.png" alt="">
     </div>
     <header class='bg-transparent relative z-50 px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4 {% if not is_search_page %} {% endif %}'>
         <div class="max-w-[1500px] mx-auto w-full flex items-center gap-2 justify-between">
-            <div class="flex gap-3">
+            <div class="flex items-center gap-3">
                 <div>
                     <div class="border bg-white border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
                         <a href="/"><img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt=""></a>
@@ -33,7 +33,7 @@
                 </div>
                 <div class="hidden xl:block flex-1">
                     <div class="hidden md:flex items-center gap-5 rounded-xl px-4 py-3 border bg-white border-[#CACBE6]">
-                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap">Doctors
+                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Doctors
                             <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
                             <!-- group-hover:block -->
                             <div class="hidden absolute top-[45px] left-0 pt-[10px] ">
@@ -59,7 +59,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap">Consult Online
+                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Consult Online
                             <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
                             <!-- group-hover:block -->
                             <div class="hidden absolute top-[45px] left-0 pt-[10px] w-[200px] ">
@@ -72,7 +72,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap">Hospitals
+                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Hospitals
                             <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
                             <!-- group-hover:block -->
                             <div class="hidden absolute top-[45px] left-0 pt-[10px] w-[200px] ">
@@ -87,13 +87,13 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap">
+                        <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">
                             <a href='{% url "BlogHomePage" %}'>Health Blog</a>
                         </li>
-                        <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap">
+                        <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">
                             <a href='{% url "AskDoctorMainPage" %}'>Ask a Doctor</a>
                         </li>
-                        <li class="relative cursor-pointer flex items-center gap-3 group outfit-font whitespace-nowrap">
+                        <li class="relative cursor-pointer flex items-center gap-3 group outfit-font whitespace-nowrap text-sm">
                             <a href="/emergency/" class="text-[#FF5048]">
                                 Emergency
                             </a>
@@ -116,7 +116,6 @@
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>{% endcomment %}
-                        
                         <div class="item-dropdown5 group-hover:block !px-1">
                             <h2 class="!text-[18px]">lABS In Pakistan</h2>
                             <ul class="item-dropdown5-ul  !px-1">
@@ -131,7 +130,6 @@
                                 {% include 'Components/Header/view_all.html' %}
                             </ul>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -198,14 +196,9 @@
                 {% if request.user.is_authenticated %}
                 {% else %}
                     <div class="sm:block hidden">
-                        <div class="border p-1.5 rounded-xl flex border-[#CACBE6] bg-white">
-                            <a href="/auth/login/" class="font-medium text-[#3C3C3C] px-3.5 py-1.5 text-md">
-                                Login
-                            </a>
-                            <a href="/auth/join/" class="font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-3.5 py-1.5 text-md">
-                                Signup
-                            </a>
-                        </div>
+                        <a href="/auth/login/" class="font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-3.5 py-1.5 text-md">
+                            Login
+                        </a>
                     </div>
                 {% endif %}
                 {% if request.user.is_authenticated %}
@@ -305,16 +298,16 @@
         }
     })
     
-    // 
+    // LocalStorage JS for cancle topbar
 
-    if (localStorage.getItem("appointmentSectionHidden") === "true") {
-        document.getElementById("appointment-section").style.display = "none";
-    }
-    const cancelButton = document.getElementById("cancel-btn");
+    // if (localStorage.getItem("appointmentSectionHidden") === "true") {
+    //     document.getElementById("appointment-section").style.display = "none";
+    // }
+    // const cancelButton = document.getElementById("cancel-btn");
     
-    cancelButton.addEventListener("click", () => {
-        document.getElementById("appointment-section").style.display = "none";
+    // cancelButton.addEventListener("click", () => {
+    //     document.getElementById("appointment-section").style.display = "none";
         
-        localStorage.setItem("appointmentSectionHidden", "true");
-    });
+    //     localStorage.setItem("appointmentSectionHidden", "true");
+    // });
 </script> 
