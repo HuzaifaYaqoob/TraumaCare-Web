@@ -1,6 +1,8 @@
 from django.contrib import admin
 
 from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode
+from django.utils.html import mark_safe
+
 
 # Register your models here.
 admin.site.site_header = 'Trauma AI Care | Staff Portal'
@@ -54,4 +56,23 @@ class RandomFilesAdmin(admin.ModelAdmin):
 
 @admin.register(VerificationCode)
 class VerificationCodeAdmin(admin.ModelAdmin):
-    list_display = ['id', 'code', 'mobile_number', 'user', 'otp_type', 'is_expired', 'is_deleted', 'is_used']
+    search_fields = ['mobile_number']
+    list_display = ['user_', 'mobile_number','code', 'otp_type', 'is_expired', 'is_deleted', 'is_used']
+
+
+    @admin.display(description='User')
+    def user_(self, v_obj):
+        user = v_obj.user
+        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
+        is_mobile_verified = f'{is_mobile_verified} {user.mobile_number}'
+        div = f"""<div style="display : flex;gap:10px">
+                    <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span>
+                    <span>
+                        <p style="margin:0;padding:0;font-size:16px">{user.full_name}</p>
+                        <p style="margin:0;padding:0;font-size:13px;font-weight:400">{is_mobile_verified}</p>
+                    </span>
+                </div>"""
+        return mark_safe(div)
+    
+    user_.image_tag = True
+    user_.admin_order_field = "first_name"
