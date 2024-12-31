@@ -7,20 +7,6 @@
 
 
 <style>
-    .add-appoinments-section {
-        width: 100%;
-        height: 100%;
-    }
-
-    .add-appoinments-main-div {
-        display: flex;
-        align-items: start;
-        max-width: 1400px;
-        margin: auto;
-        margin-top: 20px;
-
-    }
-
     .add-appoinments-right {
         padding: 20px;
         background-color: white;
@@ -74,232 +60,280 @@
 {% block baseBody %}
 
 
-<!-- xs  -->
-<!-- sm  -->
-<!-- md -->
-<!-- lg -->
-<!-- xl -->
-<!-- 2xl not confirmed -->
-
-
-<section class="add-appoinments-section mb-4">
-    <div
-        class="add-appoinments-main-div w-[95%] md:w-full gap-y-[20px] md:gap-y-0 gap-x-0 md:gap-x-[28px] md:flex-row flex-col-reverse">
-        <div class="flex-1 w-full mx-auto md:max-w-[1000px]">
-            <div class="add-appoinments-left rounded-[15px] p-4 bg-white shadow-2xl mx-auto">
-                {% if doctor %}
-                    
-                    <div class="my-4">
-                        <div class="rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
-                            <div class="flex flex-col md:flex-row gap-4 items-start ">
-                                <div class="w-28 h-28 rounded-full bg-center bg-cover bg-no-repeat"
-                                    style="background-image: url('{{doctor.profile_image}}');">
+<main class="px-4 sm:px-6 md:px-8 py-7">
+    <section class="max-w-[1500px] mx-auto rounded-xl p-4 bg-white border border-[#CACBE6]">
+        {% if doctor %}
+                <div class="rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
+                    <div class="flex flex-col md:flex-row gap-4 items-start ">
+                        <div class="w-28 h-28 rounded-full bg-center bg-cover bg-no-repeat"
+                            style="background-image: url('{{doctor.profile_image}}');">
+                        </div>
+                        <div class="flex-1">
+                            <div class="flex justify-between items-center">
+                                <div class='flex gap-5 items-center'>
+                                    <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl font-bold underline">Dr. {{doctor.name}}</a>
+                                    {% with fee_range=doctor.fee_range %}
+                                        <p class="font-semibold mx-0">Fee : Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.0}}</span>{% if fee_range.0 != fee_range.1 %}  ~  Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.1}}</span>{% endif %}</p>
+                                    {% endwith %}
                                 </div>
-                                <div class="flex-1">
-                                    <div class="flex justify-between items-center">
-                                        <div class='flex gap-5 items-center'>
-                                            <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl font-bold underline">Dr. {{doctor.name}}</a>
-                                            {% with fee_range=doctor.fee_range %}
-                                                <p class="font-semibold mx-0">Fee : Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.0}}</span>{% if fee_range.0 != fee_range.1 %}  ~  Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.1}}</span>{% endif %}</p>
-                                            {% endwith %}
-                                        </div>
-                                        <div
-                                            class="flex items-center gap-1 border border-[#0A1C4B] bg-white px-3 md:px-6 cursor-pointer rounded-full absolute md:static top-4 right-4">
-                                            <svg width="12" height="16" viewBox="0 0 12 16" fill="none"
-                                                xmlns="http://www.w3.org/2000/svg">
-                                                <mask id="path-1-outside-1_1957_70" maskUnits="userSpaceOnUse" x="0" y="0"
-                                                    width="12" height="16" fill="black">
-                                                    <rect fill="white" width="12" height="16" />
-                                                    <path
-                                                        d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z" />
-                                                </mask>
-                                                <path
-                                                    d="M4.88889 10.8889L2.66667 8.66667L3.45 7.88333L4.88889 9.31667L8.55 5.65556L9.33333 6.44444M6 2L1 4.22222V7.55556C1 10.6389 3.13333 13.5222 6 14.2222C8.86667 13.5222 11 10.6389 11 7.55556V4.22222L6 2Z"
-                                                    fill="white" />
-                                                <path
-                                                    d="M2.66667 8.66667L1.95956 7.95956L1.25245 8.66667L1.95956 9.37377L2.66667 8.66667ZM3.45 7.88333L4.15574 7.17486L3.44863 6.47049L2.74289 7.17623L3.45 7.88333ZM4.88889 9.31667L4.18315 10.0251L4.89026 10.7295L5.596 10.0238L4.88889 9.31667ZM8.55 5.65556L9.2596 4.95095L8.5525 4.23884L7.84289 4.94845L8.55 5.65556ZM6 2L6.40614 1.08619L6 0.905682L5.59386 1.08619L6 2ZM1 4.22222L0.593861 3.30841L0 3.57235V4.22222H1ZM6 14.2222L5.76278 15.1937L6 15.2516L6.23722 15.1937L6 14.2222ZM11 4.22222H12V3.57235L11.4061 3.30841L11 4.22222ZM5.596 10.1818L3.37377 7.95956L1.95956 9.37377L4.18178 11.596L5.596 10.1818ZM3.37377 9.37377L4.15711 8.59044L2.74289 7.17623L1.95956 7.95956L3.37377 9.37377ZM2.74426 8.59181L4.18315 10.0251L5.59463 8.60819L4.15574 7.17486L2.74426 8.59181ZM5.596 10.0238L9.25711 6.36266L7.84289 4.94845L4.18178 8.60956L5.596 10.0238ZM7.8404 6.36016L8.62373 7.14905L10.0429 5.73984L9.2596 4.95095L7.8404 6.36016ZM5.59386 1.08619L0.593861 3.30841L1.40614 5.13603L6.40614 2.91381L5.59386 1.08619ZM0 4.22222V7.55556H2V4.22222H0ZM0 7.55556C0 11.0583 2.40928 14.3748 5.76278 15.1937L6.23722 13.2508C3.85739 12.6696 2 10.2195 2 7.55556H0ZM6.23722 15.1937C9.59072 14.3748 12 11.0583 12 7.55556H10C10 10.2195 8.14261 12.6696 5.76278 13.2508L6.23722 15.1937ZM12 7.55556V4.22222H10V7.55556H12ZM11.4061 3.30841L6.40614 1.08619L5.59386 2.91381L10.5939 5.13603L11.4061 3.30841Z"
-                                                    fill="#0A1C4B" mask="url(#path-1-outside-1_1957_70)" />
-                                            </svg>
-                                            <p class="text-[#0A1C4B]">Verified</p>
-                                        </div>
-                                    </div>
-                                    {% if hospital %}
-                                        <div class="flex-1 flex gap-5 md:flex-none">
-                                            <p class="font-semibold mx-0"><span class='underline'>{{hospital.hospital.name}}</span> ({{hospital.location.name}})</p>
-                                            <a href='?doctor={{doctor.slug}}' class="text-blue-600">Change hospital</a>
-                                        </div>
-                                    {% endif %}
-                                    <p class="line-clamp-3 text-slate-500 mt-3">{{doctor.desc}}</p>
+                                <div
+                                    class="flex items-center gap-2 bg-[#05D57C] cursor-default py-1 px-2 rounded-full absolute md:static top-4 right-4">
+                                    <svg width="14" height="18" viewBox="0 0 14 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M9.66374 5L1.99707 7.33333L3.99707 14H9.66374L12.3304 7.33333L9.66374 5Z" fill="white"/>
+                                        <mask id="path-2-outside-1_289_1038" maskUnits="userSpaceOnUse" x="0" y="0" width="14" height="18" fill="black">
+                                        <rect fill="white" width="14" height="18"/>
+                                        <path d="M5.66667 12.6667L3 10L3.94 9.06L5.66667 10.78L10.06 6.38667L11 7.33333M7 2L1 4.66667V8.66667C1 12.3667 3.56 15.8267 7 16.6667C10.44 15.8267 13 12.3667 13 8.66667V4.66667L7 2Z"/>
+                                        </mask>
+                                        <path d="M5.66667 12.6667L3 10L3.94 9.06L5.66667 10.78L10.06 6.38667L11 7.33333M7 2L1 4.66667V8.66667C1 12.3667 3.56 15.8267 7 16.6667C10.44 15.8267 13 12.3667 13 8.66667V4.66667L7 2Z" fill="#05D57C"/>
+                                        <path d="M3 10L2.29289 9.29289L1.58579 10L2.29289 10.7071L3 10ZM3.94 9.06L4.64574 8.35153L3.93863 7.64715L3.23289 8.35289L3.94 9.06ZM5.66667 10.78L4.96093 11.4885L5.66803 12.1928L6.37377 11.4871L5.66667 10.78ZM10.06 6.38667L10.7696 5.68206L10.0625 4.96995L9.35289 5.67956L10.06 6.38667ZM7 2L7.40614 1.08619L7 0.905682L6.59386 1.08619L7 2ZM1 4.66667L0.593861 3.75286L0 4.01679V4.66667H1ZM7 16.6667L6.76278 17.6381L7 17.696L7.23722 17.6381L7 16.6667ZM13 4.66667H14V4.01679L13.4061 3.75286L13 4.66667ZM6.37377 11.9596L3.70711 9.29289L2.29289 10.7071L4.95956 13.3738L6.37377 11.9596ZM3.70711 10.7071L4.64711 9.76711L3.23289 8.35289L2.29289 9.29289L3.70711 10.7071ZM3.23426 9.76847L4.96093 11.4885L6.3724 10.0715L4.64574 8.35153L3.23426 9.76847ZM6.37377 11.4871L10.7671 7.09377L9.35289 5.67956L4.95956 10.0729L6.37377 11.4871ZM9.3504 7.09127L10.2904 8.03794L11.7096 6.62873L10.7696 5.68206L9.3504 7.09127ZM6.59386 1.08619L0.593861 3.75286L1.40614 5.58048L7.40614 2.91381L6.59386 1.08619ZM0 4.66667V8.66667H2V4.66667H0ZM0 8.66667C0 12.7861 2.83594 16.6792 6.76278 17.6381L7.23722 15.6952C4.28406 14.9741 2 11.9472 2 8.66667H0ZM7.23722 17.6381C11.1641 16.6792 14 12.7861 14 8.66667H12C12 11.9472 9.71594 14.9741 6.76278 15.6952L7.23722 17.6381ZM14 8.66667V4.66667H12V8.66667H14ZM13.4061 3.75286L7.40614 1.08619L6.59386 2.91381L12.5939 5.58048L13.4061 3.75286Z" fill="#FDFDFD" mask="url(#path-2-outside-1_289_1038)"/>
+                                    </svg>                                        
+                                    <p class="text-white text-xs">Verified doctor</p>
                                 </div>
                             </div>
+                            {% if hospital %}
+                                <div class="flex-1 flex gap-5 md:flex-none">
+                                    <p class="font-semibold mx-0"><span class='underline'>{{hospital.hospital.name}}</span> ({{hospital.location.name}})</p>
+                                    <a href='?doctor={{doctor.slug}}' class="text-blue-600">Change hospital</a>
+                                </div>
+                            {% endif %}
+                            <p class="line-clamp-3 text-slate-500 mt-3">{{doctor.desc}}</p>
                         </div>
-                        {% if mode == 'Online' %}
-                        {% elif not hospital %}
-                            <form>
-                                <input type="text" name="doctor" class='hidden' value="{{doctor.slug}}">
-                                <select name="hospital" class='px-3 py-2 rounded-lg border my-4'>
-                                    <option value="" disabled selected>Select Hospital</option>
-                                    {% for h in hospitals %}
-                                        <option value="{{h.id}}">{{h.hospital.name}} at {{h.location.street_address}}</option>
-                                    {% endfor %}
-                                </select>
-                            </form>
-                            <script>
-                                // Auto submit form when hospital selected
-                                document.querySelector('select[name="hospital"]').addEventListener('change', (e) => {
-                                    const form = document.querySelector('form')
-                                    form.submit()
-                                })
-                            </script>
-                        {% endif %}
-                        {% if days_slots %}
-                            <form action="{% url 'BookAppointment_DoctorPage' %}" method="get">
-                                {% csrf_token %}
-                                <input type="text" class="hidden" name="doctor" value="{{doctor.id}}">
-                                {% if hospital %}
-                                    <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
-                                {% endif %}
-
-
-                                <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
-                                <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
-                                    {% for day in days_slots %}
-                                        <div>
-                                            <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="hidden" {% if day.is_today %}checked{% endif %}>
-                                            <label for="selected_date_{{day.date_format}}" class="block px-7 py-5 cursor-pointer">
-                                                <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
-                                            </label>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                <div class="relative rounded-3xl !overflow-hidden">
-                                    <div class="" ShowTimeSlots>
-                                    </div>
-                                    <div loadingMain>
-                                        loading...
-                                    </div>
-                                </div>
-                                <button class="bookapointment-buttoninVP block w-full hover:scale-110 transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
-                                    <p class=" text-center">Book an appointment instantly</p>
-                                    <p class="text-xs text-center">it only takes a second</p>
-                                </button>
-                            </form>
-                            <script>
-                                // Auto submit form when date selected
-                                let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
-                                let doctor_id = "{{doctor.id}}"
-                                let hospital_id = "{{hospital.id}}"
-                                let mode = "{{mode}}"
-
-                                const handleSingleSlotSelect = (e) => {
-                                    let das = e.target.closest('.singleSlotCard')
-                                    if (das) {
-                                        let inp = das.querySelector('[name="dr-appointment-slot"]')
-                                        if (inp){
-                                            inp.checked = true
-                                        }
-                                    }
-                                }
-
-                                const getSlotsForSelectedDate = async (e) => {
-                                    ShowTimeSlots.innerHTML = ''
-                                    ShowTimeSlots.setAttribute('loading', 'true')
-
-                                    let selected_date = e.target.value
-
-                                    let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id || mode}/?selected_date=${selected_date}${mode == 'Online' ? '&mode=Online' : ''}`)
-                                    response = await response.json()
-                                    
-                                    if (response?.slots?.length == 0) {
-                                        let div = document.createElement('div')
-                                        div.className = 'px-4 py-10 rounded-3xl'
-                                        let p = document.createElement('p')
-                                        p.className = 'text-center'
-                                        p.innerHTML = 'No slots available'
-                                        div.append(p)
-                                        ShowTimeSlots?.append(div)
-                                    }
-                                    response?.slots?.forEach((slot, sI) => {
-                                        console.log(slot)
-                                        let div = document.createElement('div')
-                                        div.className = 'px-6 py-4 mb-3 rounded-3xl singleSlotCard'
-
-                                        let p = document.createElement('p')
-                                        p.className = 'mb-5'
-                                        p.innerHTML = `${slot.name} <span class='font-semibold text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
-                                        div.append(p)
-
-                                        let slt_inpt = document.createElement('input')
-                                        if (sI == 0) slt_inpt.checked = true
-                                        slt_inpt.type = 'radio'
-                                        slt_inpt.name = 'dr-appointment-slot'
-                                        slt_inpt.id = 'dr-appointment-slot_' + slot.id
-                                        slt_inpt.value = slot.id
-                                        slt_inpt.className = 'hidden'
-                                        div.append(slt_inpt)
-
-                                        let intervals_div = document.createElement('div')
-                                        intervals_div.className = 'flex gap-3 flex-wrap'
-                                        if (slot?.intervals?.length == 0) {
-                                            // intervals_div.className = ''
-                                            // let inner_div = document.createElement('div')
-                                            // inner_div.className = 'px-4 py-2 rounded-3xl'
-                                            // let p = document.createElement('p')
-                                            // p.className = 'text-center'
-                                            // p.innerHTML = 'No slots available'
-                                            // inner_div.append(p)
-                                            // intervals_div?.append(inner_div)
-                                            intervals_div.remove()
-                                            div.remove()
-                                        }
-                                        else{
-                                            slot?.intervals?.forEach((interval, index) => {
-                                                let int_div = document.createElement('div')
-                                                int_div.className = ''
-
-                                                let slot_html = `
-                                                        <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                        <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
-                                                `
-                                                int_div.innerHTML = slot_html
-                                                intervals_div.append(int_div)
-                                            })
-
-                                            div.append(intervals_div)
-                                            ShowTimeSlots.append(div)
-                                        }
-                                    })
-                                    ShowTimeSlots.removeAttribute('loading')
-                                    ShowTimeSlots.querySelectorAll('input[name="selected_time"]').forEach(input => {
-                                        input.addEventListener('change', handleSingleSlotSelect)
-                                    })
-                                }
-                                document.querySelectorAll('input[name="selected_date"]').forEach(input => {
-                                    input.addEventListener('change', getSlotsForSelectedDate)
-                                })
-
-                                getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
-                            </script>
-                        {% endif %}
                     </div>
-                {% else %}
-                    <form>
-                        <select name="doctor" class='px-3 py-2 rounded-lg border my-4'>
-                            <option value="" disabled selected>Select Doctor</option>
-                            {% for doct in doctors %}
-                                <option value="{{doct.slug}}">Dr. {{doct.name}} <span class='text-xs'>({{doct.heading}})</span></option>
-                            {% endfor %}
-                        </select>
-                    </form>
+                </div>
+                {% if mode == 'Online' %}
+                {% elif not hospital %}
+                    <div class="w-full">
+                        <div class="relative">
+                            <div 
+                                class="flex items-center justify-between py-2 px-3 rounded-lg border border-[#CACBE6] w-full cursor-pointer" 
+                                onclick="toggleHospitalDropdown()">
+                                Select Hospital
+                                <svg class="fill-[#151E2C] size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                                    <path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>
+                                </svg>
+                            </div>
+                            <ul 
+                                id="hospitalDropdown" 
+                                class="absolute hidden w-full left-0 right-0 p-1 mt-1 rounded-lg border border-[#CACBE6] bg-white z-10">
+                                {% for h in hospitals %}
+                                    <li 
+                                        class="py-2 px-3 hover:bg-gray-100 cursor-pointer" 
+                                        onclick="selectHospital('{{h.id}}')">
+                                        {{h.hospital.name}} at {{h.location.street_address}}
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                        <form class="hidden">
+                            <input type="text" name="hospital" id="hospitalInput">
+                            <input type="text" name="doctor" class="hidden" value="{{doctor.slug}}">
+                        </form>
+                    </div>       
                     <script>
-                        // Auto submit form when Doctor selected
-                        document.querySelector('select[name="doctor"]').addEventListener('change', (e) => {
-                            const form = document.querySelector('form')
-                            form.submit()
-                        })
+                        function toggleHospitalDropdown() {
+                            const dropdown = document.getElementById('hospitalDropdown');
+                            dropdown.classList.toggle('hidden');
+                        }
+
+                        function selectHospital(hospitalId) {
+                            const input = document.getElementById('hospitalInput');
+                            const form = document.querySelector('form');
+
+                            input.value = hospitalId;
+
+                            form.submit();
+                        }
+
+                        document.addEventListener('click', (e) => {
+                            const dropdown = document.getElementById('hospitalDropdown');
+                            if (!dropdown.contains(e.target) && e.target.closest('.flex') === null) {
+                                dropdown.classList.add('hidden');
+                            }
+                        });
                     </script>
                 {% endif %}
-            </div>
+                {% if days_slots %}
+                    <form action="{% url 'BookAppointment_DoctorPage' %}" method="get">
+                        {% csrf_token %}
+                        <input type="text" class="hidden" name="doctor" value="{{doctor.id}}">
+                        {% if hospital %}
+                            <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
+                        {% endif %}
+
+
+                        <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
+                        <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
+                            {% for day in days_slots %}
+                                <div>
+                                    <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="hidden" {% if day.is_today %}checked{% endif %}>
+                                    <label for="selected_date_{{day.date_format}}" class="block px-7 py-5 cursor-pointer">
+                                        <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
+                                    </label>
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <div class="relative rounded-3xl !overflow-hidden">
+                            <div class="" ShowTimeSlots>
+                            </div>
+                            <div loadingMain>
+                                loading...
+                            </div>
+                        </div>
+                        <button class="bookapointment-buttoninVP block w-full transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
+                            <p class=" text-center">Book an appointment instantly</p>
+                            <p class="text-xs text-center">it only takes a second</p>
+                        </button>
+                    </form>
+                    <script>
+                        // Auto submit form when date selected
+                        let ShowTimeSlots = document.querySelector('div[ShowTimeSlots]')
+                        let doctor_id = "{{doctor.id}}"
+                        let hospital_id = "{{hospital.id}}"
+                        let mode = "{{mode}}"
+
+                        const handleSingleSlotSelect = (e) => {
+                            let das = e.target.closest('.singleSlotCard')
+                            if (das) {
+                                let inp = das.querySelector('[name="dr-appointment-slot"]')
+                                if (inp){
+                                    inp.checked = true
+                                }
+                            }
+                        }
+
+                        const getSlotsForSelectedDate = async (e) => {
+                            ShowTimeSlots.innerHTML = ''
+                            ShowTimeSlots.setAttribute('loading', 'true')
+
+                            let selected_date = e.target.value
+
+                            let response  = await fetch(`/api/v1/doctor/get_doctor_slots/${doctor_id}/${hospital_id || mode}/?selected_date=${selected_date}${mode == 'Online' ? '&mode=Online' : ''}`)
+                            response = await response.json()
+                            
+                            if (response?.slots?.length == 0) {
+                                let div = document.createElement('div')
+                                div.className = 'px-4 py-10 rounded-3xl'
+                                let p = document.createElement('p')
+                                p.className = 'text-center'
+                                p.innerHTML = 'No slots available'
+                                div.append(p)
+                                ShowTimeSlots?.append(div)
+                            }
+                            response?.slots?.forEach((slot, sI) => {
+                                console.log(slot)
+                                let div = document.createElement('div')
+                                div.className = 'px-6 py-4 mb-3 rounded-3xl singleSlotCard'
+
+                                let p = document.createElement('p')
+                                p.className = 'mb-5'
+                                p.innerHTML = `${slot.name} <span class='font-semibold text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
+                                div.append(p)
+
+                                let slt_inpt = document.createElement('input')
+                                if (sI == 0) slt_inpt.checked = true
+                                slt_inpt.type = 'radio'
+                                slt_inpt.name = 'dr-appointment-slot'
+                                slt_inpt.id = 'dr-appointment-slot_' + slot.id
+                                slt_inpt.value = slot.id
+                                slt_inpt.className = 'hidden'
+                                div.append(slt_inpt)
+
+                                let intervals_div = document.createElement('div')
+                                intervals_div.className = 'flex gap-3 flex-wrap'
+                                if (slot?.intervals?.length == 0) {
+                                    // intervals_div.className = ''
+                                    // let inner_div = document.createElement('div')
+                                    // inner_div.className = 'px-4 py-2 rounded-3xl'
+                                    // let p = document.createElement('p')
+                                    // p.className = 'text-center'
+                                    // p.innerHTML = 'No slots available'
+                                    // inner_div.append(p)
+                                    // intervals_div?.append(inner_div)
+                                    intervals_div.remove()
+                                    div.remove()
+                                }
+                                else{
+                                    slot?.intervals?.forEach((interval, index) => {
+                                        let int_div = document.createElement('div')
+                                        int_div.className = ''
+
+                                        let slot_html = `
+                                                <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
+                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                        `
+                                        int_div.innerHTML = slot_html
+                                        intervals_div.append(int_div)
+                                    })
+
+                                    div.append(intervals_div)
+                                    ShowTimeSlots.append(div)
+                                }
+                            })
+                            ShowTimeSlots.removeAttribute('loading')
+                            ShowTimeSlots.querySelectorAll('input[name="selected_time"]').forEach(input => {
+                                input.addEventListener('change', handleSingleSlotSelect)
+                            })
+                        }
+                        document.querySelectorAll('input[name="selected_date"]').forEach(input => {
+                            input.addEventListener('change', getSlotsForSelectedDate)
+                        })
+
+                        getSlotsForSelectedDate({target : document.querySelector('input[name="selected_date"][checked]')})
+                    </script>
+                {% endif %}
+            {% else %}
+                <form class="w-full relative">
+                    <div 
+                        id="selectDoctor" 
+                        class="flex items-center justify-between py-2 px-3 rounded-lg border border-[#CACBE6] w-full cursor-pointer" 
+                        onclick="toggleDoctorDropdown()">
+                        Select Doctor
+                        <svg class="fill-[#151E2C] size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>
+                        </svg>
+                    </div>
+                    <div 
+                        id="doctorDropdown" 
+                        class="absolute w-full left-0 right-0 p-1 rounded-lg border border-[#CACBE6] top-[50px] bg-white hidden max-h-[400px] overflow-auto">
+                        <ul>
+                            {% for doct in doctors %}
+                            <li 
+                            class="py-2 px-3 hover:bg-gray-100 cursor-pointer" 
+                            onclick="selectDoctor('{{doct.slug}}')">
+                            Dr. {{doct.name}} <span class='text-xs'>({{doct.heading}})</span>
+                        </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </form>
+                <script>
+                    function toggleDoctorDropdown() {
+                        const dropdown = document.getElementById("doctorDropdown");
+                        dropdown.classList.toggle("hidden");
+                    }
+
+                    document.addEventListener("click", (event) => {
+                        const selectDoctor = document.getElementById("selectDoctor");
+                        const dropdown = document.getElementById("doctorDropdown");
+
+                        if (!selectDoctor.contains(event.target)) {
+                            dropdown.classList.add("hidden");
+                        }
+                    });
+
+                                        function selectDoctor(doctorSlug) {
+                        const form = document.querySelector("form");
+                        const input = document.createElement("input");
+
+                        input.type = "hidden";
+                        input.name = "doctor";
+                        input.value = doctorSlug;
+
+                        form.appendChild(input);
+                        form.submit();
+                    }
+                </script>
+            {% endif %}
         </div>
         {% comment %}
             <div
@@ -381,7 +415,7 @@
                 </div>
             </div>
         {% endcomment %}
-    </div>
-</section>
+    </section>
+</main>
 
 {% endblock baseBody %}
