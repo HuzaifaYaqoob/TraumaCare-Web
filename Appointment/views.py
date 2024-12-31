@@ -7,6 +7,7 @@ from Doctor.models import Doctor, DoctorTimeSlots, DoctorWithHospital
 from Appointment.models import Appointment, AppointmentGroup
 from Trauma.models import Speciality
 
+from django.db.models import Min
 from datetime import timedelta, datetime
 from django.db.models import Count
 
@@ -104,8 +105,16 @@ def BookAppointmentPage(request):
                 days_slots.append(data)
             context['days_slots'] = days_slots
     else:
+        query = {}
         speciality_get = request.GET.get('speciality', '')
-        context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True, doctor_specialities__speciality__slug = speciality_get)
+        if speciality_get:
+            query['doctor_specialities__speciality__slug'] = speciality_get
+        docts = Doctor.objects.filter(
+            is_deleted = False, is_blocked = False, is_active = True, **query
+        ).annotate(
+            lowest_fee = Min('doctor_timeslots__fee')
+        ).order_by('lowest_fee')
+        context['doctors'] = docts
     
     
     return render(request, 'Appointment/book_appointment.html', context)
