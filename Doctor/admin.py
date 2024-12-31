@@ -6,6 +6,10 @@ from .models import Doctor, Doctor24By7, Leave, DoctorReview, DoctorQuery, Docto
 
 # Register your models here.
 
+def get_label(text, color='#0755E9'):
+    return f"""<span style="display:inline-block;font-size:11px !important;font-weight:400;padding:2px 5px;border-radius:5px;background-color:{color};color:white">{text}</span>"""
+
+COLORS = ['#0755E9',"#05DC75",'#F01275',"#F8DB48",'#A737D5','Black','#0755E9',"#05DC75",'#F01275',"#F8DB48",'#A737D5','Black','#0755E9',"#05DC75",'#F01275',"#F8DB48",'#A737D5','Black']
 
 class DoctorDiseasesSpecialityInline(admin.TabularInline):
     model = DoctorDiseasesSpeciality
@@ -66,7 +70,7 @@ class DoctorAdmin(admin.ModelAdmin):
         # 'desc',
         # 'mobile_number', 
         'days', 
-        'diseases', 
+        # 'diseases', 
         'speciality', 
         'is_approved', 
         'is_active', 
@@ -104,7 +108,11 @@ class DoctorAdmin(admin.ModelAdmin):
     # ]
 
     def doctor(self, d):
-        return d.doctor_admin_card()
+        labels = []
+        for i, dh in enumerate(DoctorWithHospital.objects.filter(doctor = d, is_deleted = False, is_active = True).values_list('hospital__name', flat=True)):
+            labels.append(get_label(dh, color=COLORS[i]))
+        
+        return d.doctor_admin_card(labels=labels)
 
     
     def diseases(self, doctor_instance):

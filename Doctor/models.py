@@ -190,8 +190,15 @@ class Doctor(models.Model):
         super(Doctor, self).save(*args, **kwargs)
     
     
-    def doctor_admin_card(self):
-        div = f'<div style="display : flex;gap:10px"><span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span><span><p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p><p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.mobile_number}</p></span></div>'
+    def doctor_admin_card(self, labels=[]):
+        div = f"""<div style="display : flex;gap:10px">
+                        <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span>
+                        <span>
+                            <p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p>
+                            <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.mobile_number}</p>
+                            {f"<span style='margin-top:5px;display:flex;gap:5px;'>{"".join(labels)}</span>" if len(labels) > 0 else ''}
+                        </span>
+                    </div>"""
         return mark_safe(div)
     
 
