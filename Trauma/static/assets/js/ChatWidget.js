@@ -107,32 +107,39 @@ const onSubmitChatWidget = async () =>{
     }
 }
 
-document.addEventListener('DOMContentLoaded', () =>{
-    if (localStorage.getItem('showChatWidget')){
-        ShowHideChatWidget()
+document.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('showChatWidget')) {
+        ShowHideChatWidget();
     }
-    let bot_icons = document.querySelectorAll('.chatWidgetBotIcon')
-    bot_icons.forEach(bot_icon =>{
-        bot_icon.addEventListener('click', ShowHideChatWidget)
-    })
+    let bot_icons = document.querySelectorAll('.chatWidgetBotIcon');
+    bot_icons.forEach(bot_icon => {
+        bot_icon.addEventListener('click', ShowHideChatWidget);
+    });
 
-    let send_button = document.querySelector('[ChatWidgetSubmitButton]')
-    if (send_button){
-        send_button.addEventListener('click', onSubmitChatWidget)
-    }
-
-    let textarea = document.querySelector('[MainChatWidgetChatBot] textarea')
-    if (textarea){
-        textarea.addEventListener('keydown', (e) =>{
-            if (e.key === 'Enter' && e.shiftKey){
-                e.preventDefault()
-                onSubmitChatWidget()
+    let send_button = document.querySelector('[ChatWidgetSubmitButton]');
+    if (send_button) {
+        send_button.addEventListener('click', () => {
+            let textarea = document.querySelector('[MainChatWidgetChatBot] textarea');
+            if (textarea && textarea.value.trim() !== '') {
+                onSubmitChatWidget();
             }
-        })
+        });
     }
 
-    if (MsgNotificationSound){
-        MsgNotificationSound.volume = 0.5
+    let textarea = document.querySelector('[MainChatWidgetChatBot] textarea');
+    if (textarea) {
+        textarea.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' && e.shiftKey) {
+                e.preventDefault();
+                if (textarea.value.trim() !== '') {
+                    onSubmitChatWidget();
+                }
+            }
+        });
     }
-    scrollToBottom()
-})
+
+    if (MsgNotificationSound) {
+        MsgNotificationSound.volume = 0.5;
+    }
+    scrollToBottom();
+});

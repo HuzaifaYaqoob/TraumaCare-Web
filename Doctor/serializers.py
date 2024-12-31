@@ -15,3 +15,11 @@ class DoctorProfileSerializer(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = ['id', 'email', 'name', 'heading', 'phone_number', 'working_since', 'online_availability']
+
+class DoctorSpecialitySerializer(serializers.ModelSerializer):
+    fee_range = serializers.ReadOnlyField()
+    profile_image = serializers.ReadOnlyField()
+
+    class Meta:
+        model = Doctor
+        fields = ['slug', 'name', 'heading', 'fee_range', 'profile_image']

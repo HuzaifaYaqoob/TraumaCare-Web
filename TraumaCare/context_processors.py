@@ -64,8 +64,8 @@ def specialities_context_processor(request):
     # .exclude(svg_icon = '')
     # .order_by('rank')[:8]
 
-    specialities = list(specialities)
-    random.shuffle(specialities)
+    # specialities = list(specialities)
+    # random.shuffle(specialities)
 
     return {
         'specialities' : specialities

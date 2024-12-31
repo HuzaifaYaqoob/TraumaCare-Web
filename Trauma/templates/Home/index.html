@@ -282,7 +282,7 @@
             <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center !mt-10">
                 <div class="{% if application_reviews|length > 3 %} swiper-wrapper {% else %} !flex items-center gap-3 {% endif %} !z-0">
                     {% for review in application_reviews %}
-                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[200px] max-w-[660px] w-full !z-0" style="border: none;">
+                        <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[300px] max-w-[660px] w-full !z-0" style="border: none;">
                             {% include 'Components/reviewCard.html' %}
                         </div>
                     {% endfor %}

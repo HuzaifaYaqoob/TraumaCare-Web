@@ -10,36 +10,37 @@
 
 {% block mainBaseBody %}
 
-<section class="flex items-center justify-center h-[100vh] px-[20px] ">
-      <div class="max-w-[400px] w-full mx-auto">
-            <div class="p-4 border rounded-xl">
-                  <div
-                        class="w-16 h-16 flex items-center justify-center w-full mt-[16px] ">
-                        {% include 'Components/SVG/OTPVPSVG.html' %}
-                  </div>
-                  <div class="mt-[20px]">
-                        <p class="text-center text-black text-[18px] sm:text-2xl font-semibold">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
-                        <p class="text-center text-sm sm:text-sm text-[#838383] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
-                  </div>
-                  <form class="mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
-                        {% csrf_token %}
-                        <div class="!border[#24D0D0] border rounded-[10px] px-3 py-[7px]">
-                              <input type="number" placeholder="0 0 0 0 0 0" required name="code" class="outline-none text-center text-2xl tracking-widest font-bold text-gray-800 w-full flex-1">
+<main class="px-4 sm:px-6 md:px-8">
+      <section class="flex items-center justify-center h-[100vh] px-[20px]">
+            <div class="max-w-[400px] w-full mx-auto">
+                  <div class="p-4 border border-[#CACBE6] rounded-xl">
+                        <div
+                              class="w-16 h-16 flex items-center justify-center w-full mt-[16px] ">
+                              {% include 'Components/SVG/OTPVPSVG.html' %}
                         </div>
-                        <button class="w-full mt-3 py-2 text-[18px] sm:text-[22px] bg-[#24D0D0] text-white cursor-pointer gap-3 flex items-center justify-center rounded-[10px]">
-                              <p>Verify</p>
-                              <svg class="-rotate-45 h-[24px] sm:h-[30px] w-[24px] sm:w-[30px]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M27.4494 15.1095L5.4494 4.10952C5.27697 4.02328 5.08329 3.98873 4.89167 4.01002C4.70006 4.03131 4.51869 4.10754 4.3694 4.22952C4.22682 4.34901 4.1204 4.5059 4.06211 4.68256C4.00381 4.85922 3.99594 5.04864 4.0394 5.22952L6.6894 14.9995H17.9994V16.9995H6.6894L3.9994 26.7395C3.95862 26.8906 3.95386 27.0491 3.9855 27.2023C4.01714 27.3555 4.08429 27.4992 4.18156 27.6218C4.27882 27.7443 4.40349 27.8423 4.54553 27.908C4.68757 27.9736 4.84303 28.0049 4.9994 27.9995C5.15594 27.9986 5.31007 27.9609 5.4494 27.8895L27.4494 16.8895C27.6132 16.8056 27.7507 16.6781 27.8467 16.5211C27.9426 16.364 27.9934 16.1836 27.9934 15.9995C27.9934 15.8155 27.9426 15.635 27.8467 15.478C27.7507 15.3209 27.6132 15.1934 27.4494 15.1095Z" fill="white"/>
-                              </svg>                                    
+                        <div class="mt-[20px]">
+                              <p class="text-center text-[#151E2C] text-lg sm:text-2xl font-semibold">Check Your {% if request.GET.phone %}Phone{% else%}Email{% endif %}</p>
+                              <p class="text-center text-sm sm:text-sm text-[#3C3C3C] line-clamp-1">we've sent the code to the {% if request.GET.phone %}{{request.GET.phone}}{% else%}{{request.GET.email}}{% endif %}</p>
+                        </div>
+                        <form class="mt-3" action="{% url 'handleOtp' %}{{str_query}}" method="post">
+                              {% csrf_token %}
+                              <div class="!border[#24D0D0] border rounded-[10px] px-3 py-[7px]">
+                                    <input type="number" placeholder="0 0 0 0 0 0" required name="code" class="outline-none text-center text-2xl tracking-widest font-bold text-gray-800 w-full flex-1">
+                              </div>
+                              <button class="w-full bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] mt-3 py-2 text-md sm:text-lg text-white cursor-pointer gap-3 flex items-center justify-center rounded-lg">
+                                    <p>Verify</p>
+                                    <svg class="-rotate-45 h-[24px] sm:h-[30px] w-[24px] sm:w-[30px]" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                          <path d="M27.4494 15.1095L5.4494 4.10952C5.27697 4.02328 5.08329 3.98873 4.89167 4.01002C4.70006 4.03131 4.51869 4.10754 4.3694 4.22952C4.22682 4.34901 4.1204 4.5059 4.06211 4.68256C4.00381 4.85922 3.99594 5.04864 4.0394 5.22952L6.6894 14.9995H17.9994V16.9995H6.6894L3.9994 26.7395C3.95862 26.8906 3.95386 27.0491 3.9855 27.2023C4.01714 27.3555 4.08429 27.4992 4.18156 27.6218C4.27882 27.7443 4.40349 27.8423 4.54553 27.908C4.68757 27.9736 4.84303 28.0049 4.9994 27.9995C5.15594 27.9986 5.31007 27.9609 5.4494 27.8895L27.4494 16.8895C27.6132 16.8056 27.7507 16.6781 27.8467 16.5211C27.9426 16.364 27.9934 16.1836 27.9934 15.9995C27.9934 15.8155 27.9426 15.635 27.8467 15.478C27.7507 15.3209 27.6132 15.1934 27.4494 15.1095Z" fill="white"/>
+                                    </svg>                                    
+                              </button>
+                        </form>
+                        <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all rounded-lg mx-auto w-full cursor-not-allowed py-2 sm:py-3 mt-3 sm:mt-4 flex items-center justify-center  ">
+                              <p class="text-slate-900 font-medium transition-all text-sm sm:text-[16px] ">Resend code in 50 sec</p>
                         </button>
-                  </form>
-                  <button disabled resendCodebtn class="active:scale-90 !border[#24D0D0] transition-all rounded-10px mx-auto w-full cursor-not-allowed py-2 sm:py-3 mt-3 sm:mt-4 flex items-center justify-center  ">
-                        <p class="text-slate-900 font-medium transition-all text-sm sm:text-[16px] ">Resend code in 50 sec</p>
-                  </button>
+                  </div>
             </div>
-      </div>
-</section>
-<!-- bg-[#0A1C4B] -->
+      </section>
+</main>
 
 {% endblock mainBaseBody %}
 

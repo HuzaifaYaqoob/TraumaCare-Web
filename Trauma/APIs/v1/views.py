@@ -7,6 +7,7 @@ from rest_framework.permissions import AllowAny, IsAuthenticated
 
 from Trauma.models import Speciality, Disease
 from Trauma import serializers as TraumaSerializer
+from Doctor import serializers as DoctorSerializer
 from Doctor.models import Doctor
 
 @api_view(['GET'])
@@ -24,6 +25,31 @@ def get_all_specialities(request):
             'count' : len(specialities),
             'specialities' : serialized.data,
         }
+    })
+
+@api_view(['GET'])
+@permission_classes([AllowAny])
+def get_speciality_doctors(request, spaciality_slug):
+    try:
+        speciality = Speciality.objects.get(slug = spaciality_slug,)
+    except:
+        return Response({
+            'status' : False,
+            'status_code' : 400,
+            'response' : {
+                'message' : 'Speciality Not Found',
+                'error' : 'Speciality Not Found',
+            }
+        })
+    
+    docts = Doctor.objects.filter(
+        is_active = True,
+        is_deleted = False,
+        doctor_specialities__speciality = speciality
+    )
+    serialized = DoctorSerializer.DoctorSpecialitySerializer(docts, many=True)
+    return Response({
+        'data' : serialized.data,
     })
 
 @api_view(['GET'])

@@ -104,7 +104,8 @@ def BookAppointmentPage(request):
                 days_slots.append(data)
             context['days_slots'] = days_slots
     else:
-        context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True)
+        speciality_get = request.GET.get('speciality', '')
+        context['doctors'] = Doctor.objects.filter(is_deleted = False, is_blocked = False, is_active = True, doctor_specialities__speciality__slug = speciality_get)
     
     
     return render(request, 'Appointment/book_appointment.html', context)
