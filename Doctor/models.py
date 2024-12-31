@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Value
 
 from django.utils.timezone import now, localtime
 from django.utils.html import mark_safe
@@ -22,6 +23,12 @@ AVAILABILITY_TEXT = {
     '24_HOURS_OPEN' : '24 Hours Open',
     'AVAILABILITY_TIME_SLOTS' : 'Available on Timeslots',
 }
+
+class DoctorCustomManager(models.Manager):
+    def get_queryset(self):
+        return super().get_queryset().annotate(
+            available_today = Value('is_active')
+        )
 
 class Doctor(models.Model):
 
@@ -62,6 +69,9 @@ class Doctor(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=now)
     updated_at = models.DateTimeField(auto_now=now)
+
+    # objects = models.Manager()
+    # custom_objects = DoctorCustomManager()
 
 
     def __str__(self):
