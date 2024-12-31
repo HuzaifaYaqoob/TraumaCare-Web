@@ -283,6 +283,26 @@
                 {% endif %}
             {% else %}
                 <form class="w-full relative">
+                    <div class="flex gap-2">
+                        {% for speciliaty in specialities %}
+                            <a href="?speciality={{speciliaty.slug}}" class="rounded-lg flex gap-2 py-2 px-4 border border-[#C9C9C9] {% if speciliaty.slug == request.GET.speciality %} bg-[#23d0d0] text-white {% endif %}">
+                                <span>{{speciliaty.svg_icon|safe}}</span>
+                                <p>{{speciliaty.name}}</p>
+                            </a>
+                        {% endfor %}
+                    </div>
+                    <div class="my-10 flex gap-3 mt-3 overflow-auto pb-2 flex-wrap">
+                        {% for doct in doctors %}
+                            <a href="?doctor={{doct.slug}}" class="border rounded-md flex min-w-[200px] gap-2">
+                                <div class="bg-center w-[80px] bg-cover bg-no-repeat rounded-md" style="background-image: url({{doct.profile_image}});"></div>
+                                <div class="py-2 pr-3 flex-1">
+                                    <p class="text-md font-medium text-[#000] outfit-font line-clamp-1">Dr. {{doct.name}}</p>
+                                    <p class="text-gray-800 text-[13px] outfit-font line-clamp-1">{{doct.heading}}</p>
+                                    <p class="text-[#0555e9] text-[23px] outfit-font font-bold italic">{{doct.fee_range.0}} <span class="font-[400] text-black text-sm">PKR</span></p>
+                                </div>
+                            </a>
+                        {% endfor %}
+                    </div>
                     <div 
                         id="selectDoctor" 
                         class="flex items-center justify-between py-2 px-3 rounded-lg border border-[#CACBE6] w-full cursor-pointer" 
@@ -297,16 +317,28 @@
                         class="absolute w-full left-0 right-0 p-1 rounded-lg border border-[#CACBE6] top-[50px] bg-white hidden max-h-[400px] overflow-auto">
                         <ul>
                             {% for doct in doctors %}
-                            <li 
-                            class="py-2 px-3 hover:bg-gray-100 cursor-pointer" 
-                            onclick="selectDoctor('{{doct.slug}}')">
-                            Dr. {{doct.name}} <span class='text-xs'>({{doct.heading}})</span>
-                        </li>
+                                <li 
+                                    class="py-2 px-3 hover:bg-gray-100 cursor-pointer" 
+                                    onclick="selectDoctor('{{doct.slug}}')">
+                                    Dr. {{doct.name}} <span class='text-xs'>({{doct.heading}})</span>
+                                </li>
                             {% endfor %}
                         </ul>
                     </div>
                 </form>
                 <script>
+                    const handleSingleSpecialityChange = async () => {
+                        const selectedSpeciality = document.querySelector('input[name="speciliaty"]:checked');
+                        const selectedSpecialityValue = selectedSpeciality.value;
+                        console.log(selectedSpecialityValue)
+                        const response = await fetch(`/api/get_speciality_doctors/${selectedSpecialityValue}/`)
+                        let doctors = await response.json()
+                        doctors = doctors.data
+                        doctors?.forEach(doctor => {
+                            
+                        })
+                        console.log(doctors)
+                    }
                     function toggleDoctorDropdown() {
                         const dropdown = document.getElementById("doctorDropdown");
                         dropdown.classList.toggle("hidden");
@@ -321,7 +353,8 @@
                         }
                     });
 
-                                        function selectDoctor(doctorSlug) {
+
+                    function selectDoctor(doctorSlug) {
                         const form = document.querySelector("form");
                         const input = document.createElement("input");
 

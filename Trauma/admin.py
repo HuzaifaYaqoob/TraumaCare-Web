@@ -11,15 +11,20 @@ admin.site.site_title = 'Trauma AI Care | Staff Portal'
 
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
-    list_display = ['name', 'doctors', 'speciality_type', 'color_code', 'rank' , 'is_deleted', 'is_active']
+    list_display = ['speciality_with_icon', 'doctors', 'speciality_type', 'color_code', 'rank' , 'is_deleted', 'is_active']
 
     search_fields = [ 'name', 'color_code']
     list_editable = ['speciality_type']
 
     def doctors(self, speciality):
         return speciality.speciality_doctorspecialities.count()
-    
     doctors.admin_order_field = 'speciality_doctorspecialities'
+    
+    @admin.display(description='Speciality')
+    def speciality_with_icon(self, speciality):
+        return mark_safe(f'<span>{speciality.svg_icon}<span> {speciality.name}</span></span>')
+    speciality_with_icon.admin_order_field = 'name'
+    
 
 
 @admin.register(Disease)
