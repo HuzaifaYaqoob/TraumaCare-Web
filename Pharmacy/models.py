@@ -2,7 +2,16 @@ from django.db import models
 from uuid import uuid4
 from django.utils.text import slugify
 
+from Authentication.models import User
+from Profile.models import Profile
+from Trauma.models import Country, State, City
+from datetime import timedelta, datetime
+from TraumaCare.Constant.index import addWatermark
+
+
 class Store(models.Model): # Medical Store
+    user = models.ForeignKey(User, on_delete=models.PROTECT, default=None, related_name='user_stores')
+    profile = models.ForeignKey(Profile, on_delete=models.PROTECT, default=None, related_name='profile_stores')
     uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
     name = models.CharField(max_length=999, default='')
     phone = models.CharField(max_length=999, default='')
@@ -33,6 +42,12 @@ class StoreLocation(models.Model):
     address = models.TextField(default='')
     phone = models.CharField(max_length=20, default='')
     email = models.CharField(max_length=20, default='')
+
+
+    country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True, default=None, related_name='country_pharmacy_locations')
+    state = models.ForeignKey(State, on_delete=models.PROTECT, null=True, default=None, related_name='state_pharmacy_locations')
+    city = models.ForeignKey(City, on_delete=models.PROTECT, null=True, default=None, related_name='city_pharmacy_locations')
+
     lat = models.CharField(max_length=999, default='')
     lng = models.CharField(max_length=999, default='')
 
