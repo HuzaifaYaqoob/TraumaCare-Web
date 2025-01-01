@@ -4,4 +4,4 @@ from django.shortcuts import render
 
 
 def PharmacySearchPage(request):
-    return render(request, '')
+    return render(request, 'Pharmacy/pharmacy_search.html')
