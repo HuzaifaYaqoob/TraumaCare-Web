@@ -6,11 +6,11 @@ from .models import Store, StoreLocation, StoreMedia
 
 
 
-class StoreLocationInline(admin.TabularInline):
+class StoreLocationInline(admin.StackedInline):
     model = StoreLocation
     extra = 0
 
-class StoreMediaInline(admin.TabularInline):
+class StoreMediaInline(admin.StackedInline):
     model = StoreMedia
     extra = 0
 
@@ -21,3 +21,5 @@ class StoreAdmin(admin.ModelAdmin):
         'name', 'phone',
         'created_at', 'updated_at', 'is_active', 'is_blocked',
     ]
+
+    exclude = ['user', 'profile', 'slug', 'created_at', 'updated_at']
