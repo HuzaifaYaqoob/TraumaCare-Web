@@ -78,7 +78,7 @@ class CustomUserAdmin(UserAdmin):
         'user', 'email', 'first_name', 'last_name', 'joined_at',
         "is_active",
     ]
-    search_fields = ['id', 'username', 'first_name', 'last_name', 'email', 'country__name']
+    search_fields = ['id', 'username', 'first_name', 'last_name', 'email', 'country__name', 'mobile_number']
     ordering = ['-joined_at']
     list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
     inlines = [UserProfileInline]
