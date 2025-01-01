@@ -15,8 +15,8 @@
     }
 
     input[name='selected_date']:checked + label {
-        border-bottom: 5px solid #0A1C4B;
-        color: #0A1C4B;
+        border-bottom: 5px solid #151E2C;
+        color: #151E2C;
         font-weight: 600;
     }
     
@@ -28,11 +28,8 @@
     }
 
     input[name='selected_time']:checked + label {
-        border-width: 2px;
-        border-color: #0A1C4B;
-        background-color: #0a1c4b07;
-        color: #0A1C4B;
-        font-weight: 600;
+        border-color: #151E2C;
+        color: #151E2C;
     }
 
     div[loadingMain]{
@@ -103,7 +100,7 @@
                 </div>
                 {% if mode == 'Online' %}
                 {% elif not hospital %}
-                    <div class="w-full py-7 space-y-7">
+                    <div class="w-full pt-7 space-y-7">
                         <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Select Hospital</h3>
                         {% if hospitals|length > 0 %}
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -141,12 +138,12 @@
                             <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
                         {% endif %}
                         <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
-                        <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
+                        <div class="flex gap-1 overflow-auto border-b border-[#CACBE6] pt-4 mx-4" AvailabeDates>
                             {% for day in days_slots %}
                                 <div>
                                     <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="hidden" {% if day.is_today %}checked{% endif %}>
-                                    <label for="selected_date_{{day.date_format}}" class="block px-7 py-5 cursor-pointer">
-                                        <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
+                                    <label for="selected_date_{{day.date_format}}" class="block px-6 py-4 cursor-pointer">
+                                        <p class="whitespace-nowrap text-[#151E2C]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
                                     </label>
                                 </div>
                             {% endfor %}
@@ -158,9 +155,8 @@
                                 loading...
                             </div>
                         </div>
-                        <button class="bookapointment-buttoninVP block w-full transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
-                            <p class=" text-center">Book an appointment instantly</p>
-                            <p class="text-xs text-center">it only takes a second</p>
+                        <button class="block w-full transition-all p-2 py-3 mt-[16px] rounded-lg block bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-white">
+                            <p class="text-center">Book an appointment instantly</p>
                         </button>
                     </form>
                     <script>
@@ -205,7 +201,7 @@
 
                                 let p = document.createElement('p')
                                 p.className = 'mb-5'
-                                p.innerHTML = `${slot.name} <span class='font-semibold text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
+                                p.innerHTML = `${slot.name} <span class='font-semibold text-blue-600'>(Fee : ${slot.fee} PKR)</span>`
                                 div.append(p)
 
                                 let slt_inpt = document.createElement('input')
@@ -238,7 +234,7 @@
 
                                         let slot_html = `
                                                 <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-[#CACBE6] px-4 py-2 text-[18px] rounded-xl cursor-pointer text-[#CACBE6]" for="">${interval[1]}</label>
                                         `
                                         int_div.innerHTML = slot_html
                                         intervals_div.append(int_div)
