@@ -69,8 +69,8 @@ class StoreLocation(models.Model):
     store = models.ForeignKey(Store, on_delete=models.CASCADE, related_name='store_locations')
     name = models.CharField(max_length=999, default='')
     address = models.TextField(default='')
-    phone = models.CharField(max_length=20, default='')
-    email = models.CharField(max_length=20, default='')
+    phone = models.CharField(max_length=999, default='')
+    email = models.CharField(max_length=999, default='')
 
 
     country = models.ForeignKey(Country, on_delete=models.PROTECT, null=True, default=None, related_name='country_pharmacy_locations')
