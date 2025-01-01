@@ -7,6 +7,8 @@ from Profile.models import Profile
 from Trauma.models import Country, State, City
 from datetime import timedelta, datetime
 from TraumaCare.Constant.index import addWatermark
+from django.utils.html import mark_safe
+
 
 
 class Store(models.Model): # Medical Store
@@ -26,13 +28,40 @@ class Store(models.Model): # Medical Store
     is_blocked = models.BooleanField(default=False)
  
     def __str__(self):
-        return self.name
+        return self.store_admin_card()
     
     def save(self, *args, **kwargs):
         new_slug = slugify(f'{self.name} {self.uuid}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(Store, self).save(*args, **kwargs)
+    
+    @property
+    def profile_image(self):
+        try:
+            profile_pic = StoreMedia.objects.get(
+                store = self,
+                file_type = 'Profile Image',
+                is_deleted = False,
+                is_active = True
+            )
+        except:
+            return None
+        else:
+            if profile_pic.file:
+                return profile_pic.file.url
+            return None
+    
+    def store_admin_card(self, labels=[]):
+        div = f"""<div style="display : flex;gap:10px">
+                        <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({self.profile_image}) no-repeat center center;background-size:cover"></span>
+                        <span>
+                            <p style="margin:0;padding:0;font-size:16px">{self.name}</p>
+                            <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.phone}</p>
+                            {f"<span style='margin-top:5px;display:flex;gap:5px;'>{''.join(labels)}</span>" if len(labels) > 0 else ''}
+                        </span>
+                    </div>"""
+        return mark_safe(div)
 
 
 class StoreLocation(models.Model):
