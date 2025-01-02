@@ -1,13 +1,16 @@
 from django.db import models
+from TraumaCare.Constant.index import addWatermark
 
 from uuid import uuid4
 # Create your models here.
 from django.utils.text import slugify
 
+from datetime import datetime, timedelta
 from Vendor.models import Vendor
 from Pharmacy.models import StoreLocation, Store
 from Pharmaceutical.models import Pharmaceutical
 
+import os
 # Name 
 # Href 
 # Categories 
@@ -208,6 +211,25 @@ class ProductImage(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
+    is_watermark_added = models.BooleanField(default=False)
 
     def __str__(self):
         return self.product.name
+    
+    def save(self, *args, **kwargs):
+        if not self.is_watermark_added and self.image:
+            prev_url = self.image.url
+            today_time = datetime.now()
+            ext = self.image.name.split('.')[-1]
+            img_slug = slugify(f'{self.product.name} {self.product.treatment_type.name} traumacare {self.product.store.name}')
+            self.image = addWatermark(
+                self.image, 
+                f"media/Product/images/{today_time.year}-{'0' if today_time.month < 9 else ''}{today_time.month}/{img_slug[:62]}-{today_time.strftime('%d%H%M%S')}.{ext}"
+            )
+
+            print(prev_url)
+            prev_url = prev_url.replace('/media', 'media')
+            os.remove(prev_url)
+
+            self.is_watermark_added = True
+        super(ProductImage, self).save(*args, **kwargs)

@@ -17,7 +17,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    search_fields = ['name']
+    search_fields = ['name', 'Images']
     list_display = [
         'name',
         'price',
@@ -37,7 +37,7 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
-    list_display = ['product']
+    list_display = ['product', 'image']
 
 
 @admin.register(ProductStock)
