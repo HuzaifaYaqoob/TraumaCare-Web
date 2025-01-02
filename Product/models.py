@@ -119,7 +119,7 @@ class ProductType(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {self.uuid}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(ProductType, self).save(*args, **kwargs)
@@ -176,12 +176,10 @@ class Product(models.Model):
             self.name,
             self.store.name,
             self.Vendor.name if self.Vendor else '',
-            self.category.name if self.category else '',
-            self.sub_category.name if self.sub_category else '',
             self.treatment_type.name if self.treatment_type else '',
             self.product_form.name if self.product_form else '',
             self.product_type.name if self.product_type else '',
-            self.uuid,
+            str(self.uuid),
         ]
         new_slug = slugify(' '.join(slug_items))
         if new_slug != self.slug:
