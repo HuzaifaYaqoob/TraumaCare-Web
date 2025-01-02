@@ -59,7 +59,7 @@ class ProductCategory(models.Model):
         super(ProductCategory, self).save(*args, **kwargs)
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, null=True, related_name='product_category_sub_categories')
+    category = models.ManyToManyField(ProductCategory, null=True, related_name='product_category_sub_categories')
     name = models.CharField(max_length=999)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
@@ -132,7 +132,6 @@ class Product(models.Model):
     Vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT, null=True, related_name='vendor_products')
     manufacturer = models.ForeignKey(Pharmaceutical, on_delete=models.PROTECT, null=True, related_name='manufacturer_products')
 
-    category = models.ForeignKey(ProductCategory, on_delete=models.PROTECT, null=True, related_name='category_products') 
     sub_category = models.ManyToManyField(SubCategory, null=True, related_name='sub_category_products')
     treatment_type = models.ForeignKey(TreatmentType, on_delete=models.PROTECT, null=True, related_name='treatment_type_products')
     product_form = models.ForeignKey(ProductForm, on_delete=models.PROTECT, null=True, related_name='product_form_products')
