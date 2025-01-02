@@ -53,7 +53,7 @@ class ProductCategory(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {uuid4().split("-")[0]}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(ProductCategory, self).save(*args, **kwargs)
@@ -70,7 +70,7 @@ class SubCategory(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {uuid4().split("-")[0]}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(SubCategory, self).save(*args, **kwargs)
@@ -86,7 +86,7 @@ class TreatmentType(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {uuid4().split("-")[0]}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(TreatmentType, self).save(*args, **kwargs)
@@ -103,7 +103,7 @@ class ProductForm(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {uuid4().split("-")[0]}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(ProductForm, self).save(*args, **kwargs)
