@@ -142,7 +142,9 @@ class Product(models.Model):
 
     name = models.CharField(max_length=999, default='')
     description = models.TextField(default='')
+
     price = models.FloatField()
+    discount = models.FloatField(default=0, verbose_name='Discount % : ')
 
     generic_category = models.CharField(max_length=999, default='')
     formulation = models.CharField(max_length=999, default='') # Ingredients
