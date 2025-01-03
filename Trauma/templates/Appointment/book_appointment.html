@@ -15,8 +15,8 @@
     }
 
     input[name='selected_date']:checked + label {
-        border-bottom: 5px solid #0A1C4B;
-        color: #0A1C4B;
+        border-bottom: 5px solid #151E2C;
+        color: #151E2C;
         font-weight: 600;
     }
     
@@ -28,11 +28,8 @@
     }
 
     input[name='selected_time']:checked + label {
-        border-width: 2px;
-        border-color: #0A1C4B;
-        background-color: #0a1c4b07;
-        color: #0A1C4B;
-        font-weight: 600;
+        border-color: #151E2C;
+        color: #151E2C;
     }
 
     div[loadingMain]{
@@ -64,7 +61,7 @@
 <main class="px-4 sm:px-6 md:px-8 py-7">
     <section class="max-w-[1500px] mx-auto rounded-xl p-6 bg-white border border-[#CACBE6]">
         {% if doctor %}
-                <div class="rounded-2xl relative relative px-3 md:px-8 py-3 md:py-8">
+                <div class="rounded-2xl relative relative">
                     <div class="flex flex-col md:flex-row gap-4 items-start ">
                         <div class="w-28 h-28 rounded-full bg-center bg-cover bg-no-repeat"
                             style="background-image: url('{{doctor.profile_image}}');">
@@ -72,9 +69,9 @@
                         <div class="flex-1">
                             <div class="flex justify-between items-center">
                                 <div class='flex gap-5 items-center'>
-                                    <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl font-bold underline">Dr. {{doctor.name}}</a>
+                                    <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="text-2xl font-semibold underline text-[#151E2C]">Dr. {{doctor.name}}</a>
                                     {% with fee_range=doctor.fee_range %}
-                                        <p class="font-semibold mx-0">Fee : Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.0}}</span>{% if fee_range.0 != fee_range.1 %}  ~  Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.1}}</span>{% endif %}</p>
+                                        <p class="font-semibold">Fee : Rs.<span class='text-xl text-[#05D57C] italic'>{{fee_range.0}}</span>{% if fee_range.0 != fee_range.1 %}  ~  Rs.<span class='!text-[20px] text-blue-600'>{{fee_range.1}}</span>{% endif %}</p>
                                     {% endwith %}
                                 </div>
                                 <div
@@ -97,61 +94,41 @@
                                     <a href='?doctor={{doctor.slug}}' class="text-blue-600">Change hospital</a>
                                 </div>
                             {% endif %}
-                            <p class="line-clamp-3 text-slate-500 mt-3">{{doctor.desc}}</p>
+                            <p class="line-clamp-3 text-[#3C3C3C] text-sm outfit-font mt-3">{{doctor.desc}}</p>
                         </div>
                     </div>
                 </div>
                 {% if mode == 'Online' %}
                 {% elif not hospital %}
-                    <div class="w-full">
-                        <div class="relative">
-                            <div 
-                                class="flex items-center justify-between py-2 px-3 rounded-lg border border-[#CACBE6] w-full cursor-pointer" 
-                                onclick="toggleHospitalDropdown()">
-                                Select Hospital
-                                <svg class="fill-[#151E2C] size-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
-                                    <path d="M201.4 137.4c12.5-12.5 32.8-12.5 45.3 0l160 160c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L224 205.3 86.6 342.6c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3l160-160z"/>
-                                </svg>
-                            </div>
-                            <ul 
-                                id="hospitalDropdown" 
-                                class="absolute hidden w-full left-0 right-0 p-1 mt-1 rounded-lg border border-[#CACBE6] bg-white z-10">
-                                {% for h in hospitals %}
-                                    <li 
-                                        class="py-2 px-3 hover:bg-gray-100 cursor-pointer" 
-                                        onclick="selectHospital('{{h.id}}')">
-                                        {{h.hospital.name}} at {{h.location.street_address}}
-                                    </li>
+                    <div class="w-full pt-7 space-y-7">
+                        <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Select Hospital</h3>
+                        {% if hospitals|length > 0 %}
+                            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+                                {% for doct_h in hospitals %}
+                                    <div class="gap-3 items-start border border-[#CACBE6] rounded-lg flex min-w-[200px] max-w-[700px] w-full p-2">
+                                        <a href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{doct_h.hospital.profile_image.file.url}}');"></a>
+                                        <div class="flex-1 space-y-0.5">
+                                            <div class="flex items-center justify-between">
+                                                <a class="text-[#151E2C] line-clamp-1 text-xl font-medium outfit-font" href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}">{{doct_h.hospital.name}}</a>
+                                                <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
+                                                    <span class="whitespace-nowrap" showdistance="{{doct_h.location.lat}},{{doct_h.location.lng}}"></span>
+                                                </span>
+                                            </div>
+                                            <p class="line-clamp-2 text-[#111111] text-xs">{{doct_h.location.street_address}}</p>
+                                        </div>
+                                    </div>
                                 {% endfor %}
-                            </ul>
-                        </div>
+                            </div>
+                        {% else %}
+                            <p class="text-xs sm:text-sm font-medium text-[#111111] mt-4">
+                                No doctors available for the selected speciality. Please select another speciality.
+                            </p>
+                        {% endif %}
                         <form class="hidden">
                             <input type="text" name="hospital" id="hospitalInput">
                             <input type="text" name="doctor" class="hidden" value="{{doctor.slug}}">
                         </form>
-                    </div>       
-                    <script>
-                        function toggleHospitalDropdown() {
-                            const dropdown = document.getElementById('hospitalDropdown');
-                            dropdown.classList.toggle('hidden');
-                        }
-
-                        function selectHospital(hospitalId) {
-                            const input = document.getElementById('hospitalInput');
-                            const form = document.querySelector('form');
-
-                            input.value = hospitalId;
-
-                            form.submit();
-                        }
-
-                        document.addEventListener('click', (e) => {
-                            const dropdown = document.getElementById('hospitalDropdown');
-                            if (!dropdown.contains(e.target) && e.target.closest('.flex') === null) {
-                                dropdown.classList.add('hidden');
-                            }
-                        });
-                    </script>
+                    </div>
                 {% endif %}
                 {% if days_slots %}
                     <form action="{% url 'BookAppointment_DoctorPage' %}" method="get">
@@ -160,15 +137,13 @@
                         {% if hospital %}
                             <input type="text" class="hidden" name="doct_hospital" value="{{hospital.id}}">
                         {% endif %}
-
-
                         <input type="text" class="hidden" name="dr-appointment-slot" value="{{doctor.id}}">
-                        <div class="flex gap-1 overflow-auto border-b py-0 mx-4 " AvailabeDates>
+                        <div class="flex gap-1 overflow-auto border-b border-[#CACBE6] pt-4 mx-4" AvailabeDates>
                             {% for day in days_slots %}
                                 <div>
                                     <input id="selected_date_{{day.date_format}}" type="radio" name="selected_date" value="{{day.date_format}}" class="hidden" {% if day.is_today %}checked{% endif %}>
-                                    <label for="selected_date_{{day.date_format}}" class="block px-7 py-5 cursor-pointer">
-                                        <p class="whitespace-nowrap text-[18px]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
+                                    <label for="selected_date_{{day.date_format}}" class="block px-6 py-4 cursor-pointer">
+                                        <p class="whitespace-nowrap text-[#151E2C]">{% if day.is_today %}Today{% else %}{{day.month}}{% endif %} {{day.date_prefix_zero}}, {{day.day_name}}</p>
                                     </label>
                                 </div>
                             {% endfor %}
@@ -180,9 +155,8 @@
                                 loading...
                             </div>
                         </div>
-                        <button class="bookapointment-buttoninVP block w-full transition-all border border-[#0A1C4B] p-2 py-3 mt-[16px] rounded-xl block bg-[#0A1C4B] text-white">
-                            <p class=" text-center">Book an appointment instantly</p>
-                            <p class="text-xs text-center">it only takes a second</p>
+                        <button class="block w-full transition-all p-2 py-3 mt-[16px] rounded-lg block bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-white">
+                            <p class="text-center">Book an appointment instantly</p>
                         </button>
                     </form>
                     <script>
@@ -227,7 +201,7 @@
 
                                 let p = document.createElement('p')
                                 p.className = 'mb-5'
-                                p.innerHTML = `${slot.name} <span class='font-semibold text-[18px] text-blue-600'>(FEE : ${slot.fee} pkr)</span>`
+                                p.innerHTML = `${slot.name} <span class='font-semibold text-blue-600'>(Fee : ${slot.fee} PKR)</span>`
                                 div.append(p)
 
                                 let slt_inpt = document.createElement('input')
@@ -260,7 +234,7 @@
 
                                         let slot_html = `
                                                 <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-slate-300 px-4 py-2 text-[18px] rounded-xl cursor-pointer" for="">${interval[1]}</label>
+                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-[#CACBE6] px-4 py-2 text-[18px] rounded-xl cursor-pointer text-[#CACBE6]" for="">${interval[1]}</label>
                                         `
                                         int_div.innerHTML = slot_html
                                         intervals_div.append(int_div)
@@ -291,11 +265,11 @@
                                 <a href="?speciality={{speciliaty.slug}}" 
                                     class="rounded-lg p-[1px] bg-[#CACBE6]
                                     {% if request.GET.speciality and speciliaty.slug == request.GET.speciality %} bg-gradient-to-r from-[#0755E9] to-[#05DC75]{% endif %}">
-                                    <div class="bg-white rounded-lg space-y-1.5 h-[110px] w-[160px] gap-2 py-2 px-4">
+                                    <div class="bg-white rounded-lg space-y-1.5 h-[100px] sm:h-[110px] w-[150px] sm:w-[160px] gap-2 py-2 px-4">
                                         <div class="flex items-center justify-center">
                                             <span class="size-7 flex items-center justify-center">{{speciliaty.svg_icon|safe}}</span>
                                         </div>
-                                        <p class="text-center text-sm line-clamp-3">{{speciliaty.name}}</p>
+                                        <p class="text-center text-xs sm:text-sm line-clamp-3">{{speciliaty.name}}</p>
                                     </div>
                                 </a>
                             {% endfor %}
@@ -304,7 +278,7 @@
                     <div class="space-y-5">
                         <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Select Doctor</h3>
                         {% if doctors|length > 0 %}
-                            <div class="flex pb-2 grid grid-cols-3 gap-3">
+                            <div class="flex pb-2 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                 {% for doct in doctors %}
                                     <a href="?doctor={{doct.slug}}" class="border border-[#CACBE6] rounded-md flex min-w-[200px] max-w-[700px] w-full gap-2 overflow-hidden">
                                         <div class="bg-center w-[86px] bg-cover bg-no-repeat" style="background-image: url({{doct.profile_image}});"></div>
@@ -320,7 +294,7 @@
                                 {% endfor %}
                             </div>
                         {% else %}
-                            <p class="text-sm font-medium text-[#111111]">
+                            <p class="text-xs sm:text-sm font-medium text-[#111111]">
                                 No doctors available for the selected speciality. Please select another speciality.
                             </p>
                         {% endif %}
