@@ -160,6 +160,8 @@ class Product(models.Model):
     marketed_by = models.CharField(max_length=999, default='')
     route_of_administration = models.CharField(max_length=999, default='')
 
+    max_order = models.PositiveIntegerField(default=100)
+
     Images = models.TextField(default='') # To Be Deleted
 
     sku = models.CharField(max_length=999, default='')
@@ -172,6 +174,11 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
+
+
+    # Meta Descriptions
+    meta_title = models.CharField(max_length=999, default='')
+    meta_description = models.TextField(default='')
  
     def __str__(self):
         return self.name
