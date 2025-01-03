@@ -22,10 +22,6 @@ class Command(BaseCommand):
             print(f'{pi} / {len(products)}')
             # fetch Image from url and save in product image 
             for url in product.Images.split(','):
-                url = url.split('?')[0]
-                url = url.split('//ailaaj.pk')[-1]
-                url = f'https://ailaaj.pk{url}'
-
 
                 response = requests.get(url)
                 if response.status_code == 200:
