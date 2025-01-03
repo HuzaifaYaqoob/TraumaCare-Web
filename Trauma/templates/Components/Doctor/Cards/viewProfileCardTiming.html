@@ -1,38 +1,64 @@
 {% load appointment_tags %}
-<div class="singleSlotCard" >
+<div class="singleSlotCard pb-3">
       <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}">
-      <label for="dr-appointment-slot-card-{{slot.id}}" class="border block mb-3 px-[20px] py-[8px] rounded-[15px] cursor-pointer group" >
-            <p class="font-semibold"><span class="inline-flex items-center gap-2 {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %}"><span class="inline-flex items-center justify-center w-[8px] h-[8px] {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} rounded-full relative"></span> {{slot.title}}</span> {% if slot_date %}<span class="text-sm ml-3">({{slot_date}})</span>{% endif %}</p>
+      <div for="dr-appointment-slot-card-{{slot.id}}" class="block px-4 py-3 rounded-xl group bg-white border border-[#CACBE6]">
+            <p class="font-semibold">
+                  <span 
+                        class="inline-flex items-center gap-2 
+                        {% if next_available.day_count == 0 %}text-green-600{% elif next_available.day_count == 1 %}text-yellow-600{% else %}text-red-600{% endif %} 
+                        transition-colors duration-300 ease-in-out"
+                  >
+                        <span 
+                        class="inline-flex items-center justify-center w-2.5 h-2.5 
+                        {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %}
+                        animate-ping rounded-full"
+                        ></span>
+                  
+                        <span 
+                        class="absolute inline-flex w-2.5 h-2.5 
+                        {% if next_available.day_count == 0 %}bg-green-600{% elif next_available.day_count == 1 %}bg-yellow-600{% else %}bg-red-600{% endif %} 
+                        rounded-full"
+                        ></span>
+                  
+                        {{slot.title}}
+                  </span> 
+                  
+                  {% if slot_date %}
+                        <span class="text-sm ml-3 opacity-75 transition-opacity duration-300">
+                        ({{slot_date}})
+                        </span>
+                  {% endif %}
+            </p>                
             <div class="flex items-center justify-between gap-4">
                   <div class="flex items-center gap-1 flex-1">
-                        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path class="fill-[#9F9F9F]" d="M8 8H7.5C7.5 8.21522 7.63771 8.40628 7.84189 8.47434L8 8ZM8.5 4.5C8.5 4.22386 8.27614 4 8 4C7.72386 4 7.5 4.22386 7.5 4.5H8.5ZM9.94189 9.17434C10.2039 9.26167 10.487 9.12009 10.5743 8.85811C10.6617 8.59614 10.5201 8.31298 10.2581 8.22566L9.94189 9.17434ZM8.5 8V4.5H7.5V8H8.5ZM7.84189 8.47434L9.94189 9.17434L10.2581 8.22566L8.15811 7.52566L7.84189 8.47434ZM14.5 8C14.5 11.5899 11.5899 14.5 8 14.5V15.5C12.1421 15.5 15.5 12.1421 15.5 8H14.5ZM8 14.5C4.41015 14.5 1.5 11.5899 1.5 8H0.5C0.5 12.1421 3.85786 15.5 8 15.5V14.5ZM1.5 8C1.5 4.41015 4.41015 1.5 8 1.5V0.5C3.85786 0.5 0.5 3.85786 0.5 8H1.5ZM8 1.5C11.5899 1.5 14.5 4.41015 14.5 8H15.5C15.5 3.85786 12.1421 0.5 8 0.5V1.5Z" />
+                        <svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+                              <path class="fill-[#151E2C]" d="M8 8H7.5C7.5 8.21522 7.63771 8.40628 7.84189 8.47434L8 8ZM8.5 4.5C8.5 4.22386 8.27614 4 8 4C7.72386 4 7.5 4.22386 7.5 4.5H8.5ZM9.94189 9.17434C10.2039 9.26167 10.487 9.12009 10.5743 8.85811C10.6617 8.59614 10.5201 8.31298 10.2581 8.22566L9.94189 9.17434ZM8.5 8V4.5H7.5V8H8.5ZM7.84189 8.47434L9.94189 9.17434L10.2581 8.22566L8.15811 7.52566L7.84189 8.47434ZM14.5 8C14.5 11.5899 11.5899 14.5 8 14.5V15.5C12.1421 15.5 15.5 12.1421 15.5 8H14.5ZM8 14.5C4.41015 14.5 1.5 11.5899 1.5 8H0.5C0.5 12.1421 3.85786 15.5 8 15.5V14.5ZM1.5 8C1.5 4.41015 4.41015 1.5 8 1.5V0.5C3.85786 0.5 0.5 3.85786 0.5 8H1.5ZM8 1.5C11.5899 1.5 14.5 4.41015 14.5 8H15.5C15.5 3.85786 12.1421 0.5 8 0.5V1.5Z" />
                         </svg>
                         <div class="flex flex-1 gap-2 items-center justify-between outfit-font whitespace-nowrap">
-                              <p class="text-[#000]">{{slot.start_time_formated}}</p>
-                              <span class="flex-1 block h-[1px] w-[10px] bg-gray-300"></span>
-                              <p class="text-[#000]">{{slot.end_time_formated}}</p>
+                              <p class="text-[#151E2C] text-sm sm:text-md">{{slot.start_time_formated}}</p>
+                              <span class="flex-1 block h-[1px] w-2.5 bg-[#151E2C]"></span>
+                              <p class="text-[#151E2C] text-sm sm:text-md">{{slot.end_time_formated}}</p>
                         </div>
                   </div>
                   <div class="flex-1">
-                        <p class="text-gray-600 text-end flex-1">Rs. <span class="text-[#0166ff] font-bold text-4xl italic">{{price}}</span></p>
+                        <p class="text-[151E2C] text-end flex-1">Rs. <span class="text-xl sm:text-2xl text-[#05D57C] italic font-semibold">{{price}}</span></p>
                         {% if slot.discount %}
                               <span class="text-xs text-right block mt-[-7px]">on Discount*</span>
                         {% endif %}
                   </div>
             </div>
-            <div class="grid grid-cols-4 gap-2 mt-3 mb-2">
+            <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-2 mt-3">
                   {% get_doctor_slots doctor day_date clinic_id as doctor_bookings %}
                   {% for interval in slot_intervals %}
-                        <div class="mb-1">
+                        <div>
                               {% if interval.0 in doctor_bookings %}
                                     <p class="cursor-not-allowed border bg-slate-200 text-gray-500 select-none px-2 py-1 rounded-lg text-center outfit-font">{{interval.1}}</p>
                               {% else %}
                                     <input type="radio" name="selected_time" value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{slot.id}}-{{interval.0}}" >
-                                    <label for="slot-time-interval-{{slot.id}}-{{interval.0}}" class="outfit-font text-[15px] block cursor-pointer border px-2 py-1 rounded-lg text-center">{{interval.1}}</label>
+                                    <label for="slot-time-interval-{{slot.id}}-{{interval.0}}" class="text-center block border-[1px] border-[#151E2C] px-3 py-1.5 rounded-lg cursor-pointer text-[#151E2C]">{{interval.1}}</label>
                               {% endif %}
                         </div>
                   {% endfor %}
             </div>
-      </label>
+      </div>
 </div>
