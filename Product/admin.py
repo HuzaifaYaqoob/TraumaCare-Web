@@ -19,12 +19,12 @@ class SubCategoryAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     search_fields = [
         'name', 
-        "store",
-        "Vendor",
-        "manufacturer",
-        "treatment_type",
-        "product_form",
-        "product_type",
+        "store__name",
+        "Vendor__name",
+        "manufacturer__name",
+        "treatment_type__name",
+        "product_form__name",
+        "product_type__name",
         "generic_category",
         "formulation",
         "strength",
