@@ -176,10 +176,6 @@ class Product(models.Model):
     is_blocked = models.BooleanField(default=False)
 
 
-    # Meta Descriptions
-    meta_title = models.CharField(max_length=999, default='')
-    meta_description = models.TextField(default='')
- 
     def __str__(self):
         return self.name
 
