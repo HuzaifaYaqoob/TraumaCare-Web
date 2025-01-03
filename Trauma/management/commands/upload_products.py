@@ -19,13 +19,7 @@ class Command(BaseCommand):
         with open('Files/Medicine/dvago_medicines.json', 'r') as input_file:
             reader = json.load(input_file)
             for row_i, row in enumerate(reader):
-                try:
-                    prod = Product.objects.get(name = row['Title'])
-                except Exception as err:
-                    print(err)
-                else:
-                    print('Conitnue')
-                    continue
+                
                 vendor = None
                 manufacturer = None
                 treatment_type = None
