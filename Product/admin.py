@@ -17,7 +17,19 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
-    search_fields = ['name', 'Images']
+    search_fields = [
+        'name', 
+        "store",
+        "Vendor",
+        "manufacturer",
+        "treatment_type",
+        "product_form",
+        "product_type",
+        "generic_category",
+        "formulation",
+        "strength",
+        "pack_form",
+    ]
     list_display = [
         'name',
         'price',
