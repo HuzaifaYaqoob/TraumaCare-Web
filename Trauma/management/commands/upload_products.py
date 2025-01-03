@@ -14,7 +14,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
 
 
-        first_store = Store.objects.first()
+        first_store = Store.objects.filter(name='TraumaCare MediMart')[0]
 
         with open('Files/Medicine/dvago_medicines.json', 'r') as input_file:
             reader = json.load(input_file)
