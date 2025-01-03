@@ -1,13 +1,16 @@
 from django.db import models
+from TraumaCare.Constant.index import addWatermark
 
 from uuid import uuid4
 # Create your models here.
 from django.utils.text import slugify
 
+from datetime import datetime, timedelta
 from Vendor.models import Vendor
 from Pharmacy.models import StoreLocation, Store
 from Pharmaceutical.models import Pharmaceutical
 
+import os
 # Name 
 # Href 
 # Categories 
@@ -59,7 +62,7 @@ class ProductCategory(models.Model):
         super(ProductCategory, self).save(*args, **kwargs)
 
 class SubCategory(models.Model):
-    category = models.ForeignKey(ProductCategory, on_delete=models.CASCADE, null=True, related_name='product_category_sub_categories')
+    category = models.ManyToManyField(ProductCategory, null=True, related_name='product_category_sub_categories')
     name = models.CharField(max_length=999)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
@@ -119,7 +122,7 @@ class ProductType(models.Model):
         return self.name
     
     def save(self, *args, **kwargs):
-        new_slug = slugify(f'{self.name} {self.uuid}')
+        new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
             self.slug = new_slug
         super(ProductType, self).save(*args, **kwargs)
@@ -132,7 +135,6 @@ class Product(models.Model):
     Vendor = models.ForeignKey(Vendor, on_delete=models.PROTECT, null=True, related_name='vendor_products')
     manufacturer = models.ForeignKey(Pharmaceutical, on_delete=models.PROTECT, null=True, related_name='manufacturer_products')
 
-    category = models.ForeignKey(ProductCategory, on_delete=models.PROTECT, null=True, related_name='category_products') 
     sub_category = models.ManyToManyField(SubCategory, null=True, related_name='sub_category_products')
     treatment_type = models.ForeignKey(TreatmentType, on_delete=models.PROTECT, null=True, related_name='treatment_type_products')
     product_form = models.ForeignKey(ProductForm, on_delete=models.PROTECT, null=True, related_name='product_form_products')
@@ -140,7 +142,9 @@ class Product(models.Model):
 
     name = models.CharField(max_length=999, default='')
     description = models.TextField(default='')
+
     price = models.FloatField()
+    discount = models.FloatField(default=0, verbose_name='Discount % : ')
 
     generic_category = models.CharField(max_length=999, default='')
     formulation = models.CharField(max_length=999, default='') # Ingredients
@@ -177,17 +181,22 @@ class Product(models.Model):
             self.name,
             self.store.name,
             self.Vendor.name if self.Vendor else '',
-            self.category.name if self.category else '',
-            self.sub_category.name if self.sub_category else '',
             self.treatment_type.name if self.treatment_type else '',
             self.product_form.name if self.product_form else '',
             self.product_type.name if self.product_type else '',
-            self.uuid,
+            str(self.uuid),
         ]
         new_slug = slugify(' '.join(slug_items))
         if new_slug != self.slug:
             self.slug = new_slug
         super(Product, self).save(*args, **kwargs)
+    
+
+    @property
+    def final_price(self):
+        if self.discount:
+            return self.price - (self.price * self.discount / 100)
+        return self.price
 
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
@@ -211,6 +220,25 @@ class ProductImage(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
+    is_watermark_added = models.BooleanField(default=False)
 
     def __str__(self):
         return self.product.name
+    
+    def save(self, *args, **kwargs):
+        if not self.is_watermark_added and self.image:
+            prev_url = self.image.url
+            today_time = datetime.now()
+            ext = self.image.name.split('.')[-1]
+            img_slug = slugify(f'{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}')
+            self.image = addWatermark(
+                self.image, 
+                f"media/Product/images/{today_time.year}-{'0' if today_time.month < 9 else ''}{today_time.month}/{img_slug[:62]}-{today_time.strftime('%d%H%M%S')}.{ext}"
+            )
+
+            print(prev_url)
+            prev_url = prev_url.replace('/media', 'media')
+            os.remove(prev_url)
+
+            self.is_watermark_added = True
+        super(ProductImage, self).save(*args, **kwargs)
