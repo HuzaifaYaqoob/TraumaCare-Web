@@ -33,6 +33,7 @@ class ProductAdmin(admin.ModelAdmin):
     list_display = [
         'name',
         'price',
+        'discount',
         'product_store',
         'Vendor',
         'manufacturer',
