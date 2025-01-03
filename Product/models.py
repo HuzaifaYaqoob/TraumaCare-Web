@@ -190,6 +190,13 @@ class Product(models.Model):
         if new_slug != self.slug:
             self.slug = new_slug
         super(Product, self).save(*args, **kwargs)
+    
+
+    @property
+    def final_price(self):
+        if self.discount:
+            return self.price - (self.price * self.discount / 100)
+        return self.price
 
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
