@@ -22,17 +22,7 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         prods = Product.objects.all()
         for pi, prod in enumerate(prods):
-            old_price = prod.price
-            if old_price > 120:
-                fixed_percentage = 10
-            else:
-                fixed_percentage = 30
-
-            new_price = round(old_price * (1 + fixed_percentage / 100), 2)
-
-            print(f"{pi} : {prod.name}: Old Price = {old_price}, New Price = {new_price}")
-            prod.price = new_price
-            prod.save()
+            pass
 
         self.stdout.write(self.style.SUCCESS('Product Uploaded Successfully'))
 
