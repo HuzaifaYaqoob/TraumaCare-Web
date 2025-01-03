@@ -18,6 +18,9 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    list_filter = [
+        'created_at'
+    ]
     search_fields = [
         'name', 
         "store__name",
