@@ -43,7 +43,12 @@ class ProductAdmin(admin.ModelAdmin):
         
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
-    list_display = ['product', 'image']
+    list_display = ['product', 'product_image']
+
+    @admin.display(description='Image')
+    def product_image(self, img):
+        return mark_safe(f"""<img loading="lazy" src="{img.image.url if img.image else None}" alt="{img.product.name}" style="max-width:100px;max-height:100px;" />""")
+        
 
 
 @admin.register(ProductStock)
