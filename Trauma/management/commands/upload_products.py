@@ -11,35 +11,28 @@ from Pharmacy.models import Store, StoreLocation
 from Vendor.models import Vendor
 from Pharmaceutical.models import Pharmaceutical
 
+import time
+
+
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
 
     def handle(self, *args, **options):
-        with open('Files/Medicine/products.csv', 'r') as input_file:
-            reader = csv.DictReader(input_file)
-            for row_i, row in enumerate(list(reader)):
-                price = row['OriginalPrice'].replace('Rs.', '').replace(',', '').replace(' ', '')
-                DiscountedPrice = row['DiscountedPrice'].replace('Rs.', '').replace(',', '').replace(' ', '')
-                if not DiscountedPrice:
-                    continue
-                percentage = 100 - ((float(DiscountedPrice) / float(price)) * 100)
-                
-                try:
-                    prod = Product.objects.get(name = row['Name'])
-                except Exception as err:
-                    print('*' * 50)
-                    print(row['Name'])
-                    print(err)
-                    print('*' * 50)
-                else:
-                    prod.discount = round(percentage, 2)
-                    prod.save()
-                    print(f'Saved {prod.price} : {prod.discount}')
-                
+        prods = Product.objects.all()
+        for pi, prod in enumerate(prods):
+            old_price = prod.price
+            if old_price > 120:
+                fixed_percentage = 10
+            else:
+                fixed_percentage = 30
 
-                # sub_category = 
+            new_price = round(old_price * (1 + fixed_percentage / 100), 2)
+
+            print(f"{pi} : {prod.name}: Old Price = {old_price}, New Price = {new_price}")
+            prod.price = new_price
+            prod.save()
 
         self.stdout.write(self.style.SUCCESS('Product Uploaded Successfully'))
 
