@@ -36,6 +36,7 @@ class ProductAdmin(admin.ModelAdmin):
         'product_store',
         'Vendor',
         'manufacturer',
+        'formulation',
         'treatment_type',
         'product_form',
         'product_type',
