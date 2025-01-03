@@ -17,6 +17,7 @@ class SubCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    ordering = ['?']
     search_fields = [
         'name', 
         "store__name",
