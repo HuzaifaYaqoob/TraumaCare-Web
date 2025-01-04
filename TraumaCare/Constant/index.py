@@ -14,10 +14,13 @@ def addWatermark(input_image, output_path):
         print('Creating directory')
         os.makedirs(last_dir)
 
-    print(input_image.size)
+    print(input_image.path)
     img_name = input_image.name
     ext = img_name.split('.')[-1]
-    background = Image.open(input_image)
+    try:
+        background = Image.open(input_image)
+    except:
+        background = Image.open(input_image.path)
     bg_w, bg_h = background.size
 
     # Calculate the size of the foreground image based on the background
