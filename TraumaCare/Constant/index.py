@@ -14,6 +14,7 @@ def addWatermark(input_image, output_path):
         print('Creating directory')
         os.makedirs(last_dir)
 
+    print(input_image)
     img_name = input_image.name
     ext = img_name.split('.')[-1]
     background = Image.open(input_image)
