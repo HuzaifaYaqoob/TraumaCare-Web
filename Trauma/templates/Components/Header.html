@@ -33,6 +33,21 @@
                 </div>
                 <div class="hidden xl:block flex-1">
                     <div class="hidden md:flex items-center gap-5 rounded-xl px-4 py-3.5 border bg-white border-[#CACBE6]">
+                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Hospitals
+                            <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
+                            <!-- group-hover:block -->
+                            <div class="hidden absolute top-[45px] left-0 pt-[10px] w-[200px] ">
+                                <div class="rounded-2xl bg-white cursor-default cursor-default !p-[14px] w-full boxshadow ">
+                                    <h2 class="text-[#24d0d0] font-medium text-[18px]">Hospitals in Pakistan</h2>
+                                    <ul class="mt-[12px] ">
+                                        {% for city in hospital_cities %}
+                                            {% include 'Components/Header/NavItem.html' with name=city.name color=city.color_code icon=city.svg_icon %}
+                                        {% endfor %}
+                                        {% include 'Components/Header/view_all.html' %}
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
                         <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Doctors
                             <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
                             <!-- group-hover:block -->
@@ -72,20 +87,8 @@
                                 </div>
                             </div>
                         </li>
-                        <li class="relative flex items-center group cursor-pointer transition-all gap-2 font-medium text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">Hospitals
-                            <!-- {% include 'Components/Utility/chevron_arrow.html' %} -->
-                            <!-- group-hover:block -->
-                            <div class="hidden absolute top-[45px] left-0 pt-[10px] w-[200px] ">
-                                <div class="rounded-2xl bg-white cursor-default cursor-default !p-[14px] w-full boxshadow ">
-                                    <h2 class="text-[#24d0d0] font-medium text-[18px]">Hospitals in Pakistan</h2>
-                                    <ul class="mt-[12px] ">
-                                        {% for city in hospital_cities %}
-                                            {% include 'Components/Header/NavItem.html' with name=city.name color=city.color_code icon=city.svg_icon %}
-                                        {% endfor %}
-                                        {% include 'Components/Header/view_all.html' %}
-                                    </ul>
-                                </div>
-                            </div>
+                        <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">
+                            <a href='{% url "PharmacyLandingPage" %}'>Pharmacy</a>
                         </li>
                         <li class="cursor-pointer flex items-center gap-2 font-medium group text-[#3C3C3C] outfit-font whitespace-nowrap text-sm">
                             <a href='{% url "BlogHomePage" %}'>Health Blog</a>
