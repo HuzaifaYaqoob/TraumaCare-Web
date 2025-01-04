@@ -43,10 +43,8 @@ class Command(BaseCommand):
                     product_image = ProductImage.objects.create(product=product)
                     
                     # Save the downloaded image to the ProductImage instance
-                    try:
-                        product_image.image.save(file_name, ContentFile(response.content), save=True)
-                    except:
-                        pass
+                    
+                    product_image.image.save(file_name, ContentFile(response.content), save=True)
                     print('\tSaved')
 
                     print(f"ProductImage created with ID: {product_image.id}")
