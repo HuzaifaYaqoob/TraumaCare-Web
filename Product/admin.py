@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Product, ProductImage, ProductCategory, SubCategory, ProductStock, ProductForm, ProductType, TreatmentType
 from django.utils.html import mark_safe
 
+from .admin_custom_filters import ImageCountFilter
 
 @admin.register(ProductCategory)
 class ProductCategoryAdmin(admin.ModelAdmin):
@@ -19,7 +20,8 @@ class SubCategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_filter = [
-        'created_at'
+        'created_at',
+        ImageCountFilter,
     ]
     search_fields = [
         'name', 
