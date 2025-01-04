@@ -261,7 +261,7 @@ class ProductImage(models.Model):
 
             print(prev_url)
             prev_url = prev_url.replace('/media', 'media')
-            os.remove(prev_url)
+            # os.remove(prev_url)
 
             self.is_watermark_added = True
         super(ProductImage, self).save(*args, **kwargs)
