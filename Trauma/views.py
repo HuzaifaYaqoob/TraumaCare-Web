@@ -17,6 +17,7 @@ from Hospital.models import Hospital, HospitalLocation, LocationContact, Hospita
 from Profile.models import Profile
 
 from datetime import datetime
+from Product.models import Product
 
 def homePage(request):
     context = {}
@@ -31,6 +32,11 @@ def homePage(request):
     context['blog_posts'] = BlogPost.objects.order_by('-created_at')[:8]
     # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
+    context['medicines'] = Product.objects.filter(
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False
+    )[:10]
     return render(request, 'Home/index.html', context)
 
 

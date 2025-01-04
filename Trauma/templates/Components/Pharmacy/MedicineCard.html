@@ -1,7 +1,9 @@
 {% load static %}
 <div class="flex flex-col rounded-3xl flex-1 cursor-pointer bg-white tc-shadow pt-[18px] pb-[13px] px-[16px] group hover:bg-[#0A1C4B] transition-all">
       <div class="flex items-center justify-between mt-[7px]">
-            <span class="text-[17px] font-semibold group-hover:text-white">10% OFF</span>
+            {% if medicine.discount %}
+                  <span class="text-[17px] font-semibold group-hover:text-white">{{medicine.discount}}% OFF</span>
+            {% endif %}
             <div class="">
                   <svg width="31" height="28" viewBox="0 0 31 28" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M16.6858 2.63855L15.5 3.91255L14.3142 2.63855C11.0396 -0.879514 5.73049 -0.879516 2.45592 2.63854C-0.81864 6.1566 -0.818642 11.8605 2.45592 15.3786L13.1283 26.8446C14.4382 28.2518 16.5618 28.2518 17.8717 26.8446L28.5441 15.3786C31.8186 11.8605 31.8186 6.1566 28.5441 2.63855C25.2695 -0.879514 19.9604 -0.879515 16.6858 2.63855Z" fill="#D4CDCD"/>
@@ -9,18 +11,26 @@
             </div>
       </div>
       <div class="flex items-center justify-center mt-[6px]">
-            <img loading="lazy" src="https://www.pngall.com/wp-content/uploads/2/Medicine-PNG-Image-File.png" class="w-[100px]" alt="">
+            {% with productImages=medicine.product_all_images %}
+                  {% if productImages.0 and productImages.0.image %}
+                        <img loading="lazy" src="{{productImages.0.image.image.url}}" class="w-[100px]" alt="">
+                  {% else %}
+                        <img loading="lazy" src="#" class="w-[100px]" alt="">
+                  {% endif %}
+            {% endwith %}
       </div>
       <a href="/medicine/view/asdfsadf/" class="flex items-center gap-[5px] mt-[10px] line-clamp-2">
-            <h2 class="text-[18px] font-medium group-hover:text-white ">Artifen Diclofenac Sodium</h2>
+            <h2 class="text-[18px] font-medium group-hover:text-white ">{{medicine.name}}</h2>
       </a>
       <div class="flex items-center gap-[5px]">
-            <p class="text-[#6D6969] font-[300] text-[18px] group-hover:text-gray-50 hover:!text-[#24D0D0] cursor-pointer line-clamp-1">Fazal Din Pharmacy</p>
+            <p class="text-[#6D6969] font-[300] text-[18px] group-hover:text-gray-50 hover:!text-[#24D0D0] cursor-pointer line-clamp-1">{{medicine.store.name}}</p>
             <span class="text-[#6D6969] text-[18px] font-semibold group-hover:text-white">(2Km)</span>
       </div>
       <div class="flex items-center gap-[5px]">
-            <span class="text-[23px] font-semibold text-[#24D0D0]">Rs.583 </span>
-            <span class="text-[20px] text-[#939393] group-hover:text-white"> <del>595</del></span>
+            <span class="text-[23px] font-semibold text-[#24D0D0]">Rs.{{medicine.final_price}} </span>
+            {% if medicine.discount %}
+                  <span class="text-[20px] text-[#939393] group-hover:text-white"> <del>{{medicine.discounted_price}}</del></span>
+            {% endif %}
       </div>
       <div class="flex items-center justify-between mt-[20px]">
             <div class="flex items-center justify-center gap-[8px]">

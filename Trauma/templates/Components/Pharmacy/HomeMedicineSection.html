@@ -16,30 +16,11 @@
   </div>
   <div class="swiper mySwiper mb-10 pb-10 flex items-center gap-[25px] justify-center mt-[25px] ">
       <div class="swiper-wrapper">
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
-            <div class="swiper-slide"> 
-                  {% include 'Components/Pharmacy/MedicineCard.html' %}
-            </div>
+            {% for medicine_product in medicines %}
+                  <div class="swiper-slide"> 
+                        {% include 'Components/Pharmacy/MedicineCard.html' with medicine=medicine_product %}
+                  </div>
+            {% endfor %}
       </div>
       <div class="swiper-pagination absolute !bottom-[0px]"></div>
   </div>

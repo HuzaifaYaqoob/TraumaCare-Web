@@ -199,9 +199,19 @@ class Product(models.Model):
 
     @property
     def final_price(self):
+        price = self.price
         if self.discount:
-            return self.price - (self.price * self.discount / 100)
-        return self.price
+            price = self.price - (self.price * self.discount / 100)
+        return round(price, 2)
+    
+
+    @property
+    def discounted_price(self):
+        if self.discount:
+            f_percent = 100 - self.discount
+            price = (self.final_price * f_percent) / 100
+            return round(price, 2)
+        return 0
     
     @property
     def product_all_images(self):
