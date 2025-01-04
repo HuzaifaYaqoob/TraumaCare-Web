@@ -47,7 +47,7 @@ class ProductAdmin(admin.ModelAdmin):
         'treatment_type',
         'product_form',
         'product_type',
-        'Images',
+        # 'Images',
     ]
 
     @admin.display(description='Store')
