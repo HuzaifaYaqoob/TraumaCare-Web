@@ -14,7 +14,7 @@ def addWatermark(input_image, output_path):
         print('Creating directory')
         os.makedirs(last_dir)
 
-    print(input_image.path)
+    print(input_image.url)
     foreground_path = f'{settings.BASE_DIR}/Files/tc_icon.png'
     foreground = Image.open(foreground_path).convert("RGBA")
     img_name = input_image.name
@@ -22,7 +22,7 @@ def addWatermark(input_image, output_path):
     try:
         background = Image.open(input_image)
     except:
-        background = Image.open(input_image.path)
+        background = Image.open(input_image.url)
     bg_w, bg_h = background.size
 
     # Calculate the size of the foreground image based on the background
