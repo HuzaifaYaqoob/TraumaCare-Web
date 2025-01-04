@@ -37,9 +37,7 @@ class ProductAdmin(admin.ModelAdmin):
     ]
     list_display = [
         'product',
-        'price',
-        'discount',
-        'final_price',
+        'price_and_discount',
         'product_store',
         'Vendor',
         'manufacturer',
@@ -55,8 +53,9 @@ class ProductAdmin(admin.ModelAdmin):
         return obj.store
     product_store.admin_order_field = 'store'
 
-    def final_price(self, product):
-        return product.final_price
+    @admin.display(description='Price & Discount')
+    def price_and_discount(self, product):
+        return f'{product.price} ({product.discount}%)'
 
     @admin.display(description='Product')
     def product(self, product):
