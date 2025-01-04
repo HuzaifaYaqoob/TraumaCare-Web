@@ -36,7 +36,7 @@ class ProductAdmin(admin.ModelAdmin):
         "Images",
     ]
     list_display = [
-        'name',
+        'product',
         'price',
         'discount',
         'final_price',
@@ -63,6 +63,10 @@ class ProductAdmin(admin.ModelAdmin):
 
     def final_price(self, product):
         return product.final_price
+
+    @admin.display(description='Product')
+    def product(self, product):
+        return product.product_admin_card()
         
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
