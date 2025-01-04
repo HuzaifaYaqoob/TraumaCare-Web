@@ -47,7 +47,6 @@ class ProductAdmin(admin.ModelAdmin):
         'treatment_type',
         'product_form',
         'product_type',
-        'product_image',
         'Images',
     ]
 
@@ -55,11 +54,6 @@ class ProductAdmin(admin.ModelAdmin):
     def product_store(self, obj):
         return obj.store
     product_store.admin_order_field = 'store'
-
-    @admin.display(description='Images')
-    def product_image(self, product):
-        imgs = ProductImage.objects.filter(product=product)
-        return mark_safe(f"""<div class='d-flex' >{''.join([f'<img loading="lazy" src="{img.image.url if img.image else None}" alt="{product.name}" style="max-width:100px;max-height:100px;" />' for img in imgs])}</div>""")
 
     def final_price(self, product):
         return product.final_price
