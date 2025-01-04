@@ -213,7 +213,7 @@ class Product(models.Model):
         div = f"""<div style="display : flex;gap:10px">
                         <span style="width: 80px;height:80px;border:1px solid lightgray;border-radius: 50%;background:url({image}) no-repeat center center;background-size:cover"></span>
                         <span style='flex:1'>
-                            <p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p>
+                            <p style="margin:0;padding:0;font-size:16px">{self.name}</p>
                             <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.store.name} | {self.final_price}</p>
                         </span>
                     </div>"""
