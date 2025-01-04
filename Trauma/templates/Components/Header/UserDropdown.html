@@ -7,7 +7,7 @@
                     <path d="M12.2409 4.4515C12.2409 6.91 10.2479 8.903 7.78939 8.903C5.3309 8.903 3.33789 6.91 3.33789 4.4515C3.33789 1.99301 5.3309 0 7.78939 0C10.2479 0 12.2409 1.99301 12.2409 4.4515Z"/>
                     <path d="M15.5803 15.6915C15.5803 18.15 12.0925 20.143 7.79013 20.143C3.48776 20.143 0 18.15 0 15.6915C0 13.233 3.48776 11.24 7.79013 11.24C12.0925 11.24 15.5803 13.233 15.5803 15.6915Z"/>
                 </svg>
-                Appointments
+                My Appointments
             </a>
             {% if not request.user.has_doctor_profile %}
                 <a href="{% url 'onboarding' %}?signupAsDoctor=true&onboarding_type=doctor" target="_blank" class="block font-medium group text-[#3C3C3C] transition-all hover:text-white rounded-md hover:bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-3 py-2.5 text-md flex items-center gap-2">
