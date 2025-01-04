@@ -13,10 +13,12 @@ class ImageCountFilter(SimpleListFilter):
             ('3', '3 Images'),
             ('4', '4 Images'),
             ('5', '5 Images'),
-            ('6', '6 Images'),
+            ('SIX_OR_PLUS', '6+ Images'),
         ]
 
     def queryset(self, request, queryset):
         val = self.value()
         if val:
+            if val == 'SIX_OR_PLUS':
+                return queryset.annotate(images_count = Count('product_images')).filter(images_count__gte=6).order_by('images_count')
             return queryset.annotate(images_count = Count('product_images')).filter(images_count=val)
