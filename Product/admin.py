@@ -20,10 +20,11 @@ class SubCategoryAdmin(admin.ModelAdmin):
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_filter = [
-        'created_at',
-        ImageCountFilter,
+        'store',
         'price',
         'discount',
+        ImageCountFilter,
+        'created_at',
     ]
     search_fields = [
         'name', 
