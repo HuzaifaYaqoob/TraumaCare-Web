@@ -22,6 +22,8 @@ class ProductAdmin(admin.ModelAdmin):
     list_filter = [
         'created_at',
         ImageCountFilter,
+        'price',
+        'discount',
     ]
     search_fields = [
         'name', 
