@@ -13,7 +13,7 @@
       <div class="flex items-center justify-center mt-[6px]">
             {% with productImages=medicine.product_all_images %}
                   {% if productImages.0 and productImages.0.image %}
-                        <img loading="lazy" src="{{productImages.0.image.image.url}}" class="w-[100px]" alt="">
+                        <img loading="lazy" src="{{productImages.0.image.url}}" class="w-[100px]" alt="">
                   {% else %}
                         <img loading="lazy" src="#" class="w-[100px]" alt="">
                   {% endif %}
