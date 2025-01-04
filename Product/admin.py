@@ -33,6 +33,7 @@ class ProductAdmin(admin.ModelAdmin):
         "formulation",
         "strength",
         "pack_form",
+        "Images",
     ]
     list_display = [
         'name',
