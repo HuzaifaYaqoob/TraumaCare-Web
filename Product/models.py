@@ -2,6 +2,8 @@ from django.db import models
 from TraumaCare.Constant.index import addWatermark
 
 from uuid import uuid4
+from django.utils.html import mark_safe
+
 # Create your models here.
 from django.utils.text import slugify
 
@@ -200,6 +202,22 @@ class Product(models.Model):
         if self.discount:
             return self.price - (self.price * self.discount / 100)
         return self.price
+    
+    @property
+    def product_all_images(self):
+        return ProductImage.objects.filter(product=self)
+    
+    def product_admin_card(self, labels=[]):
+        images = self.product_all_images
+        image = images[0].image.url if len(images) > 0 and images[0].image else None
+        div = f"""<div style="display : flex;gap:10px">
+                        <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({image}) no-repeat center center;background-size:cover"></span>
+                        <span style='flex:1'>
+                            <p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p>
+                            <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.store.name}</p>
+                        </span>
+                    </div>"""
+        return mark_safe(div)
 
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
