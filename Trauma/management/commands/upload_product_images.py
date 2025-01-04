@@ -21,6 +21,8 @@ class Command(BaseCommand):
         for pi, product in enumerate(products):
             print(f'{pi} / {len(products)}')
             # fetch Image from url and save in product image 
+            if 'www.dvago.pk/assets/dvago-logo.svg' in product.Images:
+                continue
             for url in product.Images.split(','):
                 if 'ailaaj.pk' in url:
                     url = url.split('?')[0]
