@@ -17,6 +17,10 @@ class SubCategoryAdmin(admin.ModelAdmin):
     list_display = ['name']
 
 
+class ProductImageInline(admin.StackedInline):
+    model = ProductImage
+    extra = 0
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_filter = [
