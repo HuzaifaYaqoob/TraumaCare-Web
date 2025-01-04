@@ -15,6 +15,8 @@ def addWatermark(input_image, output_path):
         os.makedirs(last_dir)
 
     print(input_image.path)
+    foreground_path = f'{settings.BASE_DIR}/Files/tc_icon.png'
+    foreground = Image.open(foreground_path).convert("RGBA")
     img_name = input_image.name
     ext = img_name.split('.')[-1]
     try:
