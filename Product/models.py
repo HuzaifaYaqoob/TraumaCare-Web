@@ -2,6 +2,8 @@ from django.db import models
 from TraumaCare.Constant.index import addWatermark
 
 from uuid import uuid4
+from django.utils.html import mark_safe
+
 # Create your models here.
 from django.utils.text import slugify
 
@@ -160,6 +162,8 @@ class Product(models.Model):
     marketed_by = models.CharField(max_length=999, default='')
     route_of_administration = models.CharField(max_length=999, default='')
 
+    max_order = models.PositiveIntegerField(default=100)
+
     Images = models.TextField(default='') # To Be Deleted
 
     sku = models.CharField(max_length=999, default='')
@@ -172,7 +176,8 @@ class Product(models.Model):
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
     is_blocked = models.BooleanField(default=False)
- 
+
+
     def __str__(self):
         return self.name
 
@@ -197,6 +202,22 @@ class Product(models.Model):
         if self.discount:
             return self.price - (self.price * self.discount / 100)
         return self.price
+    
+    @property
+    def product_all_images(self):
+        return ProductImage.objects.filter(product=self)
+    
+    def product_admin_card(self, labels=[]):
+        images = self.product_all_images
+        image = images[0].image.url if len(images) > 0 and images[0].image else None
+        div = f"""<div style="display : flex;gap:10px">
+                        <span style="width: 80px;height:80px;border:1px solid lightgray;border-radius: 50%;background:url({image}) no-repeat center center;background-size:cover"></span>
+                        <span style='flex:1'>
+                            <p style="margin:0;padding:0;font-size:16px">{self.name}</p>
+                            <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.store.name} | {self.final_price}</p>
+                        </span>
+                    </div>"""
+        return mark_safe(div)
 
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
@@ -230,7 +251,8 @@ class ProductImage(models.Model):
             prev_url = self.image.url
             today_time = datetime.now()
             ext = self.image.name.split('.')[-1]
-            # img_slug = slugify(f'{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}')
+            if ext not in ['jpg', 'png', 'jpeg', 'JPG', 'PNG', 'JPEG']:
+                ext = 'jpg'
             img_slug = slugify(f"{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}")
             self.image = addWatermark(
                 self.image, 
@@ -239,7 +261,7 @@ class ProductImage(models.Model):
 
             print(prev_url)
             prev_url = prev_url.replace('/media', 'media')
-            os.remove(prev_url)
+            # os.remove(prev_url)
 
             self.is_watermark_added = True
         super(ProductImage, self).save(*args, **kwargs)

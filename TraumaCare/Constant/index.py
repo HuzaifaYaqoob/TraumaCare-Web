@@ -10,8 +10,6 @@ import os
 
 def addWatermark(input_image, output_path):
     last_dir = "/".join(output_path.split('/')[:-1])
-    print('Creating directory')
-    print(last_dir)
     if not os.path.exists(last_dir):
         print('Creating directory')
         os.makedirs(last_dir)

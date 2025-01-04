@@ -4,6 +4,7 @@ from django.contrib import admin
 from .models import Product, ProductImage, ProductCategory, SubCategory, ProductStock, ProductForm, ProductType, TreatmentType
 from django.utils.html import mark_safe
 
+from .admin_custom_filters import ImageCountFilter
 
 @admin.register(ProductCategory)
 class ProductCategoryAdmin(admin.ModelAdmin):
@@ -12,11 +13,26 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
+    search_fields = ['name']
     list_display = ['name']
 
 
+class ProductImageInline(admin.StackedInline):
+    model = ProductImage
+    extra = 0
+
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
+    inlines = [
+        ProductImageInline
+    ]
+    list_filter = [
+        'store',
+        'price',
+        'discount',
+        ImageCountFilter,
+        'created_at',
+    ]
     search_fields = [
         'name', 
         "store__name",
@@ -29,35 +45,28 @@ class ProductAdmin(admin.ModelAdmin):
         "formulation",
         "strength",
         "pack_form",
+        "Images",
     ]
     list_display = [
-        'name',
-        'price',
-        'discount',
-        'final_price',
-        'product_store',
+        'product',
+        'price_and_discount',
         'Vendor',
         'manufacturer',
         'formulation',
         'treatment_type',
         'product_form',
         'product_type',
-        'product_image',
-        'Images',
+        # 'Images',
     ]
 
-    @admin.display(description='Store')
-    def product_store(self, obj):
-        return obj.store
-    product_store.admin_order_field = 'store'
 
-    @admin.display(description='Images')
-    def product_image(self, product):
-        imgs = ProductImage.objects.filter(product=product)
-        return mark_safe(f"""<div class='d-flex' >{''.join([f'<img loading="lazy" src="{img.image.url if img.image else None}" alt="{product.name}" style="max-width:100px;max-height:100px;" />' for img in imgs])}</div>""")
+    @admin.display(description='Price & Discount')
+    def price_and_discount(self, product):
+        return f'{product.price} ({product.discount}%)'
 
-    def final_price(self, product):
-        return product.final_price
+    @admin.display(description='Product')
+    def product(self, product):
+        return product.product_admin_card()
         
 @admin.register(ProductImage)
 class ProductImageAdmin(admin.ModelAdmin):
