@@ -233,6 +233,8 @@ class ProductImage(models.Model):
             prev_url = self.image.url
             today_time = datetime.now()
             ext = self.image.name.split('.')[-1]
+            if ext not in ['jpg', 'png', 'jpeg', 'JPG', 'PNG', 'JPEG']:
+                ext = 'jpg'
             img_slug = slugify(f'{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}')
             self.image = addWatermark(
                 self.image, 
