@@ -22,7 +22,7 @@ def addWatermark(input_image, output_path):
     try:
         background = Image.open(input_image)
     except:
-        background = Image.open(input_image.url)
+        background = Image.open(f'{settings.BASE_DIR}{input_image.url}')
     bg_w, bg_h = background.size
 
     # Calculate the size of the foreground image based on the background
