@@ -253,7 +253,7 @@ class ProductImage(models.Model):
             ext = self.image.name.split('.')[-1]
             if ext not in ['jpg', 'png', 'jpeg', 'JPG', 'PNG', 'JPEG']:
                 ext = 'jpg'
-            img_slug = slugify(f'{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}')
+            img_slug = slugify(f"{self.product.name} {self.product.treatment_type.name if self.product.treatment_type else ''} traumacare {self.product.store.name}")
             self.image = addWatermark(
                 self.image, 
                 f"media/Product/images/{today_time.year}-{'0' if today_time.month < 9 else ''}{today_time.month}/{img_slug[:62]}-{today_time.strftime('%d%H%M%S')}.{ext}"

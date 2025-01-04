@@ -1,0 +1,19 @@
+{% extends 'Components/MainBase.html' %}
+{% load static %}
+
+{% block title %}Pharmacy{% endblock title %}
+
+{% block mainBaseCSS %}
+
+{% block BaseCSS %}{% endblock BaseCSS %}
+
+
+{% endblock mainBaseCSS %}
+
+{% block mainBaseBody %}
+<main>
+    {% block pharmacy_body %}
+    {% endblock pharmacy_body %}
+    {% include 'Components/Footer.html' %}
+</main>
+{% endblock mainBaseBody %}

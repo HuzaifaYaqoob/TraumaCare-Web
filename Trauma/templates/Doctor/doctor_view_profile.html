@@ -110,9 +110,9 @@
             <div class="flex gap-4 flex-col lg:flex-row">
                   <div class="flex-[2] flex flex-col">
                         <div class="bg-white rounded-2xl px-5 py-4 border border-[#CACBE6]">
-                              <div class="flex gap-7 flex-col items-center justify-center md:flex-row">
+                              <div class="flex gap-7 flex-col md:flex-row">
                                     <div class="space-y-6">
-                                          <div class="p-1 rounded-full {% if rating_percentage > 80 %}bg-green-600{% elif rating_percentage < 50 %}bg-red-600{% else %}bg-[#F4C004]{% endif %}">
+                                          <div class="p-1 rounded-full max-w-max mx-auto {% if rating_percentage > 80 %}bg-green-600{% elif rating_percentage < 50 %}bg-red-600{% else %}bg-[#F4C004]{% endif %}">
                                                 <div class="size-44 rounded-full relative" id="userProfileImage" style="background: url({{doctor.profile_image}}); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                                           </div>
                                           <!-- <svg width="198" height="198" viewBox="0 0 250 250" class="circular-progress absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
@@ -125,7 +125,7 @@
                                                 <p class="text-center text-[#151E2C] text-md outfit-font">{{rating_percentage}}%</p>
                                           </div>
                                     </div>
-                                    <div class="">
+                                    <div class="flex-1">
                                           <div class="flex-1 flex items-center md:items-start justify-between flex-col md:flex-row gap-3 md:gap-6">
                                                 <div class="max-w-[500px] space-y-1">
                                                       <div class="flex items-center gap-2">
@@ -160,7 +160,7 @@
                                                       <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="text-sm  text-center block px-9 mt-2 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">Visit in Clinic</a>
                                                 </div>
                                           </div>
-                                          <p class="!mt-5 text-[#3C3C3C] text-sm line-clamp-4 text-left outfit-font md:text-start">{{doctor.desc|safe}}</p>
+                                          <p class="!mt-5 text-[#3C3C3C] text-sm line-clamp-4 text-center outfit-font md:text-start">{{doctor.desc|safe}}</p>
                                     </div>
                               </div>
                               <!-- <div class="flex items-center gap-2 mt-4 justify-center md:justify-start flex-col md:flex-row">
@@ -423,10 +423,10 @@
                               <p class="text-xl font-medium text-[#151E2C] Private outfit-font text-center">Book an Appointment</p>     
                               <p class="text-center text-sm text-[#111111]">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                               <div class="flex items-center gap-2 flex-wrap justify-center !mt-6">
-                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-6 py-2.5 text-md cursor-pointer">
+                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-[#05d57c] px-6 py-2.5 text-md cursor-pointer">
                                           <p class="whitespace-nowrap">Consult Online</p>
                                     </a>
-                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] px-6 py-2.5 text-md cursor-pointer">
+                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-[#0555e9] px-6 py-2.5 text-md cursor-pointer">
                                           <p class="whitespace-nowrap ">Book Appointment</p>
                                     </a>
                               </div>
