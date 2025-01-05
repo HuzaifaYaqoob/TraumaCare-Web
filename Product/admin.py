@@ -48,6 +48,7 @@ class ProductAdmin(admin.ModelAdmin):
         "product_form__name",
         "product_type__name",
         "generic_category",
+        "description",
         "formulation",
         "strength",
         "pack_form",
