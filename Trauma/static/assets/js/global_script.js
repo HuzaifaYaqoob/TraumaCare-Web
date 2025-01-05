@@ -222,7 +222,9 @@ const ShowDistances = async () =>{
             const location_coords = {}
             coords.forEach((coord, coo_i) =>{
                 let loc_coords = coord.getAttribute('ShowDistance')
-                location_coords[`${loc_coords}`] = loc_coords
+                if (loc_coords){
+                    location_coords[`${loc_coords}`] = loc_coords
+                }
             })
             const response = await fetch('/api/v1/get_location_distance/', {
                 method : 'POST',
