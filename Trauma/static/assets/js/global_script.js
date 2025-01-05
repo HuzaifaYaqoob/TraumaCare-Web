@@ -220,9 +220,9 @@ const ShowDistances = async () =>{
         const user_location = await accessLocation()
         if (user_location){
             const location_coords = {}
-            coords.forEach(coord =>{
+            coords.forEach((coord, coo_i) =>{
                 let loc_coords = coord.getAttribute('ShowDistance')
-                location_coords[loc_coords] = loc_coords
+                location_coords[`${loc_coords}`] = loc_coords
             })
             const response = await fetch('/api/v1/get_location_distance/', {
                 method : 'POST',
@@ -232,14 +232,15 @@ const ShowDistances = async () =>{
                 body : JSON.stringify({"my_coords" : {'lat' : user_location[0],'lng' : user_location[1],},'location_coords' : location_coords})
             })
             let result = await response.json()
-            console.log(result)
             for (let key in result){
-                let element = document.querySelector(`[ShowDistance="${key}"]`)
-                if (element){
+                let ltn_key = location_coords[key]
+                let elements = document.querySelectorAll(`[ShowDistance="${ltn_key}"]`)
+                console.log(elements)
+                elements.forEach(element => {
                     element.innerHTML = `(${result[key]} Km)`
                     let a = `<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=${user_location[0]},${user_location[1]}&destination=${key}" class="whitespace-nowrap underline">Get Directions</a>`
                     element.parentElement.innerHTML += a
-                }
+                })
             }
         }
     }
