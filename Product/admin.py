@@ -90,6 +90,7 @@ class ProductStockAdmin(admin.ModelAdmin):
 @admin.register(ProductType)
 class ProductTypeAdmin(admin.ModelAdmin):
     list_display = ['name']
+    search_fields = ['name']
 
 @admin.register(ProductForm)
 class ProductFormAdmin(admin.ModelAdmin):
