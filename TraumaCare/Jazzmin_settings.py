@@ -58,6 +58,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["Hospital.view_hospital"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
         {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["Appointment.view_appointment"]},
+        {"name": "Products",  "url": "/admin/Product/product/", "permissions": ["Doctor.view_product"]},
         {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["Task.view_task"]},
         {"name": "Organization",  "url": "/admin/organization/", "permissions": []},
 
