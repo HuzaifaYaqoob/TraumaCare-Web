@@ -87,7 +87,10 @@ class ProductImageAdmin(admin.ModelAdmin):
 
 @admin.register(ProductStock)
 class ProductStockAdmin(admin.ModelAdmin):
-    list_display = ['product', 'quantity']
+    list_display = ['product', 'location', 'stock', 'price', 'discount', 'is_active']
+
+    def stock(self, obj):
+        return f'{obj.quantity} / {obj.sold}'
 
 @admin.register(ProductType)
 class ProductTypeAdmin(admin.ModelAdmin):
