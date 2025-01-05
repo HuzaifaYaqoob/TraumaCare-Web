@@ -99,6 +99,10 @@ class TreatmentType(models.Model):
         if new_slug != self.slug:
             self.slug = new_slug
         super(TreatmentType, self).save(*args, **kwargs)
+    
+
+    def products(self):
+        return Product.objects.filter(treatment_type=self)
 
 
 class ProductForm(models.Model):
