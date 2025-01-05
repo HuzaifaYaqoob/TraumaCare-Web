@@ -240,7 +240,9 @@ class Product(models.Model):
     
     def lowest_rate_latlng(self):
         store_first_location = self.store.store_locations.first()
-        return [store_first_location.lat, store_first_location.lng]
+        if store_first_location:
+            return [store_first_location.lat, store_first_location.lng]
+        return []
 
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
