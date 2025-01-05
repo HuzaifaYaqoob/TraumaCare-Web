@@ -19,8 +19,7 @@ class StoreAdmin(admin.ModelAdmin):
     inlines = [StoreLocationInline, StoreMediaInline]
     search_fields = ['name']
     list_display = [
-        'store',
-        'locations',
+        'store', 'locations',
         'created_at', 'updated_at', 'is_active', 'is_blocked',
     ]
 
