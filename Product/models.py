@@ -66,6 +66,7 @@ class ProductCategory(models.Model):
 class SubCategory(models.Model):
     category = models.ManyToManyField(ProductCategory, null=True, related_name='product_category_sub_categories')
     name = models.CharField(max_length=999)
+    image = models.ImageField(upload_to='Product/SubCategory/%Y-%m', null=True, blank=True)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
     updated_at = models.DateTimeField(auto_now=True)
