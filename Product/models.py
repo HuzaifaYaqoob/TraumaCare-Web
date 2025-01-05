@@ -66,6 +66,7 @@ class ProductCategory(models.Model):
 class SubCategory(models.Model):
     category = models.ManyToManyField(ProductCategory, null=True, related_name='product_category_sub_categories')
     name = models.CharField(max_length=999)
+    image = models.ImageField(upload_to='Product/SubCategory/%Y-%m', null=True, blank=True)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -73,6 +74,9 @@ class SubCategory(models.Model):
  
     def __str__(self):
         return self.name
+    
+    def products(self):
+        return Product.objects.filter(sub_category=self)
     
     def save(self, *args, **kwargs):
         new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
@@ -82,6 +86,7 @@ class SubCategory(models.Model):
 
 class TreatmentType(models.Model):
     name = models.CharField(max_length=999, default='')
+    image = models.ImageField(upload_to='Product/TreatmentType/%Y-%m', null=True, blank=True)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -95,6 +100,10 @@ class TreatmentType(models.Model):
         if new_slug != self.slug:
             self.slug = new_slug
         super(TreatmentType, self).save(*args, **kwargs)
+    
+
+    def products(self):
+        return Product.objects.filter(treatment_type=self)
 
 
 class ProductForm(models.Model):
@@ -148,26 +157,26 @@ class Product(models.Model):
     price = models.FloatField()
     discount = models.FloatField(default=0, verbose_name='Discount % : ')
 
-    generic_category = models.CharField(max_length=999, default='')
-    formulation = models.CharField(max_length=999, default='') # Ingredients
-    strength = models.CharField(max_length=999, default='')
-    pack_size = models.CharField(max_length=999, default='')
+    generic_category = models.CharField(max_length=999, default='', null=True, blank=True)
+    formulation = models.CharField(max_length=999, default='', null=True, blank=True) # Ingredients
+    strength = models.CharField(max_length=999, default='', null=True, blank=True)
+    pack_size = models.CharField(max_length=999, default='', null=True, blank=True)
     prescription_required = models.BooleanField(default=False) # True, False
-    pack_form = models.CharField(max_length=999, default='')
-    key_highlights = models.TextField(default='')
-    storage = models.CharField(max_length=999, default='')
-    habit_forming  = models.CharField(max_length=999, default='')
-    sedation = models.CharField(max_length=999, default='')
-    child_safety = models.CharField(max_length=999, default='')
-    marketed_by = models.CharField(max_length=999, default='')
-    route_of_administration = models.CharField(max_length=999, default='')
+    pack_form = models.CharField(max_length=999, default='', null=True, blank=True)
+    key_highlights = models.TextField(default='', null=True, blank=True)
+    storage = models.CharField(max_length=999, default='', null=True, blank=True)
+    habit_forming  = models.CharField(max_length=999, default='', null=True, blank=True)
+    sedation = models.CharField(max_length=999, default='', null=True, blank=True)
+    child_safety = models.CharField(max_length=999, default='', null=True, blank=True)
+    marketed_by = models.CharField(max_length=999, default='', null=True, blank=True)
+    route_of_administration = models.CharField(max_length=999, default='', null=True, blank=True)
 
     max_order = models.PositiveIntegerField(default=100)
 
-    Images = models.TextField(default='') # To Be Deleted
+    Images = models.TextField(default='', null=True, blank=True) # To Be Deleted
 
-    sku = models.CharField(max_length=999, default='')
-    bar_code = models.CharField(max_length=999, default='')
+    sku = models.CharField(max_length=999, default='', null=True, blank=True)
+    bar_code = models.CharField(max_length=999, default='', null=True, blank=True)
     qr_code = models.ImageField(upload_to='Product/qr_codes/%Y-%m/', null=True, blank=True)
     slug = models.TextField(default=uuid4, unique=True)
 

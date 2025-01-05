@@ -14,7 +14,10 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    list_display = ['name']
+    list_display = ['name', 'products']
+
+    def products(self, obj):
+        return obj.products().count()
 
 
 class ProductImageInline(admin.StackedInline):
@@ -32,6 +35,7 @@ class ProductAdmin(admin.ModelAdmin):
         'manufacturer',
         'price',
         'discount',
+        'treatment_type',
         ImageCountFilter,
         'created_at',
     ]
@@ -87,6 +91,7 @@ class ProductStockAdmin(admin.ModelAdmin):
 @admin.register(ProductType)
 class ProductTypeAdmin(admin.ModelAdmin):
     list_display = ['name']
+    search_fields = ['name']
 
 @admin.register(ProductForm)
 class ProductFormAdmin(admin.ModelAdmin):
@@ -94,4 +99,8 @@ class ProductFormAdmin(admin.ModelAdmin):
 
 @admin.register(TreatmentType)
 class TreatmentTypeAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'products']
+    search_fields = ['name']
+
+    def products(self, obj):
+        return obj.products().count()
