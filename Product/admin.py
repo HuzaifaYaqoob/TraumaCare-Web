@@ -35,6 +35,7 @@ class ProductAdmin(admin.ModelAdmin):
         'manufacturer',
         'price',
         'discount',
+        'treatment_type',
         ImageCountFilter,
         'created_at',
     ]
