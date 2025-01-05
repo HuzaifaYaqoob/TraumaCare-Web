@@ -8,28 +8,6 @@
 {% endblock mainBaseCSS %}
 
 {% block pharmacy_body %}
-    <header class="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4">
-        <div class="max-w-[1500px] mx-auto flex items-center justify-between gap-4">
-            <div class="flex gap-4 flex-1">
-                <div class="border bg-white border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
-                    <a href="/"><img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt=""></a>
-                    <div class="h-[32px] w-[1px] bg-[#CACBE6]"></div>
-                    <p class="text-[#333333] text-xs line-clamp-2">Health, without<br>the hassle</p>
-                </div>
-                <div class="max-w-[500px] w-full rounded-full flex items-center gap-2 border border-[#CACBE6] overflow-hidden p-2">
-                    <span class="flex items-center justify-center size-7 cursor-default">
-                        <svg class="size-6 fill-[#3C3C3C]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
-                    </span>
-                    <input class="h-full w-full flex-1 outline-none text-sm text-[#151E2C] placeholder-[#151E2C]" placeholder="Search Medicine and Healthcare Medicine" type="text" name="" id="">
-                </div>
-            </div>
-            <div class="flex items-center gap-3">
-                <span class="flex items-center justify-center size-7 cursor-pointer">
-                    <svg class="size-6 fill-[#3C3C3C]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
-                </span>
-            </div>
-        </div>
-    </header>
     <main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-16">
         <section class="max-w-[1500px] mx-auto rounded-2xl px-7 py-10 bg-[#9fe870] relative h-[620px] flex flex-col justify-between">
             <div>
@@ -106,6 +84,9 @@
                     <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Eye care</h3>
                 </div>
             </div>
+        </section>
+        <section class="max-w-[1500px] mx-auto">
+            {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
         </section>
     </main>
 {% endblock pharmacy_body %}

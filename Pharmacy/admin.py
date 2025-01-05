@@ -19,7 +19,7 @@ class StoreAdmin(admin.ModelAdmin):
     inlines = [StoreLocationInline, StoreMediaInline]
     search_fields = ['name']
     list_display = [
-        'store',
+        'store', 'locations',
         'created_at', 'updated_at', 'is_active', 'is_blocked',
     ]
 
@@ -29,3 +29,6 @@ class StoreAdmin(admin.ModelAdmin):
     def store(self, obj):
         return obj.store_admin_card()
     store.admin_order_field = 'name'
+
+    def locations(self, store):
+        return store.store_locations.count()
