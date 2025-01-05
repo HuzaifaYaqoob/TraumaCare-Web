@@ -5,11 +5,106 @@
 
 {% block mainBaseCSS %}
 
-<style>
-    
-</style>
 {% endblock mainBaseCSS %}
 
 {% block pharmacy_body %}
-    danish start here
+    <header class="px-4 sm:px-6 md:px-8 py-2.5 sm:py-3 md:py-4">
+        <div class="max-w-[1500px] mx-auto flex items-center justify-between gap-4">
+            <div class="flex gap-4 flex-1">
+                <div class="border bg-white border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
+                    <a href="/"><img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt=""></a>
+                    <div class="h-[32px] w-[1px] bg-[#CACBE6]"></div>
+                    <p class="text-[#333333] text-xs line-clamp-2">Health, without<br>the hassle</p>
+                </div>
+                <div class="max-w-[500px] w-full rounded-full flex items-center gap-2 border border-[#CACBE6] overflow-hidden p-2">
+                    <span class="flex items-center justify-center size-7 cursor-default">
+                        <svg class="size-6 fill-[#3C3C3C]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"/></svg>
+                    </span>
+                    <input class="h-full w-full flex-1 outline-none text-sm text-[#151E2C] placeholder-[#151E2C]" placeholder="Search Medicine and Healthcare Medicine" type="text" name="" id="">
+                </div>
+            </div>
+            <div class="flex items-center gap-3">
+                <span class="flex items-center justify-center size-7 cursor-pointer">
+                    <svg class="size-6 fill-[#3C3C3C]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 24C0 10.7 10.7 0 24 0L69.5 0c22 0 41.5 12.8 50.6 32l411 0c26.3 0 45.5 25 38.6 50.4l-41 152.3c-8.5 31.4-37 53.3-69.5 53.3l-288.5 0 5.4 28.5c2.2 11.3 12.1 19.5 23.6 19.5L488 336c13.3 0 24 10.7 24 24s-10.7 24-24 24l-288.3 0c-34.6 0-64.3-24.6-70.7-58.5L77.4 54.5c-.7-3.8-4-6.5-7.9-6.5L24 48C10.7 48 0 37.3 0 24zM128 464a48 48 0 1 1 96 0 48 48 0 1 1 -96 0zm336-48a48 48 0 1 1 0 96 48 48 0 1 1 0-96z"/></svg>
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-16">
+        <section class="max-w-[1500px] mx-auto rounded-2xl px-7 py-10 bg-[#9fe870] relative h-[620px] flex flex-col justify-between">
+            <div>
+                <h1 class="text-[#163300] text-[260px] font-bold leading-[220px] cursor-default z-0 outfit-font">Pharmacy</h1>
+                <p class="text-lg max-w-[500px] text-[#163300] outfit-font p-4">ONLINE MEDICINE DELIVERY IS THE PROCESS OF ORDERING MEDICATIONS THROUGH A WEBSITE OR APP AND HAVING THEM DELIVERED TO YOUR DOORSTEP.</p>
+            </div>
+            <div class="flex items-center justify-between gap-5">
+                <div class="flex-1">
+                    <div class="flex items-center max-w-[360px] w-full">
+                        <div class="flex-1 flex items-center gap-2">
+                            <span class="size-10 flex items-center justify-center rounded-full bg-[#163300]">
+                                <svg class="fill-[#9fe870] size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M432 96a48 48 0 1 0 0-96 48 48 0 1 0 0 96zM347.7 200.5c1-.4 1.9-.8 2.9-1.2l-16.9 63.5c-5.6 21.1-.1 43.6 14.7 59.7l70.7 77.1 22 88.1c4.3 17.1 21.7 27.6 38.8 23.3s27.6-21.7 23.3-38.8l-23-92.1c-1.9-7.8-5.8-14.9-11.2-20.8l-49.5-54 19.3-65.5 9.6 23c4.4 10.6 12.5 19.3 22.8 24.5l26.7 13.3c15.8 7.9 35 1.5 42.9-14.3s1.5-35-14.3-42.9L505 232.7l-15.3-36.8C472.5 154.8 432.3 128 387.7 128c-22.8 0-45.3 4.8-66.1 14l-8 3.5c-32.9 14.6-58.1 42.4-69.4 76.5l-2.6 7.8c-5.6 16.8 3.5 34.9 20.2 40.5s34.9-3.5 40.5-20.2l2.6-7.8c5.7-17.1 18.3-30.9 34.7-38.2l8-3.5zm-30 135.1l-25 62.4-59.4 59.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L340.3 441c4.6-4.6 8.2-10.1 10.6-16.1l14.5-36.2-40.7-44.4c-2.5-2.7-4.8-5.6-7-8.6zM256 274.1c-7.7-4.4-17.4-1.8-21.9 5.9l-32 55.4L147.7 304c-15.3-8.8-34.9-3.6-43.7 11.7L40 426.6c-8.8 15.3-3.6 34.9 11.7 43.7l55.4 32c15.3 8.8 34.9 3.6 43.7-11.7l64-110.9c1.5-2.6 2.6-5.2 3.3-8L261.9 296c4.4-7.7 1.8-17.4-5.9-21.9z"/></svg>
+                            </span>
+                            <p class="text-sm font-semibold text-[#163300] leading-[17px] flex-1 font-medium">Delivery to your doorstep</p>
+                        </div>
+                        <div class="flex-1 flex items-center gap-2">
+                            <span class="size-10 flex items-center justify-center rounded-full bg-[#163300]">
+                                <svg class="fill-[#9fe870] size-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M64 144c0-26.5 21.5-48 48-48s48 21.5 48 48l0 112-96 0 0-112zM0 144L0 368c0 61.9 50.1 112 112 112s112-50.1 112-112l0-178.4c1.8 19.1 8.2 38 19.8 54.8L372.3 431.7c35.5 51.7 105.3 64.3 156 28.1s63-107.5 27.5-159.2L427.3 113.3C391.8 61.5 321.9 49 271.3 85.2c-28 20-44.3 50.8-47.3 83l0-24.2c0-61.9-50.1-112-112-112S0 82.1 0 144zm296.6 64.2c-16-23.3-10-55.3 11.9-71c21.2-15.1 50.5-10.3 66 12.2l67 97.6L361.6 303l-65-94.8zM491 407.7c-.8 .6-1.6 1.1-2.4 1.6l4-2.8c-.5 .4-1 .8-1.6 1.2z"/></svg>
+                            </span>
+                            <p class="text-sm font-semibold text-[#163300] leading-[17px] flex-1 font-medium">100% Genuine Medicines</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex items-end justify-end flex-col flex-1">
+                    <!-- <div class="rounded-xl bg-white p-3 max-w-[300px] w-full">
+                        <div class="rounded-xl border-dashed border-[#163300] flex items-center p-5">
+                            <h3>Upload Prescription</h3>
+                            <span>
+
+                            </span>
+                        </div>
+                    </div> -->
+                </div>
+            </div>
+            <img class="absolute bottom-0 right-[50%] translate-x-[50%]" src="/static/assets/Images/traumacareAIcare/pharmacy.png" alt="">
+        </section>
+        <section class="max-w-[1500px] mx-auto bg-white">
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-6">
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#a0e1e1] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care1.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Bone & joint care</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#ffeb68] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care2.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Diabetes care</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#fec091] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care3.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Kidney care</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#ffd6ef] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care4.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Liver care</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#92bdf6] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care5.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Respiratory care</h3>
+                </div>
+                <div class="space-y-2">
+                    <div class="rounded-xl bg-[#f9ba51] w-full h-60 sm:h-64 overflow-hidden flex items-center justify-end flex-col">
+                        <img src="/static/assets/Images/traumacareAIcare/care6.png" alt="">
+                    </div>
+                    <h3 class="text-lg sm:text-xl text-[#151E2C] font-semibold text-center">Eye care</h3>
+                </div>
+            </div>
+        </section>
+    </main>
 {% endblock pharmacy_body %}
