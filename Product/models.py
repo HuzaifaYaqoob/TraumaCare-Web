@@ -238,10 +238,10 @@ class Product(models.Model):
                     </div>"""
         return mark_safe(div)
     
-    def lowest_rate_latlng(self):
+    def lowest_rate_location(self):
         store_first_location = self.store.store_locations.first()
         if store_first_location:
-            return [store_first_location.lat, store_first_location.lng]
+            return store_first_location
         return None
 
 class ProductStock(models.Model):
