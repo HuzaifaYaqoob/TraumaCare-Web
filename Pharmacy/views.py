@@ -7,3 +7,6 @@ def PharmacyLandingPage(request):
 
 def PharmacySearchPage(request):
     return render(request, 'Pharmacy/pharmacy_search.html')
+
+def PharmacyCartPage(request):
+    return render(request, 'Pharmacy/pharmacy_search.html')
