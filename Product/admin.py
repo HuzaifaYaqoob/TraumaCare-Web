@@ -99,3 +99,4 @@ class ProductFormAdmin(admin.ModelAdmin):
 @admin.register(TreatmentType)
 class TreatmentTypeAdmin(admin.ModelAdmin):
     list_display = ['name']
+    search_fields = ['name']
