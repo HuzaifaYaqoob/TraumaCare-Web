@@ -28,6 +28,8 @@ class ProductAdmin(admin.ModelAdmin):
     ]
     list_filter = [
         'store',
+        'Vendor',
+        'manufacturer',
         'price',
         'discount',
         ImageCountFilter,
