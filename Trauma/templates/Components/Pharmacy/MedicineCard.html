@@ -20,7 +20,7 @@
                   <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C] h-11">{{medicine.name}}</h2>
             </a>
             <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
-                  <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{% with lowest_rate_latlng=medicine.lowest_rate_latlng %}{{lowest_rate_latlng.0}},{{lowest_rate_latlng.1}}{% endwith %}"></span>
+                  <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{% with lowest_rate_latlng=medicine.lowest_rate_latlng %}{% if lowest_rate_latlng %}{{lowest_rate_latlng.0}},{{lowest_rate_latlng.1}}{% endif %}{% endwith %}"></span>
             </span>
             <div class="flex items-center justify-between gap-2 !mt-4">
                   <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
