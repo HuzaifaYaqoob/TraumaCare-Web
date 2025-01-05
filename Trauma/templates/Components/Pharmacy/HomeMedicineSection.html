@@ -1,79 +1,90 @@
 {% load static %}
 
+{% block BaseCSS %}
+<link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+{% endblock BaseCSS %}
+
 {% block baseBody %}
-<section class="space-y-7">
-      <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Top Sales medicines</h3>
-      <div class="swiper mySwiper flex items-center gap-[25px] justify-center">
-            <div class="swiper-wrapper !z-0">
-                  {% for medicine_product in medicines %}
-                        <div class="swiper-slide"> 
-                              {% include 'Components/Pharmacy/MedicineCard.html' with medicine=medicine_product %}
-                        </div>
-                  {% endfor %}
+<section class="space-y-7 relative">
+    <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
+        Top Sales Medicines
+    </h3>
+    {% if medicines|length == 0 %}
+        <p class="text-center text-sm text-[#111111]">No Medicines found.</p>
+    {% else %}
+    <div class="{% if medicines|length > 5 %}swiper{% endif %} medicine__swipper flex justify-center items-center">
+        <div class="{% if medicines|length > 5 %}swiper-wrapper{% else %}flex items-center gap-3{% endif %}">
+            {% for medicine in medicines %}
+            <div class="swiper-slide">
+                {% include 'Components/Pharmacy/MedicineCard.html' with medicine=medicine %}
             </div>
-            <div class="absolute left-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
-                  <button class="left-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
-                        <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white"/>
-                        </svg>
-                  </button>
-            </div>
-            <div class="absolute right-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
-                  <button class="right-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
-                        <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white"/>
-                        </svg>
-                  </button>
-            </div>
-      </div>
+            {% endfor %}
+        </div>
+        {% if medicines|length > 5 %}
+        <div class="absolute left-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
+            <button class="medicine__swipper__left-nav hidden flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white" />
+                </svg>
+            </button>
+        </div>
+        <div class="absolute right-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
+            <button class="medicine__swipper__right-nav hidden flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white" />
+                </svg>
+            </button>
+        </div>
+        {% endif %}
+    </div>
+    {% endif %}
 </section>
 {% endblock baseBody %}
 
 {% block main_base_script %}
 <script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
 <script>
-  document.addEventListener('DOMContentLoaded' , ()=>{
-            var swiper = new Swiper(".mySwiper", {
-                  slidesPerView: 5,
-                  spaceBetween: 0,
-                  loop:true,
-                  navigation: {
-                        nextEl: '.swiper-button-next',
-                        prevEl: '.swiper-button-prev',
-                  },
-                  pagination: {
-                  el: ".swiper-pagination",
-                  clickable: true,
-                  },
-                  breakpoints : {
-                  320 :{
-                        slidesPerView: 1,
-                        spaceBetween: 20
-                  } ,
-                  600: {
-                  slidesPerView: 2,
-                  spaceBetween: 30
-                  },
-                  825: {
-                  slidesPerView: 3,
-                  spaceBetween: 40
-                  },
-                  1150: {
-                  slidesPerView: 4,
-                  spaceBetween: 50
-                  }
-                  ,
-                  1440: {
-                  slidesPerView: 5,
-                  spaceBetween: 50
-                  }
-                  ,
-                  1720: {
-                  slidesPerView: 6,
-                  spaceBetween: 50
-                  }
-                  }
+    document.addEventListener("DOMContentLoaded", () => {
+        if (document.querySelectorAll('.medicine__swipper .swiper-slide').length > 0) {
+            const swiper = new Swiper(".medicine__swipper", {
+                slidesPerView: 3,
+                spaceBetween: 10,
+                navigation: {
+                    nextEl: ".medicine__swipper__right-nav",
+                    prevEl: ".medicine__swipper__left-nav",
+                },
+                breakpoints: {
+                    320: { slidesPerView: 1 },
+                    650: { slidesPerView: 2 },
+                    800: { slidesPerView: 3 },
+                    1200: { slidesPerView: 4 },
+                    1600: { slidesPerView: 5 },
+                },
+                on: {
+                    init: function () {
+                        updateNavigationButtons(this);
+                    },
+                    slideChange: function () {
+                        updateNavigationButtons(this);
+                    },
+                },
             });
-      })
+
+            const updateNavigationButtons = (swiperInstance) => {
+                const prevButton = document.querySelector(".medicine__swipper__left-nav");
+                const nextButton = document.querySelector(".medicine__swipper__right-nav");
+                if (swiperInstance.isBeginning) {
+                    prevButton.classList.add("hidden");
+                } else {
+                    prevButton.classList.remove("hidden");
+                }
+                if (swiperInstance.isEnd) {
+                    nextButton.classList.add("hidden");
+                } else {
+                    nextButton.classList.remove("hidden");
+                }
+            };
+        }
+    });
 </script>
 {% endblock main_base_script %}
