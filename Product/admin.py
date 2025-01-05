@@ -98,5 +98,8 @@ class ProductFormAdmin(admin.ModelAdmin):
 
 @admin.register(TreatmentType)
 class TreatmentTypeAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    list_display = ['name', 'products']
     search_fields = ['name']
+
+    def products(self, obj):
+        return obj.products().count()
