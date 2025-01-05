@@ -157,26 +157,26 @@ class Product(models.Model):
     price = models.FloatField()
     discount = models.FloatField(default=0, verbose_name='Discount % : ')
 
-    generic_category = models.CharField(max_length=999, default='')
-    formulation = models.CharField(max_length=999, default='') # Ingredients
-    strength = models.CharField(max_length=999, default='')
-    pack_size = models.CharField(max_length=999, default='')
+    generic_category = models.CharField(max_length=999, default='', null=True, blank=True)
+    formulation = models.CharField(max_length=999, default='', null=True, blank=True) # Ingredients
+    strength = models.CharField(max_length=999, default='', null=True, blank=True)
+    pack_size = models.CharField(max_length=999, default='', null=True, blank=True)
     prescription_required = models.BooleanField(default=False) # True, False
-    pack_form = models.CharField(max_length=999, default='')
-    key_highlights = models.TextField(default='')
-    storage = models.CharField(max_length=999, default='')
-    habit_forming  = models.CharField(max_length=999, default='')
-    sedation = models.CharField(max_length=999, default='')
-    child_safety = models.CharField(max_length=999, default='')
-    marketed_by = models.CharField(max_length=999, default='')
-    route_of_administration = models.CharField(max_length=999, default='')
+    pack_form = models.CharField(max_length=999, default='', null=True, blank=True)
+    key_highlights = models.TextField(default='', null=True, blank=True)
+    storage = models.CharField(max_length=999, default='', null=True, blank=True)
+    habit_forming  = models.CharField(max_length=999, default='', null=True, blank=True)
+    sedation = models.CharField(max_length=999, default='', null=True, blank=True)
+    child_safety = models.CharField(max_length=999, default='', null=True, blank=True)
+    marketed_by = models.CharField(max_length=999, default='', null=True, blank=True)
+    route_of_administration = models.CharField(max_length=999, default='', null=True, blank=True)
 
     max_order = models.PositiveIntegerField(default=100)
 
-    Images = models.TextField(default='') # To Be Deleted
+    Images = models.TextField(default='', null=True, blank=True) # To Be Deleted
 
-    sku = models.CharField(max_length=999, default='')
-    bar_code = models.CharField(max_length=999, default='')
+    sku = models.CharField(max_length=999, default='', null=True, blank=True)
+    bar_code = models.CharField(max_length=999, default='', null=True, blank=True)
     qr_code = models.ImageField(upload_to='Product/qr_codes/%Y-%m/', null=True, blank=True)
     slug = models.TextField(default=uuid4, unique=True)
 
