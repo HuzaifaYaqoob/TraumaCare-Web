@@ -86,6 +86,7 @@ class SubCategory(models.Model):
 
 class TreatmentType(models.Model):
     name = models.CharField(max_length=999, default='')
+    image = models.ImageField(upload_to='Product/TreatmentType/%Y-%m', null=True, blank=True)
 
     slug = models.CharField(max_length=999, default=uuid4, unique=True)
     updated_at = models.DateTimeField(auto_now=True)
