@@ -86,7 +86,7 @@ class StoreLocation(models.Model):
     is_blocked = models.BooleanField(default=False)
  
     def __str__(self):
-        return self.name
+        return f'{self.store.name} > {self.name}'
 
 class StoreMedia(models.Model):
 
