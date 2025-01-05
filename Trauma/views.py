@@ -36,7 +36,7 @@ def homePage(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False
-    )[:10]
+    ).order_by('?')[:10]
     return render(request, 'Home/index.html', context)
 
 

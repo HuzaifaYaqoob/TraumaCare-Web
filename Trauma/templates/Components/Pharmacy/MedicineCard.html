@@ -15,11 +15,13 @@
             {% endwith %}
       </div>
       <div class="px-4 space-y-2">
-            <div class="text-[#FFFFFF] text-xs font-medium bg-[#0755E9] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1">{{medicine.store.name}}</div>
+            <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{medicine.store.name}}</div>
             <a class="cursor-pointer" href="/medicine/view/asdfsadf/">
                   <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C] h-11">{{medicine.name}}</h2>
             </a>
-            <p class="text-[11px] outfit-font text-[#0555E9] flex items-center gap-1">(1.64 Km) <span>Distance from you</span></p>
+            <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                  <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{% with lowest_rate_latlng=medicine.lowest_rate_latlng %}{% if lowest_rate_latlng %}{{lowest_rate_latlng.0}},{{lowest_rate_latlng.1}}{% endif %}{% endwith %}"></span>
+            </span>
             <div class="flex items-center justify-between gap-2 !mt-4">
                   <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
                         <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
