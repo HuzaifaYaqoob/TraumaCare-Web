@@ -14,7 +14,10 @@ class ProductCategoryAdmin(admin.ModelAdmin):
 @admin.register(SubCategory)
 class SubCategoryAdmin(admin.ModelAdmin):
     search_fields = ['name']
-    list_display = ['name']
+    list_display = ['name', 'products']
+
+    def products(self, obj):
+        return obj.products().count()
 
 
 class ProductImageInline(admin.StackedInline):

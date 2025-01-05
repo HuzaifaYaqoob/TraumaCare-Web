@@ -74,6 +74,9 @@ class SubCategory(models.Model):
     def __str__(self):
         return self.name
     
+    def products(self):
+        return Product.objects.filter(sub_category=self)
+    
     def save(self, *args, **kwargs):
         new_slug = slugify(f'{self.name} {str(uuid4()).split("-")[0]}')
         if new_slug != self.slug:
