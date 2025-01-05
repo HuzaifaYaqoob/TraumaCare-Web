@@ -19,19 +19,21 @@
             <a class="cursor-pointer" href="/medicine/view/asdfsadf/">
                   <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C] h-11">{{medicine.name}}</h2>
             </a>
-            <p class="text-xs outfit-font text-[#0555E9] flex items-center gap-1">(1.64 Km) <span>Distance from you</span></p>
-            <div class="flex items-center justify-between gap-2">
-                  <div class="rounded-full max-w-max bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] px-4 py-2.5 text-sm outfit-font text-white cursor-pointer">
-                        + Add to Cart
+            <p class="text-[11px] outfit-font text-[#0555E9] flex items-center gap-1">(1.64 Km) <span>Distance from you</span></p>
+            <div class="flex items-center justify-between gap-2 !mt-4">
+                  <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
+                        <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                              + Add to Cart
+                        </div>
                   </div>
                   <div class="flex items-center gap-1">
                         {% if medicine.discount %}
                               <span class="text-sm text-[#3C3C3C]/60"><del>{{medicine.discounted_price}}</del></span>
                         {% endif %}
-                        <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center  gap-1">
+                        <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                               <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                              {{medicine.final_price}}
-                        </p>
+                              {{ medicine.final_price|floatformat:1 }}
+                        </p>                          
                   </div>
             </div>
       </div>
