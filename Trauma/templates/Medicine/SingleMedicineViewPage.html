@@ -69,7 +69,7 @@
             <div class="flex justify-between flex-wrap">
                   <div class="mt-[25px] w-[400px]">
                         <div class="pt-[45px] relative w-[410px] h-[410px] pb-[75px] rounded-3xl flex justify-center bg-[#8989B61A]">
-                              <img src="{% static 'assets/Images/image 252.png' %}"class="w-[100px]" alt="" style="max-height: 100%; height: auto; width: auto; max-width: 100%;">
+                              <img src="{{product.product_all_images.0.image.url}}"class="w-[100px]" alt="" style="max-height: 100%; height: auto; width: auto; max-width: 100%;">
                               <div class="absolute bottom-[10%] left-[50%] flex items-center gap-[6px]" style="transform: translate(-50% , -50%);">
                                     <span class=" rounded-[50%] px-[5px] py-[5px] border border-[#989393] bg-[] cursor-pointer hover:bg-[#557DE5] hover:border hover:border-[#557DE5]"></span>
                                     <span class=" rounded-[50%] px-[5px] py-[5px] border border-[#989393] bg-[] cursor-pointer hover:bg-[#557DE5] hover:border hover:border-[#557DE5]"></span>
@@ -79,35 +79,33 @@
                         <p class="text-[16px] text-[#625A5A] text-center my-[10px] font-semibold">Expiry Date: 11 Nov 2024</p>
                   </div>
                   <div class="mt-[45px]" style="width: 670px;">
-                        <div class="bg-[#FEB54633] flex items-center gap-[12px] px-[12px] py-[6px] rounded-xl border border-[#FEB546]" style="width: 580px;">
-                              <img src="{% static 'assets/Images/warning 1.png' %}" alt="" style="height: 30px; width: 30px;">
-                              <div class="">
-                                    <p class="text-[#ED930A] text-[17px]">Prescription required for this product on the Checkout page. </p>
-                                    <span class="text-[#9A9A9A] text-sm font-semibold"><a class="font-semibold text-[#557DE5] text-[16px]" style="text-decoration: underline;" href="#">Upload Now</a> or <a class="text-[#301816] text-[16px] font-semibold" style="text-decoration: underline;" href="#">Remind me Later</a></span>  
+                        {% if product.prescription_required %}
+                              <div class="bg-[#FEB54633] flex items-center gap-[12px] px-[12px] py-[6px] rounded-xl border border-[#FEB546]" style="width: 580px;">
+                                    <img src="{% static 'assets/Images/warning 1.png' %}" alt="" style="height: 30px; width: 30px;">
+                                    <div class="">
+                                          <p class="text-[#ED930A] text-[17px]">Prescription required for this product on the Checkout page. </p>
+                                          <span class="text-[#9A9A9A] text-sm font-semibold"><a class="font-semibold text-[#557DE5] text-[16px]" style="text-decoration: underline;" href="#">Upload Now</a> or <a class="text-[#301816] text-[16px] font-semibold" style="text-decoration: underline;" href="#">Remind me Later</a></span>  
+                                    </div>
                               </div>
-                        </div>
+                        {% endif %}
                         <div class="mt-[12px]">
                               <div class="flex items-center justify-between">
-                                    <h2 class="text-[35px] font-[700] text-[#595959]">Panadol 500mg Tablet 10’s</h2>
-                                    {% include 'Components/PercentageOff.html' with percentage=10 discounted_price=2000 %}
+                                    <h1 class="text-[27px] font-[600] text-[#595959] outfit-font">{{product.name}}</h1>
+                                    {% if product.discount %}
+                                          {% include 'Components/PercentageOff.html' with percentage=product.discount discounted_price=2000 %}
+                                    {% endif %}
                               </div>
-                              <p class="text-[#625A5A] text-[18px] font-semibold">Available at: <a href="#" class="text-[#557DE5]">Al-Khidmat Dawakhana</a> </p>
-                              <p class="text-[#625A5A] text-[17px] mt-[4px]">F7V5+73W, Mansoorha Main Bazaar Rd, Gulshan Park Cresent Town <span class="font-semibold">(2Km)</span></p>
+                              <p class="text-[#625A5A] text-[18px] font-semibold">Available at: <a href="#" class="text-[#557DE5]">{{product.store.name}}</a> </p>
+                              <p class="text-[#625A5A] text-[17px] mt-[4px]">
+                                    {{location.address}}
+                                    {% if location %}
+                                          <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                                                <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                                          </span>
+                                    {% endif %}
+                              </p>
                               <div class="flex items-center justify-between">
                                     <div class="flex flex-col gap-[10px]">
-                                          <a href="#" class="text-[17px] font-semibold text-[#0074CC] flex items-center gap-[4px]">Get Directions
-                                                <svg width="12" height="12" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                      <g clip-path="url(#clip0_3768_3620)">
-                                                      <path d="M4.9997 9.9993C3.83941 9.9993 2.67881 10.0018 1.51852 9.99836C0.749264 9.99617 0.148801 9.48698 0.017206 8.73242C0.00188969 8.64459 0.000951958 8.55363 0.000951958 8.46392C1.42237e-05 6.1549 -0.000610933 3.84589 0.000951958 1.53687C0.00126454 0.754177 0.499514 0.15559 1.26033 0.0189935C1.34441 0.00398976 1.43131 0.00148913 1.51696 0.00148913C2.99764 0.000551396 4.47832 0.000238818 5.95932 0.00117655C6.24783 0.00117655 6.45256 0.164968 6.49476 0.423782C6.54102 0.705728 6.3266 0.979234 6.03965 0.993299C5.85241 1.00236 5.66456 0.99705 5.47732 0.99705C4.18012 0.997363 2.88292 0.99705 1.58604 0.997363C1.19031 0.997363 0.997138 1.19116 0.997138 1.58814C0.997138 3.86214 0.997138 6.13584 0.997138 8.40984C0.997138 8.81244 1.18969 9.00343 1.59541 9.00343C3.86536 9.00343 6.1353 9.00343 8.40524 9.00343C8.81034 9.00343 9.00289 8.81244 9.00289 8.40922C9.0032 6.95573 9.00258 5.50224 9.0032 4.04906C9.00351 3.72023 9.21357 3.49517 9.51083 3.50049C9.76777 3.50486 9.98001 3.7071 9.99689 3.96373C9.99876 3.99092 9.99908 4.01843 9.99908 4.04562C9.99908 5.52256 10.001 6.99949 9.99845 8.47611C9.9972 9.20066 9.53834 9.79394 8.85223 9.9571C8.71719 9.9893 8.57372 9.99774 8.43431 9.99805C7.28902 10.0009 6.14436 9.9993 4.9997 9.9993Z" fill="#0074CC"/>
-                                                      <path d="M8.95052 1.70045C8.92801 1.7414 8.91332 1.78985 8.88144 1.82173C7.73178 2.97546 6.58086 4.12793 5.42964 5.28009C5.38556 5.32417 5.34118 5.36918 5.29116 5.40575C5.0908 5.55141 4.80948 5.52547 4.63881 5.34855C4.46783 5.17132 4.45127 4.89 4.60256 4.69432C4.63569 4.65119 4.6757 4.61336 4.71446 4.5746C5.86693 3.42369 7.0191 2.27247 8.17251 1.12249C8.20533 1.08998 8.24847 1.06779 8.2866 1.0406C8.2791 1.02559 8.27129 1.01059 8.26378 0.995586C8.1697 0.995586 8.0753 0.998711 7.98121 0.99496C7.73584 0.984958 7.53548 0.804913 7.50703 0.572667C7.47577 0.316353 7.61706 0.0906719 7.85837 0.0215922C7.91713 0.00471294 7.98152 0.00127458 8.04342 0.00127458C8.51603 -0.000288306 8.98865 -0.000600884 9.46127 0.000649428C9.79542 0.00158716 9.99703 0.199137 9.99828 0.529532C10.0002 1.02559 10.0017 1.52165 9.99609 2.01772C9.99328 2.26278 9.80729 2.46345 9.57474 2.4919C9.31873 2.52347 9.09274 2.38187 9.02366 2.14056C9.00678 2.08179 9.00616 2.0174 9.00334 1.95551C8.99991 1.88331 9.00272 1.81048 9.00272 1.73827C8.9849 1.72577 8.96771 1.71326 8.95052 1.70045Z" fill="#0074CC"/>
-                                                      </g>
-                                                      <defs>
-                                                      <clipPath id="clip0_3768_3620">
-                                                      <rect width="10" height="10" fill="white"/>
-                                                      </clipPath>
-                                                      </defs>
-                                                </svg>                                                                                             
-                                          </a>
                                           <div class="text-[17px] text-[#565656] relative">
 
                                                 Medicine available on <span class="cursor-pointer text-[#557DE5] morebtn-before-location" style="text-decoration: underline;">
@@ -116,8 +114,8 @@
                                           </div>
                                     </div>
                                     <div class="flex flex-col items-end">
-                                          <p class="text-[#625A5A] leading-5"><del>Rs. 246 </del></p>
-                                          <h4 class="text-[#24D0D0] text-[24px] font-semibold leading-4">Rs. 240</h4>
+                                          <p class="text-[#625A5A] leading-5"><del>Rs. {{product.discounted_price}} </del></p>
+                                          <h4 class="text-[#24D0D0] text-[24px] font-semibold leading-4">Rs. {{product.final_price}}</h4>
                                     </div>
                               </div>
                         </div>
@@ -223,11 +221,7 @@
                   </div>
                   <h2 class="text-[18px] mt-[18px] font-semibold text-[#323232]">Description</h2>
                   <p class="mt-[5px] text-[#625A5A] text-[16px] mr-[30px]">
-                        Panadol 500mg Tablet 10 'S is an analgesic and antipyretic medication used for mild to moderate pain relief and reducing fever. It can effectively treat conditions like headaches, toothaches, backaches, menstrual cramps, colds, and mild joint pain. It can be taken alone or in combination with other medicines as directed by a physician. Panadol 500mg Tablet 10 'S is available in tablet, syrup, and suspension forms, allowing precise dosing for different age groups. The dosage depends on the patient's pain symptoms and age. It can be taken with or without food, preferably with water to ease swallowing and dilute the syrup's taste. Always follow a doctor's prescription and avoid self-medication.
-
-                        While Panadol 500mg Tablet 10 'S generally has minimal side effects, it may rarely cause serious allergic reactions, such as rashes, breathing difficulties, and swelling, requiring immediate medical attention. Inform your doctor about any liver or kidney dysfunction before taking this medication. Caution is advised for alcoholics and malnourished individuals.
-
-                        It is important to note that taking Panadol 500mg Tablet 10 'S with food is recommended to prevent stomach upset. Do not repeat the medication within a 4-hour interval. Taking more than the recommended dose can lead to serious complications, so avoid overdosing or increasing the prescribed dosage without consulting a doctor. Even in cases of severe pain, do not double the dose without medical consultation.
+                  {{product.description}}
                   </p>
                   <h2 class="text-[18px] mt-[15px] font-semibold text-[#323232]">Reviews</h2>
                   <div class="flex flex-col gap-[10px]">
