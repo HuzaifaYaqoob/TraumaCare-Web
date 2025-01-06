@@ -89,15 +89,24 @@
                                           {% include 'Components/PercentageOff.html' with percentage=product.discount discounted_price=2000 %}
                                     {% endif %}
                               </div>
-                              <p class="text-[#151E2C] font-semibold">Available at: <span class="text-[#0755E9]">{{product.store.name}}</span></p>
-                              <p class="text-sm text-[#111111] outfit-font">{{location.address}}</p>
-                              {% if location %}
-                                    <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
-                                          <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                              <div class="flex gap-2.5">
+                                    <span class="w-12 h-12 border border-gray-200 rounded-full bg-center bg-cover bg-no-repeat" style="background-image:url('{{product.store.profile_image}}')"></span>
+                                    <span>
+                                          <p class="m-0 p-0 font-[400] text-[#0755E9]" style="margin:0;padding:0;font-size:16px">{{product.store.name}}</p>
+                                          <p class="m-0 p-0 text-sm font-[400] text-black flex gap-2 items-center" >
+                                                {{location.name}}
+                                                {% if location %}
+                                                      <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                                                            <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                                                      </span>
+                                                {% endif %}
+                                          </p>
                                     </span>
-                              {% endif %}
+                                </div>
                               <div class="!mt-5 flex items-center gap-1">
-                                    <span class="text-[#3C3C3C]/60"><del>{{product.discounted_price}}</del></span>
+                                    {% if product.discount %}
+                                          <span class="text-[#3C3C3C]/60"><del>{{product.price}}</del></span>
+                                    {% endif %}
                                     <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                                           <span class="font-medium text-[#151E2C] text-sm">PKR</span>{{product.final_price}}
                                     </p>                          
@@ -123,37 +132,43 @@
                         </div>
                   </div>
                   <div class="max-w-[370px] w-full space-y-3">
-                        <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
-                              <!-- <div class="absolute right-0 top-[26px]">
-                                    <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">4.99% OFF</span>
-                              </div> -->
-                              <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url(/media/Product/images/2025-01/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-bacteri-05111603.jpg);">   </div>
-                              <div class="px-1 space-y-2 flex-1">
-                                    <!-- <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din</div>
-                                    <div class="h-16">
-                                          <a class="cursor-pointer" href="/product/view/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-fazal-din-glaxosmithkline-pakistan-bacterial-infection-box-box-25602968-fdd4-431c-b0cc-3dee1d08fdfd/?selected_location=1">
-                                                <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">Augmentin Tablets 625Mg (1 Box = 1 Strip)(1 Strip = 6 Tablets)</h2>
-                                          </a>
-                                          <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
-                                                <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="34.34235353,74.53436346">(317.95 Km)</span>
-                                          <a target="_blank" href="https://www.google.com/maps/dir/?api=1&amp;origin=31.4845735,74.2631103&amp;destination=34.34235353,74.53436346" class="whitespace-nowrap underline">Get Directions</a></span>
-                                    </div>
-                                    <div class="flex items-center justify-between gap-2 !mt-4">
-                                          <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
-                                                <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
-                                                      + Add to Cart
+                        {% for location_product in other_locations %}
+                              <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
+                                    {% if location_product.discount %}
+                                          <div class="absolute right-0 top-[26px]">
+                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount}}% OFF</span>
+                                          </div>
+                                    {% endif %}
+                                    <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{product.product_all_images.0.image.url}}');">   </div>
+                                    <div class="px-1 space-y-2 flex-1">
+                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>
+                                          <div class="h-16">
+                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
+                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{product.name}}</h2>
+                                                </a>
+                                                <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
+                                                      <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_product.lat}},{{location_product.lng}}"></span>
+                                                </span>
+                                          </div>
+                                          <div class="flex items-center justify-between gap-2 !mt-4">
+                                                <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
+                                                      <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                                                            + Add to Cart
+                                                      </div>
+                                                </div>
+                                                <div class="flex items-center gap-1">
+                                                      {% if location_product.discount %}
+                                                            <span class="text-sm text-[#3C3C3C]/60"><del>{{location_product.price}}</del></span>
+                                                      {% endif %}
+                                                      <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
+                                                            <span class="font-medium text-[#151E2C] text-xs">PKR</span>
+                                                            {{location_product.final_price}}
+                                                      </p>                          
                                                 </div>
                                           </div>
-                                          <div class="flex items-center gap-1">
-                                                <span class="text-sm text-[#3C3C3C]/60"><del>251.85</del></span>
-                                                <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
-                                                      <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                                                      265.1
-                                                </p>                          
-                                          </div>
-                                    </div> -->
+                                    </div>
                               </div>
-                        </div>
+                        {% endfor %}
                   </div>
             </div>
             <!-- after checkout popup -->

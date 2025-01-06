@@ -85,6 +85,9 @@ class PhoneMessage(models.Model):
         return self.phone_number
     
     def save(self, *args, **kwargs):
+        if self.phone_number == '0000':
+            self.is_deleted = True
+            
         if self.sms_type == 'OTP':
             self.priority = 1
         elif self.sms_type == 'Appointment' or self.sms_type == 'OnlineAppointment':

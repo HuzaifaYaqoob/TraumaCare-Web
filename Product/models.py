@@ -217,8 +217,7 @@ class Product(models.Model):
     @property
     def discounted_price(self):
         if self.discount:
-            f_percent = 100 - self.discount
-            price = (self.final_price * f_percent) / 100
+            price = self.price - (self.price * self.discount / 100)
             return round(price, 2)
         return 0
     
@@ -258,6 +257,13 @@ class ProductStock(models.Model):
 
     def __str__(self):
         return f'{self.product.name} - {self.location.name}'
+    
+    @property
+    def final_price(self):
+        price = self.price
+        if self.discount:
+            price = self.price - (self.price * self.discount / 100)
+        return round(price, 2)
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_images')

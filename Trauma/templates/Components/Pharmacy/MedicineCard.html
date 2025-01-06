@@ -35,12 +35,12 @@
                         </div>
                         <div class="flex items-center gap-1">
                               {% if medicine.discount %}
-                                    <span class="text-sm text-[#3C3C3C]/60"><del>{{medicine.discounted_price}}</del></span>
+                                    <span class="text-sm text-[#3C3C3C]/60"><del>{{medicine.price}}</del></span>
                               {% endif %}
                               <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                                     <span class="font-medium text-[#151E2C] text-xs">PKR</span>
                                     {{ medicine.final_price|floatformat:1 }}
-                              </p>                          
+                              </p>
                         </div>
                   </div>
             </div>

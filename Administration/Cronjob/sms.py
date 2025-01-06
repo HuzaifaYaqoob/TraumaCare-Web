@@ -9,7 +9,7 @@ def refreshSmsKey():
 
 
 def sendPendingSms():
-    pending_sms = PhoneMessage.objects.filter(is_sent = False).order_by('priority')
+    pending_sms = PhoneMessage.objects.filter(is_sent = False, is_deleted=False).order_by('priority')
 
     for sms in pending_sms:
         sendMessage(sms)

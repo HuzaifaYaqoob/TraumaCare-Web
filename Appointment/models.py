@@ -4,6 +4,7 @@ from django.db import models
 from uuid import uuid4
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from Authentication.models import User
+from Profile.models import Profile
 from Hospital.models import Hospital, HospitalLocation
 from datetime import datetime
 # Create your models here.
@@ -17,6 +18,7 @@ class AppointmentGroup(models.Model):
     )
     uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='user_appointments')
+    patient_profile = models.ForeignKey(Profile, on_delete=models.PROTECT, null=True, blank=True, related_name='profile_appointments')
 
     bill = models.PositiveIntegerField(default=0)
     discount = models.PositiveIntegerField(default=0)

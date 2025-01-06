@@ -130,12 +130,11 @@ class User(AbstractBaseUser, PermissionsMixin):
     @property
     def profile_image(self):
         from Profile.models import Profile
-        try:
-            general_profile = Profile.objects.get(
-                user = self,
-                profile_type = 'Patient'
-            )
-        except:
+        general_profile = Profile.objects.filter(
+            user = self,
+            profile_type = 'Patient'
+        ).first()
+        if not general_profile:
             return 'https://ionicframework.com/docs/img/demos/avatar.svg'
         else:
             return general_profile.image_full_path or 'https://ionicframework.com/docs/img/demos/avatar.svg'

@@ -38,4 +38,11 @@ class AppointmentAdmin(admin.ModelAdmin):
 
 @admin.register(AppointmentGroup)
 class AppointmentGroupAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = [
+        "user",
+        "patient_profile",
+        "bill",
+        "discount",
+        "status",
+        "created_at",
+    ]
