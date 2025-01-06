@@ -109,7 +109,7 @@
                                     {% endif %}
                                     <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{product.product_all_images.0.image.url}}');">   </div>
                                     <div class="px-1 space-y-2 flex-1">
-                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>
+                                          {% comment %} <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div> {% endcomment %}
                                           <div class="h-16">
                                                 <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
                                                       <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{product.name}}</h2>
