@@ -7,6 +7,8 @@ from django.utils.html import mark_safe
 # Create your models here.
 from django.utils.text import slugify
 
+from django.db.models import Q, F
+
 from datetime import datetime, timedelta
 from Vendor.models import Vendor
 from Pharmacy.models import StoreLocation, Store
@@ -243,6 +245,13 @@ class Product(models.Model):
             return store_first_location
         return None
 
+
+class ProductStockCustomManager(models.Manager):
+    def get_queryset(self):
+        return super(ProductStockCustomManager, self).get_queryset().annotate(
+            final_price=F('price') - (F('price') * F('discount') / 100) if F('discount') else F('price')
+        )
+
 class ProductStock(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_stocks')
     location = models.ForeignKey(StoreLocation, on_delete=models.PROTECT, related_name='location_stocks')
@@ -255,15 +264,19 @@ class ProductStock(models.Model):
     is_active = models.BooleanField(default=True)
     is_deleted = models.BooleanField(default=False)
 
+    objects = models.Manager()
+    custom_objects = ProductStockCustomManager()
+
     def __str__(self):
         return f'{self.product.name} - {self.location.name}'
     
-    @property
-    def final_price(self):
-        price = self.price
-        if self.discount:
-            price = self.price - (self.price * self.discount / 100)
-        return round(price, 2)
+    # @property
+    # def final_price(self):
+    #     return round(self.final_price, 2)
+    #     price = self.price
+    #     if self.discount:
+    #         price = self.price - (self.price * self.discount / 100)
+    #     return round(price, 2)
 
 class ProductImage(models.Model):
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_images')
