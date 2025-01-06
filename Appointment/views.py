@@ -163,7 +163,7 @@ def BookAppointment_DoctorPage(request):
             messages.error(request, 'Selected Slot is not Available')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         
-        user_profiles = Profile.objects.filter(profile_type = 'Patient', user = request.user, is_active=True, is_deleted=False, is_blocked=False)
+        user_profiles = Profile.objects.filter(profile_type = 'Patient', user = request.user, is_active=True, is_deleted=False, is_blocked=False).order_by('-created_at')
         user_p = None
         if len(user_profiles) > 0:
             user_p = user_profiles[0]
