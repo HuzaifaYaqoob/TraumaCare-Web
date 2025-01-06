@@ -20,18 +20,19 @@ def registerProductsSiteMaps():
 
     dt = datetime.now().strftime ("%Y-%m-%dT%H:%M:%S+00:00")
     for product in products:
-        prod_locations = ProductStock.custom_objects.filter(product = product, is_active = True, is_deleted = False)
+        p_location = ProductStock.custom_objects.filter(product = product, is_active = True, is_deleted = False).first()
+        if not p_location:
+            continue
 
         store_name = product.store.name
-        for p_location in prod_locations:
 
-            product_elmt = ET.SubElement(root, "url")
-            product_url = f'{settings.THIS_APPLICATION_URL}/product/view/{product.slug}/?selected_location={p_location.location.id}&available_on={store_name}&price={round(p_location.final_price, 2)} PKR'
+        product_elmt = ET.SubElement(root, "url")
+        product_url = f'{settings.THIS_APPLICATION_URL}/product/view/{product.slug}/?selected_location={p_location.location.id}&available_on={store_name}&price={round(p_location.final_price, 2)} PKR'
 
-            ET.SubElement(product_elmt, "loc").text =  product_url
-            ET.SubElement(product_elmt, "lastmod").text = dt
-            ET.SubElement(product_elmt, "changefreq").text = "daily"
-            ET.SubElement(product_elmt, "priority").text = "1.0"
+        ET.SubElement(product_elmt, "loc").text =  product_url
+        ET.SubElement(product_elmt, "lastmod").text = dt
+        ET.SubElement(product_elmt, "changefreq").text = "daily"
+        ET.SubElement(product_elmt, "priority").text = "1.0"
 
         print(product_url)
 
