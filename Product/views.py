@@ -36,7 +36,7 @@ def SingleMedicineViewPage(request, product_slug):
     context['product'] = product
     context['location'] = location
 
-    other_locations = ProductStock.custom_objects.filter(product = product).exclude(location = location).order_by('final_price')
+    other_locations = ProductStock.custom_objects.filter(product = product).exclude(location = location).order_by('final_price')[:5]
     other_locations_data = []
     for location_stock in other_locations:
         product_all_images = location_stock.product.product_all_images
