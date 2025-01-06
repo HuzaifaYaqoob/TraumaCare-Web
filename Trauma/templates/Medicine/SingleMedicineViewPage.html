@@ -65,110 +65,120 @@
 {% block pharmacy_body %}
 
 <main class="px-4 sm:px-6 md:px-8 py-7">
-      <section class="max-w-[1500px] mx-auto">
-            <div class="flex gap-10">
-                  <div class="max-w-[450px] w-full">
-                        <div class="relative overflow-hidden w-full h-[440px] border border-[#CACBE6] rounded-3xl flex justify-center">
+      <section class="max-w-[1500px] mx-auto space-y-10">
+            <div class="flex gap-7">
+                  <div class="max-w-[410px] w-full">
+                        <div class="relative overflow-hidden w-full h-[400px] border border-[#CACBE6] rounded-3xl flex justify-center">
                               <img src="{{product.product_all_images.0.image.url}}" class="max-w-full max-h-full" alt="">
                         </div>
                   </div>
-                  <div class="flex-1">
+                  <div class="flex-1 space-y-4">
                         {% if product.prescription_required %}
                               <div class="bg-[#FEB54633] flex items-center gap-3 px-3 py-1 rounded-xl border border-[#FEB546] max-w-[580px] w-full">
-                                    <img src="{% static 'assets/Images/warning 1.png' %}" alt="" style="height: 30px; width: 30px;">
+                                    <img class="size-7" src="{% static 'assets/Images/warning 1.png' %}" alt="">
                                     <div class="">
-                                          <p class="text-[#ED930A] outfit-font">Prescription required for this product on the Checkout page. </p>
-                                          <span class="text-[#9A9A9A] text-sm font-semibold outfit-font"><a class="font-semibold text-[#557DE5] text-[16px]" style="text-decoration: underline;" href="#">Upload Now</a> or <a class="text-[#301816] text-[16px] font-semibold" style="text-decoration: underline;" href="#">Remind me Later</a></span>  
+                                          <p class="text-[#ED930A] outfit-font text-[15px]">Prescription required for this product on the Checkout page.</p>
+                                          <span class="text-[#151E2C] text-sm"><a class="text-[#557DE5] underline outfit-font" href="#">Upload Now</a> or <a class="text-[#05D57C] underline outfit-font" href="#">Remind me Later</a></span>  
                                     </div>
                               </div>
                         {% endif %}
-                        <div class="mt-[12px]">
+                        <div class="space-y-1">
                               <div class="flex items-center justify-between">
-                                    <h1 class="text-[27px] font-[600] text-[#595959] outfit-font">{{product.name}}</h1>
+                                    <h1 class="text-2xl font-semibold text-[#151E2C] outfit-font">{{product.name}}</h1>
                                     {% if product.discount %}
                                           {% include 'Components/PercentageOff.html' with percentage=product.discount discounted_price=2000 %}
                                     {% endif %}
                               </div>
-                              <p class="text-[#625A5A] text-[18px] font-semibold">Available at: <a href="#" class="text-[#557DE5]">{{product.store.name}}</a> </p>
-                              <p class="text-[#625A5A] text-[17px] mt-[4px] flex gap-5">
-                                    {{location.name}}
-                                    {% if location %}
-                                          <span class='text-xs outfit-font text-[#0555E9] flex gap-1 items-center'>
-                                                <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
-                                          </span>
+                              <div class="flex gap-2.5">
+                                    <span class="w-12 h-12 border border-gray-200 rounded-full bg-center bg-cover bg-no-repeat" style="background-image:url('{{product.store.profile_image}}')"></span>
+                                    <span>
+                                          <p class="m-0 p-0 font-[400] text-[#0755E9]" style="margin:0;padding:0;font-size:16px">{{product.store.name}}</p>
+                                          <p class="m-0 p-0 text-sm font-[400] text-black flex gap-2 items-center" >
+                                                {{location.name}}
+                                                {% if location %}
+                                                      <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                                                            <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                                                      </span>
+                                                {% endif %}
+                                          </p>
+                                    </span>
+                                </div>
+                              <div class="!mt-5 flex items-center gap-1">
+                                    {% if product.discount %}
+                                          <span class="text-[#3C3C3C]/60"><del>{{product.discounted_price}}</del></span>
                                     {% endif %}
-                              </p>
-                              <div class="flex items-center justify-between">
-                                    <div class="flex flex-col gap-[10px]">
-                                          <div class="text-[17px] text-[#565656] relative">
-
-                                                Medicine available on <span class="cursor-pointer text-[#557DE5] morebtn-before-location" style="text-decoration: underline;">
-                                                      2 more</span> Locations, <span class="cursor-pointer text-[#557DE5] change-location-btn" style="text-decoration: underline;">
-                                                            Change Location</span>
-                                          </div>
-                                    </div>
-                                    <div class="flex flex-col items-end">
-                                          <p class="text-[#625A5A] leading-5"><del>Rs. {{product.discounted_price}} </del></p>
-                                          <h4 class="text-[#24D0D0] text-[24px] font-semibold leading-4">Rs. {{product.final_price}}</h4>
-                                    </div>
+                                    <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
+                                          <span class="font-medium text-[#151E2C] text-sm">PKR</span>{{product.final_price}}
+                                    </p>                          
                               </div>
                         </div>
-                        <div class="mt-7 mb-[20px] w-full h-[1.5px] bg-[#0000001A]">
-                              <!-- underline -->
+                        <div class="my-4 w-full h-[1px] bg-[#CACBE6]"> </div>
+                        <div class="space-y-3">
+                              <div class="flex items-center gap-1">
+                                    <p class="text-[#151E2C] font-semibold text-sm">Quantity:</p>
+                                    <p class="text-[#51B74F] font-semibold text-sm">3 In Stoke</p>
+                              </div>
+                              <div class="flex items-center rounded-lg bg-[#6C7793] w-[120px] h-[40px] p-[1.5px]">
+                                    <button class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">-</button>
+                                    <p class="text-[#0A1C4B] text-xl font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">1</p>
+                                    <button class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                              </div>
                         </div>
-                        <div class="flex justify-between">
-                              <div class="flex gap-[30px]">
-                                    <div class="flex flex-col items-center">
-                                          <p class="text-[#625A5A] text-[19px] font-semibold">Quantity:</p>
-                                          <p class="text-[#51B74F] text-[19px] font-semibold">3 In Stoke</p>
-                                    </div>
-                                    <div class="flex flex-col items-center gap-[8px]">
-                                          <div class="flex items-center border-[4px] rounded-[6px] border-[#6C7793] bg-[#6C7793] w-[120px] h-[40px]">
-                                                <span class="cursor-pointer text-white text-[22px] font-semibold flex-1 h-full flex items-center justify-center">-</span>
-                                                <span class="text-[#0A1C4B] text-[22px] font-semibold rounded-[4px] flex-1 h-full flex bg-white items-center justify-center">1</span>
-                                                <span class="cursor-pointer text-white text-[22px] font-semibold flex-1 h-full flex items-center justify-center">+</span>
-                                          </div>
-                                          <p class="text-[#F02149] font-semibold">Hurry, Only 3 left!</p>
-                                    </div>
-                              </div>
-                              <div class="flex flex-col gap-[10px] items-end">
-                                          <div class="flex items-center justify-center gap-[12px]">
-                                                <div class="flex items-center justify-center rounded-[50%] px-[12px] py-[14px] bg-[#24D0D0] border-[#a7ecec] border-4 cursor-pointer">
-                                                      <svg width="35" height="32" viewBox="0 0 29 26" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path d="M0.18884 7.54387C0.34865 7.21264 0.610368 7.10223 0.978626 7.10453C3.24608 7.11603 5.51353 7.11143 7.77866 7.11143C8.35305 7.11143 8.55918 7.31845 8.55918 7.8958C8.55918 10.1109 8.55918 12.326 8.55918 14.5411C8.55918 15.1069 8.34147 15.3208 7.76476 15.3208C5.51584 15.3208 3.26692 15.3162 1.018 15.3254C0.647425 15.3277 0.367178 15.2265 0.186523 14.8976C0.18884 12.4456 0.18884 9.99358 0.18884 7.54387Z" fill="white"/>
-                                                            <path d="M14.148 7.78509C13.9419 7.41016 13.7265 7.03753 13.5319 6.65569C13.2957 6.19795 12.8371 5.93573 12.3553 6.00704C11.8296 6.08524 11.4382 6.45557 11.3849 6.98462C11.3641 7.18014 11.4011 7.40326 11.4775 7.58727C11.9338 8.65687 12.6124 9.57235 13.5064 10.3222C13.6709 10.4602 13.694 10.589 13.6709 10.7846C13.5968 11.4631 13.5458 12.1417 13.4833 12.8386C14.0947 12.9352 14.6483 13.0226 15.2018 13.1078C15.811 13.2021 16.4201 13.2918 17.0292 13.3884C17.5943 13.4781 17.9904 13.7863 18.2035 14.3177C18.8288 15.8887 19.4565 17.462 20.0726 19.0354C20.376 19.8059 20.0355 20.6018 19.3013 20.8939C18.5532 21.1907 17.7565 20.8364 17.4415 20.0544C16.9343 18.7938 16.4317 17.531 15.936 16.2659C15.8781 16.1164 15.8063 16.0405 15.6349 16.0152C14.236 15.8082 12.8417 15.5851 11.4451 15.3758C10.3288 15.2101 9.66637 14.4672 9.51119 13.2274C9.25179 11.1802 9.46024 9.18821 10.1597 7.24454C10.4399 6.46247 10.8777 5.81152 11.6513 5.43429C12.9853 4.78333 14.1735 5.45499 14.287 6.92482C14.3078 7.20084 14.2893 7.47686 14.2893 7.75519C14.2383 7.76899 14.192 7.77589 14.148 7.78509Z" fill="white"/>
-                                                            <path d="M3.00266 18.0855C2.59039 17.9222 2.53944 17.8463 2.53944 17.3862C2.53944 17.0803 2.53712 16.7744 2.53944 16.4662C2.54407 16.0797 2.70388 15.9187 3.08372 15.9187C6.1039 15.9164 9.1264 15.9164 12.1466 15.9187C12.5172 15.9187 12.6746 16.0728 12.6839 16.4432C12.6909 16.7583 12.6816 17.0734 12.6862 17.3885C12.6885 17.6301 12.677 17.8555 12.4384 18.005C12.3921 18.0349 12.3782 18.1476 12.3851 18.2212C12.4917 19.2678 12.758 20.2707 13.1911 21.2322C13.2699 21.4047 13.3903 21.384 13.5223 21.384C15.7272 21.384 17.9322 21.384 20.1371 21.384C20.2436 21.384 20.3525 21.384 20.4799 21.384C20.4799 21.8371 20.4799 22.2719 20.4799 22.7227C17.506 22.7227 14.5159 22.7227 11.4981 22.7227C11.7112 21.2437 11.3012 19.974 10.1524 18.9895C9.32326 18.2787 8.33893 17.9889 7.24805 18.0832C4.92038 18.2856 3.29217 20.4593 3.72296 22.7158C3.09067 22.7158 2.46301 22.7158 1.80292 22.7158C1.78903 21.9038 1.99053 21.1218 2.22677 20.3512C2.46301 19.5921 2.74326 18.8423 3.00266 18.0855Z" fill="white"/>
-                                                            <path d="M10.9844 22.0075C10.9682 23.8752 9.4488 25.352 7.56119 25.3313C5.7199 25.3129 4.22139 23.7901 4.23992 21.9546C4.25613 20.0937 5.78938 18.6055 7.66773 18.6262C9.50902 18.6469 11.0006 20.1673 10.9844 22.0075ZM7.61909 20.6596C6.88257 20.655 6.28502 21.2438 6.28502 21.9776C6.28502 22.709 6.87794 23.3025 7.61214 23.3048C8.34171 23.3071 8.94621 22.709 8.95084 21.9845C8.95084 21.2576 8.35561 20.6642 7.61909 20.6596Z" fill="white"/>
-                                                            <path d="M21.0269 21.9685C21.0338 20.1054 22.5509 18.6194 24.4385 18.6309C26.2612 18.6401 27.7875 20.1675 27.776 21.9685C27.7644 23.8455 26.2543 25.3429 24.3852 25.3314C22.5161 25.3222 21.0199 23.8248 21.0269 21.9685ZM25.7262 21.9708C25.7216 21.2371 25.1287 20.6551 24.3875 20.6597C23.6533 20.6643 23.0535 21.267 23.0604 21.9915C23.0674 22.7184 23.6742 23.3095 24.4061 23.3049C25.1449 23.3003 25.7309 22.7069 25.7262 21.9708Z" fill="white"/>
-                                                            <path d="M20.4359 12.7468C20.5401 13.1424 20.6305 13.446 21.0497 13.6438C22.3791 14.2718 23.2893 15.3046 23.7456 16.7054C23.8313 16.9676 23.9448 17.055 24.232 17.0642C25.8139 17.124 27.0391 17.8233 27.8752 19.1666C27.947 19.2793 28.0257 19.4058 28.0373 19.5324C28.0466 19.6313 27.9771 19.767 27.896 19.8291C27.8543 19.8613 27.6783 19.7946 27.6251 19.7233C26.7171 18.5272 25.5151 17.9682 24.012 18.0901C23.1365 18.1614 22.3699 18.5134 21.7213 19.1068C21.6495 19.1712 21.5777 19.2356 21.4874 19.3184C20.6351 16.848 19.7897 14.4006 18.9374 11.9348C18.5761 12.0682 18.2403 12.197 17.8998 12.3166C17.5153 12.45 17.2328 12.3051 17.1309 11.9256C17.4435 11.9256 17.7562 11.9279 18.0666 11.9256C18.9583 11.9141 19.345 11.5645 19.4261 10.6858C19.6508 10.7019 19.7527 10.856 19.8222 11.0331C19.9171 11.2769 19.9982 11.5254 20.0769 11.7738C20.1209 11.9118 20.1858 11.9946 20.3456 11.9693C20.4174 11.9578 20.4915 11.9601 20.5633 11.9693C21.0219 12.0199 21.367 11.9762 21.5847 11.4402C21.7955 10.925 22.3258 10.7042 22.891 10.6421C23.1388 10.6145 23.331 10.718 23.4237 10.9319C23.5325 11.1757 23.6275 11.4356 23.6692 11.6979C23.7688 12.3166 23.7549 12.9377 23.5441 13.538C23.3773 14.0096 23.1643 14.1338 22.6779 14.0349C22.0502 13.9084 21.6218 13.5357 21.3971 12.9446C21.3392 12.7859 21.2651 12.7353 21.1053 12.7445C20.8899 12.756 20.6745 12.7468 20.4359 12.7468Z" fill="white"/>
-                                                            <path d="M17.3926 2.6696C17.3903 4.06352 16.2508 5.19292 14.8449 5.19522C13.4483 5.19752 12.2996 4.06122 12.2949 2.6719C12.2903 1.26878 13.4414 0.130179 14.8588 0.13478C16.2601 0.13938 17.395 1.27568 17.3926 2.6696Z" fill="white"/>
-                                                            <path d="M17.872 11.6978C14.7545 11.6863 12.6446 9.69204 11.6811 7.50915C11.4657 7.01921 11.6649 6.50856 12.1258 6.30154C12.5982 6.08993 13.1101 6.29464 13.344 6.79379C13.9809 8.16011 14.9467 9.1837 16.4151 9.67364C16.9988 9.86916 17.601 9.91286 18.2124 9.90136C18.942 9.88526 19.4029 10.5707 19.0902 11.1918C18.9304 11.5115 18.6594 11.6679 18.3074 11.6955C18.1638 11.707 18.0179 11.6978 17.872 11.6978Z" fill="white"/>
-                                                      </svg>                                              
-                                                </div>
-                                                <div class="flex items-center justify-center rounded-[50%] px-[13px] border-[#9da4b7] border-4 py-[15px] cursor-pointer bg-[#0A1C4B] group-hover:border-blue-800 group-hover:bg-white">
-                                                      <svg width="32" height="29" viewBox="0 0 25 22" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                            <path class="fill-white group-hover:fill-[#0A1C4B]" d="M0.135254 1.18373C0.135254 0.617582 0.588951 0.162109 1.15289 0.162109H3.08217C4.015 0.162109 4.84183 0.706974 5.22769 1.52427H22.6547C23.7699 1.52427 24.584 2.58846 24.2915 3.66968L22.553 10.1527C22.1926 11.4893 20.9841 12.4216 19.6061 12.4216H7.37321L7.60218 13.6347C7.69546 14.1158 8.11524 14.4648 8.60286 14.4648H20.8272C21.3912 14.4648 21.8449 14.9203 21.8449 15.4864C21.8449 16.0526 21.3912 16.5081 20.8272 16.5081H8.60286C7.13576 16.5081 5.87643 15.4609 5.60506 14.0179L3.41714 2.48204C3.38746 2.32029 3.24753 2.20535 3.08217 2.20535H1.15289C0.588951 2.20535 0.135254 1.74988 0.135254 1.18373ZM5.56266 19.9135C5.56266 19.6451 5.6153 19.3794 5.71759 19.1315C5.81987 18.8837 5.96979 18.6584 6.15878 18.4687C6.34777 18.2789 6.57214 18.1284 6.81907 18.0258C7.066 17.9231 7.33066 17.8702 7.59794 17.8702C7.86521 17.8702 8.12987 17.9231 8.3768 18.0258C8.62374 18.1284 8.8481 18.2789 9.0371 18.4687C9.22609 18.6584 9.37601 18.8837 9.47829 19.1315C9.58057 19.3794 9.63321 19.6451 9.63321 19.9135C9.63321 20.1818 9.58057 20.4475 9.47829 20.6954C9.37601 20.9433 9.22609 21.1685 9.0371 21.3583C8.8481 21.548 8.62374 21.6985 8.3768 21.8012C8.12987 21.9039 7.86521 21.9567 7.59794 21.9567C7.33066 21.9567 7.066 21.9039 6.81907 21.8012C6.57214 21.6985 6.34777 21.548 6.15878 21.3583C5.96979 21.1685 5.81987 20.9433 5.71759 20.6954C5.6153 20.4475 5.56266 20.1818 5.56266 19.9135ZM19.8096 17.8702C20.3494 17.8702 20.8671 18.0855 21.2488 18.4687C21.6304 18.8519 21.8449 19.3716 21.8449 19.9135C21.8449 20.4554 21.6304 20.9751 21.2488 21.3583C20.8671 21.7414 20.3494 21.9567 19.8096 21.9567C19.2698 21.9567 18.7521 21.7414 18.3704 21.3583C17.9888 20.9751 17.7743 20.4554 17.7743 19.9135C17.7743 19.3716 17.9888 18.8519 18.3704 18.4687C18.7521 18.0855 19.2698 17.8702 19.8096 17.8702ZM10.8205 6.97292C10.8205 7.44116 11.2021 7.82427 11.6685 7.82427H13.5342V9.69725C13.5342 10.1655 13.9158 10.5486 14.3822 10.5486C14.8486 10.5486 15.2302 10.1655 15.2302 9.69725V7.82427H17.0959C17.5623 7.82427 17.9439 7.44116 17.9439 6.97292C17.9439 6.50468 17.5623 6.12157 17.0959 6.12157H15.2302V4.2486C15.2302 3.78035 14.8486 3.39725 14.3822 3.39725C13.9158 3.39725 13.5342 3.78035 13.5342 4.2486V6.12157H11.6685C11.2021 6.12157 10.8205 6.50468 10.8205 6.97292Z"/>
-                                                      </svg>                        
-                                                </div>
-                                          </div>
-                                    <p class="text-[#000000] text-sm">Delivery service not available on this Location</p>
-                              </div>
+                        <div class="my-4 w-full h-[1px] bg-[#CACBE6]"> </div>
+                        <div class="flex items-center justify-end">
+                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font">
+                                    Add to Cart
+                              </button>
                         </div>
                   </div>
+                  <div class="max-w-[370px] w-full space-y-3">
+                        {% for location_product in other_locations %}
+                              <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
+                                    <div class="absolute right-0 top-[26px]">
+                                          <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">4.99% OFF</span>
+                                    </div>
+                                    <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url(/media/Product/images/2025-01/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-bacteri-05111603.jpg);">   </div>
+                                    <div class="px-1 space-y-2 flex-1">
+                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din</div>
+                                          <div class="h-16">
+                                                <a class="cursor-pointer" href="/product/view/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-fazal-din-glaxosmithkline-pakistan-bacterial-infection-box-box-25602968-fdd4-431c-b0cc-3dee1d08fdfd/?selected_location=1">
+                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">Augmentin Tablets 625Mg (1 Box = 1 Strip)(1 Strip = 6 Tablets)</h2>
+                                                </a>
+                                                <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
+                                                      <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="34.34235353,74.53436346">(317.95 Km)</span>
+                                                <a target="_blank" href="https://www.google.com/maps/dir/?api=1&amp;origin=31.4845735,74.2631103&amp;destination=34.34235353,74.53436346" class="whitespace-nowrap underline">Get Directions</a></span>
+                                          </div>
+                                          <div class="flex items-center justify-between gap-2 !mt-4">
+                                                <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
+                                                      <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                                                            + Add to Cart
+                                                      </div>
+                                                </div>
+                                                <div class="flex items-center gap-1">
+                                                      <span class="text-sm text-[#3C3C3C]/60"><del>251.85</del></span>
+                                                      <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
+                                                            <span class="font-medium text-[#151E2C] text-xs">PKR</span>
+                                                            265.1
+                                                      </p>                          
+                                                </div>
+                                          </div>
+                                    </div>
+                              </div>
+                        {% endfor %}
+                  </div>
             </div>
-            <div class="flex justify-center gap-[35px] mt-[20px] flex-wrap">
-                  <div class="w-[550px]">
-                        <div class="rounded-[18px] bg-[#24D0D01A] items-center px-[15px] py-[50px] flex flex-col gap-[3px]">
+            <!-- after checkout popup -->
+            <!-- <div class="w-[550px]">
+                  <div class="rounded-[18px] bg-[#24D0D01A] items-center px-[15px] py-[50px] flex flex-col gap-1">
                         <h2 class="text-[#557DE5] text-[26px] font-semibold">Bringing Healing to Your Doorstep </h2>
                         <p class="text-[22px] font-medium text-[#24D0D0]">Fast, Reliable, and Convenient Medicine Delivery!</p>
                         <div class="mt-7">
                               {% include 'Components/SVG/Deliverd-Medicine-SVG.html' %}
                         </div>
-                        </div>
                   </div>
-            </div>
-            <div class="w-[1150px] ">
-                  <div class="bg-[#24D0D01A] mt-[55px] pl-[35px] py-[20px] flex gap-[50px]">
+            </div> -->
+            <div class="w-[1150px]">
+                  <div class="bg-[#24D0D01A] pl-[35px] py-[20px] flex gap-[50px]">
                         <li class="text-[18px] font-[700] text-[#24D0D0] list-none cursor-pointer">Product Description</li>
                         <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">How to use</li>
                         <li class="text-[18px] font-[700] text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Side Effects</li>

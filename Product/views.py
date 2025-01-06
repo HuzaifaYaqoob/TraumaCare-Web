@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 
-from Product.models import Product
+from Product.models import Product, ProductStock
 from Pharmacy.models import Store, StoreLocation
 from django.contrib import messages
 
@@ -35,4 +35,5 @@ def SingleMedicineViewPage(request, product_slug):
     context = {}
     context['product'] = product
     context['location'] = location
+    context['other_locations'] = ProductStock.objects.filter(product = product).exclude(location = location)
     return render(request, 'Medicine/SingleMedicineViewPage.html', context)
