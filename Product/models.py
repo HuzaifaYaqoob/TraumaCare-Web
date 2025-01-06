@@ -249,7 +249,7 @@ class Product(models.Model):
 class ProductStockCustomManager(models.Manager):
     def get_queryset(self):
         return super(ProductStockCustomManager, self).get_queryset().annotate(
-            final_price=round(F('price') - (F('price') * F('discount') / 100), 2) if F('discount') else F('price')
+            final_price=F('price') - (F('price') * F('discount') / 100) if F('discount') else F('price')
         )
 
 class ProductStock(models.Model):
@@ -272,6 +272,7 @@ class ProductStock(models.Model):
     
     # @property
     # def final_price(self):
+    #     return round(self.final_price, 2)
     #     price = self.price
     #     if self.discount:
     #         price = self.price - (self.price * self.discount / 100)

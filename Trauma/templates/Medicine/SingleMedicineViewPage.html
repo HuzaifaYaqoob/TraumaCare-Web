@@ -108,7 +108,7 @@
                                           <span class="text-[#3C3C3C]/60"><del>{{product.price}}</del></span>
                                     {% endif %}
                                     <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
-                                          <span class="font-medium text-[#151E2C] text-sm">PKR</span>{{product.final_price}}
+                                          <span class="font-medium text-[#151E2C] text-sm">PKR</span>{{product.final_price|floatformat:2}}
                                     </p>                          
                               </div>
                         </div>
@@ -162,7 +162,7 @@
                                                       {% endif %}
                                                       <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                                                             <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                                                            {{location_product.final_price}}
+                                                            {{location_product.final_price|floatformat:2}}
                                                       </p>                          
                                                 </div>
                                           </div>
