@@ -217,8 +217,7 @@ class Product(models.Model):
     @property
     def discounted_price(self):
         if self.discount:
-            f_percent = 100 - self.discount
-            price = (self.final_price * f_percent) / 100
+            price = self.price - (self.price * self.discount / 100)
             return round(price, 2)
         return 0
     
