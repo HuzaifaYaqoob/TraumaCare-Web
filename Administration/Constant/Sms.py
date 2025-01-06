@@ -1,7 +1,7 @@
 
 
 
-from Administration.models import PhoneMessage, SmsServiceKey
+from Administration.models import SmsServiceKey
 import requests
 import json
 import xmltodict
