@@ -18,7 +18,11 @@ def generatePhoneMessage_Appointment(sender, instance, created, **kwargs):
             app_date = instance.date.strftime('%B %d, %Y')
             app_time = instance.start_time.strftime('%I:%M %p')
 
-        patient = instance.appointment_group.user
+        if instance.appointment_group.patient_profile:
+            patient = instance.appointment_group.patient_profile
+        else:
+            patient = instance.appointment_group.user
+            
         doctor = instance.doctor
 
         if instance.appointment_location == 'Online':
