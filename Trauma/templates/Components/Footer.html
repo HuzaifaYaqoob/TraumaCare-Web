@@ -1,13 +1,13 @@
 <main class="w-full" style="background-image: url(/static/assets/Images/traumacareAIcare/footer.png);">
     <section class="py-10 sm:py-12 md:py-20 px-4 sm:px-6 md:px-8">
         <div class="max-w-[1500px] mx-auto w-full">
-            <div class="grid md:grid-cols-2 xl:grid-cols-4 gap-12 flex-1">
-                <div class="space-y-8">
+            <div class="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-4 xl:flex gap-12 xl:gap-6 flex-1">
+                <div class="space-y-8 flex-[2] sm:col-span-2">
                     <div class="space-y-4">
                         <div class="border border-[#CACBE61A] rounded-[17px] flex items-center px-5 py-2.5 gap-4 max-w-max bg-[#151E2C]">
                             <img class="h-10" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt="">
                             <div class="h-[36px] w-[1px] bg-[#CACBE61A]"></div>
-                            <p class="text-white text-xs">Health, without<br>the hassle</p>
+                            <p class="text-white text-xs line-clamp-2">Health, without<br>the hassle</p>
                         </div>
                         <p class="text-gray-300 text-sm outfit-font">TraumaCare is an AI-powered healthcare platform revolutionizing patient care with instant doctor appointments, virtual consultations, and seamless communication. Say goodbye to waiting rooms and hello to stress-free healthcare at your fingertips.</p>
                     </div>
@@ -83,7 +83,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="space-y-5">
+                <div class="space-y-5 flex-1">
                     <h4 class="text-white text-xl font-medium whitespace-nowrap">
                         Major Cities
                     </h4>
@@ -99,7 +99,7 @@
                         <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap">View All Cities</li>
                     </ul>
                 </div>
-                <div class="space-y-5">
+                <div class="space-y-5 flex-1">
                     <h4 class="text-white text-xl font-medium whitespace-nowrap">
                         Top Hospitals
                     </h4>
@@ -110,7 +110,7 @@
                         <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap">View List</li>
                     </ul>
                 </div>
-                <div class="space-y-5">
+                <div class="space-y-5 flex-1">
                     <h4 class="text-white text-xl font-medium whitespace-nowrap">
                         Top Specialities
                     </h4>
@@ -121,8 +121,16 @@
                         <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap"><a href="/speciality/">View All Specialist</a></li>
                     </ul>
                 </div>
-                <div>
-                    
+                <div class="space-y-5 flex-1">
+                    <h4 class="text-white text-xl font-medium whitespace-nowrap">
+                        Support
+                    </h4>
+                    <ul class="space-y-2">
+                        <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap"><a href="/speciality/view/{{speciality.slug}}">Privacy Policy</a></li>
+                        <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap"><a href="/speciality/view/{{speciality.slug}}">Terms & Conditions</a></li>
+                        <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap"><a href="/speciality/view/{{speciality.slug}}">Return Policy</a></li>
+                        <li class="max-w-max text-[#FFFFFFA4] hover:text-[#05D57C] transition-all text-sm cursor-pointer whitespace-nowrap"><a href="/speciality/view/{{speciality.slug}}">Shipping Terms</a></li>
+                    </ul>
                 </div>
             </div>
         </div>
