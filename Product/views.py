@@ -42,10 +42,12 @@ def SingleMedicineViewPage(request, product_slug):
         other_locations_data.append({
             'slug' : location_stock.product.slug,
             'name' : location_stock.product.name,
+            'store_name' : location_stock.product.store.name,
             'location_name' : location_stock.location.name,
             'location_id' : location_stock.location.id,
-            'price' : location_stock.final_price,
-            'quantity' : location_stock.quantity
+            'price' : location_stock.price,
+            'final_price' : location_stock.final_price,
+            'discount' : location_stock.discount,
         })
-    context['other_locations'] = other_locations
+    context['other_locations'] = other_locations_data
     return render(request, 'Medicine/SingleMedicineViewPage.html', context)

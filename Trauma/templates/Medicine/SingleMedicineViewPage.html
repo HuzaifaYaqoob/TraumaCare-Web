@@ -134,17 +134,17 @@
                   <div class="max-w-[370px] w-full space-y-3">
                         {% for location_product in other_locations %}
                               <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
-                                    {% if location_product.product.discount %}
+                                    {% if location_product.discount %}
                                           <div class="absolute right-0 top-[26px]">
-                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.product.discount}}% OFF</span>
+                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount}}% OFF</span>
                                           </div>
                                     {% endif %}
                                     <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{location_product.product.product_all_images.0.image.url}}');">   </div>
                                     <div class="px-1 space-y-2 flex-1">
-                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{location_product.product.store.name}}</div>
+                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{location_product.store_name}}</div>
                                           <div class="h-16">
-                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' location_product.product.slug %}?selected_location={{location_product.location.id}}">
-                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{location_product.product.name}}</h2>
+                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' location_product.slug %}?selected_location={{location_product.location_id}}">
+                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{location_product.name}}</h2>
                                                 </a>
                                                 <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
                                                       <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_product.location.lat}},{{location_product.location.lng}}">(317.95 Km)</span>
@@ -157,12 +157,12 @@
                                                       </div>
                                                 </div>
                                                 <div class="flex items-center gap-1">
-                                                      {% if location_product.product.discount %}
-                                                            <span class="text-sm text-[#3C3C3C]/60"><del>{{location_product.product.discounted_price}}</del></span>
+                                                      {% if location_product.discount %}
+                                                            <span class="text-sm text-[#3C3C3C]/60"><del>{{location_product.price}}</del></span>
                                                       {% endif %}
                                                       <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                                                             <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                                                            {{location_product.product.final_price}}
+                                                            {{location_product.final_price}}
                                                       </p>                          
                                                 </div>
                                           </div>
