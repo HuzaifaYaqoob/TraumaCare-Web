@@ -33,10 +33,18 @@ def generateSmsKey():
 def sendMessage(sms_instance, provider='Telenor'):
     if not sms_instance.text or not sms_instance.phone_number:
         return
+    
+    phone_numbers = sms_instance.phone_number.split(',')
+    final_numbers = []
+    for phn in phone_numbers:
+        if phn != '0000':
+            final_numbers.append(phn)
+
+    final_numbers = ','.join(final_numbers)
 
     api_key = SmsServiceKey.objects.get_or_create(key_provider = provider)[0]
 
-    url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={api_key}&to={sms_instance.phone_number}&text={sms_instance.text}&mask=REDEXPO'
+    url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={api_key}&to={final_numbers}&text={sms_instance.text}&mask=REDEXPO'
     print(url)
     response = requests.get(url)
     response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
