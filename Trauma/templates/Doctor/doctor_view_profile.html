@@ -350,7 +350,7 @@
                               </div>
                         {% endif %}
                         {% for clinic in practicing_locations %}
-                              <form action="{% url 'BookAppointment_DoctorPage' %}" method="get" class="border border-[#CACBE6] p-4 rounded-2xl">
+                              <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border border-[#CACBE6] p-4 rounded-2xl">
                                     {% csrf_token %}
                                     <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
                                     <div class="flex-1 flex items-center justify-between">

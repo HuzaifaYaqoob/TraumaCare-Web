@@ -85,12 +85,17 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         if self.profile_type == 'Patient':
-            self.first_name = self.user.first_name or self.first_name
-            self.last_name = self.user.last_name or self.last_name
+            if not self.first_name:
+                self.first_name = self.user.first_name or self.first_name
+            if not self.last_name:
+                self.last_name = self.user.last_name or self.last_name
+
             self.email = self.user.email or self.email
         else:
-            self.first_name = self.first_name or self.user.first_name
-            self.last_name = self.last_name or self.user.last_name
+            if not self.first_name:
+                self.first_name = self.first_name or self.user.first_name
+            if not self.last_name:
+                self.last_name = self.last_name or self.user.last_name
             self.email = self.email or self.user.email
         
         self.full_name = f'{self.first_name} {self.last_name}'.strip()
