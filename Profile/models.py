@@ -79,6 +79,9 @@ class Profile(models.Model):
         
         return DUMMY_PROFILE_IMAGE
     
+    @property
+    def mobile_number(self,):
+        return self.user.mobile_number
 
     def save(self, *args, **kwargs):
         if self.profile_type == 'Patient':
