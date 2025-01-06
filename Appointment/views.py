@@ -7,6 +7,7 @@ from Doctor.models import Doctor, DoctorTimeSlots, DoctorWithHospital
 from Appointment.models import Appointment, AppointmentGroup
 from Trauma.models import Speciality
 
+from Profile.models import Profile
 from django.db.models import Min
 from datetime import timedelta, datetime
 from django.db.models import Count
@@ -132,7 +133,6 @@ def BookAppointment_DoctorPage(request):
         # dr-appointment-slot
         # selected_time
 
-        return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         doctor_id = request.POST.get('doctor', None)
         slot_id = request.POST.get('dr-appointment-slot', None)
         doct_hospital_id = request.POST.get('doct_hospital', None)
@@ -163,8 +163,14 @@ def BookAppointment_DoctorPage(request):
             messages.error(request, 'Selected Slot is not Available')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         
+        user_profiles = Profile.objects.filter(user = request.user, is_active=True, is_deleted=False, is_blocked=False)
+        user_p = None
+        if len(user_profiles) > 0:
+            user_p = user_profiles[0]
+
         appt_grp = AppointmentGroup.objects.create(
             user = request.user,
+            patient_profile = user_p,
         )
 
         s_t = datetime.strptime(selected_time, "%H:%M:00")
