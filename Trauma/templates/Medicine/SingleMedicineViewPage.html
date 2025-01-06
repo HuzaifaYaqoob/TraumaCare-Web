@@ -137,12 +137,12 @@
                                     <div class="absolute right-0 top-[26px]">
                                           <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">4.99% OFF</span>
                                     </div>
-                                    <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url(/media/Product/images/2025-01/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-bacteri-05111603.jpg);">   </div>
+                                    <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{location_product.product.product_all_images.0.image.url}}');">   </div>
                                     <div class="px-1 space-y-2 flex-1">
-                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din</div>
+                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{location_product.product.store.name}}</div>
                                           <div class="h-16">
-                                                <a class="cursor-pointer" href="/product/view/augmentin-tablets-625mg-1-box-1-strip1-strip-6-tablets-fazal-din-glaxosmithkline-pakistan-bacterial-infection-box-box-25602968-fdd4-431c-b0cc-3dee1d08fdfd/?selected_location=1">
-                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">Augmentin Tablets 625Mg (1 Box = 1 Strip)(1 Strip = 6 Tablets)</h2>
+                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' location_product.product.slug %}?selected_location={{location_product.location.id}}">
+                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{location_product.product.name}}</h2>
                                                 </a>
                                                 <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
                                                       <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="34.34235353,74.53436346">(317.95 Km)</span>
@@ -155,10 +155,12 @@
                                                       </div>
                                                 </div>
                                                 <div class="flex items-center gap-1">
-                                                      <span class="text-sm text-[#3C3C3C]/60"><del>251.85</del></span>
+                                                      {% if location_product.product.discount %}
+                                                            <span class="text-sm text-[#3C3C3C]/60"><del>{{location_product.product.discounted_price}}</del></span>
+                                                      {% endif %}
                                                       <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
                                                             <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                                                            265.1
+                                                            {{location_product.product.final_price}}
                                                       </p>                          
                                                 </div>
                                           </div>
