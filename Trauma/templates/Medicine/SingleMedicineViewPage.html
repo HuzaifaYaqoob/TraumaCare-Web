@@ -141,13 +141,13 @@
                                     {% endif %}
                                     <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{product.product_all_images.0.image.url}}');">   </div>
                                     <div class="px-1 space-y-2 flex-1">
-                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{location_product.store_name}}</div>
+                                          <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>
                                           <div class="h-16">
-                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' location_product.slug %}?selected_location={{location_product.location_id}}">
-                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{location_product.name}}</h2>
+                                                <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
+                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{product.name}}</h2>
                                                 </a>
                                                 <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
-                                                      <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_product.location.lat}},{{location_product.location.lng}}">(317.95 Km)</span>
+                                                      <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_product.lat}},{{location_product.lng}}"></span>
                                                 </span>
                                           </div>
                                           <div class="flex items-center justify-between gap-2 !mt-4">
