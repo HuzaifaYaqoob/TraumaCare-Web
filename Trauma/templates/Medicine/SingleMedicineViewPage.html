@@ -134,9 +134,11 @@
                   <div class="max-w-[370px] w-full space-y-3">
                         {% for location_product in other_locations %}
                               <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
-                                    <div class="absolute right-0 top-[26px]">
-                                          <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">4.99% OFF</span>
-                                    </div>
+                                    {% if location_product.product.discount %}
+                                          <div class="absolute right-0 top-[26px]">
+                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.product.discount}}% OFF</span>
+                                          </div>
+                                    {% endif %}
                                     <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{location_product.product.product_all_images.0.image.url}}');">   </div>
                                     <div class="px-1 space-y-2 flex-1">
                                           <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{location_product.product.store.name}}</div>
