@@ -35,5 +35,17 @@ def SingleMedicineViewPage(request, product_slug):
     context = {}
     context['product'] = product
     context['location'] = location
-    context['other_locations'] = ProductStock.objects.filter(product = product).exclude(location = location)
+
+    other_locations = ProductStock.objects.filter(product = product).exclude(location = location)
+    other_locations_data = []
+    for location_stock in other_locations:
+        other_locations_data.append({
+            'slug' : location_stock.product.slug,
+            'name' : location_stock.product.name,
+            'location_name' : location_stock.location.name,
+            'location_id' : location_stock.location.id,
+            'price' : location_stock.final_price,
+            'quantity' : location_stock.quantity
+        })
+    context['other_locations'] = other_locations
     return render(request, 'Medicine/SingleMedicineViewPage.html', context)
