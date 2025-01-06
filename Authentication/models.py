@@ -131,10 +131,10 @@ class User(AbstractBaseUser, PermissionsMixin):
     def profile_image(self):
         from Profile.models import Profile
         try:
-            general_profile = Profile.objects.get(
+            general_profile = Profile.objects.filter(
                 user = self,
                 profile_type = 'Patient'
-            )
+            ).first()
         except:
             return 'https://ionicframework.com/docs/img/demos/avatar.svg'
         else:
