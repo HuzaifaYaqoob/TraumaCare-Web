@@ -601,7 +601,7 @@ class DoctorTimeSlots(models.Model):
     
 
     def __str__(self):
-        return f'{self.doc_hospital} - {self.start_time.strftime('%H:%M %p')} - {self.end_time.strftime('%H:%M %p')}'
+        return f"{self.doc_hospital} - {self.start_time.strftime('%H:%M %p')} - {self.end_time.strftime('%H:%M %p')}"
 
 class DoctorEducation(models.Model):
     DEGREE_TYPE_CHOICES = (
