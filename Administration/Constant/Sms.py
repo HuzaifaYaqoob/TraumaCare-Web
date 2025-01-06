@@ -40,6 +40,11 @@ def sendMessage(sms_instance, provider='Telenor'):
         if phn != '0000':
             final_numbers.append(phn)
 
+    if len(final_numbers) == 0:
+        sms_instance.is_deleted = True
+        sms_instance.save()
+        return
+        
     final_numbers = ','.join(final_numbers)
 
     api_key = SmsServiceKey.objects.get_or_create(key_provider = provider)[0]
