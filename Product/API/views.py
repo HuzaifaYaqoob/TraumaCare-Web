@@ -37,9 +37,9 @@ def CalculateCart(request):
             image = None
             if len(images) > 0 and images[0].image:
                 image = images[0].image.url
-            subtotal +=  (stock.final_price * quantity)
+            subtotal += round(stock.final_price * quantity, 2)
             if stock.discount:
-                discount_applied += stock.discounted_price * quantity
+                discount_applied += round(stock.discounted_price * quantity, 2)
 
             data.append({
                 'id' : product.id,
@@ -48,13 +48,13 @@ def CalculateCart(request):
                 'location_id' : stock.location.id,
                 'location_name' : stock.location.name,
                 'store_name' : product.store.name,
-                'price' : stock.price,
-                'final_price' : stock.final_price,
+                'price' : round(stock.price, 2),
+                'final_price' : round(stock.final_price, 2),
                 'discount' : stock.discount,
                 'image' : image,
             })
 
-    grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
+    grand_total = round((subtotal - discount_applied) + platform_fee + delivery_charges, 2)
 
     return Response({
         'data' : data,
