@@ -102,7 +102,7 @@
                               <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
                                     {% if location_product.discount %}
                                           <div class="absolute right-0 top-[26px]">
-                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount}}% OFF</span>
+                                                <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount|floatformat:0}}% OFF</span>
                                           </div>
                                     {% endif %}
                                     <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{product.product_all_images.0.image.url}}');">   </div>
