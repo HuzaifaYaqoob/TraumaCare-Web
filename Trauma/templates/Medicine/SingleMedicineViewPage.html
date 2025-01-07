@@ -37,7 +37,7 @@
             <div class="flex gap-7">
                   <div class="max-w-[410px] w-full">
                         <div class="relative overflow-hidden w-full h-[400px] border border-[#CACBE6] rounded-3xl flex justify-center">
-                              <img src="{{product.product_all_images.0.image.url}}" class="max-w-full max-h-full" alt="">
+                              <img src="{% if product.product_all_images.0.image %}{{product.product_all_images.0.image.url}}{% endif %}" class="max-w-full max-h-full" alt="">
                         </div>
                   </div>
                   <div class="flex-1 max-w-[600px]">
@@ -81,9 +81,31 @@
                         <div class="my-4 w-full h-[1px] bg-[#CACBE6]"> </div>
                         <div class="flex items-center gap-3">
                               <div class="flex items-center rounded-lg bg-[#6C7793] w-[120px] h-[40px] p-[1.5px]">
-                                    <button class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">-</button>
-                                    <p class="text-[#0A1C4B] text-xl font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">1</p>
-                                    <button class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                                    <button onclick="handleIncrementDecrement(false)" class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">-</button>
+                                    <p class="text-[#0A1C4B] text-xl font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font" ProductQuantity='1'>1</p>
+                                    <button onclick="handleIncrementDecrement(true)" class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                                    <script>
+                                          const handleIncrementDecrement = (is_add) => {
+                                                let value_elemtn = document.querySelector('p[ProductQuantity]')
+                                                if (!value_elemtn){
+                                                      return
+                                                }
+                                                let value = value_elemtn.getAttribute('ProductQuantity')
+                                                value = parseInt(value)
+                                                
+                                                if (is_add){
+                                                      value += 1
+                                                }
+                                                else{
+                                                      if (value == 1){
+                                                            return
+                                                      }
+                                                      value -= 1
+                                                }
+                                                value_elemtn.innerHTML = value
+                                                value_elemtn.setAttribute('ProductQuantity', value)
+                                          }
+                                    </script>
                               </div>
                               <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn()">
                                     Add to Cart
@@ -99,7 +121,7 @@
                                                       <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount|floatformat:0}}% OFF</span>
                                                 </div>
                                           {% endif %}
-                                          <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{{product.product_all_images.0.image.url}}');">   </div>
+                                          <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{% if product.product_all_images.0.image %}{{product.product_all_images.0.image.url}}{% endif %}');">   </div>
                                           <div class="px-1 space-y-2 flex-1">
                                                 {% comment %} <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div> {% endcomment %}
                                                 <div class="">
