@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', () => {
       }
       let already_exist = CartItems.find(item => item.slug == productSlug)
       if (already_exist){
-            CartItems = CartItems.map(itm => ({...itm, quantity : ProductQuantity}))
+            CartItems = CartItems.map(itm => ({...itm, quantity : itm.slug == productSlug ? parseInt(itm.quantity) + parseInt(ProductQuantity) : parseInt(itm.quantity),}))
       }
       else{
             CartItems.push({'slug' : productSlug,'quantity' : ProductQuantity})
