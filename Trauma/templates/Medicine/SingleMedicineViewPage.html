@@ -239,12 +239,10 @@
                               <p class="mt-[5px] text-gray-600 text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.route_of_administration %}{{product.route_of_administration}}{% else %}---{% endif %}</p>
                         </div>
                   </div>
-                  <h2 class="text-[18px] mt-[15px] font-semibold text-[#323232]">Reviews</h2>
+                  {% comment %} <h2 class="text-[18px] mt-[15px] font-semibold text-[#323232]">Reviews</h2>
                   <div class="flex flex-col gap-[10px]">
                         {% include 'Components/Pharmacy/MedicineReview.html' %}
-                        {% include 'Components/Pharmacy/MedicineReview.html' %}
-                        {% include 'Components/Pharmacy/MedicineReview.html' %}
-                  </div>
+                  </div> {% endcomment %}
             </div>
             <div class="mt-[50px]">
                   {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
