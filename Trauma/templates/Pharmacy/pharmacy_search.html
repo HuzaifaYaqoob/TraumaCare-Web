@@ -4,514 +4,185 @@
 {% block title %}Home{% endblock title %}
 
 {% block BaseCSS %}
-    <link rel="stylesheet" href="{% static 'assets/css/medicalStore.css' %}">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
+<style>
+
+#slider .noUi-connect {
+    background-color: #4caf50;
+    height: 100%;
+    border-radius: 999px;
+}
+
+#slider .noUi-handle {
+    height: 20px;
+    width: 20px;
+    border-radius: 100%;
+    top: -6px;
+    border: none;
+}
+
+#slider .noUi-handle-lower {
+    background-color: #557DE5 !important;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+#slider .noUi-handle-upper {
+    background-color: #7EE3B8 !important;
+    border: none;
+    box-shadow: none;
+    cursor: pointer;
+}
+
+
+#slider .noUi-base {
+    height: 9px;
+    border-radius: 100%;
+}
+
+</style>
 {% endblock BaseCSS %}
 
 {% block pharmacy_body %}
-    
-    <main class="main-tag">
-        <main class="main-tag-main1">
-            <div class="section-left">
-                <div class="section-left-Doctors">
-                    <div>
-                        <p>Doctors</p>
-                    </div>
-                    <div>
-                        <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M0 0.447632L5 5.79231L10 0.447632H0Z" fill="#24D0D0" />
-                        </svg>
-                    </div>
 
-                </div>
-                <div class="Psychiatrists-main-div">
-                    <ul>
-                        <li>Psychiatrists</li>
-                        <li>Neuro Physician</li>
-                        <li>Gynecologist</li>
-                        <li>Diabetes </li>
-                        <li>Orthopedic</li>
-                    </ul>
-                    <ul class="last-ul-border">
-                        <li>Near Me</li>
-                        <li>Online Now</li>
-                        <li>Fee Range</li>
-                        <li>Time Slot</li>
-                        <li>Video consultation</li>
-                    </ul>
-                    <div class="last-li-items">
-                        <li>Urologist</li>
-                        <li>ENT</li>
-                        <li>Diabetes</li>
-                    </div>
-                </div>
-
-                <div class="Hospitals">
-                    <li>Hospitals</li>
-                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0.703247L5 6.04793L10 0.703247H0Z" fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="Hospitals">
-                    <li>Consult Online</li>
-                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0.703247L5 6.04793L10 0.703247H0Z" fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="Hospitals">
-                    <li>Labs</li>
-                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0.703247L5 6.04793L10 0.703247H0Z" fill="#0A1C4B" />
-                    </svg>
-                </div>
-                <div class="Hospitals">
-                    <li>Medical Stores</li>
-                    <svg width="10" height="7" viewBox="0 0 10 7" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M0 0.703247L5 6.04793L10 0.703247H0Z" fill="#0A1C4B" />
-                    </svg>
-                </div>
-
-
+<main class="px-4 sm:px-6 md:px-8 space-y-10 py-7 bg-[#F9F9F9]">
+    <section class="max-w-[1500px] mx-auto flex items-start gap-6">
+        <div class="max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7">
+            <div class="flex items-center justify-between">
+                <h4 class="text-[#151E2C] font-semibold">Filter</h4>
+                <button class="underline text-sm text-[#3C3C3C] font-medium">
+                    Clear All
+                </button>
             </div>
-
-        </main>
-        <!--  -->
-        <!--  -->
-        <!-- right vala main -->
-        <!--  -->
-        <!--  -->
-        <!--  -->
-        <main class="right-main-tag">
-            <div class="right-main-tag-maind">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
-                            </div>
-                        </div>
+            <div class="space-y-2">
+                <h3 class="text-[#111111] font-medium">City</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Lahore" id="Lahore">
+                        <label for="Lahore" class="text-[#514B81] text-sm select-none">Lahore</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Sialkot" id="Sialkot">
+                        <label for="Sialkot" class="text-[#514B81] text-sm select-none">Sialkot</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Karachi" id="Karachi">
+                        <label for="Karachi" class="text-[#514B81] text-sm select-none">Karachi</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Quetta" id="Quetta">
+                        <label for="Quetta" class="text-[#514B81] text-sm select-none">Quetta</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Islamabad" id="Islamabad">
+                        <label for="Islamabad" class="text-[#514B81] text-sm select-none">Islamabad</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Sargodha" id="Sargodha">
+                        <label for="Sargodha" class="text-[#514B81] text-sm select-none">Sargodha</label>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <input type="checkbox" name="Faisalabad" id="Faisalabad">
+                        <label for="Faisalabad" class="text-[#514B81] text-sm select-none">Faisalabad</label>
                     </div>
                 </div>
-
             </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
+            <div class="space-y-3">
+                <h3 class="text-[#111111] font-medium">Price Range</h3>
+                <div class="flex items-center justify-between gap-1">
+                    <p class="text-[10px] text-[#514B81] outfit-font">Minimum</p>
+                    <p class="text-[10px] text-[#514B81] outfit-font">Maximum</p>
+                </div>
+                <div id="slider" class="relative w-full h-2.5 bg-[#97B4FF4D] rounded-full border-none"></div>
+                <div class="flex justify-between text-sm text-[#514B81]">
+                    <span id="slider-min" class="font-bold">0</span>
+                    <span id="slider-max" class="font-bold">1000</span>
+                </div>
+            </div>
+            <button class="rounded-lg flex items-center justify-center w-full text-white text-sm outfit-font bg-gradient-to-r from-[#0755E9] to-[#05DC75] py-2.5">
+                Apply Filter
+            </button>
+        </div>
+        <div class="flex-1 space-y-6">
+            <div class="space-y-2">
+                <h2 class="text-2xl text-[#151E2C] outfit-font font-semibold leading-tight">
+                    Discover Top-Searched Medicines Available <span class="text-[#0755E9]">Near You</span>, Anytime You Need!
+                </h2>
+                <p class="text-sm text-[#3C3C3C] outfit-font">
+                    Find trusted, high-quality medicines at your convenience, tailored to your needs and location.
+                </p>
+            </div>
+            <div class="space-y-3">
+                <div class="flex items-center gap-7">
+                    <p class="text-[#3C3C3C] text-xs">20 | 98 results</p>
+                    <div class="flex items-center">
+                        <span class="size-5 flex items-center justify-center">
+                            <svg class="size-3" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M8.23871 3.27934C8.37933 3.41979 8.56996 3.49868 8.76871 3.49868C8.96746 3.49868 9.15808 3.41979 9.29871 3.27934L10.0187 2.55934V12.7493C10.0187 12.9483 10.0977 13.139 10.2384 13.2797C10.379 13.4203 10.5698 13.4993 10.7687 13.4993C10.9676 13.4993 11.1584 13.4203 11.299 13.2797C11.4397 13.139 11.5187 12.9483 11.5187 12.7493V2.55934L12.2387 3.27934C12.3074 3.35303 12.3902 3.41213 12.4822 3.45312C12.5742 3.49411 12.6735 3.51615 12.7742 3.51793C12.8749 3.51971 12.9749 3.50118 13.0683 3.46346C13.1617 3.42574 13.2465 3.3696 13.3177 3.29838C13.389 3.22716 13.4451 3.14233 13.4828 3.04894C13.5206 2.95555 13.5391 2.85552 13.5373 2.75482C13.5355 2.65411 13.5135 2.5548 13.4725 2.4628C13.4315 2.3708 13.3724 2.288 13.2987 2.21934L11.2987 0.21934C11.1581 0.0788894 10.9675 0 10.7687 0C10.57 0 10.3793 0.0788894 10.2387 0.21934L8.23871 2.21934C8.09826 2.35997 8.01937 2.55059 8.01937 2.74934C8.01937 2.94809 8.09826 3.13871 8.23871 3.27934ZM3.51871 12.9393L4.23871 12.2193C4.30737 12.1457 4.39017 12.0866 4.48217 12.0456C4.57417 12.0046 4.67348 11.9825 4.77419 11.9807C4.87489 11.979 4.97492 11.9975 5.06831 12.0352C5.16169 12.0729 5.24653 12.1291 5.31775 12.2003C5.38897 12.2715 5.44511 12.3564 5.48283 12.4497C5.52055 12.5431 5.53908 12.6432 5.5373 12.7439C5.53552 12.8446 5.51348 12.9439 5.47249 13.0359C5.4315 13.1279 5.37239 13.2107 5.29871 13.2793L3.29871 15.2793C3.15808 15.4198 2.96746 15.4987 2.76871 15.4987C2.56996 15.4987 2.37933 15.4198 2.23871 15.2793L0.238708 13.2793C0.165021 13.2107 0.105919 13.1279 0.064927 13.0359C0.023935 12.9439 0.00189351 12.8446 0.000116722 12.7439C-0.00166006 12.6432 0.0168643 12.5431 0.0545854 12.4497C0.0923064 12.3564 0.148451 12.2715 0.21967 12.2003C0.290888 12.1291 0.375722 12.0729 0.46911 12.0352C0.562499 11.9975 0.662528 11.979 0.763231 11.9807C0.863934 11.9825 0.963247 12.0046 1.05525 12.0456C1.14725 12.0866 1.23005 12.1457 1.29871 12.2193L2.01871 12.9393V2.74934C2.01871 2.55043 2.09773 2.35966 2.23838 2.21901C2.37903 2.07836 2.5698 1.99934 2.76871 1.99934C2.96762 1.99934 3.15839 2.07836 3.29904 2.21901C3.43969 2.35966 3.51871 2.55043 3.51871 2.74934V12.9393Z" fill="#0755E9"/>
+                            </svg>                                
+                        </span>
+                        <p class="text-[#0755E9] text-xs">Sort by: Available Now</p>
+                        <span class="size-5 flex items-center justify-center">                              
+                            <svg class="size-2" viewBox="0 0 13 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M11.91 -3.91006e-05L12.97 1.06096L7.193 6.83996C7.10043 6.93312 6.99036 7.00704 6.86911 7.05749C6.74786 7.10794 6.61783 7.13391 6.4865 7.13391C6.35517 7.13391 6.22514 7.10794 6.10389 7.05749C5.98264 7.00704 5.87257 6.93312 5.78 6.83996L0 1.06096L1.06 0.000960827L6.485 5.42496L11.91 -3.91006e-05Z" fill="#0755E9"/>
+                            </svg>  
+                        </span>
+                    </div>
+                </div>
+                <div>
+                    <div class="py-2 px-3 flex gap-3 bg-white border border-[#0000001A] w-full rounded-xl">
+                        <div class="max-w-[150px] w-full h-28 flex items-center justify-center cursor-pointer rounded-md overflow-hidden">
+                            <img class="rounded-md" src="https://muslimaid-2022.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" alt="">
                         </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
+                        <div class="flex-1 space-y-1">
+                            <div class="flex items-center justify-between gap-2">
+                                <h3 class="font-medium outfit-font text-[#151E2C] line-clamp-1 cursor-pointer">Soloban 60 Cream 30gm | Soloban 60 Cream 30gm</h3>
+                                <div class="flex items-center gap-1">                      
+                                    <span class="text-xs text-[#3C3C3C]/60"><del>163.0</del></span>
+                                    <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">PKR</span>154.85</p>                          
                                 </div>
                             </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
+                            <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din Pharma Plus</div>
+                            <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
+                                <p>(1.64 Km) <span>Distance from you</span></p>
+                            </span>
+                            <div class="flex items-center justify-end">
+                                <button class="text-xs rounded-md flex items-center justify-center bg-[#0A1C4B] py-2 text-white outfit-font px-5 max-w-max">
+                                    Add to Cart
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p> Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p> Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--  -->
-            <!-- copy -->
-            <!--  -->
-            <div class="right-main-tag-maind margin">
-                <div class="text-left">
-                    <div class="hameed-main">
-                        <div class="hameed-img-div">
-                            <div class="hameed-img-divd1">
-                                <p>Open </p>
-                                <svg width="10" height="10" viewBox="0 0 10 10" fill="none"
-                                    xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="5" cy="5" r="5" fill="#51B74F" />
-                                </svg>
-                            </div>
-                        </div>
-                        <div class="main2-main-div1-second">
-                            <div class="Hameed-div">
-                                <h3>Alpha Medical Store</h3>
-                                <p>3.34 km Away</p>
-                            </div>
-                            <div class="flex-divv">
-                                <div class="flex-divv1">
-                                    <h4>Experience</h4>
-                                    <p>12 years</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>satisfaction</h4>
-                                    <p>98%</p>
-                                </div>
-                                <div class="flex-divv1">
-                                    <h4>Medicine Availability</h4>
-                                    <p>99.9%</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="hameed-last">
-                            <div class="last-d1">
-                                <a href="">
-                                    <p>View Profile</p>
-                                </a>
-                            </div>
-                            <div class="last-d2">
-                                <a href="">
-                                    <p>Directions</p>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </main>
-    </main>
+        </div>
+    </section>
+</main>
 
-    <!-- last 1,2,3,4 option starting -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.js"></script>
+<script>
 
+    const slider = document.getElementById("slider");
+    const sliderMin = document.getElementById("slider-min");
+    const sliderMax = document.getElementById("slider-max");
 
+    noUiSlider.create(slider, {
+        start: [0, 8000],
+        connect: true,
+        range: {
+            min: 0,
+            max: 10000,
+        },
+        step: 10,
+        tooltips: false,
+    });
 
-    <div class="small-footer">
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="20" cy="20" r="20" fill="#24D0D0" fill-opacity="0.15" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M22.1328 14.2144C22.5547 14.5519 22.6231 15.1675 22.2856 15.5894L17.5571 21.5L22.2856 27.4106C22.6231 27.8325 22.5547 28.4481 22.1328 28.7856C21.7109 29.1231 21.0953 29.0547 20.7578 28.6328L15.5405 22.1111C15.2546 21.7538 15.2546 21.2462 15.5405 20.8889L20.7578 14.3672C21.0953 13.9453 21.7109 13.8769 22.1328 14.2144Z"
-                fill="#F8F8F8" stroke="#24D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-        <li>1</li>
-        <li class="blue-color">2</li>
-        <li>3</li>
-        <li>4</li>
-        <li class="svg-li">
-            <svg width="17" height="5" viewBox="0 0 17 5" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path
-                    d="M2.144 4.168C1.536 4.168 1.032 3.984 0.632 3.616C0.248 3.232 0.0560001 2.76 0.0560001 2.2C0.0560001 1.64 0.248 1.176 0.632 0.808C1.032 0.424 1.536 0.232 2.144 0.232C2.736 0.232 3.224 0.424 3.608 0.808C3.992 1.176 4.184 1.64 4.184 2.2C4.184 2.76 3.992 3.232 3.608 3.616C3.224 3.984 2.736 4.168 2.144 4.168ZM8.37838 4.168C7.77038 4.168 7.26638 3.984 6.86638 3.616C6.48238 3.232 6.29038 2.76 6.29038 2.2C6.29038 1.64 6.48238 1.176 6.86638 0.808C7.26638 0.424 7.77038 0.232 8.37838 0.232C8.97038 0.232 9.45838 0.424 9.84238 0.808C10.2264 1.176 10.4184 1.64 10.4184 2.2C10.4184 2.76 10.2264 3.232 9.84238 3.616C9.45838 3.984 8.97038 4.168 8.37838 4.168ZM14.6128 4.168C14.0048 4.168 13.5008 3.984 13.1008 3.616C12.7168 3.232 12.5248 2.76 12.5248 2.2C12.5248 1.64 12.7168 1.176 13.1008 0.808C13.5008 0.424 14.0048 0.232 14.6128 0.232C15.2048 0.232 15.6928 0.424 16.0768 0.808C16.4608 1.176 16.6528 1.64 16.6528 2.2C16.6528 2.76 16.4608 3.232 16.0768 3.616C15.6928 3.984 15.2048 4.168 14.6128 4.168Z"
-                    fill="#24D0D0" />
-            </svg>
-        </li>
-        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <circle r="20" transform="matrix(-1 0 0 1 20 20)" fill="#24D0D0" fill-opacity="0.15" />
-            <path fill-rule="evenodd" clip-rule="evenodd"
-                d="M17.8672 14.2144C17.4453 14.5519 17.3769 15.1675 17.7144 15.5894L22.4429 21.5L17.7144 27.4106C17.3769 27.8325 17.4453 28.4481 17.8672 28.7856C18.2891 29.1231 18.9047 29.0547 19.2422 28.6328L24.4595 22.1111C24.7454 21.7538 24.7454 21.2462 24.4595 20.8889L19.2422 14.3672C18.9047 13.9453 18.2891 13.8769 17.8672 14.2144Z"
-                fill="#F8F8F8" stroke="#24D0D0" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
+    slider.noUiSlider.on("update", (values) => {
+        sliderMin.textContent = Math.round(values[0]);
+        sliderMax.textContent = Math.round(values[1]);
+    });
 
-    </div>
-
+</script>
 
 {% endblock pharmacy_body %}
