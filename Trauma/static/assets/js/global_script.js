@@ -290,7 +290,9 @@ const showSidebarCart = async () => {
     const response = await fetch('/api/v1/product/calculate_cart/', {method : 'POST'})
     const result = await response.json()
     console.log(result)
-
+    if (result?.data.length == 0) {
+        return
+    }
     let CartItems_div = document.querySelector('[CartItems]')
     result?.data?.forEach((prod_itm) => {
         console.log(prod_itm)
