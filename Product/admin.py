@@ -69,7 +69,8 @@ class ProductAdmin(admin.ModelAdmin):
 
     def categories(self, obj):
         return obj.sub_category.all().count()
-
+    
+    categories.admin_order_field = 'sub_category'
 
     @admin.display(description='Price & Discount')
     def price_and_discount(self, product):
