@@ -80,10 +80,6 @@
                         </div>
                         <div class="my-4 w-full h-[1px] bg-[#CACBE6]"> </div>
                         <div class="space-y-3">
-                              <div class="flex items-center gap-1">
-                                    <p class="text-[#151E2C] font-semibold text-sm">Quantity:</p>
-                                    <p class="text-[#51B74F] font-semibold text-sm">3 In Stoke</p>
-                              </div>
                               <div class="flex items-center rounded-lg bg-[#6C7793] w-[120px] h-[40px] p-[1.5px]">
                                     <button class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">-</button>
                                     <p class="text-[#0A1C4B] text-xl font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">1</p>
@@ -110,7 +106,7 @@
                                           {% comment %} <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div> {% endcomment %}
                                           <div class="">
                                                 <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
-                                                      <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">{{product.name}}</h2>
+                                                      <h2 class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</h2>
                                                 </a>
                                                 <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
                                                       {{location_product.location_name}}
