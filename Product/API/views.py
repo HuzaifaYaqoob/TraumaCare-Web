@@ -37,7 +37,7 @@ def CalculateCart(request):
             image = None
             if len(images) > 0 and images[0].image:
                 image = images[0].image.url
-            subtotal = stock.final_price * quantity
+            subtotal +=  (stock.final_price * quantity)
             if stock.discount:
                 discount_applied += stock.discounted_price * quantity
 
