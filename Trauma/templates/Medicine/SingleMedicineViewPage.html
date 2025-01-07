@@ -51,7 +51,7 @@
                               <div class="flex items-center justify-between">
                                     <h1 class="text-2xl font-semibold text-[#151E2C] outfit-font">{{product.name}}</h1>
                                     {% if location.discount %}
-                                          {% include 'Components/PercentageOff.html' with percentage=location.discount %}
+                                          {% include 'Components/PercentageOff.html' with percentage=location.discount|floatformat:0 %}
                                     {% endif %}
                               </div>
                               <div class="flex gap-2.5">
