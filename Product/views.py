@@ -25,18 +25,21 @@ def SingleMedicineViewPage(request, product_slug):
     location = request.GET.get('selected_location', None)
     if location:
         try:
-            location = StoreLocation.custom_objects.get(id = location)
+            location = StoreLocation.objects.get(id = location)
         except:
             pass
     if not location:
         location = product.lowest_rate_location
+
+    location_stock = ProductStock.custom_objects.filter(product = product, location = location, is_active = True, is_deleted = False).order_by('-created_at').first()
     
     
     context = {}
     context['product'] = product
     context['location'] = location
+    context['location_stock'] = location_stock
 
-    other_locations = ProductStock.custom_objects.filter(product = product).exclude(location = location).order_by('final_price')[:3]
+    other_locations = ProductStock.custom_objects.filter(product = product).exclude(id = location_stock.id).order_by('final_price')[:3]
     other_locations_data = []
     for location_stock in other_locations:
         product_all_images = location_stock.product.product_all_images
