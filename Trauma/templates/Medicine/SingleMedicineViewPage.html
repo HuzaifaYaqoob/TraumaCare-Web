@@ -40,21 +40,18 @@
                               <img src="{{product.product_all_images.0.image.url}}" class="max-w-full max-h-full" alt="">
                         </div>
                   </div>
-                  <div class="flex-1 space-y-4">
+                  <div class="flex-1">
                         {% if product.prescription_required %}
-                              <div class="bg-[#FEB54633] flex items-center gap-3 px-3 py-1 rounded-xl border border-[#FEB546] max-w-[580px] w-full">
+                              <div class="flex items-center gap-3 w-full">
                                     <img class="size-7" src="{% static 'assets/Images/warning 1.png' %}" alt="">
-                                    <div class="">
-                                          <p class="text-[#ED930A] outfit-font text-[15px]">Prescription required for this product on the Checkout page.</p>
-                                          <span class="text-[#151E2C] text-sm"><a class="text-[#557DE5] underline outfit-font" href="#">Upload Now</a> or <a class="text-[#05D57C] underline outfit-font" href="#">Remind me Later</a></span>  
-                                    </div>
+                                    <p class="text-red-600 outfit-font text-[15px]">Prescription required for this product</p>
                               </div>
                         {% endif %}
-                        <div class="space-y-1">
+                        <div class="">
                               <div class="flex items-center justify-between">
                                     <h1 class="text-2xl font-semibold text-[#151E2C] outfit-font">{{product.name}}</h1>
-                                    {% if product.discount %}
-                                          {% include 'Components/PercentageOff.html' with percentage=product.discount discounted_price=2000 %}
+                                    {% if location.discount %}
+                                          {% include 'Components/PercentageOff.html' with percentage=location.discount %}
                                     {% endif %}
                               </div>
                               <div class="flex gap-2.5">
