@@ -59,4 +59,5 @@ def SingleMedicineViewPage(request, product_slug):
             'lat' : location_stock.location.lat, 'lng' : location_stock.location.lng,
         })
     context['other_locations'] = other_locations_data
+    context['medicines'] = Product.objects.filter(is_active=True, is_deleted=False, is_blocked=False).order_by('?')[:10]
     return render(request, 'Medicine/SingleMedicineViewPage.html', context)
