@@ -4,6 +4,8 @@ from Product.models import Product, ProductStock
 from Pharmacy.models import Store, StoreLocation
 from django.contrib import messages
 
+from django.db.models import Q
+
 # Create your views here.
 
 
@@ -59,5 +61,12 @@ def SingleMedicineViewPage(request, product_slug):
             'lat' : location_stock.location.lat, 'lng' : location_stock.location.lng,
         })
     context['other_locations'] = other_locations_data
-    context['medicines'] = Product.objects.filter(is_active=True, is_deleted=False, is_blocked=False).order_by('?')[:10]
+    context['medicines'] = Product.objects.filter(
+        Q(sub_category__in = product.sub_category.all()) |
+        Q(product_form = product.product_form) |
+        Q(product_type = product.product_type) |
+        Q(formulation = product.formulation) |
+        Q(treatment_type = product.treatment_type),
+        is_active=True, is_deleted=False, is_blocked=False,
+    ).distinct().order_by('?')[:10]
     return render(request, 'Medicine/SingleMedicineViewPage.html', context)
