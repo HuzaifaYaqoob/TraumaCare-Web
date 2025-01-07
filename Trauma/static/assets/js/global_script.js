@@ -269,6 +269,16 @@ function getCookie(c_name) {
     }
 }
 
+const showSidebarCart = () => {
+    console.log('showing')
+    let cart__popup__main = document.getElementById('cart__popup__main');
+    let cart__popup__main__width = document.getElementById('cart__popup__main__width');
+
+    cart__popup__main.classList.add('!block');
+    cart__popup__main__width.classList.add('w-full');
+
+}
+
 const StartScript = () =>{
     // accessLocation()
     BodyClicked()

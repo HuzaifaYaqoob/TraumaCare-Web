@@ -341,8 +341,7 @@ document.addEventListener('DOMContentLoaded', () => {
       console.log(CartItems)
       setCookie('CartItems', JSON.stringify(CartItems), 7)
       console.log('working')
-      // cart__popup__main.classList.add('!block');
-      // cart__popup__main__width.classList.add('w-full');
+      showSidebarCart()
     }
 
     function close__cart__popup__btn() {
