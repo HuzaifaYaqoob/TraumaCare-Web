@@ -48,26 +48,28 @@
                               </div>
                         {% endif %}
                         <div class="">
-                              <div class="flex items-center justify-between">
-                                    <h1 class="flex-1 text-2xl font-semibold text-[#151E2C] outfit-font">{{product.name}}</h1>
+                              <div class="flex items-start justify-between">
+                                    <div>
+                                          <h1 class="text-2xl mb-2 font-semibold text-[#151E2C] outfit-font">{{product.name}}</h1>
+                                          <div class="flex gap-2.5">
+                                                <span class="w-12 h-12 border border-gray-200 rounded-full bg-center bg-cover bg-no-repeat" style="background-image:url('{{product.store.profile_image}}')"></span>
+                                                <span>
+                                                      <p class="m-0 p-0 font-[400] text-[#0755E9]" style="margin:0;padding:0;font-size:16px">{{product.store.name}}</p>
+                                                      <p class="m-0 p-0 text-sm font-[400] text-black flex gap-2 items-center" >
+                                                            {{location.name}}
+                                                            {% if location %}
+                                                                  <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                                                                        <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                                                                  </span>
+                                                            {% endif %}
+                                                      </p>
+                                                </span>
+                                          </div>
+                                    </div>
                                     {% if location_stock.discount %}
                                           {% include 'Components/PercentageOff.html' with percentage=location_stock.discount|floatformat:0 show_price='true' discounted_price=location_stock.final_price|floatformat:2 %}
                                     {% endif %}
                               </div>
-                              <div class="flex gap-2.5">
-                                    <span class="w-12 h-12 border border-gray-200 rounded-full bg-center bg-cover bg-no-repeat" style="background-image:url('{{product.store.profile_image}}')"></span>
-                                    <span>
-                                          <p class="m-0 p-0 font-[400] text-[#0755E9]" style="margin:0;padding:0;font-size:16px">{{product.store.name}}</p>
-                                          <p class="m-0 p-0 text-sm font-[400] text-black flex gap-2 items-center" >
-                                                {{location.name}}
-                                                {% if location %}
-                                                      <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
-                                                            <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
-                                                      </span>
-                                                {% endif %}
-                                          </p>
-                                    </span>
-                                </div>
                               <div class="!mt-5 flex items-center gap-1">
                                     {% if not location_stock.discount %}
                                           <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
