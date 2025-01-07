@@ -282,6 +282,7 @@ const showSidebarCart = async () => {
     if (CartItems){
         CartItems = JSON.parse(CartItems)
     }
+    console.log(CartItems)
 
     if (CartItems.length == 0){
         return
