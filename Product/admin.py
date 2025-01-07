@@ -56,6 +56,7 @@ class ProductAdmin(admin.ModelAdmin):
     ]
     list_display = [
         'product',
+        'categories',
         'price_and_discount',
         'Vendor',
         'manufacturer',
@@ -65,6 +66,9 @@ class ProductAdmin(admin.ModelAdmin):
         'product_type',
         # 'Images',
     ]
+
+    def categories(self, obj):
+        return obj.sub_category.all().count()
 
 
     @admin.display(description='Price & Discount')
