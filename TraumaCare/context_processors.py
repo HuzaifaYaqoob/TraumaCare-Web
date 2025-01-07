@@ -14,6 +14,7 @@ from django.contrib import messages
 from ChatXpo.models import XpoChat, ChatMessage
 
 def global_context_processor(request):
+    context = {}
     str_query = '?'
     for key in request.GET:
         val = request.GET.get(key)
@@ -45,13 +46,17 @@ def global_context_processor(request):
     
         chat_widget_messages = ChatMessage.objects.filter(chat__uuid = chat_id, is_deleted = False, is_blocked = False, is_active = True).exclude(role = 'assistant').order_by('created_at')
     
-    
+    if request.user.is_authenticated:
+        authToken = request.user.auth_token.key
+        context['authToken'] = authToken
+
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
         'chat_widget_chat_id' : chat_id,
-        'chat_widget_messages' : chat_widget_messages
+        'chat_widget_messages' : chat_widget_messages,
+        **context
     }
 
 

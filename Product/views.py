@@ -10,6 +10,10 @@ from django.contrib import messages
 def productDetailPage(request):
     return render(request, 'Product/product_details.html')
 
+
+def ProductSearchpage(request):
+    return render(request, 'Product/SingleMedicineViewPage.html')
+
 def SingleMedicineViewPage(request, product_slug):
     try:
         product = Product.objects.get(

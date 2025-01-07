@@ -1,5 +1,5 @@
 
-{% extends 'Components/Base.html' %}
+{% extends 'Pharmacy/PharmacyBase.html' %}
 {% load static %}
 {% block title %}Home{% endblock title %}
 
@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="{% static 'assets/css/medicalStore.css' %}">
 {% endblock BaseCSS %}
 
-{% block baseBody %}
+{% block pharmacy_body %}
     
     <main class="main-tag">
         <main class="main-tag-main1">
@@ -514,4 +514,4 @@
     </div>
 
 
-{% endblock baseBody %}
+{% endblock pharmacy_body %}

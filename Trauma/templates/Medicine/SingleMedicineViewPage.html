@@ -260,6 +260,9 @@
 
 <script defer src="{% static 'assets/swiper/main_swiper.js' %}"></script>
   <script>
+      const authToken = '{{authToken}}'
+      const productSlug = '{{product.slug}}'
+
     document.addEventListener('DOMContentLoaded', () => {
       function totalshowPM() {
         let section = document.querySelector(".change-location-popup-main-BG");
@@ -320,8 +323,25 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart__popup__main = document.getElementById('cart__popup__main');
 
     function add_to_cart_btn() {
-      cart__popup__main.classList.add('!block');
-      cart__popup__main__width.classList.add('w-full');
+      const ProductQuantity = document.querySelector('[ProductQuantity]').getAttribute('ProductQuantity');
+      let CartItems = getCookie('CartItems');
+      if (CartItems){
+            CartItems = JSON.parse(CartItems)
+      }
+      else{
+            CartItems = []
+      }
+      let already_exist = CartItems.find(item => item.slug == productSlug)
+      if (already_exist){
+            CartItems = CartItems.map(itm => ({...itm, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
+      }
+      else{
+            CartItems.push({'slug' : productSlug,'quantity' : ProductQuantity})
+      }
+      console.log(CartItems)
+      setCookie('CartItems', JSON.stringify(CartItems), 7)
+      console.log('working')
+      showSidebarCart()
     }
 
     function close__cart__popup__btn() {
