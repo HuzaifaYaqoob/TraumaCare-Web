@@ -24,5 +24,5 @@ urlpatterns = [
     path('v1/meet/', include('Meet.urls') ),
 
 
-    path('v1/product/', include('Meet.urls') ),
+    path('v1/product/', include('Product.API.urls') ),
 ] 

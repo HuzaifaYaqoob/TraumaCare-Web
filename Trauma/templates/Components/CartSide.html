@@ -1,0 +1,55 @@
+
+<section class="h-[100vh] w-full bg-black/50 fixed top-0 z-[10000000] hidden transition-all" id="cart__popup__main">
+      <div onclick="close__cart__popup__btn()" class='absolute inset-0 bg-transparent z-[2] cursor-pointer' >
+      </div>
+      <div class="max-w-[440px] z-[3] relative w-0 ml-auto h-full bg-white flex flex-col transition-all" id="cart__popup__main__width">
+            <div class="px-5 py-4 flex items-center justify-between border-b border-[#CACBE6]">
+                  <h2 class="text-lg font-medium outfit-font text-[#151E2C] line-clamp-1">Shopping Cart</h2>
+                  <span class="cursor-pointer" onclick="close__cart__popup__btn()">
+                        <svg class="fill-[#151E2C] stroke-[#151E2C]" width="13" height="13" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M1 11L11 1M1 1L11 11" stroke-width="2" stroke-linecap="round"></path>
+                        </svg>
+                  </span>
+            </div>
+            <div class="flex-1 overflow-y-auto px-5 py-2" CartItems>
+                  {% comment %} Product Items here {% endcomment %}
+            </div>
+            <div class="px-5 py-4" CartBottomBillingBar>
+                  {% comment %} <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Subtotal:</h4>
+                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 500</p>
+                  </div>
+                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[#0555E9] outfit-font font-medium text-sm">Discount Applied:</h4>
+                        <p class="text-[#0555E9] outfit-font font-medium text-sm">Rs. -175</p>
+                  </div>
+                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Platform Fee:</h4>
+                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 9</p>
+                  </div>
+                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Delivery Charges:</h4>
+                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 149</p>
+                  </div>
+                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[#151E2C] outfit-font font-semibold text-sm">Grand Total:</h4>
+                        <p class="text-[#000] outfit-font font-medium text-sm italic">Rs. 483.00</p>
+                  </div> {% endcomment %}
+                  <div class="flex items-center gap-2 pt-4">
+                        <a href='{% url "PharmacyCartPage" %}' class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
+                              View Cart
+                        </a>
+                        <button class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
+                              Checkout
+                        </button>
+                  </div>
+            </div>
+      </div>
+
+      <script>
+            function close__cart__popup__btn() {
+                  let cart__popup__main = document.querySelector('#cart__popup__main')
+                  cart__popup__main?.classList.remove('!block');
+            }
+      </script>
+</section>

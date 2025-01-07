@@ -1,8 +1,8 @@
 
 from django.urls import path, include
 
-from .views import AddProductToCart
+from .views import CalculateCart
 
 urlpatterns = [
-    path('add-to-cart/<str:product_slug>/', productDetailPage, name='productDetailPage'),
+    path('calculate_cart/', CalculateCart, name='CalculateCart'),
 ]

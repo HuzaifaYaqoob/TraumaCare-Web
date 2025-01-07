@@ -269,6 +269,13 @@ class ProductStock(models.Model):
 
     def __str__(self):
         return f'{self.product.name} - {self.location.name}'
+
+    @property
+    def discounted_price(self):
+        if self.discount:
+            price = self.price - (self.price * self.discount / 100)
+            return round(price, 2)
+        return 0
     
     # @property
     # def final_price(self):

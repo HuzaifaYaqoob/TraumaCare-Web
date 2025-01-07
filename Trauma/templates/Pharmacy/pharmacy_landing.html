@@ -89,4 +89,16 @@
             {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
         </section>
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded' , () =>{
+            let CartItems = getCookie('CartItems');
+            if (CartItems){
+                setTimeout(() => {
+                    showSidebarCart()
+                }, 1000);
+            }
+        })
+    </script>
+
 {% endblock pharmacy_body %}

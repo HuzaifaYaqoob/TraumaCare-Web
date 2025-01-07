@@ -237,7 +237,6 @@ const ShowDistances = async () =>{
             for (let key in result){
                 let ltn_key = location_coords[key]
                 let elements = document.querySelectorAll(`[ShowDistance="${ltn_key}"]`)
-                console.log(elements)
                 elements.forEach(element => {
                     element.innerHTML = `(${result[key]} Km)`
                     let a = `<a target="_blank" href="https://www.google.com/maps/dir/?api=1&origin=${user_location[0]},${user_location[1]}&destination=${key}" class="whitespace-nowrap underline">Get Directions</a>`
@@ -269,13 +268,93 @@ function getCookie(c_name) {
     }
 }
 
-const showSidebarCart = () => {
+let KEYS = {
+    "subtotal" : 'Subtotal',
+    "discount_applied" : 'Discount Applied',
+    "platform_fee" : 'Platform Fee',
+    "delivery_charges" : 'Delivery Charges',
+    "grand_total" : 'Grand Total',
+}
+
+const showSidebarCart = async () => {
     console.log('showing')
+    let CartItems = getCookie('CartItems');
+    if (CartItems){
+        CartItems = JSON.parse(CartItems)
+    }
+    console.log(CartItems)
+
+    if (CartItems.length == 0){
+        return
+    }
+
+    const response = await fetch('/api/v1/product/calculate_cart/', {method : 'POST'})
+    const result = await response.json()
+    console.log(result)
+    if (result?.data.length == 0) {
+        return
+    }
+    let CartItems_div = document.querySelector('[CartItems]')
+    result?.data?.forEach((prod_itm) => {
+        console.log(prod_itm)
+        let product_card = `
+                <div class="flex items-center gap-3 border-b border-[#CACBE6] py-4">
+                        <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="max-w-[120px] w-full h-24 flex items-center justify-center">
+                              <img src="${prod_itm.image}" alt="${prod_itm.name}">
+                        </a>
+                        <div class="flex-1 space-y-1">
+                              <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
+                              <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">${prod_itm.store_name}</div>
+                              <div class="flex items-center gap-1">                      
+                                    ${prod_itm.discount ?  `<span class="text-xs text-[#3C3C3C]/60"><del>Rs.${prod_itm.price}</del></span>` : ''}
+                                    <p class="text-[#05D57C] outfit-font font-semibold italic"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>${prod_itm.final_price}</p>                          
+                              </div>
+                              <div class="flex items-center justify-between gap-1">
+                                    <div class="flex items-center rounded-md bg-[#6C7793] w-[100px] h-[30px] p-[1px]">
+                                          <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">-</button>
+                                          <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">${prod_itm.quantity}</p>
+                                          <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                                    </div>
+                                    <span class="flex items-center justify-center size-6 cursor-pointer">
+                                          <svg class="size-4 fill-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
+                                    </span>
+                              </div>
+                        </div>
+                  </div>
+            `
+        CartItems_div.innerHTML =  CartItems_div.innerHTML + product_card
+
+    })
+
+    
+    let CartBottomBillingBar = document.querySelector('[CartBottomBillingBar]')
+    if (CartBottomBillingBar){
+        [
+            "grand_total",
+            "delivery_charges",
+            "platform_fee",
+            "discount_applied",
+            "subtotal",
+        ].forEach((key) => {
+            let val = result[key]
+            let elmnt = `
+                    <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
+                        <h4 class="text-[${key == 'discount_applied' ? '#0555E9' : '#151E2C'}] outfit-font font-medium text-sm">${KEYS[key]}:</h4>
+                        <p class="text-[${key == 'discount_applied' ? '#0555E9' : '#151E2C'}] outfit-font font-medium text-sm">Rs.${(key == 'discount_applied' && val) ? ' -' : ''}${val}</p>
+                    </div>
+            `
+            CartBottomBillingBar.innerHTML = elmnt + CartBottomBillingBar.innerHTML
+        })
+    }
+
+    
+
+
     let cart__popup__main = document.getElementById('cart__popup__main');
     let cart__popup__main__width = document.getElementById('cart__popup__main__width');
 
-    cart__popup__main.classList.add('!block');
-    cart__popup__main__width.classList.add('w-full');
+    cart__popup__main?.classList.add('!block');
+    cart__popup__main__width?.classList.add('w-full');
 
 }
 

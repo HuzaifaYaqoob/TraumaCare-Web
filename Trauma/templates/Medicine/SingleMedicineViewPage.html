@@ -190,78 +190,12 @@
       </section>
 </main>
 
-<section class="h-[100vh] w-full bg-black/50 fixed top-0 z-[10000000] hidden transition-all" id="cart__popup__main">
-      <div class="max-w-[440px] w-0 ml-auto h-full bg-white flex flex-col transition-all" id="cart__popup__main__width">
-            <div class="px-5 py-4 flex items-center justify-between border-b border-[#CACBE6]">
-                  <h2 class="text-lg font-medium outfit-font text-[#151E2C] line-clamp-1">Shopping Cart</h2>
-                  <span class="cursor-pointer" onclick="close__cart__popup__btn()">
-                        <svg class="fill-[#151E2C] stroke-[#151E2C]" width="13" height="13" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M1 11L11 1M1 1L11 11" stroke-width="2" stroke-linecap="round"></path>
-                        </svg>
-                  </span>
-            </div>
-            <div class="flex-1 overflow-y-auto px-5 py-2">
-                  <div class="flex items-center gap-3 border-b border-[#CACBE6] py-4">
-                        <div class="max-w-[120px] w-full h-24 flex items-center justify-center">
-                              <img src="https://muslimaid-2022.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" alt="">
-                        </div>
-                        <div class="flex-1 space-y-1">
-                              <h3 class="font-medium outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">Soloban 60 Cream 30gm</h3>
-                              <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din Pharma Plus</div>
-                              <div class="flex items-center gap-1">                      
-                                    <span class="text-xs text-[#3C3C3C]/60"><del>163.0</del></span>
-                                    <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">PKR</span>154.85</p>                          
-                              </div>
-                              <div class="flex items-center justify-between gap-1">
-                                    <div class="flex items-center rounded-md bg-[#6C7793] w-[100px] h-[30px] p-[1px]">
-                                          <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">-</button>
-                                          <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">1</p>
-                                          <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">+</button>
-                                    </div>
-                                    <span class="flex items-center justify-center size-6 cursor-pointer">
-                                          <svg class="size-4 fill-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
-                                    </span>
-                              </div>
-                        </div>
-                  </div>
-            </div>
-            <div class="px-5 py-4">
-                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
-                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Subtotal:</h4>
-                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 500</p>
-                  </div>
-                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
-                        <h4 class="text-[#0555E9] outfit-font font-medium text-sm">Discount Applied:</h4>
-                        <p class="text-[#0555E9] outfit-font font-medium text-sm">Rs. -175</p>
-                  </div>
-                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
-                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Platform Fee:</h4>
-                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 9</p>
-                  </div>
-                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
-                        <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Delivery Charges:</h4>
-                        <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs. 149</p>
-                  </div>
-                  <div class="flex items-center justify-between py-2 border-b border-[#CACBE6]">
-                        <h4 class="text-[#151E2C] outfit-font font-semibold text-sm">Grand Total:</h4>
-                        <p class="text-[#000] outfit-font font-medium text-sm italic">Rs. 483.00</p>
-                  </div>
-                  <div class="flex items-center gap-2 pt-4">
-                        <button class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
-                              View Cart
-                        </button>
-                        <button class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
-                              Checkout
-                        </button>
-                  </div>
-            </div>
-      </div>
-</section>
 
 <script defer src="{% static 'assets/swiper/main_swiper.js' %}"></script>
   <script>
       const authToken = '{{authToken}}'
       const productSlug = '{{product.slug}}'
+      const location_stock = '{{location_stock.id}}'
 
     document.addEventListener('DOMContentLoaded', () => {
       function totalshowPM() {
@@ -336,17 +270,16 @@ document.addEventListener('DOMContentLoaded', () => {
             CartItems = CartItems.map(itm => ({...itm, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
       }
       else{
-            CartItems.push({'slug' : productSlug,'quantity' : ProductQuantity})
+            CartItems.push({'slug' : productSlug, 'quantity' : ProductQuantity, 'location_stock' : location_stock})
       }
-      console.log(CartItems)
       setCookie('CartItems', JSON.stringify(CartItems), 7)
-      console.log('working')
-      showSidebarCart()
+      ShowNotification({type : 'success', message : 'Cart updated successfully'})
+      setTimeout(() => {
+            showSidebarCart()
+      }, 1000);
     }
 
-    function close__cart__popup__btn() {
-      cart__popup__main.classList.remove('!block');
-    }
+    
 
   </script>
 {% endblock pharmacy_body %}
