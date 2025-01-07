@@ -299,9 +299,9 @@ const showSidebarCart = async () => {
         console.log(prod_itm)
         let product_card = `
                 <div class="flex items-center gap-3 border-b border-[#CACBE6] py-4">
-                        <div class="max-w-[120px] w-full h-24 flex items-center justify-center">
+                        <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="max-w-[120px] w-full h-24 flex items-center justify-center">
                               <img src="${prod_itm.image}" alt="${prod_itm.name}">
-                        </div>
+                        </a>
                         <div class="flex-1 space-y-1">
                               <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
                               <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">${prod_itm.store_name}</div>
