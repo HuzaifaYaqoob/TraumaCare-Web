@@ -1,6 +1,8 @@
 
 <section class="h-[100vh] w-full bg-black/50 fixed top-0 z-[10000000] hidden transition-all" id="cart__popup__main">
-      <div class="max-w-[440px] w-0 ml-auto h-full bg-white flex flex-col transition-all" id="cart__popup__main__width">
+      <div onclick="close__cart__popup__btn()" class='absolute inset-0 bg-transparent z-[2] cursor-pointer' >
+      </div>
+      <div class="max-w-[440px] z-[3] relative w-0 ml-auto h-full bg-white flex flex-col transition-all" id="cart__popup__main__width">
             <div class="px-5 py-4 flex items-center justify-between border-b border-[#CACBE6]">
                   <h2 class="text-lg font-medium outfit-font text-[#151E2C] line-clamp-1">Shopping Cart</h2>
                   <span class="cursor-pointer" onclick="close__cart__popup__btn()">
