@@ -40,7 +40,7 @@ def SingleMedicineViewPage(request, product_slug):
     
     context = {}
     context['product'] = product
-    context['product_main_category'] = product.sub_category.all()[0].category if len(product.sub_category.all()) > 0 else None
+    context['product_main_category'] = product.sub_category.all()[0] if len(product.sub_category.all()) > 0 else None
     context['location'] = location
     context['location_stock'] = location_stock
 
