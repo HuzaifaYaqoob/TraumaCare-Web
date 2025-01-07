@@ -44,6 +44,20 @@
 {% block main_base_script %}
 <script src="{% static 'assets/swiper/main_swiper.js' %}"></script>
 <script>
+    const updateNavigationButtons = (swiperInstance) => {
+        const prevButton = document.querySelector(".medicine__swipper__left-nav");
+        const nextButton = document.querySelector(".medicine__swipper__right-nav");
+        if (swiperInstance.isBeginning) {
+            prevButton.classList.add("hidden");
+        } else {
+            prevButton.classList.remove("hidden");
+        }
+        if (swiperInstance.isEnd) {
+            nextButton.classList.add("hidden");
+        } else {
+            nextButton.classList.remove("hidden");
+        }
+    };
     document.addEventListener("DOMContentLoaded", () => {
         if (document.querySelectorAll('.medicine__swipper .swiper-slide').length > 0) {
             const swiper = new Swiper(".medicine__swipper", {
@@ -70,20 +84,7 @@
                 },
             });
 
-            const updateNavigationButtons = (swiperInstance) => {
-                const prevButton = document.querySelector(".medicine__swipper__left-nav");
-                const nextButton = document.querySelector(".medicine__swipper__right-nav");
-                if (swiperInstance.isBeginning) {
-                    prevButton.classList.add("hidden");
-                } else {
-                    prevButton.classList.remove("hidden");
-                }
-                if (swiperInstance.isEnd) {
-                    nextButton.classList.add("hidden");
-                } else {
-                    nextButton.classList.remove("hidden");
-                }
-            };
+            
         }
     });
 </script>
