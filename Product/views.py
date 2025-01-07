@@ -25,7 +25,7 @@ def SingleMedicineViewPage(request, product_slug):
     location = request.GET.get('selected_location', None)
     if location:
         try:
-            location = StoreLocation.objects.get(id = location)
+            location = StoreLocation.custom_objects.get(id = location)
         except:
             pass
     if not location:
