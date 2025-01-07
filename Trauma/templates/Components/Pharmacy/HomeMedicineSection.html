@@ -6,8 +6,9 @@
 
 {% block baseBody %}
 <section class="space-y-7 relative">
+   
     <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
-        Top Sales Medicines
+        {% if medicineSectionHeading %}{{medicineSectionHeading}}{% else %}Top Sales Medicines{% endif %}
     </h3>
     {% if medicines|length == 0 %}
         <p class="text-center text-sm text-[#111111]">No Medicines found.</p>
