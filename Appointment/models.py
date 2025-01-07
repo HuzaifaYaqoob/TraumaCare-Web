@@ -122,3 +122,15 @@ class Appointment(models.Model):
 
     def __str__(self):
         return str(self.id)
+
+
+class AppointmentFeedback(models.Model):
+    uuid = models.UUIDField(default=uuid4, editable=False, unique=True)
+    appointment = models.ForeignKey(Appointment, on_delete=models.PROTECT, related_name='feedback_appointments')
+    rating = models.PositiveIntegerField(default=0)
+    feedback = models.TextField(default='', null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id)
