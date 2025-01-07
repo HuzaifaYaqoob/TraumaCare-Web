@@ -37,10 +37,13 @@ def SingleMedicineViewPage(request, product_slug):
 
     location_stock = ProductStock.custom_objects.filter(product = product, location = location, is_active = True, is_deleted = False).order_by('-created_at').first()
     
-    
     context = {}
+    
+    prod_sub_categories = product.sub_category.all()
+    if len(prod_sub_categories) > 0:
+        context['product_main_category'] = prod_sub_categories[0]
+    
     context['product'] = product
-    context['product_main_category'] = product.sub_category.all()[0] if len(product.sub_category.all()) > 0 else None
     context['location'] = location
     context['location_stock'] = location_stock
 
