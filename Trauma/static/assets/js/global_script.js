@@ -312,7 +312,7 @@ const showSidebarCart = async () => {
                               <div class="flex items-center justify-between gap-1">
                                     <div class="flex items-center rounded-md bg-[#6C7793] w-[100px] h-[30px] p-[1px]">
                                           <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">-</button>
-                                          <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">1</p>
+                                          <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">${prod_itm.quantity}</p>
                                           <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">+</button>
                                     </div>
                                     <span class="flex items-center justify-center size-6 cursor-pointer">
