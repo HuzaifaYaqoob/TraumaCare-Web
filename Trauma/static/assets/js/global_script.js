@@ -251,8 +251,9 @@ const ShowDistances = async () =>{
 function setCookie(c_name, value, exdays) {
     var exdate = new Date();
     exdate.setDate(exdate.getDate() + exdays);
-    var c_value = escape(value) + ((exdays == null) ? "" : "; expires=" + exdate.toUTCString());
-    console.log(c_value)
+    var c_value = escape(value) + 
+        ((exdays == null) ? "" : "; expires=" + exdate.toUTCString()) + 
+        "; path=/"; // Ensure cookie is available for the entire domain
     document.cookie = c_name + "=" + c_value;
 }
 
