@@ -240,7 +240,7 @@ class Product(models.Model):
         return mark_safe(div)
     
     def lowest_rate_location(self):
-        store_first_location = self.store.store_locations.all().first()
+        store_first_location = self.store.store_locations.first()
         if store_first_location:
             return store_first_location
         return None
