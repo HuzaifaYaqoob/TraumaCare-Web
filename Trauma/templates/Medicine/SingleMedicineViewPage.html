@@ -38,7 +38,7 @@
                   <a href='/' class="cursor-pointer outfit-font">Home</a> &gt; 
                   <a href='{% url "PharmacyLandingPage" %}' class="cursor-pointer outfit-font">Pharmacy</a> &gt; 
                   {% if product_main_category %}
-                        <span class="cursor-pointer outfit-font">{{product_main_category.name}}</span> &gt; 
+                        <span class="cursor-pointer outfit-font">{{product_main_category}}</span> &gt; 
                   {% endif %}
                   {% if product.product_form %}
                         <span class="cursor-pointer outfit-font">{{product.product_form.name}}</span> &gt; 
