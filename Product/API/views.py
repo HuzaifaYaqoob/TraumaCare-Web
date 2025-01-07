@@ -52,6 +52,7 @@ def CalculateCart(request):
                 'final_price' : round(stock.final_price, 2),
                 'discount' : stock.discount,
                 'image' : image,
+                'quantity' : quantity,
             })
 
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
