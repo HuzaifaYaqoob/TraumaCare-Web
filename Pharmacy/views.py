@@ -32,6 +32,8 @@ def PharmacyCartPage(request):
     # Parse JSON data to Python list
     CartItems = json.loads(decoded_data)
     data = []
+    products = []
+    categories = []
     subtotal = 0
     discount_applied = 0
     platform_fee = 9
@@ -46,6 +48,7 @@ def PharmacyCartPage(request):
             print(err)
             pass
         else:
+            categories.extend(list(product.sub_category.all().values_list('name', flat=True).distinct()))
             quantity = int(item['quantity'])
             images = product.product_all_images
             image = None
@@ -69,8 +72,15 @@ def PharmacyCartPage(request):
                 'quantity' : quantity,
             })
 
+    print(categories)
+    similar_products = Product.objects.filter(
+        sub_category__name__in = categories,
+        is_active=True, is_deleted=False, is_blocked=False,
+    ).distinct().exclude(slug__in=[item['slug'] for item in CartItems]).order_by('?')[:10]
+
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
     context = {
+        'similar_products' : similar_products,
         'data' : data,
         'subtotal' : round(subtotal, 2),
         'discount_applied' : round(discount_applied, 2),

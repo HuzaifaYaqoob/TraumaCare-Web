@@ -20,47 +20,49 @@
                 </div>
 
                 <!-- if have -->
+                {% if data|length > 0 %}
 
-                <div>
-                    {% for product in data %}
-                        <div class="py-3 flex gap-3 border-b border-[#CACBE6] w-full">
-                            <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="max-w-[150px] w-full h-28 flex items-center justify-center">
-                                <img src="{{product.image}}" alt="">
-                            </a>
-                            <div class="flex-1 space-y-2">
-                                <div class="flex items-center justify-between gap-2">
-                                    <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</a>
-                                    <div class="flex items-center gap-1">
-                                        {% if product.discount %}
-                                            <span class="text-xs text-[#3C3C3C]/60"><del>{{product.price}}</del></span>
-                                        {% endif %}
-                                        <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{product.final_price}}</p>                          
+                    <div>
+                        {% for product in data %}
+                            <div class="py-3 flex gap-3 border-b border-[#CACBE6] w-full">
+                                <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="max-w-[150px] w-full h-28 flex items-center justify-center">
+                                    <img src="{{product.image}}" alt="">
+                                </a>
+                                <div class="flex-1 space-y-2">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</a>
+                                        <div class="flex items-center gap-1">
+                                            {% if product.discount %}
+                                                <span class="text-xs text-[#3C3C3C]/60"><del>{{product.price}}</del></span>
+                                            {% endif %}
+                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{product.final_price}}</p>                          
+                                        </div>
                                     </div>
-                                </div>
-                                <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store_name}}</div>
-                                <div class="flex items-center justify-end">
-                                    <div class="flex items-center rounded-md bg-[#6C7793] w-[100px] h-[30px] p-[1px]">
-                                        <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">-</button>
-                                        <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">{{product.quantity}}</p>
-                                        <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                                    <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store_name}}</div>
+                                    <div class="flex items-center justify-end">
+                                        <div class="flex items-center rounded-md bg-[#6C7793] w-[100px] h-[30px] p-[1px]">
+                                            <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">-</button>
+                                            <p class="text-[#0A1C4B] font-semibold rounded-md flex-1 h-full flex bg-white items-center justify-center outfit-font">{{product.quantity}}</p>
+                                            <button class="cursor-pointer text-white font-semibold flex-1 h-full flex items-center justify-center">+</button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    {% endfor %}
-                </div>
-
-                <!-- else -->
-
-                <div class="flex items-center justify-center space-y-2 flex-col">
-                    <div class="size-52 flex items-center justify-center">
-                        <img src="/static/assets/Images/traumacareAIcare/add-item-cart.png" alt="">
+                        {% endfor %}
                     </div>
-                    <p class="text-sm text-[#111111] outfit-font text-center">No medicine added to cart yet</p>
-                    <a href="/pharmacy/" class="flex-1 text-sm rounded-md flex items-center justify-center border border-[#0A1C4B] text-[#0A1C4B] max-w-max mx-auto px-5 py-2.5 outfit-font">
-                        Add Medicine Now
-                    </a>
-                </div>
+                {% else %}
+                    <!-- else -->
+
+                    <div class="flex items-center justify-center space-y-2 flex-col">
+                        <div class="size-52 flex items-center justify-center">
+                            <img src="/static/assets/Images/traumacareAIcare/add-item-cart.png" alt="">
+                        </div>
+                        <p class="text-sm text-[#111111] outfit-font text-center">No medicine added to cart yet</p>
+                        <a href="/pharmacy/" class="flex-1 text-sm rounded-md flex items-center justify-center border border-[#0A1C4B] text-[#0A1C4B] max-w-max mx-auto px-5 py-2.5 outfit-font">
+                            Add Medicine Now
+                        </a>
+                    </div>
+                {% endif %}
             </div>
             <div class="lg:max-w-[410px] xl:max-w-[460px] w-full">
                 <div class="px-5 py-4 rounded-lg bg-[#f4f6f9] sticky top-[100px]">
@@ -93,7 +95,7 @@
             </div>
         </section>
         <section class="max-w-[1500px] mx-auto">
-            {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
+            {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicineSectionHeading='Checkout our Similar Products' medicines=similar_products %}
         </section>
     </main>
 {% endblock pharmacy_body %}
