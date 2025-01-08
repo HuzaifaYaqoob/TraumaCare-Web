@@ -131,29 +131,31 @@
                     </div>
                 </div>
                 <div>
-                    <div class="py-2 px-3 flex gap-3 bg-white border border-[#0000001A] w-full rounded-xl">
-                        <div class="max-w-[150px] w-full h-28 flex items-center justify-center cursor-pointer rounded-md overflow-hidden">
-                            <img class="rounded-md" src="https://muslimaid-2022.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" alt="">
-                        </div>
-                        <div class="flex-1 space-y-1">
-                            <div class="flex items-center justify-between gap-2">
-                                <h3 class="font-medium outfit-font text-[#151E2C] line-clamp-1 cursor-pointer">Soloban 60 Cream 30gm | Soloban 60 Cream 30gm</h3>
-                                <div class="flex items-center gap-1">                      
-                                    <span class="text-xs text-[#3C3C3C]/60"><del>163.0</del></span>
-                                    <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">PKR</span>154.85</p>                          
+                    {% for product in medicines %}
+                        <div class="py-2 px-3 flex gap-3 bg-white border border-[#0000001A] w-full rounded-xl">
+                            <div class="max-w-[150px] w-full h-28 flex items-center justify-center cursor-pointer rounded-md overflow-hidden">
+                                <img class="rounded-md" src="https://muslimaid-2022.storage.googleapis.com/upload/img_cache/file-2540-c3140610843658e55343c899d6b4d6f5.jpg" alt="">
+                            </div>
+                            <div class="flex-1 space-y-1">
+                                <div class="flex items-center justify-between gap-2">
+                                    <h3 class="font-medium outfit-font text-[#151E2C] line-clamp-1 cursor-pointer">{{product.name}}</h3>
+                                    <div class="flex items-center gap-1">                      
+                                        <span class="text-xs text-[#3C3C3C]/60"><del>163.0</del></span>
+                                        <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">PKR</span>154.85</p>                          
+                                    </div>
+                                </div>
+                                <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din Pharma Plus</div>
+                                <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
+                                    <p>(1.64 Km) <span>away from your location</span></p>
+                                </span>
+                                <div class="flex items-center justify-end">
+                                    <button class="text-xs rounded-md flex items-center justify-center bg-[#0A1C4B] py-2 text-white outfit-font px-5 max-w-max">
+                                        Add to Cart
+                                    </button>
                                 </div>
                             </div>
-                            <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">Fazal Din Pharma Plus</div>
-                            <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
-                                <p>(1.64 Km) <span>away from your location</span></p>
-                            </span>
-                            <div class="flex items-center justify-end">
-                                <button class="text-xs rounded-md flex items-center justify-center bg-[#0A1C4B] py-2 text-white outfit-font px-5 max-w-max">
-                                    Add to Cart
-                                </button>
-                            </div>
                         </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

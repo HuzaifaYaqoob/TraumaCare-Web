@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.db.models import Q
 from Product.models import Product
 # Create your views here.
 
@@ -11,7 +12,16 @@ def PharmacyLandingPage(request):
     return render(request, 'Pharmacy/pharmacy_landing.html', context)
 
 def PharmacySearchPage(request):
-    return render(request, 'Pharmacy/pharmacy_search.html')
+    context = {}
+    searchQuery = request.GET.get('searchQuery', '')
+
+    searchedProducts = Product.objects.filter(
+        Q(name__icontains = searchQuery),
+        is_active=True, is_deleted=False, is_blocked=False,
+    )
+
+    context['medicines'] = searchedProducts[:28]
+    return render(request, 'Pharmacy/pharmacy_search.html', context)
 
 def PharmacyCartPage(request):
     return render(request, 'Pharmacy/pharmacy_cart.html')
