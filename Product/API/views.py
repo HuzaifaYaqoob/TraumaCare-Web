@@ -60,7 +60,7 @@ def CalculateCart(request):
     return Response({
         'data' : data,
         'subtotal' : round(subtotal, 2),
-        'discount_applied' : discount_applied,
+        'discount_applied' : round(discount_applied, 2),
         'platform_fee' : platform_fee,
         'delivery_charges' : round(delivery_charges, 2),
         'grand_total' : round(grand_total, 2)
