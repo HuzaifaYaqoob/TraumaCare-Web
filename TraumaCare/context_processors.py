@@ -60,7 +60,7 @@ def global_context_processor(request):
         decoded_data = unquote(cookie_data)
         # Parse JSON data to Python list
         CartItems = json.loads(decoded_data)
-        context['CartItems'] = en(CartItems)
+        context['CartItems'] = len(CartItems)
         print(CartItems)
 
     return {
