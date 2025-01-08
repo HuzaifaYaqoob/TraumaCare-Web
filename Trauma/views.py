@@ -29,7 +29,7 @@ def homePage(request):
     )
     print(doctors)
     context['doctors'] = doctors[:8]
-    context['blog_posts'] = BlogPost.objects.order_by('-created_at')[:8]
+    context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:4]
     # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     context['medicines'] = Product.objects.filter(
