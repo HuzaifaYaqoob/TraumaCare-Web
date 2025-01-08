@@ -226,6 +226,13 @@ class Product(models.Model):
     @property
     def product_all_images(self):
         return ProductImage.objects.filter(product=self)
+
+    @property
+    def cover_image(self):
+        try:
+            return ProductImage.objects.filter(product=self).first().image.url
+        except:
+            return '/static/assets/Images/small_logo.png'
     
     def product_admin_card(self, labels=[]):
         images = self.product_all_images
@@ -240,7 +247,7 @@ class Product(models.Model):
         return mark_safe(div)
     
     def lowest_rate_location(self):
-        store_first_location = self.store.store_locations.first()
+        store_first_location = ProductStock.custom_objects.filter(product = self, is_active = True, is_deleted = False).order_by('final_price').first()
         if store_first_location:
             return store_first_location
         return None
