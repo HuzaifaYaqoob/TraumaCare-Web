@@ -1,10 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
 
 def AllMedicinesPage(request):
-    return render(request, 'Medicine/AllMedicinePage.html')
+    return redirect('PharmacyLandingPage')
 
 
 def SingleMedicineViewPage(request, id):
