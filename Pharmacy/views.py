@@ -15,13 +15,20 @@ def PharmacyLandingPage(request):
 
 def PharmacySearchPage(request):
     context = {}
+    query = Q()
     searchQuery = request.GET.get('searchQuery', '')
+    category = request.GET.get('category', None)
+
+
+    if category:
+        query.add(Q(sub_category__category__slug = category), query.connector)
 
     searchedProducts = Product.objects.filter(
         Q(name__icontains = searchQuery),
         is_active=True, is_deleted=False, is_blocked=False,
-    )
+    ).filter(query).distinct()
 
+    context['total_medicines'] = len(searchedProducts)
     context['medicines'] = searchedProducts[:28]
     return render(request, 'Pharmacy/pharmacy_search.html', context)
 

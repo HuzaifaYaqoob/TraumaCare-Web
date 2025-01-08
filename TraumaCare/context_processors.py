@@ -8,6 +8,7 @@ from datetime import datetime
 from Hospital.models import Hospital
 from Trauma.models import City
 from Appointment.models import AppointmentGroup, Appointment
+from Product.models import ProductCategory
 
 from django.db.models import Q, Count
 from django.contrib import messages
@@ -62,6 +63,7 @@ def global_context_processor(request):
 
     return {
         'settings' : settings,
+        'product_categories' : ProductCategory.objects.filter(is_active=True),
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],

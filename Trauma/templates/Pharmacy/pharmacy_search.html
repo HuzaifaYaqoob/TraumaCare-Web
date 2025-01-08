@@ -48,12 +48,12 @@
 
 <main class="px-4 sm:px-6 md:px-8 space-y-10 py-7 bg-[#F9F9F9]">
     <section class="max-w-[1500px] mx-auto flex items-start gap-6">
-        <div class="max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7">
+        <div class="max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7 sticky top-[130px]">
             <div class="flex items-center justify-between">
-                <h4 class="text-[#151E2C] font-semibold">Filter</h4>
-                <button class="underline text-sm text-[#3C3C3C] font-medium">
+                <h4 class="text-[#151E2C] text-[20px] outfit-font font-semibold">Filter</h4>
+                <a href='?' class="underline text-sm text-[#3C3C3C] outfit-font font-medium">
                     Clear All
-                </button>
+                </a>
             </div>
             <div class="space-y-2">
                 <h3 class="text-[#111111] font-medium">City</h3>
@@ -115,7 +115,7 @@
             </div>
             <div class="space-y-3">
                 <div class="flex items-center gap-7">
-                    <p class="text-[#3C3C3C] text-xs">20 | 98 results</p>
+                    <p class="text-[#3C3C3C] text-xs">{{medicines|length}} | {{total_medicines}} results</p>
                     <div class="flex items-center">
                         <span class="size-5 flex items-center justify-center">
                             <svg class="size-3" viewBox="0 0 14 16" fill="none" xmlns="http://www.w3.org/2000/svg">
