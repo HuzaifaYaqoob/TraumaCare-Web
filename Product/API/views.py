@@ -51,7 +51,7 @@ def CalculateCart(request):
                 'price' : round(stock.price, 2),
                 'final_price' : round(stock.final_price, 2),
                 'discount' : stock.discount,
-                'image' : image,
+                'image' : product.cover_image,
                 'quantity' : quantity,
             })
 
