@@ -14,9 +14,11 @@ from urllib.parse import unquote
 @permission_classes([AllowAny])
 def CalculateCart(request):
     cookie_data = request.COOKIES.get('CartItems', '')
-    decoded_data = unquote(cookie_data)
-    # Parse JSON data to Python list
-    CartItems = json.loads(decoded_data)
+    if cookie_data:
+        decoded_data = unquote(cookie_data)
+        CartItems = json.loads(decoded_data)
+    else:
+        CartItems = []
     data = []
     subtotal = 0
     discount_applied = 0
