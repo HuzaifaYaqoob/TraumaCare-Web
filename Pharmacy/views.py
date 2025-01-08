@@ -24,7 +24,9 @@ def PharmacySearchPage(request):
         query.add(Q(sub_category__category__slug = category), query.connector)
 
     searchedProducts = Product.objects.filter(
-        Q(name__icontains = searchQuery),
+        Q(name__icontains = searchQuery) |
+        Q(sub_category__name__icontains = searchQuery),
+        Q(sub_category__category__name__icontains = searchQuery),
         is_active=True, is_deleted=False, is_blocked=False,
     ).filter(query).distinct()
 
