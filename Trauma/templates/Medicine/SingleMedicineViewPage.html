@@ -1,7 +1,7 @@
 
 {% extends 'Pharmacy/PharmacyBase.html' %}
 {% load static %}
-{% block title %}Medicines{% endblock title %}
+{% block title %}{{product.name}} - Available on {{product.store.name}} at {{location_stock.final_price|floatformat:2}}{% endblock title %}
 
 {% block BaseCSS %}
 <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
