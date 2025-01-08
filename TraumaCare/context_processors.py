@@ -13,6 +13,9 @@ from django.db.models import Q, Count
 from django.contrib import messages
 from ChatXpo.models import XpoChat, ChatMessage
 
+import json
+from urllib.parse import unquote
+
 def global_context_processor(request):
     context = {}
     str_query = '?'
@@ -50,12 +53,20 @@ def global_context_processor(request):
         authToken = request.user.auth_token.key
         context['authToken'] = authToken
 
+    
+    cookie_data = request.COOKIES.get('CartItems', '')
+    decoded_data = unquote(cookie_data)
+    # Parse JSON data to Python list
+    CartItems = json.loads(decoded_data)
+    print(CartItems)
+
     return {
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
         'chat_widget_chat_id' : chat_id,
         'chat_widget_messages' : chat_widget_messages,
+        'CartItems' : len(CartItems),
         **context
     }
 
