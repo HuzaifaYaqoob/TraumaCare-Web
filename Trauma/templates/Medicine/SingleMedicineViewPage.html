@@ -3,6 +3,38 @@
 {% load static %}
 {% block title %}{{product.name}} - Available on {{product.store.name}} at {{location_stock.final_price|floatformat:2}}{% endblock title %}
 
+
+
+{% block MetaBlock %}
+
+      <link rel="canonical" href="{{settings.THIS_APPLICATION_URL}}{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location.id}}">
+      <meta property="og:url" content="{{settings.THIS_APPLICATION_URL}}{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location.id}}">
+      <meta property="og:title" content="{{product.name}}">
+      <meta property="og:type" content="product">
+      <meta property="og:description" content="{{product.name}},{{product.product_form.name}},{{product.pack_form}},{{product.pack_size}},{{product.store.name}},{{product.Vendor.name}},{{product.manufacturer.name}},{{product.treatment_type.name}}">
+      <meta property="product:availability" content="oos">
+      <meta property="product:price:amount" content="{{location_stock.final_price|floatformat:2}}">
+      <meta property="product:price:currency" content="PKR">
+      <meta property="og:image" content="{{product.cover_image}}">
+      <meta property="og:image:secure_url" content="{{product.cover_image}}">
+      <meta property="og:image:width" content="">
+      <meta property="og:image:height" content="">
+      <meta property="og:image:alt" content="">
+
+      <meta name="twitter:site" content="Find Verified Doctors in Pakistan | Book Online Appointment | TraumaCare">
+      <meta name="twitter:card" content="summary_large_image">
+
+      <meta name="twitter:title" content="{{product.name}}">
+      <meta name="twitter:description" content="{{product.name}},{{product.product_form.name}},{{product.pack_form}},{{product.pack_size}},{{product.store.name}},{{product.Vendor.name}},{{product.manufacturer.name}},{{product.treatment_type.name}}">
+      <meta name="twitter:image" content="{{product.cover_image}}">
+      <meta name="twitter:image" content="{{product.cover_image}}">
+      <meta name="theme-color" content="#05D57C">
+
+{% endblock MetaBlock %}
+
+{% block meta_description %}{{product.name}},{{product.product_form.name}},{{product.pack_form}},{{product.pack_size}},{{product.store.name}},{{product.Vendor.name}},{{product.manufacturer.name}},{{product.treatment_type.name}}{% endblock meta_description %}
+{% block meta_keywords %}{{product.name}},{{product.product_form.name}},{{product.pack_form}},{{product.pack_size}},{{product.store.name}},{{product.Vendor.name}},{{product.manufacturer.name}},{{product.treatment_type.name}}{% endblock meta_keywords %}
+
 {% block BaseCSS %}
 <link rel="stylesheet" href="{% static 'assets/swiper/main_swiper.css' %}" />
 <style>
@@ -87,7 +119,7 @@
                               <div class="!mt-5 flex items-center gap-1">
                                     {% if not location_stock.discount %}
                                           <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
-                                                <span class="font-medium text-[#151E2C] text-sm">PKR</span>{{location_stock.final_price|floatformat:2}}
+                                                <span class="font-medium text-[#151E2C] text-sm">Rs.</span>{{location_stock.final_price|floatformat:2}}
                                           </p>                          
                                     {% endif %}
                               </div>

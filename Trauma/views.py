@@ -40,6 +40,8 @@ def homePage(request):
     return render(request, 'Home/index.html', context)
 
 
+# https://www.facebook.com/sharer.php?u=https://ailaaj.pk/products/medeco-insulin-syringe-1cc-31g-x-8mm-10s
+
 def onboarding(request):
     onboarding_type = request.GET.get('onboarding_type',  None)
     if onboarding_type == None:
