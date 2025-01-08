@@ -89,5 +89,4 @@ def PharmacyCartPage(request):
         'grand_total' : round(grand_total, 2)
     }
 
-    response = render(request, 'Pharmacy/pharmacy_cart.html', context)
     return render(request, 'Pharmacy/pharmacy_cart.html', context)
