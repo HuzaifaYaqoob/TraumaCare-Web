@@ -92,6 +92,7 @@ class ProductImageAdmin(admin.ModelAdmin):
 
 @admin.register(ProductStock)
 class ProductStockAdmin(admin.ModelAdmin):
+    search_fields = ['product__name', 'location__name']
     list_display = ['product', 'location', 'stock', 'price', 'discount', 'is_active']
 
     def stock(self, obj):
