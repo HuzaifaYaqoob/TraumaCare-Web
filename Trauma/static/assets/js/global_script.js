@@ -316,11 +316,11 @@ const showSidebarCart = async () => {
         //     </span>
         // </div>
         let product_card = `
-                <div class="flex items-center gap-3 border-b border-[#CACBE6] py-4">
+                <div class="flex items-center gap-3 border-b border-[#CACBE6] py-2">
                         <div class="flex-1 space-y-1">
                             <div class='flex items-start justify-between gap-1'>
                                 <div class=''>
-                                    <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
+                                    <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium text-sm outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
                                     <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">${prod_itm.store_name}</div>
                                 </div>
                                 <div class='flex gap-2 items-center'>
