@@ -21,7 +21,7 @@
                         <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' medicine.slug %}?{% if lowest_rate_location %}selected_location={{lowest_rate_location.id}}{% endif %}">
                               <h2 class="font-medium outfit-font line-clamp-2 text-[#151E2C]">{{medicine.name}}</h2>
                         </a>
-                        
+                        {{lowest_rate_location}}
                         {% if lowest_rate_location %}
                               <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
                                     <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{lowest_rate_location.lat}},{{lowest_rate_location.lng}}"></span>
