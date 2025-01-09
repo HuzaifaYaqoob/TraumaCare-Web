@@ -29,7 +29,7 @@ def homePage(request):
     )
     print(doctors)
     context['doctors'] = doctors[:8]
-    context['blog_posts'] = BlogPost.objects.order_by('-created_at')[:8]
+    context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:4]
     # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     context['medicines'] = Product.objects.filter(
@@ -39,6 +39,8 @@ def homePage(request):
     ).order_by('?')[:10]
     return render(request, 'Home/index.html', context)
 
+
+# https://www.facebook.com/sharer.php?u=https://traumaaicare.com/product/view/azomax-250-capsules-250mg-1-strip-6-capsules-traumacare-medimart-sandoz-bacterial-infection-box-box-be8acd2b-20a3-4fbf-945e-9ac704e56ce8/?selected_location=2
 
 def onboarding(request):
     onboarding_type = request.GET.get('onboarding_type',  None)

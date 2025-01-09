@@ -23,7 +23,7 @@
                         </a>
                         {% if lowest_rate_location %}
                               <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
-                                    <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{lowest_rate_location.lat}},{{lowest_rate_location.lng}}"></span>
+                                    <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{lowest_rate_location.location.lat}},{{lowest_rate_location.location.lng}}"></span>
                               </span>
                         {% endif %}
                   </div>
@@ -38,8 +38,7 @@
                                     <span class="text-sm text-[#3C3C3C]/60"><del>{{medicine.price}}</del></span>
                               {% endif %}
                               <p class="text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
-                                    <span class="font-medium text-[#151E2C] text-xs">PKR</span>
-                                    {{ medicine.final_price|floatformat:1 }}
+                                    <span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{ medicine.final_price|floatformat:1 }}
                               </p>
                         </div>
                   </div>

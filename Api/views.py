@@ -39,9 +39,10 @@ def get_location_distance(request):
     my_coords = [my_coords.get('lat', None), my_coords.get('lng', None)]
     distances = {}
     for key, cord in location_coords.items():
-        cord = cord.split(',')
-        cord = [float(cord[0]), float(cord[1])]
-        distance = geopy.distance.geodesic(my_coords, cord)
-        distances[key] = round(distance.km, 2)
+        if len(key) > 5 and len(cord) > 5:
+            cord = cord.split(',')
+            cord = [float(cord[0]), float(cord[1])]
+            distance = geopy.distance.geodesic(my_coords, cord)
+            distances[key] = round(distance.km, 2)
 
     return Response(distances, status=status.HTTP_200_OK)

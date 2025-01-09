@@ -8,6 +8,7 @@ from datetime import datetime
 from Hospital.models import Hospital
 from Trauma.models import City
 from Appointment.models import AppointmentGroup, Appointment
+from Product.models import ProductCategory
 
 from django.db.models import Q, Count
 from django.contrib import messages
@@ -17,7 +18,7 @@ import json
 from urllib.parse import unquote
 
 def global_context_processor(request):
-    context = {}
+    context = {'CartItems' : 0}
     str_query = '?'
     for key in request.GET:
         val = request.GET.get(key)
@@ -55,18 +56,21 @@ def global_context_processor(request):
 
     
     cookie_data = request.COOKIES.get('CartItems', '')
-    decoded_data = unquote(cookie_data)
-    # Parse JSON data to Python list
-    CartItems = json.loads(decoded_data)
-    print(CartItems)
+    if cookie_data:
+        decoded_data = unquote(cookie_data)
+        # Parse JSON data to Python list
+        CartItems = json.loads(decoded_data)
+        context['CartItems'] = len(CartItems)
+        print(CartItems)
 
     return {
+        'settings' : settings,
+        'product_categories' : ProductCategory.objects.filter(is_active=True),
         'dashboard_url' : settings.DASHBOARD_REDIRECT_URL,
         'str_query' : str_query,
         'reviews_count' : [1,2,3,4,5],
         'chat_widget_chat_id' : chat_id,
         'chat_widget_messages' : chat_widget_messages,
-        'CartItems' : len(CartItems),
         **context
     }
 
