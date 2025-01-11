@@ -32,3 +32,10 @@ class StoreAdmin(admin.ModelAdmin):
 
     def locations(self, store):
         return store.store_locations.count()
+
+
+@admin.register(StoreLocation)
+class StoreLocationAdmin(admin.ModelAdmin):
+    list_display = [
+        'id'
+    ]

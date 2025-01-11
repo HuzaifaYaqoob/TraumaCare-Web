@@ -296,7 +296,8 @@ const removeItemFromCart = (slug) =>{
     showSidebarCart(true)
 }
 
-function add_to_cart_btn(productSlug, ProductQuantity) {
+function add_to_cart_btn(productSlug, location_stock, ProductQuantity) {
+    console.log(productSlug, location_stock, ProductQuantity)
     if (!ProductQuantity) {
         ProductQuantity = document.querySelector('[ProductQuantity]').getAttribute('ProductQuantity');
     }
@@ -313,7 +314,7 @@ function add_to_cart_btn(productSlug, ProductQuantity) {
     }
     let already_exist = CartItems.find(item => item.slug == productSlug)
     if (already_exist){
-        CartItems = CartItems.map(itm => ({...itm, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
+        CartItems = CartItems.map(itm => ({...itm, 'location_stock' : location_stock, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
     }
     else{
         CartItems.push({'slug' : productSlug, 'quantity' : ProductQuantity, 'location_stock' : location_stock})
