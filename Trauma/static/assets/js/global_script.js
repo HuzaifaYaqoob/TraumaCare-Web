@@ -276,6 +276,15 @@ let KEYS = {
     "grand_total" : 'Grand Total',
 }
 
+const ClearCart = () =>{
+    let CartItems = getCookie('CartItems')
+    if (CartItems){
+        setCookie('CartItems', '', 1)
+    }
+    // reload Page 
+    window.location.reload()
+}
+
 const showSidebarCart = async () => {
     console.log('showing')
     let CartItems = getCookie('CartItems');

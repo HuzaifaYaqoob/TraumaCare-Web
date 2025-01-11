@@ -84,7 +84,7 @@
             <div class="flex gap-7">
                   <div class="max-w-[410px] w-full">
                         <div class="relative overflow-hidden w-full h-[400px] border border-[#CACBE6] rounded-3xl flex justify-center">
-                              <img src="{% if product.product_all_images.0.image %}{{product.product_all_images.0.image.url}}{% endif %}" class="max-w-full max-h-full" alt="">
+                              <img src="{{product.cover_image}}" loading='lazy' class="max-w-full max-h-full w-auto h-auto" alt="{{product.name}}">
                         </div>
                   </div>
                   <div class="flex-1 max-w-[600px]">

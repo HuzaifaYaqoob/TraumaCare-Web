@@ -16,7 +16,12 @@
                     <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold max-w-max">
                         Shopping Cart
                     </h3>
-                    <p class="text-lg text-[#151E2C] font-semibold">Items in your cart ({{data|length}})</p>
+                    <div class="flex items-center justify-between">
+                        <p class="text-lg text-[#151E2C] font-semibold">Items in your cart ({{data|length}})</p>
+                        {% if data|length > 0 %}
+                            <button onclick="ClearCart()">Clear Cart</button>
+                        {% endif %}
+                    </div>
                 </div>
 
                 <!-- if have -->

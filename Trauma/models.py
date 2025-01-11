@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.timezone import now
 
 
 # Create your models here.
@@ -191,6 +192,7 @@ class VerificationCode(models.Model):
     is_expired = models.BooleanField(default=False)
     is_deleted = models.BooleanField(default=False)
     is_used = models.BooleanField(default=False)
+    created_at = models.DateTimeField(default=now)
 
     class Meta:
         unique_together = ('user', 'code',)

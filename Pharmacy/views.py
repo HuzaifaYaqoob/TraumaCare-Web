@@ -25,7 +25,7 @@ def PharmacySearchPage(request):
 
     searchedProducts = Product.objects.filter(
         Q(name__icontains = searchQuery) |
-        Q(sub_category__name__icontains = searchQuery),
+        Q(sub_category__name__icontains = searchQuery) |
         Q(sub_category__category__name__icontains = searchQuery),
         is_active=True, is_deleted=False, is_blocked=False,
     ).filter(query).distinct()
@@ -83,10 +83,12 @@ def PharmacyCartPage(request):
                 'quantity' : quantity,
             })
 
-    print(categories)
+    similar_query = {}
+    if len(categories) > 0:
+        similar_query['sub_category__name__in'] = categories
     similar_products = Product.objects.filter(
-        sub_category__name__in = categories,
         is_active=True, is_deleted=False, is_blocked=False,
+        **similar_query
     ).distinct().exclude(slug__in=[item['slug'] for item in CartItems]).order_by('?')[:10]
 
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
