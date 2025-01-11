@@ -61,8 +61,9 @@ class RandomFilesAdmin(admin.ModelAdmin):
 
 @admin.register(VerificationCode)
 class VerificationCodeAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
     search_fields = ['mobile_number']
-    list_display = ['user_', 'mobile_number','code', 'otp_type', 'is_expired', 'is_deleted', 'is_used']
+    list_display = ['user_', 'mobile_number','code', 'otp_type', 'is_expired', 'is_deleted', 'is_used', 'created_at']
 
 
     @admin.display(description='User')
