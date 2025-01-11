@@ -7,48 +7,47 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
 <style>
 
-#slider .noUi-connect {
-    background-color: #4caf50;
-    height: 100%;
-    border-radius: 999px;
-}
+    #slider .noUi-connect {
+        background-color: #4caf50;
+        height: 100%;
+        border-radius: 999px;
+    }
 
-#slider .noUi-handle {
-    height: 20px;
-    width: 20px;
-    border-radius: 100%;
-    top: -6px;
-    border: none;
-}
+    #slider .noUi-handle {
+        height: 20px;
+        width: 20px;
+        border-radius: 100%;
+        top: -6px;
+        border: none;
+    }
 
-#slider .noUi-handle-lower {
-    background-color: #557DE5 !important;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-}
+    #slider .noUi-handle-lower {
+        background-color: #557DE5 !important;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+    }
 
-#slider .noUi-handle-upper {
-    background-color: #7EE3B8 !important;
-    border: none;
-    box-shadow: none;
-    cursor: pointer;
-}
+    #slider .noUi-handle-upper {
+        background-color: #7EE3B8 !important;
+        border: none;
+        box-shadow: none;
+        cursor: pointer;
+    }
 
-
-#slider .noUi-base {
-    height: 9px;
-    border-radius: 100%;
-}
+    #slider .noUi-base {
+        height: 9px;
+        border-radius: 100%;
+    }
 
 </style>
 {% endblock BaseCSS %}
 
 {% block pharmacy_body %}
 
-<main class="px-4 sm:px-6 md:px-8 space-y-10 py-7 bg-[#F9F9F9]">
+<main class="px-4 sm:px-6 md:px-8 space-y-10 py-4 sm:py-5 md:py-7 bg-[#F9F9F9]">
     <section class="max-w-[1500px] mx-auto flex items-start gap-6">
-        <div class="max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7 sticky top-[130px]">
+        <div class="hidden lg:block max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7 sticky top-[130px]">
             <div class="flex items-center justify-between">
                 <h4 class="text-[#151E2C] text-[20px] outfit-font font-semibold">Filter</h4>
                 <a href='?' class="underline text-sm text-[#3C3C3C] outfit-font font-medium">
@@ -104,12 +103,12 @@
                 Apply Filter
             </button>
         </div>
-        <div class="flex-1 space-y-6">
+        <div class="flex-1 space-y-4 sm:space-y-6">
             <div class="space-y-2">
-                <h2 class="text-2xl text-[#151E2C] outfit-font font-semibold leading-tight">
+                <h2 class="text-xl sm:text-2xl text-[#151E2C] outfit-font font-semibold leading-tight">
                     Discover Top-Searched Medicines Available <span class="text-[#0755E9]">Near You</span>, Anytime You Need!
                 </h2>
-                <p class="text-sm text-[#3C3C3C] outfit-font">
+                <p class="text-xs sm:text-sm text-[#3C3C3C] outfit-font">
                     Find trusted, high-quality medicines at your convenience, tailored to your needs and location.
                 </p>
             </div>
@@ -130,7 +129,7 @@
                         </span>
                     </div>
                 </div>
-                <div>
+                <div class="hidden sm:block">
                     {% for product in medicines %}
                         {% with location_stock=product.lowest_rate_location %}
                             <div class="py-2 px-3 mb-2 flex gap-3 bg-white border border-[#0000001A] w-full rounded-xl">
@@ -139,7 +138,7 @@
                                 </a>
                                 <div class="flex-1 space-y-1">
                                     <div class="flex items-center justify-between gap-2">
-                                        <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="font-medium outfit-font text-[#151E2C] line-clamp-1 cursor-pointer">{{product.name}}</a>
+                                        <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="text-sm sm:text-md font-medium outfit-font text-[#151E2C] line-clamp-1 cursor-pointer">{{product.name}}</a>
                                         <div class="flex items-center gap-1">              
                                             {% if location_stock.discount %}        
                                                 <span class="text-xs text-[#3C3C3C]/60"><del>{{location_stock.price|floatformat:1}}</del></span>
@@ -155,6 +154,37 @@
                                         <button class="text-xs rounded-md flex items-center justify-center bg-[#0A1C4B] py-2 text-white outfit-font px-5 max-w-max">
                                             Add to Cart
                                         </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endwith %}
+                    {% endfor %}
+                </div>
+                <div class="block sm:hidden space-y-2">
+                    {% for product in medicines %}
+                        {% with location_stock=product.lowest_rate_location %}
+                            <div class="flex flex-col rounded-2xl flex-1 relative cursor-default bg-white border border-[#CACBE6] pb-3 transition-all space-y-2">
+                                <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="overflow-hidden rounded-t-3xl flex items-center justify-center w-full h-48 group !mt-0">
+                                    <img class="group-hover:scale-125 transition-all max-h-full max-w-full" src="{{product.cover_image}}" alt="">
+                                </a>
+                                <div class="px-4 space-y-2">
+                                    <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>
+                                    <div class="flex items-center justify-between gap-2">
+                                        <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="font-medium outfit-font line-clamp-2 text-[#151E2C] cursor-pointer">{{product.name}}</a>
+                                    </div>
+                                    <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
+                                        <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_stock.location.lat}},{{location_stock.location.lng}}"></span>
+                                    </span>
+                                    <div class="flex items-center justify-between gap-2">
+                                        <button class="text-xs rounded-md flex items-center justify-center bg-[#0A1C4B] py-2 text-white outfit-font px-5 max-w-max">
+                                            Add to Cart
+                                        </button>
+                                        <div class="flex items-center gap-1">              
+                                            {% if location_stock.discount %}        
+                                                <span class="text-xs text-[#3C3C3C]/60"><del>{{location_stock.price|floatformat:1}}</del></span>
+                                            {% endif %}
+                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{location_stock.final_price|floatformat:1}}</p>                          
+                                        </div>
                                     </div>
                                 </div>
                             </div>
