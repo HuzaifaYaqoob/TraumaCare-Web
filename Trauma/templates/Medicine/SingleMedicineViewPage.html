@@ -154,7 +154,7 @@
                                           }
                                     </script>
                               </div>
-                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn()">
+                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn('{{product.slug}}')">
                                     Add to Cart
                               </button>
                         </div>
@@ -366,28 +366,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let cart__popup__main = document.getElementById('cart__popup__main');
 
-    function add_to_cart_btn() {
-      const ProductQuantity = document.querySelector('[ProductQuantity]').getAttribute('ProductQuantity');
-      let CartItems = getCookie('CartItems');
-      if (CartItems){
-            CartItems = JSON.parse(CartItems)
-      }
-      else{
-            CartItems = []
-      }
-      let already_exist = CartItems.find(item => item.slug == productSlug)
-      if (already_exist){
-            CartItems = CartItems.map(itm => ({...itm, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
-      }
-      else{
-            CartItems.push({'slug' : productSlug, 'quantity' : ProductQuantity, 'location_stock' : location_stock})
-      }
-      setCookie('CartItems', JSON.stringify(CartItems), 7)
-      ShowNotification({type : 'success', message : 'Cart updated successfully'})
-      setTimeout(() => {
-            showSidebarCart()
-      }, 1000);
-    }
 
     
 
