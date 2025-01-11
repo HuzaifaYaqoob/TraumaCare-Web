@@ -232,7 +232,7 @@ class Product(models.Model):
         try:
             return ProductImage.objects.filter(product=self).first().image.url
         except:
-            return '/static/assets/Images/small_logo.png'
+            return '/static/assets/Images/medicine-default-img.png'
     
     def product_admin_card(self, labels=[]):
         images = self.product_all_images
