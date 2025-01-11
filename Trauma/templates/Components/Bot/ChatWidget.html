@@ -1,6 +1,5 @@
 {% load static %}
 
-
 <style>
     [ChatWidgetChatMessage]{
         margin-bottom: 20px;
@@ -29,8 +28,7 @@
     }
 </style>
 
-
-<div class="fixed bottom-10 right-10 flex items-end gap-4 z-[100]">
+<div class="fixed bottom-10 right-10 flex items-end gap-2 z-[100] flex-col">
     {% if request.user.is_authenticated %}
         <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
         <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
@@ -142,16 +140,22 @@
                 </div>
             </div>
         </div>
-        <div MainChatWidgetChatBotIcon class="chatWidgetBotIcon w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+        <a 
+            href="https://wa.me/+923017735045?text=." 
+            target="_blank" 
+            class="size-12 flex bg-white items-center justify-center rounded-full cursor-pointer overflow-hidden"
+        >
+            <img class="w-[36px]" src="{% static 'assets/Images/whatsaap_icon.png' %}" alt="WhatsApp Icon" />
+        </a>
+        <div MainChatWidgetChatBotIcon class="chatWidgetBotIcon size-12 flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
             <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
         </div>
     {% else %}
-        <a href="{% url 'LoginPage' %}?action=ChatBot" class="w-[50px] h-[50px] flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+        <a href="{% url 'LoginPage' %}?action=ChatBot" class="size-12 flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
             <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
         </a>
     {% endif %}
-    
-</div>
 
+</div>
 
 <script src="{% static 'assets/js/ChatWidget.js' %}"></script>

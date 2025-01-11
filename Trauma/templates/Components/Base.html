@@ -14,6 +14,7 @@
     {% include 'Components/Header.html' %}
     <main class="{% if is_search_page %} flex-1 {% endif %}">
         {% block baseBody %}{% endblock baseBody %}
+        <p class="text-red-600 z-50">ehvdvbhbvhbdvdr</p>
         <div class="transform -translate-x-1/2 z-[100] max-w-max fixed bottom-10 left-[50%] hidden">
             <div class="cursor-pointer animate-bounce z-[100] w-12 h-12 rounded-full flex shadow-lg items-center justify-center border bg-white" >
                 {% include 'Components/SVG/LongArrow.html' with direction='BOTTOM' color='#7c3aed' %}
@@ -44,7 +45,6 @@
         {% endcomment %}
     </main>
 </div>
-
 {% if not remove_footer %}
     {% include 'Components/Footer.html' %}
 {% endif %}
