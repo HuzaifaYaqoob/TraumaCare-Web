@@ -57,7 +57,7 @@ def SingleMedicineViewPage(request, product_slug):
         product_all_images = location_stock.product.product_all_images
         other_locations_data.append({
             'location_name' : location_stock.location.name, 'location_id' : location_stock.location.id,
-            'price' : location_stock.price, 'final_price' : location_stock.final_price, 'discount' : location_stock.discount,
+            'price' : location_stock.price, 'final_price' : location_stock.final_price, 'discount' : location_stock.discount, 'slug' : location_stock.product.slug,
             'lat' : location_stock.location.lat, 'lng' : location_stock.location.lng,
         })
     context['other_locations'] = other_locations_data
