@@ -7,13 +7,7 @@
                   </div>
             {% endif %}
             <a href="{% url 'SingleMedicineViewPage' medicine.slug %}?{% if lowest_rate_location %}selected_location={{lowest_rate_location.location.id}}{% endif %}" class="overflow-hidden rounded-t-3xl flex items-center justify-center w-full h-48 group !mt-0">
-                  {% with productImages=medicine.product_all_images %}
-                        {% if productImages.0 and productImages.0.image %}
-                              <img loading="lazy" src="{{productImages.0.image.url}}" class="group-hover:scale-125 transition-all max-h-full max-w-full" alt="">
-                        {% else %}
-                              <img loading="lazy" src="/static/assets/Images/small_logo.png" class="group-hover:scale-125 transition-all max-h-full max-w-full" alt="">
-                        {% endif %}
-                  {% endwith %}
+                  <img loading="lazy" src="{{medicine.cover_image}}" class="group-hover:scale-125 transition-all max-h-full max-w-full" alt="">
             </a>
             <div class="px-4 space-y-2">
                   <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{medicine.store.name}}</div>
@@ -28,7 +22,7 @@
                         {% endif %}
                   </div>
                   <div class="flex items-center justify-between gap-2 !mt-4">
-                        <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
+                        <div onclick="add_to_cart_btn('{{medicine.slug}}', '{{lowest_rate_location.location.id}}', 1)" class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
                               <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
                                     + Add to Cart
                               </div>

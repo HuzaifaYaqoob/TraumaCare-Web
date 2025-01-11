@@ -154,7 +154,7 @@
                                           }
                                     </script>
                               </div>
-                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn('{{product.slug}}')">
+                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn('{{product.slug}}', '{{location_stock.location.id}}')">
                                     Add to Cart
                               </button>
                         </div>
@@ -344,7 +344,6 @@
   <script>
       const authToken = '{{authToken}}'
       const productSlug = '{{product.slug}}'
-      const location_stock = '{{location_stock.id}}'
 
     document.addEventListener('DOMContentLoaded', () => {
       function totalshowPM() {

@@ -35,7 +35,7 @@
                                 </a>
                                 <div class="flex-1 space-y-2">
                                     <div class="flex items-center justify-between gap-2">
-                                        <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</a>
+                                        <a href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{product.location_id}}" class="font-medium outfit-font text-[#151E2C] line-clamp-2">{{product.name}}</a>
                                         <div class="flex items-center gap-1">
                                             {% if product.discount %}
                                                 <span class="text-xs text-[#3C3C3C]/60"><del>{{product.price}}</del></span>
