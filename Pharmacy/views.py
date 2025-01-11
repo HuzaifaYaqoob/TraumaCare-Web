@@ -54,7 +54,7 @@ def PharmacyCartPage(request):
     for item in CartItems:
         try:
             product = Product.objects.get(slug = item['slug'])
-            stock = ProductStock.custom_objects.get(id = item['location_stock'])
+            stock = ProductStock.custom_objects.filter(product = product, location__id = item['location_stock'], is_active=True, is_deleted=False).order_by('-created_at').first()
         except Exception as err:
             print(err)
             pass
