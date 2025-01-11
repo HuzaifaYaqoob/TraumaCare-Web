@@ -281,6 +281,8 @@ const ClearCart = () =>{
     if (CartItems){
         setCookie('CartItems', '', 1)
     }
+    // reload Page 
+    window.location.reload()
 }
 
 const showSidebarCart = async () => {
