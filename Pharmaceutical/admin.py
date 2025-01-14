@@ -6,6 +6,7 @@ from .models import Pharmaceutical, PharmaceuticalMedia
 
 @admin.register(Pharmaceutical)
 class PharmaceuticalAdmin(admin.ModelAdmin):
+    ordering = ['name']
     list_display = ['name']
 
 
