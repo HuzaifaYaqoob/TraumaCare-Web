@@ -46,6 +46,16 @@
 {% block pharmacy_body %}
 
 <main class="px-4 sm:px-6 md:px-8 space-y-10 py-4 sm:py-5 md:py-7 bg-[#F9F9F9]">
+    <section class="max-w-[1500px] mx-auto">
+        <h3 class="outfit-font text-2xl font-semibold mb-3">Top Brands</h3>
+        <div class="flex items-center gap-3 flex-wrap ">
+            {% for brand in brands %}
+                <a href="?brand={{brand.slug}}" class="text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %}">
+                    <h3>{{brand.name}}</h3>
+                </a>
+            {% endfor %}
+        </div>
+    </section>
     <section class="max-w-[1500px] mx-auto flex items-start gap-6">
         <div class="hidden lg:block max-w-[320px] w-full rounded-xl bg-white border border-[#0000001A] p-3 space-y-7 sticky top-[130px]">
             <div class="flex items-center justify-between">
@@ -55,36 +65,36 @@
                 </a>
             </div>
             <div class="space-y-2">
-                <h3 class="text-[#111111] font-medium">City</h3>
+                <h3 class="text-[#000] font-semibold">Treatment Type</h3>
                 <div class="grid grid-cols-2 gap-2">
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Lahore" id="Lahore">
-                        <label for="Lahore" class="text-[#514B81] text-sm select-none">Lahore</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Sialkot" id="Sialkot">
-                        <label for="Sialkot" class="text-[#514B81] text-sm select-none">Sialkot</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Karachi" id="Karachi">
-                        <label for="Karachi" class="text-[#514B81] text-sm select-none">Karachi</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Quetta" id="Quetta">
-                        <label for="Quetta" class="text-[#514B81] text-sm select-none">Quetta</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Islamabad" id="Islamabad">
-                        <label for="Islamabad" class="text-[#514B81] text-sm select-none">Islamabad</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Sargodha" id="Sargodha">
-                        <label for="Sargodha" class="text-[#514B81] text-sm select-none">Sargodha</label>
-                    </div>
-                    <div class="flex items-center gap-1.5">
-                        <input type="checkbox" name="Faisalabad" id="Faisalabad">
-                        <label for="Faisalabad" class="text-[#514B81] text-sm select-none">Faisalabad</label>
-                    </div>
+                    {% for treatment_type in product_TreatmentTypes %}
+                        <div class="flex items-center gap-1.5">
+                            <input type="radio" name="treatment_type" value="{{treatment_type.slug}}" id="{{treatment_type.slug}}">
+                            <label for="{{treatment_type.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{treatment_type.name}}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-[#000] font-semibold">Product Form</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    {% for product_form in product_product_forms %}
+                        <div class="flex items-center gap-1.5">
+                            <input type="radio" name="product_form" value="{{product_form.slug}}" id="{{product_form.slug}}">
+                            <label for="{{product_form.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{product_form.name}}</label>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="space-y-2">
+                <h3 class="text-[#000] font-semibold">Categories</h3>
+                <div class="grid grid-cols-2 gap-2">
+                    {% for sub_cat in product_subcategories %}
+                        <div class="flex items-center gap-1.5">
+                            <input type="radio" name="sub_category" value="{{sub_cat.slug}}" id="{{sub_cat.slug}}">
+                            <label for="{{sub_cat.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{sub_cat.name}}</label>
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
             <div class="space-y-3">

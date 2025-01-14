@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.db.models import Q
-from Product.models import Product, ProductStock
+from Product.models import Product, ProductStock, SubCategory, TreatmentType, ProductForm, ProductType
+from Pharmaceutical.models import Pharmaceutical
+
 import json
 from urllib.parse import unquote
 # Create your views here.
@@ -32,6 +34,12 @@ def PharmacySearchPage(request):
 
     context['total_medicines'] = len(searchedProducts)
     context['medicines'] = searchedProducts[:28]
+
+
+    context['product_TreatmentTypes'] = TreatmentType.objects.filter(is_active=True).order_by('name')[:20]
+    context['product_product_forms'] = ProductType.objects.filter(is_active=True).order_by('name')[:20]
+    context['product_subcategories'] = SubCategory.objects.filter(is_active=True).order_by('name')[:20]
+    context['brands'] = Pharmaceutical.objects.filter(is_active=True, is_deleted=False).order_by('name')[:20]
     return render(request, 'Pharmacy/pharmacy_search.html', context)
 
 def PharmacyCartPage(request):
