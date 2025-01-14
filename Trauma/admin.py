@@ -81,4 +81,3 @@ class VerificationCodeAdmin(admin.ModelAdmin):
         return mark_safe(div)
     
     user_.image_tag = True
-    user_.admin_order_field = "first_name"

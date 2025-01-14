@@ -18,20 +18,6 @@ COLORS = {
     "Private_Clinic" : '#A737D5',
 }
 
-# @admin.register(User)
-# class UserAdmin(admin.ModelAdmin):
-#     ordering = ['-joined_at']
-#     list_display = ['username', 'email', 'first_name', 'last_name', 'phone_number', 'joined_at']
-#     # 'id', 
-
-#     search_fields = ['id', 'username', 'email', 'country__name']
-#     list_filter = ['joined_at']
-
-#     def phone_number(self, obj):
-#         is_mobile_verified = '<img style="margin-right:7px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if obj.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
-#         return mark_safe(f'{is_mobile_verified} {obj.mobile_number}')
-    
-#     phone_number.image_tag = True
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
     ordering = ['rank']
@@ -75,10 +61,10 @@ class UserProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     list_display = [
-        'user', 'email', 'full_name', 'first_name', 'last_name', 'joined_at',
-        "is_active",
+        'user',
+        'joined_at', "is_active",
     ]
-    search_fields = ['id', 'username', 'full_name', 'first_name', 'last_name', 'email', 'country__name', 'mobile_number']
+    search_fields = ['id', 'username', 'full_name', 'email', 'country__name', 'mobile_number']
     ordering = ['-joined_at']
     list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
     inlines = [UserProfileInline]
@@ -93,8 +79,6 @@ class CustomUserAdmin(UserAdmin):
     #                 # "email",
     #                 "password",
     #                 "username",
-    #                 # "first_name",
-    #                 # "last_name",
     #             ),
     #         },
     #     ),
@@ -102,8 +86,6 @@ class CustomUserAdmin(UserAdmin):
     fieldsets = (
         ("Personal info", {"fields": (
                             "full_name",
-                            "first_name",
-                            "last_name",
                             "username",
                             "mobile_number", 
                             "is_mobile_verified", 
@@ -158,7 +140,7 @@ class CustomUserAdmin(UserAdmin):
         return mark_safe(div)
     
     user.image_tag = True
-    user.admin_order_field = "first_name"
+    user.admin_order_field = "full_name"
 
 
     # Methods 

@@ -155,7 +155,7 @@ JAZZMIN_SETTINGS = {
     #############
     # Relative paths to custom CSS/JS scripts (must be present in static files)
     "custom_css": 'assets/css/django_jazzmin.css',
-    "custom_js": None,
+    "custom_js": 'assets/js/CustomAdmin/CustomDjangoJazzminJs.js',
     # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
     "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar

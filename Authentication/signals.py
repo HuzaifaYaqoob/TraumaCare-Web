@@ -15,16 +15,9 @@ def user_created_signal__CreateUserProfile(sender, instance, created, **kwargs):
     if not created:
         return
 
-
-    user_name = instance.username
-    first_name = instance.first_name or user_name
-    last_name = instance.last_name or user_name
-
     user_profile = Profile(
         user = instance,
-        first_name = first_name,
-        last_name = last_name,
-        full_name = f'{first_name} {last_name}'.strip(),
+        full_name = f'{instance.full_name or instance.username}'.strip(),
         email = instance.email,
     )
     user_profile.is_selected = True
