@@ -63,6 +63,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     first_name = models.CharField(max_length=128)
     last_name = models.CharField(max_length=128, null=True, blank=True)
+    full_name = models.CharField(max_length=999, default='')
 
     username = models.CharField(max_length=30, unique=True)
 
@@ -168,12 +169,12 @@ class User(AbstractBaseUser, PermissionsMixin):
             return False
     
 
-    @property
-    def full_name(self):
-        if self.first_name:
-            return f'{self.first_name} {self.last_name if self.last_name else ""}'
-        else :
-            return self.username
+    # @property
+    # def full_name(self):
+    #     if self.first_name:
+    #         return f'{self.first_name} {self.last_name if self.last_name else ""}'
+    #     else :
+    #         return self.username
 
 
     # def account_type(self):

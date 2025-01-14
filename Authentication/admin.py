@@ -75,10 +75,10 @@ class UserProfileInline(admin.StackedInline):
 
 class CustomUserAdmin(UserAdmin):
     list_display = [
-        'user', 'email', 'first_name', 'last_name', 'joined_at',
+        'user', 'email', 'full_name', 'first_name', 'last_name', 'joined_at',
         "is_active",
     ]
-    search_fields = ['id', 'username', 'first_name', 'last_name', 'email', 'country__name', 'mobile_number']
+    search_fields = ['id', 'username', 'full_name', 'first_name', 'last_name', 'email', 'country__name', 'mobile_number']
     ordering = ['-joined_at']
     list_filter = ['is_admin', 'is_staff', 'is_mobile_verified', 'joined_at']
     inlines = [UserProfileInline]
@@ -101,6 +101,7 @@ class CustomUserAdmin(UserAdmin):
     # )
     fieldsets = (
         ("Personal info", {"fields": (
+                            "full_name",
                             "first_name",
                             "last_name",
                             "username",
