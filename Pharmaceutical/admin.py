@@ -7,7 +7,7 @@ from .models import Pharmaceutical, PharmaceuticalMedia
 @admin.register(Pharmaceutical)
 class PharmaceuticalAdmin(admin.ModelAdmin):
     ordering = ['name']
-    list_display = ['name']
+    list_display = ['name', 'products_count']
 
     def products_count(self, obj):
         return obj.manufacturer_products.count()
