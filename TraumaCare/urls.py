@@ -12,6 +12,7 @@ from .admin_views import OrganizationHierarchyPage
 
 urlpatterns = [
     path('admin/organization/', OrganizationHierarchyPage, name='OrganizationHierarchyPage'),
+    path('admin/super-dashboard/', SuperUserDashboard, name='SuperUserDashboard'),
     path('admin/', admin.site.urls),
 
 
