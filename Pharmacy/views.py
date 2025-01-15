@@ -97,7 +97,7 @@ def PharmacyCartPage(request):
     similar_products = Product.objects.filter(
         is_active=True, is_deleted=False, is_blocked=False,
         **similar_query
-    ).distinct().exclude(id__in=[item['id'] for item in CartItems]).order_by('?')[:10]
+    ).distinct().exclude(id__in=[item.get('id') for item in CartItems]).order_by('?')[:10]
 
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
     context = {
@@ -167,7 +167,7 @@ def PharmacyCartCheckoutPage(request):
     similar_products = Product.objects.filter(
         is_active=True, is_deleted=False, is_blocked=False,
         **similar_query
-    ).distinct().exclude(id__in=[item['id'] for item in CartItems]).order_by('?')[:10]
+    ).distinct().exclude(id__in=[item.get('id') for item in CartItems]).order_by('?')[:10]
 
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
     context = {
