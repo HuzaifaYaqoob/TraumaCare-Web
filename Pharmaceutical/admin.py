@@ -6,7 +6,11 @@ from .models import Pharmaceutical, PharmaceuticalMedia
 
 @admin.register(Pharmaceutical)
 class PharmaceuticalAdmin(admin.ModelAdmin):
-    list_display = ['name']
+    ordering = ['name']
+    list_display = ['name', 'products_count']
+
+    def products_count(self, obj):
+        return obj.manufacturer_products.count()
 
 
 @admin.register(PharmaceuticalMedia)

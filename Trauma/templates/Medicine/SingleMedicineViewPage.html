@@ -125,7 +125,6 @@
                                     {% endif %}
                               </div>
                         </div>
-                        <div class="my-4 w-full h-[1px] bg-[#CACBE6]"> </div>
                         <div class="flex items-center gap-3">
                               <div class="flex items-center rounded-lg bg-[#6C7793] w-[120px] h-[40px] p-[1.5px]">
                                     <button onclick="handleIncrementDecrement(false)" class="cursor-pointer text-white text-xl font-semibold flex-1 h-full flex items-center justify-center">-</button>
@@ -166,7 +165,7 @@
                                     </span>
                                     <div>
                                           <h3 class="text-[#151E2C] text-sm outfit-font font-medium">Fast Shipping</h3>
-                                          <p class="text-[#111111] text-[11px] outfit-font">Shipped In 24 H</p>
+                                          <p class="text-[#111111] text-[11px] outfit-font">Expected time 1 Hour</p>
                                     </div>
                               </div>
                               <div class="flex items-center gap-2">
@@ -221,7 +220,7 @@
                                                 </div>
                                                 <div class="flex items-center justify-between gap-2 !mt-4">
                                                       <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
-                                                            <div class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                                                            <div onclick="add_to_cart_btn('{{location_product.slug}}', '{{location_product.location_id}}', 1)" class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
                                                                   + Add to Cart
                                                             </div>
                                                       </div>

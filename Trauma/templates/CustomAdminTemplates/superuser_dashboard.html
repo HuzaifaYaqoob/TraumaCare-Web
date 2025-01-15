@@ -1,0 +1,19 @@
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+    <script defer src="{% static 'assets/tailwind/tailwind.js' %}?version=1"></script>
+
+    <style>
+        
+    </style>
+
+    <section class="max-w-full">
+        <div class="text-[#7B7B7B] flex flex-wrap gap-2">
+            {% for breadcrumb in breadcrumbs %}
+                <a href="{{breadcrumb.url}}" class="cursor-pointer">{{breadcrumb.name}}</a>{% if not forloop.last %} &gt; {% endif %}
+            {% endfor %}
+        </div>
+    </section>
+    
+{% endblock content %}

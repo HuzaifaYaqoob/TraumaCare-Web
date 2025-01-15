@@ -359,8 +359,7 @@ class ActivatedVideoChat(WebsocketConsumer):
             user_obj = {
                 'username' : str(self.user.username),
                 'email' : str(self.user.email),
-                'first_name' : str(self.user.first_name),
-                'last_name' : str(self.user.last_name),
+                'full_name' : str(self.user.full_name),
                 'auth_token' : str(self.user.auth_token),
             }
             async_to_sync(self.channel_layer.group_send)(

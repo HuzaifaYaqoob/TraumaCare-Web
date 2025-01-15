@@ -38,7 +38,7 @@
                 <div class="flex items-center gap-2">
                     <img class="size-11" src="/static/assets/Images/chatbotLogo.png" alt="Image Loading...">
                     <div class="flex flex-col">
-                        <p class="font-semibold text-white">{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}</p>
+                        <p class="font-semibold text-white">{% if request.user.full_name %}{{request.user.full_name}}{% else %}{{request.user.username}}{% endif %}</p>
                         <span class="text-xs text-[#E7E7E7] font-medium">Traumaaicare Assistant</span>
                     </div>
                 </div>
@@ -143,7 +143,7 @@
         <a 
             href="https://wa.me/+923017735045?text=." 
             target="_blank" 
-            class="size-12 flex bg-white items-center justify-center rounded-full cursor-pointer overflow-hidden"
+            class="border size-12 flex bg-white items-center justify-center rounded-full cursor-pointer overflow-hidden shadow"
         >
             <img class="w-[36px]" src="{% static 'assets/Images/whatsaap_icon.png' %}" alt="WhatsApp Icon" />
         </a>

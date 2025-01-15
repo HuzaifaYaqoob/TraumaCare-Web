@@ -57,9 +57,7 @@ def onboarding(request):
             profile_image = request.FILES.get('profile_image', None)
             pmc_document = request.FILES.get('pmc_document', None)
 
-            f_name, *l_name = f'{full_name} '.split(' ')
-            l_name = ' '.join(l_name)
-            d_p = Profile.objects.create(user = request.user, first_name = f_name, last_name = l_name, full_name = full_name, profile_type = 'Doctor', profile_image = profile_image,)
+            d_p = Profile.objects.create(user = request.user, full_name = full_name, profile_type = 'Doctor', profile_image = profile_image,)
             doctor = Doctor.objects.create(
                 user = request.user,
                 profile = d_p,
@@ -96,10 +94,7 @@ def onboarding(request):
             address = request.POST.get('address', None)
             hospital_image = request.FILES.get('hospital_image', None)
 
-            f_name, *l_name = f'{hospital_name} '.split(' ')
-            l_name = ' '.join(l_name)
-
-            h_p = Profile.objects.create(user = request.user, first_name = f_name, last_name = l_name, full_name = hospital_name, email = hospital_email, profile_type = 'Hospital', profile_image = hospital_image,)
+            h_p = Profile.objects.create(user = request.user, full_name = hospital_name, email = hospital_email, profile_type = 'Hospital', profile_image = hospital_image,)
             hospital = Hospital.objects.create(user = request.user, profile = h_p, facility_type = Hospital, name = hospital_name,)
             hops_l = HospitalLocation.objects.create(hospital = hospital, name = address_title,street_address = address, country = Country.objects.get(name__iexact = 'pakistan',), state = State.objects.get(id = address_state), city = City.objects.get(id = address_city),)
             LocationContact.objects.create(hospital = hospital, location = hops_l, contact_type = "EMAIL", contact_title = 'Contact Email', email = hospital_email,)

@@ -14,6 +14,8 @@ import random
 from Product.models import Product, ProductStock
 from Pharmacy.models import Store, StoreLocation
 
+from Authentication.models import User
+
 class Command(BaseCommand):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

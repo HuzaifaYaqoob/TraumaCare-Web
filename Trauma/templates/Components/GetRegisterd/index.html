@@ -23,7 +23,7 @@
                   </div>
                   <a href="{% if request.user.is_authenticated %}#{% else %}{% url 'RegisterPage' %}{% endif %}" class="bg-[#21262D] py-2 px-3  rounded-lg border border-[#CCBBBB] cursor-pointer">
                         <!-- <p class="text-[#CCBBBB] whitespace-nowrap text-sm">Register Now</p> -->
-                        <p class="text-[#CCBBBB] whitespace-nowrap text-sm">{% if request.user.is_authenticated %}{{request.user.first_name}} {{request.user.last_name}}{% else %}Register Now{% endif %}</p>
+                        <p class="text-[#CCBBBB] whitespace-nowrap text-sm">{% if request.user.is_authenticated %}{{request.user.full_name}}{% else %}Register Now{% endif %}</p>
                   </a>
             </div>
             <div class="flex-1 bg-[#42474D] p-6 rounded-xl relative ">

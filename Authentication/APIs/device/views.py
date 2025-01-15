@@ -97,18 +97,11 @@ def HandleLogin(request):
             email = f'{username}-{mobile_number}@traumaaicare.com'
             password = f'{username}-{mobile_number}'
             dial_code = '92'
-            full_name = f'{full_name} '.split(' ')
-            first_name = full_name[0]
-            try:
-                last_name = full_name[1]
-            except:
-                last_name = ''
 
             user = User(
                 username = username,
                 email = email,
-                first_name = first_name,
-                last_name = last_name,
+                full_name = full_name,
                 dial_code = dial_code,
                 mobile_number = mobile_number
             )

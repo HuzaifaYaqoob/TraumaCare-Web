@@ -89,7 +89,7 @@ def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False
         INSTRUCTIONS.append({'role' : 'system', 'content' : doctors_string})
         INSTRUCTIONS.append({'role' : 'system', 'content' : hospitals_string})
         if user:
-            INSTRUCTIONS.append({'role' : 'system', 'content' : f'User : {user.first_name} {user.last_name}, Phone : {user.mobile_number}'})
+            INSTRUCTIONS.append({'role' : 'system', 'content' : f'User : {user.full_name}, Phone : {user.mobile_number}'})
 
     query = {}
     if not onlyText:

@@ -54,6 +54,7 @@ JAZZMIN_SETTINGS = {
 
         # Url that gets reversed (Permissions can be added)
         {"name": "Home",  "url": "admin:index", "permissions": []},
+        {"name": "Dashboard",  "url": "/admin/super-dashboard/", "permissions": []},
         {"name": "Users",  "url": "/admin/Authentication/user/", "permissions": ["Authentication.view_user"]},
         {"name": "Hospitals",  "url": "/admin/Hospital/hospital/", "permissions": ["Hospital.view_hospital"]},
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
@@ -154,7 +155,7 @@ JAZZMIN_SETTINGS = {
     #############
     # Relative paths to custom CSS/JS scripts (must be present in static files)
     "custom_css": 'assets/css/django_jazzmin.css',
-    "custom_js": None,
+    "custom_js": 'assets/js/CustomAdmin/CustomDjangoJazzminJs.js',
     # Whether to link font from fonts.googleapis.com (use custom_css to supply font otherwise)
     "use_google_fonts_cdn": True,
     # Whether to show the UI customizer on the sidebar

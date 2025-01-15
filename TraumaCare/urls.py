@@ -8,10 +8,11 @@ from django.conf.urls.static import static
 
 from Trauma.views import test, searchFilterPage, CartPage
 from .views import set_language
-from .admin_views import OrganizationHierarchyPage
+from .admin_views import OrganizationHierarchyPage, SuperUserDashboard
 
 urlpatterns = [
     path('admin/organization/', OrganizationHierarchyPage, name='OrganizationHierarchyPage'),
+    path('admin/super-dashboard/', SuperUserDashboard, name='SuperUserDashboard'),
     path('admin/', admin.site.urls),
 
 

@@ -4,6 +4,10 @@ from django.shortcuts import render, redirect, reverse
 
 from Authentication.models import Role
 
+def SuperUserDashboard(request):
+    context = {}
+    return render(request, 'CustomAdminTemplates/superuser_dashboard.html', context)
+
 def OrganizationHierarchyPage(request):
     selected_role = request.GET.get('selected_role', None)
     context = {}

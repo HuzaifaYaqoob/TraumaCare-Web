@@ -377,7 +377,7 @@
                 <div class="flex gap-3 md:gap-5">
                     <div class="rounded-2xl h-[50px] md:h-[70px] w-[60px] md:w-[80px]" style="background: url('{% if request.user.profile_image %}{{request.user.profile_image}}{% else %}https://img.freepik.com/free-photo/portrait-smiling-young-woman-doctor-healthcare-medical-worker-pointing-fingers-left-showing-clini_1258-88108.jpg?w=2000{% endif %}'); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                     <div>
-                        <h3 class="text-md md:text-lg font-semibold text-[#151E2C]">{% if request.user.first_name %}{{request.user.first_name}} {{request.user.last_name}}{% else %}{{request.user.username}}{% endif %}</h3>
+                        <h3 class="text-md md:text-lg font-semibold text-[#151E2C]">{% if request.user.full_name %}{{request.user.full_name}}{% else %}{{request.user.username}}{% endif %}</h3>
                         <p class="text-xs md:text-sm text-[#3C3C3C]">{{request.user.email}}</p>
                     </div>
                 </div>

@@ -39,8 +39,6 @@ class Profile(models.Model):
 
     user = models.ForeignKey(User, related_name='user_profiles', on_delete=models.CASCADE)
 
-    first_name = models.CharField(max_length=500, default='')
-    last_name = models.CharField(max_length=500, default='')
     full_name = models.CharField(max_length=800, default='')
     email = models.EmailField()
 
@@ -85,20 +83,12 @@ class Profile(models.Model):
 
     def save(self, *args, **kwargs):
         if self.profile_type == 'Patient':
-            if not self.first_name:
-                self.first_name = self.user.first_name or self.first_name
-            if not self.last_name:
-                self.last_name = self.user.last_name or self.last_name
-
             self.email = self.user.email or self.email
         else:
-            if not self.first_name:
-                self.first_name = self.first_name or self.user.first_name
-            if not self.last_name:
-                self.last_name = self.last_name or self.user.last_name
             self.email = self.email or self.user.email
         
-        self.full_name = f'{self.first_name} {self.last_name}'.strip()
+        if not self.full_name:
+            self.full_name = f'{self.user.full_name}'.strip()
 
 
         if not self.is_watermark_added and self.profile_image:
