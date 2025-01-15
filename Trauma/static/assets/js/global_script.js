@@ -285,19 +285,19 @@ const ClearCart = () =>{
     window.location.reload()
 }
 
-const removeItemFromCart = (slug) =>{
-    console.log(slug)
+const removeItemFromCart = (p_id) =>{
+    console.log(p_id)
     let CartItems = getCookie('CartItems');
     if (CartItems){
         CartItems = JSON.parse(CartItems)
-        CartItems = CartItems.filter(itm => itm.slug != slug)
+        CartItems = CartItems.filter(itm => itm.p_id != p_id)
         setCookie('CartItems', JSON.stringify(CartItems), 7)
     }
     showSidebarCart(true)
 }
 
-function add_to_cart_btn(productSlug, location_stock, ProductQuantity) {
-    console.log(productSlug, location_stock, ProductQuantity)
+function add_to_cart_btn(productId, location_stock, ProductQuantity) {
+    console.log(productId, location_stock, ProductQuantity)
     if (!ProductQuantity) {
         ProductQuantity = document.querySelector('[ProductQuantity]').getAttribute('ProductQuantity');
     }
@@ -312,12 +312,12 @@ function add_to_cart_btn(productSlug, location_stock, ProductQuantity) {
     else{
           CartItems = []
     }
-    let already_exist = CartItems.find(item => item.slug == productSlug)
+    let already_exist = CartItems.find(item => item.id == productId)
     if (already_exist){
-        CartItems = CartItems.map(itm => ({...itm, 'location_stock' : location_stock, quantity : itm.slug == productSlug ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
+        CartItems = CartItems.map(itm => ({...itm, 'location_stock' : location_stock, quantity : itm.id == productId ? parseInt(ProductQuantity) : parseInt(itm.quantity),}))
     }
     else{
-        CartItems.push({'slug' : productSlug, 'quantity' : ProductQuantity, 'location_stock' : location_stock})
+        CartItems.push({'id' : productId, 'quantity' : ProductQuantity, 'location_stock' : location_stock})
     }
     setCookie('CartItems', JSON.stringify(CartItems), 7)
     ShowNotification({type : 'success', message : 'Cart updated successfully'})
@@ -378,7 +378,7 @@ const showSidebarCart = async (stillUpdate) => {
                                         <p class="text-[#05D57C] outfit-font font-semibold italic whitespace-nowrap"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>${prod_itm.final_price}</p>
                                         <span class='outfit-font whitespace-nowrap text-xs'>X ${prod_itm.quantity}</span>
                                     </div>
-                                    <span onclick="removeItemFromCart('${prod_itm.slug}')" class="ml-auto flex items-center justify-center size-6 cursor-pointer">
+                                    <span onclick="removeItemFromCart('${prod_itm.id}')" class="ml-auto flex items-center justify-center size-6 cursor-pointer">
                                         <svg class="size-4 fill-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
                                     </span>
                                 </div>

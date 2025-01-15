@@ -1,7 +1,7 @@
 from django.contrib import admin
 
 
-from .models import Profile
+from .models import Profile, ShipingAddress
 # Register your models here.
 
 
@@ -16,5 +16,14 @@ class ProfileAdmin(admin.ModelAdmin):
         'is_active',
         'is_deleted',
         'is_blocked',
+        'created_at',
+    ]
+
+
+@admin.register(ShipingAddress)
+class ShipingAddressAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
+    list_display = [
+        'user',
         'created_at',
     ]

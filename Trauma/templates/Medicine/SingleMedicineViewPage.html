@@ -153,7 +153,7 @@
                                           }
                                     </script>
                               </div>
-                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn('{{product.slug}}', '{{location_stock.location.id}}')">
+                              <button class="bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] rounded-full px-5 py-2.5 text-white text-sm outfit-font cursor-pointer" onclick="add_to_cart_btn('{{product.id}}', '{{location_stock.location.id}}')">
                                     Add to Cart
                               </button>
                         </div>
@@ -220,7 +220,7 @@
                                                 </div>
                                                 <div class="flex items-center justify-between gap-2 !mt-4">
                                                       <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
-                                                            <div onclick="add_to_cart_btn('{{location_product.slug}}', '{{location_product.location_id}}', 1)" class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                                                            <div onclick="add_to_cart_btn('{{location_product.id}}', '{{location_product.location_id}}', 1)" class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
                                                                   + Add to Cart
                                                             </div>
                                                       </div>
