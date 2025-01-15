@@ -25,6 +25,8 @@ def AdminTestPage(request):
         first_products = Product.objects.filter(manufacturer = first)
         first_products.update(manufacturer = second)
 
+        first.delete()
+
         return redirect(reverse('AdminTestPage'))
 
 
