@@ -1,0 +1,32 @@
+
+
+{% extends "admin/base_site.html" %}
+{% load static %}
+
+{% block content %}
+
+
+
+<form method="post" action="">
+    {% csrf_token %}
+    <div>
+        <label>This Item will be deleted</label>
+        <select name="first" required>
+            {% for f in first %}
+                <option value="{{f.id}}">{{f.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <div>
+        <label>Products of Deleted Items will be move to this one</label>
+        <select name="second" required>
+            {% for s in second %}
+                <option value="{{s.id}}">{{s.name}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <br>
+    <button>Submit</button>
+</form>
+{% endblock content %}
