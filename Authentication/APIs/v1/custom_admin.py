@@ -35,7 +35,7 @@ def getAdminTopTiles(request):
         cardData = [{'icon' : 'fas fa-th-large !text-[#0755E9]', 'title': "Total users", 'value': users.count(), 'desc' : 'Total Users Registered on this platform'}, 
                     {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "New Users", 'value': new_users.count(), 'desc' : 'News Users in past 7 days'},
                     {'icon' : 'fas fa-user !text-[#05DC75]', 'title': "Active Users", 'value': active_users.count(), 'desc' : 'User with status Active'}, 
-                    {'icon' : 'fas fa-user-tie !text-[#F8DB48]', 'title': "Real Users", 'value': real_users.count(), 'desc' : 'Users who have Doctor Profile as well'},  ]
+                    {'icon' : 'fas fa-user-tie !text-[#F8DB48]', 'title': "Real Users", 'value': real_users.count(), 'desc' : 'Users registered with Real Mobile Numbers'},  ]
     else:
         return Response({'message' : 'Invalid Page',}) 
     
