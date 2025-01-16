@@ -8,4 +8,5 @@ urlpatterns = [
     path('', pharmacy_views.PharmacyLandingPage, name='PharmacyLandingPage'),
     path('search/', pharmacy_views.PharmacySearchPage, name='PharmacySearchPage'),
     path('cart/', pharmacy_views.PharmacyCartPage, name='PharmacyCartPage'),
+    path('cart/checkout/', pharmacy_views.PharmacyCartCheckoutPage, name='PharmacyCartCheckoutPage'),
 ] 

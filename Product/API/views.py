@@ -28,7 +28,7 @@ def CalculateCart(request):
 
     for item in CartItems:
         try:
-            product = Product.objects.get(slug = item['slug'])
+            product = Product.objects.get(id = item['id'])
             stock = ProductStock.custom_objects.filter(product = product, location__id = item['location_stock'], is_active=True, is_deleted=False).order_by('-created_at').first()
             
         except Exception as err:

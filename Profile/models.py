@@ -103,3 +103,21 @@ class Profile(models.Model):
         
 
         super(Profile, self).save(*args, **kwargs)
+
+
+class ShipingAddress(models.Model):
+    user = models.ForeignKey(User, related_name='user_shipping_addresses', on_delete=models.CASCADE)
+
+    full_name = models.CharField(max_length=800, default='')
+    address = models.TextField(default='')
+    country = models.CharField(max_length=800, default='')
+    state = models.CharField(max_length=800, default='')
+    city = models.CharField(max_length=800, default='')
+    postal_code = models.CharField(max_length=800, default='')
+    mobile_number = models.CharField(max_length=800, default='')
+    
+    created_at = models.DateTimeField(auto_now_add=now)
+
+    def __str__(self):
+        return f'{self.full_name} - {self.mobile_number}'
+    
