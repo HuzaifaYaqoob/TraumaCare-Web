@@ -6,7 +6,7 @@
 {% endblock BaseCSS %}
 {% block baseBody %}
 <main class="px-4 sm:px-6 md:px-8 py-7">
-      <section class="max-w-[1500px] mx-auto flex gap-5">
+      <section class="max-w-[1100px] mx-auto flex gap-5">
             <div class="space-y-5 max-w-96 w-full">
                   <div class="h-[600px] w-full rounded-lg bg-center bg-cover bg-no-repeat"
                         style="background-image: url('https://plus.unsplash.com/premium_photo-1664474619075-644dd191935f?q=80&w=3269&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
@@ -30,7 +30,18 @@
                         <p class="line-clamp-5 text-[#3C3C3C] text-sm outfit-font">Dr. Muhammad Tayyab is an expert Eye Surgeon with 35 years of experience currently practicing at Doctors Hospital, Lahore. You can call our helpline 04238900939 for more information. Experience Dr. Muhammad Tayyab has over 35 years of experience in his field. Qualifications Dr. Muhammad Tayyab has the following qualifications: MBBS MCPS FCPS (Ophthalmology) Appointment Details In order to book an appointment with Dr. Muhammad Tayyab you can call 04238900939 or click the Book Appointment button. Fees Dr. Muhammad Tayyab charges a fee of Rs. 2,500 for appointments. Practice Locations Dr.</p>
                   </div>
             </div>
-            <div class="rounded-2xl relative relative flex-1">
+            <div class="rounded-2xl relative relative flex-1 space-y-4">
+                  <a href="" class="border border-[#CACBE6] rounded-md flex min-w-[200px] w-full gap-2 overflow-hidden">
+                        <div class="bg-center w-[86px] bg-cover bg-no-repeat" style="background-image: url(/media/Doctor/Files/2024-12/2aa95791-5eae-4559-9934-74d5b4cb5aeb.jpg);"></div>
+                        <div class="py-2 pr-3 flex-1">
+                            <p class="text-md font-medium text-[#151E2C] outfit-font line-clamp-1">Dr. Muhammad Usman Tariq</p>
+                            <p class="text-[#111111] text-xs outfit-font line-clamp-1">Consultant Dental Surgeon</p>
+                            <p class="text-[#05D57C] text-[23px] outfit-font font-semibold italic flex items-center gap-1">
+                                3000 
+                                <span class="font-medium text-[#151E2C] text-xs">PKR</span>
+                            </p>
+                        </div>
+                  </a>
                   <div class="gap-3 items-start border border-[#CACBE6] rounded-lg flex min-w-[200px] w-full p-2">
                         <div class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/Hospital/Files/2024-12/dct.jpg');"></div>
                         <div class="flex-1 space-y-0.5">
@@ -42,9 +53,49 @@
                             </div>
                             <p class="line-clamp-2 text-[#111111] text-xs">152-G, 1 Canal Rd, Block G1 Block G 1 Phase 1 Johar Town, Lahore, Punjab 54590</p>
                         </div>
-                   </div>
+                  </div>
+                  <div class="px-5 py-4 rounded-lg bg-[#f4f6f9]">
+                        <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                              <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Speciality:</h4>
+                              <p class="text-[#151E2C] outfit-font font-medium text-sm">GYM</p>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                              <h4 class="text-[#0555E9] outfit-font font-medium text-sm">Discount Applied:</h4>
+                              <p class="text-[#0555E9] outfit-font font-medium text-sm">Rs. -166.59</p>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                              <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Platform Fee:</h4>
+                              <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs.9</p>
+                        </div>
+                        <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                              <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Delivery Charges:</h4>
+                              <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs.149</p>
+                        </div>
+                        <div class="flex items-center justify-between py-3">
+                              <h4 class="text-[#151E2C] outfit-font font-semibold text-sm">Grand Total:</h4>
+                              <p class="text-[#000] outfit-font font-medium text-sm italic">Rs.5340.11</p>
+                        </div>
+                        <div class="flex items-center gap-2 pt-6 pb-2">
+                              <button class="block w-full transition-all p-2 py-3 rounded-lg block bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-white">
+                                    <p class="text-center outfit-font">Continue</p>
+                              </button>
+                        </div>
+                  </div>
             </div>
-            <div class="max-w-96 w-full space-y-2">
+            <!-- <div class="max-w-[440px] w-full">
+                  <form class="rounded-xl border border-[#CACBE6] p-4 space-y-3">
+                        <div class="space-y-1">
+                              <p class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Promo Code</p>
+                              <input type="text" placeholder="Enter Your Promo Code" required class="rounded-md w-full outline-none border border-[#CACBE6] px-3 py-2.5 text-sm text-[#151E2C] outfit-font">
+                        </div>
+                        <div class="flex ite justify-end">
+                              <button class="rounded-md text-sm outfit-font text-white bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] px-5 py-2.5">
+                                    Apply
+                              </button>
+                        </div>
+                  </form>
+            </div> -->
+            <!-- <div class="max-w-96 w-full space-y-2">
                   <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Other Doctors</h3>
                   <div class="space-y-2">
                         <a href="" class="border border-[#CACBE6] rounded-md flex min-w-[200px] max-w-[700px] w-full gap-2 overflow-hidden">
@@ -70,47 +121,7 @@
                               </div>
                         </a>
                   </div>
-            </div>
-            <!-- <div class="flex gap-3">
-                  <div class="flex-1">
-                        <div class="rounded-xl border border-[#CACBE6] p-4 space-y-3">
-                              <div class="space-y-1">
-                                    <h3 class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Speciality</h3>
-                                    <div class="rounded-md w-full outline-none border border-[#CACBE6] px-3 py-2.5 text-sm text-[#151E2C] outfit-font line-clamp-1">
-                                          Gym
-                                    </div>
-                              </div>
-                              <div class="space-y-1">
-                                    <h3 class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Time</h3>
-                                    <div class="rounded-md w-full outline-none border border-[#CACBE6] px-3 py-2.5 text-sm text-[#151E2C] outfit-font line-clamp-1">
-                                          06:20 PM
-                                    </div>
-                              </div>
-                              <div class="space-y-1">
-                                    <h3 class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Fee</h3>
-                                    <div class="rounded-md w-full outline-none border border-[#CACBE6] px-3 py-2.5 text-sm text-[#151E2C] outfit-font line-clamp-1">
-                                          4000
-                                    </div>
-                              </div>
-                        </div>
-                  </div>
-                  <div class="max-w-[440px] w-full">
-                        <form class="rounded-xl border border-[#CACBE6] p-4 space-y-3">
-                              <div class="space-y-1">
-                                    <p class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Promo Code</p>
-                                    <input type="text" placeholder="Enter Your Promo Code" required class="rounded-md w-full outline-none border border-[#CACBE6] px-3 py-2.5 text-sm text-[#151E2C] outfit-font">
-                              </div>
-                              <div class="flex ite justify-end">
-                                    <button class="rounded-md text-sm outfit-font text-white bg-gradient-to-r from-[#8F17F6] via-[#EB14E5] to-[#FC736D] px-5 py-2.5">
-                                          Apply
-                                    </button>
-                              </div>
-                        </form>
-                  </div>
             </div> -->
-            <!-- <button class="block w-full transition-all p-2 py-3 mt-[16px] rounded-lg block bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-white">
-                  <p class="text-center outfit-font">Confirm Appointment</p>
-            </button> -->
       </section>
 </main>
 {% endblock baseBody %}
