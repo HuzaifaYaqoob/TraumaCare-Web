@@ -25,7 +25,7 @@ const ShowTopTile = async () =>{
     data.forEach(element => {
         let div_html = `
                 <div
-                    class='relative flex items-start flex-row !p-5 !pb-2 gap-[11px] rounded-[11px] !border ease-in-out duration-75 cursor-pointer'>
+                    class='bg-white relative flex items-start flex-row !p-5 !pb-2 gap-[11px] rounded-[11px] !border ease-in-out duration-75 cursor-pointer'>
                     <div class='rounded-[6px]'>
                         <i class="!text-[38px] ${element.icon}"></i>
                     </div>
