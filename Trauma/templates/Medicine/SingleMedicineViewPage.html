@@ -198,29 +198,30 @@
                         </div>
                   </div>
                   {% if other_locations|length > 0 %}
-                        <div class="max-w-[370px] w-full space-y-3">
+                        <div class="max-w-[370px] w-full space-y-2">
+                              <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Similar Products Nearby</h3>
                               {% for location_product in other_locations %}
                                     <div class="flex rounded-lg relative cursor-default bg-white border border-[#CACBE6] transition-all gap-1 overflow-hidden">
                                           {% if location_product.discount %}
-                                                <div class="absolute right-0 top-[26px]">
-                                                      <span class="font-semibold text-[#151E2C] rounded-md rounded-r-none bg-[#f0da69] py-2 px-3 text-sm">{{location_product.discount|floatformat:0}}% OFF</span>
+                                                <div class="absolute left-0 top-[14px]">
+                                                      <span class="font-semibold text-[#151E2C] rounded-md rounded-l-none bg-[#f0da69] py-1.5 px-2.5 text-xs">{{location_product.discount|floatformat:0}}% OFF</span>
                                                 </div>
                                           {% endif %}
                                           <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{% if product.product_all_images.0.image %}{{product.product_all_images.0.image.url}}{% endif %}');">   </div>
-                                          <div class="px-1 space-y-2 flex-1">
+                                          <div class="px-1.5 py-1.5 space-y-2 flex-1">
                                                 {% comment %} <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div> {% endcomment %}
-                                                <div class="">
+                                                <div>
                                                       <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
                                                             <h2 class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</h2>
                                                       </a>
                                                       <span class="text-xs outfit-font text-[#0555E9] flex gap-1">
-                                                            {{location_product.location_name}}
+                                                            <p class="line-clamp-1">{{location_product.location_name}}</p>
                                                             <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_product.lat}},{{location_product.lng}}"></span>
                                                       </span>
                                                 </div>
-                                                <div class="flex items-center justify-between gap-2 !mt-4">
+                                                <div class="flex items-center justify-between gap-2 !mt-3">
                                                       <div class="bg-gradient-to-r from-[#05DC75] to-[#0755E9] p-[1px] rounded-full">
-                                                            <div onclick="add_to_cart_btn('{{location_product.id}}', '{{location_product.location_id}}', 1)" class="rounded-full max-w-max px-4 py-2.5 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
+                                                            <div onclick="add_to_cart_btn('{{location_product.id}}', '{{location_product.location_id}}', 1)" class="rounded-full max-w-max px-3 py-2 text-sm outfit-font text-[#151E2C] bg-white cursor-pointer whitespace-nowrap">
                                                                   + Add to Cart
                                                             </div>
                                                       </div>
@@ -333,7 +334,7 @@
                   {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
             </div>
             <div class="mt-[50px]">
-                  {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicineSectionHeading='More Product from this Store' medicines=storeMedicines %}
+                  {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicineSectionHeading='Explore More Products From This Store' medicines=storeMedicines %}
             </div>
       </section>
 </main>
