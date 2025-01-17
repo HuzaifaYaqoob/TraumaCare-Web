@@ -23,6 +23,6 @@ def ViewHospitalProfile(request, hospital_slug):
     }
 
     context['doctors'] = Doctor.objects.filter(doctor_hospital_timeslots__hospital = hospital, is_deleted = False, is_blocked = False, is_active = True)
-    context['hospital_specialities'] = Speciality.objects.filter(speciality_doctorspecialities__doctor__in = context['doctors'])
+    context['hospital_specialities'] = Speciality.objects.filter(speciality_doctorspecialities__doctor__in = context['doctors']).distinct()
 
     return render(request, 'Hospital/hospitalprofle.html', context)
