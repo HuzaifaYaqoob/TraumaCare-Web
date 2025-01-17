@@ -96,7 +96,7 @@ MIDDLEWARE = [
 
 
 CRONJOBS = [
-    ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost'),
+    # ('*/15 * * * *', 'Blog.Cronjob.generateBlogPost'),
     ('0 * * * *', 'Appointment.cronjob.expirePassedAppointments'),
     ('*/20 * * * *', 'Administration.Cronjob.sms.refreshSmsKey'),
     ('*/1 * * * *', 'Administration.Cronjob.sms.sendPendingSms'),
