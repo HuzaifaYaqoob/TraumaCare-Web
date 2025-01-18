@@ -19,7 +19,7 @@ const ShowTopTile = async () =>{
     let contentContainer = document.getElementById('content')
     let mainContainer = contentContainer.parentElement
     let TilesDiv = document.createElement('div')
-    TilesDiv.className = 'mb-3 grid xl:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-[15px]'
+    TilesDiv.className = 'mb-3 grid xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-[15px]'
 
     mainContainer.insertBefore(TilesDiv, contentContainer)
     data.forEach(element => {
