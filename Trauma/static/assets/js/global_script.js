@@ -365,26 +365,22 @@ const showSidebarCart = async (stillUpdate) => {
             // </span>
         // </div>
         let product_card = `
-                <div class="flex items-center gap-3 border-b border-[#CACBE6] py-2">
-                        <div class="flex-1 space-y-1">
-                            <div class='flex items-start justify-between gap-1'>
-                                <div class=''>
-                                    <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium text-sm outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
-                                    <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">${prod_itm.store_name}</div>
-                                </div>
-                                <div>
-                                    <div class='flex gap-2 items-center whitespace-nowrap'>
-                                        ${prod_itm.discount ?  `<span class="text-xs text-[#3C3C3C]/60 whitespace-nowrap"><del>Rs.${prod_itm.price}</del></span>` : ''}
-                                        <p class="text-[#05D57C] outfit-font font-semibold italic whitespace-nowrap"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>${prod_itm.final_price}</p>
-                                        <span class='outfit-font whitespace-nowrap text-xs'>X ${prod_itm.quantity}</span>
-                                    </div>
-                                    <span onclick="removeItemFromCart('${prod_itm.id}')" class="ml-auto flex items-center justify-center size-6 cursor-pointer">
-                                        <svg class="size-4 fill-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
-                                    </span>
-                                </div>
-                            </div>
+                <div class="border-b border-[#CACBE6] py-2 space-y-3">
+                    <div class="flex items-start justify-between gap-3">
+                        <a href="/product/view/${prod_itm.slug}/?selected_location=${prod_itm.location_id}" class="font-medium text-sm outfit-font line-clamp-2 text-[#151E2C] line-clamp-1">${prod_itm.name}</a>
+                        <div class='flex gap-2 items-center whitespace-nowrap'>
+                            ${prod_itm.discount ?  `<span class="text-xs text-[#3C3C3C]/60 whitespace-nowrap"><del>Rs.${prod_itm.price}</del></span>` : ''}
+                            <p class="text-[#05D57C] outfit-font font-semibold italic whitespace-nowrap"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>${prod_itm.final_price}</p>
+                            <span class='outfit-font whitespace-nowrap text-xs'>X ${prod_itm.quantity}</span>
                         </div>
-                  </div>
+                    </div>
+                    <div class="flex items-center justify-between gap-3">
+                        <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">${prod_itm.store_name}</div>
+                        <span onclick="removeItemFromCart('${prod_itm.id}')" class="ml-auto flex items-center justify-center size-6 cursor-pointer">
+                            <svg class="size-4 fill-black/50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path d="M135.2 17.7C140.6 6.8 151.7 0 163.8 0L284.2 0c12.1 0 23.2 6.8 28.6 17.7L320 32l96 0c17.7 0 32 14.3 32 32s-14.3 32-32 32L32 96C14.3 96 0 81.7 0 64S14.3 32 32 32l96 0 7.2-14.3zM32 128l384 0 0 320c0 35.3-28.7 64-64 64L96 512c-35.3 0-64-28.7-64-64l0-320zm96 64c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16zm96 0c-8.8 0-16 7.2-16 16l0 224c0 8.8 7.2 16 16 16s16-7.2 16-16l0-224c0-8.8-7.2-16-16-16z"/></svg>
+                        </span>
+                    </div>
+                </div>
             `
         CartItems_div.innerHTML =  CartItems_div.innerHTML + product_card
 
