@@ -98,27 +98,25 @@
                 </form>
             </div>
             <div class="space-y-7 flex-1">
-                <div class="max-w-full overflow-hidden">
-                    <div class="space-y-2">
-                        <h1 class="text-xl sm:text-2xl text-[#151E2C] outfit-font font-semibold leading-tight">Discover Top-Searched Doctors Available <span class="text-[#0755E9]">Near You</span>, Anytime You Need!</h1>
-                        <p class="text-xs sm:text-sm text-[#3C3C3C] outfit-font">Find trusted, highly-rated Doctors & Hospitals at your convenience, tailored to your disease and location.</p>
-                    </div>
-                    <!-- <h3 class="text-[#3C3C3C] text-center font-medium w-full text-sm">{{ DoctorsCount }} results for your search</h3> -->
-                    {% if doctors|length > 0 %}
-                        {% for doctor in doctors %}
-                            {% if forloop.counter == 5 %}
-                                {% include 'Components/Ad/GoogleAd/SearchFilterPage/fifthIndexHorizontalAd.html' %}
-                            {% endif %}
-                            {% include 'Components/Doctor/Cards/DoctorSearchCard.html' %}
-                        {% endfor %}
-                        <button class="border border-dashed w-full text-center py-2 px-3 bg-blue-50 text-blue-600 border-blue-500 cursor-pointer outfit-font text-[18px] rounded-xl">Load More</button>
-                    {% else %}
-                        <div class="w-full border outfit-font border-dashed text-center py-5 px-5 bg-blue-50 border-blue-500 rounded-xl">
-                            <p class="text-blue-600 text-lg">No Doctors Found in this search</p>
-                            <p class="text-gray-600 text-sm">Try another filter</p>
-                        </div>
-                    {% endif %}
+                <div class="space-y-2">
+                    <h1 class="text-xl sm:text-2xl text-[#151E2C] outfit-font font-semibold leading-tight">Discover Top-Searched Doctors Available <span class="text-[#0755E9]">Near You</span>, Anytime You Need!</h1>
+                    <p class="text-xs sm:text-sm text-[#3C3C3C] outfit-font">Find trusted, highly-rated Doctors & Hospitals at your convenience, tailored to your disease and location.</p>
                 </div>
+                <!-- <h3 class="text-[#3C3C3C] text-center font-medium w-full text-sm">{{ DoctorsCount }} results for your search</h3> -->
+                {% if doctors|length > 0 %}
+                    {% for doctor in doctors %}
+                        {% if forloop.counter == 5 %}
+                            {% include 'Components/Ad/GoogleAd/SearchFilterPage/fifthIndexHorizontalAd.html' %}
+                        {% endif %}
+                        {% include 'Components/Doctor/Cards/DoctorSearchCard.html' %}
+                    {% endfor %}
+                    <button class="border border-dashed w-full text-center py-2 px-3 bg-blue-50 text-blue-600 border-blue-500 cursor-pointer outfit-font text-[18px] rounded-xl">Load More</button>
+                {% else %}
+                    <div class="w-full border outfit-font border-dashed text-center py-5 px-5 bg-blue-50 border-blue-500 rounded-xl">
+                        <p class="text-blue-600 text-lg">No Doctors Found in this search</p>
+                        <p class="text-gray-600 text-sm">Try another filter</p>
+                    </div>
+                {% endif %}
             </div>
         </div>
     </section>
