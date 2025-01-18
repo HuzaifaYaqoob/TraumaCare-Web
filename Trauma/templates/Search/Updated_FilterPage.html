@@ -106,7 +106,9 @@
                 {% if doctors|length > 0 %}
                     {% for doctor in doctors %}
                         {% if forloop.counter == 5 %}
-                            {% include 'Components/Ad/GoogleAd/SearchFilterPage/fifthIndexHorizontalAd.html' %}
+                            <div class="max-w-[500px] mx-auto w-full">
+                                {% include 'Components/Ad/GoogleAd/SearchFilterPage/fifthIndexHorizontalAd.html' %}
+                            </div>
                         {% endif %}
                         {% include 'Components/Doctor/Cards/DoctorSearchCard.html' %}
                     {% endfor %}
