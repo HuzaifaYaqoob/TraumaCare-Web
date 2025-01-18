@@ -35,7 +35,7 @@ def SingleMedicineViewPage(request, product_slug):
         except Exception as error:
             location = None
     if not location:
-        location = product.lowest_rate_location()
+        location = product.lowest_rate_location().location
 
     location_stock = ProductStock.custom_objects.filter(product = product, location = location, is_active = True, is_deleted = False).order_by('-created_at').first()
     
