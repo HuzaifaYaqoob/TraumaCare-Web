@@ -33,7 +33,7 @@ def SingleMedicineViewPage(request, product_slug):
         try:
             location = StoreLocation.objects.get(id = location)
         except Exception as error:
-            pass
+            location = None
     if not location:
         location = product.lowest_rate_location()
 
