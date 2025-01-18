@@ -214,8 +214,9 @@ def searchFilterPage(request):
     lowest_fee = request.GET.get('lowest_fee', None)
     highest_rating = request.GET.get('highest_rating', None)
     most_reviews = request.GET.get('most_reviews', None)
-    disease_slug = request.GET.get('disease', None)
-    speciality_slug = request.GET.get('speciality', None)
+    disease_slugs = request.GET.getlist('disease', None)
+    speciality_slugs = request.GET.getlist('speciality', None)
+    hospital_slugs = request.GET.getlist('hospital', None)
 
     query = {
     }
@@ -224,11 +225,15 @@ def searchFilterPage(request):
     order_query = []
     reverse = False
 
-    if disease_slug:
-        query['doctor_disease_specialities__disease__slug__iexact'] = disease_slug.lower()
+    if '' in disease_slugs:
+        disease_slugs.remove('')
+    if len(disease_slugs) > 0:
+        query['doctor_disease_specialities__disease__slug__in'] = disease_slugs
 
-    if speciality_slug:
-        query['doctor_specialities__speciality__slug__iexact'] = speciality_slug.lower()
+    if '' in speciality_slugs:
+        speciality_slugs.remove('')
+    if len(speciality_slugs) > 0:
+        query['doctor_specialities__speciality__slug__in'] = speciality_slugs
 
     if available_today:
         today_date = datetime.now()
@@ -300,9 +305,18 @@ def searchFilterPage(request):
         **query
     ).distinct().order_by(*order_query)
 
+    print(query)
 
-    context['doctors'] = doctors[:: -1 if reverse else 1]
-    context['count'] = len(doctors)
+
+    context['doctors'] = doctors[:: -1 if reverse else 1][:28]
+    context['doctorHospitals'] = Hospital.objects.filter(is_active=True, is_deleted=False, is_blocked=False, ).distinct()[:8]
+    # hospital_timeslots__isnull=False
+
+    context['DoctorsCount'] = len(doctors)
+    context['searchedSpecialities'] = speciality_slugs
+    context['searchedDiseases'] = disease_slugs
+    context['searchedDiseases'] = disease_slugs
+    context['searchedHospitals'] = hospital_slugs
     return render(request, 'Search/Updated_FilterPage.html', context=context)
 
 def emergencyPage(request):
