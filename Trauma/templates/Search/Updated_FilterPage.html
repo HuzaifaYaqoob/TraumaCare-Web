@@ -105,6 +105,9 @@
                 <!-- <h3 class="text-[#3C3C3C] text-center font-medium w-full text-sm">{{ DoctorsCount }} results for your search</h3> -->
                 {% if doctors|length > 0 %}
                     {% for doctor in doctors %}
+                        {% if forloop.counter == 5 %}
+                            {% include 'Components/Ad/GoogleAd/SearchFilterPage/fifthIndexHorizontalAd.html' %}
+                        {% endif %}
                         {% include 'Components/Doctor/Cards/DoctorSearchCard.html' %}
                     {% endfor %}
                     <button class="border border-dashed w-full text-center py-2 px-3 bg-blue-50 text-blue-600 border-blue-500 cursor-pointer outfit-font text-[18px] rounded-xl">Load More</button>
