@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import Q, Count
 
 from django.utils.html import mark_safe
-from .models import Doctor, Doctor24By7, Leave, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots
+from .models import Doctor, Doctor24By7, Leave, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots, DoctorRequest
 
 # Register your models here.
 
@@ -267,3 +267,12 @@ class LeaveAdmin(admin.ModelAdmin):
     def doct(self, leave_obj):
         return leave_obj.doctor.doctor_admin_card()
     doct.admin_order_field = 'doctor'
+
+@admin.register(DoctorRequest)
+class DoctorRequestAdmin(admin.ModelAdmin):
+    search_fields = [
+        'name', 'phone', 'speciality'
+    ]
+    list_filter = ['gender']
+    ordering = ['-created_at', 'is_onboarded']
+    list_display = ['name', 'phone', 'gender', 'speciality', 'is_onboarded', 'is_active', 'created_at']

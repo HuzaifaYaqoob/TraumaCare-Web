@@ -5,7 +5,7 @@ from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib import messages
 from django.conf import settings
 
-from Doctor.models import Doctor, DoctorMedia
+from Doctor.models import Doctor, DoctorMedia, DoctorRequest
 from Trauma.models import Speciality, Disease, State, Country, City
 from django.db.models import Case, When, Min, Sum, Q, Count
 from rest_framework.authtoken.models import Token
@@ -55,37 +55,45 @@ def onboarding(request):
             full_name = request.POST.get('full_name', None)
             gender = request.POST.get('gender', None)
             speciality = request.POST.get('speciality', None)
-            about = request.POST.get('about', None)
-            working_since = request.POST.get('working_since', None)
-            profile_image = request.FILES.get('profile_image', None)
-            pmc_document = request.FILES.get('pmc_document', None)
+            phone = request.POST.get('phone', None)
+            # about = request.POST.get('about', None)
+            # working_since = request.POST.get('working_since', None)
+            # profile_image = request.FILES.get('profile_image', None)
+            # pmc_document = request.FILES.get('pmc_document', None)
 
-            d_p = Profile.objects.create(user = request.user, full_name = full_name, profile_type = 'Doctor', profile_image = profile_image,)
-            doctor = Doctor.objects.create(
-                user = request.user,
-                profile = d_p,
-                name = full_name,
-                heading = speciality,
-                # dial_code
-                mobile_number = request.user.mobile_number,
-                working_since = datetime.strptime(working_since, '%m/%d/%Y').date(),
-                desc = about,
-            )
-            DoctorMedia.objects.create(
-                doctor = doctor,
-                file_type = 'Profile Image',
-                file = profile_image
-            )
-            if pmc_document:
-                DoctorMedia.objects.create(
-                    doctor = doctor,
-                    file_type = 'License',
-                    file = pmc_document
-                )
+            # d_p = Profile.objects.create(user = request.user, full_name = full_name, profile_type = 'Doctor', profile_image = profile_image,)
+            # doctor = Doctor.objects.create(
+            #     user = request.user,
+            #     profile = d_p,
+            #     name = full_name,
+            #     heading = speciality,
+            #     # dial_code
+            #     mobile_number = request.user.mobile_number,
+            #     working_since = datetime.strptime(working_since, '%m/%d/%Y').date(),
+            #     desc = about,
+            # )
+            # DoctorMedia.objects.create(
+            #     doctor = doctor,
+            #     file_type = 'Profile Image',
+            #     file = profile_image
+            # )
+            # if pmc_document:
+            #     DoctorMedia.objects.create(
+            #         doctor = doctor,
+            #         file_type = 'License',
+            #         file = pmc_document
+            #     )
             
-            request.user.gender = gender
-            request.user.save()
-            messages.success(request, 'Onboarding Successful!')
+            # request.user.gender = gender
+            # request.user.save()
+
+            DoctorRequest.objects.create(
+                name = full_name,
+                phone = phone,
+                speciality = speciality,
+                gender = gender,
+            )
+            messages.success(request, 'Thanks for submitting your application! Our team will get back to you soon.')
             return redirect('/')
             
         else:
