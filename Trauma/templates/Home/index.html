@@ -20,7 +20,7 @@
             <div class="flex-1 space-y-4">
                 {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
                 <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
-                <p class="font-normal text-sm sm:text-md lg:text-lg text-white line-clamp-3">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
+                <p class="font-normal text-sm sm:text-md lg:text-lg text-white line-clamp-3 outfit-font">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
                 <div class="flex gap-3 items-center flex-wrap ">
                     <button MainChatWidgetChatBotIcon class="chatWidgetBotIcon bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white font-medium px-4 py-3 rounded-lg">
                         How may I Help you?
@@ -71,7 +71,8 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7 !mt-4">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Nearby Doctors</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-left max-w-max">Nearby Doctors</h3>
+        <p class="outfit-font !m-0 text-gray-700">Turn on your Location to find doctors near you</p>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
