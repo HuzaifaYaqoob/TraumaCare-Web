@@ -65,11 +65,13 @@
 <body>
     {% include 'Components/Loader.html' %}
 
-    <div class="main-tc-notifiers" main-tc-notifiers>
-        {% for msg in messages %}
-            {% include 'Components/Notifier/Toaster.html' with text=msg type=msg.tags %}
-        {% endfor %}
-    </div>
+    {% if messages %}
+        <div class="main-tc-notifiers" main-tc-notifiers>
+            {% for msg in messages %}
+                {% include 'Components/Notifier/Toaster.html' with text=msg type=msg.tags %}
+            {% endfor %}
+        </div>
+    {% endif %}
 
     {% block mainBaseBody %}
 
