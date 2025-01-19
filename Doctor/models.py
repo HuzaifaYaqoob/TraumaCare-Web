@@ -216,7 +216,7 @@ class Doctor(models.Model):
         }
         today = datetime.now()
         current_date_iter = today
-        available_days = DoctorOnlineAvailability.objects.filter(doctor = self, is_active = True, is_deleted = False).distinct('day').values_list('day', flat=True)
+        available_days = self.doctor_available_days.all().distinct('day').values_list('day', flat=True)
         for i in range(7):
             if current_date_iter.strftime('%A') in available_days:
                 query = {}

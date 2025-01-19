@@ -32,6 +32,7 @@ def homePage(request):
     ).prefetch_related(
         'doctor_medias',
         'doctor_reviews',
+        'doctor_available_days',
     )
 
     context['doctors'] = doctors[:8]
