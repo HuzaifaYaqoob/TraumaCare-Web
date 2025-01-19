@@ -115,6 +115,8 @@ class ShipingAddress(models.Model):
     city = models.CharField(max_length=800, default='')
     postal_code = models.CharField(max_length=800, default='')
     mobile_number = models.CharField(max_length=800, default='')
+
+    is_deleted = models.BooleanField(default=False)
     
     created_at = models.DateTimeField(auto_now_add=now)
 

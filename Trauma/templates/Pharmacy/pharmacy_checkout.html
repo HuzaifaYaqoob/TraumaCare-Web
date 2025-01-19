@@ -1,0 +1,77 @@
+
+{% extends 'Pharmacy/PharmacyBase.html' %}
+{% load static %}
+
+{% block title %}Pharmacy{% endblock title %}
+
+{% block mainBaseCSS %}
+
+{% endblock mainBaseCSS %}
+
+{% block pharmacy_body %}
+    <main class="px-4 sm:px-6 md:px-8 py-7 space-y-10">
+        <form class="max-w-[1500px] mx-auto flex gap-10 flex-col lg:flex-row">
+            <div class="flex-1 space-y-7">
+                <div class="space-y-2">
+                    <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold max-w-max">
+                        Checkout
+                    </h3>
+                </div>
+                <div>
+                    {% if user_shipping_addresses|length > 0 %}
+                        Current Shipping addresses
+                    {% else %}
+                        <div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-full flex-1">
+                                    <label for="name" class="text-[#507EC2] font-medium text-sm">Name <span class="text-[#F02149]">*</span></label>
+                                    <input type="text" required="" value="{{request.user.full_name}}" name="name" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="Your/Reciever Name" id="name">
+                                </div>
+                                <div class="w-full flex-1">
+                                    <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
+                                    <input type="text" required="" name="phone" value="{{request.user.mobile_number}}" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                                </div>
+                            </div>
+                            <div class="w-full flex-1 mt-2">
+                                <label for="address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
+                                <input type="text" required="" name="address" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
+                            </div>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="lg:max-w-[410px] xl:max-w-[460px] w-full">
+                <div class="px-5 py-4 rounded-lg bg-[#f4f6f9] sticky top-[140px]">
+                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                          <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Subtotal:</h4>
+                          <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs.{{subtotal}}</p>
+                    </div>
+                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                          <h4 class="text-[#0555E9] outfit-font font-medium text-sm">Discount Applied:</h4>
+                          <p class="text-[#0555E9] outfit-font font-medium text-sm">Rs. {% if discount_applied %}-{% endif %}{{discount_applied}}</p>
+                    </div>
+                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                          <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Platform Fee:</h4>
+                          <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs.{{platform_fee}}</p>
+                    </div>
+                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                          <h4 class="text-[#151E2C] outfit-font font-medium text-sm">Delivery Charges:</h4>
+                          <p class="text-[#151E2C] outfit-font font-medium text-sm">Rs.{{delivery_charges}}</p>
+                    </div>
+                    <div class="flex items-center justify-between py-3">
+                          <h4 class="text-[#151E2C] outfit-font font-semibold text-sm">Grand Total:</h4>
+                          <p class="text-[#000] outfit-font font-medium text-sm italic">Rs.{{grand_total}}</p>
+                    </div>
+                    <div class="flex items-center gap-2 pt-6 pb-2">
+                        <a href='{% url "PharmacyCartCheckoutPage" %}' class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
+                            Confirm Order
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <section class="max-w-[1500px] mx-auto">
+            {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicineSectionHeading='Checkout our Similar Products' medicines=similar_products %}
+        </section>
+    </main>
+{% endblock pharmacy_body %}
