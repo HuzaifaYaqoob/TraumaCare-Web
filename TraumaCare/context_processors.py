@@ -61,7 +61,6 @@ def global_context_processor(request):
         # Parse JSON data to Python list
         CartItems = json.loads(decoded_data)
         context['CartItems'] = len(CartItems)
-        print(CartItems)
 
     return {
         'settings' : settings,
