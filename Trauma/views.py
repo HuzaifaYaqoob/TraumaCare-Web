@@ -12,7 +12,7 @@ from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 from Blog.models import BlogPost
 
-from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia
+from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia, HospitalRequest
 
 from Profile.models import Profile
 
@@ -98,20 +98,28 @@ def onboarding(request):
             
         else:
             hospital_name = request.POST.get('hospital_name', None)
-            hospital_email = request.POST.get('hospital_email', None)
-            address_title = request.POST.get('address_title', None)
-            address_state = request.POST.get('address_state', None)
-            address_city = request.POST.get('address_city', None)
-            address = request.POST.get('address', None)
-            hospital_image = request.FILES.get('hospital_image', None)
+            phone = request.POST.get('phone', None)
 
-            h_p = Profile.objects.create(user = request.user, full_name = hospital_name, email = hospital_email, profile_type = 'Hospital', profile_image = hospital_image,)
-            hospital = Hospital.objects.create(user = request.user, profile = h_p, facility_type = Hospital, name = hospital_name,)
-            hops_l = HospitalLocation.objects.create(hospital = hospital, name = address_title,street_address = address, country = Country.objects.get(name__iexact = 'pakistan',), state = State.objects.get(id = address_state), city = City.objects.get(id = address_city),)
-            LocationContact.objects.create(hospital = hospital, location = hops_l, contact_type = "EMAIL", contact_title = 'Contact Email', email = hospital_email,)
-            HospitalMedia.objects.create(hospital = hospital, file_type = 'Profile Image', file = hospital_image)
+            HospitalRequest.objects.create(
+                name = hospital_name,
+                phone = phone,
+            )
 
-            messages.success(request, 'Onboarding Successful!')
+            # hospital_name = request.POST.get('hospital_name', None)
+            # hospital_email = request.POST.get('hospital_email', None)
+            # address_title = request.POST.get('address_title', None)
+            # address_state = request.POST.get('address_state', None)
+            # address_city = request.POST.get('address_city', None)
+            # address = request.POST.get('address', None)
+            # hospital_image = request.FILES.get('hospital_image', None)
+
+            # h_p = Profile.objects.create(user = request.user, full_name = hospital_name, email = hospital_email, profile_type = 'Hospital', profile_image = hospital_image,)
+            # hospital = Hospital.objects.create(user = request.user, profile = h_p, facility_type = Hospital, name = hospital_name,)
+            # hops_l = HospitalLocation.objects.create(hospital = hospital, name = address_title,street_address = address, country = Country.objects.get(name__iexact = 'pakistan',), state = State.objects.get(id = address_state), city = City.objects.get(id = address_city),)
+            # LocationContact.objects.create(hospital = hospital, location = hops_l, contact_type = "EMAIL", contact_title = 'Contact Email', email = hospital_email,)
+            # HospitalMedia.objects.create(hospital = hospital, file_type = 'Profile Image', file = hospital_image)
+
+            messages.success(request, 'Thanks for submitting your application! Our team will get back to you soon.')
             return redirect('/')
     
     context = {

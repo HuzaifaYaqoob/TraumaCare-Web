@@ -144,3 +144,14 @@ class HospitalMediaAdmin(admin.ModelAdmin):
         'id',
         'file_type',
     ]
+
+@admin.register(HospitalRequest)
+class HospitalRequestAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
+    list_display = [
+        'name',
+        'phone',
+        'is_onboarded',
+        'is_active',
+        'created_at',
+    ]

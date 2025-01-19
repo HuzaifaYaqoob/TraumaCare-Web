@@ -8,29 +8,34 @@
 
 {% block baseBody %}
 
-<section class="px-5 md:px-10 py-8 md:py-12 ">
-    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto " style="box-shadow: 0 2px 4px rgba(211, 211, 211, 0.4);">
-        <div class="w-full bg-[#00BECD]/10 px-3 py-10 ">
-            <h3 class="text-[#24D0D0] font-semibold text-3xl text-center">Hospital Onboarding Form</h3>
-            <p class="text-center text-[#507EC2] text-sm mt-2">Hello there! <br> Please fill the details in this Hospital Onboarding form.</p>
+<section class="px-5 md:px-10 py-8 md:py-12 outfit-font">
+    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto boder" >
+        <div class="w-full bg-blue-100 px-3 py-4 sm:py-10 ">
+            <h3 class="text-[#0755E9] font-semibold text-lg sm:text-3xl text-center">Hospital Onboarding Form</h3>
+            <p class="text-center text-[#507EC2] text-xs sm:text-sm mt-2">Hello there! <br> Please fill the details in this Hospital Onboarding form.</p>
         </div>
         <form action="" method="POST" enctype="multipart/form-data" class="p-4 sm:p-5 md:p-6">
             {% csrf_token %}
             <div class="flex gap-4 flex-col sm:flex-row mt-4">
                 <div class="w-full flex-1">
-                    <label for="Hospital Name" class="text-[#507EC2] font-medium text-sm">Hospital Name <span class="text-[#F02149]">*</span></label>
-                    <input type="text" required name='hospital_name' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Hospital Name" id="Hospital Name">
+                    <label for="Hospital Name" class="text-[#507EC2] font-medium text-sm outfit-font">Hospital Name <span class="text-[#F02149]">*</span></label>
+                    <input type="text" required name='hospital_name' class="rounded-lg placeholder:font-[300] outfit-font outline-none border-0 mt-1 w-full bg-blue-50 px-2 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Hospital Name" id="Hospital Name">
                 </div>
-                <div class="w-full flex-1">
+                {% comment %} <div class="w-full flex-1">
                     <label for="email" class="text-[#507EC2] font-medium text-sm">Email <span class="text-[#F02149]">*</span></label>
                     <input type="email" required name='hospital_email' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="youremail@gmail.com" id="email">
+                </div> {% endcomment %}
+                <div class="w-full flex-1">
+                    <label for="phone" class="text-[#507EC2] font-medium text-sm outfit-font">Mobile Number <span class="text-[#F02149]">*</span></label>
+                    <input type="text" required name='phone' class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                    <p class="font-[300] text-xs sm:text-sm pl-2 mt-1">Our support team will call you shortly</p>
                 </div>
             </div>
-            <div class="w-full flex-1 mt-4">
+            {% comment %} <div class="w-full flex-1 mt-4">
                 <label for="Address" class="text-[#507EC2] font-medium text-sm">Address Title <span class="text-[#F02149]">*</span></label>
                 <input type="text" required name='address_title' class="outline-[#24D0D0] border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Johar Town Branch" id="Address">
-            </div>
-            <div class="flex gap-4 flex-col sm:flex-row mt-4">
+            </div> {% endcomment %}
+            {% comment %} <div class="flex gap-4 flex-col sm:flex-row mt-4">
                 <div class="w-full flex-1">
                     <label for="State" class="text-[#507EC2] font-medium text-sm">State <span class="text-[#F02149]">*</span></label>
                     <div class="px-2.5 bg-[#24D0D0]/5 rounded-lg">
@@ -53,8 +58,8 @@
                         </select>
                     </div>
                 </div>
-            </div>
-            <div class="w-full flex-1 mt-4">
+            </div> {% endcomment %}
+            {% comment %} <div class="w-full flex-1 mt-4">
                 <label for="Full Address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
                 <input type="text" required name='address' class="outline-0 border-0 mt-1 w-full bg-[#24D0D0]/5 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Full Address" id="Full Address">
             </div>
@@ -70,8 +75,8 @@
                     </span>       
                     <p class="text-[#507EC2] font-medium text-sm text-center mt-2 leading-4">1 Image <br> Required</p>                
                 </div>
-            </div>
-            <button class="ml-auto rounded-lg px-6 py-[10px] bg-[#24D0D0] flex items-center justify-center cursor-pointer mt-6 text-white">
+            </div> {% endcomment %}
+            <button class="ml-auto rounded-lg px-6 py-[10px] bg-[#0755E9] flex items-center justify-center cursor-pointer mt-6 text-white">
                 Submit
             </button>
         </form>

@@ -174,3 +174,16 @@ class HospitalMedia(models.Model):
 
             self.is_watermark_added = True
         super(HospitalMedia, self).save(*args, **kwargs)
+
+
+
+class HospitalRequest(models.Model):
+    name = models.CharField(max_length=999, default='')
+    phone = models.CharField(max_length=999, default='')
+
+    is_onboarded = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
+
+    def __str__(self):
+        return f'{self.name}'

@@ -9,6 +9,7 @@ from datetime import datetime, timedelta
 
 from Authentication.models import User
 from Doctor.models import DoctorRequest
+from Hospital.models import HospitalRequest
 
 
 
@@ -44,10 +45,14 @@ def getAdminTopTiles(request):
 
         doctors_requests = DoctorRequest.objects.filter(is_active=True)
         pending_requests = doctors_requests.filter(is_onboarded=False)
+
+        hospital_requests = HospitalRequest.objects.filter(is_active=True)
+        h_pending_requests = hospital_requests.filter(is_onboarded=False)
         cardData = [
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "New Users", 'value': new_users.count(), 'desc' : 'News Users in past 7 days'},
             # Doctors Request for those doctors who submitted onboarding form & our team will call them for verification & onboarding & registering them into our system
             {'icon' : 'fa fa-user-tie !text-[#F8DB48]', 'title': "Doctors Requests", 'value': f'{doctors_requests.count()}/{pending_requests.count()}', 'desc' : 'Solved/Unsolved Request to join our platform'},
+            {'icon' : 'fa fa-user-tie !text-[#05DC75]', 'title': "Hospitals Requests", 'value': f'{hospital_requests.count()}/{h_pending_requests.count()}', 'desc' : 'Solved/Unsolved Request to join our platform'},
         ]
     else:
         return Response({'message' : 'Invalid Page',}) 
