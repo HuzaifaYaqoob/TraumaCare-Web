@@ -81,7 +81,7 @@ class BlogPost(models.Model):
     
     @property
     def cover_image(self):
-        medias = BlogMedia.objects.filter(post = self).order_by('?')
+        medias = self.blog_post_medias.all()
         if len(medias) == 0:
             return None
         # random.shuffle(list(medias))

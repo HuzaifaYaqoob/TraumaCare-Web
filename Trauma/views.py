@@ -7,10 +7,10 @@ from django.conf import settings
 
 from Doctor.models import Doctor, DoctorMedia, DoctorRequest
 from Trauma.models import Speciality, Disease, State, Country, City
-from django.db.models import Case, When, Min, Sum, Q, Count
+from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
-from Blog.models import BlogPost
+from Blog.models import BlogPost, BlogMedia
 
 from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia, HospitalRequest
 
@@ -31,8 +31,12 @@ def homePage(request):
         is_blocked = False,
     )
     context['doctors'] = doctors[:8]
-    context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:4]
-    # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)
+    context['blog_posts'] = BlogPost.objects.annotate(
+            media = Count('blog_post_medias')
+        ).filter(
+            media__gt = 0
+        ).select_related('category',).prefetch_related('blog_post_medias').order_by('-created_at')[:4]
+        
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
     context['medicines'] = Product.objects.filter(
         is_active = True,
