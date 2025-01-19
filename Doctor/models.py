@@ -126,12 +126,7 @@ class Doctor(models.Model):
     @property
     def profile_image(self):
         try:
-            profile_pic = DoctorMedia.objects.get(
-                doctor = self,
-                file_type = 'Profile Image',
-                is_deleted = False,
-                is_active = True
-            )
+            profile_pic = self.doctor_medias[0]
         except:
             return None
         else:

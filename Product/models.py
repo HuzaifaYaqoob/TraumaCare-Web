@@ -230,7 +230,7 @@ class Product(models.Model):
     @property
     def cover_image(self):
         try:
-            return ProductImage.objects.filter(product=self).first().image.url
+            return self.product_images[0].image.url
         except:
             return '/static/assets/Images/medicine-default-img.png'
     
@@ -247,9 +247,6 @@ class Product(models.Model):
         return mark_safe(div)
     
     def lowest_rate_location(self):
-        store_first_location = ProductStock.custom_objects.filter(product = self, is_active = True, is_deleted = False).order_by('final_price').first()
-        if store_first_location:
-            return store_first_location
         return None
 
 

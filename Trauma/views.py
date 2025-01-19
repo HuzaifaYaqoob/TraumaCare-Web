@@ -7,7 +7,7 @@ from django.conf import settings
 
 from Doctor.models import Doctor, DoctorMedia, DoctorRequest
 from Trauma.models import Speciality, Disease, State, Country, City
-from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value
+from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value, Subquery, OuterRef
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 from Blog.models import BlogPost, BlogMedia
@@ -17,7 +17,7 @@ from Hospital.models import Hospital, HospitalLocation, LocationContact, Hospita
 from Profile.models import Profile
 
 from datetime import datetime
-from Product.models import Product
+from Product.models import Product, ProductStock
 
 # from django.views.decorators.cache import cache_page
 
@@ -29,7 +29,10 @@ def homePage(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
+    ).prefetch_related(
+        'doctor_medias',
     )
+
     context['doctors'] = doctors[:8]
     context['blog_posts'] = BlogPost.objects.annotate(
             media = Count('blog_post_medias')
@@ -38,11 +41,27 @@ def homePage(request):
         ).select_related('category',).prefetch_related('blog_post_medias').order_by('-created_at')[:4]
         
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
+
+
     context['medicines'] = Product.objects.filter(
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False
+        is_active=True,
+        is_deleted=False,
+        is_blocked=False
+    ).select_related('store').prefetch_related(
+        'product_images',
+        'product_stocks',
+        'product_stocks__location',
+    ).annotate(
+        lowest_rate_location=Subquery(
+            ProductStock.custom_objects.filter(
+                product=OuterRef('pk'),
+                is_active=True,
+                is_deleted=False
+            ).order_by('final_price').values('id')[:1]
+        )
     ).order_by('?')[:10]
+
+
     return render(request, 'Home/index.html', context)
 
 
