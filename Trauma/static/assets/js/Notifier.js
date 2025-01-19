@@ -41,13 +41,13 @@ const ShowNotification = (data) =>{
     })
     notifier.appendChild(cross)
 
-    let total_notifications = main_tc_notifiers.querySelectorAll('.tc-notifier')
-    if (total_notifications.length >= 7){
+    let total_notifications = main_tc_notifiers?.querySelectorAll('.tc-notifier')
+    if (total_notifications?.length >= 7){
         total_notifications[0]?.remove()
     }
 
 
-    main_tc_notifiers.appendChild(notifier)
+    main_tc_notifiers?.appendChild(notifier)
 }
 
 

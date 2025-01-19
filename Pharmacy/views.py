@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.db.models import Q
 from Product.models import Product, ProductStock, SubCategory, TreatmentType, ProductForm, ProductType
 from Pharmaceutical.models import Pharmaceutical
+from Profile.models import ShipingAddress
 
 import json
 from urllib.parse import unquote
@@ -120,7 +121,6 @@ def PharmacyCartCheckoutPage(request):
         CartItems = json.loads(decoded_data)
     else:
         CartItems = []
-    data = []
     products = []
     categories = []
     subtotal = 0
@@ -147,19 +147,6 @@ def PharmacyCartCheckoutPage(request):
             if stock.discount:
                 discount_applied += (stock.price - stock.final_price) * quantity
 
-            data.append({
-                'id' : product.id,
-                'slug' : product.slug,
-                'name' : product.name,
-                'location_id' : stock.location.id,
-                'location_name' : stock.location.name,
-                'store_name' : product.store.name,
-                'price' : round(stock.price, 2),
-                'final_price' : round(stock.final_price, 2),
-                'discount' : stock.discount,
-                'image' : product.cover_image,
-                'quantity' : quantity,
-            })
 
     similar_query = {}
     if len(categories) > 0:
@@ -170,9 +157,11 @@ def PharmacyCartCheckoutPage(request):
     ).distinct().exclude(id__in=[item.get('id') for item in CartItems]).order_by('?')[:10]
 
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
+
+    user_shipping_addresses = ShipingAddress.objects.filter(user = request.user, is_deleted=False).order_by('-created_at')
     context = {
+        'user_shipping_addresses' : user_shipping_addresses,
         'similar_products' : similar_products,
-        'data' : data,
         'subtotal' : round(subtotal, 2),
         'discount_applied' : round(discount_applied, 2),
         'platform_fee' : platform_fee,
@@ -180,4 +169,4 @@ def PharmacyCartCheckoutPage(request):
         'grand_total' : round(grand_total, 2)
     }
 
-    return render(request, 'Pharmacy/pharmacy_cart.html', context)
+    return render(request, 'Pharmacy/pharmacy_checkout.html', context)
