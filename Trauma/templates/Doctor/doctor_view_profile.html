@@ -224,21 +224,6 @@
                                     </div>
                               </div>
                         {% endif %}
-                        <!-- <div class="rounded-2xl p-4 flex flex-col gap-2 border items-center lg:items-start">
-                              <p class="text-[#6C6C6C] text-2xl font-semibold">Specialities</p>
-                              <div class="flex mt-[10px] lg:mt-[0px] items-center gap-[8px] md:gap-3 flex-wrap justify-center lg:justify-start">
-                                    {% for speciality in doctor.specialities %}
-                                          <a href="{% url 'SingleSpecialityPage' speciality.slug %}" class="group bg-[{{speciality.color_code}}10] transition-all hover:bg-[{{speciality.color_code}}] border border-[{{speciality.color_code}}] cursor-pointer px-2 py-1 rounded-lg ">
-                                                <p class="text-[{{speciality.color_code}}] transition-all group-hover:text-white">{{speciality.name}}</p>
-                                          </a>
-                                    {% endfor %}
-                                    {% for disease in doctor.diseases %}
-                                          <a href="{% url 'SingleDiseasePage' disease.slug %}" class="group bg-[{{disease.color_code}}10] transition-all hover:bg-[{{disease.color_code}}] border border-[{{disease.color_code}}] cursor-pointer px-2 py-1 rounded-lg ">
-                                                <p class="text-[{{disease.color_code}}] transition-all group-hover:text-white">{{disease.name}}</p>
-                                          </a>
-                                    {% endfor %}
-                              </div>
-                        </div> -->
                         <div class="mb-4">
                               <div class="flex items-center my-3 justify-between">
                                     <p class="text-xl font-medium text-[#151E2C] Private outfit-font">What people think about <i>"{{doctor.name}}"</i></p>

@@ -81,17 +81,6 @@
                             {% endfor %}
                         </div>
                     </div>
-                    <!-- <div class="mb-3">
-                        <h3 class="text-[#000] font-semibold">Diseases</h3>
-                        <div class="pl-2 mt-2">
-                            {% for disease in diseases|slice:':7' %}
-                                <div class="">
-                                    <input type="checkbox" name="disease" value="{{disease.slug}}" {% if disease.slug in searchedDiseases %}checked{% endif%} id="disease-{{disease.id}}" class="mr-1">
-                                    <label for="disease-{{disease.id}}" class="text-[#514B81] cursor-pointer select-none outfit-font font-[300]">{{disease.name}}</label>
-                                </div>
-                            {% endfor %}
-                        </div>
-                    </div> -->
                     <button class="mt-4 rounded-lg flex items-center justify-center w-full text-white text-sm outfit-font bg-gradient-to-r from-[#0755E9] to-[#05DC75] py-2.5">
                         Apply Filter
                     </button>
