@@ -28,8 +28,9 @@
     }
 
     input[name='selected_time']:checked + label {
-        border-color: #151E2C;
-        color: #151E2C;
+        border-color: #0A1C4B;
+        color: #fff;
+        background-color: #0A1C4B;
     }
 
     div[loadingMain]{
@@ -234,7 +235,7 @@
 
                                         let slot_html = `
                                                 <input type="radio" id="selected_time_${slot.id}_${interval[0]}" name="selected_time" value="${interval[0]}" class="slot_checkbox hidden" ${(sI == 0 && index == 0) ? 'checked' : ''}>
-                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1.5px] border-[#CACBE6] px-4 py-2 text-[18px] rounded-xl cursor-pointer text-[#CACBE6]" for="">${interval[1]}</label>
+                                                <label for="selected_time_${slot.id}_${interval[0]}" class="block border-[1px] border-[#151E2C] px-4 py-2 text-[18px] rounded-xl cursor-pointer text-[#151E2C]" for="">${interval[1]}</label>
                                         `
                                         int_div.innerHTML = slot_html
                                         intervals_div.append(int_div)
