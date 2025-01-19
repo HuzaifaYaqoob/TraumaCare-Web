@@ -77,6 +77,7 @@ INSTALLED_APPS = [
     'Task.apps.TaskConfig',
     'Vendor.apps.VendorConfig',
     'Pharmaceutical.apps.PharmaceuticalConfig',
+    'Order.apps.OrderConfig',
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
