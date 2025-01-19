@@ -10,7 +10,11 @@ from Trauma.views import test, searchFilterPage, CartPage
 from .views import set_language
 from .admin_views import OrganizationHierarchyPage, SuperUserDashboard, AdminTestPage
 
+
+import debug_toolbar
+
 urlpatterns = [
+    path('__debug__/', include(debug_toolbar.urls)),
     path('admin/organization/', OrganizationHierarchyPage, name='OrganizationHierarchyPage'),
     path('admin/super-dashboard/', SuperUserDashboard, name='SuperUserDashboard'),
     path('admin/test/', AdminTestPage, name='AdminTestPage'),

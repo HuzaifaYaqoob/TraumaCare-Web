@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['traumaaicare.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'daphne',
+    'debug_toolbar', # For Development Purposes Only
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -81,6 +82,7 @@ INSTALLED_APPS = [
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
@@ -93,6 +95,13 @@ MIDDLEWARE = [
     # Custom Milddlewares 
     'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
+]
+
+INTERNAL_IPS = [
+    # ...
+    "127.0.0.1",
+    "localhost",
+    # ...
 ]
 
 
