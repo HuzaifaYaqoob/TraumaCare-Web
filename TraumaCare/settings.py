@@ -97,13 +97,11 @@ MIDDLEWARE = [
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
-INTERNAL_IPS = [
-    # ...
-    "127.0.0.1",
-    "localhost",
-    "traumaaicare.com",
-    # ...
-]
+# INTERNAL_IPS = [
+#     "127.0.0.1",
+#     "localhost",
+#     "traumaaicare.com",
+# ]
 
 
 CRONJOBS = [
