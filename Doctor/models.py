@@ -79,7 +79,8 @@ class Doctor(models.Model):
     
 
     def reviews(self):
-        revs = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        # revs = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        revs = self.doctor_reviews.all()
         return revs
 
     def reviews_rating(self):

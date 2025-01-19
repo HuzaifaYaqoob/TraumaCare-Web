@@ -31,6 +31,7 @@ def homePage(request):
         is_blocked = False,
     ).prefetch_related(
         'doctor_medias',
+        'doctor_reviews',
     )
 
     context['doctors'] = doctors[:8]
