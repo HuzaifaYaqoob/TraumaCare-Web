@@ -126,8 +126,8 @@ class Doctor(models.Model):
     @property
     def profile_image(self):
         try:
-            profile_pic = self.doctor_medias[0]
-        except:
+            profile_pic = self.doctor_medias.all()[0]
+        except Exception as err:
             return None
         else:
             if profile_pic.file:
