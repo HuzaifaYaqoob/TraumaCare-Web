@@ -97,11 +97,12 @@ MIDDLEWARE = [
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
-# INTERNAL_IPS = [
-#     "127.0.0.1",
-#     "localhost",
-#     "traumaaicare.com",
-# ]
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
+    "traumaaicare.com",
+    "https://traumaaicare.com",
+]
 
 
 CRONJOBS = [
@@ -132,7 +133,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'TraumaCare.context_processors.global_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.specialities_context_processor', # Custom Context Processor
-                # 'TraumaCare.context_processors.diseases_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.hospitals_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.appointments_context_processors', # Custom Context Processor
             ],
