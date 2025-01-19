@@ -30,7 +30,6 @@ def homePage(request):
         is_deleted = False,
         is_blocked = False,
     )
-    print(doctors)
     context['doctors'] = doctors[:8]
     context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:4]
     # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)

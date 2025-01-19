@@ -22,11 +22,6 @@
           <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
         {% endif %}
       {% endwith %}
-      <!-- <div class="flex items-center gap-3">
-        {% if doctor.fee_range %}
-          <p class="whitespace-nowrap">Rs. <span class="text-lg font-bold text-blue-500 italic">{{doctor.fee_range.0}}</span>{% if doctor.fee_range.1 > doctor.fee_range.0 %} - <span class="text-[18px] font-bold text-blue-500 italic">{{doctor.fee_range.1}}</span>{% endif %}</p>
-        {% endif %}
-      </div> -->
     </div>
   </a>
   {% with doct_availability=doctor.doctor_card_availability %}
@@ -35,7 +30,6 @@
         {{doctor.desc}}
       </p>
     </div>
-    <!-- {{doct_availability}} -->
     <div class="border-t border-[#D3D3D3] pt-[14px]">
       <div class="flex items-center justify-between gap-2">
         <p class="outfit-font font-semibold text-xs sm:text-[16px] text-[#151E2C]">{{doct_availability.date}}</p>
@@ -53,41 +47,4 @@
       </div>
     </div>
   {% endwith %}
-  <!-- <div class="flex flex-wrap gap-1.5 mt-5">
-    {% for speciality in doctor.get_specialities|slice:':4' %}
-        <a href="{% url 'SingleSpecialityPage' speciality_slug=speciality.slug %}?source=DoctorProfileCard&doctor_uri={{doctor.slug}}" class=" cursor-pointer flex items-center gap-2 hover:bg-[{{speciality.color_code}}10] py-[5px] px-2 border border-[#C9C9C9] rounded-[7px] hover:border-[{{speciality.color_code}}]">
-          <span class="flex items-center justify-center h-[20px] w-[20px] ">
-            {{speciality.svg_icon|safe}}
-          </span>
-          <span class="whitespace-nowrap text-[#0A1C4B] text-xs font-regular tracking-normal transition-all">
-              {{speciality.name}}
-          </span>
-        </a>
-    {% endfor %}
-    {% if doctor.get_specialities|length > 4 %}
-        <div class="cursor-pointer py-1 px-4 text-sm font-regular text-[#23d0d0] hover:text-white hover:bg-[#23d0d0] border border-[#23d0d0] transition-all tracking-normal rounded-lg border-solid">
-            +{{doctor.get_specialities|length|add:"-4" }} more
-        </div>
-    {% endif %}
-    <a href="/doctor/profile/view/{{doctor.slug}}#AvailableForOnlineVideoConsultation" class="cursor-pointer py-1 px-4 text-sm font-regular text-white flex items-center justify-center tracking-normal rounded-md bg-[#23d0d0]">
-      Consult Online
-    </a>
-  </div> -->
-  <!-- <div class="py-3 px-5 flex items-center justify-between">
-    <div class="flex items-center gap-1">
-      <p class="text-[#8ca5c9] text-sm font-medium capitalize">satisfaction</p>
-      <p class="text-[#23d0d0] text-base font-semibold {% if doctor.get_doctor_rating_percentage > 80 %}text-green-600{% elif doctor.get_doctor_rating_percentage > 50 %}text-yellow-600{% else %}text-red-600{% endif %}">{{doctor.get_doctor_rating_percentage}}%</p>
-    </div>
-    {% if doctor.is_available_today %}
-      <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 text-green-600"><span class="inline-flex items-center justify-center w-[8px] h-[8px] bg-green-600 rounded-full relative"><span class="absolute inline-block size-3 bg-green-600 rounded-full animate-ping"></span></span>Available Today</span></p>
-    {% else %}
-      <a href="/doctor/profile/view/{{doctor.slug}}">
-        <div>
-          <p class="text-[#8ca5c9] text-sm font-medium cursor-pointer">
-            Find another slot
-          </p>
-        </div>
-      </a>
-    {% endif %}
-  </div> -->
 </div>

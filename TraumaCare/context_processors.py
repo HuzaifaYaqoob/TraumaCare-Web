@@ -110,7 +110,6 @@ def hospitals_context_processor(request):
     ).values('name', 'id')
     return {
         'hospitals' : hospitals,
-        'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct().annotate(hospital_count = Count('city_hospital_locations'))
     }
 
 
