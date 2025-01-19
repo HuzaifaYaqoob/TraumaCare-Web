@@ -78,7 +78,9 @@
     
     {% endblock mainBaseBody %}
 
-    {% include 'Components/Bot/ChatWidget.html' %}
+    {% if not hideChatWidget %}
+        {% include 'Components/Bot/ChatWidget.html' %}
+    {% endif %}
     {% include 'Components/CartSide.html' %}
 
 

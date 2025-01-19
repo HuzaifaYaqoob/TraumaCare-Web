@@ -9,10 +9,10 @@
 {% block baseBody %}
 
 <section class="px-5 md:px-10 py-8 md:py-12 outfit-font">
-    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto " style="box-shadow: 0 2px 4px rgba(211, 211, 211, 0.4);">
-        <div class="w-full bg-blue-100 px-3 py-10 ">
-            <h3 class="text-[#0755E9] font-semibold text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
-            <p class="text-center text-[#507EC2] text-sm mt-2 outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
+    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto border">
+        <div class="w-full bg-blue-100 px-3 py-4 sm:py-10 ">
+            <h3 class="text-[#0755E9] font-semibold text-lg sm:text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
+            <p class="text-center text-[#507EC2] text-xs sm:text-sm mt-2 outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
         </div>
         <form action="" method="POST" enctype="multipart/form-data" class="p-4 sm:p-5 md:p-6">
             {% csrf_token %}
@@ -40,7 +40,7 @@
                 <div class="w-full flex-1">
                     <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
                     <input type="text" required name='phone' class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
-                    <p class="font-[300] text-sm pl-2 mt-1">Our support team will call you shortly</p>
+                    <p class="font-[300] text-xs sm:text-sm pl-2 mt-1">Our support team will call you shortly</p>
                 </div>
                 <div class="w-full flex-1">
                     <label for="Specialty" class="text-[#507EC2] font-medium text-sm">Specialty <span class="text-[#F02149]">*</span></label>

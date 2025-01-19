@@ -115,18 +115,19 @@ def onboarding(request):
             return redirect('/')
     
     context = {
-        'remove_footer' : true
+        'remove_footer' : True,
+        'hideChatWidget' : True,
     }
     if onboarding_type == 'doctor':
-        if request.user.has_doctor_profile:
-            messages.info(request, 'Doctor Profile Already Exists!')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        # if request.user.has_doctor_profile:
+        #     messages.info(request, 'Doctor Profile Already Exists!')
+        #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
         return render(request, 'DoctorOnboarding.html', context)
     elif onboarding_type == 'hospital':
-        if request.user.has_hospital_profile:
-            messages.info(request, 'Hospital Profile Already Exists!')
-            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        # if request.user.has_hospital_profile:
+        #     messages.info(request, 'Hospital Profile Already Exists!')
+        #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
         context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
         return render(request, 'HospitalOnboarding.html', context)

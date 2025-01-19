@@ -8,7 +8,7 @@ from .views import homePage, onboarding, chatXpo_redirection, test, emergencyPag
 
 urlpatterns = [
     path('', homePage, name='homePage'),
-    path('onboarding/', login_required(onboarding, login_url='/auth/login/'), name='onboarding'),
+    path('onboarding/', onboarding, name='onboarding'),
     path('chatxpo/', chatXpo_redirection, name='chatXpo_redirection'),
     path('test', test, name='test'),
     path('email/view/', email_view, name='email_view'),
