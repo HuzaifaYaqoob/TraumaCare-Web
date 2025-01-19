@@ -19,10 +19,10 @@
         <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-8 sm:pb-10 md:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
             <div class="flex-1 space-y-4">
                 {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
-                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline_compressed.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
-                <p class="font-normal text-sm sm:text-md lg:text-lg text-white line-clamp-3 outfit-font">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
+                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] text-[22px] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline_compressed.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
+                <p class="text-sm sm:text-md lg:text-lg text-white line-clamp-3 outfit-font font-[300]">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
                 <div class="flex gap-3 items-center flex-wrap ">
-                    <button MainChatWidgetChatBotIcon class="chatWidgetBotIcon bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white font-medium px-4 py-3 rounded-lg">
+                    <button MainChatWidgetChatBotIcon class="chatWidgetBotIcon bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white text-xs sm:text-sm font-medium px-4 py-1 sm:py-3 rounded-lg outfit-font">
                         How may I Help you?
                     </button>
                 </div>
@@ -34,8 +34,8 @@
             </div>
         </div>
         <div class="p-[1px] bg-gradient-to-r from-[#0755E9] to-[#05DC75] max-w-[1500px] w-[96%] md:w-[91%] lg:w-[88%] xl:w-[85%] mx-auto rounded-xl -translate-y-1/2">
-            <form action="/search" autocomplete="off" class="bg-white rounded-xl flex items-center justify-center gap-1.5 h-[50px] md:h-[57px] lg:h-[65px] w-full p-1 md:p-1.5 lg:p-2 relative z-40">
-                <div class="flex items-center gap-1 flex-1 h-full pl-2">
+            <form action="/search" autocomplete="off" class="bg-white rounded-xl flex items-center justify-center gap-1.5 h-[40px] sm:h-[50px] md:h-[57px] lg:h-[65px] w-full p-1 md:p-1.5 lg:p-2 relative z-40">
+                <div class="hidden sm:flex items-center gap-1 flex-1 h-full pl-2">
                     <span class="h-full size-5 flex items-center justify-center">
                         <svg class="h-full w-full" viewBox="0 0 18 21" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M9 0C11.3869 0 13.6761 0.948211 15.364 2.63604C17.0518 4.32387 18 6.61305 18 9C18 12.074 16.324 14.59 14.558 16.395C13.6757 17.2871 12.7129 18.0958 11.682 18.811L11.256 19.101L11.056 19.234L10.679 19.474L10.343 19.679L9.927 19.921C9.64463 20.0822 9.32513 20.1669 9 20.1669C8.67487 20.1669 8.35537 20.0822 8.073 19.921L7.657 19.679L7.137 19.359L6.945 19.234L6.535 18.961C5.42283 18.2085 4.3869 17.3491 3.442 16.395C1.676 14.589 0 12.074 0 9C0 6.61305 0.948211 4.32387 2.63604 2.63604C4.32387 0.948211 6.61305 0 9 0ZM9 6C8.60603 6 8.21593 6.0776 7.85195 6.22836C7.48797 6.37913 7.15726 6.6001 6.87868 6.87868C6.6001 7.15726 6.37913 7.48797 6.22836 7.85195C6.0776 8.21593 6 8.60603 6 9C6 9.39397 6.0776 9.78407 6.22836 10.1481C6.37913 10.512 6.6001 10.8427 6.87868 11.1213C7.15726 11.3999 7.48797 11.6209 7.85195 11.7716C8.21593 11.9224 8.60603 12 9 12C9.79565 12 10.5587 11.6839 11.1213 11.1213C11.6839 10.5587 12 9.79565 12 9C12 8.20435 11.6839 7.44129 11.1213 6.87868C10.5587 6.31607 9.79565 6 9 6Z" fill="#0755E9"/>
@@ -43,8 +43,8 @@
                     </span>
                     <input value='{% if request.city %}{{request.city}}{% endif %}' class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full outfit-font font-[300]" placeholder="Lahore" />
                 </div>
-                <div class="h-[36px] w-[1px] bg-[#CACBE6]"></div>
-                <div class="flex gap-3 flex-1 h-full" onclick="specialities_drop()">
+                <div class="hidden sm:block h-[36px] w-[1px] bg-[#CACBE6]"></div>
+                <div class="hidden sm:flex gap-3 flex-1 h-full" onclick="specialities_drop()">
                     <input name='speciality' class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full outfit-font font-[300]" id="SpecialitiesInput" placeholder="Specialities"></input>
                     <!-- <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
                         <svg class="z-50 transition_2s specialities_drop_svg h-[14px] w-[14px] fill-[#0A1C4B] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
@@ -55,11 +55,11 @@
                         {% endfor %}
                     </div> -->
                 </div>
-                <div class="h-[36px] w-[1px] bg-[#CACBE6]"></div>
+                <div class="hidden sm:block h-[36px] w-[1px] bg-[#CACBE6]"></div>
                 <div class="flex-[2] h-full ">
-                    <input class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full outfit-font font-[300]" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
+                    <input class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-xs sm:text-[15px] rounded-md px-2 flex-1 w-full outfit-font font-[300]" placeholder="Explore Medical Professionals, Hospitals, Medications, and Pharmacies" type="search" name="query" ></input>
                 </div>
-                <button class="bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-5 h-full flex items-center gap-2 rounded-lg cursor-pointer">
+                <button class="bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-3 sm:px-5 h-full flex items-center gap-2 rounded-lg cursor-pointer">
                     <span class="size-5 flex items-center justify-center ">
                         <svg class="h-full w-full" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -67,14 +67,14 @@
                                 fill="white" />
                         </svg>
                     </span>
-                    <p class="text-sm md:text-[16px] font-medium text-white outfit-font">Search</p>
+                    <p class="text-xs md:text-[16px] font-[300] sm:font-medium text-white outfit-font">Search</p>
                 </button>
             </form>
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7 !mt-4">
         <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-left max-w-max">Nearby Doctors</h3>
-        <p class="outfit-font font-[300] !m-0 text-gray-700">Turn on your Location to find doctors near you</p>
+        <p class="outfit-font font-[300] text-xs sm:text-sm !m-0 text-gray-700">Turn on your Location to find best available doctors near you</p>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
         {% else %}
@@ -95,7 +95,7 @@
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-5 grid_4_cards outfit-font">
             <div class="bg-[#f0da69] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between group hover:shadow ">
                 <div>
-                    <h4 class="text-[#151E2C] text-xl md:text-2xl font-semibold line-clamp-2">Instant Video Consultation</h4>
+                    <h4 class="text-[#151E2C] text-lg sm:text-xl md:text-2xl font-semibold line-clamp-2">Instant Video Consultation</h4>
                     <p class="text-xs sm:text-sm text-[#111111] line-clamp-2 font-[300]">Connect within 30 secs</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
@@ -111,7 +111,7 @@
             </div>
             <div class="bg-[#a3dac2] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between group hover:shadow">
                 <div>
-                    <h4 class="text-[#151E2C] text-xl md:text-2xl font-semibold line-clamp-2">Find Doctors near you</h4>
+                    <h4 class="text-[#151E2C] text-lg sm:text-xl md:text-2xl font-semibold line-clamp-2">Find Doctors near you</h4>
                     <p class="text-xs sm:text-sm text-[#111111] line-clamp-2 font-[300]">Expert Doctors, Just Around the Corner</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
@@ -127,7 +127,7 @@
             </div>
             <div class="bg-[#e7c2d4] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between group hover:shadow">
                 <div>
-                    <h4 class="text-[#151E2C] text-xl md:text-2xl font-semibold line-clamp-2">Confirm Appointment</h4>
+                    <h4 class="text-[#151E2C] text-lg sm:text-xl md:text-2xl font-semibold line-clamp-2">Confirm Appointment</h4>
                     <p class="text-xs sm:text-sm text-[#111111] line-clamp-2 font-[300]">Your Time, Our Priority</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
@@ -143,7 +143,7 @@
             </div>
             <div class="bg-[#92bdf6] px-5 py-3 rounded-2xl flex-1 cursor-default pb-5 flex flex-col justify-between group hover:shadow">
                 <div>
-                    <h4 class="text-[#151E2C] text-xl md:text-2xl font-semibold line-clamp-2">Get Prescribed</h4>
+                    <h4 class="text-[#151E2C] text-lg sm:text-xl md:text-2xl font-semibold line-clamp-2">Get Prescribed</h4>
                     <p class="text-xs sm:text-sm text-[#111111] line-clamp-2 font-[300]">Your Prescription, Your Convenience</p>
                 </div>
                 <div class="flex items-end justify-end mt-4 sm:mt-6 md:mt-8 relative ">
