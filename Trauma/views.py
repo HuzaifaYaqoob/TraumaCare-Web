@@ -114,7 +114,9 @@ def onboarding(request):
             messages.success(request, 'Onboarding Successful!')
             return redirect('/')
     
-    context = {}
+    context = {
+        'remove_footer' : true
+    }
     if onboarding_type == 'doctor':
         if request.user.has_doctor_profile:
             messages.info(request, 'Doctor Profile Already Exists!')
