@@ -13,8 +13,15 @@ from django.contrib import messages
 
 def PharmacyLandingPage(request):
     context = {}
-    medicines = Product.objects.filter(is_active=True, is_deleted=False, is_blocked=False).order_by('?')[:10]
-
+    medicines = Product.objects.filter(
+        is_active=True, 
+        is_deleted=False, 
+        is_blocked=False
+    ).select_related('store').prefetch_related(
+        'product_images',
+        'product_stocks',
+        'product_stocks__location',
+    ).order_by('?')[:10]
 
     context['medicines'] = medicines
     return render(request, 'Pharmacy/pharmacy_landing.html', context)

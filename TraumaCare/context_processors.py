@@ -17,6 +17,7 @@ from ChatXpo.models import XpoChat, ChatMessage
 import json
 from urllib.parse import unquote
 
+
 def global_context_processor(request):
     context = {'CartItems' : 0}
     str_query = '?'

@@ -45,7 +45,7 @@ def homePage(request):
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
 
 
-    context['medicines'] = Product.objects.filter(
+    other_medicines = Product.objects.filter(
         is_active=True,
         is_deleted=False,
         is_blocked=False
@@ -53,15 +53,9 @@ def homePage(request):
         'product_images',
         'product_stocks',
         'product_stocks__location',
-    ).annotate(
-        lowest_rate_location=Subquery(
-            ProductStock.custom_objects.filter(
-                product=OuterRef('pk'),
-                is_active=True,
-                is_deleted=False
-            ).order_by('final_price').values('id')[:1]
-        )
     ).order_by('?')[:10]
+
+    context['medicines'] = other_medicines
 
 
     return render(request, 'Home/index.html', context)
@@ -160,8 +154,8 @@ def onboarding(request):
         # if request.user.has_hospital_profile:
         #     messages.info(request, 'Hospital Profile Already Exists!')
         #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-        context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
-        context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        # context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        # context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
         return render(request, 'HospitalOnboarding.html', context)
     else:
         return redirect('/onboarding/?onboarding_type=doctor')

@@ -7,8 +7,8 @@
 
 {% block MetaBlock %}
 
-      <link rel="canonical" href="{{settings.THIS_APPLICATION_URL}}{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location.id}}">
-      <meta property="og:url" content="{{settings.THIS_APPLICATION_URL}}{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location.id}}">
+      <link rel="canonical" href="{{request.build_absolute_uri}}">
+      <meta property="og:url" content="{{request.build_absolute_uri}}">
       <meta property="og:title" content="{{product.name}}">
       <meta property="og:type" content="product">
       <meta property="og:description" content="{{product.name}},{{product.product_form.name}},{{product.pack_form}},{{product.pack_size}},{{product.store.name}},{{product.Vendor.name}},{{product.manufacturer.name}},{{product.treatment_type.name}}">
@@ -103,10 +103,10 @@
                                                 <span>
                                                       <p class="m-0 p-0 font-[400] text-[#0755E9]" style="margin:0;padding:0;font-size:16px">{{product.store.name}}</p>
                                                       <p class="m-0 p-0 text-sm font-[400] text-black flex gap-2 items-center" >
-                                                            {{location.name}}
-                                                            {% if location %}
+                                                            {{location_stock.location.name}}
+                                                            {% if location_stock.location %}
                                                                   <span class='text-xs outfit-font text-[#0555E9] flex gap-1'>
-                                                                        <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location.lat}},{{location.lng}}"></span>
+                                                                        <span class="whitespace-nowrap text-[11px] outfit-font text-[#0555E9] flex items-center gap-1" showdistance="{{location_stock.location.lat}},{{location_stock.location.lng}}"></span>
                                                                   </span>
                                                             {% endif %}
                                                       </p>
@@ -197,7 +197,7 @@
                               </div>
                         </div>
                   </div>
-                  {% if other_locations|length > 0 %}
+                  {% comment %} {% if other_locations|length > 0 %}
                         <div class="max-w-[370px] w-full space-y-2">
                               <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Similar Products Nearby</h3>
                               {% for location_product in other_locations %}
@@ -209,7 +209,6 @@
                                           {% endif %}
                                           <div class="flex items-center justify-center h-20 w-20 bg-center bg-no-repeat bg-cover" style="background-image: url('{% if product.product_all_images.0.image %}{{product.product_all_images.0.image.url}}{% endif %}');">   </div>
                                           <div class="px-1.5 py-1.5 space-y-2 flex-1">
-                                                {% comment %} <div class="text-[#FFFFFF] text-xs bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div> {% endcomment %}
                                                 <div>
                                                       <a class="cursor-pointer" href="{% url 'SingleMedicineViewPage' product.slug %}?selected_location={{location_product.location_id}}">
                                                             <h2 class="font-medium outfit-font text-[#151E2C] line-clamp-1">{{product.name}}</h2>
@@ -239,7 +238,7 @@
                                     </div>
                               {% endfor %}
                         </div>
-                  {% endif %}
+                  {% endif %} {% endcomment %}
             </div>
             <!-- after checkout popup -->
             <!-- <div class="w-[550px]">
@@ -333,9 +332,9 @@
             <div class="mt-[50px]">
                   {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
             </div>
-            <div class="mt-[50px]">
+            {% comment %} <div class="mt-[50px]">
                   {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicineSectionHeading='Explore More Products From This Store' medicines=storeMedicines %}
-            </div>
+            </div> {% endcomment %}
       </section>
 </main>
 

@@ -225,12 +225,12 @@ class Product(models.Model):
     
     @property
     def product_all_images(self):
-        return ProductImage.objects.filter(product=self)
+        return self.product_images.all()
 
     @property
     def cover_image(self):
         try:
-            return self.product_images[0].image.url
+            return self.product_images.all()[0].image.url
         except:
             return '/static/assets/Images/medicine-default-img.png'
     
@@ -246,8 +246,16 @@ class Product(models.Model):
                     </div>"""
         return mark_safe(div)
     
-    def lowest_rate_location(self):
-        return None
+    def lowest_rate_location(self, location_id=None):
+        item = None
+        if location_id:
+            for p_st in self.product_stocks.all():
+                if p_st.location.id == int(location_id):
+                    item = p_st
+                    break
+        else:
+            item = self.product_stocks.all()[0]
+        return item
 
 
 class ProductStockCustomManager(models.Manager):
