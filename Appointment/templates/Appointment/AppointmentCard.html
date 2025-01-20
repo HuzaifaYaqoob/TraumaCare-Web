@@ -88,3 +88,13 @@
         </div>
     {% endif %}
 </div>
+
+{% if appointments|length > 0 %}
+    {% for appointment in appointments %}
+        
+    {% endfor %}
+{% else %}
+    <p class="text-center text-[#8f9296] font-medium text-lg py-6">
+        No appointments booked yet.
+    </p>
+{% endif %}

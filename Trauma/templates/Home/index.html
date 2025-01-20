@@ -16,10 +16,10 @@
 
 <main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-16">
     <section>
-        <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-8 sm:pb-10 md:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
+        <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-10 sm:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
             <div class="flex-1 space-y-4">
                 {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
-                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] text-[22px] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline_compressed.png" %}' class='w-0 sm:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
+                <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] text-[22px] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline_compressed.png" %}' class='w-0 md:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
                 <p class="text-sm sm:text-md lg:text-lg text-white line-clamp-3 outfit-font font-[300]">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
                 <div class="flex gap-3 items-center flex-wrap ">
                     <button MainChatWidgetChatBotIcon class="chatWidgetBotIcon bg-gradient-to-r from-[#9E16F3] via-[#EC1BDC] to-[#F9667D] text-white text-xs sm:text-sm font-medium px-4 py-1 sm:py-3 rounded-lg outfit-font">
@@ -30,7 +30,6 @@
             <div class="max-w-[500px] w-full lg:items-center lg:justify-end lg:flex hidden">
                 {% comment %} {% include 'Components/SVG/AIBot.html' %} {% endcomment %}
                 <img class="max-h-[400px] mx-auto h-auto sm:max-h-[440px] max-w-[300px] sm:max-w-[340px] w-auto" src="{% static 'assets/Images/traumacareAIcare/ai_bot.png' %}" alt="TraumaCare | Find Best Doctors Online & Buy Medicine Online">
-
             </div>
         </div>
         <div class="p-[1px] bg-gradient-to-r from-[#0755E9] to-[#05DC75] max-w-[1500px] w-[96%] md:w-[91%] lg:w-[88%] xl:w-[85%] mx-auto rounded-xl -translate-y-1/2">
@@ -175,7 +174,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <div class="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-            <div class="bg-gradient-to-b from-[#BF1EF8] to-[#4F37E7] sm:col-span-2 p-5 pb-0 flex items-center flex-col md:flex-row gap-10 rounded-[20px]">
+            <div class="bg-gradient-to-b from-[#BF1EF8] to-[#4F37E7] sm:col-span-2 p-5 sm:pb-0 flex items-center flex-col md:flex-row gap-10 rounded-[20px]">
                 <div class="flex-1 space-y-1">
                     <p class="text-sm lg:text-[15px] font-medium text-white outfit-font">Join Our Medical Community!</p>
                     <h2 class="text-white text-3xl sm:text-4xl lg:text-[50px] font-bold outfit-font">Are You a Doctor?</h2>
@@ -196,7 +195,7 @@
                         </span>
                     </a>
                 </div>
-                <img loading='lazy' class="h-60 lg:h-72" src="/static/assets/Images/traumacareAIcare/grid1.png" alt="">
+                <img loading='lazy' class="sm:block hidden h-60 lg:h-72" src="/static/assets/Images/traumacareAIcare/grid1.png" alt="">
             </div>
             <div class="bg-gradient-to-b from-[#56A8FA] to-[#6640EE] p-5 rounded-[20px] flex flex-col justify-between gap-1">
                 <div class="space-y-1">
@@ -266,7 +265,7 @@
                     </a>
                 </div>
                 <div class='min-w-[300px]'>
-                    <img loading='lazy' class="block xl:hidden max-h-[340px] min-h-[44] h-auto max-w-[460px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
+                    <img loading='lazy' class="hidden sm:block xl:hidden max-h-[340px] min-h-[44] h-auto max-w-[460px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
                 </div>
                 <div class="hidden xl:block">
                     <img loading='lazy' class="absolute bottom-0 right-0 max-h-[550px] min-h-[40] h-auto max-w-[650px] min-w-[200px] w-auto" src="/static/assets/Images/traumacareAIcare/grid4.png" alt="">
@@ -288,20 +287,16 @@
                     {% endfor %}
                 </div>
                 {% if application_reviews|length > 4 %}
-                    <div class="absolute left-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
-                        <button class="left-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
-                            <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white"/>
-                            </svg>
-                        </button>
-                    </div>
-                    <div class="absolute right-0 flex items-center justify-center w-12 sm:w-20 md:w-24 h-full">
-                        <button class="right-nav flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
-                            <svg class="h-full w-full" viewBox="0 0 15 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white"/>
-                            </svg>
-                        </button>
-                    </div>
+                    <button class="left-nav absolute left-[12px] sm:left-[18px] md:left-[30px] top-[50%] z-10 flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                        <svg class="h-full w-full" viewBox="0 0 15 30" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M11.8416 7.97803L10.5477 6.70916L3.62991 13.7543C3.51839 13.8672 3.4303 14.001 3.3707 14.1481C3.31111 14.2951 3.28119 14.4525 3.28266 14.6112C3.28413 14.7699 3.31697 14.9267 3.37929 15.0727C3.44161 15.2186 3.53217 15.3508 3.64577 15.4616L10.6933 22.3806L11.9622 21.0879L5.34757 14.5938L11.8416 7.97803Z" fill="white"/>
+                        </svg>
+                    </button>
+                    <button class="right-nav absolute right-[12px] sm:right-[18px] md:right-[30px] top-[50%] z-10 flex items-center justify-center size-9 bg-gradient-to-r from-[#518BE1] to-[#05DC75] p-1 rounded-full">
+                        <svg class="h-full w-full" viewBox="0 0 15 30" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3.15815 7.97803L4.45204 6.70916L11.3699 13.7543C11.4814 13.8672 11.5695 14.001 11.6291 14.1481C11.6886 14.2951 11.7186 14.4525 11.7171 14.6112C11.7156 14.7699 11.6828 14.9267 11.6205 15.0727C11.5581 15.2186 11.4676 15.3508 11.354 15.4616L4.30645 22.3806L3.03757 21.0879L9.65219 14.5938L3.15815 7.97803Z" fill="white"/>
+                        </svg>
+                    </button>
                 {% endif %}
             </div>
         {% endif %}

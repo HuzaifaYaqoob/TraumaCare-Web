@@ -83,8 +83,8 @@
             </div>
             <div class="flex gap-7">
                   <div class="max-w-[410px] w-full">
-                        <div class="relative overflow-hidden w-full h-[400px] border border-[#CACBE6] rounded-3xl flex justify-center">
-                              <img src="{{product.cover_image}}" loading='lazy' class="max-w-full max-h-full w-auto h-auto" alt="{{product.name}}">
+                        <div class="relative overflow-hidden w-full h-[400px] border border-[#CACBE6] rounded-3xl flex justify-center image-container cursor-crosshair">
+                              <img src="{{product.cover_image}}" loading='lazy' class="image-zoom absolute top-0 left-0 w-full h-full object-cover transition-transform duration-300" alt="{{product.name}}">
                         </div>
                   </div>
                   <div class="flex-1 max-w-[600px]">
@@ -404,6 +404,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let cart__popup__main = document.getElementById('cart__popup__main');
 
 
+      // Medicine image zoom funchanility.........
+
+      document.addEventListener('DOMContentLoaded', () => {
+      const imageContainer = document.querySelector('.image-container');
+      const image = imageContainer.querySelector('.image-zoom');
+      
+      imageContainer.addEventListener('mousemove', (e) => {
+            const rect = imageContainer.getBoundingClientRect();
+            const x = ((e.clientX - rect.left) / rect.width) * 100;
+            const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+            image.style.transformOrigin = `${x}% ${y}%`;
+            image.style.transform = 'scale(2)';
+      });
+      
+      imageContainer.addEventListener('mouseleave', () => {
+            image.style.transform = 'scale(1)';
+            image.style.transformOrigin = 'center center';
+      });
+      });
     
 
   </script>
