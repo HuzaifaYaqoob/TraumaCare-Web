@@ -79,10 +79,12 @@ class Doctor(models.Model):
     
 
     def reviews(self):
-        revs = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        # revs = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+        revs = self.doctor_reviews.all()
         return revs
 
     def reviews_rating(self):
+        return [5, 0]
         revs = self.reviews()
         if len(revs) == 0:
             return [5, 0]
@@ -126,13 +128,8 @@ class Doctor(models.Model):
     @property
     def profile_image(self):
         try:
-            profile_pic = DoctorMedia.objects.get(
-                doctor = self,
-                file_type = 'Profile Image',
-                is_deleted = False,
-                is_active = True
-            )
-        except:
+            profile_pic = self.doctor_medias.all()[0]
+        except Exception as err:
             return None
         else:
             if profile_pic.file:
@@ -150,7 +147,7 @@ class Doctor(models.Model):
         if reviews:
             doctor_reviews = reviews
         else:
-            doctor_reviews = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+            doctor_reviews = self.doctor_reviews.all()
         if doctor_reviews.exists():
             return int((sum(doctor_reviews.values_list('rating', flat=True)) / len(doctor_reviews)) / 5 * 100)
         else:
@@ -220,7 +217,7 @@ class Doctor(models.Model):
         }
         today = datetime.now()
         current_date_iter = today
-        available_days = DoctorOnlineAvailability.objects.filter(doctor = self, is_active = True, is_deleted = False).distinct('day').values_list('day', flat=True)
+        available_days = self.doctor_available_days.all().distinct('day').values_list('day', flat=True)
         for i in range(7):
             if current_date_iter.strftime('%A') in available_days:
                 query = {}

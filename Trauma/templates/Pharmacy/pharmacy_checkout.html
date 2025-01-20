@@ -10,7 +10,8 @@
 
 {% block pharmacy_body %}
     <main class="px-4 sm:px-6 md:px-8 py-7 space-y-10">
-        <form class="max-w-[1500px] mx-auto flex gap-10 flex-col lg:flex-row">
+        <form method="post" class="max-w-[1500px] mx-auto flex gap-10 flex-col lg:flex-row">
+            {% csrf_token %}
             <div class="flex-1 space-y-7">
                 <div class="space-y-2">
                     <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold max-w-max">
@@ -19,22 +20,31 @@
                 </div>
                 <div>
                     {% if user_shipping_addresses|length > 0 %}
-                        Current Shipping addresses
+                        {% for address in user_shipping_addresses %}
+                            <div>
+                                <input {% if forloop.counter == 1 %}checked{% endif %} type="radio" name="shipping_address" value="{{address.id}}" id="{{address.id}}">
+                                <label for="{{address.id}}" class="block cursor-pointer border px-3 py-2 rounded-lg">
+                                    <p>{{address.full_name}}</p>
+                                    <p>{{address.mobile_number}}</p>
+                                    <p>{{address.address}}</p>
+                                </label>
+                            </div>
+                        {% endfor %}
                     {% else %}
                         <div>
                             <div class="flex items-center gap-3">
                                 <div class="w-full flex-1">
                                     <label for="name" class="text-[#507EC2] font-medium text-sm">Name <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" value="{{request.user.full_name}}" name="name" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="Your/Reciever Name" id="name">
+                                    <input type="text" required="" value="{{request.user.full_name}}" name="shipping_name" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="Your/Reciever Name" id="name">
                                 </div>
                                 <div class="w-full flex-1">
                                     <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" name="phone" value="{{request.user.mobile_number}}" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                                    <input type="text" required="" name="shipping_phone" value="{{request.user.mobile_number}}" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
                                 </div>
                             </div>
                             <div class="w-full flex-1 mt-2">
                                 <label for="address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
-                                <input type="text" required="" name="address" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
+                                <input type="text" required="" name="shipping_address" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
                             </div>
                         </div>
                     {% endif %}
@@ -63,9 +73,9 @@
                           <p class="text-[#000] outfit-font font-medium text-sm italic">Rs.{{grand_total}}</p>
                     </div>
                     <div class="flex items-center gap-2 pt-6 pb-2">
-                        <a href='{% url "PharmacyCartCheckoutPage" %}' class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
+                        <button type="submit" class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
                             Confirm Order
-                        </a>
+                        </button>
                     </div>
                 </div>
             </div>

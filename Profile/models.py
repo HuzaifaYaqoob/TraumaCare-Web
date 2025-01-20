@@ -14,6 +14,7 @@ import time
 from PIL import Image
 from datetime import datetime
 
+
 # Create your models here.
 
 
@@ -94,11 +95,12 @@ class Profile(models.Model):
         if not self.is_watermark_added and self.profile_image:
             today_time = datetime.now()
             ext = self.profile_image.name.split('.')[-1]
+
+            file_path = f"media/Patients/Images/{today_time.year}-{today_time.month}/{self.id}.{ext}"
             self.profile_image = addWatermark(
                 self.profile_image, 
-                f"media/Patients/Images/{today_time.year}-{today_time.month}/{self.id}.{ext}"
+                file_path
             )
-
             self.is_watermark_added = True
         
 

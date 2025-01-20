@@ -1,10 +1,10 @@
 
-import json
+# import json
 
-from Administration.models import UserRequestLog
-from datetime import datetime
+# from Administration.models import UserRequestLog
+# from datetime import datetime
 
-from django.contrib.gis.geoip2 import GeoIP2
+# from django.contrib.gis.geoip2 import GeoIP2
 
 class TrackUserLogMiddleware:
 
@@ -12,26 +12,26 @@ class TrackUserLogMiddleware:
         self.get_response = get_response
     
 
-    def get_user_location(self, ip):
-        try:
-            g = GeoIP2()
-            response = g.city(ip)
-            return response
-        except:
-            return None
+    # def get_user_location(self, ip):
+    #     try:
+    #         g = GeoIP2()
+    #         response = g.city(ip)
+    #         return response
+    #     except:
+    #         return None
     
 
     def __call__(self, request):
-        real_ip = request.META.get('HTTP_X_REAL_IP', None) or '2400:adc5:1e1:d400:7145:9821:b22f:7be9'
+        # real_ip = request.META.get('HTTP_X_REAL_IP', None) or '2400:adc5:1e1:d400:7145:9821:b22f:7be9'
 
-        user_loc = self.get_user_location(real_ip)
-        if user_loc:
-            request.country = user_loc.get('country_name', None)
-            request.country_code = user_loc.get('country_code', None)
-            request.state = user_loc.get('region', None)
-            request.city = user_loc.get('city', None)
-            if request.country_code == 'PK':
-                request.country_flag = '/static/assets/Images/pk_flag.jpg'
+        # user_loc = self.get_user_location(real_ip)
+        # if user_loc:
+            # request.country = user_loc.get('country_name', None)
+            # request.country_code = user_loc.get('country_code', None)
+            # request.state = user_loc.get('region', None)
+            # request.city = user_loc.get('city', None)
+            # if request.country_code == 'PK':
+                # request.country_flag = '/static/assets/Images/pk_flag.jpg'
 
         response = self.get_response(request)
         

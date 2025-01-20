@@ -25,24 +25,29 @@ def DoctorAskQuestionHandler(request, doctor_id):
 
 def DoctorProfilePage(request, doctor_slug):
     try:
-        doctor = Doctor.objects.get(
+        doctor = Doctor.objects.filter(
             slug = doctor_slug,
             is_active = True,
             is_deleted = False
-        )
+        ).prefetch_related(
+            'doctor_medias',
+            'doctor_reviews',
+            'doctor_available_days',
+            'doctor_hospital_timeslots',
+        )[0]
     except:
         messages.error(request, 'Invalid Doctor Profile.')
         return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
     else:
         context = {}
         context['doctor'] = doctor
-        context['practicing_locations'] = DoctorWithHospital.objects.filter(doctor = doctor,)
+        context['practicing_locations'] = doctor.doctor_hospital_timeslots.all()
         context['educations'] = DoctorEducation.objects.filter(doctor = doctor, is_deleted = False, is_active=True)
         context['experiences'] = DoctorExperience.objects.filter(doctor = doctor, is_deleted = False, is_active=True)
         context['queries'] = DoctorQuery.objects.filter(doctor = doctor, is_deleted = False, is_active=True).exclude(answer = '')
-        context['doctor_reviews'] = DoctorReview.objects.filter(doctor = doctor, is_deleted = False, is_active=True)
+        context['doctor_reviews'] = doctor.doctor_reviews.all()
         if len(context['doctor_reviews']) > 0:
-            context['rating_percentage'] = doctor.get_doctor_rating_percentage(reviews=context['doctor_reviews'])
+            context['rating_percentage'] = doctor.get_doctor_rating_percentage(reviews=doctor.doctor_reviews.all())
         else:
             context['rating_percentage'] = 100
 
@@ -52,8 +57,13 @@ def DoctorProfilePage(request, doctor_slug):
             is_deleted = False,
             is_blocked = False,
             doctor_specialities__speciality__id__in = doctor_specialities,
+        ).prefetch_related(
+            'doctor_medias',
+            'doctor_reviews',
+            'doctor_available_days',
+            'doctor_timeslots',
         ).distinct()
-        context['suggested'] = suggested
+        context['suggested'] = suggested[:4]
         context['lowest_rate_suggested'] = suggested.order_by('doctor_timeslots__fee')[:3]
 
 

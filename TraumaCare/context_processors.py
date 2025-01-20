@@ -17,6 +17,7 @@ from ChatXpo.models import XpoChat, ChatMessage
 import json
 from urllib.parse import unquote
 
+
 def global_context_processor(request):
     context = {'CartItems' : 0}
     str_query = '?'
@@ -61,7 +62,6 @@ def global_context_processor(request):
         # Parse JSON data to Python list
         CartItems = json.loads(decoded_data)
         context['CartItems'] = len(CartItems)
-        print(CartItems)
 
     return {
         'settings' : settings,
@@ -111,7 +111,6 @@ def hospitals_context_processor(request):
     ).values('name', 'id')
     return {
         'hospitals' : hospitals,
-        'hospital_cities' : City.objects.filter(city_hospital_locations__hospital__isnull = False).distinct().annotate(hospital_count = Count('city_hospital_locations'))
     }
 
 

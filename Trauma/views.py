@@ -7,17 +7,18 @@ from django.conf import settings
 
 from Doctor.models import Doctor, DoctorMedia, DoctorRequest
 from Trauma.models import Speciality, Disease, State, Country, City
-from django.db.models import Case, When, Min, Sum, Q, Count
+from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value, Subquery, OuterRef
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
-from Blog.models import BlogPost
+from Blog.models import BlogPost, BlogMedia
+from django.contrib.postgres.search import SearchHeadline, SearchQuery
 
 from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia, HospitalRequest
 
 from Profile.models import Profile
 
 from datetime import datetime
-from Product.models import Product
+from Product.models import Product, ProductStock
 
 # from django.views.decorators.cache import cache_page
 
@@ -29,17 +30,35 @@ def homePage(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
+    ).prefetch_related(
+        'doctor_medias',
+        'doctor_reviews',
+        'doctor_available_days',
     )
-    print(doctors)
+
     context['doctors'] = doctors[:8]
-    context['blog_posts'] = BlogPost.objects.annotate(media = Count('blog_post_medias')).filter(media__gt = 0).order_by('-created_at')[:4]
-    # .annotate(media = Count('blog_post_medias')).filter(media__gt = 0)
+    context['blog_posts'] = BlogPost.objects.annotate(
+            media = Count('blog_post_medias')
+        ).filter(
+            media__gt = 0
+        ).select_related('category',).prefetch_related('blog_post_medias').order_by('-created_at')[:4]
+        
     context['application_reviews'] = ApplicationReview.objects.filter(is_deleted = False, is_blocked=False).order_by('-rating')[0:20]
-    context['medicines'] = Product.objects.filter(
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False
+
+
+    other_medicines = Product.objects.filter(
+        is_active=True,
+        is_deleted=False,
+        is_blocked=False
+    ).select_related('store').prefetch_related(
+        'product_images',
+        'product_stocks',
+        'product_stocks__location',
     ).order_by('?')[:10]
+
+    context['medicines'] = other_medicines
+
+
     return render(request, 'Home/index.html', context)
 
 
@@ -136,8 +155,8 @@ def onboarding(request):
         # if request.user.has_hospital_profile:
         #     messages.info(request, 'Hospital Profile Already Exists!')
         #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
-        context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
-        context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        # context['states'] = State.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
+        # context['cities'] = City.objects.filter(is_deleted = False, is_active = True, country__name__icontains = 'pakistan').order_by('name')
         return render(request, 'HospitalOnboarding.html', context)
     else:
         return redirect('/onboarding/?onboarding_type=doctor')
@@ -295,6 +314,9 @@ def searchFilterPage(request):
         'is_search_page' : True,
         'remove_footer' : True
     }
+    if searchText:
+        if searchText.lower().startswith('dr'):
+            searchText = searchText.replace('dr ', '')
 
     doctors = Doctor.objects.annotate(**annotate_query).filter(
         Q(email__icontains = searchText) |
@@ -322,13 +344,23 @@ def searchFilterPage(request):
         is_blocked = False,
         is_active = True,
         **query
+    ).prefetch_related(
+        'doctor_medias',
+        'doctor_reviews',
+        'doctor_available_days',
     ).distinct().order_by(*order_query)
 
-    print(query)
+    if searchText:
+        query = SearchQuery("red tomato")
+        doctors = doctors.annotate(
+                name_h=SearchHeadline("name", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
+                desc_h=SearchHeadline("desc", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
+        )
+        for d in doctors:
+            d.name = d.name_h
+            d.desc = d.desc_h
 
-
-    context['doctors'] = doctors[:: -1 if reverse else 1][:28]
-    context['doctorHospitals'] = Hospital.objects.filter(is_active=True, is_deleted=False, is_blocked=False, ).distinct()[:8]
+    context['doctors'] = doctors[:: -1 if reverse else 1][:10]
     # hospital_timeslots__isnull=False
 
     context['DoctorsCount'] = len(doctors)

@@ -42,6 +42,7 @@ ALLOWED_HOSTS = ['traumaaicare.com', 'localhost', '127.0.0.1']
 
 INSTALLED_APPS = [
     'daphne',
+    'debug_toolbar', # For Development Purposes Only
     'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    # 'storages',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -81,6 +83,7 @@ INSTALLED_APPS = [
 ]
 GEOIP_PATH =os.path.join('geoip')
 MIDDLEWARE = [
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     "corsheaders.middleware.CorsMiddleware",
@@ -93,6 +96,11 @@ MIDDLEWARE = [
     # Custom Milddlewares 
     'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
     'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
+]
+
+INTERNAL_IPS = [
+    "127.0.0.1",
+    "localhost",
 ]
 
 
@@ -124,7 +132,6 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'TraumaCare.context_processors.global_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.specialities_context_processor', # Custom Context Processor
-                'TraumaCare.context_processors.diseases_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.hospitals_context_processor', # Custom Context Processor
                 'TraumaCare.context_processors.appointments_context_processors', # Custom Context Processor
             ],
@@ -200,15 +207,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-STATIC_ROOT = os.path.join(BASE_DIR , 'static')
-
-
-MEDIA_URL = 'media/'
-MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -228,7 +227,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
 }
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR , 'static')
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
 # EMAIL SETTINGS 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -255,5 +258,10 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
+# try:
+#     from .do_spaces_settings import *
+# except Exception as err:
+#     pass
+
 
 DEBUG = True

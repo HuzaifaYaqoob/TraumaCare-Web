@@ -1,12 +1,12 @@
 {% load static %}
 
-<div class="flex gap-5 rounded-[20px] relative bg-white border border-[#CACBE6] w-full px-4 py-3 space-y-1">
+<div class="flex flex-col md:flex-row gap-5 rounded-[20px] relative bg-white border border-[#CACBE6] w-full px-4 py-3 space-y-1">
   <div class="flex-1">
-    <a href="/doctor/profile/view/{{doctor.slug}}" class="outfit-font text-[#151E2C] capitalize text-[24px] font-semibold tracking-wide cursor-pointer line-clamp-1">
-      Dr. {{doctor.name}}
+    <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="outfit-font text-[#151E2C] capitalize text-[24px] font-semibold tracking-wide cursor-pointer line-clamp-1">
+      Dr. {{doctor.name|safe}}
     </a>
-    <a href="/doctor/profile/view/{{doctor.slug}}" class="flex items-start gap-4">
-      <div class="size-[90px] rounded-full relative cursor-pointer bg-center border-[0.5px] border-[#3C3C3C] bg-cover bg-no-repeat" style="background-image: url('{% if doctor.profile_image %}{{doctor.profile_image}}{% endif %}');">
+    <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="flex items-start gap-4">
+      <div class="size-[90px] rounded-full relative cursor-pointer bg-center border-[0.5px] border-[#3C3C3C] bg-cover bg-no-repeat" style="background-image: url('{{doctor.profile_image}}');">
         <span class="absolute size-6 bg-[#0755E9] rounded-full flex items-center justify-center right-0 bottom-0">
           <svg class="fill-white size-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path d="M0 128C0 92.7 28.7 64 64 64l256 0c35.3 0 64 28.7 64 64l0 256c0 35.3-28.7 64-64 64L64 448c-35.3 0-64-28.7-64-64L0 128zM559.1 99.8c10.4 5.6 16.9 16.4 16.9 28.2l0 256c0 11.8-6.5 22.6-16.9 28.2s-23 5-32.9-1.6l-96-64L416 337.1l0-17.1 0-128 0-17.1 14.2-9.5 96-64c9.8-6.5 22.4-7.2 32.9-1.6z"/></svg>
         </span>
@@ -19,7 +19,7 @@
           <p class="text-[#0755E9] !mt-0 text-[13px] {% if is_available_today %}line-clamp-1{% else %}line-clamp-2{% endif %}">
             {{doctor.heading}}
           </p>
-          {% if doctor.is_available_today %}
+          {% if is_available_today %}
             <p class="rounded-[8px] py-2 px-3 bg-[#CDF8E3] text-[#009455] text-[12px] max-w-max">Available Today</p>
           {% endif %}
         {% endwith %}
@@ -27,11 +27,11 @@
     </a>
     <div>
       <p class="text-[#0A1C4B] text-sm text-[14px] text-[#3C3C3C] line-clamp-2">
-        {{doctor.desc}}
+        {{doctor.desc|safe}}
       </p>
     </div>
   </div>
-  <span class="block w-[1px] bg-gray-200"></span>
+  <span class="block h-[1px] md:h-full w-full md:w-[1px] bg-gray-200"></span>
   {% with doct_availability=doctor.doctor_card_availability %}
     <div class="flex-1">
       <div class="flex items-center justify-between gap-2">
@@ -44,7 +44,7 @@
             <p class="font-semibold text-white text-center text-[16px] px-1 py-2">{{slot.1}}</p>
           </div>
         {% endfor %}
-        <a href="/doctor/profile/view/{{doctor.slug}}" class="rounded-full border-[1.5px] border-[#0755E9] bg-[#F3F6FE] cursor-pointer {% if doct_availability.slots|length == 1 or doct_availability.slots|length >= 6 or doct_availability.slots|length == 3 %}col-span-2{% endif %}">
+        <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="rounded-full border-[1.5px] border-[#0755E9] bg-[#F3F6FE] cursor-pointer {% if doct_availability.slots|length == 1 or doct_availability.slots|length >= 6 or doct_availability.slots|length == 3 %}col-span-2{% endif %}">
           <p class="font-semibold text-[#0755E9] text-center text-[16px] px-1 py-1.5">More Times</p>
         </a>
       </div>

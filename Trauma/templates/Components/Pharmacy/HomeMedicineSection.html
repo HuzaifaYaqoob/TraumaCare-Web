@@ -16,9 +16,9 @@
     <div class="{% if medicines|length > 5 %}swiper{% endif %} medicine__swipper flex justify-center items-center">
         <div class="{% if medicines|length > 5 %}swiper-wrapper{% else %}flex items-center gap-3{% endif %}">
             {% for medicine in medicines %}
-            <div class="swiper-slide">
-                {% include 'Components/Pharmacy/MedicineCard.html' with medicine=medicine %}
-            </div>
+                <div class="swiper-slide">
+                    {% include 'Components/Pharmacy/MedicineCard.html' with medicine=medicine %}
+                </div>
             {% endfor %}
         </div>
         {% if medicines|length > 5 %}
