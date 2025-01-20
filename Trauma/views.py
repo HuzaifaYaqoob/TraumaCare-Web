@@ -313,6 +313,9 @@ def searchFilterPage(request):
         'is_search_page' : True,
         'remove_footer' : True
     }
+    if searchText:
+        if searchText.lower().startswith('dr'):
+            searchText = searchText.replace('dr ', '')
 
     doctors = Doctor.objects.annotate(**annotate_query).filter(
         Q(email__icontains = searchText) |
