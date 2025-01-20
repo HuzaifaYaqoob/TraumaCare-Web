@@ -246,16 +246,13 @@ class Product(models.Model):
                     </div>"""
         return mark_safe(div)
     
+    def lowest_rate_stock(self, location_id=None):
+        return self.product_stocks.all()[0]
+
     def lowest_rate_location(self, location_id=None):
-        item = None
-        if location_id:
-            for p_st in self.product_stocks.all():
-                if p_st.location.id == int(location_id):
-                    item = p_st
-                    break
-        else:
-            item = self.product_stocks.all()[0]
-        return item
+        for p_st in self.product_stocks.all():
+            if p_st.location.id == int(location_id):
+                return p_st
 
 
 class ProductStockCustomManager(models.Manager):

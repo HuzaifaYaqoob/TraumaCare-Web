@@ -141,7 +141,7 @@
                 </div>
                 <div class="hidden sm:block">
                     {% for product in medicines %}
-                        {% with location_stock=product.lowest_rate_location %}
+                        {% with location_stock=product.lowest_rate_stock %}
                             <div class="py-2 px-3 mb-2 flex gap-3 bg-white border border-[#0000001A] w-full rounded-xl">
                                 <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="max-w-[150px] w-full h-28 flex items-center justify-center cursor-pointer rounded-md overflow-hidden">
                                     <img class="rounded-md" src="{{product.cover_image}}" alt="">
@@ -172,7 +172,7 @@
                 </div>
                 <div class="block sm:hidden space-y-2">
                     {% for product in medicines %}
-                        {% with location_stock=product.lowest_rate_location %}
+                        {% with location_stock=product.lowest_rate_stock %}
                             <div class="flex flex-col rounded-2xl flex-1 relative cursor-default bg-white border border-[#CACBE6] pb-3 transition-all space-y-2">
                                 <a href='{% url "SingleMedicineViewPage" product.slug %}?selected_location={{location_stock.location.id}}' class="overflow-hidden rounded-t-3xl flex items-center justify-center w-full h-48 group !mt-0">
                                     <img class="group-hover:scale-125 transition-all max-h-full max-w-full" src="{{product.cover_image}}" alt="">
