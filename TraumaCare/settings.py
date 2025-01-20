@@ -51,11 +51,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'storages',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
     'django_crontab',
-    'storages',
 
     'Trauma.apps.TraumaConfig',
     'Authentication.apps.AuthenticationConfig',
@@ -227,7 +227,11 @@ REST_FRAMEWORK = {
         'rest_framework.permissions.IsAuthenticated'
     ],
 }
+STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR , 'static')
 
+MEDIA_URL = 'media/'
+MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
 
 # EMAIL SETTINGS 
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
@@ -254,23 +258,17 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-try:
-    from .do_spaces_settings import *
-except Exception as err:
-    print(err)
+# try:
+#     from .do_spaces_settings import *
+# except Exception as err:
+#     pass
 
-    STATIC_URL = 'static/'
-    STATIC_ROOT = os.path.join(BASE_DIR , 'static')
-
-    MEDIA_URL = 'media/'
-    MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
-else:
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
+# else:
+#     # STATICFILES_DIRS = (
+#     #     os.path.join(BASE_DIR, 'static'),
+#     # )
+#     pass
 
 
-print(STATIC_URL)
-print(MEDIA_URL)
 
 DEBUG = True

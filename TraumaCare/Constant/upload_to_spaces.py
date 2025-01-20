@@ -13,12 +13,14 @@ def upload_file_to_spaces(file_path):
     client = session.client(
         's3',
         endpoint_url=settings.AWS_S3_ENDPOINT_URL,
-        config=botocore.config.Config(s3={'addressing_style': 'virtual'}, connect_timeout=60, read_timeout=120, retries={'max_attempts': 5}),
+        config=botocore.config.Config(s3={'addressing_style': 'virtual'}, connect_timeout=60, read_timeout=120, retries={'max_attempts': 5}, tcp_keepalive=True),
         region_name='blr1',
         
         aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
         aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
     )
+
+    print(client)
 
     # client.put_object(
     #             Bucket=settings.AWS_STORAGE_BUCKET_NAME, 
@@ -30,11 +32,13 @@ def upload_file_to_spaces(file_path):
     #             }
     #         )
     try:
+        print(os.path.curdir)
         # Define key for the uploaded file in Spaces
         key = f'{os.path.basename(file_path)}'
         print(key)
 
         with open(file_path, 'rb') as data:
+            print(data)
             # Use upload_fileobj without ContentLength
             # client.upload_fileobj(
             #     Fileobj=data,
@@ -45,11 +49,11 @@ def upload_file_to_spaces(file_path):
             #         'ACL': 'public-read'  # Optional: Set file access permissions
             #     }
             # )
-            part = s3.upload_part(
+            part = client.upload_part(
                 Bucket=settings.AWS_STORAGE_BUCKET_NAME, 
                 Key=key, 
-                PartNumber=1, 
-                UploadId=1, 
+                PartNumber=1,
+                UploadId='1',
                 Body=data.read()
                 )
 

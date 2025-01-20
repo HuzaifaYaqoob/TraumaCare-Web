@@ -14,7 +14,6 @@ import time
 from PIL import Image
 from datetime import datetime
 
-from TraumaCare.Constant.upload_to_spaces import upload_file_to_spaces
 
 # Create your models here.
 
@@ -102,7 +101,6 @@ class Profile(models.Model):
                 self.profile_image, 
                 file_path
             )
-            upload_file_to_spaces(file_path)
             self.is_watermark_added = True
         
 
