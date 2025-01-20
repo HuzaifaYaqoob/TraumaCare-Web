@@ -353,15 +353,12 @@ def searchFilterPage(request):
     if searchText:
         query = SearchQuery("red tomato")
         doctors = doctors.annotate(
-                headline=SearchHeadline(
-                "name",
-                searchText,
-                start_sel="<span class='bg-[#fff199] px-2'>",
-                stop_sel="</span>",
-            ),
+                name_h=SearchHeadline("name", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
+                desc_h=SearchHeadline("desc", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
         )
         for d in doctors:
-            d.name = d.headline
+            d.name = d.name_h
+            d.desc = d.desc_h
 
     context['doctors'] = doctors[:: -1 if reverse else 1][:10]
     # hospital_timeslots__isnull=False
