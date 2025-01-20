@@ -114,13 +114,13 @@
                                           </div>
                                     </div>
                                     {% if location_stock.discount %}
-                                          {% include 'Components/PercentageOff.html' with percentage=location_stock.discount|floatformat:0 show_price='true' discounted_price=location_stock.final_price|floatformat:2 %}
+                                          {% include 'Components/PercentageOff.html' with percentage=location_stock.discount|floatformat:0 show_price='true' discounted_price=location_stock.discounted_price|floatformat:2 %}
                                     {% endif %}
                               </div>
                               <div class="!mt-5 flex items-center gap-1">
                                     {% if not location_stock.discount %}
                                           <p class="text-2xl text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1">
-                                                <span class="font-medium text-[#151E2C] text-sm">Rs.</span>{{location_stock.final_price|floatformat:2}}
+                                                <span class="font-medium text-[#151E2C] text-sm">Rs.</span>{{location_stock.price|floatformat:1}}
                                           </p>                          
                                     {% endif %}
                               </div>
