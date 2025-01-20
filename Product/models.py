@@ -250,6 +250,8 @@ class Product(models.Model):
         return self.product_stocks.all()[0]
 
     def lowest_rate_location(self, location_id=None):
+        if not location_id:
+            return self.product_stocks.all()[0].location
         for p_st in self.product_stocks.all():
             if p_st.location.id == int(location_id):
                 return p_st
