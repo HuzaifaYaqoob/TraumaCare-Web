@@ -207,43 +207,7 @@ USE_L10N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
 
-STATIC_URL = 'static/'
-# STATIC_ROOT = os.path.join(BASE_DIR , 'static')
-
-
-MEDIA_URL = 'media/'
-# MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
-
-
-# AWS S3 Configuration for DigitalOcean Spaces
-
-AWS_STORAGE_BUCKET_NAME='traumacaremedia'
-AWS_ACCESS_KEY_ID=env('AWS_ACCESS_KEY_ID')
-AWS_SECRET_ACCESS_KEY=env('AWS_SECRET_ACCESS_KEY')
-AWS_S3_ENDPOINT_URL='https://blr1.digitaloceanspaces.com'
-AWS_LOCATION = f'https://traumacaremedia.blr1.digitaloceanspaces.com'
-AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
-}
-# Django Static and Media Files
-
-STATICFILES_STORAGE = 'TraumaCare.Constant.backends.StaticStorage'
-# STATIC_URL = f'https://traumacaremedia.blr1.digitaloceanspaces.com/static/'
-STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'static'),
-)
-
-DEFAULT_FILE_STORAGE = 'TraumaCare.Constant.backends.MediaStorage'
-# MEDIA_URL = f'https://traumacaremedia.blr1.digitaloceanspaces.com/media/'
-
-
-
-
-
-print(MEDIA_URL)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
@@ -290,14 +254,23 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-# try:
-#     from .do_spaces_settings import *
-# except Exception as err:
-#     print(err)
-#     pass
-# else:
-#     STATICFILES_DIRS = (
-#         os.path.join(BASE_DIR, 'static'),
-#     )
+try:
+    from .do_spaces_settings import *
+except Exception as err:
+    print(err)
+
+    STATIC_URL = 'static/'
+    STATIC_ROOT = os.path.join(BASE_DIR , 'static')
+
+    MEDIA_URL = 'media/'
+    MEDIA_ROOT = os.path.join(BASE_DIR , 'media')
+else:
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
+
+
+print(STATIC_URL)
+print(MEDIA_URL)
 
 DEBUG = True
