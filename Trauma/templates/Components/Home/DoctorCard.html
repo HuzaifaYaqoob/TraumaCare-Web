@@ -24,7 +24,7 @@
       {% endwith %}
     </div>
   </a>
-  {% comment %} {% with doct_availability=doctor.doctor_card_availability %}
+  {% with doct_availability=doctor.doctor_card_availability %}
     <div>
       <p class="text-[#0A1C4B] text-xs sm:text-sm outfit-font text-[#3C3C3C] {% if doct_availability.slots|length == 0 %}line-clamp-4{% elif doct_availability.slots|length >= 3 %}line-clamp-2{% else %}line-clamp-4{% endif %}">
         {{doctor.desc}}
@@ -46,5 +46,5 @@
         </a>
       </div>
     </div>
-  {% endwith %} {% endcomment %}
+  {% endwith %}
 </div>

@@ -340,13 +340,13 @@ def searchFilterPage(request):
         is_blocked = False,
         is_active = True,
         **query
+    ).prefetch_related(
+        'doctor_medias',
+        'doctor_reviews',
+        'doctor_available_days',
     ).distinct().order_by(*order_query)
 
-    print(query)
-
-
-    context['doctors'] = doctors[:: -1 if reverse else 1][:28]
-    context['doctorHospitals'] = Hospital.objects.filter(is_active=True, is_deleted=False, is_blocked=False, ).distinct()[:8]
+    context['doctors'] = doctors[:: -1 if reverse else 1][:10]
     # hospital_timeslots__isnull=False
 
     context['DoctorsCount'] = len(doctors)

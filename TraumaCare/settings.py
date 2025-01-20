@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'storages',
+    # 'storages',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -258,17 +258,10 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-try:
-    from .do_spaces_settings import *
-except Exception as err:
-    pass
-
-else:
-    # STATICFILES_DIRS = (
-    #     os.path.join(BASE_DIR, 'static'),
-    # )
-    pass
-
+# try:
+#     from .do_spaces_settings import *
+# except Exception as err:
+#     pass
 
 
 DEBUG = True

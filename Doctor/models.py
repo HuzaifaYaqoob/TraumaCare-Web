@@ -84,6 +84,7 @@ class Doctor(models.Model):
         return revs
 
     def reviews_rating(self):
+        return [5, 0]
         revs = self.reviews()
         if len(revs) == 0:
             return [5, 0]
