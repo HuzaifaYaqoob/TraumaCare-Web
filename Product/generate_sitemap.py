@@ -64,7 +64,7 @@ def registerDoctorsSiteMaps():
         for hosp in doct_hospitsl:
 
             doct_elmt = ET.SubElement(root, "url")
-            docotr_url = f'{settings.THIS_APPLICATION_URL}/doctor/profile/view/{doct.slug}/?hospital={hosp.hospital.name}&hospital_location={hosp.location.name}'
+            docotr_url = f'{settings.THIS_APPLICATION_URL}/doctor/profile/view/{doct.slug}/?name=Dr. {doct.name}hospital={hosp.hospital.name}&hospital_location={hosp.location.name}'
 
             ET.SubElement(doct_elmt, "loc").text =  docotr_url
             ET.SubElement(doct_elmt, "lastmod").text = dt
