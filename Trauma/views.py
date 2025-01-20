@@ -356,7 +356,7 @@ def searchFilterPage(request):
                 headline=SearchHeadline(
                 "name",
                 searchText,
-                start_sel="<span class='bg-[#ffe536] px-2'>",
+                start_sel="<span class='bg-[#fff199] px-2'>",
                 stop_sel="</span>",
             ),
         )
