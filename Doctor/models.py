@@ -147,7 +147,7 @@ class Doctor(models.Model):
         if reviews:
             doctor_reviews = reviews
         else:
-            doctor_reviews = DoctorReview.objects.filter(doctor = self, is_deleted = False, is_active=True)
+            doctor_reviews = self.doctor_reviews.all()
         if doctor_reviews.exists():
             return int((sum(doctor_reviews.values_list('rating', flat=True)) / len(doctor_reviews)) / 5 * 100)
         else:
