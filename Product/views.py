@@ -48,7 +48,6 @@ def SingleMedicineViewPage(request, product_slug):
     
     context['product'] = product
     context['location_stock'] = product.lowest_rate_location(location_id=location_id)
-    print(context['location_stock'])
 
     # other_locations = ProductStock.custom_objects.filter(product = product).exclude(Q(id = location_stock.id if location_stock else '1') | Q(final_price = location_stock.final_price if location_stock else '1')).order_by('final_price')[:3]
     # other_locations_data = []
