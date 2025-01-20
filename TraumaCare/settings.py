@@ -258,16 +258,16 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-# try:
-#     from .do_spaces_settings import *
-# except Exception as err:
-#     pass
+try:
+    from .do_spaces_settings import *
+except Exception as err:
+    pass
 
-# else:
-#     # STATICFILES_DIRS = (
-#     #     os.path.join(BASE_DIR, 'static'),
-#     # )
-#     pass
+else:
+    # STATICFILES_DIRS = (
+    #     os.path.join(BASE_DIR, 'static'),
+    # )
+    pass
 
 
 
