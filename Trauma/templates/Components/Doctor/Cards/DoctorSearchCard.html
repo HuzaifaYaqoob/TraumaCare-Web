@@ -3,7 +3,7 @@
 <div class="flex flex-col md:flex-row gap-5 rounded-[20px] relative bg-white border border-[#CACBE6] w-full px-4 py-3 space-y-1">
   <div class="flex-1">
     <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="outfit-font text-[#151E2C] capitalize text-[24px] font-semibold tracking-wide cursor-pointer line-clamp-1">
-      Dr. {{doctor.name}}
+      Dr. {{doctor.name|safe}}
     </a>
     <a href="{% url 'DoctorProfilePage' doctor.slug %}" class="flex items-start gap-4">
       <div class="size-[90px] rounded-full relative cursor-pointer bg-center border-[0.5px] border-[#3C3C3C] bg-cover bg-no-repeat" style="background-image: url('{{doctor.profile_image}}');">

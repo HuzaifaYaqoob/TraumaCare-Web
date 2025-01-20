@@ -11,6 +11,7 @@ from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value,
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
 from Blog.models import BlogPost, BlogMedia
+from django.contrib.postgres.search import SearchHeadline, SearchQuery
 
 from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia, HospitalRequest
 
@@ -348,6 +349,19 @@ def searchFilterPage(request):
         'doctor_reviews',
         'doctor_available_days',
     ).distinct().order_by(*order_query)
+
+    if searchText:
+        query = SearchQuery("red tomato")
+        doctors = doctors.annotate(
+                headline=SearchHeadline(
+                "name",
+                searchText,
+                start_sel="<span class='bg-[#ffe536] px-2'>",
+                stop_sel="</span>",
+            ),
+        )
+        for d in doctors:
+            d.name = d.headline
 
     context['doctors'] = doctors[:: -1 if reverse else 1][:10]
     # hospital_timeslots__isnull=False
