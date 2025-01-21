@@ -16,6 +16,7 @@ class OrderAdmin(admin.ModelAdmin):
     ]
     list_display = [
         'user',
+        'shipping',
         # "subtotal",
         # "discount",
         # "platform_fee",
