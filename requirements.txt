@@ -6,8 +6,8 @@ asgiref==3.8.1
 attrs==23.2.0
 autobahn==23.6.2
 Automat==22.10.0
-boto3==1.0.0
-botocore==1.36.2
+boto3==1.34.137
+botocore==1.34.162
 certifi==2023.11.17
 cffi==1.16.0
 channels==4.0.0
@@ -24,9 +24,11 @@ django-crontab==0.7.1
 django-debug-toolbar==4.0.0
 django-environ==0.11.2
 django-jazzmin==2.6.0
-django-storages==1.0.0
+django-storages==1.14.3
 djangorestframework==3.14.0
+docutils==0.15.2
 frozenlist==1.4.1
+futures==2.2.0
 GDAL==3.9.0
 geographiclib==2.0
 geoip2==4.8.0
@@ -37,7 +39,7 @@ httpx==0.26.0
 hyperlink==21.0.0
 idna==3.6
 incremental==22.10.0
-jmespath==1.0.1
+jmespath==0.7.1
 maxminddb==2.6.2
 msgpack==1.0.8
 multidict==6.0.5
@@ -58,7 +60,7 @@ python-dateutil==2.9.0.post0
 pytz==2023.3.post1
 redis==5.0.7
 requests==2.31.0
-s3transfer==0.11.1
+s3transfer==0.10.4
 service-identity==24.1.0
 setuptools==70.1.0
 six==1.16.0
@@ -69,7 +71,7 @@ Twisted==23.10.0
 txaio==23.1.1
 typing_extensions==4.9.0
 tzdata==2022.7
-urllib3==2.1.0
+urllib3==2.3.0
 webp==0.4.0
 xmltodict==0.13.0
 yarl==1.9.4
