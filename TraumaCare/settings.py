@@ -258,10 +258,10 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-# try:
-#     from .do_spaces_settings import *
-# except Exception as err:
-#     pass
+try:
+    from .do_spaces_settings import *
+except Exception as err:
+    pass
 
 
 DEBUG = True

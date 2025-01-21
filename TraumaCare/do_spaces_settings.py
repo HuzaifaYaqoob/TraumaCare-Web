@@ -1,31 +1,24 @@
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
+import environ
+env = environ.Env()
 
-AWS_ACCESS_KEY_ID='DO00TNX7NR4M6B8997MX' 
-AWS_SECRET_ACCESS_KEY='Wa57orN6e+qVw6SjbhzsxaECkp9WvfKBEAmKsQtDUSM'
 
-AWS_STORAGE_BUCKET_NAME='traumacaremedia'
-# I enabled the CDN, so you get a custom domain. Use the end point in the AWS_S3_CUSTOM_DOMAIN setting. 
-AWS_S3_CUSTOM_DOMAIN='traumacaremedia.blr1.digitaloceanspaces.com'
+AWS_ACCESS_KEY_ID =env('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY =env('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME =env('AWS_STORAGE_BUCKET_NAME')
+AWS_S3_ENDPOINT_URL = "https://blr1.digitaloceanspaces.com"  # Replace <region> (e.g., blr1)
+
+# Media files storage
+STATICFILES_STORAGE = "TraumaCare.Constant.backends.StaticStorage"
+DEFAULT_FILE_STORAGE = "TraumaCare.Constant.backends.MediaStorage"
+
+# URL settings
+MEDIA_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL[8:]}/media/"
+STATIC_URL = f"https://{AWS_STORAGE_BUCKET_NAME}.{AWS_S3_ENDPOINT_URL[8:]}/static/"
+
+# Optional: Cache settings for performance
 AWS_S3_OBJECT_PARAMETERS = {
-    'CacheControl': 'max-age=86400',
+    "CacheControl": "max-age=86400",  # Cache files for 1 day
 }
 
-AWS_DEFAULT_ACL = 'x-amz-acl'
-
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-
-# Use AWS_S3_ENDPOINT_URL here if you haven't enabled the CDN and got a custom domain. 
-AWS_S3_ENDPOINT_URL = 'https://blr1.digitaloceanspaces.com'
-AWS_S3_SIGNATURE_VERSION = (
-    "s3v4"
-)
-
-MEDIA_URL = '{}/{}/'.format(AWS_S3_CUSTOM_DOMAIN, 'media')
-MEDIA_ROOT = 'media/'
-
-AWS_LOCATION = 'static'
-STATIC_URL = 'https://%s/%s/' % (AWS_S3_CUSTOM_DOMAIN, AWS_LOCATION)
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-DEFAULT_TIMEOUT = 70
+# Optional: Enable file overwriting
+AWS_QUERYSTRING_AUTH = False  # Removes query params from file URLs
