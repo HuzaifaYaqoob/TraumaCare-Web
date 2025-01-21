@@ -59,7 +59,7 @@ def getAdminTopTiles(request):
         h_pending_requests = hospital_requests.filter(is_onboarded=False)
         cardData = [
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "New Users", 'value': new_users.count(), 'desc' : 'News Users in past 7 days'},
-            {'icon' : 'fa fa-plus-circle !text-[#0755E9]', 'title': "Todays Users", 'value': new_users.count(), 'desc' : 'News Users in past 7 days'},
+            {'icon' : 'fa fa-plus-circle !text-[#0755E9]', 'title': "Todays Users", 'value': todays.count(), 'desc' : f'News Users in todays Date {today.strftime("%d-%m-%Y")}'},
             # Doctors Request for those doctors who submitted onboarding form & our team will call them for verification & onboarding & registering them into our system
             {'icon' : 'fa fa-user-tie !text-[#F8DB48]', 'title': "Doctors Requests", 'value': f'{doctors_requests.count()}/{pending_requests.count()}', 'desc' : 'Solved/Unsolved Request to join our platform'},
             {'icon' : 'fa fa-user-tie !text-[#05DC75]', 'title': "Hospitals Requests", 'value': f'{hospital_requests.count()}/{h_pending_requests.count()}', 'desc' : 'Solved/Unsolved Request to join our platform'},
