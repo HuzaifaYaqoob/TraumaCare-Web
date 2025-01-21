@@ -10,6 +10,7 @@ from Trauma.views import test, searchFilterPage, CartPage
 from .views import set_language
 from .admin_views import OrganizationHierarchyPage, SuperUserDashboard, AdminTestPage
 
+from Administration import views as administration_views
 
 import debug_toolbar
 
