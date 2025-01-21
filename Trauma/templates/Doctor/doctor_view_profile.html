@@ -323,7 +323,7 @@
                                     <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
                                     <div class="flex-1 flex items-center justify-between">
                                           <div class="flex gap-3 items-start">
-                                                <a href="{% url 'ViewHospitalProfile' clinic.hospital.slug %}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('/media/{{clinic.hospital.profile_image.file}}');"></a>
+                                                <a href="{% url 'ViewHospitalProfile' clinic.hospital.slug %}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{clinic.hospital.profile_image.file.url}}');"></a>
                                                 <div class="flex-1 space-y-0.5">
                                                       <div class="flex items-center justify-between">
                                                             <a class="text-[#151E2C] line-clamp-1 font-medium outfit-font" href="{% url 'ViewHospitalProfile' clinic.hospital.slug %}">{{clinic.hospital.name}}</a>
