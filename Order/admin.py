@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import Order, OrderItem
 
 
-class OrderItemAdminInline(admin.TabularInline):
+class StoreMediaInline(admin.StackedInline):
     model = OrderItem
     extra = 0
 
@@ -13,7 +13,7 @@ class OrderItemAdminInline(admin.TabularInline):
 class OrderAdmin(admin.ModelAdmin):
     list_display = [
         'user',
-        'shipping',
+        'deliver_at',
         # "subtotal",
         # "discount",
         # "platform_fee",
@@ -23,6 +23,9 @@ class OrderAdmin(admin.ModelAdmin):
         "payment_status",
         "created_at",
     ]
+
+    def deliver_at(self, obj):
+        return f'{obj.shipping.address}'
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
