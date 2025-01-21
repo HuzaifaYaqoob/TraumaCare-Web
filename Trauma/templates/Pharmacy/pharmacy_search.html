@@ -45,12 +45,12 @@
 
 {% block pharmacy_body %}
 
-<main class="px-4 sm:px-6 md:px-8 space-y-10 py-4 sm:py-5 md:py-7 bg-[#F9F9F9]">
+<main class="px-4 sm:px-6 md:px-8 space-y-7 sm:space-y-10 py-4 sm:py-5 md:py-7 bg-[#F9F9F9]">
     <section class="max-w-[1500px] mx-auto">
         <h3 class="outfit-font text-2xl font-semibold mb-3">Top Brands</h3>
-        <div class="flex items-center gap-3 flex-wrap ">
+        <div class="flex items-center gap-2 flex-wrap ">
             {% for brand in brands %}
-                <a href="?brand={{brand.slug}}" class="text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %}">
+                <a href="?brand={{brand.slug}}" class="text-xs sm:text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %}">
                     <h3>{{brand.name}}</h3>
                 </a>
             {% endfor %}
@@ -70,7 +70,7 @@
                     {% for treatment_type in product_TreatmentTypes %}
                         <div class="flex items-center gap-1.5">
                             <input type="radio" name="treatment_type" value="{{treatment_type.slug}}" id="{{treatment_type.slug}}">
-                            <label for="{{treatment_type.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{treatment_type.name}}</label>
+                            <label for="{{treatment_type.slug}}" class="text-[#514B81] text-sm select-none outfit-font line-clamp-1">{{treatment_type.name}}</label>
                         </div>
                     {% endfor %}
                 </div>
@@ -81,7 +81,7 @@
                     {% for product_form in product_product_forms %}
                         <div class="flex items-center gap-1.5">
                             <input type="radio" name="product_form" value="{{product_form.slug}}" id="{{product_form.slug}}">
-                            <label for="{{product_form.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{product_form.name}}</label>
+                            <label for="{{product_form.slug}}" class="text-[#514B81] text-sm select-none outfit-font line-clamp-1">{{product_form.name}}</label>
                         </div>
                     {% endfor %}
                 </div>
@@ -92,7 +92,7 @@
                     {% for sub_cat in product_subcategories %}
                         <div class="flex items-center gap-1.5">
                             <input type="radio" name="sub_category" value="{{sub_cat.slug}}" id="{{sub_cat.slug}}">
-                            <label for="{{sub_cat.slug}}" class="text-[#514B81] text-sm select-none outfit-font">{{sub_cat.name}}</label>
+                            <label for="{{sub_cat.slug}}" class="text-[#514B81] text-sm select-none outfit-font line-clamp-1">{{sub_cat.name}}</label>
                         </div>
                     {% endfor %}
                 </div>
