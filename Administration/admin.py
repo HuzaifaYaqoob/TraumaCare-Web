@@ -5,7 +5,7 @@ from django.contrib import admin
 from .models import UserRequestLog, PhoneMessage, SmsServiceKey
 from Authentication.models import User
 from django.utils.html import mark_safe
-
+from django.conf import settings
 
 
 COLORS = {
@@ -83,7 +83,7 @@ class PhoneMessageAdmin(admin.ModelAdmin):
             labels.append(self.get_label(p, COLORS[p]))
         
 
-        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % ('https://traumaaicare.com/static/admin/img/icon-yes.svg' if user_obj.is_mobile_verified else 'https://traumaaicare.com/static/admin/img/icon-no.svg')
+        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % (settings.STATIC_URL + 'admin/img/icon-yes.svg' if user_obj.is_mobile_verified else settings.STATIC_URL + 'admin/img/icon-no.svg')
         is_mobile_verified = f'{is_mobile_verified} {user_obj.mobile_number}'
         div = f"""<div style="display : flex;gap:10px">
                     <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user_obj.profile_image}) no-repeat center center;background-size:cover"></span>
