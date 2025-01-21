@@ -21,17 +21,16 @@
                     <label for="full_name" class="text-[#507EC2] font-medium text-sm outfit-font">Name <span class="text-[#F02149]">*</span></label>
                     <div class="flex bg-blue-50 rounded-lg overflow-hidden">
                         <span class="outfit-font bg-gray-200 flex items-center justify-center px-3 py-1">Dr.</span>
-                        <input type="text" id='full_name' required name='full_name' class="placeholder:font-[300] outfit-font outline-none border-0 w-full bg-blue-50 px-2 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA]" placeholder="Anjum Habib Vohra">
+                        <input type="text" id='full_name' value='{{request.user.full_name}}' required name='full_name' class="placeholder:font-[300] outfit-font outline-none border-0 w-full bg-blue-50 px-2 py-3 text-black font-medium text-sm placeholder-[#6D8CBA]" placeholder="Anjum Habib Vohra">
                     </div>
                 </div>
                 <div class="w-full flex-1 space-y-1">
                     <label for="gender" class="text-[#507EC2] font-medium text-sm">Gender <span class="text-[#F02149]">*</span></label>
                     <div class="px-2.5 bg-blue-50 rounded-lg cursor-pointer">
-                        <select required name='gender' id="gender" class="placeholder:font-[300] text-[#6D8CBA] bg-transparent text-sm block w-full py-3 outline-none border-0 w-full font-medium placeholder-[#6D8CBA] cursor-pointer">
+                        <select required name='gender' id="gender" class="placeholder:font-[300] text-black bg-transparent text-sm block w-full py-3 outline-none border-0 w-full font-medium placeholder-[#6D8CBA] cursor-pointer">
                             <option disabled selected class="font-[300]">Choose your gender</option>
-                            <option value="Male">Male</option>
+                            <option value="Male" selected>Male</option>
                             <option value="Female">Female</option>
-                            <option value="Other">Other</option>
                         </select>
                     </div>
                 </div>
@@ -46,8 +45,9 @@
                     <input 
                         type="number" 
                         required 
-                        name="phoneNumber" 
-                        class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" 
+                        value='{{request.user.mobile_number}}'
+                        name="phone" 
+                        class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-black font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" 
                         placeholder="03*********" 
                         id="phoneNumber" 
                         maxlength="11" 
@@ -55,7 +55,7 @@
                 </div>  
                 <div class="w-full flex-1 space-y-1">
                     <label for="Specialty" class="text-[#507EC2] font-medium text-sm">Specialty <span class="text-[#F02149]">*</span></label>
-                    <input type="text" required name='speciality' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g Neurosurgeon MBBS, FRSC (Neuro Surgery)" id="Specialty">
+                    <input type="text" required name='speciality' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-black font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g Neurosurgeon MBBS, FRSC (Neuro Surgery)" id="Specialty">
                 </div>           
                 <!-- <div class="w-full flex-1">
                     <label class="text-[#507EC2] font-medium text-sm">Working Since <span class="text-[#F02149]">*</span></label>
