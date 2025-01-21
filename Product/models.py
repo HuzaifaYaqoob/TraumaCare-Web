@@ -289,7 +289,7 @@ class ProductStock(models.Model):
         if self.discount:
             price = self.price - (self.price * self.discount / 100)
             return round(price, 2)
-        return 0
+        return round(self.price, 2)
     
     # @property
     # def final_price(self):
