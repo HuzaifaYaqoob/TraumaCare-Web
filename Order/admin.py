@@ -11,9 +11,6 @@ class OrderItemAdminInline(admin.TabularInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    inlines = [
-        OrderItemAdminInline,
-    ]
     list_display = [
         'user',
         'shipping',
