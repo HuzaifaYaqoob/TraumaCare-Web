@@ -62,7 +62,6 @@ def homePage(request):
     return render(request, 'Home/index.html', context)
 
 
-# https://www.facebook.com/sharer.php?u=https://traumaaicare.com/product/view/azomax-250-capsules-250mg-1-strip-6-capsules-traumacare-medimart-sandoz-bacterial-infection-box-box-be8acd2b-20a3-4fbf-945e-9ac704e56ce8/?selected_location=2
 
 def onboarding(request):
     onboarding_type = request.GET.get('onboarding_type',  None)
