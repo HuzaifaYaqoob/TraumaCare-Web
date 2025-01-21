@@ -258,10 +258,8 @@ try:
     from .Jazzmin_settings import *
 except:
     pass
-try:
-    from .do_spaces_settings import *
-except Exception as err:
-    pass
 
+if IS_LOCAL_SERVER == '0':
+    from .do_spaces_settings import *
 
 DEBUG = True
