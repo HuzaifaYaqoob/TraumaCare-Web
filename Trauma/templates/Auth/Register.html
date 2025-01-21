@@ -19,7 +19,7 @@
             <div class="flex items-center justify-between">
                 <h1 class="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75]">Register!</h1>
                 <a href="/">
-                    <img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt="">
+                    <img class="h-8" src="{% static 'assets/Images/traumacareAIcare/logos/whitelogo.png' %}" alt="">
                 </a>
             </div>
             <form action="{% url 'HandleJoin' %}{{str_query}}" method="post" main-register-form class="register-main-form" data-activestep="1">

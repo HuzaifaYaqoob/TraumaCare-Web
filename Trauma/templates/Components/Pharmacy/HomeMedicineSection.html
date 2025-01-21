@@ -39,7 +39,7 @@
     
     
     
-    <section class="space-y-7 relative">
+    {% comment %} <section class="space-y-7 relative">
         <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
             {% if medicineSectionHeading %}{{medicineSectionHeading}}{% else %}Trending Medicines in Your Area{% endif %}
         </h3>
@@ -101,7 +101,7 @@
             {% endif %}
         </div>
         {% endif %}
-    </section>
+    </section> {% endcomment %}
 </section>
 {% endblock baseBody %}
 

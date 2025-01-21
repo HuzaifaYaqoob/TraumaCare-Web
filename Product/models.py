@@ -14,6 +14,9 @@ from Vendor.models import Vendor
 from Pharmacy.models import StoreLocation, Store
 from Pharmaceutical.models import Pharmaceutical
 
+# import settings 
+from django.conf import settings
+
 import os
 # Name 
 # Href 
@@ -232,7 +235,7 @@ class Product(models.Model):
         try:
             return self.product_images.all()[0].image.url
         except:
-            return '/static/assets/Images/medicine-default-img.png'
+            return settings.STATIC_URL + 'assets/Images/medicine-default-img.png'
     
     def product_admin_card(self, labels=[]):
         images = self.product_all_images

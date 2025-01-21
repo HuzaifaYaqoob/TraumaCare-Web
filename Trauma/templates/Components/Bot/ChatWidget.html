@@ -36,7 +36,7 @@
         <div MainChatWidgetChatBot class="w-[600px] z-[10000] bg-white rounded-2xl overflow-hidden flex flex-col justify-between !gap-0 hidden">
             <div class="bg-gradient-to-r from-[#0755E9] to-[#05D57C] px-3 py-2 flex items-center justify-between">
                 <div class="flex items-center gap-2">
-                    <img class="size-11" src="/static/assets/Images/chatbotLogo.png" alt="Image Loading...">
+                    <img class="size-11" src="{% static 'assets/Images/chatbotLogo.png' %}" alt="Image Loading...">
                     <div class="flex flex-col">
                         <p class="font-semibold text-white">{% if request.user.full_name %}{{request.user.full_name}}{% else %}{{request.user.username}}{% endif %}</p>
                         <span class="text-xs text-[#E7E7E7] font-medium">Traumaaicare Assistant</span>

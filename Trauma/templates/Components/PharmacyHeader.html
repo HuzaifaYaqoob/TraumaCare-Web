@@ -1,8 +1,9 @@
+{% load static %}
 <header class="px-4 sm:px-6 md:px-8 py-2 sm:py-3 md:py-3 sticky top-0 z-40 bg-white">
     <div class="max-w-[1500px] mx-auto flex items-center justify-between gap-3 sm:gap-4">
         <div class="flex gap-3 lg:gap-4 flex-1">
             <div class="border bg-white border-[#CACBE6] rounded-[13px] flex items-center px-4 py-2 gap-3 max-w-max">
-                <a href="/"><img class="h-8" src="/static/assets/Images/traumacareAIcare/logos/whitelogo.png" alt=""></a>
+                <a href="/"><img class="h-8" src="{% static 'assets/Images/traumacareAIcare/logos/whitelogo.png' %}" alt=""></a>
                 <div class="h-[32px] w-[1px] bg-[#CACBE6]"></div>
                 <p class="text-[#333333] text-xs line-clamp-2">Health, without<br>the hassle</p>
             </div>
