@@ -17,12 +17,12 @@ class OrderAdmin(admin.ModelAdmin):
     ]
     list_display = [
         'user',
-        "subtotal",
-        "discount",
-        "platform_fee",
-        "delivery_charges",
+        # "subtotal",
+        # "discount",
+        # "platform_fee",
+        # "delivery_charges",
         "total_amount",
-        "payment_method",
+        # "payment_method",
         "payment_status",
         "created_at",
     ]
