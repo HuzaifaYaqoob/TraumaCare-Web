@@ -7,7 +7,6 @@ from .models import Order, OrderItem
 
 class OrderItemAdminInline(admin.TabularInline):
     model = OrderItem
-
     extra = 0
 
 @admin.register(Order)
@@ -24,5 +23,14 @@ class OrderAdmin(admin.ModelAdmin):
         "total_amount",
         # "payment_method",
         "payment_status",
+        "created_at",
+    ]
+
+@admin.register(OrderItem)
+class OrderItemAdmin(admin.ModelAdmin):
+    list_display = [
+        "product",
+        "stock",
+        "final_price",
         "created_at",
     ]
