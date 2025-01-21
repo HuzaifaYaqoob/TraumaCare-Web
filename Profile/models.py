@@ -74,7 +74,7 @@ class Profile(models.Model):
     @property
     def image_full_path(self):
         if self.profile_image:
-            return f'{settings.THIS_APPLICATION_URL}{self.profile_image.url}'
+            return f'{self.profile_image.url}'
         
         return DUMMY_PROFILE_IMAGE
     
