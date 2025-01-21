@@ -95,8 +95,6 @@ MIDDLEWARE = [
 
     # Custom Milddlewares 
     'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
-    'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
-    'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
 INTERNAL_IPS = [
