@@ -250,11 +250,6 @@ HOSPITAL_TRAUMACARE_URL=env('HOSPITAL_TRAUMACARE_URL')
 DATA_UPLOAD_MAX_NUMBER_FIELDS=10000
 
 try:
-    from .local_settings import *
-except:
-    pass
-
-try:
     from .Jazzmin_settings import *
 except:
     pass
@@ -264,5 +259,12 @@ if IS_LOCAL_SERVER == '0':
         from .do_spaces_settings import *
     except:
         pass
+
+
+try:
+    from .local_settings import *
+except Exception as err:
+    print(err)
+    pass
 
 DEBUG = True

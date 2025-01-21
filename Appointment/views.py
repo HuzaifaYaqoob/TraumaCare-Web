@@ -12,6 +12,7 @@ from django.db.models import Min
 from datetime import timedelta, datetime
 from django.db.models import Count
 
+from Administration.Constant.site import get_site_settings
 
 
 def MyAppointmentsPage(request):
@@ -123,10 +124,29 @@ def BookAppointmentPage(request):
 
 def BookAppointment_DoctorPage(request):
     if request.method == 'GET':
-        return render(request, 'checkout/checkout_appoinment.html')
+        context = {}
+        try:
+            doctor = Doctor.objects.get(id = request.GET.get('doctor', None), is_deleted = False, is_blocked = False)
+            hospital = DoctorWithHospital.objects.get(id = request.GET.get('doct_hospital', None))
+            slot = DoctorTimeSlots.objects.get(id = request.GET.get('dr-appointment-slot', None))
+        except Exception as err:
+            messages.error(request, str(err))
+            messages.error(request, 'Invalid Doctor Profile')
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        
+        site_settings = get_site_settings()
+        context['doctor'] = doctor
+        context['hospital'] = hospital
+        context['slot_id'] = slot.id
+        context['slot'] = slot
+        context['FEE'] = slot.fee
+        context['FINAL_FEE'] = slot.final_price
+        context['DISCOUNT'] = slot.discount
+        context['PLATFORM_FEE'] = site_settings['PHARMACY_PLATFORM_FEE']
+        context['GRANDTOTAL'] = slot.final_price + site_settings['PHARMACY_PLATFORM_FEE']
+        return render(request, 'checkout/checkout_appoinment.html', context)
     elif request.method == 'POST':
         
-        print(request.POST)
         # doctor
         # selected_date
         # doct_hospital
@@ -163,10 +183,15 @@ def BookAppointment_DoctorPage(request):
             messages.error(request, 'Selected Slot is not Available')
             return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         
-        user_profiles = Profile.objects.filter(profile_type = 'Patient', user = request.user, is_active=True, is_deleted=False, is_blocked=False).order_by('-created_at')
+        selected_patient_profile = request.POST.get('selected_patient_profile', None)
         user_p = None
-        if len(user_profiles) > 0:
-            user_p = user_profiles[0]
+        if selected_patient_profile:
+            try:
+                user_p = Profile.objects.get(id = selected_patient_profile)
+            except:
+                user_profiles = Profile.objects.filter(profile_type = 'Patient', user = request.user, is_active=True, is_deleted=False, is_blocked=False).order_by('-created_at')
+                if len(user_profiles) > 0:
+                    user_p = user_profiles[0]
 
         appt_grp = AppointmentGroup.objects.create(
             user = request.user,

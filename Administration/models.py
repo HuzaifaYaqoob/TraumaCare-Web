@@ -96,3 +96,12 @@ class PhoneMessage(models.Model):
         if not self.mask:
             self.mask = 'REDEXPO'
         super(PhoneMessage, self).save(*args, **kwargs)
+
+
+class SiteSetting(models.Model):
+    pharmacy_platform_fee = models.FloatField(default=0)
+    appointment_platform_fee = models.FloatField(default=0)
+
+    
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
