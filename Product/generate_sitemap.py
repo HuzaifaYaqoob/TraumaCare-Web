@@ -10,9 +10,12 @@ from django.conf import settings
 
 import os
 
+
+siteMapBaseUrl = 'static/assets/sitemaps'
+
 def registerProductsSiteMaps():
-    if not os.path.exists('Trauma/static/assets/sitemaps/products'):
-        os.makedirs('Trauma/static/assets/sitemaps/products')
+    if not os.path.exists(f'{siteMapBaseUrl}/products'):
+        os.makedirs(f'{siteMapBaseUrl}/products')
     root = ET.Element('urlset')
     root.attrib['xmlns:xsi']="http://www.w3.org/2001/XMLSchema-instance"
     root.attrib['xsi:schemaLocation']="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
@@ -45,12 +48,12 @@ def registerProductsSiteMaps():
     pretty_xml = minidom.parseString(xml_string).toprettyxml(indent="  ")
 
     # Write the prettified XML to the file
-    with open('Trauma/static/assets/sitemaps/products/products_sitemap.xml', 'w', encoding='utf-8') as f:
+    with open(f'{siteMapBaseUrl}/products/products_sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(pretty_xml)
 
 def registerDoctorsSiteMaps():
-    if not os.path.exists('Trauma/static/assets/sitemaps/doctors'):
-        os.makedirs('Trauma/static/assets/sitemaps/doctors')
+    if not os.path.exists(f'{siteMapBaseUrl}/doctors'):
+        os.makedirs(f'{siteMapBaseUrl}/doctors')
     root = ET.Element('urlset')
     root.attrib['xmlns:xsi']="http://www.w3.org/2001/XMLSchema-instance"
     root.attrib['xsi:schemaLocation']="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd"
@@ -80,5 +83,5 @@ def registerDoctorsSiteMaps():
     pretty_xml = minidom.parseString(xml_string).toprettyxml(indent="  ")
 
     # Write the prettified XML to the file
-    with open('Trauma/static/assets/sitemaps/doctors/doctors_sitemap.xml', 'w', encoding='utf-8') as f:
+    with open(f'{siteMapBaseUrl}/doctors/doctors_sitemap.xml', 'w', encoding='utf-8') as f:
         f.write(pretty_xml)
