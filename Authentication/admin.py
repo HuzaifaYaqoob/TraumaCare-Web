@@ -128,7 +128,7 @@ class CustomUserAdmin(UserAdmin):
             labels.append(self.get_label(p, COLORS[p]))
         
 
-        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % (settings.STATIC_URL + 'static/admin/img/icon-yes.svg' if user.is_mobile_verified else settings.STATIC_URL + 'admin/img/icon-no.svg')
+        is_mobile_verified = '<img style="margin-right:2px" src="%s" />' % (settings.STATIC_URL + 'admin/img/icon-yes.svg' if user.is_mobile_verified else settings.STATIC_URL + 'admin/img/icon-no.svg')
         is_mobile_verified = f'{is_mobile_verified} {user.mobile_number}'
         div = f"""<div style="display : flex;gap:10px">
                     <span style="width: 50px;height:50px;border:1px solid lightgray;border-radius: 50%;background:url({user.profile_image}) no-repeat center center;background-size:cover"></span>
