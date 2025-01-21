@@ -31,7 +31,7 @@ def generatePhoneMessage_VerificationCode(sender, instance, created, **kwargs):
         PhoneMessage.objects.create(
             phone_number = instance.mobile_number,
             sms_type = 'OTP',
-            text = f"Your TraumaCare verification code is {instance.code}.\n\nThanks for choosing \\033[0mTraumaCare\\033[0m, an innovative healthcare solution by RedExpo."
+            text = f"Your TraumaCare verification code is {instance.code}.\n\nThanks for choosing TraumaCare"
         )
 
 
