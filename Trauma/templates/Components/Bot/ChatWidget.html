@@ -28,12 +28,12 @@
     }
 </style>
 
-<div class="fixed bottom-10 right-10 flex items-end gap-2 z-[100] flex-col">
+<div class="fixed left-4 md:left-0 bottom-4 sm:bottom-10 right-4 sm:right-10 flex items-end gap-2 z-[100] flex-col">
     {% if request.user.is_authenticated %}
         <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
         <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
 
-        <div MainChatWidgetChatBot class="w-[600px] z-[10000] bg-white rounded-2xl overflow-hidden flex flex-col justify-between !gap-0 hidden">
+        <div MainChatWidgetChatBot class="w-full max-w-[600px] z-[10000] bg-white rounded-2xl overflow-hidden flex flex-col justify-between !gap-0 hidden">
             <div class="bg-gradient-to-r from-[#0755E9] to-[#05D57C] px-3 py-2 flex items-center justify-between">
                 <div class="flex items-center gap-2">
                     <img class="size-11" src="{% static 'assets/Images/chatbotLogo.png' %}" alt="Image Loading...">
@@ -57,9 +57,9 @@
                 </div>
             </div>
             <div class="border border-[#CACBE6] border-t-0 rounded-2xl rounded-t-none">
-                <div class="px-2 pt-4 overflow-auto scroll-smooth h-[500px]" MainChatWidgetChatMessages>
+                <div class="px-2 pt-4 overflow-y-auto scroll-smooth max-h-[320px] sm:max-h-[350px] md:max-h-[380px] lg:max-h-[400px] xl:max-h-[420px] overflow-x-hidden" MainChatWidgetChatMessages>
                     {% if chat_widget_messages|length == 0 %}
-                        <div class="w-full grid grid-cols-2 gap-x-3 gap-y-3 px-12 pt-3">
+                        <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-3 px-8 sm:px-12 py-8 sm:py-10 overflow-y-auto">
                             <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
                                 <span class="w-[30px] h-[30px] flex items-center justify-start">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24" class="icon-md" style="color: rgb(118, 208, 235);"><path fill="currentColor" fill-rule="evenodd" d="M13.997 3.39A2.5 2.5 0 0 1 17.2 2.103l2.203.882a2.5 2.5 0 0 1 1.342 3.369L19.063 10H20a1 1 0 0 1 1 1v8a3 3 0 0 1-3 3H6a3 3 0 0 1-3-3v-8a1 1 0 0 1 .992-1l-.149-.101-.03-.022c-1.254-.924-1.016-2.864.425-3.458l2.12-.874.724-2.176c.492-1.479 2.41-1.851 3.42-.665L11.99 4.45l1.521.01zm1.513 1.506a2 2 0 0 1 .461 2.618l-1.144 1.861v.045a1.3 1.3 0 0 0 .044.278 1 1 0 0 1 .047.302h1.942l2.07-4.485a.5.5 0 0 0-.268-.673l-2.203-.882a.5.5 0 0 0-.641.258zM12.889 10a3.3 3.3 0 0 1-.06-.499c-.01-.236-.004-.69.237-1.081l1.202-1.954-2.293-.016a2 2 0 0 1-1.51-.704L8.98 4l-.725 2.176A2 2 0 0 1 7.12 7.394L5 8.267l2.063 1.407c.129.087.23.2.303.326zM5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7zm4.5 2.5a1 1 0 0 1 1-1h3a1 1 0 1 1 0 2h-3a1 1 0 0 1-1-1" clip-rule="evenodd"></path></svg>
