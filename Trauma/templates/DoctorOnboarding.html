@@ -9,25 +9,25 @@
 {% block baseBody %}
 
 <section class="px-5 md:px-10 py-8 md:py-12 outfit-font">
-    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto border">
-        <div class="w-full bg-blue-100 px-3 py-4 sm:py-10 ">
-            <h3 class="text-[#0755E9] font-semibold text-lg sm:text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
-            <p class="text-center text-[#507EC2] text-xs sm:text-sm mt-2 outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
+    <div class="rounded-2xl sm:rounded-3xl overflow-hidden max-w-[920px] mx-auto border">
+        <div class="w-full bg-blue-100 px-3 py-5 sm:py-10 space-y-2">
+            <h3 class="text-[#0755E9] font-semibold text-xl sm:text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
+            <p class="text-center text-[#507EC2] text-xs sm:text-sm outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
         </div>
         <form action="" method="POST" enctype="multipart/form-data" class="p-4 sm:p-5 md:p-6">
             {% csrf_token %}
             <div class="flex gap-4 flex-col sm:flex-row">
-                <div class="w-full flex-1">
+                <div class="w-full flex-1 space-y-1">
                     <label for="full_name" class="text-[#507EC2] font-medium text-sm outfit-font">Name <span class="text-[#F02149]">*</span></label>
                     <div class="flex bg-blue-50 rounded-lg overflow-hidden">
-                        <span class="outfit-font bg-gray-200 flex items-center px-3 py-1">Dr.</span>
-                        <input type="text" id='full_name' required name='full_name' class="placeholder:font-[300] outfit-font outline-none border-0 mt-1 w-full bg-blue-50 px-2 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " placeholder="Anjum Habib Vohra">
+                        <span class="outfit-font bg-gray-200 flex items-center justify-center px-3 py-1">Dr.</span>
+                        <input type="text" id='full_name' required name='full_name' class="placeholder:font-[300] outfit-font outline-none border-0 w-full bg-blue-50 px-2 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA]" placeholder="Anjum Habib Vohra">
                     </div>
                 </div>
-                <div class="w-full flex-1">
+                <div class="w-full flex-1 space-y-1">
                     <label for="gender" class="text-[#507EC2] font-medium text-sm">Gender <span class="text-[#F02149]">*</span></label>
-                    <div class="px-2.5 bg-blue-50 rounded-lg">
-                        <select required name='gender' id="gender" class="placeholder:font-[300] text-[#6D8CBA] mt-1 bg-transparent text-sm block w-full py-3 outline-[#0755E9] border-0  w-full font-medium placeholder-[#6D8CBA]">
+                    <div class="px-2.5 bg-blue-50 rounded-lg cursor-pointer">
+                        <select required name='gender' id="gender" class="placeholder:font-[300] text-[#6D8CBA] bg-transparent text-sm block w-full py-3 outline-none border-0 w-full font-medium placeholder-[#6D8CBA] cursor-pointer">
                             <option disabled selected class="font-[300]">Choose your gender</option>
                             <option value="Male">Male</option>
                             <option value="Female">Female</option>
@@ -37,15 +37,27 @@
                 </div>
             </div>
             <div class="flex gap-4 mt-4 flex-col sm:flex-row">
-                <div class="w-full flex-1">
+                <!-- <div class="w-full flex-1 space-y-1">
                     <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
-                    <input type="text" required name='phone' class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
-                    <p class="font-[300] text-xs sm:text-sm pl-2 mt-1">Our support team will call you shortly</p>
-                </div>
-                <div class="w-full flex-1">
+                    <input type="number" required name='phone' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                </div> -->
+                <div class="w-full flex-1 space-y-1">
+                    <label for="phoneNumber" class="text-[#507EC2] font-medium text-sm">Phone Number <span class="text-[#F02149]">*</span></label>
+                    <input 
+                        type="tel" 
+                        required 
+                        name="phoneNumber" 
+                        class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" 
+                        placeholder="e.g +923001234567" 
+                        id="phoneNumber" 
+                        maxlength="13" 
+                        pattern="^\+92[0-9]{10}$"
+                    >
+                </div>  
+                <div class="w-full flex-1 space-y-1">
                     <label for="Specialty" class="text-[#507EC2] font-medium text-sm">Specialty <span class="text-[#F02149]">*</span></label>
-                    <input type="text" required name='speciality' class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g Neurosurgeon MBBS, FRSC (Neuro Surgery)" id="Specialty">
-                </div>
+                    <input type="text" required name='speciality' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g Neurosurgeon MBBS, FRSC (Neuro Surgery)" id="Specialty">
+                </div>           
                 <!-- <div class="w-full flex-1">
                     <label class="text-[#507EC2] font-medium text-sm">Working Since <span class="text-[#F02149]">*</span></label>
                     <div class="flex-1 w-full flex items-center justify-between relative">
@@ -58,6 +70,7 @@
                     </div>  
                 </div> -->
             </div>
+            <p class="font-[300] text-xs sm:text-sm pl-2 mt-2">Our support team will call you shortly</p>
             <!-- <div class="gap-4 mt-4">
                 <label for="message" class="text-[#507EC2] font-medium text-sm">About <span class="text-[#F02149]">*</span></label>
                 <textarea id="message" required name='about' class="resize-none h-[180px] w-full outline-[#0755E9] border-0 flex-1 mt-1 bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] " ></textarea>

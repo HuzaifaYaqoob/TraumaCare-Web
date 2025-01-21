@@ -1,6 +1,4 @@
 
-
-
 const remove_error_from_field = (element) =>{
     let error_parent = element.closest('.form-field')
     if (error_parent){
@@ -14,7 +12,6 @@ const remove_error_from_field = (element) =>{
         }
     }
 }
-
 
 const add_error_from_field = (element, error_message) =>{
     let error_parent = element.closest('.form-field')
