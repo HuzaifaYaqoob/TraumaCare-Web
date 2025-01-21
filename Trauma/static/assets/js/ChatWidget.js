@@ -29,7 +29,7 @@ const getMessageContent = (message, isMe=false) =>{
     let div = document.createElement('div')
     div.setAttribute('ChatWidgetChatMessage', '')
     div.className = `flex items-start w-full gap-3 ${isMe ? 'user-message' : 'ai-bot-message'} `
-    let content = `${isMe ? '' : `<img class="w-[30px] border rounded-full h-auto" src="/static/assets/Images/bot-icon.jpeg" />`}
+    let content = `${isMe ? '' : `<img class="w-[30px] border rounded-full h-auto" src="https://traumacare.blr1.digitaloceanspaces.com/static/assets/Images/bot-icon.jpeg" />`}
         <div class="flex-1 w-full">
             <p class="chat-message px-3 mb-1.5 py-2 bg-[#eff1f4] w-max max-w-[70%] font-medium">${message.replace('\n', '<br/>')}</p>
         </div>`
@@ -41,7 +41,7 @@ const Loader = () =>{
     let div = document.createElement('div')
     div.setAttribute('ChatWidgetChatMessage', '')
     div.className = `flex items-center w-full gap-3 ai-bot-message`
-    let content = `<img class="w-[30px] border rounded-full h-auto" src="/static/assets/Images/bot-icon.jpeg" />
+    let content = `<img class="w-[30px] border rounded-full h-auto" src="https://traumacare.blr1.digitaloceanspaces.com/static/assets/Images/bot-icon.jpeg" />
         <div class="flex-1 w-full">
             <div class="loader ml-6"></div>
         </div>`
