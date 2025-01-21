@@ -45,7 +45,7 @@ def getAdminTopTiles(request):
         sent = msgs.filter(is_sent = True)
         cardData = [
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays SMS", 'value': msgs.count(), 'desc' : 'Todays Messages'},
-            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Sent", 'value': sent.count(), 'desc' : 'Todays Sent Messages'},
+            {'icon' : 'fa fa-plus-circle !text-[#05DC75]', 'title': "Sent", 'value': sent.count(), 'desc' : 'Todays Sent Messages'},
         ]
     elif page == 'admin':
         users = User.objects.filter(is_deleted=False)
