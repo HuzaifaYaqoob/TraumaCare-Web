@@ -5,6 +5,7 @@ from django.utils.text import slugify
 from uuid import uuid4
 
 from datetime import datetime, timedelta
+from TraumaCare.Constant.index import addWatermark
 
 class Pharmaceutical(models.Model):
     uuid = models.UUIDField(default=uuid4, editable=False, unique=True)

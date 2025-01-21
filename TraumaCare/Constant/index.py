@@ -2,13 +2,14 @@
 
 from django.conf import settings
 from Constants.Data.Profile import DUMMY_PROFILE_IMAGE
+from TraumaCare.Constant.upload_to_spaces import upload_file_to_spaces
 
 import time
 from PIL import Image
 from datetime import datetime
 import os
 
-def addWatermark(input_image, output_path):
+def addWatermark(input_image, output_path, upload_to_spaces=True):
     last_dir = "/".join(output_path.split('/')[:-1])
     if not os.path.exists(last_dir):
         print('Creating directory')
@@ -58,4 +59,7 @@ def addWatermark(input_image, output_path):
     saving_url = output_path
 
     background.save(saving_url, quality=100)
+
+    if upload_to_spaces:
+        upload_file_to_spaces(output_path)
     return f'{saving_url}'.split('media/')[-1]

@@ -8,58 +8,54 @@ import botocore
 
 
 # Manual file upload to DigitalOcean Spaces
-def upload_file_to_spaces(file_path):
+def upload_file_to_spaces(file_path, bucket_name=None, object_key=None):
+    print('upload_file_to_spaces')
+    # try:
+    bucket_name = bucket_name or settings.AWS_STORAGE_BUCKET_NAME
     session = boto3.session.Session()
     client = session.client(
         's3',
         endpoint_url=settings.AWS_S3_ENDPOINT_URL,
-        config=botocore.config.Config(s3={'addressing_style': 'virtual'}, connect_timeout=60, read_timeout=120, retries={'max_attempts': 5}, tcp_keepalive=True),
-        region_name='blr1',
-        
+        config=boto3.session.Config(
+            s3={'addressing_style': 'virtual'},
+            connect_timeout=60,
+            read_timeout=120,
+            retries={'max_attempts': 5},
+            tcp_keepalive=True
+        ),
+        region_name=settings.AWS_REGION_NAME,
         aws_access_key_id=settings.AWS_ACCESS_KEY_ID,
         aws_secret_access_key=settings.AWS_SECRET_ACCESS_KEY,
     )
 
-    print(client)
+    # Upload the file
+    object_key = file_path
+    print(object_key)
 
-    # client.put_object(
-    #             Bucket=settings.AWS_STORAGE_BUCKET_NAME, 
-    #             Key=file_path, 
-    #             Body=b'Hello, World!',
-    #             ACL='private',
-    #             Metadata={
-    #                 'x-amz-meta-my-key': 'your-value'
-    #             }
-    #         )
-    try:
-        print(os.path.curdir)
-        # Define key for the uploaded file in Spaces
-        key = f'{os.path.basename(file_path)}'
-        print(key)
+    with open(file_path, 'rb') as file_data:
+        client.upload_fileobj(
+            Fileobj=file_data,
+            Bucket=bucket_name,
+            Key=object_key,
+            ExtraArgs={
+                'ContentType': 'application/octet-stream',
+                'ACL': 'public-read'
+            }
+        )
 
-        with open(file_path, 'rb') as data:
-            print(data)
-            # Use upload_fileobj without ContentLength
-            # client.upload_fileobj(
-            #     Fileobj=data,
-            #     Bucket=settings.AWS_STORAGE_BUCKET_NAME,
-            #     Key=key,
-            #     ExtraArgs={
-            #         'ContentType': 'application/octet-stream',  # Set appropriate content type
-            #         'ACL': 'public-read'  # Optional: Set file access permissions
-            #     }
-            # )
-            part = client.upload_part(
-                Bucket=settings.AWS_STORAGE_BUCKET_NAME, 
-                Key=key, 
-                PartNumber=1,
-                UploadId='1',
-                Body=data.read()
-                )
+    if os.path.exists(file_path):
+        os.remove(file_path)
+    # Construct the file URL
+    file_url = f"{settings.AWS_S3_ENDPOINT_URL}/{bucket_name}/{object_key}"
+    print(f"File uploaded successfully: {file_url}")
+    print('upload_file_to_spaces')
 
+    return file_url
 
-        print(f"File uploaded successfully to: {key}")
-    except NoCredentialsError:
-        print("Credentials not available")
-    except Exception as e:
-        print(f"Error: {e}")
+    # except NoCredentialsError:
+    #     print("Error: Credentials not available.")
+    # except ClientError as e:
+    #     print(f"Client error occurred: {e}")
+    # except Exception as e:
+    #     print(f"Unexpected error: {e}")
+    

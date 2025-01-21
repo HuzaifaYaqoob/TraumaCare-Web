@@ -6,6 +6,7 @@ AWS_ACCESS_KEY_ID =env('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY =env('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME =env('AWS_STORAGE_BUCKET_NAME')
 AWS_S3_ENDPOINT_URL = "https://blr1.digitaloceanspaces.com"  # Replace <region> (e.g., blr1)
+AWS_REGION_NAME='blr1'
 
 # Media files storage
 STATICFILES_STORAGE = "TraumaCare.Constant.backends.StaticStorage"
