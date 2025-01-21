@@ -42,8 +42,10 @@ def getAdminTopTiles(request):
     elif page == 'admin.Administration.phonemessage':
         from Administration.models import PhoneMessage
         msgs = PhoneMessage.objects.filter(created_at__date = today)
+        sent = msgs.filter(is_sent = True)
         cardData = [
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays SMS", 'value': msgs.count(), 'desc' : 'Todays Messages'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Sent", 'value': sent.count(), 'desc' : 'Todays Sent Messages'},
         ]
     elif page == 'admin':
         users = User.objects.filter(is_deleted=False)
