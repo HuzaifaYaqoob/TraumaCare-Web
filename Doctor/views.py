@@ -57,7 +57,7 @@ def DoctorProfilePage(request, doctor_slug):
             is_deleted = False,
             is_blocked = False,
             doctor_specialities__speciality__id__in = doctor_specialities,
-        ).prefetch_related(
+        ).exclude(id = doctor.id).prefetch_related(
             'doctor_medias',
             'doctor_reviews',
             'doctor_available_days',

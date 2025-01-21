@@ -260,6 +260,9 @@ except:
     pass
 
 if IS_LOCAL_SERVER == '0':
-    from .do_spaces_settings import *
+    try:
+        from .do_spaces_settings import *
+    except:
+        pass
 
 DEBUG = True
