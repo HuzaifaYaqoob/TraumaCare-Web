@@ -1,6 +1,8 @@
 <section class="xl:block hidden">
     <div class="mt-[-20px] md:mt-0 md:flex items-center cursor-pointer relative" onclick="toggleProfileId(event)">
-        <div class="w-12 h-12 border bg-center bg-no-repeat bg-cover rounded-full" style="background-image: url('{% if user.profile_image %}{{user.profile_image}}{% endif %}');"></div>
+        <div class="bg-gradient-to-r from-[#0755E9] to-[#05DC75] rounded-full p-[2px] flex items-center justify-center">
+            <div class="w-12 h-12 bg-center bg-no-repeat bg-cover rounded-full" style="background-image: url('{% if user.profile_image %}{{user.profile_image}}{% endif %}');"></div>
+        </div>
         <div class="min-w-[250px] sm:min-w-[300px] p-1.5 hidden absolute bg-white rounded-lg w-[150px] top-[60px] right-0 border border-[#CACBE6]" id="profile_id">
             <a href="{% url 'MyAppointmentsPage' %}" class="font-medium group text-[#3C3C3C] transition-all hover:text-white rounded-md hover:bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-3 py-2.5 text-md flex items-center gap-2">
                 <svg class="group-hover:fill-white fill-[#3C3C3C] size-5" viewBox="0 0 16 21" xmlns="http://www.w3.org/2000/svg">
