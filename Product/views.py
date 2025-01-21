@@ -73,6 +73,7 @@ def SingleMedicineViewPage(request, product_slug):
     ).distinct().order_by('?')[:10]
 
     context['medicines'] = other_medicines
+    context['whatsapp_message_text'] = 'Hi, I am interested in ' + request.build_absolute_uri()
 
     # context['storeMedicines'] = Product.objects.filter(
     #     store = product.store,
