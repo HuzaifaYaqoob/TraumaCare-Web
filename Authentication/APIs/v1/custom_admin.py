@@ -39,6 +39,12 @@ def getAdminTopTiles(request):
                     {'icon' : 'fas fa-user !text-[#05DC75]', 'title': "Active Users", 'value': active_users.count(), 'desc' : 'User with status Active'}, 
                     {'icon' : 'fas fa-user-tie !text-[#F8DB48]', 'title': "Real Users", 'value': real_users.count(), 'desc' : 'Users registered with Real Mobile Numbers'},  
                 ]
+    elif page == 'admin.Administration.phonemessage':
+        from Administration.models import PhoneMessage
+        msgs = PhoneMessage.objects.filter(created_at__date = today)
+        cardData = [
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays SMS", 'value': msgs.count(), 'desc' : 'Todays Messages'},
+        ]
     elif page == 'admin':
         users = User.objects.filter(is_deleted=False)
         new_users = users.filter(joined_at__date__range = range_date)

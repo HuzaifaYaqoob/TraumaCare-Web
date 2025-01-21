@@ -2,7 +2,7 @@
 
 const head = document.querySelector('head')
 let t_script = document.createElement('script')
-t_script.src = 'https://traumacare.blr1.digitaloceanspaces.com/static/assets/tailwind/tailwind.js'
+t_script.src = 'https://cdn.tailwindcss.com'
 head.appendChild(t_script)
 
 
