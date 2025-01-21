@@ -153,7 +153,7 @@
                                             {% if location_stock.discount %}        
                                                 <span class="text-xs text-[#3C3C3C]/60"><del>{{location_stock.price|floatformat:1}}</del></span>
                                             {% endif %}
-                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{location_stock.final_price|floatformat:1}}</p>                          
+                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{location_stock.discounted_price|floatformat:1}}</p>                          
                                         </div>
                                     </div>
                                     <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>
