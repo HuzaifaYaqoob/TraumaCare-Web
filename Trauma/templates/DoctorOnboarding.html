@@ -9,10 +9,10 @@
 {% block baseBody %}
 
 <section class="px-5 md:px-10 py-8 md:py-12 outfit-font">
-    <div class="rounded-3xl overflow-hidden max-w-[920px] mx-auto border">
-        <div class="w-full bg-blue-100 px-3 py-4 sm:py-10 ">
-            <h3 class="text-[#0755E9] font-semibold text-lg sm:text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
-            <p class="text-center text-[#507EC2] text-xs sm:text-sm mt-2 outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
+    <div class="rounded-2xl sm:rounded-3xl overflow-hidden max-w-[920px] mx-auto border">
+        <div class="w-full bg-blue-100 px-3 py-5 sm:py-10 space-y-2">
+            <h3 class="text-[#0755E9] font-semibold text-xl sm:text-3xl text-center outfit-font">Doctor Onboarding Form</h3>
+            <p class="text-center text-[#507EC2] text-xs sm:text-sm outfit-font">Hello there! <br> Please fill the details in this doctor Onboarding form.</p>
         </div>
         <form action="" method="POST" enctype="multipart/form-data" class="p-4 sm:p-5 md:p-6">
             {% csrf_token %}
@@ -37,14 +37,27 @@
                 </div>
             </div>
             <div class="flex gap-4 mt-4 flex-col sm:flex-row">
-                <div class="w-full flex-1 space-y-1">
+                <!-- <div class="w-full flex-1 space-y-1">
                     <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
-                    <input type="text" required name='phone' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
-                </div>
+                    <input type="number" required name='phone' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                </div> -->
+                <div class="w-full flex-1 space-y-1">
+                    <label for="phoneNumber" class="text-[#507EC2] font-medium text-sm">Phone Number <span class="text-[#F02149]">*</span></label>
+                    <input 
+                        type="tel" 
+                        required 
+                        name="phoneNumber" 
+                        class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" 
+                        placeholder="e.g +923001234567" 
+                        id="phoneNumber" 
+                        maxlength="13" 
+                        pattern="^\+92[0-9]{10}$"
+                    >
+                </div>  
                 <div class="w-full flex-1 space-y-1">
                     <label for="Specialty" class="text-[#507EC2] font-medium text-sm">Specialty <span class="text-[#F02149]">*</span></label>
                     <input type="text" required name='speciality' class="outline-none border-0 w-full bg-blue-50 rounded-lg px-4 py-3 text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g Neurosurgeon MBBS, FRSC (Neuro Surgery)" id="Specialty">
-                </div>
+                </div>           
                 <!-- <div class="w-full flex-1">
                     <label class="text-[#507EC2] font-medium text-sm">Working Since <span class="text-[#F02149]">*</span></label>
                     <div class="flex-1 w-full flex items-center justify-between relative">
