@@ -261,7 +261,7 @@
                   {% endif %} {% endcomment %}
             </div>
             <!-- after checkout popup -->
-            <!-- <div class="w-[550px]">
+            {% comment %} <div class="w-[550px]">
                   <div class="rounded-[18px] bg-[#24D0D01A] items-center px-[15px] py-[50px] flex flex-col gap-1">
                         <h2 class="text-[#557DE5] text-[26px] font-semibold">Bringing Healing to Your Doorstep </h2>
                         <p class="text-[22px] font-medium text-[#24D0D0]">Fast, Reliable, and Convenient Medicine Delivery!</p>
@@ -269,87 +269,110 @@
                               {% include 'Components/SVG/Deliverd-Medicine-SVG.html' %}
                         </div>
                   </div>
-            </div> -->
+            </div> {% endcomment %}
             <div class="max-w-[1150px] w-full mt-12 md:mt-10 space-y-4">
-
-                  <!-- <div class="bg-[#24D0D01A] pl-[35px] py-[20px] flex gap-[50px]">
-                        <li class="text-lg font-bold text-[#24D0D0] list-none cursor-pointer">Product Description</li>
-                        <li class="text-lg font-bold text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">How to use</li>
-                        <li class="text-lg font-bold text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Side Effects</li>
-                        <li class="text-lg font-bold text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Pharmacy Details</li>
-                        <li class="text-lg font-bold text-[#8989B6] list-none cursor-pointer hover:text-[#24D0D0]">Reviews</li>
-                  </div>  -->
-
-                  <div class="space-y-1">
-                        <h3 class="text-lg font-semibold outfit-font">Description</h2>
-                        <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.description %}{{product.description}}{% else %}---{% endif %}</p>
-                  </div>
-                  <div class="space-y-1">
-                        <h3 class="text-lg font-semibold outfit-font">Key Highlights</h2>
-                        <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.key_highlights %}{{product.key_highlights}}{% else %}---{% endif %}</p>
-                  </div>
+                  {% if product.description %}
+                        <div class="space-y-1">
+                              <h3 class="text-lg font-semibold outfit-font">Description</h2>
+                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize line-clamp-4">{{product.description}}</p>
+                        </div>
+                  {% endif %}
+                  {% if product.key_highlights %}
+                        <div class="space-y-1">
+                              <h3 class="text-lg font-semibold outfit-font">Key Highlights</h2>
+                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.key_highlights}}</p>
+                        </div>
+                  {% endif %}
                   <div class='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3'>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Manufacturer</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.manufacturer %}{{product.manufacturer.name}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Market By</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.marketed_by %}{{product.marketed_by}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Product Form</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.product_form %}{{product.product_form.name}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Product Type</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.product_type %}{{product.product_type.name}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Generic Category</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.generic_category %}{{product.generic_category}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Formulation</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.formulation %}{{product.formulation}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Strength</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.strength %}{{product.strength}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Pack Size</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.pack_size %}{{product.pack_size}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Pack Form</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.pack_form %}{{product.pack_form}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Storage</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.storage %}{{product.storage}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Habit Forming</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.habit_forming %}{{product.habit_forming}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Sedation</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.sedation %}{{product.sedation}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Child Safety</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.child_safety %}{{product.child_safety}}{% else %}---{% endif %}</p>
-                        </div>
-                        <div class="space-y-1">
-                              <h3 class="text-lg mt-[13px] font-semibold outfit-font">Route Of Administration</h2>
-                              <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{% if product.route_of_administration %}{{product.route_of_administration}}{% else %}---{% endif %}</p>
-                        </div>
+                        {% if product.manufacturer %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Manufacturer</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.manufacturer.name}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.marketed_by %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Market By</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.marketed_by}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.product_form %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Product Form</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.product_form.name}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.product_type %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Product Type</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.product_type.name}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.generic_category %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Generic Category</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.generic_category}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.formulation %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Formulation</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.formulation}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.strength %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Strength</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.strength}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.pack_size %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Pack Size</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.pack_size}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.pack_form %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Pack Form</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.pack_form}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.storage %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Storage</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.storage}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.habit_forming %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Habit Forming</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.habit_forming}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.sedation %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Sedation</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.sedation}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.child_safety %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Child Safety</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.child_safety}}</p>
+                              </div>
+                        {% endif %}
+                        {% if product.route_of_administration %}
+                              <div class="space-y-1">
+                                    <h3 class="text-lg mt-[13px] font-semibold outfit-font">Route Of Administration</h2>
+                                    <p class="text-gray-600 text-sm sm:text-[16px] mr-[30px] outfit-font pl-2 capitalize">{{product.route_of_administration}}</p>
+                              </div>
+                        {% endif %}
                   </div>
-                  <!-- <h2 class="text-lg mt-[15px] font-semibold text-[#323232]">Reviews</h2>
+                   {% comment %} <h2 class="text-lg mt-[15px] font-semibold text-[#323232]">Reviews</h2>
                   <div class="flex flex-col gap-[10px]">
                         {% include 'Components/Pharmacy/MedicineReview.html' %}
-                  </div>  -->
+                  </div> {% endcomment %}
             </div>
             <div class="mt-[50px]">
                   {% include 'Components/Pharmacy/HomeMedicineSection.html' with medicines=medicines %}
