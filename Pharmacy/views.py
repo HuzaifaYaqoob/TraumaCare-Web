@@ -206,7 +206,10 @@ def PharmacyCartCheckoutPage(request):
                 final_price = p[3] - p[4],
             )
         
-        sendNewOrderEmailToAdmin(order)
+        try:
+            sendNewOrderEmailToAdmin(order)
+        except:
+            pass
         
         messages.success(request, 'Order Placed Successfully')
         return redirect('CheckoutSuccessPage', order_id=order.id)
