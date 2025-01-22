@@ -31,6 +31,7 @@ class OrderAdmin(admin.ModelAdmin):
 class OrderItemAdmin(admin.ModelAdmin):
     list_display = [
         "product",
+        "order",
         "stock",
         "final_price",
         "created_at",
