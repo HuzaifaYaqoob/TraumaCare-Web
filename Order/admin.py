@@ -11,7 +11,6 @@ class OrderItemInline(admin.StackedInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    inlines = [OrderItemInline]
     list_display = [
         'user',
         'deliver_at',
