@@ -123,5 +123,5 @@ class ShipingAddress(models.Model):
     created_at = models.DateTimeField(auto_now_add=now)
 
     def __str__(self):
-        return f'{self.full_name} - {self.mobile_number}'
+        return f'{self.address} - {self.full_name} - {self.mobile_number}'
     
