@@ -11,5 +11,5 @@ urlpatterns = [
     path('search/', pharmacy_views.PharmacySearchPage, name='PharmacySearchPage'),
     path('cart/', pharmacy_views.PharmacyCartPage, name='PharmacyCartPage'),
     path('cart/checkout/', login_required(pharmacy_views.PharmacyCartCheckoutPage, login_url='/auth/login/'), name='PharmacyCartCheckoutPage'),
-    path('cart/checkout/success/', login_required(pharmacy_views.CheckoutSuccessPage, login_url='/auth/login/'), name='CheckoutSuccessPage'),
+    path('cart/checkout/success/<int:order_id>/', login_required(pharmacy_views.CheckoutSuccessPage, login_url='/auth/login/'), name='CheckoutSuccessPage'),
 ] 
