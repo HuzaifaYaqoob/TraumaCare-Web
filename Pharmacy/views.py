@@ -131,6 +131,8 @@ def PharmacyCartCheckoutPage(request):
         CartItems = json.loads(decoded_data)
     else:
         CartItems = []
+    if not CartItems or len(CartItems) == 0:
+        return redirect('PharmacyLandingPage')
     products = []
     categories = []
     subtotal = 0
