@@ -35,7 +35,7 @@ class Order(models.Model):
 
     
     def __str__(self):
-        return f"{str(self.id)} -- {self.user.full_name}"
+        return f"{self.user.full_name} (#{str(self.id)})"
 
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name='order_items')
