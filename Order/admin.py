@@ -5,12 +5,13 @@ from django.contrib import admin
 from .models import Order, OrderItem
 
 
-class StoreMediaInline(admin.StackedInline):
+class OrderItemInline(admin.StackedInline):
     model = OrderItem
     extra = 0
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    inlines = [OrderItemInline]
     list_display = [
         'user',
         'deliver_at',
