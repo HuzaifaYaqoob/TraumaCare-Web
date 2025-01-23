@@ -17,8 +17,7 @@ class StoreMediaInline(admin.StackedInline):
 
 @admin.register(Store)
 class StoreAdmin(admin.ModelAdmin):
-    inlines = [StoreLocationInline, ]
-    # StoreMediaInline
+    inlines = [StoreLocationInline, StoreMediaInline]
     search_fields = ['name']
     list_display = [
         'store', 'locations',
