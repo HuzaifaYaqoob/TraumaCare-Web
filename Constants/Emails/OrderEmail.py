@@ -5,10 +5,12 @@ from django.template.loader import get_template
 from django.conf import settings
 
 
-def sendNewOrderEmailToAdmin(order_instance):
+def sendNewOrderEmailToAdmin(order_instance, email_log_instance=None):
     order_items = []
     for itm in order_instance.order_items.all():
         order_items.append(f'\t{itm.product.name} \t\t {itm.final_price}x{itm.quantity}')
+    
+    subject = 'TraumaCare : New Order'
     message = f"""
             New Order.\n
             Order ID : #{order_instance.id}\n
@@ -22,13 +24,23 @@ def sendNewOrderEmailToAdmin(order_instance):
             Order Items : {order_instance.order_items.all().count()}\n
             {"\n".join(order_items)}\n
         """
-    
-    print(message)
+    recievers = [settings.EMAIL_HOST_USER, 'huzaifa.officialmail@gmail.com']
+
+    if email_log_instance:
+        email_log_instance.emails = ', '.join(recievers)
+        email_log_instance.subject = subject
+        email_log_instance.message = message
+        email_log_instance.save()
+
     send_mail(
-        'TraumaCare : New Order',
+        subject,
         message,
         settings.EMAIL_HOST_USER,
-        [settings.EMAIL_HOST_USER, 'huzaifa.officialmail@gmail.com'],
+        recievers,
         fail_silently=False,
     )
+
+    if email_log_instance:
+        email_log_instance.is_sent = True
+        email_log_instance.save()
     

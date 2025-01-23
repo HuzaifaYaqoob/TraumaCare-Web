@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import UserRequestLog, PhoneMessage, SmsServiceKey, SiteSetting
+from .models import UserRequestLog, PhoneMessage, SmsServiceKey, SiteSetting, EmailLog
 from Authentication.models import User
 from django.utils.html import mark_safe
 from django.conf import settings
@@ -114,4 +114,14 @@ class SmsServiceKeyAdmin(admin.ModelAdmin):
         'key',
         'key_provider',
         'updated_at',
+    ]
+
+@admin.register(EmailLog)
+class EmailLogAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
+    list_display = [
+        'subject',
+        'emails',
+        'is_sent',
+        'created_at',
     ]

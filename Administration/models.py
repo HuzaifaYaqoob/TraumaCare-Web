@@ -105,3 +105,14 @@ class SiteSetting(models.Model):
     
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+
+class EmailLog(models.Model):
+    emails = models.CharField(max_length=999, default='')
+    subject = models.CharField(max_length=999, default='')
+    message = models.TextField()
+    is_sent = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    error = models.TextField(null=True, blank=True)

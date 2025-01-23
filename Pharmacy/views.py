@@ -9,6 +9,7 @@ import json
 from urllib.parse import unquote
 from django.contrib import messages
 from Constants.Emails.OrderEmail import sendNewOrderEmailToAdmin
+from Administration.models import EmailLog
 # Create your views here.
 
 def PharmacyLandingPage(request):
@@ -208,9 +209,12 @@ def PharmacyCartCheckoutPage(request):
                 final_price = p[3] - p[4],
             )
         
+        email_log = EmailLog.objects.create()
         try:
-            sendNewOrderEmailToAdmin(order)
-        except:
+            sendNewOrderEmailToAdmin(order, email_log_instance=email_log)
+        except Exception as err:
+            email_log.error = str(err)
+            email_log.save()
             pass
         
         messages.success(request, 'Order Placed Successfully')
