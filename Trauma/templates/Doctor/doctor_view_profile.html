@@ -276,9 +276,9 @@
                                           {% for date, online_ava in online_availability.items %}
                                                 <form action="{% url 'BookAppointment_DoctorPage' %}" method="get" class="border border-[#CACBE6] p-4 mb-4 rounded-2xl">
                                                       {% csrf_token %}
-                                                      <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
+                                                      <input type="text" class="hidden" required value="{{doctor.id}}" name="doctor">
                                                       <div class="">
-                                                            <input type="text" class="hidden" name="selected_date" value="{{online_ava.day_date}}">
+                                                            <input type="text" class="hidden" required name="selected_date" value="{{online_ava.day_date}}">
                                                             <div class="flex items-center justify-between mb-3">
                                                                   <p class="font-semibold group-hover:text-white"><span class="inline-flex items-center gap-2 outfit-font">{{online_ava.label}}</span></p>
                                                                   <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="text-sm text-[#0755E9] underline">Other Time?</a>
@@ -414,9 +414,9 @@
                               </div>
                         {% endif %}
                         {% for clinic in practicing_locations %}
-                              <form action="{% url 'BookAppointment_DoctorPage' %}" method="post" class="border border-[#CACBE6] p-4 rounded-2xl">
+                              <form action="{% url 'BookAppointment_DoctorPage' %}" method="get" class="border border-[#CACBE6] p-4 rounded-2xl">
                                     {% csrf_token %}
-                                    <input type="text" class="hidden" value="{{doctor.id}}" name="doctor">
+                                    <input type="text" required class="hidden" value="{{doctor.id}}" name="doctor">
                                     <div class="flex-1 flex items-center justify-between">
                                           <div class="flex gap-3 items-start">
                                                 <a href="{% url 'ViewHospitalProfile' clinic.hospital.slug %}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{clinic.hospital.profile_image.file.url}}');"></a>
@@ -436,8 +436,8 @@
                                     </div>
                                     <div class="mt-[16px]">
                                           {% with next_available=clinic.next_availability %}
-                                                <input type="text" class="hidden" name="selected_date" value="{{next_available.day_date}}">
-                                                <input type="text" class="hidden" name="doct_hospital" value="{{clinic.id}}">
+                                                <input type="text" class="hidden" name="selected_date" required value="{{next_available.day_date}}">
+                                                <input type="text" class="hidden" name="doct_hospital" required value="{{clinic.id}}">
                                                 <div class="flex items-center justify-between">
                                                       <p class="font-semibold group-hover:text-white mb-2"><span class="inline-flex items-center gap-2 outfit-font">{{next_available.label}}</span></p>
                                                       <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="text-xs outfit-font text-[#0555E9] underline">Other Time?</a>
@@ -525,6 +525,9 @@
       intervals.forEach((interval, index) => {
             if (index == 0) {
                   interval.checked = true
+                  let slot_card = interval.closest('.singleSlotCard')
+                  let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
+                  slot_input.checked = true
             }
             interval.addEventListener('change', (e) => {
                   let input = e.target

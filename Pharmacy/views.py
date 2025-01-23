@@ -8,7 +8,8 @@ from Order.models import Order, OrderItem
 import json
 from urllib.parse import unquote
 from django.contrib import messages
-
+from Constants.Emails.OrderEmail import sendNewOrderEmailToAdmin
+from Administration.models import EmailLog
 # Create your views here.
 
 def PharmacyLandingPage(request):
@@ -131,6 +132,8 @@ def PharmacyCartCheckoutPage(request):
         CartItems = json.loads(decoded_data)
     else:
         CartItems = []
+    if not CartItems or len(CartItems) == 0:
+        return redirect('PharmacyLandingPage')
     products = []
     categories = []
     subtotal = 0
@@ -168,18 +171,20 @@ def PharmacyCartCheckoutPage(request):
     grand_total = (subtotal - discount_applied) + platform_fee + delivery_charges
     similar_products = []
     if request.method == 'POST':
-        shipping_name = request.POST.get('shipping_name', None)
-        shipping_phone = request.POST.get('shipping_phone', None)
-        shipping_address = request.POST.get('shipping_address', None)
-        if shipping_name and shipping_phone and shipping_address:
+        selected_shipping_address = request.POST.get('selected_shipping_address', None)
+        if selected_shipping_address:
+            shipping_address = ShipingAddress.objects.get(id = selected_shipping_address)
+        else:
+            shipping_name = request.POST.get('shipping_name', None)
+            shipping_phone = request.POST.get('shipping_phone', None)
+            shipping_address = request.POST.get('shipping_address', None)
+
             shipping_address = ShipingAddress.objects.create(
                 user = request.user,
                 full_name = shipping_name,
                 address = shipping_address,
                 mobile_number = shipping_phone
             )
-        else:
-            shipping_address = None
 
         order = Order.objects.create(
             user = request.user,
@@ -204,8 +209,16 @@ def PharmacyCartCheckoutPage(request):
                 final_price = p[3] - p[4],
             )
         
+        email_log = EmailLog.objects.create()
+        try:
+            sendNewOrderEmailToAdmin(order, email_log_instance=email_log)
+        except Exception as err:
+            email_log.error = str(err)
+            email_log.save()
+            pass
+        
         messages.success(request, 'Order Placed Successfully')
-        return redirect('CheckoutSuccessPage')
+        return redirect('CheckoutSuccessPage', order_id=order.id)
 
     else:
         similar_query = {}
@@ -232,5 +245,12 @@ def PharmacyCartCheckoutPage(request):
     return render(request, 'Pharmacy/pharmacy_checkout.html', context)
 
 
-def CheckoutSuccessPage(request):
-    return render(request, 'Pharmacy/pharmacy_checkout_success.html')
+def CheckoutSuccessPage(request, order_id):
+    try:
+        order = Order.objects.get(id = order_id)
+    except Exception as err:
+        messages.error(request, 'Invalid Order Id')
+        return redirect('PharmacyLandingPage')
+    response = render(request, 'Pharmacy/pharmacy_checkout_success.html')
+    response.delete_cookie('CartItems')
+    return response

@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import UserRequestLog, PhoneMessage, SmsServiceKey
+from .models import UserRequestLog, PhoneMessage, SmsServiceKey, SiteSetting, EmailLog
 from Authentication.models import User
 from django.utils.html import mark_safe
 from django.conf import settings
@@ -16,6 +16,14 @@ COLORS = {
     "Lab" : "#F8DB48",
     "Private_Clinic" : '#A737D5',
 }
+
+@admin.register(SiteSetting)
+class SiteSettingAdmin(admin.ModelAdmin):
+
+    list_display = [
+        'pharmacy_platform_fee',
+        'appointment_platform_fee',
+    ]
 
 @admin.register(UserRequestLog)
 class UserRequestLogAdmin(admin.ModelAdmin):
@@ -106,4 +114,14 @@ class SmsServiceKeyAdmin(admin.ModelAdmin):
         'key',
         'key_provider',
         'updated_at',
+    ]
+
+@admin.register(EmailLog)
+class EmailLogAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
+    list_display = [
+        'subject',
+        'emails',
+        'is_sent',
+        'created_at',
     ]

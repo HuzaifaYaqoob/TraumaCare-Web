@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.conf import settings
 
 from Doctor.models import Doctor, DoctorMedia, DoctorRequest
-from Trauma.models import Speciality, Disease, State, Country, City
+from Trauma.models import Speciality, Disease, State, Country, City, ShortLink
 from django.db.models import Case, When, Min, Sum, Q, Count, Prefetch, F, Value, Subquery, OuterRef
 from rest_framework.authtoken.models import Token
 from Secure.models import ApplicationReview
@@ -21,6 +21,15 @@ from datetime import datetime
 from Product.models import Product, ProductStock
 
 # from django.views.decorators.cache import cache_page
+
+def shortCodeRedirect(request, short_code_id):
+    try:
+        link = ShortLink.objects.get(id = short_code_id)
+    except:
+        return redirect('homePage')
+    else:
+        return redirect(link.long_link)
+
 
 # @cache_page(60 * 15)
 def homePage(request):

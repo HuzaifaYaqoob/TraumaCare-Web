@@ -5,6 +5,8 @@ from Pharmacy.models import Store, StoreLocation
 from django.contrib import messages
 
 from django.db.models import Q, OuterRef, Subquery
+from Trauma.models import ShortLink
+from django.conf import settings
 
 # Create your views here.
 
@@ -73,6 +75,7 @@ def SingleMedicineViewPage(request, product_slug):
     ).distinct().order_by('?')[:10]
 
     context['medicines'] = other_medicines
+    context['whatsapp_message_text'] = f'Hi, I am interested in {product.name} ({settings.THIS_APPLICATION_URL}/st/{ShortLink.objects.get_or_create(long_link = request.build_absolute_uri())[0].id})'
 
     # context['storeMedicines'] = Product.objects.filter(
     #     store = product.store,

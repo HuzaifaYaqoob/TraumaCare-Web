@@ -95,7 +95,7 @@
                           <p class="text-[#000] outfit-font font-medium text-sm italic">Rs.{{grand_total}}</p>
                     </div>
                     <div class="flex items-center gap-2 pt-6 pb-2">
-                        <a href='{% url "PharmacyCartCheckoutPage" %}' class="flex-1 text-sm rounded-md flex items-center justify-center bg-[#0A1C4B] py-3 text-white outfit-font">
+                        <a href='{% if data|length > 0 %}{% url "PharmacyCartCheckoutPage" %}{% else %}#{% endif %}' class="{% if data|length > 0 %}disabled bg-[#0A1C4B] text-white cursor-pointer{% else %}bg-gray-300 cursor-not-allowed{% endif %} flex-1 text-sm rounded-md flex items-center justify-center py-3 outfit-font">
                             Checkout
                         </a>
                     </div>

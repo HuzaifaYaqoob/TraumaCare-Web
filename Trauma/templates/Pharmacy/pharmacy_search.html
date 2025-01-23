@@ -1,8 +1,24 @@
 
 {% extends 'Pharmacy/PharmacyBase.html' %}
 {% load static %}
-{% block title %}Home{% endblock title %}
+{% block title %}{{total_medicines}} Medicines & Products | Discover Top-Searched Medicines Available Near You{% endblock title %}
+{% block MetaBlock %}
 
+      <link rel="canonical" href="{{request.build_absolute_uri}}">
+      <meta property="og:url" content="{{request.build_absolute_uri}}">
+      <meta property="og:title" content="{{total_medicines}} Medicines & Products | Discover Top-Searched Medicines Available Near You, Anytime You Need! Find trusted, high-quality medicines at your convenience, tailored to your needs and location.">
+      <meta property="og:description" content="{{total_medicines}} Medicines & ProductsDiscover Top-Searched Medicines Available Near You, Anytime You Need! Find trusted, high-quality medicines at your convenience, tailored to your needs and location.">
+      <meta property="product:availability" content="oos">
+      <meta property="product:price:currency" content="PKR">
+
+      <meta name="twitter:site" content="{{total_medicines}} Medicines & ProductsDiscover Top-Searched Medicines Available Near You, Anytime You Need! Find trusted, high-quality medicines at your convenience, tailored to your needs and location.">
+      <meta name="twitter:card" content="summary_large_image">
+
+      <meta name="twitter:title" content="{{total_medicines}} Medicines & ProductsDiscover Top-Searched Medicines Available Near You, Anytime You Need! Find trusted, high-quality medicines at your convenience, tailored to your needs and location.">
+      <meta name="twitter:description" content="{{total_medicines}} Medicines & ProductsDiscover Top-Searched Medicines Available Near You, Anytime You Need! Find trusted, high-quality medicines at your convenience, tailored to your needs and location.">
+      <meta name="theme-color" content="#05D57C">
+
+{% endblock MetaBlock %}
 {% block BaseCSS %}
 <link href="https://cdnjs.cloudflare.com/ajax/libs/noUiSlider/15.7.0/nouislider.min.css" rel="stylesheet">
 <style>
@@ -153,7 +169,7 @@
                                             {% if location_stock.discount %}        
                                                 <span class="text-xs text-[#3C3C3C]/60"><del>{{location_stock.price|floatformat:1}}</del></span>
                                             {% endif %}
-                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{location_stock.final_price|floatformat:1}}</p>                          
+                                            <p class="text-[#05D57C] outfit-font font-semibold italic flex items-center gap-1"><span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{location_stock.discounted_price|floatformat:1}}</p>                          
                                         </div>
                                     </div>
                                     <div class="text-[#FFFFFF] text-[10px] bg-[#F01275] max-w-max rounded-full px-2.5 py-[3px] line-clamp-1 outfit-font">{{product.store.name}}</div>

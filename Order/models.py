@@ -33,6 +33,10 @@ class Order(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=now)
 
+    
+    def __str__(self):
+        return f"{self.user.full_name} (#{str(self.id)})"
+
 class OrderItem(models.Model):
     order = models.ForeignKey(Order, on_delete=models.PROTECT, related_name='order_items')
     product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_order_items')
@@ -43,3 +47,6 @@ class OrderItem(models.Model):
     final_price = models.FloatField(default=0)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return str(self.id)

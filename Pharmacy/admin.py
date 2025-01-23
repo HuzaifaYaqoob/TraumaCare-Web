@@ -9,6 +9,7 @@ from .models import Store, StoreLocation, StoreMedia
 class StoreLocationInline(admin.StackedInline):
     model = StoreLocation
     extra = 0
+    exclude = [ 'country', 'state', 'city']
 
 class StoreMediaInline(admin.StackedInline):
     model = StoreMedia
@@ -23,7 +24,8 @@ class StoreAdmin(admin.ModelAdmin):
         'created_at', 'updated_at', 'is_active', 'is_blocked',
     ]
 
-    exclude = ['user', 'profile', 'slug', 'created_at', 'updated_at']
+    exclude = [ 'profile', 'slug', 'created_at', 'updated_at']
+    # 'user',
 
     @admin.display(description='Store')
     def store(self, obj):

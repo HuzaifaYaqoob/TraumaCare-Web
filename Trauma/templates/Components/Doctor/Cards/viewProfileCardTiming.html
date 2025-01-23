@@ -1,6 +1,6 @@
 {% load appointment_tags %}
 <div class="singleSlotCard pb-3">
-      <input type="radio" class="hidden dr-appointment-slot-card-input" name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}">
+      <input type="radio" class="hidden dr-appointment-slot-card-input" required name="dr-appointment-slot" value="{{slot.id}}" id="dr-appointment-slot-card-{{slot.id}}">
       <div for="dr-appointment-slot-card-{{slot.id}}" class="block px-4 py-3 rounded-xl group bg-white border border-[#CACBE6]">
             <p class="font-semibold">
                   <span 
@@ -54,7 +54,7 @@
                               {% if interval.0 in doctor_bookings %}
                                     <p class="cursor-not-allowed border bg-slate-200 text-gray-500 select-none px-2 py-1 rounded-lg text-center outfit-font">{{interval.1}}</p>
                               {% else %}
-                                    <input type="radio" name="selected_time" value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{slot.id}}-{{interval.0}}" >
+                                    <input type="radio" name="selected_time" required value="{{interval.0}}" class="hidden slot-time-interval-radio" id="slot-time-interval-{{slot.id}}-{{interval.0}}" >
                                     <label for="slot-time-interval-{{slot.id}}-{{interval.0}}" class="text-center block border-[1px] border-[#151E2C] px-3 py-1.5 rounded-lg cursor-pointer text-[#151E2C]">{{interval.1}}</label>
                               {% endif %}
                         </div>

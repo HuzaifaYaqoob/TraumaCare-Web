@@ -51,7 +51,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # 'storages',
+    'storages',
     'rest_framework',
     'rest_framework.authtoken',
     'corsheaders',
@@ -95,7 +95,6 @@ MIDDLEWARE = [
 
     # Custom Milddlewares 
     'TraumaCare.Middlewares.request_data.RequestDataCustomMiddleware',
-    'TraumaCare.Middlewares.user_logs_middleware.TrackUserLogMiddleware',
 ]
 
 INTERNAL_IPS = [
@@ -246,13 +245,9 @@ EMAIL_HOST_PASSWORD = "zpsjmfoaipkndfqy"
 ACCOUNT_TRAUMACARE_URL=env('ACCOUNT_TRAUMACARE_URL')
 THIS_APPLICATION_URL=env('THIS_APPLICATION_URL')
 HOSPITAL_TRAUMACARE_URL=env('HOSPITAL_TRAUMACARE_URL')
+PHARMACY_TRAUMACARE_URL=env('PHARMACY_TRAUMACARE_URL')
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS=10000
-
-try:
-    from .local_settings import *
-except:
-    pass
 
 try:
     from .Jazzmin_settings import *
@@ -264,5 +259,12 @@ if IS_LOCAL_SERVER == '0':
         from .do_spaces_settings import *
     except:
         pass
+
+
+try:
+    from .local_settings import *
+except Exception as err:
+    print(err)
+    pass
 
 DEBUG = True

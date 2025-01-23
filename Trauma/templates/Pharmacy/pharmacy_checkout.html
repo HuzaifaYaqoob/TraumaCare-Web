@@ -22,7 +22,7 @@
                     {% if user_shipping_addresses|length > 0 %}
                         {% for address in user_shipping_addresses %}
                             <div>
-                                <input {% if forloop.counter == 1 %}checked{% endif %} type="radio" name="shipping_address" value="{{address.id}}" id="{{address.id}}">
+                                <input {% if forloop.counter == 1 %}checked{% endif %} type="radio" name="selected_shipping_address" value="{{address.id}}" id="{{address.id}}">
                                 <label for="{{address.id}}" class="block cursor-pointer border px-3 py-2 rounded-lg">
                                     <p>{{address.full_name}}</p>
                                     <p>{{address.mobile_number}}</p>

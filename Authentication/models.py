@@ -139,6 +139,16 @@ class User(AbstractBaseUser, PermissionsMixin):
             return general_profile.image_full_path or 'https://ionicframework.com/docs/img/demos/avatar.svg'
     
     @property
+    def patient_profiles(self):
+        user_profiles = self.user_profiles.filter(
+            profile_type = 'Patient',
+            is_active = True,
+            is_deleted = False,
+            is_blocked = False,
+        )
+        return user_profiles
+
+    @property
     def has_doctor_profile(self):
         from Doctor.models import Doctor
         doc_profiles = Doctor.objects.filter(

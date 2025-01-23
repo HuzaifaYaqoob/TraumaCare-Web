@@ -4,10 +4,11 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 
 
-from .views import homePage, onboarding, chatXpo_redirection, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
+from .views import homePage, shortCodeRedirect, onboarding, chatXpo_redirection, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
 
 urlpatterns = [
     path('', homePage, name='homePage'),
+    path('st/<str:short_code_id>/', shortCodeRedirect, name='shortCodeRedirect'),
     path('onboarding/', onboarding, name='onboarding'),
     path('chatxpo/', chatXpo_redirection, name='chatXpo_redirection'),
     path('test', test, name='test'),

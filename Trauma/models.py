@@ -211,3 +211,11 @@ class VerificationCode(models.Model):
     def __str__(self):
         return f'{self.id}'
 
+
+class ShortLink(models.Model):
+    long_link = models.TextField(default='')
+    created_at = models.DateTimeField(default=now)
+
+
+    def __str__(self):
+        return f'{self.id}'

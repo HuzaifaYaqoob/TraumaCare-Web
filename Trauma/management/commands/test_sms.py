@@ -26,19 +26,6 @@ class Command(BaseCommand):
         super().__init__(*args, **kwargs)
 
 
-    def send_message(self, numbers=[]):
-        text = "Your TraumaCare verification code is 858150. Don't share this code with anyone. Thanks for choosing TraumaCare, an innovative healthcare solution by RedExpo."
-        to = ''
-        for num in numbers:
-            to = to + str(num) + ','
-        
-        url = f'https://telenorcsms.com.pk:27677/corporate_sms2/api/sendsms.jsp?session_id={self.sessions_id}&to={to}&text={text}&mask=REDEXPO'
-        print(url)
-        response = requests.get(url)
-        response_json = json.loads(json.dumps(xmltodict.parse(response.content)))
-        print(response_json)
-
-
     def handle(self, *args, **options):
 
         key = generateSmsKey()

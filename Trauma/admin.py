@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode
+from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode, ShortLink
 from django.utils.html import mark_safe
 from django.conf import settings
 
@@ -8,6 +8,10 @@ from django.conf import settings
 admin.site.site_header = 'Trauma AI Care | Staff Portal'
 admin.site.site_title = 'Trauma AI Care | Staff Portal'
 
+
+@admin.register(ShortLink)
+class ShortLinkAdmin(admin.ModelAdmin):
+    list_display = ['id', 'long_link', 'created_at']
 
 @admin.register(Speciality)
 class SpecialityAdmin(admin.ModelAdmin):
