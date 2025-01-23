@@ -11,6 +11,8 @@ from django.conf import settings
 from Constants.Emails.OtpEmail import sendOtpEmail
 import random
 
+from Pharmacy.models import Store
+
 # Create your views here.
 
 from Authentication.models import User
@@ -37,8 +39,15 @@ def HospitalLoginPage(request):
 
 def PharmacyLoginPage(request):
     if request.user.is_authenticated:
-        return redirect(f'{settings.PHARMACY_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}')
+        try:
+            pharmacy = Store.objects.get(user = request.user)
+        except:
+            messages.error(request, 'Please register your pharmacy first')
+            return redirect('homePage')
+        
+        return redirect(f'{settings.PHARMACY_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}&pharmacy_id={pharmacy.id}&pharmacy_name={pharmacy.name}')
 
+    messages.info(request, 'Login with your Pharmacy Account')
     return redirect(f'/auth/login/?next={request.path}')
 
 def TraumacareMeetLoginPage(request):

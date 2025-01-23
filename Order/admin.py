@@ -9,8 +9,18 @@ class OrderItemInline(admin.StackedInline):
     model = OrderItem
     extra = 0
 
+    readonly_fields = [
+        'product',
+        'stock',
+        'final_price',
+        'created_at',
+    ]
+
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    inlines = [
+        OrderItemInline
+    ]
     list_display = [
         'user',
         'deliver_at',
