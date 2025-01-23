@@ -43,8 +43,8 @@
                 {% if user_appointments and lastest_appointments %}
                     <div class="sm:mr-3">
                         <p>
-                            <p class="m-0 p-0 text-xs text-center mb-[-7px]">Next Appointment in</p>
-                            <a href="{% url 'MyAppointmentsPage' %}" id="countdown" class="text-[#0A1C4B] font-bold italic text-[26px]"></a>
+                            <p class="m-0 p-0 text-xs text-center mb-[-3px] sm:mb-[-3px] whitespace-nowrap">Next Appointment in</p>
+                            <a href="{% url 'MyAppointmentsPage' %}" id="countdown" class="text-[#0A1C4B] font-bold italic text-xl sm:text-[26px]"></a>
                         </p>
                         <script>
                             let days = '{{lastest_appointments.date.day}}'
@@ -68,7 +68,7 @@
                                         const hoursStr = String(hours).padStart(2, '0');
                                         const minutesStr = String(minutes).padStart(2, '0');
 
-                                        document.getElementById('countdown').innerHTML = `${daysStr}:${hoursStr}:${minutesStr}<span class='text-sm font-[400] italic-none ml-2'>min</span>`;
+                                        document.getElementById('countdown').innerHTML = `${daysStr}:${hoursStr}:${minutesStr}<span class='text-xs sm:text-sm font-[400] italic-none ml-2'>min</span>`;
                                     } else {
                                         document.getElementById('countdown').textContent = "It's 6 PM!";
                                         clearInterval(countdownInterval); // Stop the countdown when the target time is reached

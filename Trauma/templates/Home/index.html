@@ -14,7 +14,7 @@
     }
 </style>
 
-<main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-16">
+<main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-10 md:space-y-16">
     <section>
         <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-10 sm:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
             <div class="flex-1 space-y-4">
@@ -72,7 +72,7 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7 !mt-4">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-left max-w-max">Nearby Doctors</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-left max-w-max">Nearby Doctors</h3>
         <p class="outfit-font font-[300] text-xs sm:text-sm !m-0 text-gray-700">Turn on your Location to find best available doctors near you</p>
         {% if doctors|length > 0 %}
             {% include 'Components/doctorSection/index.html' %}
@@ -274,11 +274,11 @@
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Reviews That Reflect Our Care</h3>
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Reviews That Reflect Our Care</h3>
         {% if application_reviews|length == 0 %}
             <p class="text-center text-sm text-[#111111]">No review found.</p>
         {% else %}
-            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center !mt-10">
+            <div class="{% if application_reviews|length > 3 %} swiper {% endif %} mySwiper0fThreeCards flex justify-center items-center">
                 <div class="{% if application_reviews|length > 3 %} swiper-wrapper {% else %} !flex items-center flex-wrap gap-3 {% endif %} !z-0">
                     {% for review in application_reviews %}
                         <div class="{% if application_reviews|length > 3 %} swiper-slide {% endif %} min-w-[300px] max-w-[660px] w-full !z-0" style="border: none;">
@@ -315,7 +315,7 @@
     </section>
     <section class="max-w-[1500px] mx-auto space-y-7">
         <div class="space-y-2">
-            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Latest Blogs And News</h3>
+            <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">Latest Blogs And News</h3>
             <p class="text-sm text-[#0A0E19] text-center">We aim to ensure that knowledge and news related to development technologies are readily accessible to all.</p>
         </div>
         {% if blog_posts %}
