@@ -34,6 +34,13 @@ def HospitalLoginPage(request):
     # return render(request, 'Auth/login.html')
     return redirect(f'/auth/login/?next={request.path}')
 
+
+def PharmacyLoginPage(request):
+    if request.user.is_authenticated:
+        return redirect(f'{settings.PHARMACY_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}')
+
+    return redirect(f'/auth/login/?next={request.path}')
+
 def TraumacareMeetLoginPage(request):
     if request.user.is_authenticated:
         return redirect(f'{settings.HOSPITAL_TRAUMACARE_URL}/?user_id={request.user.id}&auth_token={request.user.auth_token}')
