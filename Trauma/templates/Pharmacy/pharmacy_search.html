@@ -55,7 +55,6 @@
         height: 9px;
         border-radius: 100%;
     }
-
 </style>
 {% endblock BaseCSS %}
 
@@ -63,13 +62,27 @@
 
 <main class="px-4 sm:px-6 md:px-8 space-y-7 sm:space-y-10 py-4 sm:py-5 md:py-7 bg-[#F9F9F9]">
     <section class="max-w-[1500px] mx-auto">
-        <h3 class="outfit-font text-2xl font-semibold mb-3">Top Brands</h3>
-        <div class="flex items-center gap-2 flex-wrap ">
-            {% for brand in brands %}
-                <a href="?brand={{brand.slug}}" class="text-xs sm:text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %}">
-                    <h3>{{brand.name}}</h3>
-                </a>
-            {% endfor %}
+        <h3 class="outfit-font text-xl sm:text-2xl font-semibold mb-3">Top Brands</h3>
+        <div class="sm:block hidden">
+            <div class="flex items-center gap-2 flex-wrap">
+                {% for brand in brands %}
+                    <a href="?brand={{brand.slug}}" class="text-xs sm:text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %}">
+                        <h3>{{brand.name}}</h3>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="sm:hidden block">
+            <div class="flex items-center gap-2 flex-wrap">
+                {% for brand in brands %}
+                    <a href="?brand={{ brand.slug }}" class="text-xs sm:text-sm text-[#3C3C3C] outfit-font font-medium rounded-full border hover:bg-gray-100 hover:border-[#0755E9] px-3 py-1 {% if request.GET.brand == brand.slug %}border-[#0755E9] bg-blue-50{% endif %} {% if forloop.counter > 10 %}hidden{% endif %} small-screen-brand">
+                        <h3>{{ brand.name }}</h3>
+                    </a>
+                {% endfor %}
+                <button id="loadMoreButton" class="text-xs sm:text-sm text-[#0755E9] outfit-font font-medium rounded-full border bg-gray-100 border-[#0755E9] px-3 py-1">
+                    <h3>Load More</h3>
+                </button>
+            </div>
         </div>
     </section>
     <section class="max-w-[1500px] mx-auto flex items-start gap-6">
@@ -245,6 +258,15 @@
         sliderMax.textContent = Math.round(values[1]);
     });
 
+
+
+    const loadMoreButton = document.getElementById('loadMoreButton');
+    const hiddenBrands = document.querySelectorAll('.small-screen-brand.hidden');
+
+    loadMoreButton?.addEventListener('click', () => {
+        hiddenBrands.forEach(brand => brand.classList.remove('hidden'));
+        loadMoreButton.style.display = 'none';
+    });
 </script>
 
 {% endblock pharmacy_body %}
