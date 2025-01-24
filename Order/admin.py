@@ -18,6 +18,7 @@ class OrderItemInline(admin.StackedInline):
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
     inlines = [
         OrderItemInline
     ]
