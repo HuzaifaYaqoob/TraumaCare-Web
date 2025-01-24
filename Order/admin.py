@@ -30,6 +30,7 @@ class OrderAdmin(admin.ModelAdmin):
         # "delivery_charges",
         "total_amount",
         # "payment_method",
+        "order_status",
         "payment_status",
         "created_at",
     ]
