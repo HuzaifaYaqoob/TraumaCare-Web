@@ -28,7 +28,7 @@
     }
 </style>
 
-<div class="fixed left-4 md:left-0 bottom-4 sm:bottom-10 right-4 sm:right-10 flex items-end gap-2 z-[100000000] flex-col">
+<div class="fixed left-4 md:left-0 bottom-4 sm:bottom-7 right-4 sm:right-10 flex items-end gap-2 z-[100000000] flex-col">
     {% if request.user.is_authenticated %}
         <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
         <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
@@ -147,7 +147,7 @@
     {% endif %}
 </div>
 
-<div class="fixed bottom-4 sm:bottom-10 right-4 sm:right-10 flex items-end gap-2 z-[10000000] flex-col">
+<div class="fixed bottom-4 sm:bottom-7 right-4 sm:right-10 flex items-end gap-2 z-[10000000] flex-col">
     <a 
             href="https://wa.me/+923400193324?{% if whatsapp_message_text %}text={{whatsapp_message_text}}{% endif %}"
             target="_blank" 
