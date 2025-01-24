@@ -10,6 +10,8 @@ from urllib.parse import unquote
 from django.contrib import messages
 from Constants.Emails.OrderEmail import sendNewOrderEmailToAdmin
 from Administration.models import EmailLog
+from Administration.Constant.site import get_site_settings
+
 # Create your views here.
 
 def PharmacyLandingPage(request):
@@ -62,12 +64,13 @@ def PharmacyCartPage(request):
         CartItems = json.loads(decoded_data)
     else:
         CartItems = []
+    site_settings = get_site_settings()
     data = []
     products = []
     categories = []
     subtotal = 0
     discount_applied = 0
-    platform_fee = 9
+    platform_fee = site_settings['PHARMACY_PLATFORM_FEE'] * len(CartItems)
     delivery_charges = 149
     grand_total = 0
 
@@ -134,11 +137,13 @@ def PharmacyCartCheckoutPage(request):
         CartItems = []
     if not CartItems or len(CartItems) == 0:
         return redirect('PharmacyLandingPage')
+    
+    site_settings = get_site_settings()
     products = []
     categories = []
     subtotal = 0
     discount_applied = 0
-    platform_fee = 9
+    platform_fee = site_settings['PHARMACY_PLATFORM_FEE'] * len(CartItems)
     delivery_charges = 149
     grand_total = 0
 
@@ -150,7 +155,6 @@ def PharmacyCartCheckoutPage(request):
             print(err)
             pass
         else:
-
             
             categories.extend(list(product.sub_category.all().values_list('name', flat=True).distinct()))
             quantity = int(item['quantity'])
