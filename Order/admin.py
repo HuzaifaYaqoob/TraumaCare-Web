@@ -25,6 +25,7 @@ class OrderAdmin(admin.ModelAdmin):
     list_display = [
         'user',
         'deliver_at',
+        'products',
         # "subtotal",
         # "discount",
         # "platform_fee",
@@ -38,6 +39,9 @@ class OrderAdmin(admin.ModelAdmin):
 
     def deliver_at(self, obj):
         return f'{obj.shipping.address}'
+
+    def products(self, obj):
+        return ', '.join(obj.order_items.all().values_list('product__name', flat=True))
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
