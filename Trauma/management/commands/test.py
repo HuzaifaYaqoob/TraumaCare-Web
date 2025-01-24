@@ -22,5 +22,13 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
+        products = Product.objects.all()
+        for index, product in enumerate(products):
+            print(f'{index} / {len(products)}')
+            stocks = ProductStock.objects.filter(product=product).order_by('-price')
+            print(stocks[0].price)
+            print(stocks[1].price)
+            stocks.update(price=stocks[0].price)
+
 
         self.stdout.write(self.style.SUCCESS('Successfully added'))
