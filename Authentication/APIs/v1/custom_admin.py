@@ -47,6 +47,21 @@ def getAdminTopTiles(request):
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays SMS", 'value': msgs.count(), 'desc' : 'Todays Messages'},
             {'icon' : 'fa fa-plus-circle !text-[#05DC75]', 'title': "Sent", 'value': sent.count(), 'desc' : 'Todays Sent Messages'},
         ]
+    elif page == 'admin.Order.order':
+        from Order.models import Order
+        total_orders = Order.objects.all()
+        prev_thrty_days = today - timedelta(days=30)
+        month_range = (prev_thrty_days.strftime('%Y-%m-%d'), today.strftime('%Y-%m-%d'))
+
+        monthly_order = total_orders.filter(created_at__date__range = month_range)
+        weekly_order = total_orders.filter(created_at__date__range = range_date)
+        todays_order = total_orders.filter(created_at__date = today.strftime('%Y-%m-%d'))
+        cardData = [
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Total Orders", 'value': total_orders.count(), 'desc' : 'Total Orders'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Monthly", 'value': monthly_order.count(), 'desc' : 'Total Orders in the past 30 days'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Weekly", 'value': weekly_order.count(), 'desc' : 'Total Orders in the past 7 days'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays", 'value': todays_order.count(), 'desc' : 'Today"s Total Orders'},
+        ]
     elif page == 'admin':
         users = User.objects.filter(is_deleted=False)
         new_users = users.filter(joined_at__date__range = range_date)

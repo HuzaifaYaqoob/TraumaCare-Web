@@ -15,5 +15,14 @@
             {% endfor %}
         </div>
     </section>
+
+    <script>
+        let jazzy_sidebar = document.querySelector('#jazzy-sidebar')
+        let content_wrapper = document.querySelector('.content-wrapper')
+        if (jazzy_sidebar && content_wrapper){
+            content_wrapper.style.margin = '0'
+            jazzy_sidebar.remove()
+        }
+    </script>
     
 {% endblock content %}

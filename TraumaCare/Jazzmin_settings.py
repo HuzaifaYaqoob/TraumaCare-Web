@@ -60,6 +60,7 @@ JAZZMIN_SETTINGS = {
         {"name": "Doctors",  "url": "/admin/Doctor/doctor/", "permissions": ["Doctor.view_doctor"]},
         {"name": "Appointments",  "url": "/admin/Appointment/appointment/", "permissions": ["Appointment.view_appointment"]},
         {"name": "Products",  "url": "/admin/Product/product/", "permissions": ["Doctor.view_product"]},
+        {"name": "Orders",  "url": "/admin/Order/order/", "permissions": ["Order.view_order"]},
         {"name": "Tasks",  "url": "/admin/Task/task/", "permissions": ["Task.view_task"]},
         {"name": "Organization",  "url": "/admin/organization/", "permissions": []},
 
