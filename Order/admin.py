@@ -2,13 +2,24 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Order, OrderItem
+from .models import Order, OrderItem, OrderProductReview
 from django.utils.html import mark_safe
 from Constants.global_vars import get_html_label 
+
+
+class OrderReviewInline(admin.StackedInline):
+    model = OrderProductReview
+    extra = 0
+
+    readonly_fields = [
+        'product',
+        'created_at',
+    ]
 
 class OrderItemInline(admin.StackedInline):
     model = OrderItem
     extra = 0
+    inlines = [OrderReviewInline]
 
     readonly_fields = [
         'product',
@@ -70,6 +81,7 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
+    inlines = [OrderReviewInline]
     raw_id_fields = [
         'product', 
         'stock'
@@ -82,5 +94,21 @@ class OrderItemAdmin(admin.ModelAdmin):
         "order",
         "stock",
         "final_price",
+        "created_at",
+    ]
+
+@admin.register(OrderProductReview)
+class OrderItemAdmin(admin.ModelAdmin):
+    raw_id_fields = [
+        'order', 
+        'product', 
+    ]
+    list_filter = [
+        'order',
+        'product'
+    ]
+    list_display = [
+        "product",
+        "order",
         "created_at",
     ]
