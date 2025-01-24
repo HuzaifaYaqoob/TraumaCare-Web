@@ -78,6 +78,7 @@ class PhoneMessage(models.Model):
     is_deleted = models.BooleanField(default=False)
 
     sms_ids = models.TextField(null=True, blank=True)
+    response = models.TextField(null=True, blank=True)
     priority = models.IntegerField(default=10)
 
 
