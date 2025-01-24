@@ -70,6 +70,10 @@ class OrderAdmin(admin.ModelAdmin):
 
 @admin.register(OrderItem)
 class OrderItemAdmin(admin.ModelAdmin):
+    raw_id_fields = [
+        'product', 
+        'stock'
+    ]
     list_filter = [
         'order'
     ]
