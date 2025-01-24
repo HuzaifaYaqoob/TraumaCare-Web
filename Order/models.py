@@ -18,6 +18,13 @@ class Order(models.Model):
         ('PAID', 'Paid'),
         ('CANCELED', 'Canceled'),
     )
+
+    ORDER_STATUS_CHOICES = (
+        ('PENDING', 'Pending'),
+        ('SHIPPED', 'Shipped'),
+        ('DELIVERED', 'Delivered'),
+        ('CANCELED', 'Canceled'),
+    )
     user = models.ForeignKey(User, on_delete=models.PROTECT, related_name='user_orders')
     shipping = models.ForeignKey(ShipingAddress, on_delete=models.PROTECT, default=None, related_name='shipping_address_orders')
 
@@ -29,6 +36,7 @@ class Order(models.Model):
 
     payment_method = models.CharField(max_length=999, choices=PAYMENT_METHOD_CHOICES, default='COD')
     payment_status = models.CharField(max_length=999, choices=PAYMENT_STATUS_CHOICES, default='PENDING')
+    order_status = models.CharField(max_length=999, default='PENDING', choices=ORDER_STATUS_CHOICES)
 
     updated_at = models.DateTimeField(auto_now=True)
     created_at = models.DateTimeField(auto_now_add=now)
