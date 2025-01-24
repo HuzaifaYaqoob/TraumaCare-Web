@@ -35,7 +35,7 @@
         <p class="outfit-font font-semibold text-xs sm:text-[16px] text-[#151E2C]">{{doct_availability.date}}</p>
         <p class="font-bold italic text-sm sm:text-[18px] text-[#151E2C]">Rs.{{doct_availability.fee}}</p>
       </div>
-      <div class="grid grid-cols-4 sm:grid-cols-3 gap-2 mt-[8px] sm:mt-[12px]">
+      <div class="grid grid-cols-4 sm:grid-cols-3 gap-1 sm:gap-2 mt-[8px] sm:mt-[12px]">
         {% for slot in doct_availability.slots|slice:":4" %}
           <div class="rounded-full bg-[#0755E9] cursor-pointer">
             <p class="font-semibold text-white text-center text-xs sm:text-[16px] px-1 py-2">{{slot.1}}</p>

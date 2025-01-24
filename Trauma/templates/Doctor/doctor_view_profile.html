@@ -114,9 +114,9 @@
                         <div class="bg-white rounded-2xl px-3 sm:px-5 py-3 sm:py-4 border border-[#CACBE6]">
                               <div class="flex gap-4 md:gap-7 items-start flex-col md:flex-row">
                                     <div class="flex justify-between gap-2 sm:gap-3 w-full md:max-w-max">
-                                          <div class="space-y-4 sm:space-y-6">
+                                          <div class="space-y-3 sm:space-y-6">
                                                 <div class="p-1 rounded-full max-w-max mx-auto {% if rating_percentage > 80 %}bg-green-600{% elif rating_percentage < 50 %}bg-red-600{% else %}bg-[#F4C004]{% endif %}">
-                                                      <div class="size-36 sm:size-40 md:size-44 rounded-full relative" id="userProfileImage" style="background: url({{doctor.profile_image}}); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
+                                                      <div class="size-32 sm:size-40 md:size-44 rounded-full relative" id="userProfileImage" style="background: url({{doctor.profile_image}}); background-position: center; background-size: cover; background-repeat: no-repeat;"></div>
                                                 </div>
                                                 <!-- <svg width="198" height="198" viewBox="0 0 250 250" class="circular-progress absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 ">
                                                       <circle class="fg {% if rating_percentage > 80 %}stroke-red-600{% elif rating_percentage < 50 %}stroke-red-600{% else %}stroke-[#F4C004]{% endif %}"></circle>
@@ -147,7 +147,7 @@
                                                                   </div>
                                                             {% endif %}
                                                       </div>
-                                                      <p class="text-[#111111] text-sm font-medium md:text-start text-center line-clamp-2">{{doctor.heading}}</p>
+                                                      <p class="text-[#111111] text-sm font-medium text-start line-clamp-2">{{doctor.heading}}</p>
                                                       <div class="flex items-center justify-start gap-4">
                                                             <p class="text-green-600">{% if doctor.years_of_experience %}<span class="underline"><span class="text-lg font-semibold">{{doctor.years_of_experience}} </span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                                       </div>
@@ -213,39 +213,15 @@
                                           </button>
                                     </form>
                               {% endfor %}
-                              <script>
-                                    // let intervals = document.querySelectorAll('.slot-time-interval-radio')
-                                    // let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
-                                    // slots.forEach((slot) => {
-                                    //       slot.addEventListener('change', (e) => {
-                                    //             let input = e.target
-                                    //             let slot_card = input.closest('.singleSlotCard')
-                                    //             let slot_input = slot_card.querySelector('input[name="selected_time"]')
-                                    //             slot_input.checked = true
-                                    //       })
-                                    // })
-            
-                                    // intervals.forEach((interval, index) => {
-                                    //       if (index == 0) {
-                                    //             interval.checked = true
-                                    //       }
-                                    //       interval.addEventListener('change', (e) => {
-                                    //             let input = e.target
-                                    //             let slot_card = input.closest('.singleSlotCard')
-                                    //             let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
-                                    //             slot_input.checked = true
-                                    //       })
-                                    // })
-                              </script>
                               <div class="sticky top-[100px] bg-white rounded-xl px-3 sm:px-4 py-8 flex flex-col items-center border border-[#CACBE6] space-y-4">
                                     {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
                                     <p class="text-xl font-medium text-[#151E2C] Private outfit-font text-center">Book an Appointment</p>     
                                     <p class="text-center text-sm text-[#111111]">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                                     <div class="flex items-center gap-2 flex-wrap justify-center !mt-6">
-                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-[#05d57c] px-6 py-2.5 text-md cursor-pointer">
+                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-[#05d57c] px-6 py-2.5 text-md cursor-pointer sm:max-w-max w-full flex items-center justify-center">
                                                 <p class="whitespace-nowrap">Consult Online</p>
                                           </a>
-                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-[#0555e9] px-6 py-2.5 text-md cursor-pointer">
+                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-[#0555e9] px-6 py-2.5 text-md cursor-pointer sm:max-w-max w-full flex items-center justify-center">
                                                 <p class="whitespace-nowrap ">Book Appointment</p>
                                           </a>
                                     </div>
@@ -458,30 +434,6 @@
                                     </button>
                               </form>
                         {% endfor %}
-                        <script>
-                              // let intervals = document.querySelectorAll('.slot-time-interval-radio')
-                              // let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
-                              // slots.forEach((slot) => {
-                              //       slot.addEventListener('change', (e) => {
-                              //             let input = e.target
-                              //             let slot_card = input.closest('.singleSlotCard')
-                              //             let slot_input = slot_card.querySelector('input[name="selected_time"]')
-                              //             slot_input.checked = true
-                              //       })
-                              // })
-      
-                              // intervals.forEach((interval, index) => {
-                              //       if (index == 0) {
-                              //             interval.checked = true
-                              //       }
-                              //       interval.addEventListener('change', (e) => {
-                              //             let input = e.target
-                              //             let slot_card = input.closest('.singleSlotCard')
-                              //             let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
-                              //             slot_input.checked = true
-                              //       })
-                              // })
-                        </script>
                         <div class="sticky top-[100px] bg-white rounded-xl px-4 py-8 flex flex-col items-center border border-[#CACBE6] space-y-4">
                               {% include 'Components/SVG/doctorAppointmentMainSvg.html' %}
                               <p class="text-xl font-medium text-[#151E2C] Private outfit-font text-center">Book an Appointment</p>     

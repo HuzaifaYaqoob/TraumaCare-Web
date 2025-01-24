@@ -28,7 +28,7 @@
     }
 </style>
 
-<div class="fixed left-4 md:left-0 bottom-4 sm:bottom-10 right-4 sm:right-10 flex items-end gap-2 z-[100] flex-col">
+<div class="fixed left-4 md:left-0 bottom-4 sm:bottom-7 right-4 sm:right-10 flex items-end gap-2 z-[100000000] flex-col">
     {% if request.user.is_authenticated %}
         <input type="hidden" UserAIBotChatWidgetChatId value="{{chat_widget_chat_id}}">
         <audio class="hidden" MsgNotificationSound src="{% static 'assets/Audio/msg_notify.mp3' %}"></audio>
@@ -57,7 +57,7 @@
                 </div>
             </div>
             <div class="border border-[#CACBE6] border-t-0 rounded-2xl rounded-t-none">
-                <div class="px-2 pt-4 overflow-y-auto scroll-smooth max-h-[320px] sm:max-h-[350px] md:max-h-[380px] lg:max-h-[400px] xl:max-h-[420px] overflow-x-hidden" MainChatWidgetChatMessages>
+                <div class="px-2 pt-4 overflow-y-auto scroll-smooth max-h-[350px] md:max-h-[380px] lg:max-h-[400px] xl:max-h-[420px] overflow-x-hidden" MainChatWidgetChatMessages>
                     {% if chat_widget_messages|length == 0 %}
                         <div class="w-full grid grid-cols-1 sm:grid-cols-2 gap-x-3 gap-y-3 px-8 sm:px-12 py-8 sm:py-10 overflow-y-auto">
                             <div onclick="handlePredefinedMessageClick(this, false)" class="border shadow-sm rounded-2xl px-3 py-3 hover:bg-gray-100 cursor-pointer select-none">
@@ -140,7 +140,15 @@
                 </div>
             </div>
         </div>
-        <a 
+    {% else %}
+        <a href="{% url 'LoginPage' %}?action=ChatBot" class="size-12 flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
+            <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
+        </a>
+    {% endif %}
+</div>
+
+<div class="fixed bottom-4 sm:bottom-7 right-4 sm:right-10 flex items-end gap-2 z-[10000000] flex-col">
+    <a 
             href="https://wa.me/+923400193324?{% if whatsapp_message_text %}text={{whatsapp_message_text}}{% endif %}"
             target="_blank" 
             class="border size-12 flex bg-white items-center justify-center rounded-full cursor-pointer overflow-hidden shadow"
@@ -150,12 +158,6 @@
         <div MainChatWidgetChatBotIcon class="chatWidgetBotIcon size-12 flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
             <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
         </div>
-    {% else %}
-        <a href="{% url 'LoginPage' %}?action=ChatBot" class="size-12 flex bg-white items-center justify-center rounded-full shadow-sm border cursor-pointer overflow-hidden">
-            <img class="w-[30px]" src="{% static 'assets/Images/bot-icon.jpeg' %}" />
-        </a>
-    {% endif %}
-
 </div>
 
 <script src="{% static 'assets/js/ChatWidget.js' %}"></script>

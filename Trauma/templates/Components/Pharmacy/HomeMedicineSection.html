@@ -7,7 +7,7 @@
 {% block baseBody %}
 <section class="space-y-10">
     <section class="space-y-7 relative">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
             {% if medicineSectionHeading %}{{medicineSectionHeading}}{% else %}Top Sales Medicines{% endif %}
         </h3>
         {% if medicines|length == 0 %}
@@ -40,7 +40,7 @@
     
     
     {% comment %} <section class="space-y-7 relative">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
             {% if medicineSectionHeading %}{{medicineSectionHeading}}{% else %}Trending Medicines in Your Area{% endif %}
         </h3>
         {% if medicines|length == 0 %}
@@ -73,7 +73,7 @@
 
 
     <section class="space-y-7 relative">
-        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-center max-w-max mx-auto">
             {% if medicineSectionHeading %}{{medicineSectionHeading}}{% else %}Recently Viewed Medicines{% endif %}
         </h3>
         {% if medicines|length == 0 %}
