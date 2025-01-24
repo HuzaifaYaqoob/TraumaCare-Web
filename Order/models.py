@@ -67,6 +67,8 @@ class OrderProductReview(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
+    parent_review = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='child_reviews')
+
     is_deleted = models.BooleanField(default=False)
 
     def __str__(self):
