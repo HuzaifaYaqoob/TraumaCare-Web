@@ -56,11 +56,18 @@ def getAdminTopTiles(request):
         monthly_order = total_orders.filter(created_at__date__range = month_range)
         weekly_order = total_orders.filter(created_at__date__range = range_date)
         todays_order = total_orders.filter(created_at__date = today.strftime('%Y-%m-%d'))
+
+        completed_orders = total_orders.filter(payment_status='PAID', order_status='DELIVERED')
+        payment_pending_orders = total_orders.filter(payment_status='PENDING')
+        pending_delivery = total_orders.filter(order_status__in=['PENDING', 'SHIPPED'])
         cardData = [
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Total Orders", 'value': total_orders.count(), 'desc' : 'Total Orders'},
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Monthly", 'value': monthly_order.count(), 'desc' : 'Total Orders in the past 30 days'},
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Weekly", 'value': weekly_order.count(), 'desc' : 'Total Orders in the past 7 days'},
             {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Todays", 'value': todays_order.count(), 'desc' : 'Today"s Total Orders'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Completed", 'value': completed_orders.count(), 'desc' : 'Orders with status Delivered & Payment Done'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Pending Payment", 'value': payment_pending_orders.count(), 'desc' : 'Orders with status Delivered & Payment Done'},
+            {'icon' : 'fa fa-plus-circle !text-[#F01275]', 'title': "Pending Delivery", 'value': pending_delivery.count(), 'desc' : 'Orders with Pending Delivery'},
         ]
     elif page == 'admin':
         users = User.objects.filter(is_deleted=False)
