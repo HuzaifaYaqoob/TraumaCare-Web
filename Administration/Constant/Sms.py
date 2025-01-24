@@ -37,7 +37,7 @@ def sendMessage(sms_instance, provider='Telenor'):
     phone_numbers = sms_instance.phone_number.split(',')
     final_numbers = []
     for phn in phone_numbers:
-        if phn != '0000':
+        if phn != '0000' and phn != '000':
             final_numbers.append(phn)
 
     if len(final_numbers) == 0:
