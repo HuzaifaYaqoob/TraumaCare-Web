@@ -7,6 +7,7 @@ from rest_framework import status
 from Product.models import Product, ProductStock
 import json
 from urllib.parse import unquote
+from Administration.Constant.site import get_site_settings
 
 
 
@@ -19,10 +20,12 @@ def CalculateCart(request):
         CartItems = json.loads(decoded_data)
     else:
         CartItems = []
+    
+    site_settings = get_site_settings()
     data = []
     subtotal = 0
     discount_applied = 0
-    platform_fee = 9
+    platform_fee = site_settings['PHARMACY_PLATFORM_FEE'] * len(CartItems)
     delivery_charges = 149
     grand_total = 0
 

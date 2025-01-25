@@ -142,8 +142,9 @@ def BookAppointment_DoctorPage(request):
         context['FEE'] = slot.fee
         context['FINAL_FEE'] = slot.final_price
         context['DISCOUNT'] = slot.discount
-        context['PLATFORM_FEE'] = site_settings['PHARMACY_PLATFORM_FEE']
-        context['GRANDTOTAL'] = slot.final_price + site_settings['PHARMACY_PLATFORM_FEE']
+        apl_fee = site_settings['APPOINTMENT_PLATFORM_FEE']
+        context['PLATFORM_FEE'] = apl_fee
+        context['GRANDTOTAL'] = slot.final_price + apl_fee
         return render(request, 'checkout/checkout_appoinment.html', context)
     elif request.method == 'POST':
         

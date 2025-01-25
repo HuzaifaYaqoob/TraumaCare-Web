@@ -183,9 +183,6 @@ class Doctor(models.Model):
 
     
     def save(self, *args, **kwargs):
-        name = self.name
-        name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
-        name = name.lower()
         if not self.mobile_number:
             self.dial_code = self.user.dial_code
             self.mobile_number = self.user.mobile_number
@@ -193,7 +190,11 @@ class Doctor(models.Model):
         if not self.email:
             self.email = self.user.email
             
-        self.slug = f'{name}-{self.id}'
+        if not self.slug:
+            name = self.name
+            name = name.replace(' ', '-').replace('/', '-').replace('--', '-')
+            name = name.lower()
+            self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
     
     

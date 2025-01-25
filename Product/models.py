@@ -195,20 +195,20 @@ class Product(models.Model):
     def __str__(self):
         return self.name
 
-    def save(self, *args, **kwargs):
-        slug_items = [
-            self.name,
-            self.store.name,
-            self.Vendor.name if self.Vendor else '',
-            self.treatment_type.name if self.treatment_type else '',
-            self.product_form.name if self.product_form else '',
-            self.product_type.name if self.product_type else '',
-            str(self.uuid),
-        ]
-        new_slug = slugify(' '.join(slug_items))
-        if new_slug != self.slug:
-            self.slug = new_slug
-        super(Product, self).save(*args, **kwargs)
+    # def save(self, *args, **kwargs):
+    #     slug_items = [
+    #         self.name,
+    #         self.store.name,
+    #         self.Vendor.name if self.Vendor else '',
+    #         self.treatment_type.name if self.treatment_type else '',
+    #         self.product_form.name if self.product_form else '',
+    #         self.product_type.name if self.product_type else '',
+    #         str(self.uuid),
+    #     ]
+    #     new_slug = slugify(' '.join(slug_items))
+    #     if new_slug != self.slug:
+    #         self.slug = new_slug
+    #     super(Product, self).save(*args, **kwargs)
     
 
     @property

@@ -58,3 +58,18 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return str(self.id)
+    
+class OrderProductReview(models.Model):
+    order = models.ForeignKey(OrderItem, on_delete=models.PROTECT, related_name='orderitems_reviews')
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_order_reviews')
+    review = models.TextField(default='')
+    rating = models.PositiveIntegerField(default=0)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    parent_review = models.ForeignKey('self', on_delete=models.PROTECT, null=True, blank=True, related_name='child_reviews')
+
+    is_deleted = models.BooleanField(default=False)
+
+    def __str__(self):
+        return str(self.id)

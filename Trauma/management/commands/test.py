@@ -22,5 +22,4 @@ class Command(BaseCommand):
 
 
     def handle(self, *args, **options):
-
         self.stdout.write(self.style.SUCCESS('Successfully added'))
