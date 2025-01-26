@@ -74,12 +74,7 @@ def homePage(request):
 
 
 def onboarding(request):
-    PageAnalytics.objects.create(
-        urls = request.get_full_path(),
-        value = 1,
-        analytic_type = 'Visits'
 
-    )
     onboarding_type = request.GET.get('onboarding_type',  None)
     if onboarding_type == None:
         return redirect('/onboarding/?onboarding_type=doctor')
@@ -160,6 +155,11 @@ def onboarding(request):
         'remove_footer' : True,
         'hideChatWidget' : True,
     }
+    PageAnalytics.objects.create(
+        urls = request.get_full_path(),
+        value = 1,
+        analytic_type = 'Visits'
+    )
     if onboarding_type == 'doctor':
         # if request.user.has_doctor_profile:
         #     messages.info(request, 'Doctor Profile Already Exists!')
