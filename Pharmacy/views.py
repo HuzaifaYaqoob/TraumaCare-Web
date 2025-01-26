@@ -78,6 +78,8 @@ def PharmacyCartPage(request):
         try:
             product = Product.objects.get(id = item['id'])
             stock = ProductStock.custom_objects.filter(product = product, location__id = item['location_stock'], is_active=True, is_deleted=False).order_by('-created_at').first()
+            if not stock:
+                continue
         except Exception as err:
             print(err)
             pass
@@ -151,6 +153,8 @@ def PharmacyCartCheckoutPage(request):
         try:
             product = Product.objects.get(id = item['id'])
             stock = ProductStock.custom_objects.filter(product = product, location__id = item['location_stock'], is_active=True, is_deleted=False).order_by('-created_at').first()
+            if not stock:
+                continue
         except Exception as err:
             print(err)
             pass

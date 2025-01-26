@@ -35,16 +35,16 @@
                             <div class="flex items-center gap-3">
                                 <div class="w-full flex-1">
                                     <label for="name" class="text-[#507EC2] font-medium text-sm">Name <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" value="{{request.user.full_name}}" name="shipping_name" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="Your/Reciever Name" id="name">
+                                    <input type="text" required="" value="{{request.user.full_name}}" name="shipping_name" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="Your/Reciever Name" id="name">
                                 </div>
                                 <div class="w-full flex-1">
                                     <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" name="shipping_phone" value="{{request.user.mobile_number}}" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
+                                    <input type="text" required="" name="shipping_phone" value="{{request.user.mobile_number}}" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="03123456789" id="phone">
                                 </div>
                             </div>
                             <div class="w-full flex-1 mt-2">
                                 <label for="address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
-                                <input type="text" required="" name="shipping_address" class="outline-[#0755E9] border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
+                                <input type="text" required="" name="shipping_address" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-[300]" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
                             </div>
                         </div>
                     {% endif %}
