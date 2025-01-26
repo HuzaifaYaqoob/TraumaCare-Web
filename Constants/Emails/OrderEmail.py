@@ -16,6 +16,7 @@ def sendNewOrderEmailToAdmin(order_instance, email_log_instance=None):
             Order ID : #{order_instance.id}\n
             Date : #{str(order_instance.created_at)}\n
             User : {order_instance.user.full_name}\n
+            Delivery At : {order_instance.shipping.address}\n
             subtotal : {order_instance.subtotal}\n
             discount : {order_instance.discount}\n
             platform_fee : {order_instance.platform_fee}\n
