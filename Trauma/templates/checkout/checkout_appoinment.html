@@ -118,7 +118,8 @@
                         </div>
                   </div>
             </form>
-            <!-- <div class="max-w-[440px] w-full">
+            {% comment %}
+            <div class="max-w-[440px] w-full">
                   <form class="rounded-xl border border-[#CACBE6] p-4 space-y-3">
                         <div class="space-y-1">
                               <p class="text-[#151E2C] text-sm font-medium outfit-font cursor-default">Promo Code</p>
@@ -130,8 +131,8 @@
                               </button>
                         </div>
                   </form>
-            </div> -->
-            <!-- <div class="max-w-96 w-full space-y-2">
+            </div>
+            <div class="max-w-96 w-full space-y-2">
                   <h3 class="text-[#151E2C] font-semibold text-lg outfit-font">Other Doctors</h3>
                   <div class="space-y-2">
                         <a href="" class="border border-[#CACBE6] rounded-md flex min-w-[200px] max-w-[700px] w-full gap-2 overflow-hidden">
@@ -157,18 +158,19 @@
                               </div>
                         </a>
                   </div>
-            </div> -->
+            </div>
+            {% endcomment %}
       </section>
 </main>
 
 
-<section class="fixed left-[50%] -top-[50%] transition-all duration-500 rounded-2xl border border-[#CACBE6] max-w-[420px] w-full bg-white -translate-x-[50%] -translate-y-[50%] z-50" id="Chose_another_patient_main">
-      <div class="flex items-center justify-end px-4 py-3">
+<section class="fixed left-[50%] -top-[50%] transition-all duration-500 rounded-xl sm:rounded-2xl border border-[#CACBE6] max-w-[420px] w-[94%] sm:w-full bg-white -translate-x-[50%] -translate-y-[50%] z-50" id="Chose_another_patient_main">
+      <div class="flex items-center justify-end px-3 sm:px-4 py-2 sm:py-3">
             <span class="size-6 flex items-center justify-center cursor-pointer" onclick="Chose_another_patient_cancle()">
                   <svg class="size-5 fill-[#151E2C]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path d="M342.6 150.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L192 210.7 86.6 105.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L146.7 256 41.4 361.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L192 301.3 297.4 406.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L237.3 256 342.6 150.6z"/></svg>
             </span>
       </div>
-      <form class="px-4 py-3 space-y-4">
+      <form class="px-3 sm:px-4 py-2 sm:py-3 space-y-4">
             <div class="space-y-1">
                   <label class="text-[#151E2C] text-sm outfit-font" for="patientName">Patient Name</label>
                   <input class="w-full outline-none border border-[#CACBE6] rounded-lg px-3 py-2.5 text-sm text-[#151E2C] outfit-font" id="patientName" type="text" placeholder="Patient Name" required>
