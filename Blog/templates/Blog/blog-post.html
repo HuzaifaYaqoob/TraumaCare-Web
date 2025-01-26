@@ -33,6 +33,15 @@
         font-weight: 600;
         color: black;
     }
+
+    @media (max-width: 1280px) {
+        .line_clamp_5 {
+            overflow: hidden;
+            display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 5;
+        }
+    }
 </style>
 
 {% endblock BaseCSS %}
@@ -52,8 +61,13 @@
             <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-[#151E2C] line-clamp-2">{{post.title}}</h2>
             <p class="text-sm font-medium text-[#0A1C4B]"><span class="text-[#05D57C]">Published on:</span> {{post.created_at|date}} . {{post.read_time}} min read</p>
             <div class="bg-center bg-cover rounded-3xl bg-no-repeat h-[480px] sm:h-[540px]" style="background-image: url('{{post.cover_image.image.url}}');"></div>
-            <div class="main-blog-post-content !mt-7">
+            <div class="main-blog-post-content !mt-7 line_clamp_5" id="blog_content">
                 {{post.content|safe}}
+            </div>
+            <div class="xl:hidden block" id="blog_content_btn_main">
+                <div class="max-w-max rounded-lg flex items-center justify-center cursor-pointer text-sm text-[#0555E9]" onclick="blog_content_btn()">
+                    Read more
+                </div>
             </div>
         </div>
         <div class="xl:w-[420px]">
@@ -69,5 +83,19 @@
         </div>
     </div>
 </section>
+
+<script>
+
+    function blog_content_btn() {
+        let blog_dic = document.getElementById('blog_content');
+        let blog_content_btn_main = document.getElementById('blog_content_btn_main');
+
+        if (blog_dic) {
+            blog_dic.classList.remove('line_clamp_5');
+            blog_content_btn_main.classList.add('hidden');
+        }
+    }
+
+</script>
 
 {% endblock baseBody %}
