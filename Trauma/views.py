@@ -16,6 +16,7 @@ from django.contrib.postgres.search import SearchHeadline, SearchQuery
 from Hospital.models import Hospital, HospitalLocation, LocationContact, HospitalMedia, HospitalRequest
 
 from Profile.models import Profile
+from Administration.models import PageAnalytics
 
 from datetime import datetime
 from Product.models import Product, ProductStock
@@ -73,6 +74,12 @@ def homePage(request):
 
 
 def onboarding(request):
+    PageAnalytics.objects.create(
+        urls = request.get_full_path(),
+        value = 1,
+        analytic_type = 'Visits'
+
+    )
     onboarding_type = request.GET.get('onboarding_type',  None)
     if onboarding_type == None:
         return redirect('/onboarding/?onboarding_type=doctor')
