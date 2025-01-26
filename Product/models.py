@@ -329,3 +329,22 @@ class ProductImage(models.Model):
 
             self.is_watermark_added = True
         super(ProductImage, self).save(*args, **kwargs)
+    
+
+class ProductAnalytics(models.Model):
+    ANALYTIC_TYPES_CHOICES = (
+        ('impression', 'Impression'),
+        ('view', 'View'),
+        ('click', 'Click'),
+        ('like', 'Like'),
+        ('share', 'Share'),
+    )
+    product = models.ForeignKey(Product, on_delete=models.PROTECT, related_name='product_insights')
+    value = models.FloatField(default=0)
+    analytic_type = models.CharField(max_length=20, choices=ANALYTIC_TYPES_CHOICES, default='impression')
+
+    is_deleted = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.product.name} - {self.analytic_type}'
