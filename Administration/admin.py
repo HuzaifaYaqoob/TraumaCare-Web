@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import UserRequestLog, PhoneMessage, SmsServiceKey, SiteSetting, EmailLog
+from .models import UserRequestLog, PhoneMessage, SmsServiceKey, SiteSetting, EmailLog, PageAnalytics
 from Authentication.models import User
 from django.utils.html import mark_safe
 from django.conf import settings
@@ -125,3 +125,7 @@ class EmailLogAdmin(admin.ModelAdmin):
         'is_sent',
         'created_at',
     ]
+
+class PageAnalyticsAdmin(admin.ModelAdmin):
+    ordering = ['-created_at']
+    list_display = ['analytic_type', 'value', 'urls', 'created_at']
