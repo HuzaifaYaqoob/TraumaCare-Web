@@ -32,7 +32,7 @@
                                     <span class="text-xs sm:text-sm text-[#3C3C3C]/60"><del>{{lowest_rate_stock.price}}</del></span>
                               {% endif %}
                               <p class="text-sm sm:text-lg text-[#05D57C] outfit-font font-semibold italic flex items-center">
-                                    <span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{ lowest_rate_stock.final_price|floatformat:1 }}
+                                    <span class="font-medium text-[#151E2C] text-xs">Rs.</span>{{ lowest_rate_stock.discounted_price|floatformat:1 }}
                               </p>
                         </div>
                   </div>
