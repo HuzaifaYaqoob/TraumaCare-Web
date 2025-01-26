@@ -117,3 +117,16 @@ class EmailLog(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     error = models.TextField(null=True, blank=True)
+
+class PageAnalytics(models.Model):
+    ANALYTIC_TYPE_CHOICES = (
+        ('Views', 'Views'),
+        ('Clicks', 'Clicks'),
+        ('Visits', 'Visits'),
+    )
+    value = models.PositiveIntegerField(default=0)
+    urls = models.TextField()
+    analytic_type = models.CharField(max_length=999, choices=ANALYTIC_TYPE_CHOICES, default='Views')
+
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
