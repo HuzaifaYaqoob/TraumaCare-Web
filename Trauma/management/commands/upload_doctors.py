@@ -58,12 +58,18 @@ class Command(BaseCommand):
         longitude = hospital_object['longitude']
         city = hospital_object['city']
 
+        if city == 'Video Consultation':
+            city = 'Lahore'
+        elif city == 'Peshawar':
+            city = 'Lahore'
+        elif city == 'Chishtian':
+            city = 'Chishtian Mandi'
+
         try:
             city = City.objects.get(name__iexact=city)
         except Exception as err:
             print(city)
             city = None
-            return None
             print('City ERROR Outside : ', str(err))
 
         location_instance, created = HospitalLocation.objects.get_or_create(
@@ -89,7 +95,7 @@ class Command(BaseCommand):
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
-                if counter <= 1738:
+                if counter <= 1946:
                     counter += 1
                     continue
                 # print(json.dumps(doctor_obj))
@@ -134,7 +140,6 @@ class Command(BaseCommand):
                         print(json.dumps(doctor_obj))
                         print(doctor_city)
                         print('City ERROR Inside : ', str(err))
-                        break
                     else:
                         user.country = city_obj.country
                         user.state = city_obj.state
