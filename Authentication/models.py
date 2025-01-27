@@ -63,13 +63,13 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     full_name = models.CharField(max_length=999, default='')
 
-    username = models.CharField(max_length=30, unique=True)
+    username = models.CharField(max_length=999, unique=True)
 
     country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='country_users')
     state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, blank=True, related_name='state_users')
     city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, related_name='city_users')
 
-    email = models.EmailField(verbose_name="email", max_length=60, unique=True) #unique=True)
+    email = models.EmailField(verbose_name="email", max_length=999, unique=True) #unique=True)
     is_email_verified = models.BooleanField(default=False)
 
     dial_code = models.CharField(max_length=5, null=True, blank=True )

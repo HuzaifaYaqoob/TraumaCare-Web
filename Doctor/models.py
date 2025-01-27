@@ -44,7 +44,7 @@ class Doctor(models.Model):
     profile = models.ForeignKey(Profile, related_name='profile_doctors', on_delete=models.PROTECT)
 
     email = models.CharField(max_length=700, default='')
-    name = models.CharField(max_length=600, default='')
+    name = models.CharField(max_length=999, default='')
     heading = models.CharField(max_length=700, default='')
 
     dial_code = models.CharField(max_length=20, default='')

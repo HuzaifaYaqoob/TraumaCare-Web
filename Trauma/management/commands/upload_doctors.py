@@ -61,8 +61,10 @@ class Command(BaseCommand):
         try:
             city = City.objects.get(name__iexact=city)
         except Exception as err:
+            print(city)
             city = None
-            print('City ERROR : ', str(err))
+            return None
+            print('City ERROR Outside : ', str(err))
 
         location_instance, created = HospitalLocation.objects.get_or_create(
             hospital = hospital,
@@ -72,8 +74,8 @@ class Command(BaseCommand):
         location_instance.state = city.state if city else None
         location_instance.city = city
         location_instance.street_address = address
-        location_instance.lat = latitude
-        location_instance.lng = longitude
+        location_instance.lat = latitude if latitude else ''
+        location_instance.lng = longitude if longitude else ''
         location_instance.save()
 
         
@@ -82,10 +84,13 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         # with open('https://traumacare.blr1.digitaloceanspaces.com/static/uniqueDoctors.json')
         total_users = User.objects.all().count()
+        counter = 0
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
+                # print(json.dumps(doctor_obj))
                 name = doctor_obj['name']
+                name = name.replace('Dr. ', '')
                 doc_gender = doctor_obj['doc_gender']
 
                 username = name.replace(' ', '-').replace('/', '-').replace('--', '-').replace('.', '-').replace('--', '-')
@@ -106,11 +111,16 @@ class Command(BaseCommand):
                 )
 
                 doctor_city = doctor_obj['doctor_city']
+                if doctor_city == 'Video Consultation':
+                    doctor_city = doctor_obj['city']
                 if doctor_city:
                     try:
                         city_obj = City.objects.get(name__iexact=doctor_city)
                     except Exception as err:
-                        print('City ERROR : ', str(err))
+                        print(json.dumps(doctor_obj))
+                        print(doctor_city)
+                        print('City ERROR Inside : ', str(err))
+                        break
                     else:
                         user.country = city_obj.country
                         user.state = city_obj.state
@@ -128,15 +138,17 @@ class Command(BaseCommand):
                 )
 
                 doctor_instance = Doctor.objects.get(profile = doctor_profile)
-                doctor_instance.heading = doctor_obj['edu_degrees']
+                doctor_instance.heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations']
                 doctor_instance.pmdc_id = doctor_obj['pmdc_id']
-                doctor_instance.desc = doctor_obj['profile']
+                doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
-                for deg in doctor_obj['edu_degrees'].split(','):
-                    DoctorEducation.objects.create(
-                        doctor = doctor_instance,
-                        degree_name = deg.strip(),
-                    )
+                degrees = doctor_obj.get('edu_degrees', '')
+                if degrees:
+                    for deg in degrees.split(','):
+                        DoctorEducation.objects.create(
+                            doctor = doctor_instance,
+                            degree_name = deg.strip(),
+                        )
 
                 experience = doctor_obj['yearsofexperience']
                 if experience:
@@ -168,7 +180,7 @@ class Command(BaseCommand):
                         day = DAYS_ABBR[day.strip()],
                     )
 
-                opening_hours = doctor_obj['opening_hours'] # 03:00 PM
+                opening_hours = doctor_obj.get('opening_hours', '03:00 PM') # 03:00 PM
                 opening_time = datetime.strptime(opening_hours, "%I:%M %p")
                 end_time = timedelta(hours=3)
                 end_time = opening_time + end_time
@@ -193,7 +205,8 @@ class Command(BaseCommand):
                     else:
                         fee = 0
 
-                    if ola_h_name == 'Online Video Consultation':
+                    print(ola_h_name)
+                    if ola_h_name == 'Online Video Consultation' or 'Video Consultation' == ola_hosp['city']:
                         for day in available_days:
                             if not day:
                                 continue
@@ -231,10 +244,9 @@ class Command(BaseCommand):
                                 service_fee = 20,
                                 availability_type = 'Hospital'
                             )
-                print(f'Added ::::: ---->>  {name} Saved')
+                print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
                 total_users += 1
-                break
-                pass
+                counter += 1
             print(len(reader))
         self.stdout.write(self.style.SUCCESS('Successfully added'))
 
