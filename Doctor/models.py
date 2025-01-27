@@ -618,8 +618,8 @@ class DoctorEducation(models.Model):
     institute = models.CharField(max_length=999, default='')
 
     docs = models.FileField(upload_to='doctor_education/docs/', null=True, blank=True)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    start_date = models.DateField(null=True, blank=True)
+    end_date = models.DateField(null=True, blank=True)
 
     is_deleted = models.BooleanField(default=False)
     is_active = models.BooleanField(default=True)

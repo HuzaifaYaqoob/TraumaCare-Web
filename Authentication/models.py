@@ -6,7 +6,7 @@ import uuid
 from django.utils.timezone import now
 # Create your models here.
 
-from Trauma.models import Country
+from Trauma.models import Country, State, City
 
 
 class MyAccountManager(BaseUserManager):
@@ -65,7 +65,9 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     username = models.CharField(max_length=30, unique=True)
 
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, null=True, blank=True, related_name='country_users')
+    state = models.ForeignKey(State, on_delete=models.SET_NULL, null=True, blank=True, related_name='state_users')
+    city = models.ForeignKey(City, on_delete=models.SET_NULL, null=True, blank=True, related_name='city_users')
 
     email = models.EmailField(verbose_name="email", max_length=60, unique=True) #unique=True)
     is_email_verified = models.BooleanField(default=False)
