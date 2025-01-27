@@ -57,6 +57,7 @@ class StateAdmin(admin.ModelAdmin):
 
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
+    search_fields = ['name']
     list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']
 
 @admin.register(RandomFiles)

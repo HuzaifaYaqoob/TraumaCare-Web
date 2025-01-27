@@ -116,7 +116,7 @@ def BookAppointmentPage(request):
         ).annotate(
             lowest_fee = Min('doctor_timeslots__fee')
         ).order_by('lowest_fee')
-        context['doctors'] = docts
+        context['doctors'] = docts[:30]
     
     
     return render(request, 'Appointment/book_appointment.html', context)

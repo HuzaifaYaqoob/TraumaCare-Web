@@ -19,13 +19,21 @@ class DoctorSpecialityInline(admin.TabularInline):
     model = DoctorSpeciality
     extra = 0
 
+    raw_id_fields = [
+        "speciality"
+    ]
+
 class DoctorMediaInline(admin.TabularInline):
     model = DoctorMedia
     extra = 0   
 
 class DoctorWithHospitalInline(admin.StackedInline):
     model = DoctorWithHospital
-    extra = 0   
+    extra = 0
+    raw_id_fields = [
+        "hospital",
+        "location",
+    ]
 
 class DoctorOnlineAvailabilityInline(admin.TabularInline):
     model = DoctorOnlineAvailability
@@ -38,6 +46,10 @@ class DoctorTimeSlotsInline(admin.StackedInline):
     extra = 0
 
     exclude = ['discount', 'service_fee']
+    raw_id_fields = [
+        "doc_hospital",
+        "day",
+    ]
 
 
 class Doctor24By7Inline(admin.TabularInline):
@@ -89,11 +101,11 @@ class DoctorAdmin(admin.ModelAdmin):
         DoctorWithHospitalInline,
         DoctorOnlineAvailabilityInline,
         DoctorTimeSlotsInline,
-        Doctor24By7Inline,
-        DoctorEducationInline,
-        DoctorExperienceInline,
-        DoctorReviewInline,
-        DoctorQueryInline,
+        # Doctor24By7Inline,
+        # DoctorEducationInline,
+        # DoctorExperienceInline,
+        # DoctorReviewInline,
+        # DoctorQueryInline,
     ]
     def get_exclude(self, request, obj=None):
         excluded_fields = ['slug', 'email', 'online_availability', 'dial_code']

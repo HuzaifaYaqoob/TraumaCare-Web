@@ -85,10 +85,15 @@ class Command(BaseCommand):
         # with open('https://traumacare.blr1.digitaloceanspaces.com/static/uniqueDoctors.json')
         total_users = User.objects.all().count()
         counter = 0
+        Udata = {'available_days' : 0}
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
                 # print(json.dumps(doctor_obj))
+                # if doctor_obj['available_days'] == '':
+                #     print('Skipping', doctor_id)
+                #     Udata['available_days'] += 1
+                # continue
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
                 doc_gender = doctor_obj['doc_gender']
@@ -112,7 +117,13 @@ class Command(BaseCommand):
 
                 doctor_city = doctor_obj['doctor_city']
                 if doctor_city == 'Video Consultation':
-                    doctor_city = doctor_obj['city']
+                    doctor_city = 'Lahore'
+                elif doctor_city == 'Peshawar':
+                    doctor_city = 'Lahore'
+                elif doctor_city == 'Chishtian':
+                    doctor_city = 'Chishtian Mandi'
+
+
                 if doctor_city:
                     try:
                         city_obj = City.objects.get(name__iexact=doctor_city)
@@ -226,7 +237,7 @@ class Command(BaseCommand):
                             doctor = doctor_instance,
                             hospital = tac_hospital,
                             location = tac_h_location,
-                            phone = 0000,
+                            phone = '0000',
                         )
                         
                         for day in available_days:
@@ -248,6 +259,7 @@ class Command(BaseCommand):
                 total_users += 1
                 counter += 1
             print(len(reader))
+        print(Udata)
         self.stdout.write(self.style.SUCCESS('Successfully added'))
 
 

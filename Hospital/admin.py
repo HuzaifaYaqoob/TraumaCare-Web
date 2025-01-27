@@ -18,6 +18,10 @@ class HospitalLocationInline(admin.StackedInline):
         "lat",
         "lng",
     ]
+    raw_id_fields = [
+        'state',
+        'city',
+    ]
 
 
 class LocationContactInline(admin.StackedInline):
@@ -30,6 +34,9 @@ class LocationContactInline(admin.StackedInline):
         "contact_title",
         "email",
         "mobile_number",
+    ]
+    raw_id_fields = [
+        'location',
     ]
 
 
