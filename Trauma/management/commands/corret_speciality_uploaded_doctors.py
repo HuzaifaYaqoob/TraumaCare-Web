@@ -41,6 +41,7 @@ class Command(BaseCommand):
         counter = 0
         Udata = {'available_days' : 0}
         diseases = Disease.objects.filter(name='')
+        diseases.delete()
         print(diseases.count())
         return
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
