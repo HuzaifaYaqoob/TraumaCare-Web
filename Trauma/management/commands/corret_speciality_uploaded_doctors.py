@@ -43,9 +43,10 @@ class Command(BaseCommand):
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
-                print(doctor_obj['profile'])
+                # print(doctor_obj['profile'])
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
+                print(name)
 
                 doctor_instance = Doctor.objects.get(name = name)
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
