@@ -95,9 +95,12 @@ class Command(BaseCommand):
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
-                if counter <= 5844:
-                    counter += 1
-                    continue
+                specialities = doctor_obj.get('MainCategory', '').split(',')
+                print(specialities)
+                # if counter <= 5844:
+                #     counter += 1
+                #     continue
+                continue
                 # print(json.dumps(doctor_obj))
                 # if doctor_obj['available_days'] == '':
                 #     print('Skipping', doctor_id)
