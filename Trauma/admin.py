@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode, ShortLink
+from .models import Speciality, Disease, Country, State, City, RandomFiles, VerificationCode, ShortLink, Service
 from django.utils.html import mark_safe
 from django.conf import settings
 
@@ -47,6 +47,9 @@ class DiseaseAdmin(admin.ModelAdmin):
     is_description.boolean = True
 
 
+@admin.register(Service)
+class ServiceAdmin(admin.ModelAdmin):
+    list_display = ['name', 'is_active']
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'color_code', 'is_deleted', 'is_active']

@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.db.models import Q, Count
 
 from django.utils.html import mark_safe
-from .models import Doctor, Doctor24By7, Leave, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots, DoctorRequest
+from .models import Doctor, DoctorService, Doctor24By7, Leave, DoctorReview, DoctorQuery, DoctorEducation, DoctorExperience, DoctorWithHospital, DoctorDiseasesSpeciality, DoctorMedia, DoctorOnlineAvailability, DoctorSpeciality, DoctorTimeSlots, DoctorRequest
 
 # Register your models here.
 
@@ -296,3 +296,7 @@ class DoctorRequestAdmin(admin.ModelAdmin):
 @admin.register(DoctorEducation)
 class DoctorEducationAdmin(admin.ModelAdmin):
     list_display = ['degree_name', 'is_active', 'created_at']
+
+@admin.register(DoctorService)
+class DoctorServiceAdmin(admin.ModelAdmin):
+    list_display = ['service', 'is_active', 'created_at']
