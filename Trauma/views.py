@@ -278,6 +278,8 @@ def searchFilterPage(request):
     order_query = []
     reverse = False
 
+    
+
     if '' in disease_slugs:
         disease_slugs.remove('')
     if len(disease_slugs) > 0:
@@ -324,49 +326,28 @@ def searchFilterPage(request):
         annotate_query['total_reviews'] = Count('doctor_reviews__rating')
         order_query.append('total_reviews')
 
-
     context = {
         'is_search_page' : True,
         'remove_footer' : True
     }
-    if searchText:
-        if searchText.lower().startswith('dr'):
-            searchText = searchText.replace('dr ', '')
+    if searchText.lower().startswith('dr'):
+        searchText = searchText.replace('dr ', '')
 
-    doctors = Doctor.objects.annotate(**annotate_query).filter(
-        Q(email__icontains = searchText) |
+    doctors = Doctor.objects.prefetch_related(
+        'doctor_medias',
+        'doctor_reviews',
+        'doctor_available_days',
+    ).annotate(**annotate_query).filter(
         Q(heading__icontains = searchText) |
-        Q(slug__icontains = searchText) |
         Q(desc__icontains = searchText) |
-        Q(doctor_specialities__speciality__name__icontains = searchText) |
-        Q(doctor_specialities__speciality__speciality_type__icontains = searchText) |
-        Q(doctor_specialities__speciality__description__icontains = searchText) |
-        Q(doctor_specialities__speciality__slug__icontains = searchText) |
-        Q(doctor_specialities__speciality__tag_line__icontains = searchText) |
-        Q(doctor_disease_specialities__disease__name__icontains = searchText) |
-        Q(doctor_disease_specialities__disease__description__icontains = searchText) |
-        Q(doctor_disease_specialities__disease__slug__icontains = searchText) |
-        Q(doctor_disease_specialities__disease__tag_line__icontains = searchText) |
-        Q(doctor_available_days__day__icontains = searchText) |
-        Q(doctor_hospital_timeslots__hospital__name__icontains = searchText) |
-        Q(doctor_hospital_timeslots__hospital__description__icontains = searchText) |
-        Q(doctor_hospital_timeslots__hospital__slug__icontains = searchText) |
-        Q(doctor_hospital_timeslots__location__name__icontains = searchText) |
-        Q(doctor_hospital_timeslots__location__street_address__icontains = searchText) |
-        Q(doctor_hospital_timeslots__location__city__name__icontains = searchText) |
         Q(name__icontains = searchText),
         is_deleted = False,
         is_blocked = False,
         is_active = True,
         **query
-    ).prefetch_related(
-        'doctor_medias',
-        'doctor_reviews',
-        'doctor_available_days',
     ).distinct().order_by(*order_query)
 
     if searchText:
-        query = SearchQuery("red tomato")
         doctors = doctors.annotate(
                 name_h=SearchHeadline("name", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
                 desc_h=SearchHeadline("desc", searchText, start_sel="<span class='bg-[#fff199] px-2'>", stop_sel="</span>",),
@@ -376,6 +357,7 @@ def searchFilterPage(request):
             d.desc = d.desc_h
 
     context['doctors'] = doctors[:: -1 if reverse else 1][:10]
+    print('nothing')
     # hospital_timeslots__isnull=False
 
     context['DoctorsCount'] = len(doctors)
