@@ -96,7 +96,8 @@ class Command(BaseCommand):
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
                 specialities = doctor_obj.get('MainCategory', '')
-                print(specialities)
+                if not specialities:
+                    print(specialities)
                 # if counter <= 5844:
                 #     counter += 1
                 #     continue
