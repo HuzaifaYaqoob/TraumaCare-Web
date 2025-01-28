@@ -57,7 +57,20 @@ class Hospital(models.Model):
         ).last()
         if image:
             return image
+        print(settings.STATIC_URL + 'assets/Images/hospital_avatar.jpg')
         return settings.STATIC_URL + 'assets/Images/hospital_avatar.jpg'
+
+    @property
+    def cover_image(self):
+        image = HospitalMedia.objects.filter(
+            hospital=self,
+            file_type='Profile Image',
+            is_deleted=False,
+            is_active=True
+        ).last()
+        if image and image.file.url:
+            return image.file.url
+        return (settings.STATIC_URL + 'assets/Images/hospital_avatar.png')
     
 
     @property
