@@ -282,16 +282,36 @@ const ClearCart = () =>{
     window.location.reload()
 }
 
-const removeItemFromCart = (p_id) =>{
-    console.log(p_id)
+// const removeItemFromCart = (p_id) =>{
+//     console.log(p_id)
+//     let CartItems = getCookie('CartItems');
+//     if (CartItems){
+//         CartItems = JSON.parse(CartItems)
+//         CartItems = CartItems.filter(itm => itm.p_id != p_id)
+//         setCookie('CartItems', JSON.stringify(CartItems), 7)
+//     }
+//     showSidebarCart(true)
+// }
+
+const removeItemFromCart = (p_id) => {
+    console.log('Removing item with ID:', p_id);
+
     let CartItems = getCookie('CartItems');
-    if (CartItems){
-        CartItems = JSON.parse(CartItems)
-        CartItems = CartItems.filter(itm => itm.p_id != p_id)
-        setCookie('CartItems', JSON.stringify(CartItems), 7)
+    if (CartItems) {
+        CartItems = JSON.parse(CartItems);
+        CartItems = CartItems.filter(itm => String(itm.id) !== String(p_id));
+        setCookie('CartItems', JSON.stringify(CartItems), 7);
+        console.log('Updated CartItems:', CartItems);
     }
-    showSidebarCart(true)
-}
+
+    const itemElement = document.querySelector(`[onclick="removeItemFromCart('${p_id}')"]`).closest('.border-b');
+    if (itemElement) {
+        itemElement.remove();
+        console.log(`Item with ID ${p_id} removed from DOM`);
+    }
+
+    showSidebarCart(true);
+};
 
 function add_to_cart_btn(productId, location_stock, ProductQuantity) {
     console.log(productId, location_stock, ProductQuantity)
