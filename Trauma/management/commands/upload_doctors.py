@@ -179,10 +179,11 @@ class Command(BaseCommand):
                 specialities = doctor_obj.get('MainCategory', '').split(',')
                 print(specialities)
                 for speciality in specialities:
-                    DoctorSpeciality.objects.create(
-                        speciality = Speciality.objects.get_or_create(name=speciality)[0],
-                        doctor = doctor_instance,
-                    )
+                    if speciality:
+                        DoctorSpeciality.objects.create(
+                            speciality = Speciality.objects.get_or_create(name=speciality)[0],
+                            doctor = doctor_instance,
+                        )
 
                 diseases = doctor_obj['MainDiseases'].split(',')
                 for disease in diseases:
