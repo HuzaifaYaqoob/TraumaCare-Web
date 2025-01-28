@@ -219,3 +219,11 @@ class ShortLink(models.Model):
 
     def __str__(self):
         return f'{self.id}'
+
+class Service(models.Model):
+    name = models.CharField(default='', max_length=999)
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(default=now)
+
+    def __str__(self):
+        return f'{self.id}'

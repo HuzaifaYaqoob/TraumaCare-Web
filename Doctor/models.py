@@ -11,7 +11,7 @@ from TraumaCare.Constant.index import addWatermark
 from Authentication.models import User
 from Profile.models import Profile
 from uuid import uuid4
-from Trauma.models import Speciality, Disease
+from Trauma.models import Speciality, Disease, Service
 from Hospital.models import Hospital, HospitalLocation
 
 from datetime import timedelta, datetime
@@ -714,3 +714,10 @@ class DoctorRequest(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+class DoctorService(models.Model):
+    service = models.ForeignKey(Service, on_delete=models.CASCADE, related_name='service_doctors')
+    doctor = models.ForeignKey(Doctor, on_delete=models.CASCADE, related_name='doctor_services')
+
+    is_active = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=now)
