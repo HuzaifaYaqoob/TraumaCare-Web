@@ -134,7 +134,7 @@ def onboarding(request):
         analytic_type = 'Visits'
     )
     if onboarding_type == 'doctor':
-        PageAnalytics.objects.create(
+        new_page_id = PageAnalytics.objects.create(
             urls = f'Doctor --- page_analytic id :: {str(page_analytic.id)}',
             value = 1,
             analytic_type = 'Visits'
@@ -143,6 +143,7 @@ def onboarding(request):
         #     messages.info(request, 'Doctor Profile Already Exists!')
         #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
 
+        context['page_analytics_id'] = new_page_id.id
         return render(request, 'DoctorOnboarding.html', context)
     elif onboarding_type == 'hospital':
         # if request.user.has_hospital_profile:

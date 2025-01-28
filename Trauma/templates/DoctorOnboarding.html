@@ -58,12 +58,25 @@
             <button class="ml-auto rounded-lg px-6 py-[10px] bg-[#0755E9] flex items-center justify-center cursor-pointer mt-6 text-white">
                 Submit
             </button>
+            
         </form>
     </div>
 </section>
 
+
+<script>
+    const id = '{{page_analytics_id}}'
+    const pageLoaded = async () =>{
+        console.log('done')
+        const response = await fetch(`/api/page_load_analytics/${id}/`)
+        const result = await response.json()
+        console.log(result)
+    }
+    pageLoaded()
+</script>
 {% endblock baseBody %}
 
 {% block main_base_script %}
+
 
 {% endblock main_base_script %}
