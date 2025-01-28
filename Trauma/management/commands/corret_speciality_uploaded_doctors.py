@@ -59,11 +59,12 @@ class Command(BaseCommand):
                     print(f'{err} :: {name}')
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
-                for d_sp in DoctorDiseasesSpeciality.objects.filter(doctor = doctor_instance):
+                sdsp = DoctorDiseasesSpeciality.objects.filter(doctor = doctor_instance)
+                for d_sp in sdsp:
                     if d_sp.disease:
                         d_sp.disease.delete()
-                    d_sp.delete()
-                    print('Deleted')
+                sdsp.delete()
+                print('Deleted')
                 continue
 
                 # specialities = doctor_obj.get('MainCategory', '').split(',')
