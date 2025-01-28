@@ -292,3 +292,7 @@ class DoctorRequestAdmin(admin.ModelAdmin):
     list_filter = ['gender']
     ordering = ['-created_at', 'is_onboarded']
     list_display = ['name', 'phone', 'gender', 'speciality', 'is_onboarded', 'is_active', 'created_at']
+
+@admin.register(DoctorEducation)
+class DoctorEducationAdmin(admin.ModelAdmin):
+    list_display = ['degree_name', 'is_active', 'created_at']

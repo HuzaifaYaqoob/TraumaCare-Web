@@ -50,6 +50,7 @@ class Command(BaseCommand):
                 #     counter += 1
                 #     continue
                 continue
+                print(doctor_obj['profile'])
                 # print(json.dumps(doctor_obj))
                 # if doctor_obj['available_days'] == '':
                 #     print('Skipping', doctor_id)
@@ -57,58 +58,8 @@ class Command(BaseCommand):
                 # continue
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
-                doc_gender = doctor_obj['doc_gender']
 
-                username = name.replace(' ', '-').replace('/', '-').replace('--', '-').replace('.', '-').replace('--', '-')
-                username = username.lower()
-                username = f'{username}-{total_users}'
-                email = f'{username}@doctors.traumacare.pk'
-
-                doc_gender = doc_gender.lower().strip().capitalize()
-                print(username)
-
-                user = User.objects.create(
-                    full_name = name,
-                    username = username,
-                    email = email,
-                    mobile_number = '0000',
-                    is_active = True,
-                    gender = doc_gender
-                )
-
-                doctor_city = doctor_obj['doctor_city']
-                if doctor_city == 'Video Consultation':
-                    doctor_city = 'Lahore'
-                elif doctor_city == 'Peshawar':
-                    doctor_city = 'Lahore'
-                elif doctor_city == 'Chishtian':
-                    doctor_city = 'Chishtian Mandi'
-
-
-                if doctor_city:
-                    try:
-                        city_obj = City.objects.get(name__iexact=doctor_city)
-                    except Exception as err:
-                        print(json.dumps(doctor_obj))
-                        print(doctor_city)
-                        print('City ERROR Inside : ', str(err))
-                    else:
-                        user.country = city_obj.country
-                        user.state = city_obj.state
-                        user.city = city_obj
-
-                user.save()
-
-
-                doctor_profile = Profile.objects.create(
-                    user = user,
-                    full_name = user.full_name,
-                    email = user.email,
-                    profile_type = 'Doctor',
-                    is_active = True,
-                )
-
-                doctor_instance = Doctor.objects.get(profile = doctor_profile)
+                doctor_instance = Doctor.objects.get(name = name)
                 doctor_instance.heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations']
                 doctor_instance.pmdc_id = doctor_obj['pmdc_id']
                 doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
