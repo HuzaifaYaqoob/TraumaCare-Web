@@ -43,63 +43,33 @@ class Command(BaseCommand):
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
-                specialities = doctor_obj.get('MainCategory', '')
-                if not specialities:
-                    print(specialities)
-                # if counter <= 5844:
-                #     counter += 1
-                #     continue
-                continue
                 print(doctor_obj['profile'])
-                # print(json.dumps(doctor_obj))
-                # if doctor_obj['available_days'] == '':
-                #     print('Skipping', doctor_id)
-                #     Udata['available_days'] += 1
-                # continue
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
 
                 doctor_instance = Doctor.objects.get(name = name)
-                doctor_instance.heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations']
-                doctor_instance.pmdc_id = doctor_obj['pmdc_id']
-                doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
+                # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
+                continue
 
-                degrees = doctor_obj.get('edu_degrees', '')
-                if degrees:
-                    for deg in degrees.split(','):
-                        DoctorEducation.objects.create(
-                            doctor = doctor_instance,
-                            degree_name = deg.strip(),
-                        )
+                # specialities = doctor_obj.get('MainCategory', '').split(',')
+                # print(specialities)
+                # for speciality in specialities:
+                #     if speciality:
+                #         DoctorSpeciality.objects.create(
+                #             speciality = Speciality.objects.get_or_create(name=speciality)[0],
+                #             doctor = doctor_instance,
+                #         )
 
-                experience = doctor_obj['yearsofexperience']
-                if experience:
-                    experience = int(experience)
-                    doctor_instance.working_since = f'{2025 - experience}-01-01'
-
-                doctor_instance.save()
-
-                specialities = doctor_obj.get('MainCategory', '').split(',')
-                print(specialities)
-                for speciality in specialities:
-                    if speciality:
-                        DoctorSpeciality.objects.create(
-                            speciality = Speciality.objects.get_or_create(name=speciality)[0],
-                            doctor = doctor_instance,
-                        )
-
-                diseases = doctor_obj['MainDiseases'].split(',')
-                for disease in diseases:
-                    DoctorDiseasesSpeciality.objects.create(
-                        disease = Disease.objects.get_or_create(name=disease)[0],
-                        doctor = doctor_instance,
-                    )
+                # diseases = doctor_obj['MainDiseases'].split(',')
+                # for disease in diseases:
+                #     DoctorDiseasesSpeciality.objects.create(
+                #         disease = Disease.objects.get_or_create(name=disease)[0],
+                #         doctor = doctor_instance,
+                #     )
                 
                 print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
                 total_users += 1
                 counter += 1
-            print(len(reader))
-        print(Udata)
         self.stdout.write(self.style.SUCCESS('Successfully added'))
 
 
