@@ -5,6 +5,7 @@ from uuid import uuid4
 
 from django.utils.html import mark_safe
 from TraumaCare.Constant.index import addWatermark
+from django.conf import settings
 
 
 from Authentication.models import User
