@@ -51,7 +51,10 @@ class Command(BaseCommand):
                 try:
                     doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=1), pmdc_id = doctor_obj['pmdc_id'])
                 except Doctor.MultipleObjectsReturned:
-                    print(name)
+                    if name not in Udata:
+                        Udata[name] = 1
+                    else:
+                        Udata[name] += 1
                 except Exception as err:
                     print(err)
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
@@ -76,6 +79,7 @@ class Command(BaseCommand):
                 print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
                 total_users += 1
                 counter += 1
+            print(Udata)
         self.stdout.write(self.style.SUCCESS('Successfully added'))
 
 
