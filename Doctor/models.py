@@ -202,7 +202,7 @@ class Doctor(models.Model):
         if len(self.heading) > 30:
             return self.heading
         else:
-            heading = ", ".join([self.heading] + [sp.name for sp in self.specialities[:2]])
+            heading = " ".join([self.heading] + [sp.name for sp in self.specialities[:2]])
             return heading
             
 
