@@ -112,7 +112,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                 {% for doct_h in hospitals %}
                                     <div class="gap-3 items-start border border-[#CACBE6] rounded-lg flex min-w-[200px] max-w-[700px] w-full p-2">
-                                        <a href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{doct_h.hospital.profile_image.file.url}}');"></a>
+                                        <a href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{doct_h.hospital.profile_image}}');"></a>
                                         <div class="flex-1 space-y-0.5">
                                             <div class="flex items-center justify-between">
                                                 <a class="text-[#151E2C] line-clamp-1 text-xl font-medium outfit-font" href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}">{{doct_h.hospital.name}}</a>
