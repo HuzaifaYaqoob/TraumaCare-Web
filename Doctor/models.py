@@ -3,6 +3,7 @@ from django.db.models import Value
 
 from django.utils.timezone import now, localtime
 from django.utils.html import mark_safe
+from django.conf import settings
 
 
 # Create your models here.
@@ -13,7 +14,6 @@ from Profile.models import Profile
 from uuid import uuid4
 from Trauma.models import Speciality, Disease, Service
 from Hospital.models import Hospital, HospitalLocation
-
 from datetime import timedelta, datetime
 
 
@@ -130,11 +130,11 @@ class Doctor(models.Model):
         try:
             profile_pic = self.doctor_medias.all()[0]
         except Exception as err:
-            return None
+            return settings.STATIC_URL + 'assets/Images/doctor_avatar.jpg'
         else:
             if profile_pic.file:
                 return profile_pic.file.url
-            return None
+            return settings.STATIC_URL + 'assets/Images/doctor_avatar.jpg'
     
     @property
     def years_of_experience(self):
