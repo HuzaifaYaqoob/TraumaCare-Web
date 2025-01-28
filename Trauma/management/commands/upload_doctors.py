@@ -176,7 +176,7 @@ class Command(BaseCommand):
 
                 doctor_instance.save()
 
-                specialities = doctor_obj['MainCategory'].split(',')
+                specialities = doctor_obj.get('MainCategory', '').split(',')
                 for speciality in specialities:
                     DoctorSpeciality.objects.create(
                         speciality = Speciality.objects.get_or_create(name__iexact=speciality)[0],
