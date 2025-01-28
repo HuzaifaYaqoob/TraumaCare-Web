@@ -49,7 +49,7 @@ class Command(BaseCommand):
                 
 
                 try:
-                    doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=1), pmdc_id = doctor_obj['pmdc_id'])
+                    doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=1), pmdc_id = doctor_obj['pmdc_id'], heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations'])
                 except Doctor.MultipleObjectsReturned:
                     if name not in Udata:
                         Udata[name] = 1
