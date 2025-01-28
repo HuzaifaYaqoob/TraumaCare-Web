@@ -1,8 +1,8 @@
 
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}Dr. {{doctor.name}} - {{doctor.heading}} - Profile View{% endblock title %}
-{% block meta_description %}Dr. {{doctor.name}} - {{doctor.heading}} - {{doctor.desc}}{% endblock meta_description %}
+{% block title %}Dr. {{doctor.name}} - {{doctor.full_heading}} - Profile View{% endblock title %}
+{% block meta_description %}Dr. {{doctor.name}} - {{doctor.full_heading}} - {{doctor.desc}}{% endblock meta_description %}
 
 {% block BaseCSS %}
 
@@ -147,7 +147,7 @@
                                                                   </div>
                                                             {% endif %}
                                                       </div>
-                                                      <p class="text-[#111111] text-sm font-medium text-start line-clamp-2">{{doctor.heading}}</p>
+                                                      <p class="text-[#111111] text-sm font-medium text-start line-clamp-2">{{doctor.full_heading}}</p>
                                                       <div class="flex items-center justify-start gap-4">
                                                             <p class="text-green-600">{% if doctor.years_of_experience %}<span class="underline"><span class="text-lg font-semibold">{{doctor.years_of_experience}} </span> years of Experience</span>{% else %}Experience Less than a year{% endif %}</p>
                                                       </div>
@@ -236,7 +236,7 @@
                                                       <div class="bg-center w-[86px] bg-cover bg-no-repeat" style="background-image: url({{sug_doctor.profile_image}});"></div>
                                                       <div class="py-2 pr-3 flex-1">
                                                             <h3 class="text-md font-medium text-[#151E2C] outfit-font line-clamp-1">Dr. {{sug_doctor.name}}</h3>
-                                                            <p class="text-[#111111] text-xs outfit-font line-clamp-1">{{sug_doctor.heading|truncatechars:30}}</p>
+                                                            <p class="text-[#111111] text-xs outfit-font line-clamp-1">{{sug_doctor.full_heading|truncatechars:30}}</p>
                                                             <p class="text-[#05D57C] text-[23px] outfit-font font-semibold italic flex items-center gap-1">{{sug_doctor.fee_range.0}} <span class="font-medium text-[#151E2C] text-xs">PKR</span></p>
                                                       </div>
                                                 </a>

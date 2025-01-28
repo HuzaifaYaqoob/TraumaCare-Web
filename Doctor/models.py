@@ -197,6 +197,16 @@ class Doctor(models.Model):
             self.slug = f'{name}-{self.id}'
         super(Doctor, self).save(*args, **kwargs)
     
+    @property
+    def full_heading(self,):
+        if len(self.heading) > 30:
+            return self.heading
+        else:
+            heading = ", ".join([self.heading] + [sp.name for sp in self.specialities[:2]])
+            return heading
+            
+
+    
     
     def doctor_admin_card(self, labels=[]):
         div = f"""<div style="display : flex;gap:10px">
