@@ -49,7 +49,7 @@ class Command(BaseCommand):
                 
 
                 try:
-                    doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=1))
+                    doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=1), pmdc_id = doctor_obj['pmdc_id'])
                 except Doctor.MultipleObjectsReturned:
                     print(name)
                 except Exception as err:
