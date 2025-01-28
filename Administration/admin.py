@@ -128,5 +128,6 @@ class EmailLogAdmin(admin.ModelAdmin):
 
 @admin.register(PageAnalytics)
 class PageAnalyticsAdmin(admin.ModelAdmin):
+    search_fields = ['urls']
     ordering = ['-created_at']
     list_display = ['id', 'analytic_type', 'value', 'urls', 'created_at']
