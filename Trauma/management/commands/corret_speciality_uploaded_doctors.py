@@ -14,7 +14,7 @@ import json
 from Authentication.models import User
 from Profile.models import Profile
 
-from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots, DoctorEducation, DoctorDiseasesSpeciality, DoctorSpeciality, DoctorOnlineAvailability, DoctorService
+from Doctor.models import Doctor, DoctorReview, DoctorWithHospital, DoctorTimeSlots, DoctorEducation, DoctorDiseasesSpeciality, DoctorSpeciality, DoctorOnlineAvailability, DoctorService
 from Hospital.models import Hospital, HospitalLocation
 from Trauma.models import Speciality, Disease, City, Service
 
@@ -42,14 +42,15 @@ class Command(BaseCommand):
         Udata = {'available_days' : 0}
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
+            review_user = User.objects.filter(mobile_number='03107931247').first()
             for doctor_id, doctor_obj in reader.items():
                 # print(doctor_obj['profile'])
-                services = doctor_obj['services']
-                if type(services) == dict:
-                    services = services['name']
-                    services = [i.strip() for i in services.split(',')]
-                else:
-                    services = []
+                featured_review = doctor_obj['featured_review']
+                featured_review = featured_review.strip()
+                if not featured_review:
+                    continue
+                print(featured_review)
+                
 
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
@@ -67,12 +68,17 @@ class Command(BaseCommand):
                     # print(f'{err} :: {name}')
                     continue
             
-                print(services)
-                for service in services:
-                    DoctorService.objects.get_or_create(
-                        service = Service.objects.get_or_create(name = service)[0],
-                        doctor = doctor_instance
-                    )
+                DoctorReview.objects.create(
+                    user = review_user,
+                    doctor = doctor_instance,
+                    review = featured_review,
+                    rating = 5,
+                    recommended_rating = 5,
+                    checkup_rating = 5,
+                    clinical_environment_rating = 5,
+                    staff_behaviour_rating = 5,
+                    secret_review = featured_review,
+                )
                 # print(json.dumps(doctor_obj))
                 # print(doctor_instance.desc)
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
