@@ -15,6 +15,10 @@ class DoctorDiseasesSpecialityInline(admin.TabularInline):
     model = DoctorDiseasesSpeciality
     extra = 0
 
+    raw_id_fields = [
+        "disease"
+    ]
+
 class DoctorSpecialityInline(admin.TabularInline):
     model = DoctorSpeciality
     extra = 0
@@ -82,7 +86,7 @@ class DoctorAdmin(admin.ModelAdmin):
         # 'desc',
         # 'mobile_number', 
         'days', 
-        # 'diseases', 
+        'diseases', 
         'speciality', 
         'is_approved', 
         'is_active', 
@@ -95,7 +99,7 @@ class DoctorAdmin(admin.ModelAdmin):
     search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
 
     inlines = [
-        # DoctorDiseasesSpecialityInline,
+        DoctorDiseasesSpecialityInline,
         DoctorSpecialityInline,
         DoctorMediaInline,
         DoctorWithHospitalInline,
