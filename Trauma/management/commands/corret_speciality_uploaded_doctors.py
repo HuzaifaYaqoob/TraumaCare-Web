@@ -40,10 +40,6 @@ class Command(BaseCommand):
         total_users = User.objects.all().count()
         counter = 0
         Udata = {'available_days' : 0}
-        diseases = Disease.objects.filter(name='')
-        diseases.delete()
-        print(diseases.count())
-        return
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
@@ -64,9 +60,6 @@ class Command(BaseCommand):
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
                 sdsp = DoctorDiseasesSpeciality.objects.filter(doctor = doctor_instance)
-                for d_sp in sdsp:
-                    if d_sp.disease:
-                        d_sp.disease.delete()
                 sdsp.delete()
                 print('Deleted')
                 continue
