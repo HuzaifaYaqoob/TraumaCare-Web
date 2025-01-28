@@ -46,9 +46,14 @@ class Command(BaseCommand):
                 # print(doctor_obj['profile'])
                 name = doctor_obj['name']
                 name = name.replace('Dr. ', '')
-                print(name)
+                
 
-                doctor_instance = Doctor.objects.get(name = name)
+                try:
+                    doctor_instance = Doctor.objects.get(name = name)
+                except Doctor.MultipleObjectsReturned:
+                    print(name)
+                except Exception as err:
+                    print(err)
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
                 continue
 
