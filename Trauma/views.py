@@ -357,7 +357,6 @@ def searchFilterPage(request):
             d.desc = d.desc_h
 
     context['doctors'] = doctors[:: -1 if reverse else 1][:10]
-    print('nothing')
     # hospital_timeslots__isnull=False
 
     context['DoctorsCount'] = len(doctors)
