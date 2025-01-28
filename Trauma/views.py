@@ -50,7 +50,7 @@ def homePage(request):
         'doctor_medias',
         'doctor_reviews',
         'doctor_available_days',
-    )
+    ).order_by('?')
 
     context['doctors'] = doctors[:8]
     context['blog_posts'] = BlogPost.objects.annotate(
