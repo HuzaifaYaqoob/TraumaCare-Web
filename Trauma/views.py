@@ -86,7 +86,15 @@ def onboarding(request):
         return redirect('/onboarding/?onboarding_type=doctor')
     
     if request.method == 'POST':
+        page_analytic = PageAnalytics.objects.create(
+            urls = f'Post Request',
+            value = 1,
+            analytic_type = 'Visits'
+        )
         if onboarding_type == 'doctor':
+            page_analytic.urls = page_analytic.urls + ' --- Doctor Submitted'
+            page_analytic.save()
+
             full_name = request.POST.get('full_name', None)
             gender = request.POST.get('gender', None)
             speciality = request.POST.get('speciality', None)
@@ -98,7 +106,11 @@ def onboarding(request):
                 speciality = speciality,
                 gender = gender,
             )
+            page_analytic.urls = page_analytic.urls + ' --- Saved'
+            page_analytic.save()
             messages.success(request, 'Thanks for submitting your application! Our team will get back to you soon.')
+            page_analytic.urls = page_analytic.urls + ' --- Message & Next Return'
+            page_analytic.save()
             return redirect('/')
             
         else:
