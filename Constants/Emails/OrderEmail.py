@@ -12,20 +12,7 @@ def sendNewOrderEmailToAdmin(order_instance, email_log_instance=None):
     
     subject = 'TraumaCare : New Order'
     try:
-        message = """
-                New Order.\n
-                Order ID : #{order_instance.id}\n
-                Date : #{str(order_instance.created_at)}\n
-                User : {order_instance.user.full_name}\n
-                Delivery At : {order_instance.shipping.address}\n
-                subtotal : {order_instance.subtotal}\n
-                discount : {order_instance.discount}\n
-                platform_fee : {order_instance.platform_fee}\n
-                delivery_charges : {order_instance.delivery_charges}\n
-                total_amount : {order_instance.total_amount}\n
-                Order Items : {order_instance.order_items.all().count()}\n
-                {"\n".join(order_items)}\n
-            """
+        message = f'New Order.\n Order ID : #{order_instance.id}\n Date : #{str(order_instance.created_at)}\nUser : {order_instance.user.full_name}\n Delivery At : {order_instance.shipping.address}\nsubtotal : {order_instance.subtotal}\ndiscount : {order_instance.discount}\nplatform_fee : {order_instance.platform_fee}\ndelivery_charges : {order_instance.delivery_charges}\ntotal_amount : {order_instance.total_amount}\nOrder Items : {order_instance.order_items.all().count()}\n{"\n".join(order_items)}\n'
     except:
         message = f'New Order Order ID : #{order_instance.id}\n Date : #{str(order_instance.created_at)}\n '
     recievers = [settings.EMAIL_HOST_USER, 'huzaifa.officialmail@gmail.com']
