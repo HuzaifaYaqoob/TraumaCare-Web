@@ -56,7 +56,7 @@ class Command(BaseCommand):
                     else:
                         Udata[name] += 1
                 except Exception as err:
-                    print(err)
+                    print(f'{err} :: {name}')
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
                 continue
 
