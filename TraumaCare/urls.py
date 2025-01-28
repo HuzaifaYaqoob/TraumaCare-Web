@@ -41,5 +41,12 @@ urlpatterns = [
     path('', include('Trauma.urls')),
 
 ] 
+
+handler500 = 'Trauma.views.Custom500ErrorPage'
+handler403 = 'Trauma.views.Custom400ErrorPage'
+handler404 = 'Trauma.views.Custom400ErrorPage'
+handler400 = 'Trauma.views.Custom400ErrorPage'
+
+
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT) + \
                static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

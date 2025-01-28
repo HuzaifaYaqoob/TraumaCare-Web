@@ -23,6 +23,12 @@ from Product.models import Product, ProductStock
 
 # from django.views.decorators.cache import cache_page
 
+def Custom500ErrorPage(request):
+    return render(request, '500.html')
+
+def Custom400ErrorPage(request, exception):
+    return render(request, '500.html')
+
 def shortCodeRedirect(request, short_code_id):
     try:
         link = ShortLink.objects.get(id = short_code_id)
@@ -85,36 +91,6 @@ def onboarding(request):
             gender = request.POST.get('gender', None)
             speciality = request.POST.get('speciality', None)
             phone = request.POST.get('phone', None)
-            # about = request.POST.get('about', None)
-            # working_since = request.POST.get('working_since', None)
-            # profile_image = request.FILES.get('profile_image', None)
-            # pmc_document = request.FILES.get('pmc_document', None)
-
-            # d_p = Profile.objects.create(user = request.user, full_name = full_name, profile_type = 'Doctor', profile_image = profile_image,)
-            # doctor = Doctor.objects.create(
-            #     user = request.user,
-            #     profile = d_p,
-            #     name = full_name,
-            #     heading = speciality,
-            #     # dial_code
-            #     mobile_number = request.user.mobile_number,
-            #     working_since = datetime.strptime(working_since, '%m/%d/%Y').date(),
-            #     desc = about,
-            # )
-            # DoctorMedia.objects.create(
-            #     doctor = doctor,
-            #     file_type = 'Profile Image',
-            #     file = profile_image
-            # )
-            # if pmc_document:
-            #     DoctorMedia.objects.create(
-            #         doctor = doctor,
-            #         file_type = 'License',
-            #         file = pmc_document
-            #     )
-            
-            # request.user.gender = gender
-            # request.user.save()
 
             DoctorRequest.objects.create(
                 name = full_name,
@@ -133,21 +109,6 @@ def onboarding(request):
                 name = hospital_name,
                 phone = phone,
             )
-
-            # hospital_name = request.POST.get('hospital_name', None)
-            # hospital_email = request.POST.get('hospital_email', None)
-            # address_title = request.POST.get('address_title', None)
-            # address_state = request.POST.get('address_state', None)
-            # address_city = request.POST.get('address_city', None)
-            # address = request.POST.get('address', None)
-            # hospital_image = request.FILES.get('hospital_image', None)
-
-            # h_p = Profile.objects.create(user = request.user, full_name = hospital_name, email = hospital_email, profile_type = 'Hospital', profile_image = hospital_image,)
-            # hospital = Hospital.objects.create(user = request.user, profile = h_p, facility_type = Hospital, name = hospital_name,)
-            # hops_l = HospitalLocation.objects.create(hospital = hospital, name = address_title,street_address = address, country = Country.objects.get(name__iexact = 'pakistan',), state = State.objects.get(id = address_state), city = City.objects.get(id = address_city),)
-            # LocationContact.objects.create(hospital = hospital, location = hops_l, contact_type = "EMAIL", contact_title = 'Contact Email', email = hospital_email,)
-            # HospitalMedia.objects.create(hospital = hospital, file_type = 'Profile Image', file = hospital_image)
-
             messages.success(request, 'Thanks for submitting your application! Our team will get back to you soon.')
             return redirect('/')
     
@@ -155,12 +116,17 @@ def onboarding(request):
         'remove_footer' : True,
         'hideChatWidget' : True,
     }
-    PageAnalytics.objects.create(
+    page_analytic = PageAnalytics.objects.create(
         urls = request.get_full_path(),
         value = 1,
         analytic_type = 'Visits'
     )
     if onboarding_type == 'doctor':
+        PageAnalytics.objects.create(
+            urls = f'Doctor --- page_analytic id :: {str(page_analytic.id)}',
+            value = 1,
+            analytic_type = 'Visits'
+        )
         # if request.user.has_doctor_profile:
         #     messages.info(request, 'Doctor Profile Already Exists!')
         #     return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
