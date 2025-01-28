@@ -59,24 +59,9 @@ class Command(BaseCommand):
                 except Exception as err:
                     print(f'{err} :: {name}')
                     continue
+                print(doctor_instance.desc)
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
-                specialities = doctor_obj.get('MainCategory', '').split(',')
-                print(specialities)
-                for speciality in specialities:
-                    if speciality:
-                        DoctorSpeciality.objects.create(
-                            speciality = Speciality.objects.get_or_create(name=speciality)[0],
-                            doctor = doctor_instance,
-                        )
-
-                diseases = doctor_obj['MainDiseases'].split(',')
-                for disease in diseases:
-                    DoctorDiseasesSpeciality.objects.create(
-                        disease = Disease.objects.get_or_create(name=disease)[0],
-                        doctor = doctor_instance,
-                    )
-                
                 print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
                 total_users += 1
                 counter += 1
