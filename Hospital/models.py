@@ -56,7 +56,7 @@ class Hospital(models.Model):
         ).last()
         if image:
             return image
-        return None
+        return settings.STATIC_URL + 'assets/Images/hospital_avatar.jpg'
     
 
     @property
