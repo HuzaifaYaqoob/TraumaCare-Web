@@ -18,6 +18,8 @@ class AppointmentAdmin(admin.ModelAdmin):
         'fee_status',
     ]
 
+    raw_id_fields = ['appointment_group', 'doctor', 'slot', 'doct_hospital']
+
     def appt(self, app):
         return mark_safe(
             f"<div><p style='margin:0;padding:0'>{app.name}</p><p style='margin:0;padding:0;font-size:13px;color:gray;font-weight:500'>{app.date}, {app.start_time} - {app.end_time}</p></div>"
