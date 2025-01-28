@@ -40,10 +40,6 @@ class Command(BaseCommand):
         total_users = User.objects.all().count()
         counter = 0
         Udata = {'available_days' : 0}
-        diseases = DoctorDiseasesSpeciality.objects.filter(disease__isnull=True)
-        print(diseases.count())
-        diseases.delete()
-        return
         with open('Files/uniqueDoctors.json' , 'r') as input_file:
             reader = json.load(input_file)
             for doctor_id, doctor_obj in reader.items():
@@ -59,30 +55,27 @@ class Command(BaseCommand):
                         Udata[name] = 1
                     else:
                         Udata[name] += 1
+                    continue
                 except Exception as err:
                     print(f'{err} :: {name}')
+                    continue
                 # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
-                sdsp = DoctorDiseasesSpeciality.objects.filter(doctor = doctor_instance)
-                sdsp.delete()
-                print('Deleted')
-                continue
+                specialities = doctor_obj.get('MainCategory', '').split(',')
+                print(specialities)
+                for speciality in specialities:
+                    if speciality:
+                        DoctorSpeciality.objects.create(
+                            speciality = Speciality.objects.get_or_create(name=speciality)[0],
+                            doctor = doctor_instance,
+                        )
 
-                # specialities = doctor_obj.get('MainCategory', '').split(',')
-                # print(specialities)
-                # for speciality in specialities:
-                #     if speciality:
-                #         DoctorSpeciality.objects.create(
-                #             speciality = Speciality.objects.get_or_create(name=speciality)[0],
-                #             doctor = doctor_instance,
-                #         )
-
-                # diseases = doctor_obj['MainDiseases'].split(',')
-                # for disease in diseases:
-                #     DoctorDiseasesSpeciality.objects.create(
-                #         disease = Disease.objects.get_or_create(name=disease)[0],
-                #         doctor = doctor_instance,
-                #     )
+                diseases = doctor_obj['MainDiseases'].split(',')
+                for disease in diseases:
+                    DoctorDiseasesSpeciality.objects.create(
+                        disease = Disease.objects.get_or_create(name=disease)[0],
+                        doctor = doctor_instance,
+                    )
                 
                 print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
                 total_users += 1
