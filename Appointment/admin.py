@@ -18,7 +18,7 @@ class AppointmentAdmin(admin.ModelAdmin):
         'fee_status',
     ]
 
-    raw_id_fields = ['doctor', 'slot', 'doct_hospital']
+    raw_id_fields = ['appointment_group', 'doctor', 'slot', 'doct_hospital']
 
     def appt(self, app):
         return mark_safe(
