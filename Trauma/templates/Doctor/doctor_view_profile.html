@@ -208,9 +208,14 @@
                                                       </div>
                                                 {% endwith %}
                                           </div>
-                                          <button class="font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-5 py-3 text-md block w-full block">
-                                                <p class="text-center">Book an appointment instantly</p>
-                                          </button>
+                                          <div class="flex items-center gap-3 ">
+                                                <button class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#05d57c] text-white outfit-font whitespace-nowrap">
+                                                      Instant Appointment
+                                                </button>
+                                                <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">
+                                                      Book Other Time?
+                                                </a>
+                                          </div>
                                     </form>
                               {% endfor %}
                               <div class="sticky top-[100px] bg-white rounded-xl px-3 sm:px-4 py-8 flex flex-col items-center border border-[#CACBE6] space-y-4">
@@ -218,10 +223,10 @@
                                     <p class="text-xl font-medium text-[#151E2C] Private outfit-font text-center">Book an Appointment</p>     
                                     <p class="text-center text-sm text-[#111111]">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                                     <div class="flex items-center gap-2 flex-wrap justify-center !mt-6">
-                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-[#05d57c] px-6 py-2.5 text-md cursor-pointer sm:max-w-max w-full flex items-center justify-center">
+                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#05d57c] text-white outfit-font whitespace-nowrap">
                                                 <p class="whitespace-nowrap">Consult Online</p>
                                           </a>
-                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-[#0555e9] px-6 py-2.5 text-md cursor-pointer sm:max-w-max w-full flex items-center justify-center">
+                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">
                                                 <p class="whitespace-nowrap ">Book Appointment</p>
                                           </a>
                                     </div>
@@ -269,9 +274,14 @@
                                                                   {% endfor %}
                                                             </div>
                                                       </div>
-                                                      <button class="block w-full font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-5 py-3 text-md mt-4 block">
-                                                            <p class="text-center">Book an appointment instantly</p>
-                                                      </button>
+                                                      <div class="flex items-center gap-3 ">
+                                                            <button class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#05d57c] text-white outfit-font whitespace-nowrap">
+                                                                  Instant Appointment
+                                                            </button>
+                                                            <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">
+                                                                  Book Other Time?
+                                                            </a>
+                                                      </div>
                                                 </form>
                                           {% endfor %}
                                     </div>
@@ -429,9 +439,14 @@
                                                 </div>
                                           {% endwith %}
                                     </div>
-                                    <button class="font-medium text-white rounded-md bg-gradient-to-r from-[#0755E9] to-[#05DC75] px-5 py-3 text-md block w-full block">
-                                          <p class="text-center">Book an appointment instantly</p>
-                                    </button>
+                                    <div class="flex items-center gap-3 ">
+                                          <button class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#05d57c] text-white outfit-font whitespace-nowrap">
+                                                Instant Appointment
+                                          </button>
+                                          <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&hospital={{clinic.id}}" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">
+                                                Book Other Time?
+                                          </a>
+                                    </div>
                               </form>
                         {% endfor %}
                         <div class="sticky top-[100px] bg-white rounded-xl px-4 py-8 flex flex-col items-center border border-[#CACBE6] space-y-4">
@@ -439,10 +454,10 @@
                               <p class="text-xl font-medium text-[#151E2C] Private outfit-font text-center">Book an Appointment</p>     
                               <p class="text-center text-sm text-[#111111]">Discover the best doctor, clinic & hospital in city nearest to you, Discover the best doctor, clinic & hospital in city nearest to  you, clinic & hospital in city nearest to you.</p>
                               <div class="flex items-center gap-2 flex-wrap justify-center !mt-6">
-                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="block font-medium text-white rounded-md bg-[#05d57c] px-6 py-2.5 text-md cursor-pointer">
+                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}&mode=Online" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#05d57c] text-white outfit-font whitespace-nowrap">
                                           <p class="whitespace-nowrap">Consult Online</p>
                                     </a>
-                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="block font-medium text-white rounded-md bg-[#0555e9] px-6 py-2.5 text-md cursor-pointer">
+                                    <a href="{% url 'BookAppointmentPage' %}?doctor={{doctor.slug}}" class="flex-1 text-sm text-center block px-9 py-2 rounded-md bg-[#0555e9] text-white outfit-font whitespace-nowrap">
                                           <p class="whitespace-nowrap ">Book Appointment</p>
                                     </a>
                               </div>
