@@ -214,7 +214,7 @@ class Doctor(models.Model):
                         <span>
                             <p style="margin:0;padding:0;font-size:16px">Dr. {self.name}</p>
                             <p style="margin:0;padding:0;font-size:13px;font-weight:400;color:black">{self.mobile_number}</p>
-                            {f"<span style='margin-top:5px;display:flex;gap:5px;'>{''.join(labels)}</span>" if len(labels) > 0 else ''}
+                            {f"<span style='margin-top:5px;display:flex;gap:5px;flex-wrap:wrap;'>{''.join(labels)}</span>" if len(labels) > 0 else ''}
                         </span>
                     </div>"""
         return mark_safe(div)

@@ -96,7 +96,10 @@ class DoctorAdmin(admin.ModelAdmin):
         'is_recommended',
         'created_at',
     ]
-    search_fields = ['id', 'email', 'name', 'heading', 'mobile_number']
+    search_fields = ['id', 'name', 'heading', 'mobile_number']
+    list_filter = [
+        'doctor_hospital_timeslots__hospital'
+    ]
 
     inlines = [
         DoctorDiseasesSpecialityInline,
