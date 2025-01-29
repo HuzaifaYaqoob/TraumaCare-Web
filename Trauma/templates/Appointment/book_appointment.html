@@ -112,7 +112,7 @@
                             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
                                 {% for doct_h in hospitals %}
                                     <div class="gap-3 items-start border border-[#CACBE6] rounded-lg flex min-w-[200px] max-w-[700px] w-full p-2">
-                                        <a href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{doct_h.hospital.profile_image.file.url}}');"></a>
+                                        <a href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}" class="w-[70px] h-[70px] rounded-full bg-center bg-no-repeat bg-cover" style="background-image: url('{{doct_h.hospital.profile_image}}');"></a>
                                         <div class="flex-1 space-y-0.5">
                                             <div class="flex items-center justify-between">
                                                 <a class="text-[#151E2C] line-clamp-1 text-xl font-medium outfit-font" href="?doctor={{doctor.slug}}&hospital={{doct_h.id}}">{{doct_h.hospital.name}}</a>
@@ -290,7 +290,7 @@
                                         <div class="bg-center w-[86px] bg-cover bg-no-repeat" style="background-image: url({{doct.profile_image}});"></div>
                                         <div class="py-2 pr-3 flex-1">
                                             <p class="text-md font-medium text-[#151E2C] outfit-font line-clamp-1">Dr. {{doct.name}}</p>
-                                            <p class="text-[#111111] text-xs outfit-font line-clamp-1">{{doct.heading}}</p>
+                                            <p class="text-[#111111] text-xs outfit-font line-clamp-1">{{doct.full_heading}}</p>
                                             <p class="text-[#05D57C] text-[23px] outfit-font font-semibold italic flex items-center gap-1">
                                                 {{doct.fee_range.0}} 
                                                 <span class="font-medium text-[#151E2C] text-xs">PKR</span>

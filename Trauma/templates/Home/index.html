@@ -13,11 +13,11 @@
     }
 </style>
 
+{% comment %} {% include  'Components/Home/DarkThemeHeroSection.html' %} {% endcomment %}
 <main class="px-4 sm:px-6 md:px-8 pb-8 sm:pb-10 md:pb-12 space-y-10 md:space-y-16">
     <section>
         <div class="max-w-[1500px] mx-auto rounded-2xl md:rounded-3xl bg-[#151E2C] flex items-center gap-10 lg:gap-5 lg:flex-row flex-col pb-10 sm:pb-12 lg:pb-16 p-6 sm:p-8 md:p-10 lg:p-12">
             <div class="flex-1 space-y-4">
-                {% comment %} <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] xl:text-[50px] capitalize lg:text-[42px] md:text-[37px] text-[30px] font-extrabold line-clamp-3">Empowering Healthcare: Seamless <span class="text-[#2FC670]">AI Assistance</span> for <span class="text-[#2FC670]">Patients</span> and <span class="text-[#2FC670]">Professionals</span>.</h1> {% endcomment %}
                 <h1 class="TC__coiny__heading bg-clip-text text-transparent bg-gradient-to-r from-[#EF0F77] to-[#F94C42] text-[22px] xl:text-[55px] capitalize lg:text-[42px] md:text-[37px] font-extrabold line-clamp-3">AI-Powered Health: Virtual Consultations and <img loading='lazy' src='{% static "assets/Images/underline_compressed.png" %}' class='w-0 md:w-[150px] absolute inline transform translate-y-[63px] rotate-[-5deg] translate-x-[-10px]' />24/7 Intelligent Care.</h1>
                 <p class="text-sm sm:text-md lg:text-lg text-white line-clamp-3 outfit-font font-[300]">Seamlessly connect with top-rated healthcare professionals, book appointments, purchase medicines, and access essential services with advanced <span MainChatWidgetChatBotIcon class="text-[#2FC670] font-semibold chatWidgetBotIcon cursor-pointer select-none">AI Assistance</span>.</p>
                 <div class="flex gap-3 items-center flex-wrap ">
@@ -27,7 +27,6 @@
                 </div>
             </div>
             <div class="max-w-[500px] w-full lg:items-center lg:justify-end lg:flex hidden">
-                {% comment %} {% include 'Components/SVG/AIBot.html' %} {% endcomment %}
                 <img class="max-h-[400px] mx-auto h-auto sm:max-h-[440px] max-w-[300px] sm:max-w-[340px] w-auto" src="{% static 'assets/Images/traumacareAIcare/ai_bot.png' %}" alt="TraumaCare | Find Best Doctors Online & Buy Medicine Online">
             </div>
         </div>
@@ -44,14 +43,6 @@
                 <div class="hidden sm:block h-[36px] w-[1px] bg-[#CACBE6]"></div>
                 <div class="hidden sm:flex gap-3 flex-1 h-full" onclick="specialities_drop()">
                     <input name='speciality' class="h-full outline-none text-[#151E2C] placeholder-[#151E2C] text-[15px] rounded-md px-2 flex-1 w-full outfit-font font-[300]" id="SpecialitiesInput" placeholder="Specialities"></input>
-                    <!-- <span class="absolute h-full flex items-center justify-center top-0 right-[12px] ">
-                        <svg class="z-50 transition_2s specialities_drop_svg h-[14px] w-[14px] fill-[#0A1C4B] " xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path d="M233.4 406.6c12.5 12.5 32.8 12.5 45.3 0l192-192c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0L256 338.7 86.6 169.4c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3l192 192z"/></svg>
-                    </span>
-                    <div class="w-full rounded-[8px] absolute transition_2s left-0 right-0 top-[60px] bg-white border py-[8px] border-[#CECDD1] hidden specialities_drop_div max-h-[260px] overflow-auto">
-                        {% for speciality in specialities %}
-                            <p class="py-[9px] text-sm text-[#0A1C4B] px-[16px] py-3 hover:bg-[#24D0D0] hover:text-white cursor-pointer transition-all dropdown-item transition z-50 relative" slug='{{speciality.slug}}' onclick="SepcialitiesDropdownFun(this)">{{speciality.name}}</p>
-                        {% endfor %}
-                    </div> -->
                 </div>
                 <div class="hidden sm:block h-[36px] w-[1px] bg-[#CACBE6]"></div>
                 <div class="flex-[2] h-full ">

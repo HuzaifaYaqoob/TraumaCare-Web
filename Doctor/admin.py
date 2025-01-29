@@ -238,7 +238,7 @@ class DoctorTimeSlotsAdmin(admin.ModelAdmin):
 
 @admin.register(DoctorReview)
 class DoctorReviewAdmin(admin.ModelAdmin):
-    list_display = ['id']
+    list_display = ['user', 'review', 'is_active', 'created_at']
 
 
 @admin.register(DoctorWithHospital)

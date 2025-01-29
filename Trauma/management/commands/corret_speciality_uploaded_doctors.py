@@ -14,7 +14,7 @@ import json
 from Authentication.models import User
 from Profile.models import Profile
 
-from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots, DoctorEducation, DoctorDiseasesSpeciality, DoctorSpeciality, DoctorOnlineAvailability, DoctorService
+from Doctor.models import Doctor, DoctorReview, DoctorWithHospital, DoctorTimeSlots, DoctorEducation, DoctorDiseasesSpeciality, DoctorSpeciality, DoctorOnlineAvailability, DoctorService
 from Hospital.models import Hospital, HospitalLocation
 from Trauma.models import Speciality, Disease, City, Service
 
@@ -37,50 +37,45 @@ class Command(BaseCommand):
 
     def handle(self, *args, **options):
         # with open('https://traumacare.blr1.digitaloceanspaces.com/static/uniqueDoctors.json')
-        total_users = User.objects.all().count()
-        counter = 0
-        Udata = {'available_days' : 0}
-        with open('Files/uniqueDoctors.json' , 'r') as input_file:
-            reader = json.load(input_file)
-            for doctor_id, doctor_obj in reader.items():
-                # print(doctor_obj['profile'])
-                services = doctor_obj['services']
-                if type(services) == dict:
-                    services = services['name']
-                    services = [i.strip() for i in services.split(',')]
-                else:
-                    services = []
 
-                name = doctor_obj['name']
-                name = name.replace('Dr. ', '')
-                
+        doctors = Doctor.objects.filter(desc = '')
+        for doctor in doctors:
+            description = f"Dr. {doctor.name} is a dedicated {','.join([sp.name for sp in doctor.specialities[:4]])} with {doctor.years_of_experience} years of experience in {','.join([sp.name for sp in doctor.diseases[:4]])}. Passionate about patient care, {'He' if not doctor.user.gender or doctor.user.gender == 'Male' else 'She'} is committed to providing compassionate, evidence-based treatment. Dr. {doctor.name} practices at {','.join([h.hospital.name for h in doctor.doctor_hospital_timeslots.all()])} and is also available for online consultations. For appointments, call 03400193324."
+            print(description)
+            doctor.desc = description
+            doctor.save()
+        print(doctors.count())
+        
+        # total_users = User.objects.all().count()
+        # counter = 0
+        # Udata = {'available_days' : 0}
+        # with open('Files/uniqueDoctors.json' , 'r') as input_file:
+        #     reader = json.load(input_file)
+        #     for doctor_id, doctor_obj in reader.items():
+        #         # print(doctor_obj['profile'])
 
-                try:
-                    doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=2), pmdc_id = doctor_obj['pmdc_id'], heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations'])
-                except Doctor.MultipleObjectsReturned:
-                    if name not in Udata:
-                        Udata[name] = 1
-                    else:
-                        Udata[name] += 1
-                    continue
-                except Exception as err:
-                    # print(f'{err} :: {name}')
-                    continue
+        #         name = doctor_obj['name']
+        #         name = name.replace('Dr. ', '')
+
+        #         try:
+        #             doctor_instance = Doctor.objects.get(name = name, created_at__date__gte=datetime.now() - timedelta(days=2), pmdc_id = doctor_obj['pmdc_id'], heading = doctor_obj['edu_degrees'] if doctor_obj['edu_degrees'] else doctor_obj['specializations'])
+        #         except Doctor.MultipleObjectsReturned:
+        #             if name not in Udata:
+        #                 Udata[name] = 1
+        #             else:
+        #                 Udata[name] += 1
+        #             continue
+        #         except Exception as err:
+        #             # print(f'{err} :: {name}')
+        #             continue
             
-                print(services)
-                for service in services:
-                    DoctorService.objects.get_or_create(
-                        service = Service.objects.get_or_create(name = service)[0],
-                        doctor = doctor_instance
-                    )
-                # print(json.dumps(doctor_obj))
-                # print(doctor_instance.desc)
-                # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
+        #         print(doctor_instance.name)
+        #         # doctor_instance.desc = doctor_obj['profile'] if doctor_obj['profile'] else ''
 
-                print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
-                total_users += 1
-                counter += 1
-            # print(Udata)
+        #         print(f'{counter}/{len(reader)} Added ::::: ---->>  {name} Saved')
+        #         total_users += 1
+        #         counter += 1
+        #     # print(Udata)
         self.stdout.write(self.style.SUCCESS('Successfully added'))
 
 

@@ -42,15 +42,16 @@ def shortCodeRedirect(request, short_code_id):
 def homePage(request):
     context = {}
 
-    doctors = Doctor.objects.filter(
-        is_active = True,
-        is_deleted = False,
-        is_blocked = False,
-    ).prefetch_related(
+    doctors = Doctor.objects.prefetch_related(
         'doctor_medias',
         'doctor_reviews',
         'doctor_available_days',
-    )
+    ).filter(
+        is_active = True,
+        is_deleted = False,
+        is_blocked = False,
+        doctor_timeslots__isnull=False
+    ).order_by('?')
 
     context['doctors'] = doctors[:8]
     context['blog_posts'] = BlogPost.objects.annotate(
