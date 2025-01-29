@@ -176,6 +176,12 @@ def email_view(request):
 def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
 
+def PrivacyPolicyPage(request):
+    return render(request, 'Feed/feedPage.html')
+
+def TermsAndConditions(request):
+    return render(request, 'Feed/feedPage.html')
+
 def SpecialitiesPage(request):
     return render(request, 'Speciality/specialities.html')
 

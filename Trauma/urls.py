@@ -4,7 +4,7 @@ from django.urls import path
 from django.contrib.auth.decorators import login_required
 
 
-from .views import homePage, shortCodeRedirect, onboarding, chatXpo_redirection, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
+from .views import homePage, TermsAndConditions, PrivacyPolicyPage, shortCodeRedirect, onboarding, chatXpo_redirection, test, emergencyPage, email_view, searchFilterPage, CartPage, FeedPage, SpecialitiesPage, SingleSpecialityPage, DiseasesViewAllPage, SingleDiseasePage
 
 urlpatterns = [
     path('', homePage, name='homePage'),
@@ -16,6 +16,8 @@ urlpatterns = [
     path('search/', searchFilterPage, name='searchFilterPage'),
     path('cart/', CartPage, name='CartPage'),
     path('feed/', FeedPage, name='FeedPage'),
+    path('privacy-policy/', PrivacyPolicyPage, name='PrivacyPolicyPage'),
+    path('terms-and-conditions/', TermsAndConditions, name='TermsAndConditions'),
 
     path('speciality/', SpecialitiesPage, name='SpecialitiesPage'),
     path('speciality/view/<str:speciality_slug>/', SingleSpecialityPage, name='SingleSpecialityPage'),
