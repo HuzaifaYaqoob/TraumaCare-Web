@@ -462,30 +462,31 @@
 {% endblock baseBody %}
 
 
-<script>
-      let intervals = document.querySelectorAll('.slot-time-interval-radio')
-      let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
-      slots.forEach((slot) => {
-            slot.addEventListener('change', (e) => {
-                  let input = e.target
-                  let slot_card = input.closest('.singleSlotCard')
-                  let slot_input = slot_card.querySelector('input[name="selected_time"]')
-                  slot_input.checked = true
+{% block main_base_script %}
+      <script>
+            let intervals = document.querySelectorAll('.slot-time-interval-radio')
+            console.log(intervals)
+            let slots = document.querySelectorAll('.singleSlotCard input.dr-appointment-slot-card-input')
+            slots.forEach((slot) => {
+                  slot.addEventListener('change', (e) => {
+                        let input = e.target
+                        let slot_card = input.closest('.singleSlotCard')
+                        let slot_input = slot_card.querySelector('input[name="selected_time"]')
+                        slot_input.checked = true
+                  })
             })
-      })
 
-      intervals.forEach((interval, index) => {
-            if (index == 0) {
+            intervals.forEach((interval, index) => {
                   interval.checked = true
                   let slot_card = interval.closest('.singleSlotCard')
                   let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
                   slot_input.checked = true
-            }
-            interval.addEventListener('change', (e) => {
-                  let input = e.target
-                  let slot_card = input.closest('.singleSlotCard')
-                  let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
-                  slot_input.checked = true
+                  interval.addEventListener('change', (e) => {
+                        let input = e.target
+                        let slot_card = input.closest('.singleSlotCard')
+                        let slot_input = slot_card.querySelector('input.dr-appointment-slot-card-input')
+                        slot_input.checked = true
+                  })
             })
-      })
-</script>
+      </script>
+{% endblock main_base_script %}
