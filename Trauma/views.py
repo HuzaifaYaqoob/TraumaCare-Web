@@ -177,7 +177,7 @@ def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
 
 def PrivacyPolicyPage(request):
-    return render(request, 'Feed/feedPage.html')
+    return render(request, 'Terms/privacy-policy.html')
 
 def TermsAndConditions(request):
     return render(request, 'Feed/feedPage.html')
