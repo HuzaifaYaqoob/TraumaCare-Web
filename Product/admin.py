@@ -96,6 +96,8 @@ class ProductStockAdmin(admin.ModelAdmin):
     search_fields = ['product__name', 'location__name']
     list_display = ['product', 'location', 'stock', 'price', 'discount', 'is_active']
 
+    raw_id_fields = ['product', 'location']
+
     def stock(self, obj):
         return f'{obj.quantity} / {obj.sold}'
 
