@@ -67,7 +67,7 @@ def getDoctorPatientsForDropdown(request):
     )
 
     return Response({
-        'data' : doctor_dashboard_serializer.DoctorPatientSerializer_Dropdown(appointments, many=True).data
+        'data' : doctor_dashboard_serializer.DoctorPatientSerializer_Dropdown(profiles, many=True).data
     }, status=status.HTTP_200_OK)
 
 
