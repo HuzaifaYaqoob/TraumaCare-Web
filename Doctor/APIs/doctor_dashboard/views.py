@@ -26,7 +26,7 @@ def getHomePageDoctors(request):
     return Response({"data" : DeviceHomePageDoctorsSerializer(doctors, many=True).data}, status=status.HTTP_200_OK)
 
 @api_view(['Get'])
-@permission_classes([AllowAny])
+@permission_classes([IsAuthenticated])
 def getDoctorProfile(request, doctorId):
     try:
         doctor = Doctor.objects.get(
