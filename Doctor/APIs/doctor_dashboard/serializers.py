@@ -125,9 +125,15 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
 
 
 class DoctorPatientSerializer_Dropdown(serializers.ModelSerializer):
+    img = serializers.SerializerMethodField()
+
+    def get_img(self, profile):
+        if profile.profile_image:
+            return f'{profile.image_full_path}'
     class Meta:
         model = Profile
         fields = [
             'id',
-            'full_name'
+            'full_name',
+            'img'
         ]
