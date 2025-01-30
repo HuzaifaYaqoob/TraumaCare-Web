@@ -74,7 +74,11 @@ class DoctorAppointmentPatient(serializers.ModelSerializer):
         ]
 
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
-    patient = DoctorAppointmentPatient()
+    patient = serializers.SerializerMethodField()
+
+    def get_patient(self, appointment):
+        return DoctorAppointmentPatient(appointment.appointment_group.patient_profile).data
+        
     class Meta:
         model = Appointment
         fields = [
