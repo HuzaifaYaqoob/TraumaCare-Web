@@ -11,7 +11,7 @@ urlpatterns = [
     path('get-doctor-appointments/', doctor_dashboard_apis.getDoctorAppointments),
 
 
-    path('get-doctor-patients-for-dropdown/', doctor_dashboard_apis.getDoctorAppointments),
+    path('get-doctor-patients-for-dropdown/', doctor_dashboard_apis.getDoctorPatientsForDropdown),
 
     path('get-home-page-doctors/', doctor_dashboard_apis.getHomePageDoctors),
     path('get-doctor-hospital-days/<str:hospitalId>/', doctor_dashboard_apis.getDoctorHospitalDays),
