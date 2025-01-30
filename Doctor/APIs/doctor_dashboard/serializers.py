@@ -119,5 +119,6 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
             'patient',
             'location',
             'hospital',
-            'gender'
+            'gender',
+            'created_at'
         ]
