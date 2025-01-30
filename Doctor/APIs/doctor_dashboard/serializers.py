@@ -125,6 +125,7 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
 
 
 class DoctorPatientSerializer_Dropdown(serializers.ModelSerializer):
+    name = serializers.CharField(source='full_name')
     img = serializers.SerializerMethodField()
 
     def get_img(self, profile):
@@ -134,6 +135,6 @@ class DoctorPatientSerializer_Dropdown(serializers.ModelSerializer):
         model = Profile
         fields = [
             'id',
-            'full_name',
+            'name',
             'img'
         ]
