@@ -21,33 +21,42 @@
                 <div>
                     {% if user_shipping_addresses|length > 0 %}
                         {% for address in user_shipping_addresses %}
-                            <div>
-                                <input {% if forloop.counter == 1 %}checked{% endif %} type="radio" name="selected_shipping_address" value="{{address.id}}" id="{{address.id}}">
-                                <label for="{{address.id}}" class="block cursor-pointer border px-3 py-2 rounded-lg">
-                                    <p>{{address.full_name}}</p>
-                                    <p>{{address.mobile_number}}</p>
-                                    <p>{{address.address}}</p>
-                                </label>
+                            <div class="space-y-2">
+                                <!-- <input {% if forloop.counter == 1 %}checked{% endif %} type="radio" name="selected_shipping_address" value="{{address.id}}" id="{{address.id}}"> -->
+                                <!-- <label for="{{address.id}}" class="block cursor-pointer border px-3 py-2 rounded-lg"></label> -->
+                                <h3 class="outfit-font text-[#151E2C] capitalize text-lg sm:text-xl font-semibold tracking-wide">Your Shipping Address</h3>
+                                <div class="px-3 sm:px-5 py-2 sm:py-4 rounded-lg bg-[#f4f6f9] sticky top-[140px]">
+                                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                                        <p class="text-[#151E2C] outfit-font font-medium text-xs sm:text-sm">{{address.full_name}}</p>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3 border-b border-[#CACBE6]">
+                                        <p class="text-[#151E2C] outfit-font font-medium text-xs sm:text-sm">{{address.mobile_number}}</p>
+                                    </div>
+                                    <div class="flex items-center justify-between py-3">
+                                        <p class="text-[#0555E9] outfit-font font-medium text-xs sm:text-sm">{{address.address}}</p>
+                                    </div>
+                                </div>
+                                <button type="button" id="addAddressBtn" class="border border-dashed w-full text-center py-2.5 px-3 bg-blue-50 text-blue-600 border-blue-500 cursor-pointer outfit-font rounded-lg text-sm sm:text-[16px] !mt-4">+ Add Another Address</button>
                             </div>
                         {% endfor %}
-                    {% else %}
-                        <div>
-                            <div class="flex items-center gap-3">
-                                <div class="w-full flex-1">
-                                    <label for="name" class="text-[#507EC2] font-medium text-sm">Name <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" value="{{request.user.full_name}}" name="shipping_name" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="Your/Reciever Name" id="name">
-                                </div>
-                                <div class="w-full flex-1">
-                                    <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
-                                    <input type="text" required="" name="shipping_phone" value="{{request.user.mobile_number}}" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="03123456789" id="phone">
-                                </div>
+                    {% endif %}
+                
+                    <div id="newAddressForm" {% if user_shipping_addresses|length > 0 %}style="display: none;"{% endif %}>
+                        <div class="flex items-center gap-3">
+                            <div class="w-full flex-1">
+                                <label for="name" class="text-[#507EC2] font-medium text-sm">Name <span class="text-[#F02149]">*</span></label>
+                                <input type="text" required="" value="{{request.user.full_name}}" name="shipping_name" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="Your/Reciever Name" id="name">
                             </div>
-                            <div class="w-full flex-1 mt-2">
-                                <label for="address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
-                                <input type="text" required="" name="shipping_address" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
+                            <div class="w-full flex-1">
+                                <label for="phone" class="text-[#507EC2] font-medium text-sm">Mobile Number <span class="text-[#F02149]">*</span></label>
+                                <input type="text" required="" name="shipping_phone" value="{{request.user.mobile_number}}" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="03123456789" id="phone">
                             </div>
                         </div>
-                    {% endif %}
+                        <div class="w-full flex-1 mt-2">
+                            <label for="address" class="text-[#507EC2] font-medium text-sm">Street Address <span class="text-[#F02149]">*</span></label>
+                            <input type="text" required="" name="shipping_address" class="outline-none border-0 mt-1 w-full bg-blue-50 rounded-lg px-4 py-3 placeholder:text-[#6D8CBA] font-medium text-sm placeholder-[#6D8CBA] placeholder:font-light" placeholder="e.g. House No. 6, Street No. 2, Block A, Example street Lahore" id="address">
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="lg:max-w-[410px] xl:max-w-[460px] w-full">
