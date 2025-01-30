@@ -5,6 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.authtoken.models import Token
 
 
+from django.contrib.auth import logout
+
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from django.conf import settings
@@ -12,6 +14,7 @@ from Constants.Emails.OtpEmail import sendOtpEmail
 import random
 
 from Pharmacy.models import Store
+from Doctor.models import Doctor
 
 # Create your views here.
 
@@ -48,6 +51,21 @@ def PharmacyLoginPage(request):
         return redirect(f'{settings.PHARMACY_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}&pharmacy_id={pharmacy.id}&pharmacy_name={pharmacy.name}')
 
     messages.info(request, 'Login with your Pharmacy Account')
+    return redirect(f'/auth/login/?next={request.path}')
+
+
+def DoctorLoginPage(request):
+    if request.user.is_authenticated:
+        try:
+            doctor = Doctor.objects.get(user = request.user)
+        except:
+            logout(request)
+            messages.error(request, 'Please register as Doctor first')
+            return redirect(f'/auth/login/?next={request.path}')
+        
+        return redirect(f'{settings.DOCTOR_TRAUMACARE_URL}/auth/auto-login-redirection/?user_id={request.user.id}&auth_token={request.user.auth_token}&doctor_id={doctor.id}&doctor_name={doctor.name}')
+
+    messages.info(request, 'Login with your Doctor Account')
     return redirect(f'/auth/login/?next={request.path}')
 
 def TraumacareMeetLoginPage(request):

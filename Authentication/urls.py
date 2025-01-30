@@ -2,12 +2,13 @@
 from django.urls import path
 
 
-from .views import LoginPage, PharmacyLoginPage, HospitalLoginPage, TraumacareMeetLoginPage, ResetPasswordPage, ChangePasswordHandler, RegisterPage, HandleJoin, ForgotPasswordPage, ForgotPasswordHandler, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection, CreateNewBusinessProfileRedirection
+from .views import LoginPage, PharmacyLoginPage,DoctorLoginPage, HospitalLoginPage, TraumacareMeetLoginPage, ResetPasswordPage, ChangePasswordHandler, RegisterPage, HandleJoin, ForgotPasswordPage, ForgotPasswordHandler, HandleLogin, HandleLogout, OtpVerificationPage, handleOtp, AutoLoginRedirection, CreateNewBusinessProfileRedirection
 
 urlpatterns = [
     path('login/', LoginPage, name='LoginPage'),
     path('hospital_login/', HospitalLoginPage, name='HospitalLoginPage'),
     path('pharmacy_login/', PharmacyLoginPage, name='PharmacyLoginPage'),
+    path('doctor_login/', DoctorLoginPage, name='DoctorLoginPage'),
     path('meet_login/', TraumacareMeetLoginPage, name='TraumacareMeetLoginPage'),
     path('join/', RegisterPage, name='RegisterPage'),
     path('forgot-password/', ForgotPasswordPage, name='ForgotPasswordPage'),
