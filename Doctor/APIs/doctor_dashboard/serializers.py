@@ -91,8 +91,8 @@ class DoctorAppointmentHospital(serializers.ModelSerializer):
         
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
     location = serializers.CharField(source='appointment_location')
-    hospital = DoctorAppointmentHospital()
     patient = serializers.SerializerMethodField()
+    doc_hospital = DoctorAppointmentHospital()
 
     def get_patient(self, appointment):
         return DoctorAppointmentPatient(appointment.appointment_group.patient_profile).data
@@ -104,5 +104,5 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
             'status',
             'patient',
             'location',
-            'hospital',
+            'doc_hospital',
         ]
