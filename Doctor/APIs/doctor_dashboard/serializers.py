@@ -94,5 +94,5 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
             'id',
             'status',
             'patient',
-            'location'
+            # 'location'
         ]
