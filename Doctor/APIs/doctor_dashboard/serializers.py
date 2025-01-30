@@ -122,3 +122,12 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
             'gender',
             'created_at'
         ]
+
+
+class DoctorPatientSerializer_Dropdown(serializers.ModelSerializer):
+    class Meta:
+        model = Profile
+        fields = [
+            'id',
+            'full_name'
+        ]

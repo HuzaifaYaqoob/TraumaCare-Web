@@ -12,6 +12,7 @@ from django.db.models import Q
 
 from Appointment.models import Appointment, AppointmentGroup
 from datetime import datetime, timedelta
+from Profile.models import Profile
 
 @api_view(['Get'])
 @permission_classes([AllowAny])
@@ -53,6 +54,20 @@ def getDoctorAppointments(request):
 
     return Response({
         'data' : doctor_dashboard_serializer.DoctorDashboardAppointmentsSerializer(appointments, many=True).data
+    }, status=status.HTTP_200_OK)
+
+@api_view(['Get'])
+@permission_classes([IsAuthenticated])
+def getDoctorPatientsForDropdown(request):
+    doctor = request.user.has_doctor_profile
+    profiles = Profile.objects.filter(
+        profile_appointments__appointments__doctor = doctor,
+        is_active = True,
+        is_deleted = False
+    )
+
+    return Response({
+        'data' : doctor_dashboard_serializer.DoctorPatientSerializer_Dropdown(appointments, many=True).data
     }, status=status.HTTP_200_OK)
 
 
