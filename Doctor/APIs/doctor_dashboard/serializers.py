@@ -72,7 +72,7 @@ class DoctorAppointmentPatient(serializers.ModelSerializer):
 
     def get_img(self, profile):
         if profile.profile_image:
-            return f'{profile.profile_image}'
+            return f'{profile.image_full_path}'
 
     class Meta:
         model = Profile
@@ -93,5 +93,6 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
         fields = [
             'id',
             'status',
-            'patient'
+            'patient',
+            'location'
         ]
