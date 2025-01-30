@@ -5,6 +5,7 @@ from rest_framework import serializers
 from django.conf import settings
 from Doctor.models import Doctor, DoctorWithHospital
 from datetime import datetime, timedelta
+from Appointment.models import Appointment
 
 class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
     sp = serializers.SerializerMethodField()
@@ -62,4 +63,12 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
             'name',
             'sp',
             'img',
+        ]
+    
+
+class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Appointment
+        fields = [
+            'id',
         ]

@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
-from Doctor.APIs.doctor_dashboard.serializers import DeviceHomePageDoctorsSerializer, DoctorSingleProfileGet
+from Doctor.APIs.doctor_dashboard.serializers import doctor_dashboard_serializer
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from django.db.models import Q
 
@@ -23,7 +23,7 @@ def getHomePageDoctors(request):
         is_blocked = False
     ).distinct('id')
 
-    return Response({"data" : DeviceHomePageDoctorsSerializer(doctors, many=True).data}, status=status.HTTP_200_OK)
+    return Response({"data" :  doctor_dashboard_serializer.DeviceHomePageDoctorsSerializer(doctors, many=True).data}, status=status.HTTP_200_OK)
 
 @api_view(['Get'])
 @permission_classes([IsAuthenticated])
@@ -38,7 +38,7 @@ def getDoctorProfile(request, doctorId):
     except Exception as err:
         return Response({"error" : str(err), 'message' : 'Invalid Doctor ID'}, status=status.HTTP_404_NOT_FOUND)
 
-    return Response({**DoctorSingleProfileGet(doctor).data}, status=status.HTTP_200_OK)
+    return Response({**doctor_dashboard_serializer.DoctorSingleProfileGet(doctor).data}, status=status.HTTP_200_OK)
 
 @api_view(['Get'])
 @permission_classes([IsAuthenticated])
@@ -52,7 +52,7 @@ def getDoctorAppointments(request):
     )
 
     return Response({
-        'data' : DoctorSingleProfileGet(doctor).data
+        'data' : doctor_dashboard_serializer.DoctorDashboardAppointmentsSerializer(appointments, many=True).data
     }, status=status.HTTP_200_OK)
 
 
