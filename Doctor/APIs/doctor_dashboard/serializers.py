@@ -68,12 +68,18 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
 
 class DoctorAppointmentPatient(serializers.ModelSerializer):
     name = serializers.CharField(source='full_name')
-    
+    img = serializers.SerializerMethodField()
+
+    def get_img(self, profile):
+        if profile.profile_image:
+            return f'{profile.profile_image}'
+
     class Meta:
         model = Profile
         fields = [
             'id',
-            'name'
+            'name',
+            'img'
         ]
 
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
