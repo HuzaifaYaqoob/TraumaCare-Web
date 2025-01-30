@@ -18,6 +18,7 @@ urlpatterns = [
 
     path('v1/doctor/', include('Doctor.APIs.v1.urls') ),
     path('device/doctor/', include('Doctor.APIs.v2.urls') ),
+    path('doctor_dashboard/doctor/', include('Doctor.APIs.doctor_dashboard.urls') ),
 
     path('v1/hospital/', include('Hospital.APIs.v1.urls') ),
     path('v1/profile/', include('Profile.APIs.v1.urls') ),
