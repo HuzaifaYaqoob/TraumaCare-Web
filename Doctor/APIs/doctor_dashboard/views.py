@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
-from Doctor.APIs.v2.serializers import DeviceHomePageDoctorsSerializer, DoctorSingleProfileGet
+from Doctor.APIs.doctor_dashboard.serializers import DeviceHomePageDoctorsSerializer, DoctorSingleProfileGet
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from django.db.models import Q
 
@@ -46,6 +46,10 @@ def getDoctorAppointments(request):
     doctor = request.user.has_doctor_profile
     if not doctor:
         return Response({'message' : 'Invalid Doctor'}, status=status.HTTP_404_NOT_FOUND)
+    
+    appointments = Appointment.objects.filter(
+        doctor = doctor
+    )
 
     return Response({
         'data' : DoctorSingleProfileGet(doctor).data
