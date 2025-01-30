@@ -67,10 +67,13 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
         ]
 
 class DoctorAppointmentPatient(serializers.ModelSerializer):
+    name = serializers.CharField(source='full_name')
+    
     class Meta:
         model = Profile
         fields = [
             'id',
+            'name'
         ]
 
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
@@ -78,7 +81,7 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
 
     def get_patient(self, appointment):
         return DoctorAppointmentPatient(appointment.appointment_group.patient_profile).data
-        
+
     class Meta:
         model = Appointment
         fields = [
