@@ -98,6 +98,7 @@ class DoctorAppointmentHospital(serializers.ModelSerializer):
         ]
         
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
+    gender = serializers.CharField(source='appointment_group.patient_profile.user.gender')
     location = serializers.CharField(source='appointment_location')
     patient = serializers.SerializerMethodField()
     hospital = serializers.SerializerMethodField()
@@ -118,4 +119,5 @@ class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
             'patient',
             'location',
             'hospital',
+            'gender'
         ]
