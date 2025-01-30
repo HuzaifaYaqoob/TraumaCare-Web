@@ -6,6 +6,7 @@ from django.conf import settings
 from Doctor.models import Doctor, DoctorWithHospital
 from datetime import datetime, timedelta
 from Appointment.models import Appointment
+from Profile.models import Profile
 
 class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
     sp = serializers.SerializerMethodField()
@@ -67,15 +68,17 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
 
 class DoctorAppointmentPatient(serializers.ModelSerializer):
     class Meta:
-        model = Appointment
+        model = Profile
         fields = [
             'id',
         ]
 
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
+    patient = DoctorAppointmentPatient()
     class Meta:
         model = Appointment
         fields = [
             'id',
             'status',
+            'patient'
         ]
