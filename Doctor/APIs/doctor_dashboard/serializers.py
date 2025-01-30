@@ -48,16 +48,8 @@ class DoctorWithHospitalViewProfileSerializer(serializers.ModelSerializer):
         ]
 
 class DoctorSingleProfileGet(serializers.ModelSerializer):
-    sp = serializers.SerializerMethodField()
+    sp = serializers.CharField(source='heading')
     img = serializers.SerializerMethodField()
-    hospitals = serializers.SerializerMethodField()
-
-    def get_hospitals(self, doctor):
-        return DoctorWithHospitalViewProfileSerializer(DoctorWithHospital.objects.filter(doctor = doctor, is_deleted = False, is_active = True), many=True).data
-
-    def get_sp(self, doctor):
-        return doctor.heading
-
 
     def get_img(self, doctor):
         if doctor.profile_image:
@@ -67,17 +59,7 @@ class DoctorSingleProfileGet(serializers.ModelSerializer):
     class Meta:
         model = Doctor
         fields = [
-            'id',
             'name',
             'sp',
             'img',
-            'desc',
-            'hospitals',
         ]
-    
-
-    def to_representation(self, instance):
-        data = super().to_representation(instance)
-        data['exp'] = instance.years_of_experience
-        data['patients'] = 0
-        return data
