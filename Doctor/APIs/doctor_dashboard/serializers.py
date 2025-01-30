@@ -92,12 +92,14 @@ class DoctorAppointmentHospital(serializers.ModelSerializer):
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
     location = serializers.CharField(source='appointment_location')
     patient = serializers.SerializerMethodField()
-    hospital = DoctorAppointmentHospital()
+    hospital = serializers.SerializerMethodField()
 
     def get_patient(self, appointment):
         return DoctorAppointmentPatient(appointment.appointment_group.patient_profile).data
 
     def get_hospital(self, appointment):
+        if not appointment.doct_hospital:
+            return None
         return DoctorAppointmentHospital(appointment.doct_hospital).data
 
     class Meta:
