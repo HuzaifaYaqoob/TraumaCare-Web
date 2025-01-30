@@ -85,11 +85,16 @@ class DoctorAppointmentPatient(serializers.ModelSerializer):
 class DoctorAppointmentHospital(serializers.ModelSerializer):
     name = serializers.CharField(source='hospital.name')
     location = serializers.CharField(source='location.name')
+    img = serializers.SerializerMethodField()
+
+    def get_img(self, doctor_hospital):
+        return doctor_hospital.hospital.profile_image
     class Meta:
         model = DoctorWithHospital
         fields = [
             'name',
-            'location'
+            'location',
+            'img',
         ]
         
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
