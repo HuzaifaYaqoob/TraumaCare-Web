@@ -60,6 +60,8 @@ class OrderAdmin(admin.ModelAdmin):
         color = '#ffb300'
         if obj.order_status == 'SHIPPED':
             color = '#2cccff'
+        elif obj.order_status == 'PROCESSING':
+            color = '#00e200'
         elif obj.order_status == 'DELIVERED':
             color = '#00e200'
         elif obj.order_status == 'CANCELED':
