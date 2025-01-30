@@ -40,6 +40,15 @@ def getDoctorProfile(request, doctorId):
 
     return Response({**DoctorSingleProfileGet(doctor).data}, status=status.HTTP_200_OK)
 
+@api_view(['Get'])
+@permission_classes([IsAuthenticated])
+def getDoctorAppointments(request):
+    doctor = request.user.has_doctor_profile
+    if not doctor:
+        return Response({'message' : 'Invalid Doctor'}, status=status.HTTP_404_NOT_FOUND)
+
+    return Response({**DoctorSingleProfileGet(doctor).data}, status=status.HTTP_200_OK)
+
 
 @api_view(['Get'])
 @permission_classes([AllowAny])

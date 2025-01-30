@@ -160,7 +160,7 @@ class User(AbstractBaseUser, PermissionsMixin):
             is_blocked = False,
         )
         if doc_profiles.exists():
-            return True
+            return doc_profiles.first()
         else:
             return False
 
