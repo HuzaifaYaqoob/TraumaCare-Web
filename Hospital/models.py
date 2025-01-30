@@ -57,8 +57,8 @@ class Hospital(models.Model):
         ).last()
         if image:
             return image
-        print(settings.STATIC_URL + 'assets/Images/hospital_avatar.jpg')
-        return settings.STATIC_URL + 'assets/Images/hospital_avatar.jpg'
+        print(settings.STATIC_URL + 'assets/Images/hospital_avatar.png')
+        return settings.STATIC_URL + 'assets/Images/hospital_avatar.png'
 
     @property
     def cover_image(self):
