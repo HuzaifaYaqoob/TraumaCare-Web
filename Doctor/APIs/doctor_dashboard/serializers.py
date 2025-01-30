@@ -88,7 +88,6 @@ class DoctorAppointmentHospital(serializers.ModelSerializer):
     class Meta:
         model = DoctorWithHospital
         fields = [
-            'id',
             'name',
             'location'
         ]
