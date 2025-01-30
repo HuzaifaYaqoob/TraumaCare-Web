@@ -83,10 +83,14 @@ class DoctorAppointmentPatient(serializers.ModelSerializer):
         ]
 
 class DoctorAppointmentHospital(serializers.ModelSerializer):
+    name = serializers.CharField(source='hospital.name')
+    location = serializers.CharField(source='location.name')
     class Meta:
         model = DoctorWithHospital
         fields = [
             'id',
+            'name',
+            'location'
         ]
         
 class DoctorDashboardAppointmentsSerializer(serializers.ModelSerializer):
