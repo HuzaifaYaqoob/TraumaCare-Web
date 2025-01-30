@@ -57,9 +57,14 @@ class OrderAdmin(admin.ModelAdmin):
 
     @admin.display(description='Status')
     def order_status_labeled(self, obj):
+        if obj.order_status == 'PENDING': 
+            return obj.order_status
+
         color = '#ffb300'
-        if obj.order_status == 'SHIPPED':
+        if obj.order_status == 'PROCESSING':
             color = '#2cccff'
+        elif obj.order_status == 'SHIPPED':
+            color = '#00e200'
         elif obj.order_status == 'DELIVERED':
             color = '#00e200'
         elif obj.order_status == 'CANCELED':
