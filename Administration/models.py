@@ -5,13 +5,6 @@ from django.db import models
 import uuid
 from Authentication.models import User
 import re
-from rest_framework.authtoken.models import Token
-
-
-
-@admin.register(Token)
-class FilterTokenAdmin(admin.ModelAdmin):
-    search_fields = ['user__email','user__username']
 
 
 def convert_phone_number(phone_number):
