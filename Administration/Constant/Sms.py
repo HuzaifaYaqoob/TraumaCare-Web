@@ -57,6 +57,7 @@ def sendMessage(sms_instance, provider='Telenor'):
     corpsms = response_json.get('corpsms', None)
     sms_instance.response = str(response.content)
     if not corpsms:
+        sms_instance.is_deleted = True
         sms_instance.save()
         return False
 
