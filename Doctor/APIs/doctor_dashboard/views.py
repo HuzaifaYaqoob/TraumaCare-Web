@@ -6,7 +6,7 @@ from rest_framework.response import Response
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from rest_framework import status
 
-from Doctor.APIs.doctor_dashboard.serializers import doctor_dashboard_serializer
+from Doctor.APIs.doctor_dashboard import serializers as doctor_dashboard_serializer
 from Doctor.models import Doctor, DoctorWithHospital, DoctorTimeSlots
 from django.db.models import Q
 
