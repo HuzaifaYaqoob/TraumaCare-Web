@@ -176,11 +176,35 @@ def email_view(request):
 def FeedPage(request):
     return render(request, 'Feed/feedPage.html')
 
+def AboutUsPage(request):
+    return render(request, 'AboutUs.html')
+
+def ContactUsPage(request):
+    return render(request, 'ContactUs.html')
+
 def PrivacyPolicyPage(request):
     return render(request, 'Terms/privacy-policy.html')
 
+def DeliveryPolicyPage(request):
+    return render(request, 'Terms/DeliveryPolicy.html')
+
+def RefundPolicyPage(request):
+    return render(request, 'Terms/RefundPolicy.html')
+
+def PaymentTermsPage(request):
+    return render(request, 'Terms/PaymentTerms.html')
+
 def TermsAndConditions(request):
-    return render(request, 'Feed/feedPage.html')
+    return render(request, 'Terms/TermsAndConditions.html')
+
+def CancelationPolicy(request):
+    return render(request, 'Terms/CancelationPolicy.html')
+
+def Faqs(request):
+    return render(request, 'Terms/Faqs.html')
+
+def TermsOfUsePage(request):
+    return render(request, 'Terms/TermsOfUse.html')
 
 def SpecialitiesPage(request):
     return render(request, 'Speciality/specialities.html')
