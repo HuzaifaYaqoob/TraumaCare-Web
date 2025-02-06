@@ -65,6 +65,7 @@ def convert_to_html(content):
 def askChatXpo(user_query, previousQueries=[], instructions=True, onlyText=False, user=None, inputFunction=None):
     key = XpoKey.objects.filter(is_active=True, is_deleted=False).order_by('-token_used')[0]
     client = OpenAI(api_key=key.key)
+    # sk-a214fafd468e48639e937bbe46e7e4c1
     queries = [] or previousQueries
 
     my_query = {

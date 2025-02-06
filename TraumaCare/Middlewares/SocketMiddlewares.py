@@ -20,10 +20,13 @@ class TokenAuthMiddleware:
 
     async def __call__(self, scope, receive, send):
         query_string = scope['query_string'].decode('utf-8')
-        query_string = query_string.split('&')
         all_queries = {}
-        for q_str in query_string:
-            all_queries[q_str.split('=')[0]] = q_str.split('=')[1]
+        if query_string:
+            query_string = query_string.split('&')
+            for q_str in query_string:
+                q_str = q_str.split('=')
+                if len(q_str) > 0:
+                    all_queries[q_str[0]] = q_str[1]
 
         if 'token' in all_queries:
             scope['user'] = await get_user(all_queries['token'])

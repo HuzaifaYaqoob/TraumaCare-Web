@@ -1,4 +1,7 @@
 {% load static %}
+{% if request.user.is_authenticated %}
+    <span class="hidden" UserAuthToken="{{request.user.auth_token}}"></span>
+{% endif %}
 <div class='sticky top-0 z-50'>
     <div class="w-full px-4 bg-[#050403] py-2 relative overflow-hidden" id="appointment-section">
         <div class="flex items-center justify-center mx-auto gap-5 relative z-40 bg-transparent outfit-font">
