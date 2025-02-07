@@ -255,11 +255,11 @@ try:
 except:
     pass
 
-# if IS_LOCAL_SERVER == '0':
-#     try:
-#         from .do_spaces_settings import *
-#     except:
-#         pass
+if IS_LOCAL_SERVER == '0':
+    try:
+        from .do_spaces_settings import *
+    except:
+        pass
 
 
 try:
