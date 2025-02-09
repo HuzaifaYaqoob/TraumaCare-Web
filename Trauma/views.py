@@ -295,6 +295,11 @@ def searchFilterPage(request):
     if len(disease_slugs) > 0:
         query['doctor_disease_specialities__disease__slug__in'] = disease_slugs
 
+    if '' in hospital_slugs:
+        hospital_slugs.remove('')
+    if len(hospital_slugs) > 0:
+        query['doctor_hospital_timeslots__hospital__slug__in'] = hospital_slugs
+
     if '' in speciality_slugs:
         speciality_slugs.remove('')
     if len(speciality_slugs) > 0:

@@ -108,7 +108,7 @@ def hospitals_context_processor(request):
         is_active = True,
         is_deleted = False,
         is_blocked = False,
-    )[:20].values('name', 'id')
+    )[:20].values('name', 'id', 'slug')
     return {
         'hospitals' : hospitals,
     }

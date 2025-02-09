@@ -16,7 +16,7 @@ class DeviceHomePageDoctorsSerializer(serializers.ModelSerializer):
 
     def get_img(self, doctor):
         if doctor.profile_image:
-            return f'{settings.THIS_APPLICATION_URL}{doctor.profile_image}'
+            return f'{doctor.profile_image}'
 
 
     class Meta:

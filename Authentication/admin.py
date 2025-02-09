@@ -10,6 +10,11 @@ from django.conf import settings
 from django.contrib.auth.admin import UserAdmin
 from Profile.models import Profile
 
+from rest_framework.authtoken.models import Token
+
+
+
+
 COLORS = {
     "Patient" : 'Black',
     "Doctor" : '#0755E9',
@@ -18,6 +23,13 @@ COLORS = {
     "Lab" : "#F8DB48",
     "Private_Clinic" : '#A737D5',
 }
+
+
+
+@admin.register(Token)
+class DrfTokenAdmin(admin.ModelAdmin):
+    search_fields = ['user__full_name']
+    list_display = ['user', 'key']
 
 @admin.register(Role)
 class RoleAdmin(admin.ModelAdmin):
