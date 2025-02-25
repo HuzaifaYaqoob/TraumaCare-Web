@@ -1,11 +1,106 @@
 {% extends 'Components/Base.html' %}
 {% load static %}
-{% block title %}Home{% endblock title %}
-
-{% block BaseCSS %}
-{% endblock BaseCSS %}
+{% block title %}About Us{% endblock title %}
 
 {% block baseBody %}
 
-about us
+<main class="px-4 sm:px-6 md:px-8 py-10">
+    <section class="max-w-[1500px] mx-auto space-y-10">
+        <h3 class="bg-clip-text text-transparent bg-gradient-to-r outfit-font from-[#0755E9] to-[#05DC75] text-2xl sm:text-3xl md:text-4xl font-extrabold text-left max-w-max">About Us</h3>
+        <div class="space-y-3">
+            <h3 class="text-[#151E2C] outfit-font text-[22px] font-semibold">About TraumaAICare</h3>
+            <p class="outfit-font">At <b>TraumaAICare</b>, we redefine healthcare by blending cutting-edge technology with compassionate care. Our mission is to empower patients, doctors, and healthcare professionals with seamless solutions that enhance medical experiences.</p>
+            <div class="space-y-1">
+                <p class="outfit-font text-[15px]">🔹 <b>For Patients</b> – Your health is our priority. From easy appointments to advanced medication management, we ensure effortless access to top-tier medical care.</p>
+                <p class="outfit-font text-[15px]">🔹 <b>For Doctors</b> – Precision meets efficiency. Our smart AI-powered modules simplify diagnoses, streamline patient data, and enhance decision-making, so you can focus on what matters most – saving lives.</p>
+                <p class="outfit-font text-[15px]">🔹 <b>For Healthcare Providers</b> – We bring innovation to hospitals and clinics with intelligent systems that optimize workflows, ensuring better patient outcomes and improved medical services.</p>
+            </div>
+            <p class="outfit-font">At <b>TraumaAICare</b>, we don’t just provide healthcare solutions – we create a future where medical care is faster, smarter, and more accessible for everyone.</p>
+        </div>
+        <div class="space-y-3">
+            <h3 class="text-[#151E2C] outfit-font text-[22px] font-semibold">Our Mission</h3>
+            <p class="outfit-font">Our mission at <b>TraumaAICare</b> is to revolutionize healthcare by integrating advanced AI technology with compassionate care, ensuring seamless medical services, efficient patient management, and innovative solutions that empower doctors, patients, and healthcare providers alike.</p>
+        </div>
+        <div class="space-y-3">
+            <h3 class="text-[#151E2C] outfit-font text-[22px] font-semibold">Our Services</h3>
+            <p class="outfit-font">At <b>TraumaAICare</b>, we are committed to transforming healthcare through innovation, precision, and seamless accessibility. Our advanced AI-driven solutions empower patients, doctors, and healthcare providers, ensuring a smoother medical journey for everyone. From effortless appointment scheduling to intelligent diagnosis support, we bridge the gap between technology and compassionate care.</p>
+            <div class="!mt-10 grid grid-cols-1 md:grid-cols-2 gap-7">
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">24/7 Unlimited consultations</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">AI-Powered Patient Management</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Smart Appointment Scheduling</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Advanced Diagnosis Support</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Medication Management</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Emergency Care Assistance</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Doctor & Hospital Integration</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Remote Telehealth Services</h3>
+                </div>
+                <div class="flex items-center gap-3">
+                    <svg class="fill-white stroke-[#05D57C]" width="22" height="23" viewBox="0 0 24 25" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 11.58V12.5C21.9988 14.6564 21.3005 16.7547 20.0093 18.4818C18.7182 20.209 16.9033 21.4725 14.8354 22.0839C12.7674 22.6953 10.5573 22.6219 8.53447 21.8746C6.51168 21.1273 4.78465 19.7461 3.61096 17.9371C2.43727 16.128 1.87979 13.9881 2.02168 11.8363C2.16356 9.68455 2.99721 7.63631 4.39828 5.99706C5.79935 4.35781 7.69279 3.21537 9.79619 2.74013C11.8996 2.2649 14.1003 2.48232 16.07 3.35999" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M22 4.5L12 14.51L9 11.51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                    <h3 class="text-[#151E2C] outfit-font text-xl font-medium flex-1">Verified Reviews</h3>
+                </div>
+            </div>
+        </div>
+        <div class="space-y-3">
+            <h3 class="text-[#151E2C] outfit-font text-[22px] font-semibold">Meet the Visionaries Behind TraumaAICare</h3>
+            <p class="outfit-font">Our leadership and expert team are the driving force behind <b>TraumaAICare’s</b> mission to revolutionize healthcare. With innovation, expertise, and dedication, we are shaping a future where medical care is smarter, faster, and more accessible for all.</p>
+            <div class="grid grid-cols-4 gap-4">
+                <div class="">
+
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+
 {% endblock baseBody %}
