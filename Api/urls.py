@@ -26,4 +26,6 @@ urlpatterns = [
 
 
     path('v1/product/', include('Product.API.urls') ),
+
+    path('v1/pharmacy/', include('Pharmacy.API.v1.urls') ),
 ] 

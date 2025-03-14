@@ -2,7 +2,7 @@ from django.contrib import admin
 
 # Register your models here.
 
-from .models import Store, StoreLocation, StoreMedia
+from .models import Store, StoreLocation, StoreMedia, StoreProductFile
 
 
 
@@ -40,4 +40,13 @@ class StoreAdmin(admin.ModelAdmin):
 class StoreLocationAdmin(admin.ModelAdmin):
     list_display = [
         'id'
+    ]
+
+
+@admin.register(StoreProductFile)
+class StoreProductFileAdmin(admin.ModelAdmin):
+    list_display = [
+        'id',
+        'store',
+        'location',
     ]

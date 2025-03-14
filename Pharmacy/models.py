@@ -10,6 +10,9 @@ from TraumaCare.Constant.index import addWatermark
 from django.utils.html import mark_safe
 
 
+import pandas as pd
+import csv
+
 
 class Store(models.Model): # Medical Store
     user = models.ForeignKey(User, on_delete=models.PROTECT, default=None, related_name='user_stores')
@@ -124,3 +127,64 @@ class StoreMedia(models.Model):
             self.is_watermark_added = True
         super(StoreMedia, self).save(*args, **kwargs)
 
+class StoreProductFile(models.Model):
+    FILE_STATUS_CHOICES = (
+        ('Pending', 'Pending'),
+        ('Processing', 'Processing'),
+        ('Completed', 'Completed'),
+        ('Failed', 'Failed'),
+    )
+
+    FILE_TYPE_CHOICES = (
+        ('csv', 'csv'),
+        ('excel', 'excel'),
+        ('other', 'other'),
+    )
+
+    store = models.ForeignKey(Store, on_delete=models.PROTECT, related_name='store_product_files')
+    location = models.ForeignKey(StoreLocation, on_delete=models.PROTECT, related_name='store_location_product_files')
+    file = models.FileField(upload_to='PharmacyStore/ProductFiles/%Y-%m')
+
+    file_name = models.CharField(default='', max_length=999)
+    file_size = models.PositiveIntegerField(default=0)
+    file_type = models.CharField(choices=FILE_TYPE_CHOICES, default='other', max_length=999)
+    status = models.CharField(default='Pending', choices=FILE_STATUS_CHOICES, max_length=999)
+
+    is_valid_file = models.BooleanField(default=False)
+    is_deleted = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
+
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def get_file_columns(self):
+        self.file
+        if self.file_type == 'csv':
+            file = pd.read_csv(self.file)
+        elif self.file_type == 'excel':
+            file = pd.read_excel(self.file)
+        else:
+            raise Exception('Invalid File Type')
+        
+        return sorted(list(file.columns))
+    
+    def get_file_first_row(self):
+        with open(self.file.path, 'r') as input_file:
+            reader = csv.DictReader(input_file)
+            for i in reader:
+                return {item[0] : item[1] for item in sorted(i.items(), key=lambda x: x[0])}
+
+
+    def save(self, *args, **kwargs):
+        if self.file:
+            self.file_name = self.file.name
+
+            ext = self.file_name.split('.')[1]
+            if ext.lower() == 'csv':
+                self.file_type = 'csv'
+            elif ext.lower() == 'xlxs':
+                self.file_type = 'excel'
+            
+            self.file_size = self.file.size
+
+        super(StoreProductFile, self).save(*args, **kwargs)
