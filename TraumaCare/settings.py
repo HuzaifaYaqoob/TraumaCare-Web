@@ -250,6 +250,9 @@ DOCTOR_TRAUMACARE_URL=env('DOCTOR_TRAUMACARE_URL')
 
 DATA_UPLOAD_MAX_NUMBER_FIELDS=10000
 
+CSRF_TRUSTED_ORIGINS = ['http://localhost:3000', 'https://www.your-domain.com']
+
+
 try:
     from .Jazzmin_settings import *
 except:

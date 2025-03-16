@@ -227,3 +227,18 @@ class Service(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+    
+
+
+class ImageToText(models.Model):
+
+    image = models.ImageField(upload_to='image_to_text/')
+    text = models.TextField(default='')
+
+    data = models.TextField(default='')
+
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'{self.text}'
+    

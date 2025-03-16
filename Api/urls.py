@@ -3,6 +3,8 @@ from django.urls import path, include
 
 from . import views
 
+
+
 urlpatterns = [
 
     path('', include('Trauma.APIs.v1.urls') ),
@@ -27,5 +29,5 @@ urlpatterns = [
 
     path('v1/product/', include('Product.API.urls') ),
 
-    path('v1/pharmacy/', include('Pharmacy.API.v1.urls') ),
+    path('v1/pharmacy/<str:store_id>/<str:location_id>/', include('Pharmacy.API.v1.urls') ),
 ] 

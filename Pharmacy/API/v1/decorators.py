@@ -2,9 +2,11 @@
 
 from Pharmacy.models import Store, StoreLocation
 
+from django.views.decorators.csrf import csrf_exempt
 
 
 def store_location_url_decorator(views_function):
+    @csrf_exempt
     def inner(request, *args, **kwargs):
         store_id = kwargs.get('store_id', None)
         location_id = kwargs.get('location_id', None)

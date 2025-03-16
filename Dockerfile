@@ -14,6 +14,7 @@ COPY . .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 
+
 # Collect static files
 RUN python manage.py collectstatic --noinput
 
@@ -21,4 +22,4 @@ RUN python manage.py collectstatic --noinput
 EXPOSE 8000
 
 # Run Django application
-CMD ["gunicorn", "--bind", "0.0.0.0:8000", "TraumaCare.wsgi:application"]
+CMD ["sh", "-c", "export $(cat .env | xargs) && gunicorn --bind 0.0.0.0:8000 TraumaCare.wsgi:application"]
